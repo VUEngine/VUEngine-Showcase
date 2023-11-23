@@ -140,7 +140,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 // legacy coordinate system (0, 0, 0) is at the top left corner of the screen
-#define __LEGACY_COORDINATE_PROJECTION
+#undef __LEGACY_COORDINATE_PROJECTION
 
 // screen width in pixels
 #define __SCREEN_WIDTH												384
