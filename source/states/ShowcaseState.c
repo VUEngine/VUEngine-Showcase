@@ -145,17 +145,6 @@ void ShowcaseState::resume(void* owner)
 	}
 }
 
-void ShowcaseState::printHeader()
-{
-	Printing::clear(Printing::getInstance());
-	Printing::text(Printing::getInstance(), "State: ", 1, 0, NULL);
-	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this), 8, 0, NULL);
-}
-
-void ShowcaseState::showStuff()
-{
-}
-
 /*
  *	The engine calls State::processUserInput on the State top of its StateMachine's stack.
  */
@@ -193,6 +182,17 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 			// TODO
 		}
 	}
+}
+
+void ShowcaseState::printHeader()
+{
+	Printing::clear(Printing::getInstance());
+	Printing::text(Printing::getInstance(), "State: ", 1, 0, NULL);
+	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this), 8, 0, NULL);
+}
+
+void ShowcaseState::showStuff()
+{
 }
 
 void ShowcaseState::goToNext()
