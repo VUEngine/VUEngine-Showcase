@@ -144,9 +144,6 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		Rotation rotation = {0, 0, zAngle};
 		Sprite::rotate(this->sprite, &rotation);
 
-		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
-		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(10));
-
 		SpritesState::printSpriteDetails(this);
 	}
 }
@@ -235,7 +232,7 @@ void SpritesState::printHeader()
 		Sprite::setPosition(this->sprite, &spritePosition);
 
 		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
-		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(10));
+		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
 
 		if(!this->showSpriteDetails)
 		{
