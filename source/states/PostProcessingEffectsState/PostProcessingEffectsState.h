@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef HELLO_WORLD_STATE_H_
-#define HELLO_WORLD_STATE_H_
+#ifndef POST_PROCESSING_EFFECTS_STATE_H_
+#define POST_PROCESSING_EFFECTS_STATE_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -22,9 +22,9 @@
 // 											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-singleton class HelloWorldState : ShowcaseState
+singleton class PostProcessingEffectsState : ShowcaseState
 {
-	static HelloWorldState getInstance();
+	static PostProcessingEffectsState getInstance();
 
 	void constructor();
 

@@ -526,7 +526,7 @@
                     }
                 ],
                 "translations": {
-                    "HelloWorld": {
+                    "PostProcessingEffects": {
                         "de": "Hallo, Welt!",
                         "en": "Hello, World!",
                         "es": "Hola Mundo!",

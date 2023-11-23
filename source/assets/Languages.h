@@ -26,7 +26,7 @@ enum LanguageStrings
     kStringAutomaticPauseSelectionOn,
     kStringAutomaticPauseSelectionTitle,
     kStringAutomaticPauseTitle,
-    kStringHelloWorld,
+    kStringPostProcessingEffects,
     kStringLanguageSelectTitle,
     kStringPrecautionScreenBody,
 };

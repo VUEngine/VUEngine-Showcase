@@ -37,7 +37,7 @@ const char* const EnglishLanguageStrings[] =
     "AUTOMATIC PAUSE",
     /* kStringAutomaticPauseTitle: */
     "AUTOMATIC PAUSE",
-    /* kStringHelloWorld: */
+    /* kStringPostProcessingEffects: */
     "Hello, World!",
     /* kStringLanguageSelectTitle: */
     "LANGUAGE SELECT",
@@ -71,7 +71,7 @@ const char* const GermanLanguageStrings[] =
     "AUTOMATISCHE PAUSE",
     /* kStringAutomaticPauseTitle: */
     "AUTOMATISCHE PAUSE",
-    /* kStringHelloWorld: */
+    /* kStringPostProcessingEffects: */
     "Hallo, Welt!",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
@@ -105,7 +105,7 @@ const char* const SpanishLanguageStrings[] =
     "PAUSA AUTOM�TICA",
     /* kStringAutomaticPauseTitle: */
     "PAUSA AUTOM�TICA",
-    /* kStringHelloWorld: */
+    /* kStringPostProcessingEffects: */
     "¡Hola Mundo!",
     /* kStringLanguageSelectTitle: */
     "SELECCIONAR IDIOMA",
@@ -139,7 +139,7 @@ const char* const FrenchLanguageStrings[] =
     "PAUSE AUTOMATIQUE",
     /* kStringAutomaticPauseTitle: */
     "PAUSE AUTOMATIQUE",
-    /* kStringHelloWorld: */
+    /* kStringPostProcessingEffects: */
     "Bonjour Le Monde!",
     /* kStringLanguageSelectTitle: */
     "CHOIX DE LA LANGUE",

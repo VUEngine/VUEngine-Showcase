@@ -12,7 +12,7 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <HelloWorldState.h>
+#include <PostProcessingEffectsState.h>
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
@@ -28,7 +28,7 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec HelloWorldStage;
+extern StageROMSpec PostProcessingEffectsStage;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -36,44 +36,44 @@ extern StageROMSpec HelloWorldStage;
 //---------------------------------------------------------------------------------------------------------
 
 // class's constructor
-void HelloWorldState::constructor()
+void PostProcessingEffectsState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&HelloWorldStage;
+	this->stageSpec = (StageSpec*)&PostProcessingEffectsStage;
 }
 
 // class's destructor
-void HelloWorldState::destructor()
+void PostProcessingEffectsState::destructor()
 {
 	// destroy base
 	Base::destructor();
 }
 
-void HelloWorldState::showStuff()
+void PostProcessingEffectsState::showStuff()
 {
-	HelloWorldState::print(this);
+	PostProcessingEffectsState::print(this);
 
 	// add wobble effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), PostProcessingWobble::wobble, NULL);
 }
 
-void HelloWorldState::print()
+void PostProcessingEffectsState::print()
 {
-	const char* strHelloWorld = I18n::getText(I18n::getInstance(), kStringHelloWorld);
+	const char* strPostProcessingEffects = I18n::getText(I18n::getInstance(), kStringPostProcessingEffects);
 
-	FontSize textSize = Printing::getTextSize(Printing::getInstance(), strHelloWorld, "VirtualBoyExt");
+	FontSize textSize = Printing::getTextSize(Printing::getInstance(), strPostProcessingEffects, "VirtualBoyExt");
 
 	Printing::text(
 		Printing::getInstance(),
-		strHelloWorld,
+		strPostProcessingEffects,
 		(__SCREEN_WIDTH >> 4) - (textSize.x >> 1),
 		12,
 		"VirtualBoyExt"
 	);
 }
 
-void HelloWorldState::showDetails()
+void PostProcessingEffectsState::showDetails()
 {
 	if(this->showDetails)
 	{
@@ -83,10 +83,10 @@ void HelloWorldState::showDetails()
 	}
 	else
 	{
-		HelloWorldState::printHeader(this);
+		PostProcessingEffectsState::printHeader(this);
 
-		HelloWorldState::showStuff(this);
+		PostProcessingEffectsState::showStuff(this);
 	}	
 
-	HelloWorldState::setupBrightness(this, this->showDetails);
+	PostProcessingEffectsState::setupBrightness(this, this->showDetails);
 }

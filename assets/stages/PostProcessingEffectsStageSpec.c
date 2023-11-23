@@ -29,12 +29,12 @@ extern EntitySpec LowPowerIndicatorEntity;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec HelloWorldStageEntities[] =
+PositionedEntityROMSpec PostProcessingEffectsStageEntities[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec HelloWorldStageUiEntities[] =
+PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 {
 	{&LowPowerIndicatorEntity, {16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
@@ -45,7 +45,7 @@ PositionedEntityROMSpec HelloWorldStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const HelloWorldStageFonts[] =
+FontROMSpec* const PostProcessingEffectsStageFonts[] =
 {
 	&DefaultFont,
 	&VirtualBoyExtFont,
@@ -53,7 +53,7 @@ FontROMSpec* const HelloWorldStageFonts[] =
 	NULL
 };
 
-SoundROM* HelloWorldStageSounds[] =
+SoundROM* PostProcessingEffectsStageSounds[] =
 {
 	NULL
 };
@@ -62,7 +62,7 @@ SoundROM* HelloWorldStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec HelloWorldStage =
+StageROMSpec PostProcessingEffectsStage =
 {
 	// allocator
 	__TYPE(Stage),
@@ -252,7 +252,7 @@ StageROMSpec HelloWorldStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)HelloWorldStageFonts,
+		(FontSpec**)PostProcessingEffectsStageFonts,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -261,19 +261,19 @@ StageROMSpec HelloWorldStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)HelloWorldStageSounds,
+		(Sound**)PostProcessingEffectsStageSounds,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)HelloWorldStageUiEntities,
+			(PositionedEntity*)PostProcessingEffectsStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)HelloWorldStageEntities,
+		(PositionedEntity*)PostProcessingEffectsStageEntities,
 	},
 
 	// post processing effects
