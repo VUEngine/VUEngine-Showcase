@@ -67,7 +67,9 @@ void ShowcaseState::destructor()
 	Base::destructor();
 }
 
-// state's enter
+/*
+ *	The StateMachine calls State::enter when the State is put at the top of its stack.
+ */
 void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 {
 	// call base
@@ -103,6 +105,9 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	);
 }
 
+/*
+ *	The StateMachine calls State::suspend when a new State is put at the top of its stack.
+ */
 void ShowcaseState::suspend(void* owner)
 {
 	if(!VUEngine::isEnteringSpecialMode(VUEngine::getInstance()))
@@ -115,6 +120,10 @@ void ShowcaseState::suspend(void* owner)
 	Base::suspend(this, owner);
 }
 
+/*
+ *	The StateMachine calls State::resume when the State is again at the top of its stack
+ *  after the previous State at the top has been popped.
+ */
 void ShowcaseState::resume(void* owner)
 {
 	// call base
@@ -149,9 +158,12 @@ void ShowcaseState::showStuff()
 {
 }
 
-
+/*
+ *	The engine calls State::processUserInput on the State top of its StateMachine's stack.
+ */
 void ShowcaseState::processUserInput(const UserInput* userInput)
 {
+	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{
 		if(K_LT & userInput->releasedKey)

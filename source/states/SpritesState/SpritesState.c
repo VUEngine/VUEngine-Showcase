@@ -70,6 +70,10 @@ void SpritesState::destructor()
 	Base::destructor();
 }
 
+/*
+ *	The StateMachine calls State::execute when updated.
+ *  It is called once per game frame.
+ */
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
 	SpritesState::printSpriteDetails(this);
@@ -166,7 +170,10 @@ void SpritesState::destroySprite()
 {
 	if(!isDeleted(this->sprite))
 	{
+		// Don't destroy the sprite directly		
 		SpriteManager::destroySprite(SpriteManager::getInstance(), this->sprite);
+
+		this->sprite = NULL;
 	}
 }
 
@@ -182,7 +189,7 @@ void SpritesState::createSprite()
 
 	SpriteSpec* spriteSpec = NULL;
 
-	// Virtual methods can be changed in real time
+	// Virtual methods can be changed in real time (the change affects all instances)
 	SpritesState::mutateMethod(execute, SpritesState::execute);
 
 	switch(this->spriteType)
@@ -261,6 +268,7 @@ void SpritesState::printHeader()
 
 void SpritesState::processUserInput(const UserInput* userInput)
 {
+	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{
 		if(K_LL & userInput->releasedKey)
