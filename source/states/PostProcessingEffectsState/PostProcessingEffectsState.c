@@ -37,12 +37,16 @@ extern StageROMSpec PostProcessingEffectsStage;
 // 											CLASS'S ATTRIBUTES
 //---------------------------------------------------------------------------------------------------------
 
+/*
+ * The effects are implemented as plugins.
+ * Check source/pluginsConfigh.h for configuration of each effect.
+ */
 static const PostProcessingEffect _postProcessingEffect[] =
 {
 	PostProcessingWobble::wobble,
 	PostProcessingTilt::tiltScreen,
 	PostProcessingDwarfPlanet::dwarfPlanet,
-	PostProcessingRain::rain,
+	PostProcessingRain::waterFall,
 };
 
 //---------------------------------------------------------------------------------------------------------
@@ -128,7 +132,7 @@ void PostProcessingEffectsState::printHeader()
 	{
 		Printing::text(Printing::getInstance(), "Effect: Dwarf planet ", 1, y, NULL);
 	}
-	else if(PostProcessingRain::rain == _postProcessingEffect[this->selectedPostProcessingEffect])
+	else if(PostProcessingRain::waterFall == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
 		Printing::text(Printing::getInstance(), "Effect: Rain         ", 1, y, NULL);
 	}
