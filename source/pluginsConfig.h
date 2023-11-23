@@ -29,6 +29,8 @@
 
 #define __DWARF_PLANET_STARTING_ROW							(64)
 #define __DWARF_PLANET_ENDING_ROW							(__SCREEN_HEIGHT)
+#define __DWARF_PLANET_STARTING_COLUMN						84
+#define __DWARF_PLANET_ENDING_COLUMN						300
 
 #define __WOBBLE_STARTING_ROW								(64)
 #define __WOBBLE_ENDING_ROW									(__SCREEN_HEIGHT)
