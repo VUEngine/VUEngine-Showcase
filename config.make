@@ -8,6 +8,9 @@ PLUGINS 						= vuengine//fonts/AstonishFont \
 								  vuengine//other/AutomaticPause \
 								  vuengine//other/I18n \
 								  vuengine//other/SaveDataManager \
+								  vuengine//postProcessing/DwarfPlanet \
+								  vuengine//postProcessing/Rain \
+								  vuengine//postProcessing/Tilt \
 								  vuengine//postProcessing/Wobble \
 								  vuengine//states/splash/AdjustmentScreenVUEngine \
 								  vuengine//states/splash/AutomaticPauseSelectionScreen \

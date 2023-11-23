@@ -28,7 +28,9 @@ singleton class PostProcessingEffectsState : ShowcaseState
 
 	void constructor();
 
+	override void processUserInput(const UserInput* userInput);
 	override void showStuff();
+	override void printHeader();
 	override void showDetails();
 }
 

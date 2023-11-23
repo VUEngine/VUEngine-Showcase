@@ -30,6 +30,7 @@ abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
 	bool showDetails;
+	int8 selectedPostProcessingEffect;
 
 	static ShowcaseStateGetInstance getFirstShowcase();
 

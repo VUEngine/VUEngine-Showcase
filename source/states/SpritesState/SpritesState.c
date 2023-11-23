@@ -128,7 +128,6 @@ void SpritesState::processUserInput(const UserInput* userInput)
 	Base::processUserInput(this, userInput);
 }
 
-
 void SpritesState::showStuff()
 {
 	this->showDetails = false;
