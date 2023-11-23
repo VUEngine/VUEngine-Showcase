@@ -71,8 +71,11 @@ void SpritesState::destructor()
 }
 
 /*
- *	The StateMachine calls State::execute when updated.
- *  It is called once per game frame.
+ * The StateMachine calls State::execute when updated.
+ * It is called once per game frame.
+ * Virtual methods can be changed in runtime to alter a class' behavior in real time.
+ * Mutating the methods affects all the instances of the class.
+ * Look for SpritesState::mutateMethod below in SpritesState::createSprite.
  */
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
