@@ -79,9 +79,189 @@ void SpritesState::destructor()
  */
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
+	// Don't print stuff every game cycle, it is a heavy process. This is just an example!
 	SpritesState::printSpriteDetails(this);
 }
 
+/*
+ *	The StateMachine calls State::exit when popping the State from its stack.
+ */
+void SpritesState::exit(void* owner __attribute__((unused)))
+{
+	Base::exit(this, owner);
+
+	// Since I'm a dynamic_singleton, I must delete myself upon exit
+	delete this;
+}
+
+void SpritesState::processUserInput(const UserInput* userInput)
+{
+	// Check for UserInput and key definitions in KeypadManager.h
+	if(!(K_PWR & userInput->releasedKey))
+	{
+		if(K_LL & userInput->releasedKey)
+		{
+			if(kSpriteNoTypeStart >= --this->spriteType)
+			{
+				this->spriteType = kSpriteNoTypeEnd - 1;
+			}
+
+			SpritesState::printHeader(this);
+			SpritesState::showStuff(this);
+			
+			return;
+		}
+		else if(K_LR & userInput->releasedKey)
+		{
+			if(kSpriteNoTypeEnd <= ++this->spriteType)
+			{
+				this->spriteType = kSpriteNoTypeStart + 1;
+			}
+
+			SpritesState::printHeader(this);
+			SpritesState::showStuff(this);
+
+			return;
+		}
+	}
+
+	Base::processUserInput(this, userInput);
+}
+
+
+void SpritesState::showStuff()
+{
+	this->showDetails = false;
+	SpritesState::setupBrightness(this, this->showDetails);
+	SpritesState::createSprite(this);
+}
+
+void SpritesState::showDetails()
+{
+	SpritesState::setupBrightness(this, this->showDetails);
+	SpritesState::printHeader(this);
+}
+
+void SpritesState::printHeader()
+{
+	Base::printHeader(this);
+
+	if(!isDeleted(this->sprite))
+	{
+		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
+
+		Sprite::setPosition(this->sprite, &spritePosition);
+
+		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
+		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
+
+		if(!this->showDetails)
+		{
+			int16 y = 3;
+			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
+			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 1, y, NULL);
+			Printing::text(Printing::getInstance(), "                 ", 9, ++y, NULL);
+
+			if(!Sprite::isObject(this->sprite))
+			{
+				Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
+
+				if(Sprite::isAffine(this->sprite))
+				{
+					Printing::text(Printing::getInstance(), "Affine   ", 7, y, NULL);
+				}
+				else if(Sprite::isHBias(this->sprite))
+				{
+					Printing::text(Printing::getInstance(), "HBias   ", 7, y, NULL);
+				}
+				else if(Sprite::isBgmap(this->sprite))
+				{
+					Printing::text(Printing::getInstance(), "Bgmap    ", 7, y, NULL);
+				}
+			}
+		}
+	}	
+}
+
+void SpritesState::printSpriteDetails()
+{
+	if(this->showDetails && !isDeleted(this->sprite))
+	{
+		Sprite::print(this->sprite, 1, 3);
+	}
+}
+
+void SpritesState::createSprite()
+{
+	SpritesState::destroySprite(this);
+
+	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
+	extern SpriteSpec CogWheelObjectSprite;
+	extern SpriteSpec CogWheelBgmapSpriteNormal;
+	extern SpriteSpec CogWheelBgmapSpriteAffine;
+	extern SpriteSpec CogWheelBgmapSpriteHBias;
+	extern SpriteSpec CogWheelMBgmapSpriteNormal;
+
+	SpriteSpec* spriteSpec = NULL;
+
+	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
+	SpritesState::mutateMethod(execute, SpritesState::execute);
+
+	switch(this->spriteType)
+	{
+		case kSpriteObject:
+
+			spriteSpec = &CogWheelObjectSprite;
+			SpritesState::mutateMethod(execute, SpritesState::executeSpriteHorizontalTranslation);
+			break;
+
+		case kSpriteBgmapNormal:
+
+			spriteSpec = &CogWheelBgmapSpriteNormal;
+			SpritesState::mutateMethod(execute, SpritesState::executeSpriteVerticalTranslation);
+			break;
+
+		case kSpriteBgmapAffine:
+
+			spriteSpec = &CogWheelBgmapSpriteAffine;
+			SpritesState::mutateMethod(execute, SpritesState::executeSpriteRotation);
+			break;
+
+		case kSpriteBgmapHBias:
+
+			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
+			spriteSpec = &CogWheelBgmapSpriteHBias;
+			break;
+
+		case kSpriteMBgmap:
+
+			spriteSpec = &CogWheelMBgmapSpriteNormal;
+			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
+	}
+
+	// Don't create Sprites directly
+	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
+
+	SpritesState::printHeader(this);
+}
+
+void SpritesState::destroySprite()
+{
+	if(!isDeleted(this->sprite))
+	{
+		// Don't destroy the sprite directly		
+		SpriteManager::destroySprite(SpriteManager::getInstance(), this->sprite);
+
+		this->sprite = NULL;
+	}
+}
+
+
+
+
+/*
+ * Runtime overrides for SpritesState::execute
+ */
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
 {
 	if(!isDeleted(this->sprite))
@@ -166,177 +346,5 @@ void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unuse
 
 		SpritesState::printSpriteDetails(this);
 	}
-}
-
-/*
- *	The StateMachine calls State::exit when popping the State from its stack.
- */
-void SpritesState::exit(void* owner __attribute__((unused)))
-{
-	Base::exit(this, owner);
-
-	// Since I'm a dynamic_singleton, I must delete myself upon exit
-	delete this;
-}
-
-void SpritesState::printSpriteDetails()
-{
-	if(this->showDetails && !isDeleted(this->sprite))
-	{
-		Sprite::print(this->sprite, 1, 3);
-	}
-}
-
-void SpritesState::showStuff()
-{
-	this->showDetails = false;
-	SpritesState::setupBrightness(this, this->showDetails);
-	SpritesState::createSprite(this);
-}
-
-void SpritesState::destroySprite()
-{
-	if(!isDeleted(this->sprite))
-	{
-		// Don't destroy the sprite directly		
-		SpriteManager::destroySprite(SpriteManager::getInstance(), this->sprite);
-
-		this->sprite = NULL;
-	}
-}
-
-void SpritesState::createSprite()
-{
-	SpritesState::destroySprite(this);
-
-	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
-	extern SpriteSpec CogWheelObjectSprite;
-	extern SpriteSpec CogWheelBgmapSpriteNormal;
-	extern SpriteSpec CogWheelBgmapSpriteAffine;
-	extern SpriteSpec CogWheelBgmapSpriteHBias;
-	extern SpriteSpec CogWheelMBgmapSpriteNormal;
-
-	SpriteSpec* spriteSpec = NULL;
-
-	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
-	SpritesState::mutateMethod(execute, SpritesState::execute);
-
-	switch(this->spriteType)
-	{
-		case kSpriteObject:
-
-			spriteSpec = &CogWheelObjectSprite;
-			SpritesState::mutateMethod(execute, SpritesState::executeSpriteHorizontalTranslation);
-			break;
-
-		case kSpriteBgmapNormal:
-
-			spriteSpec = &CogWheelBgmapSpriteNormal;
-			SpritesState::mutateMethod(execute, SpritesState::executeSpriteVerticalTranslation);
-			break;
-
-		case kSpriteBgmapAffine:
-
-			spriteSpec = &CogWheelBgmapSpriteAffine;
-			SpritesState::mutateMethod(execute, SpritesState::executeSpriteRotation);
-			break;
-
-		case kSpriteBgmapHBias:
-
-			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
-			spriteSpec = &CogWheelBgmapSpriteHBias;
-			break;
-
-		case kSpriteMBgmap:
-
-			spriteSpec = &CogWheelMBgmapSpriteNormal;
-			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
-	}
-
-	// Don't create Sprites directly
-	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
-
-	SpritesState::printHeader(this);
-}
-
-void SpritesState::printHeader()
-{
-	Base::printHeader(this);
-
-	if(!isDeleted(this->sprite))
-	{
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
-
-		Sprite::setPosition(this->sprite, &spritePosition);
-
-		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
-		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
-
-		if(!this->showDetails)
-		{
-			int16 y = 3;
-			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 1, y, NULL);
-			Printing::text(Printing::getInstance(), "                 ", 9, ++y, NULL);
-
-			if(!Sprite::isObject(this->sprite))
-			{
-				Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
-
-				if(Sprite::isAffine(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "Affine   ", 7, y, NULL);
-				}
-				else if(Sprite::isHBias(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "HBias   ", 7, y, NULL);
-				}
-				else if(Sprite::isBgmap(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "Bgmap    ", 7, y, NULL);
-				}
-			}
-		}
-	}	
-}
-
-void SpritesState::processUserInput(const UserInput* userInput)
-{
-	// Check for UserInput and key definitions in KeypadManager.h
-	if(!(K_PWR & userInput->releasedKey))
-	{
-		if(K_LL & userInput->releasedKey)
-		{
-			if(kSpriteNoTypeStart >= --this->spriteType)
-			{
-				this->spriteType = kSpriteNoTypeEnd - 1;
-			}
-
-			SpritesState::printHeader(this);
-			SpritesState::showStuff(this);
-			
-			return;
-		}
-		else if(K_LR & userInput->releasedKey)
-		{
-			if(kSpriteNoTypeEnd <= ++this->spriteType)
-			{
-				this->spriteType = kSpriteNoTypeStart + 1;
-			}
-
-			SpritesState::printHeader(this);
-			SpritesState::showStuff(this);
-
-			return;
-		}
-	}
-
-	Base::processUserInput(this, userInput);
-}
-
-void SpritesState::showDetails()
-{
-	SpritesState::setupBrightness(this, this->showDetails);
-	SpritesState::printHeader(this);
 }
 
