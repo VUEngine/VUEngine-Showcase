@@ -150,7 +150,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 void SpritesState::printSpriteDetails()
 {
-	if(this->showSpriteDetails)
+	if(this->showSpriteDetails && !isDeleted(this->sprite))
 	{
 		Sprite::print(this->sprite, 1, 3);
 	}
@@ -237,26 +237,25 @@ void SpritesState::printHeader()
 		if(!this->showSpriteDetails)
 		{
 			int16 y = 3;
-			Printing::text(Printing::getInstance(), "                               ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), "Sprite: ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 9, y, NULL);
+			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
+			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 1, y, NULL);
 			Printing::text(Printing::getInstance(), "                 ", 9, ++y, NULL);
 
 			if(!Sprite::isObject(this->sprite))
 			{
-				Printing::text(Printing::getInstance(), "Mode:", 1, y, NULL);
+				Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
 
 				if(Sprite::isAffine(this->sprite))
 				{
-					Printing::text(Printing::getInstance(), "Affine   ", 9, y, NULL);
+					Printing::text(Printing::getInstance(), "Affine   ", 7, y, NULL);
 				}
 				else if(Sprite::isHBias(this->sprite))
 				{
-					Printing::text(Printing::getInstance(), "HBias   ", 9, y, NULL);
+					Printing::text(Printing::getInstance(), "HBias   ", 7, y, NULL);
 				}
 				else if(Sprite::isBgmap(this->sprite))
 				{
-					Printing::text(Printing::getInstance(), "Bgmap    ", 9, y, NULL);
+					Printing::text(Printing::getInstance(), "Bgmap    ", 7, y, NULL);
 				}
 			}
 		}
@@ -298,6 +297,8 @@ void SpritesState::processUserInput(const UserInput* userInput)
 			
 			SpritesState::setupBrightness(this, this->showSpriteDetails);
 			SpritesState::printHeader(this);
+
+			return;
 		}
 	}
 
