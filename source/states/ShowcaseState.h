@@ -29,13 +29,16 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
+	bool showDetails;
 
 	static ShowcaseStateGetInstance getFirstShowcase();
 
 	void constructor();
+	void setupBrightness(bool dimm);
 
 	virtual void printHeader();
 	virtual void showStuff();
+	virtual void showDetails();
 	
 	override void enter(void* owner);
 	override void suspend(void* owner);

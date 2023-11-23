@@ -27,16 +27,18 @@ dynamic_singleton class SpritesState : ShowcaseState
 {
 	Sprite sprite;
 	uint32 spriteType;
-	bool showSpriteDetails;
 
 	static SpritesState getInstance();
 
 	void constructor();
+	void setupBrightness(bool dimm);
 
 	override void execute(void* owner);
+	override void exit(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override void printHeader();
 	override void showStuff();
+	override void showDetails();
 }
 
 

@@ -58,7 +58,7 @@ void SpritesState::constructor()
 	this->stageSpec = (StageSpec*)&SpritesStage;
 	this->sprite = NULL;
 	this->spriteType = kSpriteNoTypeStart + 1;
-	this->showSpriteDetails = true;
+	this->showDetails = true;
 }
 
 // class's destructor
@@ -77,6 +77,17 @@ void SpritesState::destructor()
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
 	SpritesState::printSpriteDetails(this);
+}
+
+/*
+ *	The StateMachine calls State::exit when popping the State from its stack.
+ */
+void SpritesState::exit(void* owner __attribute__((unused)))
+{
+	Base::exit(this, owner);
+
+	// Since I'm a dynamic_singleton, I must delete myself upon exit
+	delete this;
 }
 
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
@@ -150,7 +161,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 void SpritesState::printSpriteDetails()
 {
-	if(this->showSpriteDetails && !isDeleted(this->sprite))
+	if(this->showDetails && !isDeleted(this->sprite))
 	{
 		Sprite::print(this->sprite, 1, 3);
 	}
@@ -158,8 +169,8 @@ void SpritesState::printSpriteDetails()
 
 void SpritesState::showStuff()
 {
-	this->showSpriteDetails = true;
-	SpritesState::setupBrightness(this, this->showSpriteDetails);
+	this->showDetails = true;
+	SpritesState::setupBrightness(this, this->showDetails);
 	SpritesState::createSprite(this);
 }
 
@@ -211,6 +222,7 @@ void SpritesState::createSprite()
 
 		case kSpriteBgmapHBias:
 
+			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
 			spriteSpec = &CogWheelBgmapSpriteHBias;
 			break;
 	}
@@ -234,7 +246,7 @@ void SpritesState::printHeader()
 		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
 		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
 
-		if(!this->showSpriteDetails)
+		if(!this->showDetails)
 		{
 			int16 y = 3;
 			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
@@ -291,33 +303,14 @@ void SpritesState::processUserInput(const UserInput* userInput)
 
 			return;
 		}
-		else if(K_SEL & userInput->releasedKey)
-		{
-			this->showSpriteDetails = !this->showSpriteDetails;
-			
-			SpritesState::setupBrightness(this, this->showSpriteDetails);
-			SpritesState::printHeader(this);
-
-			return;
-		}
 	}
 
 	Base::processUserInput(this, userInput);
 }
 
-void SpritesState::setupBrightness(bool dimm)
+void SpritesState::showDetails()
 {
-	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
-
-	if(dimm)
-	{
-		paletteConfig.bgmap.gplt1 = 0x50;
-		paletteConfig.bgmap.gplt2 = 0x50;
-		paletteConfig.bgmap.gplt3 = 0x50;
-		paletteConfig.object.jplt1 = 0x50;
-		paletteConfig.object.jplt2 = 0x50;
-		paletteConfig.object.jplt3 = 0x50;
-	}
-
-	VIPManager::setupPalettes(VIPManager::getInstance(), &paletteConfig);
+	SpritesState::setupBrightness(this, this->showDetails);
+	SpritesState::printHeader(this);
 }
+

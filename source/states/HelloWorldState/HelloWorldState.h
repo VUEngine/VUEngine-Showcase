@@ -22,13 +22,14 @@
 // 											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-dynamic_singleton class HelloWorldState : ShowcaseState
+singleton class HelloWorldState : ShowcaseState
 {
 	static HelloWorldState getInstance();
 
 	void constructor();
 
 	override void showStuff();
+	override void showDetails();
 }
 
 

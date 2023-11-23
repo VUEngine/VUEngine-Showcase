@@ -152,3 +152,21 @@ static void HelloWorldState::wobble(uint32 currentDrawingFrameBufferSet, Spatial
 	// move the wave one pixel in the next frame
 	waveLutIndex++;
 }
+
+void HelloWorldState::showDetails()
+{
+	if(this->showDetails)
+	{
+		VIPManager::removePostProcessingEffect(VIPManager::getInstance(), HelloWorldState::wobble, NULL);
+
+		Printing::printSprite(Printing::getInstance(), 1, 3);
+	}
+	else
+	{
+		HelloWorldState::printHeader(this);
+
+		HelloWorldState::showStuff(this);
+	}	
+
+	HelloWorldState::setupBrightness(this, this->showDetails);
+}

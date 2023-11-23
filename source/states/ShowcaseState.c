@@ -34,7 +34,7 @@
 // 												CLASS' ATTRIBUTES
 //---------------------------------------------------------------------------------------------------------
 
-static int8 _currentShowCaseState = 0;
+static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
@@ -58,6 +58,7 @@ void ShowcaseState::constructor()
 	Base::constructor();
 
 	this->stageSpec = NULL;
+	this->showDetails = false;
 }
 
 // class's destructor
@@ -80,9 +81,6 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	{		
 		ShowcaseState::loadStage(this, this->stageSpec, NULL, true, false);
 	}
-
-	// start clocks to start animations
-	GameState::startClocks(GameState::safeCast(this));
 
 	// print header
 	ShowcaseState::printHeader(this);
@@ -168,25 +166,58 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	{
 		if(K_LT & userInput->releasedKey)
 		{
-			if(0 > --_currentShowCaseState)
+			if(0 > --_currentShowcaseState)
 			{
-				_currentShowCaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
+				_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
 			}
 
-			VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowCaseState]()));
+			ShowcaseState::goToNext(this);
 		}
 		else if(K_RT & userInput->releasedKey)
 		{
-			if(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1 < ++_currentShowCaseState)
+			if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
 			{
-				_currentShowCaseState = 0;
+				_currentShowcaseState = 0;
 			}
 
-			VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowCaseState]()));
+			ShowcaseState::goToNext(this);
+		}
+		else if(K_SEL & userInput->releasedKey)
+		{
+			this->showDetails = !this->showDetails;
+
+			ShowcaseState::showDetails(this);
 		}
 		else if(K_B & userInput->releasedKey)
 		{
 			// TODO
 		}
 	}
+}
+
+void ShowcaseState::goToNext()
+{
+	VUEngine::enableKeypad(VUEngine::getInstance());
+
+	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
+}
+
+void ShowcaseState::showDetails()
+{}
+
+void ShowcaseState::setupBrightness(bool dimm)
+{
+	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
+
+	if(dimm)
+	{
+		paletteConfig.bgmap.gplt1 = 0x50;
+		paletteConfig.bgmap.gplt2 = 0x50;
+		paletteConfig.bgmap.gplt3 = 0x50;
+		paletteConfig.object.jplt1 = 0x50;
+		paletteConfig.object.jplt2 = 0x50;
+		paletteConfig.object.jplt3 = 0x50;
+	}
+
+	VIPManager::setupPalettes(VIPManager::getInstance(), &paletteConfig);
 }
