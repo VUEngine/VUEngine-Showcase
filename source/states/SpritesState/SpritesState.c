@@ -79,17 +79,6 @@ void SpritesState::execute(void* owner __attribute__((unused)))
 	SpritesState::printSpriteDetails(this);
 }
 
-/*
- *	The StateMachine calls State::exit when popping the State from its stack.
- */
-void SpritesState::exit(void* owner __attribute__((unused)))
-{
-	Base::exit(this, owner);
-
-	// Since I'm a dynamic_singleton, I must delete myself upon exit
-	delete this;
-}
-
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
 {
 	if(!isDeleted(this->sprite))
@@ -176,6 +165,17 @@ void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unuse
 	}
 }
 
+/*
+ *	The StateMachine calls State::exit when popping the State from its stack.
+ */
+void SpritesState::exit(void* owner __attribute__((unused)))
+{
+	Base::exit(this, owner);
+
+	// Since I'm a dynamic_singleton, I must delete myself upon exit
+	delete this;
+}
+
 void SpritesState::printSpriteDetails()
 {
 	if(this->showDetails && !isDeleted(this->sprite))
@@ -206,7 +206,7 @@ void SpritesState::createSprite()
 {
 	SpritesState::destroySprite(this);
 
-	// Look for the specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
+	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
 	extern SpriteSpec CogWheelObjectSprite;
 	extern SpriteSpec CogWheelBgmapSpriteNormal;
 	extern SpriteSpec CogWheelBgmapSpriteAffine;
