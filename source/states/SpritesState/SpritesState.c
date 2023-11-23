@@ -186,7 +186,7 @@ void SpritesState::createSprite()
 
 	SpriteSpec* spriteSpec = NULL;
 
-	// Virtual methods can be changed in real time (the change affects all instances)
+	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	SpritesState::mutateMethod(execute, SpritesState::execute);
 
 	switch(this->spriteType)
@@ -296,21 +296,8 @@ void SpritesState::processUserInput(const UserInput* userInput)
 		{
 			this->showSpriteDetails = !this->showSpriteDetails;
 			
-			if(this->showSpriteDetails)
-			{
-				SpritesState::printHeader(this);
-
-				if(!isDeleted(this->sprite))
-				{
-					Sprite::print(this->sprite, 1, 3);
-				}
-			}
-			else
-			{
-				SpritesState::printHeader(this);
-			}
-
 			SpritesState::setupBrightness(this, this->showSpriteDetails);
+			SpritesState::printHeader(this);
 		}
 	}
 
