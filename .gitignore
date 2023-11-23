@@ -1,0 +1,12 @@
+.DS_Store
+.history
+.vscode/ipch
+*.jar
+build/
+screenshots/
+stuff/
+v810_err.txt
+*.aup3
+*.aup3-wal
+*.vb
+make.txt
