@@ -30,6 +30,7 @@
 int game(void)
 {
 	// initialize plugins
+/*
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), true);
 	GameSaveDataManager::restoreSettings(GameSaveDataManager::getInstance());
 	
@@ -49,7 +50,7 @@ int game(void)
 		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
-
+*/
 	// start the game
 	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(ShowcaseState::getFirstShowcase()()));
 

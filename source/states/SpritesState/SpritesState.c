@@ -41,6 +41,7 @@ enum SpriteTypes
 	kSpriteBgmapNormal,
 	kSpriteBgmapAffine,
 	kSpriteBgmapHBias,
+	kSpriteMBgmap,
 
 	kSpriteNoTypeEnd
 };
@@ -58,7 +59,6 @@ void SpritesState::constructor()
 	this->stageSpec = (StageSpec*)&SpritesStage;
 	this->sprite = NULL;
 	this->spriteType = kSpriteNoTypeStart + 1;
-	this->showDetails = true;
 }
 
 // class's destructor
@@ -159,6 +159,23 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 	}
 }
 
+void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unused)))
+{
+	if(!isDeleted(this->sprite))
+	{
+		static int16 xPosition = __SCREEN_WIDTH / 2;
+		static int16 yPosition = __SCREEN_HEIGHT / 2;
+
+		xPosition++;
+		yPosition++;
+
+		PixelVector spritePosition = {xPosition, yPosition, 1, 2};
+		Sprite::setPosition(this->sprite, &spritePosition);
+
+		SpritesState::printSpriteDetails(this);
+	}
+}
+
 void SpritesState::printSpriteDetails()
 {
 	if(this->showDetails && !isDeleted(this->sprite))
@@ -169,7 +186,7 @@ void SpritesState::printSpriteDetails()
 
 void SpritesState::showStuff()
 {
-	this->showDetails = true;
+	this->showDetails = false;
 	SpritesState::setupBrightness(this, this->showDetails);
 	SpritesState::createSprite(this);
 }
@@ -194,6 +211,7 @@ void SpritesState::createSprite()
 	extern SpriteSpec CogWheelBgmapSpriteNormal;
 	extern SpriteSpec CogWheelBgmapSpriteAffine;
 	extern SpriteSpec CogWheelBgmapSpriteHBias;
+	extern SpriteSpec CogWheelMBgmapSpriteNormal;
 
 	SpriteSpec* spriteSpec = NULL;
 
@@ -225,6 +243,11 @@ void SpritesState::createSprite()
 			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
 			spriteSpec = &CogWheelBgmapSpriteHBias;
 			break;
+
+		case kSpriteMBgmap:
+
+			spriteSpec = &CogWheelMBgmapSpriteNormal;
+			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
 	}
 
 	// Don't create Sprites directly
