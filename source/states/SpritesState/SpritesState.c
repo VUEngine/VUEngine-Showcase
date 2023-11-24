@@ -147,13 +147,6 @@ void SpritesState::printHeader()
 
 	if(!isDeleted(this->sprite))
 	{
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
-
-		Sprite::setPosition(this->sprite, &spritePosition);
-
-		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
-		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
-
 		if(!this->showDetails)
 		{
 			int16 y = 3;
@@ -241,6 +234,15 @@ void SpritesState::createSprite()
 	// Don't create Sprites directly
 	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
 
+	if(!isDeleted(this->sprite))
+	{
+		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
+		Sprite::setPosition(this->sprite, &spritePosition);
+
+		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
+		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
+	}
+
 	SpritesState::printHeader(this);
 }
 
@@ -254,9 +256,6 @@ void SpritesState::destroySprite()
 		this->sprite = NULL;
 	}
 }
-
-
-
 
 /*
  * Runtime overrides for SpritesState::execute
