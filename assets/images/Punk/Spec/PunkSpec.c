@@ -94,14 +94,14 @@ AnimationFunctionROMSpec* PunkAnimations[] =
 
 CharSetROMSpec PunkCharset =
 {
-	// number of chars, depending on allocation type:
-	// kCharSetNotShared, kCharSetShared: number of chars of a single animation frame (cols * rows)
-	// kCharSetSharedMulti: sum of all chars
+	// number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// sharing scheme
-	// [kCharSetNotShared, kCharSetShared, kCharSetSharedMulti]
-	kCharSetShared,
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	PunkTiles,
@@ -112,14 +112,14 @@ CharSetROMSpec PunkCharset =
 
 CharSetROMSpec PunkBlackCharset =
 {
-	// number of chars, depending on allocation type:
-	// kCharSetNotShared, kCharSetShared: number of chars of a single animation frame (cols * rows)
-	// kCharSetSharedMulti: sum of all chars
+	// number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// sharing scheme
-	// [kCharSetNotShared, kCharSetShared, kCharSetSharedMulti]
-	kCharSetShared,
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	PunkBlackTiles,
@@ -144,9 +144,7 @@ TextureROMSpec PunkTexture =
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames, depending on charset's allocation type:
-	// kCharSetNotShared, kCharSetShared: 1
-	// kCharSetSharedMulti: total number of frames
+	// number of frames
 	1,
 
 	// palette number (0-3)
@@ -178,9 +176,7 @@ TextureROMSpec PunkBlackTexture =
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames, depending on charset's allocation type:
-	// kCharSetNotShared, kCharSetShared: 1
-	// kCharSetSharedMulti: total number of frames
+	// number of frames
 	1,
 
 	// palette number (0-3)
@@ -365,14 +361,14 @@ EnemyROMSpec PunkEm =
 
 CharSetROMSpec PunkDyingCharset =
 {
-	// number of chars, depending on allocation type:
-	// kCharSetNotShared, kCharSetShared: number of chars of a single animation frame (cols * rows)
-	// kCharSetSharedMulti: sum of all chars
+	// number of chars in function of the number of frames to load at the same time
 	8*6,
 
-	// sharing scheme
-	// [kCharSetNotShared, kCharSetShared, kCharSetSharedMulti]
-	kCharSetNotShared,
+	// whether it is shared or not
+	false,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	PunkDyingTiles,
@@ -383,14 +379,14 @@ CharSetROMSpec PunkDyingCharset =
 
 CharSetROMSpec PunkDyingBlackCharset =
 {
-	// number of chars, depending on allocation type:
-	// kCharSetNotShared, kCharSetShared: number of chars of a single animation frame (cols * rows)
-	// kCharSetSharedMulti: sum of all chars
+	// number of chars in function of the number of frames to load at the same time
 	8*6,
 
-	// sharing scheme
-	// [kCharSetNotShared, kCharSetShared, kCharSetSharedMulti]
-	kCharSetNotShared,
+	// whether it is shared or not
+	false,
+	
+	// whether the tiles are optimized or not
+	false,
 
 	// char spec
 	PunkDyingBlackTiles,
@@ -415,9 +411,7 @@ TextureROMSpec PunkDyingTexture =
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames, depending on charset's allocation type:
-	// kCharSetNotShared, kCharSetShared: 1
-	// kCharSetSharedMulti: total number of frames
+	// number of frames
 	1,
 
 	// palette number (0-3)
@@ -449,9 +443,7 @@ TextureROMSpec PunkDyingBlackTexture =
 	// padding for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames, depending on charset's allocation type:
-	// kCharSetNotShared, kCharSetShared: 1
-	// kCharSetSharedMulti: total number of frames
+	// number of frames
 	1,
 
 	// palette number (0-3)
