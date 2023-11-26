@@ -6,6 +6,7 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <AnimationSchemesState.h>
 #include <PostProcessingEffectsState.h>
 #include <SpritesState.h>
 #include <WireframesState.h>
