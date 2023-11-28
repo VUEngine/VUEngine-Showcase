@@ -122,6 +122,35 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 
 			return;
 		}
+		/*
+		 * Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a Rotation.
+		 */
+
+		static Rotation rotation = {0, 0, 0};
+
+		if(K_RU & userInput->releasedKey)
+		{
+			rotation.x = __I_TO_FIXED(255);
+		}
+		else if(K_RD & userInput->releasedKey)
+		{
+			rotation.x = 0;
+		}
+		else if(K_RL & userInput->releasedKey)
+		{
+			rotation.y = __I_TO_FIXED(255);
+		}
+		else if(K_RR & userInput->releasedKey)
+		{
+			rotation.y = 0;
+		}
+
+		Sprite animatedSprite = Sprite::safeCast(VirtualList::getObjectAtPosition(this->animatedSprites, 1));
+			
+		if(!isDeleted(animatedSprite))
+		{
+			Sprite::rotate(animatedSprite, &rotation);
+		}
 	}
 
 	Base::processUserInput(this, userInput);
@@ -256,7 +285,7 @@ void AnimationSchemesState::createSprites()
 			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
 
 			// Try to get the sprite's animation out of sync from the others'
-			Sprite::setActualFrame(animatedSprite, i * 12 / 3);			
+			Sprite::setActualFrame(animatedSprite, i * 12 / 3);
 		}
 	}
 

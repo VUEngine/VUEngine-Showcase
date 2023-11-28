@@ -14,7 +14,7 @@
 
 #include <BgmapAnimatedSprite.h>
 #include <Box.h>
-//#include <Punk.h>
+#include <AnimatedEntity.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -355,7 +355,7 @@ BgmapSpriteROMSpec PunkSprite =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 2},
+		{0, 0, 0, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -382,7 +382,7 @@ BgmapSpriteROMSpec PunkSpriteNotShared =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 2},
+		{0, 0, 0, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -409,7 +409,7 @@ BgmapSpriteROMSpec PunkSpriteShared =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 2},
+		{0, 0, 0, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -436,7 +436,7 @@ BgmapSpriteROMSpec PunkSpriteMultiframe =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 2},
+		{0, 0, 0, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -463,7 +463,7 @@ BgmapSpriteROMSpec PunkBlackSprite =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 1, 2},
+		{0, 0, 1, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -482,112 +482,6 @@ BgmapSpriteROMSpec* const PunkSprites[] =
 	&PunkSprite,
 	&PunkBlackSprite,
 	NULL
-};
-/*
-ShapeROMSpec PunkShapes[] =
-{
-	{
-		// shape
-		__TYPE(Box),
-
-		// size (x, y, z)
-		{16, 38, 24},
-
-		// displacement (x, y, z, p)
-		{0, 1, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{0, 0, 0},
-
-		// if true this shape checks for collisions against other shapes
-		true,
-
-		// layers in which I live
-		kEnemiesLayer,
-
-		// layers to ignore when checking for collisions
-		~kEnemiesWallsLayer,
-	},
-
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
-};
-
-EnemyROMSpec PunkEm =
-{
-	{
-		{
-			{
-				{
-					// class allocator
-					__TYPE(Punk),
-
-					// children
-					NULL,
-
-					// behaviors
-					NULL,
-
-					// extra
-					NULL,
-					
-					// sprites
-					(SpriteSpec**)PunkSprites,
-
-					// use z displacement in projection
-					false,
-			
-					/// meshes
-					(MeshSpec*)NULL,
-
-					// collision shapes
-					(ShapeSpec*)PunkShapes,
-
-					// size
-					// if 0, width and height will be inferred from the first sprite's texture's size
-					{0, 0, 0},
-
-					// gameworld's character's type
-					kEnemy,
-
-					// physical specification
-					(PhysicalSpecification*)NULL,
-				},
-
-				// pointer to the animation spec for the character
-				(AnimationDescription*)&PunkAnimations,
-
-				// initial animation
-				"Move",
-			},
-
-			// true to create a body
-			true,
-
-			// axes subject to gravity
-			__NO_AXIS,
-
-			// axis around which to rotate the entity when syncronizing with body
-			__Y_AXIS
-		},
-
-		// speed (x axis)
-		__I_TO_FIX10_6(-3),
-	},
-
-	// energy
-	2,
-
-	// projectile ejector to add
-	NULL,
-
-	// relative position of projectile ejector
-	{0, 0, 0},
-
-	// respawn
-	true
 };
 
 CharSetROMSpec PunkDyingCharset =
@@ -703,7 +597,7 @@ BgmapSpriteROMSpec PunkDyingSprite =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 2},
+		{0, 0, 0, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -731,7 +625,7 @@ BgmapSpriteROMSpec PunkDyingBlackSprite =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 1, 2},
+		{0, 0, 1, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -751,4 +645,80 @@ BgmapSpriteROMSpec* const PunkDyingSprites[] =
 	&PunkDyingBlackSprite,
 	NULL
 };
-*/
+
+
+ShapeROMSpec PunkShapes[] =
+{
+	{
+		// shape
+		__TYPE(Box),
+
+		// size (x, y, z)
+		{16, 38, 24},
+
+		// displacement (x, y, z, p)
+		{0, 1, 0, 0},
+
+		// rotation (x, y, z)
+		{0, 0, 0},
+
+		// scale (x, y, z)
+		{0, 0, 0},
+
+		// if true this shape checks for collisions against other shapes
+		true,
+
+		// layers in which I live
+		kLayerNone,
+
+		// layers to ignore when checking for collisions
+		~kLayerNone,
+	},
+
+	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+};
+
+AnimatedEntityROMSpec Punk =
+{
+	{
+		// class allocator
+		__TYPE(AnimatedEntity),
+
+		// children
+		NULL,
+
+		// behaviors
+		NULL,
+
+		// extra
+		NULL,
+		
+		// sprites
+		(SpriteSpec**)PunkSprites,
+
+		// use z displacement in projection
+		false,
+
+		// wireframes
+		NULL,
+
+		// collision shapes
+		(ShapeSpec*)PunkShapes,
+
+		// size
+		// if 0, width and height will be inferred from the first sprite's texture's size
+		{0, 0, 0},
+
+		// gameworld's character's type
+		kTypeNone,
+
+		// physical specification
+		(PhysicalSpecification*)NULL,
+	},
+
+	// pointer to the animation spec for the character
+	(const AnimationFunction**)&PunkAnimations,
+
+	// initial animation
+	"Move"
+};
