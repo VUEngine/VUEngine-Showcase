@@ -172,7 +172,7 @@
                 "optics": {
                     "baseFactor": 32,
                     "cameraMinimumDisplacementPixelsPower": 1,
-                    "cameraNearPlane": 16,
+                    "cameraNearPlane": 96,
                     "horizontalViewPointCenter": 192,
                     "maximumXViewDistance": 4096,
                     "maximumYViewDistance": 4096,

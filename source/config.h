@@ -106,7 +106,7 @@
 #define __WIREFRAME_MANAGER_SORT_FOR_DRAWING
 
 // The distance to start interlacing wireframe graphics.
-#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)
+#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)  
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -132,7 +132,7 @@
 #define __MAXIMUM_Y_VIEW_DISTANCE									4096
 
 // distance from player's eyes to the virtual screen
-#define __CAMERA_NEAR_PLANE											16
+#define __CAMERA_NEAR_PLANE											96
 
 // distance between eyes
 #define __BASE_FACTOR												32
