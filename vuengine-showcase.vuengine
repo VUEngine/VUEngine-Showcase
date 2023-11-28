@@ -59,7 +59,13 @@
         },
         "DebugMacros": {
             "JavjQex6kdySr6gc": {
-                "macros": []
+                "macros": [
+                    {
+                        "define": true,
+                        "name": "__profileWireframes",
+                        "value": "true"
+                    }
+                ]
             }
         },
         "EngineConfig": {
@@ -229,7 +235,7 @@
                     }
                 },
                 "wireframes": {
-                    "interlacedThreshold": 4096,
+                    "interlacedThreshold": 2048,
                     "sort": true
                 }
             }

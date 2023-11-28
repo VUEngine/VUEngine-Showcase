@@ -15,10 +15,11 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <I18n.h>
+#include <DirectDraw.h>
 #include <Languages.h>
 #include <Mesh.h>
 #include <Printing.h>
+#include <WireframeManager.h>
 #include <WireframesState.h>
 #include <VUEngine.h>
 
@@ -51,80 +52,86 @@ void WireframesState::destructor()
 	Base::destructor();
 }
 
-void WireframesState::showStuff()
+void WireframesState::execute(void* owner __attribute__((unused)))
 {
-}
-
-void WireframesState::processUserInput(UserInput userInput)
-{
-//	Stage::showStreamingProfiling(this->stage, 1, 1);
-
-	if(K_SEL & userInput.releasedKey)
+	if(this->showDetails)
 	{
-		static bool interlaced = false;
-
-		interlaced = !interlaced;
-
-		if(interlaced)
-		{
-			Mesh::mutateMethod(draw, Mesh::draw);
-		}
-		else
-		{
-			Mesh::mutateMethod(draw, Mesh::drawInterlaced);
-		}
+		WireframeManager::print(WireframeManager::getInstance(), 1, 20);
+		DirectDraw::print(DirectDraw::getInstance(), 27, 20);
 	}
 	else
 	{
-		Vector3D translation = {0, 0, 0};
-
-		if(K_LU & userInput.holdKey)
-		{
-			translation.z = __PIXELS_TO_METERS(8);
-		}
-
-		if(K_LD & userInput.holdKey)
-		{
-			translation.z = -__PIXELS_TO_METERS(8);
-		}
-
-		if(K_LL & userInput.holdKey)
-		{
-			translation.x = -__PIXELS_TO_METERS(8);
-		}
-
-		if(K_LR & userInput.holdKey)
-		{
-			translation.x = __PIXELS_TO_METERS(8);
-		}
-
-		translation = Vector3D::rotate(translation, *_cameraRotation);
-
-		Rotation rotation = Rotation::zero();
-
-		if(K_RL & userInput.holdKey)
-		{
-			rotation.y = __I_TO_FIX10_6(2);
-		}
-
-		if(K_RR & userInput.holdKey)
-		{
-			rotation.y = -__I_TO_FIX10_6(2);
-		}
-
-		if(K_RU & userInput.holdKey)
-		{
-			rotation.x = __I_TO_FIX10_6(2);
-		}
-
-		if(K_RD & userInput.holdKey)
-		{
-			rotation.x = -__I_TO_FIX10_6(2);
-		}
-
-		Camera camera = Camera::getInstance();
-		Camera::translate(camera, translation, false);
-		Camera::rotate(camera, rotation);
+		Printing::text(Printing::getInstance(), "CAMERA ", 1, 20, NULL);
+		Printing::text(Printing::getInstance(), "Position: ", 1, 22, NULL);
+		Printing::text(Printing::getInstance(), "Rotation: ", 38, 22, NULL);
+		Vector3D::print(Camera::getPosition(Camera::getInstance()), 1, 24);
+		Rotation::print(Camera::getRotation(Camera::getInstance()), 38, 24);
 	}
 }
 
+void WireframesState::processUserInput(const UserInput* userInput)
+{
+	Vector3D translation = {0, 0, 0};
+
+	if(K_LU & userInput->holdKey)
+	{
+		translation.z = __PIXELS_TO_METERS(8);
+	}
+
+	if(K_LD & userInput->holdKey)
+	{
+		translation.z = -__PIXELS_TO_METERS(8);
+	}
+
+	if(K_LL & userInput->holdKey)
+	{
+		translation.x = -__PIXELS_TO_METERS(8);
+	}
+
+	if(K_LR & userInput->holdKey)
+	{
+		translation.x = __PIXELS_TO_METERS(8);
+	}
+
+	translation = Vector3D::rotate(translation, *_cameraRotation);
+
+	Rotation rotation = Rotation::zero();
+
+	if(K_RL & userInput->holdKey)
+	{
+		rotation.y = -__I_TO_FIX10_6(2);
+	}
+
+	if(K_RR & userInput->holdKey)
+	{
+		rotation.y = __I_TO_FIX10_6(2);
+	}
+
+	/*
+	 * The engine doesn't implement quaterions because of obvious performance reasons.
+	 * So, moving the camera around the X axis will cause gimbal lock related issues
+	 * when rotations on the othe axis are applied too.
+	 */
+	if(K_RU & userInput->holdKey)
+	{
+		rotation.x = __I_TO_FIX10_6(2);
+	}
+
+	if(K_RD & userInput->holdKey)
+	{
+		rotation.x = -__I_TO_FIX10_6(2);
+	}
+
+	Camera camera = Camera::getInstance();
+	Camera::translate(camera, translation, false);
+	Camera::rotate(camera, rotation);
+
+	return Base::processUserInput(this, userInput);
+}
+
+void WireframesState::showDetails()
+{
+	Printing::clear(Printing::getInstance());
+
+	WireframesState::printHeader(this);
+}

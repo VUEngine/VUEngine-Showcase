@@ -24,23 +24,25 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern EntitySpec PyramidEntity;
+extern Sound StrangerThingsMainTheme_RSound;
+extern Sound StrangerThingsMainTheme_LSound;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec WireframesStageEntities[] =
+PositionedEntityROMSpec PCMPlaybackStageEntities[] =
 {
-	{&PyramidEntity, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntity, {0, 0, 500,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntity, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntity, {1000, 0, 550,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntity, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec WireframesStageUiEntities[] =
+PositionedEntityROMSpec PCMPlaybackStageUiEntities[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -50,13 +52,15 @@ PositionedEntityROMSpec WireframesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const WireframesStageFonts[] =
+FontROMSpec* const PCMPlaybackStageFonts[] =
 {
 	NULL
 };
 
-SoundROM* WireframesStageSounds[] =
+SoundROM* PCMPlaybackStageSounds[] =
 {
+	&StrangerThingsMainTheme_LSound,
+	&StrangerThingsMainTheme_RSound,
 	NULL
 };
 
@@ -65,16 +69,16 @@ SoundROM* WireframesStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec WireframesStage =
+StageROMSpec PCMPlaybackStage =
 {
 	// allocator
 	__TYPE(Stage),
 
 	// Timer config
 	{
-		__TIMER_100US,
+		__TIMER_20US,
 		100,
-		kMS
+		kUS
 	},
 
 	// Sound config
@@ -255,7 +259,7 @@ StageROMSpec WireframesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)WireframesStageFonts,
+		(FontSpec**)PCMPlaybackStageFonts,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -264,19 +268,19 @@ StageROMSpec WireframesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)WireframesStageSounds,
+		(Sound**)PCMPlaybackStageSounds,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)WireframesStageUiEntities,
+			(PositionedEntity*)PCMPlaybackStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)WireframesStageEntities,
+		(PositionedEntity*)PCMPlaybackStageEntities,
 	},
 
 	// post processing effects

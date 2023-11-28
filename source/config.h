@@ -106,7 +106,7 @@
 #define __WIREFRAME_MANAGER_SORT_FOR_DRAWING
 
 // The distance to start interlacing wireframe graphics.
-#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(4096)  
+#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)
 
 
 //---------------------------------------------------------------------------------------------------------

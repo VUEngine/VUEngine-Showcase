@@ -82,7 +82,7 @@ MeshROMSpec PyramidEntityMesh =
 		{0, 0, 0},
 		
 		/// color
-		__COLOR_BRIGHT_RED,
+		__COLOR_BLACK,
 
 		/// transparent
 		__TRANSPARENCY_NONE,
