@@ -12,16 +12,13 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <WireframesState.h>
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <DirectDraw.h>
-#include <Languages.h>
-#include <Mesh.h>
 #include <Printing.h>
 #include <WireframeManager.h>
-#include <WireframesState.h>
-#include <VUEngine.h>
 
 #include <debugConfig.h>
 #include <string.h>
@@ -30,6 +27,9 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+/*
+ * Check assets/stage/WireframesStageSpec.c
+ */
 extern StageROMSpec WireframesStage;
 
 

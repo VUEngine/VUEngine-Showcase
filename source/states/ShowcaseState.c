@@ -16,7 +16,6 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <Languages.h>
 #include <Printing.h>
 #include <VIPManager.h>
 #include <VUEngine.h>

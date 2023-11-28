@@ -15,15 +15,9 @@
 #include <SpritesState.h>
 
 #include <BgmapSprite.h>
-#include <Camera.h>
 #include <CameraEffectManager.h>
-#include <I18n.h>
-#include <Languages.h>
-#include <ObjectSprite.h>
 #include <Printing.h>
 #include <SpriteManager.h>
-#include <Texture.h>
-#include <VIPManager.h>
 
 #include <debugUtilities.h>
 #include <string.h>

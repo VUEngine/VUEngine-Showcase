@@ -19,10 +19,7 @@
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <CharSet.h>
-#include <I18n.h>
-#include <Languages.h>
 #include <Mem.h>
-#include <ObjectSprite.h>
 #include <Printing.h>
 #include <SpriteManager.h>
 #include <Texture.h>
