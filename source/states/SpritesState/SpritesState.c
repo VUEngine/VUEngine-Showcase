@@ -185,6 +185,9 @@ void SpritesState::printSpriteDetails()
 
 void SpritesState::createSprite()
 {
+	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
+	SpritesState::mutateMethod(execute, SpritesState::execute);
+
 	SpritesState::destroySprite(this);
 
 	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
@@ -195,9 +198,6 @@ void SpritesState::createSprite()
 	extern SpriteSpec CogWheelMBgmapSpriteNormal;
 
 	SpriteSpec* spriteSpec = NULL;
-
-	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
-	SpritesState::mutateMethod(execute, SpritesState::execute);
 
 	switch(this->spriteType)
 	{

@@ -25,7 +25,7 @@
 
 dynamic_singleton class AnimationSchemesState : ShowcaseState
 {
-	Sprite animatedSprite;
+	VirtualList animatedSprites;
 	uint32 animationScheme;
 
 	static AnimationSchemesState getInstance();

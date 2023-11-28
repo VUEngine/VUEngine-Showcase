@@ -22,7 +22,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-#ifdef __DEBUG_TOOLS
+#ifdef __DEBUG_TOOL
 const ClassSizeData _userClassesSizeData[] =
 {
 	{NULL, ""},

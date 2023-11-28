@@ -108,7 +108,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
  */
 void ShowcaseState::suspend(void* owner)
 {
-	if(!VUEngine::isEnteringSpecialMode(VUEngine::getInstance()))
+	if(!VUEngine::isEnteringToolState(VUEngine::getInstance()))
 	{
 		// do a fade out effect
 		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
@@ -130,7 +130,7 @@ void ShowcaseState::resume(void* owner)
 	// show stuff
 	ShowcaseState::showStuff(this);
 
-	if(!VUEngine::isExitingSpecialMode(VUEngine::getInstance()))
+	if(!VUEngine::isExitingToolState(VUEngine::getInstance()))
 	{
 		// start a fade in effect
 		Camera::startEffect(Camera::getInstance(), kHide);

@@ -24,6 +24,8 @@
 #include <SpriteManager.h>
 #include <Texture.h>
 #include <VIPManager.h>
+#include <VirtualList.h>
+#include <VirtualNode.h>
 
 #include <debugUtilities.h>
 #include <string.h>
@@ -37,12 +39,12 @@ extern StageROMSpec AnimationSchemesStage;
 
 enum AnimationSchemes
 {
-	kAnimationNoneStart = 0,
-	kAnimationNotShared,
-	kAnimationShared,
-	kAnimationMulti,
+	kAnimationsNoneStart = 0,
+	kAnimationsNotSharedTexture,
+	kAnimationsSharedTexture,
+	kAnimationsMultiframeTexture,
 
-	kAnimationNoneEnd
+	kAnimationsNoneEnd
 };
 
 
@@ -56,14 +58,14 @@ void AnimationSchemesState::constructor()
 	Base::constructor();
 
 	this->stageSpec = (StageSpec*)&AnimationSchemesStage;
-	this->animatedSprite = NULL;
-	this->animationScheme = kAnimationNoneStart + 1;
+	this->animatedSprites = new VirtualList();
+	this->animationScheme = kAnimationsNoneStart + 1;
 }
 
 // class's destructor
 void AnimationSchemesState::destructor()
 {
-	AnimationSchemesState::destroySprite(this);
+	AnimationSchemesState::destroySprites(this);
 
 	// destroy base
 	Base::destructor();
@@ -78,10 +80,6 @@ void AnimationSchemesState::destructor()
  */
 void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 {
-	if(!isDeleted(this->animatedSprite))
-	{
-		Sprite::updateAnimation(this->animatedSprite);
-	}
 }
 
 /*
@@ -102,9 +100,9 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 	{
 		if(K_LL & userInput->releasedKey)
 		{
-			if(kAnimationNoneStart >= --this->animationScheme)
+			if(kAnimationsNoneStart >= --this->animationScheme)
 			{
-				this->animationScheme = kAnimationNoneEnd - 1;
+				this->animationScheme = kAnimationsNoneEnd - 1;
 			}
 
 			AnimationSchemesState::printHeader(this);
@@ -114,9 +112,9 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
-			if(kAnimationNoneEnd <= ++this->animationScheme)
+			if(kAnimationsNoneEnd <= ++this->animationScheme)
 			{
-				this->animationScheme = kAnimationNoneStart + 1;
+				this->animationScheme = kAnimationsNoneStart + 1;
 			}
 
 			AnimationSchemesState::printHeader(this);
@@ -133,7 +131,7 @@ void AnimationSchemesState::showStuff()
 {
 	this->showDetails = false;
 	AnimationSchemesState::setupBrightness(this, this->showDetails);
-	AnimationSchemesState::createSprite(this);
+	AnimationSchemesState::createSprites(this);
 }
 
 void AnimationSchemesState::showDetails()
@@ -146,31 +144,30 @@ void AnimationSchemesState::printHeader()
 {
 	Base::printHeader(this);
 
-	if(!isDeleted(this->animatedSprite))
+	if(!isDeleted(this->animatedSprites))
 	{
 		if(!this->showDetails)
 		{
 			int16 y = 3;
 			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->animatedSprite), 1, y, NULL);
-			Printing::text(Printing::getInstance(), "                 ", 9, ++y, NULL);
+			Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
 
-			if(!Sprite::isObject(this->animatedSprite))
+			switch(this->animationScheme)
 			{
-				Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
+				case kAnimationsNotSharedTexture:
 
-				if(Sprite::isAffine(this->animatedSprite))
-				{
-					Printing::text(Printing::getInstance(), "Affine   ", 7, y, NULL);
-				}
-				else if(Sprite::isHBias(this->animatedSprite))
-				{
-					Printing::text(Printing::getInstance(), "HBias   ", 7, y, NULL);
-				}
-				else if(Sprite::isBgmap(this->animatedSprite))
-				{
-					Printing::text(Printing::getInstance(), "Bgmap    ", 7, y, NULL);
-				}
+					Printing::text(Printing::getInstance(), "Not shared animations   ", 7, y, NULL);
+					break;
+
+				case kAnimationsSharedTexture:
+
+					Printing::text(Printing::getInstance(), "Shared animations   ", 7, y, NULL);
+					break;
+
+				case kAnimationsMultiframeTexture:
+
+					Printing::text(Printing::getInstance(), "Multiframe animations   ", 7, y, NULL);
+					break;
 			}
 		}
 	}	
@@ -178,169 +175,142 @@ void AnimationSchemesState::printHeader()
 
 void AnimationSchemesState::printSpriteDetails()
 {
-	if(this->showDetails && !isDeleted(this->animatedSprite))
+	if(this->showDetails && !isDeleted(this->animatedSprites))
 	{
-		Sprite::print(this->animatedSprite, 1, 3);
 	}
 }
 
-void AnimationSchemesState::createSprite()
+void AnimationSchemesState::createSprites()
 {
-	AnimationSchemesState::destroySprite(this);
-
-	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
-	extern SpriteSpec PunkSprite;
-
-	SpriteSpec* spriteSpec = &PunkSprite;
-/*
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::execute);
 
+	AnimationSchemesState::destroySprites(this);
+
+	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
+	extern SpriteSpec PunkSpriteNotShared;
+	extern SpriteSpec PunkSpriteShared;
+	extern SpriteSpec PunkSpriteMultiframe;
+
+	SpriteSpec* spriteSpec = &PunkSpriteNotShared;
+
 	switch(this->animationScheme)
 	{
-		case kAnimationObject:
+		case kAnimationsNotSharedTexture:
 
-			spriteSpec = &CogWheelObjectSprite;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeSpriteHorizontalTranslation);
+			spriteSpec = &PunkSpriteNotShared;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures);
 			break;
 
-		case kAnimationBgmapNormal:
+		case kAnimationsSharedTexture:
 
-			spriteSpec = &CogWheelBgmapSpriteNormal;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeSpriteVerticalTranslation);
+			spriteSpec = &PunkSpriteShared;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithSharedTextures);
 			break;
 
-		case kAnimationBgmapAffine:
+		case kAnimationsMultiframeTexture:
 
-			spriteSpec = &CogWheelBgmapSpriteAffine;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeSpriteRotation);
+			spriteSpec = &PunkSpriteMultiframe;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures);
 			break;
-
-		case kAnimationBgmapHBias:
-
-			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
-			spriteSpec = &CogWheelBgmapSpriteHBias;
-			break;
-
-		case kAnimationMBgmap:
-
-			spriteSpec = &CogWheelMBgmapSpriteNormal;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeSpriteFullTranslation);
 	}
-*/
-	// Don't create Sprites directly
-	this->animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
 
-	if(!isDeleted(this->animatedSprite))
-	{
-		extern AnimationFunctionROMSpec* PunkAnimations[];
-		
-		Sprite::play(this->animatedSprite, PunkAnimations, "Move", NULL);
-		
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
-		Sprite::setPosition(this->animatedSprite, &spritePosition);
+    for(int16 i = 0; i < 3; i++)
+    {
+		// Don't create Sprites directly
+        Sprite animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
+
+		if(!isDeleted(animatedSprite))
+		{
+			extern AnimationFunctionROMSpec* PunkAnimations[];
+			
+			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
+
+			// Try to get the sprite's animation out of sync from the others'
+			Sprite::setActualFrame(animatedSprite, i * 12 / 3);			
+			
+			PixelVector spritePosition = {__SCREEN_WIDTH / 2 - 64 * (i - 1), __SCREEN_HEIGHT / 2, 1, 2};
+			Sprite::setPosition(animatedSprite, &spritePosition);
+
+			VirtualList::pushBack(this->animatedSprites, animatedSprite);
+		}
 	}
 
 	AnimationSchemesState::printHeader(this);
 }
 
-void AnimationSchemesState::destroySprite()
+void AnimationSchemesState::destroySprites()
 {
-	if(!isDeleted(this->animatedSprite))
+	if(!isDeleted(this->animatedSprites))
 	{
-		// Don't destroy the sprite directly		
-		SpriteManager::destroySprite(SpriteManager::getInstance(), this->animatedSprite);
+		for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
+		{
+			Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
+			
+			if(!isDeleted(animatedSprite))
+			{
+				// Don't destroy the sprite directly		
+				SpriteManager::destroySprite(SpriteManager::getInstance(), animatedSprite);				
+			}
+		}
 
-		this->animatedSprite = NULL;
+		VirtualList::clear(this->animatedSprites);
 	}
 }
 
 /*
  * Runtime overrides for AnimationSchemesState::execute
  */
-void AnimationSchemesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
+void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* owner __attribute__((unused)))
 {
-	if(!isDeleted(this->animatedSprite))
+	/* When Sprites use non shared Textures they all have to be
+	 * update their graphics when animated. Each will reserver its
+	 * own chunk of graphics memory and updating all of them
+	 * will be heavier.	 
+	 */
+	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
 	{
-		static int16 yPosition = __SCREEN_HEIGHT / 2;
-		static int16 delta = 1;
-
-		yPosition += delta;
-
-		if(__SCREEN_HEIGHT <= (unsigned)yPosition)
+		Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
+		
+		if(!isDeleted(animatedSprite))
 		{
-			delta = -delta;
+			Sprite::updateAnimation(animatedSprite);
 		}
-
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, yPosition, 1, 2};
-		Sprite::setPosition(this->animatedSprite, &spritePosition);
-
-		AnimationSchemesState::printSpriteDetails(this);
 	}
 }
 
-void AnimationSchemesState::executeSpriteHorizontalTranslation(void* owner __attribute__((unused)))
+void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner __attribute__((unused)))
 {
-	if(!isDeleted(this->animatedSprite))
+	/* When Sprites share a Texture (and the underlying CharSet)
+	 * animating one of them will animate the other because the
+	 * underlying graphics are shared by all of them.
+	 * This saves on performance too because the graphics memory
+	 * is only updated once.
+	 */	 
+
+	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
+	
+	if(!isDeleted(animatedSprite))
 	{
-		static int16 xPosition = __SCREEN_WIDTH / 2;
-		static int16 delta = 1;
+		Sprite::updateAnimation(animatedSprite);
+	}
+}
 
-		xPosition += delta;
-
-		if(__SCREEN_WIDTH <= (unsigned)xPosition)
+void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* owner __attribute__((unused)))
+{
+	/* Multiframe Textures write all the frames of animation in graphics memory.
+	 * They should always be shared Texture, otherwise graphics memory would be
+	 * wasted by writing multiple times the same spreadsheet.
+	 * The animations of the Sprites that use these Textures are not constrained 
+	 * to be in sync.
+	 */
+	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
+	{
+		Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
+		
+		if(!isDeleted(animatedSprite))
 		{
-			delta = -delta;
+			Sprite::updateAnimation(animatedSprite);
 		}
-
-		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2, 1, 2};
-		Sprite::setPosition(this->animatedSprite, &spritePosition);
-
-		AnimationSchemesState::printSpriteDetails(this);
 	}
 }
-
-void AnimationSchemesState::executeSpriteRotation(void* owner __attribute__((unused)))
-{
-	if(!isDeleted(this->animatedSprite))
-	{
-		static int16 xPosition = __SCREEN_WIDTH / 2;
-		static int16 delta = 1;
-
-		xPosition += delta;
-
-		if(__SCREEN_WIDTH <= (unsigned)xPosition)
-		{
-			delta = -delta;
-		}
-
-		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2, 1, 2};
-		Sprite::setPosition(this->animatedSprite, &spritePosition);
-
-		static fixed_t zAngle = 0;
-		zAngle += __I_TO_FIXED(delta);
-
-		Rotation rotation = {0, 0, zAngle};
-		Sprite::rotate(this->animatedSprite, &rotation);
-
-		AnimationSchemesState::printSpriteDetails(this);
-	}
-}
-
-void AnimationSchemesState::executeSpriteFullTranslation(void* owner __attribute__((unused)))
-{
-	if(!isDeleted(this->animatedSprite))
-	{
-		static int16 xPosition = __SCREEN_WIDTH / 2;
-		static int16 yPosition = __SCREEN_HEIGHT / 2;
-
-		xPosition++;
-		yPosition++;
-
-		PixelVector spritePosition = {xPosition, yPosition, 1, 2};
-		Sprite::setPosition(this->animatedSprite, &spritePosition);
-
-		AnimationSchemesState::printSpriteDetails(this);
-	}
-}
-

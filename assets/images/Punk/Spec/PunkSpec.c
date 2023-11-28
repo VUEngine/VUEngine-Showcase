@@ -110,6 +110,60 @@ CharSetROMSpec PunkCharset =
 	NULL,
 };
 
+CharSetROMSpec PunkCharsetNotShared =
+{
+	// number of chars in function of the number of frames to load at the same time
+	4*6,
+
+	// whether it is shared or not
+	false,
+	
+	// whether the tiles are optimized or not
+	false,
+
+	// char spec
+	PunkTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
+CharSetROMSpec PunkCharsetShared =
+{
+	// number of chars in function of the number of frames to load at the same time
+	4*6,
+
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
+
+	// char spec
+	PunkTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
+CharSetROMSpec PunkCharsetMultiframe =
+{
+	// number of chars in function of the number of frames to load at the same time
+	4*6 * 12,
+
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
+
+	// char spec
+	PunkTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
 CharSetROMSpec PunkBlackCharset =
 {
 	// number of chars in function of the number of frames to load at the same time
@@ -160,6 +214,102 @@ TextureROMSpec PunkTexture =
 	false,
 };
 
+TextureROMSpec PunkTextureNotShared =
+{
+	(CharSetSpec*)&PunkCharsetNotShared,
+
+	// bgmap spec
+	PunkMap,
+
+	// cols (max 64)
+	4,
+
+	// rows (max 64)
+	6,
+
+	// padding for affine/hbias transformations (cols, rows)
+	{0, 0},
+
+	// number of frames
+	1,
+
+	// palette number (0-3)
+	0,
+
+	// recyclable
+	true,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
+};
+
+TextureROMSpec PunkTextureShared =
+{
+	(CharSetSpec*)&PunkCharsetShared,
+
+	// bgmap spec
+	PunkMap,
+
+	// cols (max 64)
+	4,
+
+	// rows (max 64)
+	6,
+
+	// padding for affine/hbias transformations (cols, rows)
+	{0, 0},
+
+	// number of frames
+	1,
+
+	// palette number (0-3)
+	0,
+
+	// recyclable
+	true,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
+};
+
+TextureROMSpec PunkTextureMultiframe =
+{
+	(CharSetSpec*)&PunkCharsetMultiframe,
+
+	// bgmap spec
+	PunkMap,
+
+	// cols (max 64)
+	4,
+
+	// rows (max 64)
+	6,
+
+	// padding for affine/hbias transformations (cols, rows)
+	{0, 0},
+
+	// number of frames
+	12,
+
+	// palette number (0-3)
+	0,
+
+	// recyclable
+	true,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
+};
+
 TextureROMSpec PunkBlackTexture =
 {
 	(CharSetSpec*)&PunkBlackCharset,
@@ -200,6 +350,87 @@ BgmapSpriteROMSpec PunkSprite =
 
 		// texture spec
 		(TextureSpec*)&PunkTexture,
+
+		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{0, 0, 0, 2},
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
+	__WORLD_BGMAP,
+
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkSpriteNotShared =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapAnimatedSprite),
+
+		// texture spec
+		(TextureSpec*)&PunkTextureNotShared,
+
+		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{0, 0, 0, 2},
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
+	__WORLD_BGMAP,
+
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkSpriteShared =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapAnimatedSprite),
+
+		// texture spec
+		(TextureSpec*)&PunkTextureShared,
+
+		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{0, 0, 0, 2},
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
+	__WORLD_BGMAP,
+
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkSpriteMultiframe =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapAnimatedSprite),
+
+		// texture spec
+		(TextureSpec*)&PunkTextureMultiframe,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,

@@ -48,7 +48,6 @@ PositionedEntityROMSpec AnimationSchemesStageUiEntities[] =
 FontROMSpec* const AnimationSchemesStageFonts[] =
 {
 	&DefaultFont,
-	&VirtualBoyExtFont,
 
 	NULL
 };
