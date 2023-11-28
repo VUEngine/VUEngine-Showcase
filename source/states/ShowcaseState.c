@@ -37,8 +37,8 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
-	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
+	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)WireframesState::getInstance,
 	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance
 };
