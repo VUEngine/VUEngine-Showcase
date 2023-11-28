@@ -237,7 +237,7 @@ TextureROMSpec PunkTextureNotShared =
 	0,
 
 	// recyclable
-	true,
+	false,
 
 	// vertical flip
 	false,
@@ -269,7 +269,7 @@ TextureROMSpec PunkTextureShared =
 	0,
 
 	// recyclable
-	true,
+	false,
 
 	// vertical flip
 	false,
@@ -301,7 +301,7 @@ TextureROMSpec PunkTextureMultiframe =
 	0,
 
 	// recyclable
-	true,
+	false,
 
 	// vertical flip
 	false,

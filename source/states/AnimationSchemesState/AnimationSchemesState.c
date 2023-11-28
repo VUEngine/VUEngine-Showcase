@@ -15,10 +15,13 @@
 #include <AnimationSchemesState.h>
 
 #include <BgmapSprite.h>
+#include <BgmapTextureManager.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <CharSet.h>
 #include <I18n.h>
 #include <Languages.h>
+#include <Mem.h>
 #include <ObjectSprite.h>
 #include <Printing.h>
 #include <SpriteManager.h>
@@ -146,38 +149,28 @@ void AnimationSchemesState::printHeader()
 
 	if(!isDeleted(this->animatedSprites))
 	{
-		if(!this->showDetails)
+		int16 y = 3;
+		Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "Animation schene: ", 1, y, NULL);
+
+		switch(this->animationScheme)
 		{
-			int16 y = 3;
-			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
+			case kAnimationsNotSharedTexture:
 
-			switch(this->animationScheme)
-			{
-				case kAnimationsNotSharedTexture:
+				Printing::text(Printing::getInstance(), "Not shared   ", 19, y, NULL);
+				break;
 
-					Printing::text(Printing::getInstance(), "Not shared animations   ", 7, y, NULL);
-					break;
+			case kAnimationsSharedTexture:
 
-				case kAnimationsSharedTexture:
+				Printing::text(Printing::getInstance(), "Shared   ", 19, y, NULL);
+				break;
 
-					Printing::text(Printing::getInstance(), "Shared animations   ", 7, y, NULL);
-					break;
+			case kAnimationsMultiframeTexture:
 
-				case kAnimationsMultiframeTexture:
-
-					Printing::text(Printing::getInstance(), "Multiframe animations   ", 7, y, NULL);
-					break;
-			}
+				Printing::text(Printing::getInstance(), "Multiframe   ", 19, y, NULL);
+				break;
 		}
 	}	
-}
-
-void AnimationSchemesState::printSpriteDetails()
-{
-	if(this->showDetails && !isDeleted(this->animatedSprites))
-	{
-	}
 }
 
 void AnimationSchemesState::createSprites()
@@ -229,7 +222,7 @@ void AnimationSchemesState::createSprites()
 			// Try to get the sprite's animation out of sync from the others'
 			Sprite::setActualFrame(animatedSprite, i * 12 / 3);			
 			
-			PixelVector spritePosition = {__SCREEN_WIDTH / 2 - 64 * (i - 1), __SCREEN_HEIGHT / 2, 1, 2};
+			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + 64 * (i - 1), __SCREEN_HEIGHT / 2 - 32, 1, 2};
 			Sprite::setPosition(animatedSprite, &spritePosition);
 
 			VirtualList::pushBack(this->animatedSprites, animatedSprite);
@@ -256,6 +249,9 @@ void AnimationSchemesState::destroySprites()
 
 		VirtualList::clear(this->animatedSprites);
 	}
+
+	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
+	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
 }
 
 /*
@@ -277,6 +273,15 @@ void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* own
 			Sprite::updateAnimation(animatedSprite);
 		}
 	}
+
+	if(this->showDetails)
+	{
+		AnimationSchemesState::showCharMemoryForNotSharedTextures(this);
+	}
+	else
+	{
+		AnimationSchemesState::showBgmapMemory(this);
+	}
 }
 
 void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner __attribute__((unused)))
@@ -286,13 +291,21 @@ void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner 
 	 * underlying graphics are shared by all of them.
 	 * This saves on performance too because the graphics memory
 	 * is only updated once.
-	 */	 
-
+	 */
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
 	
 	if(!isDeleted(animatedSprite))
 	{
 		Sprite::updateAnimation(animatedSprite);
+	}
+
+	if(this->showDetails)
+	{
+		AnimationSchemesState::showCharMemoryForSharedTextures(this);
+	}
+	else
+	{
+		AnimationSchemesState::showBgmapMemory(this);
 	}
 }
 
@@ -312,5 +325,200 @@ void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* ow
 		{
 			Sprite::updateAnimation(animatedSprite);
 		}
+	}
+
+	if(this->showDetails)
+	{
+		AnimationSchemesState::showCharMemoryForMultiframeTextures(this);
+	}
+	else
+	{
+		AnimationSchemesState::showBgmapMemory(this);
+	}
+}
+
+void AnimationSchemesState::showBgmapMemory()
+{
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	int32 topBorder = 19;
+	int32 bottomBorder = 0;
+	int32 leftBorder = 1;
+	int32 rightBorder = 0;
+	int32 mxDisplacement = 0;
+	int32 myDisplacement = 0;
+
+	Printing::text(Printing::getInstance(), "Bgmap memory:   ", 1, topBorder - 3, NULL);
+
+	uint32 numberOfHWORDS = __SCREEN_WIDTH_IN_CHARS - leftBorder - rightBorder;
+	uint32 xOffset = leftBorder;
+
+	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
+
+	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_CHARS - topBorder - bottomBorder; row++)
+	{
+		Mem::copyHWORD
+		(
+			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]),
+			(const HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (0)) + ((row + myDisplacement) << 6) + mxDisplacement]), 
+			numberOfHWORDS
+		);
+	}
+}
+
+void AnimationSchemesState::showCharMemoryForNotSharedTextures()
+{
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	int32 topBorder = 18;
+	int32 leftBorder = 1;
+
+	Printing::text(Printing::getInstance(), "Char memory:   ", 1, topBorder - 2, NULL);
+
+	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
+
+	const HWORD charMemoryMap[] =
+	{
+		0,	1,	2,	3,	4,	5,	6,	7,
+		8,	9,	10,	11,	12,	13,	14,	15,
+		16,	17,	18,	19,	20,	21,	22,	23,
+		24,	25,	26,	27,	28,	29,	30,	31
+	};
+
+	int16 row = 0;
+	uint32 xOffset = leftBorder;
+
+	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node), row += 2)
+	{
+		Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
+		
+		if(isDeleted(animatedSprite))
+		{
+			continue;
+		}
+
+		Texture texture = Sprite::getTexture(animatedSprite);
+
+		if(isDeleted(texture))
+		{
+			continue;
+		}
+
+		CharSet charSet = Texture::getCharSet(texture, false);
+
+		if(isDeleted(charSet))
+		{
+			continue;
+		}
+
+		Mem::addHWORD
+		(
+			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]),
+			(HWORD*)charMemoryMap,
+			CharSet::getNumberOfChars(charSet),
+			CharSet::getOffset(charSet)
+		);
+	}
+}
+
+void AnimationSchemesState::showCharMemoryForSharedTextures()
+{
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	int32 topBorder = 18;
+	int32 leftBorder = 1;
+
+	Printing::text(Printing::getInstance(), "Char memory:   ", 1, topBorder - 2, NULL);
+
+	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
+
+	const HWORD charMemoryMap[] =
+	{
+		0,	1,	2,	3,	4,	5,	6,	7,
+		8,	9,	10,	11,	12,	13,	14,	15,
+		16,	17,	18,	19,	20,	21,	22,	23,
+		24,	25,	26,	27,	28,	29,	30,	31
+	};
+
+	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
+	Texture texture = NULL;
+	CharSet charSet = NULL;
+	
+	if(!isDeleted(animatedSprite))
+	{
+		texture = Sprite::getTexture(animatedSprite);
+	}
+
+	if(!isDeleted(texture))
+	{
+		charSet = Texture::getCharSet(texture, false);
+	}
+
+	uint32 xOffset = leftBorder;
+
+	Mem::addHWORD
+	(
+		(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((topBorder) << 6) + xOffset]),
+		(HWORD*)charMemoryMap,
+		CharSet::getNumberOfChars(charSet),
+		CharSet::getOffset(charSet)
+	);
+}
+
+void AnimationSchemesState::showCharMemoryForMultiframeTextures()
+{
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	int32 topBorder = 18;
+	int32 leftBorder = 0;
+
+	Printing::text(Printing::getInstance(), "Char memory:   ", 1, topBorder - 2, NULL);
+
+	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
+
+	const HWORD charMemoryMap[] =
+	{
+		0,	1,	2,	3,	4,	5,	6,	7,
+		8,	9,	10,	11,	12,	13,	14,	15,
+		16,	17,	18,	19,	20,	21,	22,	23,
+		24,	25,	26,	27,	28,	29,	30,	31
+	};
+
+	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
+	Texture texture = NULL;
+	CharSet charSet = NULL;
+	
+	if(!isDeleted(animatedSprite))
+	{
+		texture = Sprite::getTexture(animatedSprite);
+	}
+
+	if(!isDeleted(texture))
+	{
+		charSet = Texture::getCharSet(texture, false);
+	}
+
+	int16 charsPerFrame = CharSet::getNumberOfChars(charSet) / Texture::getNumberOfFrames(texture);
+	int32 xOffset = leftBorder;
+	int16 yOffset = topBorder;
+
+	// put the map into memory calculating the number of char for each reference
+	for(uint16 frame = 0; frame <= Texture::getNumberOfFrames(texture); frame++, yOffset += 2)
+	{
+		if(__SCREEN_HEIGHT_IN_CHARS <= yOffset)
+		{
+			xOffset += charsPerFrame;
+
+			if(__SCREEN_WIDTH_IN_CHARS <= xOffset)
+			{
+				break;
+			}
+
+			yOffset = topBorder;
+		}
+
+		Mem::addHWORD
+		(
+			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((yOffset) << 6) + xOffset]),
+			(HWORD*)charMemoryMap,
+			charsPerFrame,
+			CharSet::getOffset(charSet) + frame * charsPerFrame
+		);
 	}
 }
