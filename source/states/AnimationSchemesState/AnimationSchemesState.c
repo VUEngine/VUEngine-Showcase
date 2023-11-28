@@ -60,6 +60,7 @@ void AnimationSchemesState::constructor()
 	this->stageSpec = (StageSpec*)&AnimationSchemesStage;
 	this->animatedSprites = new VirtualList();
 	this->animationScheme = kAnimationsNoneStart + 1;
+	this->rotation = (Rotation){0, 0, 0};
 }
 
 // class's destructor
@@ -123,33 +124,30 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 			return;
 		}
 		/*
-		 * Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a Rotation.
+		 * Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->rotation.
 		 */
-
-		static Rotation rotation = {0, 0, 0};
-
 		if(K_RU & userInput->releasedKey)
 		{
-			rotation.x = __I_TO_FIXED(255);
+			this->rotation.x = __I_TO_FIXED(255);
 		}
 		else if(K_RD & userInput->releasedKey)
 		{
-			rotation.x = 0;
+			this->rotation.x = 0;
 		}
 		else if(K_RL & userInput->releasedKey)
 		{
-			rotation.y = __I_TO_FIXED(255);
+			this->rotation.y = __I_TO_FIXED(255);
 		}
 		else if(K_RR & userInput->releasedKey)
 		{
-			rotation.y = 0;
+			this->rotation.y = 0;
 		}
 
 		Sprite animatedSprite = Sprite::safeCast(VirtualList::getObjectAtPosition(this->animatedSprites, 1));
 			
 		if(!isDeleted(animatedSprite))
 		{
-			Sprite::rotate(animatedSprite, &rotation);
+			Sprite::rotate(animatedSprite, &this->rotation);
 		}
 	}
 
@@ -159,6 +157,7 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 void AnimationSchemesState::showStuff()
 {
 	this->showDetails = false;
+	this->rotation = (Rotation){0, 0, 0};
 	AnimationSchemesState::setupBrightness(this, this->showDetails);
 	AnimationSchemesState::createSprites(this);
 }

@@ -25,6 +25,7 @@
 
 dynamic_singleton class AnimationSchemesState : ShowcaseState
 {
+	Rotation rotation;
 	VirtualList animatedSprites;
 	uint32 animationScheme;
 
