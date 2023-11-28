@@ -72,6 +72,7 @@ void WireframesState::execute(void* owner __attribute__((unused)))
 void WireframesState::processUserInput(const UserInput* userInput)
 {
 	Vector3D translation = {0, 0, 0};
+	Rotation rotation = Rotation::zero();
 
 	if(K_LU & userInput->holdKey)
 	{
@@ -85,27 +86,25 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 	if(K_LL & userInput->holdKey)
 	{
-		translation.x = -__PIXELS_TO_METERS(8);
+		rotation.y = -__I_TO_FIX10_6(2);
 	}
 
 	if(K_LR & userInput->holdKey)
+	{
+		rotation.y = __I_TO_FIX10_6(2);
+	}
+
+	if(K_RL & userInput->holdKey)
+	{
+		translation.x = -__PIXELS_TO_METERS(8);
+	}
+
+	if(K_RR & userInput->holdKey)
 	{
 		translation.x = __PIXELS_TO_METERS(8);
 	}
 
 	translation = Vector3D::rotate(translation, *_cameraRotation);
-
-	Rotation rotation = Rotation::zero();
-
-	if(K_RL & userInput->holdKey)
-	{
-		rotation.y = -__I_TO_FIX10_6(2);
-	}
-
-	if(K_RR & userInput->holdKey)
-	{
-		rotation.y = __I_TO_FIX10_6(2);
-	}
 
 	/*
 	 * The engine doesn't implement quaterions because of obvious performance reasons.
