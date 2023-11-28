@@ -55,21 +55,10 @@ void EntitiesState::destructor()
 void EntitiesState::enter(void* owner __attribute__((unused)))
 {
 	Base::enter(this, owner);
-	
-	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
-	extern EntitySpec Punk;
-	PositionedEntity positionedEntity = {&Punk, {0, 0, 16, 0}, 0, NULL, NULL, NULL, false};
-
-	/*
-	 * This is how you add entities to the stage. Notice that we don't creates sprites nor animate them
-	 * directly anymore. Now, the engine takes of all that by ready the EntitySpec.
-	 */
-	AnimatedEntity punk = Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false);
 
 	// Must explicity call it otherwise nothing happens
 	EntitiesState::startAnimations(this);
 }
-
 void EntitiesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -135,6 +124,20 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 	}
 
 	return Base::processUserInput(this, userInput);
+}
+
+void EntitiesState::showStuff()
+{
+	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
+	extern EntitySpec Punk;
+	PositionedEntity positionedEntity = {&Punk, {0, 0, 16, 0}, 0, NULL, NULL, NULL, false};
+
+	/*
+	 * This is how you add entities to the stage. Notice that we don't creates sprites nor animate them
+	 * directly anymore. Now, the engine takes of all that by ready the EntitySpec.
+	 */
+	AnimatedEntity punk = Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false);
+
 }
 
 void EntitiesState::showDetails()

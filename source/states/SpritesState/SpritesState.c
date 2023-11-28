@@ -77,17 +77,6 @@ void SpritesState::execute(void* owner __attribute__((unused)))
 	SpritesState::printSpriteDetails(this);
 }
 
-/*
- *	The StateMachine calls State::exit when popping the State from its stack.
- */
-void SpritesState::exit(void* owner __attribute__((unused)))
-{
-	Base::exit(this, owner);
-
-	// Since I'm a dynamic_singleton, I must delete myself upon exit
-	delete this;
-}
-
 void SpritesState::processUserInput(const UserInput* userInput)
 {
 	// Check for UserInput and key definitions in KeypadManager.h
@@ -180,7 +169,7 @@ void SpritesState::printSpriteDetails()
 void SpritesState::createSprite()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
-	SpritesState::mutateMethod(execute, SpritesState::execute);
+	SpritesState::restoreMethods();
 
 	SpritesState::destroySprite(this);
 
@@ -252,7 +241,11 @@ void SpritesState::destroySprite()
 }
 
 /*
- * Runtime overrides for SpritesState::execute
+ * The StateMachine calls State::execute when updated.
+ * It is called once per game frame.
+ * Virtual methods can be changed in runtime to alter a class' behavior in real time.
+ * Mutating the methods affects all the instances of the class.
+ * Runtime overrides for SpritesState::execute.
  */
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
 {

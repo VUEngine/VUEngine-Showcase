@@ -22,7 +22,7 @@
 // 											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-singleton class PostProcessingEffectsState : ShowcaseState
+dynamic_singleton class PostProcessingEffectsState : ShowcaseState
 {
 	static PostProcessingEffectsState getInstance();
 

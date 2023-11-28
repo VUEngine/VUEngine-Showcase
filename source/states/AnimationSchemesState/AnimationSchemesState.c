@@ -72,28 +72,6 @@ void AnimationSchemesState::destructor()
 	Base::destructor();
 }
 
-/*
- * The StateMachine calls State::execute when updated.
- * It is called once per game frame.
- * Virtual methods can be changed in runtime to alter a class' behavior in real time.
- * Mutating the methods affects all the instances of the class.
- * Look for AnimationSchemesState::mutateMethod below in AnimationSchemesState::createSprite.
- */
-void AnimationSchemesState::execute(void* owner __attribute__((unused)))
-{
-}
-
-/*
- *	The StateMachine calls State::exit when popping the State from its stack.
- */
-void AnimationSchemesState::exit(void* owner __attribute__((unused)))
-{
-	Base::exit(this, owner);
-
-	// Since I'm a dynamic_singleton, I must delete myself upon exit
-	delete this;
-}
-
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
 	// Check for UserInput and key definitions in KeypadManager.h
@@ -234,7 +212,7 @@ void AnimationSchemesState::printHeader()
 void AnimationSchemesState::createSprites()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
-	AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::execute);
+	AnimationSchemesState::restoreMethods();
 
 	AnimationSchemesState::destroySprites(this);
 
@@ -315,7 +293,11 @@ void AnimationSchemesState::destroySprites()
 }
 
 /*
- * Runtime overrides for AnimationSchemesState::execute
+ * The StateMachine calls State::execute when updated.
+ * It is called once per game frame.
+ * Virtual methods can be changed in runtime to alter a class' behavior in real time.
+ * Mutating the methods affects all the instances of the class.
+ * Runtime overrides for AnimationSchemesState::execute.
  */
 void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* owner __attribute__((unused)))
 {

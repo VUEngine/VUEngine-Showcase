@@ -16,6 +16,7 @@
 
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <EntitiesState.h>
 #include <Printing.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
@@ -36,6 +37,7 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
+	(ShowcaseStateGetInstance)EntitiesState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)WireframesState::getInstance,
@@ -100,6 +102,17 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		NULL, // callback function
 		NULL // callback scope
 	);
+}
+
+/*
+ *	The StateMachine calls State::exit when popping the State from its stack.
+ */
+void ShowcaseState::exit(void* owner __attribute__((unused)))
+{
+	Base::exit(this, owner);
+
+	// Since all instances are dynamic_singleton, I must delete myself upon exit
+	delete this;
 }
 
 /*

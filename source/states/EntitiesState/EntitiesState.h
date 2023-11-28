@@ -32,6 +32,7 @@ dynamic_singleton class EntitiesState : ShowcaseState
 	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override void showDetails();
+	override void showStuff();
 }
 
 

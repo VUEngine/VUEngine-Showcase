@@ -42,6 +42,7 @@ abstract class ShowcaseState : GameState
 	virtual void showDetails();
 	
 	override void enter(void* owner);
+	override void exit(void* owner);
 	override void suspend(void* owner);
 	override void resume(void* owner);
 	override void processUserInput(const UserInput* userInput);
