@@ -59,7 +59,7 @@ void ShowcaseState::constructor()
 	Base::constructor();
 
 	this->stageSpec = NULL;
-	this->showDetails = false;
+	this->showAdditionalDetails = false;
 }
 
 // class's destructor
@@ -83,11 +83,8 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		ShowcaseState::loadStage(this, this->stageSpec, NULL, true, false);
 	}
 
-	// print header
-	ShowcaseState::printHeader(this);
-
-	// show stuff
-	ShowcaseState::showStuff(this);
+	// show everything
+	ShowcaseState::show(this, true);
 
 	// enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
@@ -185,9 +182,9 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 		}
 		else if(K_SEL & userInput->releasedKey)
 		{
-			this->showDetails = !this->showDetails;
+			this->showAdditionalDetails = !this->showAdditionalDetails;
 
-			ShowcaseState::showDetails(this);
+			ShowcaseState::show(this, false);
 		}
 		else if(K_B & userInput->releasedKey)
 		{
@@ -196,7 +193,31 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	}
 }
 
-void ShowcaseState::printHeader()
+void ShowcaseState::show(bool reloadStuff)
+{
+	Printing::clear(Printing::getInstance());
+	
+	ShowcaseState::showHeader(this);
+
+	if(reloadStuff)
+	{		
+		ShowcaseState::showStuff(this);
+	}
+
+	if(!this->showAdditionalDetails)
+	{		
+		ShowcaseState::showExplanation(this);
+	}
+	else
+	{
+		ShowcaseState::showAdditionalDetails(this);
+	}
+
+	SpritesState::setupBrightness(this, this->showAdditionalDetails);
+}
+
+
+void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "( / ) ";
 	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(Printing::getInstance(), currentShowCaseNumberPrefix, NULL);
@@ -210,7 +231,6 @@ void ShowcaseState::printHeader()
 
 	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1);
 
-	Printing::clear(Printing::getInstance());
 	Printing::text(Printing::getInstance(), __CHAR_SELECTOR_LEFT, 0, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_L_TRIGGER, 1, 0, NULL);
 	Printing::text(Printing::getInstance(), currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
@@ -226,6 +246,10 @@ void ShowcaseState::showStuff()
 {
 }
 
+void ShowcaseState::showExplanation()
+{
+}
+
 void ShowcaseState::goToNext()
 {
 	VUEngine::enableKeypad(VUEngine::getInstance());
@@ -233,7 +257,7 @@ void ShowcaseState::goToNext()
 	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }
 
-void ShowcaseState::showDetails()
+void ShowcaseState::showAdditionalDetails()
 {}
 
 void ShowcaseState::setupBrightness(bool dimm)

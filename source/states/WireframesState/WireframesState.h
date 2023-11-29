@@ -30,7 +30,7 @@ dynamic_singleton class WireframesState : ShowcaseState
 
 	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
-	override void showDetails();
+	override void showAdditionalDetails();
 }
 
 

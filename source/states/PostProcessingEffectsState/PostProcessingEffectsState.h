@@ -30,8 +30,8 @@ dynamic_singleton class PostProcessingEffectsState : ShowcaseState
 
 	override void processUserInput(const UserInput* userInput);
 	override void showStuff();
-	override void printHeader();
-	override void showDetails();
+	override void showHeader();
+	override void showAdditionalDetails();
 }
 
 

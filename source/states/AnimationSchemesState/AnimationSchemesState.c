@@ -14,10 +14,7 @@
 
 #include <AnimationSchemesState.h>
 
-#include <BgmapSprite.h>
 #include <BgmapTextureManager.h>
-#include <Camera.h>
-#include <CameraEffectManager.h>
 #include <CharSet.h>
 #include <Mem.h>
 #include <Printing.h>
@@ -29,6 +26,7 @@
 
 #include <debugUtilities.h>
 #include <string.h>
+
 
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS
@@ -84,8 +82,7 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 				this->animationScheme = kAnimationsNoneEnd - 1;
 			}
 
-			AnimationSchemesState::printHeader(this);
-			AnimationSchemesState::showStuff(this);
+			AnimationSchemesState::show(this, true);
 			
 			return;
 		}
@@ -96,8 +93,7 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 				this->animationScheme = kAnimationsNoneStart + 1;
 			}
 
-			AnimationSchemesState::printHeader(this);
-			AnimationSchemesState::showStuff(this);
+			AnimationSchemesState::show(this, true);
 
 			return;
 		}
@@ -132,89 +128,10 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 	Base::processUserInput(this, userInput);
 }
 
-void AnimationSchemesState::showStuff()
-{
-	this->showDetails = false;
-	this->rotation = (Rotation){0, 0, 0};
-	AnimationSchemesState::setupBrightness(this, this->showDetails);
-	AnimationSchemesState::createSprites(this);
-}
-
-void AnimationSchemesState::showDetails()
-{
-	AnimationSchemesState::setupBrightness(this, this->showDetails);
-	AnimationSchemesState::printHeader(this);
-}
-
-void AnimationSchemesState::printHeader()
-{
-	Base::printHeader(this);
-
-	if(!isDeleted(this->animatedSprites))
-	{
-		int16 y = 3;
-		Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-		Printing::text(Printing::getInstance(), "Animation scheme: ", 1, y, NULL);
-
-		switch(this->animationScheme)
-		{
-			case kAnimationsNotSharedTexture:
-
-				Printing::text(Printing::getInstance(), "Not shared   ", 19, y, NULL);
-
-				if(this->showDetails)
-				{
-					Printing::text(Printing::getInstance(), "Char memory:", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "Each sprite has its own set of tiles", 1, y + 2, NULL);
-				}
-				else
-				{
-					Printing::text(Printing::getInstance(), "Bgmap memory: ", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "Each sprite has its own texture", 1, y + 2, NULL);
-				}
-				break;
-
-			case kAnimationsSharedTexture:
-
-				Printing::text(Printing::getInstance(), "Shared   ", 19, y, NULL);
-
-				if(this->showDetails)
-				{
-					Printing::text(Printing::getInstance(), "Char memory:", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "All sprites share the same tiles set", 1, y + 2, NULL);
-				}
-				else
-				{
-					Printing::text(Printing::getInstance(), "Bgmap memory: ", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "All sprites share the same texture", 1, y + 2, NULL);
-				}
-				break;
-
-			case kAnimationsMultiframeTexture:
-
-				Printing::text(Printing::getInstance(), "Multiframe   ", 19, y, NULL);
-
-				if(this->showDetails)
-				{
-					Printing::text(Printing::getInstance(), "Char memory:", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "All sprites share the same tiles set", 1, y + 2, NULL);
-				}
-				else
-				{
-					Printing::text(Printing::getInstance(), "Bgmap memory: ", 1, 16, NULL);
-					Printing::text(Printing::getInstance(), "Each sprite shows a frame from the same texture", 1, y + 2, NULL);
-				}
-				break;
-		}
-	}
-}
-
 void AnimationSchemesState::createSprites()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	AnimationSchemesState::restoreMethods();
-
-	AnimationSchemesState::destroySprites(this);
 
 	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
 	extern SpriteSpec PunkSpriteNotShared;
@@ -256,7 +173,7 @@ void AnimationSchemesState::createSprites()
 
 			extern AnimationFunctionROMSpec* PunkAnimations[];
 			
-			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + 64 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
+			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
 			Sprite::setPosition(animatedSprite, &spritePosition);
 			
 			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
@@ -265,8 +182,6 @@ void AnimationSchemesState::createSprites()
 			Sprite::setActualFrame(animatedSprite, i * 12 / 3);
 		}
 	}
-
-	AnimationSchemesState::printHeader(this);
 }
 
 void AnimationSchemesState::destroySprites()
@@ -290,6 +205,151 @@ void AnimationSchemesState::destroySprites()
 	// Clean manually graphics memory (the engine takes care of this when swapping states)
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
+}
+
+void AnimationSchemesState::showStuff()
+{
+	this->rotation = (Rotation){0, 0, 0};
+
+	AnimationSchemesState::destroySprites(this);
+	AnimationSchemesState::createSprites(this);
+}
+
+void AnimationSchemesState::showAdditionalDetails()
+{
+	AnimationSchemesState::showAnimationDetails(this);
+}
+
+void AnimationSchemesState::showAnimationDetails()
+{
+	if(!isDeleted(this->animatedSprites))
+	{
+		int16 y = 3;
+
+		switch(this->animationScheme)
+		{
+			case kAnimationsNotSharedTexture:
+
+				Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
+				Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+				break;
+
+			case kAnimationsSharedTexture:
+
+				Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+				break;
+
+			case kAnimationsMultiframeTexture:
+
+				Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
+				Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+				break;
+		}
+
+		switch(this->animationScheme)
+		{
+			case kAnimationsNotSharedTexture:
+
+				y = 7;
+				Printing::text(Printing::getInstance(), " Each sprite has its ", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " own set of tiles and", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " its own texture", 1, ++y, NULL);
+				y++;
+				Printing::text(Printing::getInstance(), " Each one has to be", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " animated individually", 1, ++y, NULL);
+				break;
+
+			case kAnimationsSharedTexture:
+	
+				y = 7;
+				Printing::text(Printing::getInstance(), " All sprites share ", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " the same tiles set", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " and the same texture", 1, ++y, NULL);
+				y++;
+				Printing::text(Printing::getInstance(), " Animations only need", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " to run in one of the", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " sprites", 1, ++y, NULL);
+
+				break;
+
+			case kAnimationsMultiframeTexture:
+
+				y = 2;
+				Printing::text(Printing::getInstance(), " The sprites share the", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " graphis but each can", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " show a different frame", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), " from the same texture", 1, ++y, NULL);
+				break;
+		}
+
+		y++;
+
+		if(kAnimationsMultiframeTexture == this->animationScheme)
+		{
+			y++;
+		}
+		else
+		{
+			y = 17;
+		}
+
+		Printing::text(Printing::getInstance(), "CHAR memory: ", 1, ++y, NULL);
+
+		Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
+	}
+}
+
+void AnimationSchemesState::showExplanation()
+{
+	int16 y = 3;
+	Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Animations", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Other concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Lists", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Classes: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  *AnimatedSprite", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  VirtualList", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  VirtualNode", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  AnimationSchemesState", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    execute*", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    createSprites", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    destroySprites", 1, y++, NULL);
+	y++;
+
+	if(kAnimationsMultiframeTexture != this->animationScheme)
+	{
+		Printing::text(Printing::getInstance(), "Specs: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  PunkSprite*", 1, y++, NULL);
+	}
+
+	y = 3;
+	
+	switch(this->animationScheme)
+	{
+		case kAnimationsNotSharedTexture:
+
+			Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			break;
+
+		case kAnimationsSharedTexture:
+
+			Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+			break;
+
+		case kAnimationsMultiframeTexture:
+
+			Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			break;
+	}
+
+
+	Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
 }
 
 /*
@@ -316,14 +376,11 @@ void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* own
 		}
 	}
 
-	if(this->showDetails)
+	if(this->showAdditionalDetails)
 	{
 		AnimationSchemesState::showCharMemoryForNotSharedTextures(this);
 	}
-	else
-	{
-		AnimationSchemesState::showBgmapMemory(this);
-	}
+	AnimationSchemesState::showBgmapMemory(this);
 }
 
 void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner __attribute__((unused)))
@@ -341,14 +398,11 @@ void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner 
 		Sprite::updateAnimation(animatedSprite);
 	}
 
-	if(this->showDetails)
+	if(this->showAdditionalDetails)
 	{
 		AnimationSchemesState::showCharMemoryForSharedTextures(this);
 	}
-	else
-	{
-		AnimationSchemesState::showBgmapMemory(this);
-	}
+	AnimationSchemesState::showBgmapMemory(this);
 }
 
 void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* owner __attribute__((unused)))
@@ -369,22 +423,20 @@ void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* ow
 		}
 	}
 
-	if(this->showDetails)
+	if(this->showAdditionalDetails)
 	{
 		AnimationSchemesState::showCharMemoryForMultiframeTextures(this);
 	}
-	else
-	{
-		AnimationSchemesState::showBgmapMemory(this);
-	}
+
+	AnimationSchemesState::showBgmapMemory(this);
 }
 
 void AnimationSchemesState::showBgmapMemory()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
-	int32 topBorder = 19;
+	int32 topBorder = 20;
 	int32 bottomBorder = 0;
-	int32 leftBorder = 1;
+	int32 leftBorder = kAnimationsMultiframeTexture != this->animationScheme ? 28 : 1;
 	int32 rightBorder = 0;
 	int32 mxDisplacement = 0;
 	int32 myDisplacement = 0;
@@ -408,7 +460,7 @@ void AnimationSchemesState::showBgmapMemory()
 void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
-	int32 topBorder = 18;
+	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
 	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
@@ -460,7 +512,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 void AnimationSchemesState::showCharMemoryForSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
-	int32 topBorder = 18;
+	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
 	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
@@ -477,14 +529,23 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 	Texture texture = NULL;
 	CharSet charSet = NULL;
 	
-	if(!isDeleted(animatedSprite))
+	if(isDeleted(animatedSprite))
 	{
-		texture = Sprite::getTexture(animatedSprite);
+		return;
 	}
 
-	if(!isDeleted(texture))
+	texture = Sprite::getTexture(animatedSprite);
+
+	if(isDeleted(texture))
 	{
-		charSet = Texture::getCharSet(texture, false);
+		return;
+	}
+
+	charSet = Texture::getCharSet(texture, false);
+
+	if(isDeleted(charSet))
+	{
+		return;
 	}
 
 	uint32 xOffset = leftBorder;
@@ -501,8 +562,8 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
-	int32 topBorder = 18;
-	int32 leftBorder = 0;
+	int32 topBorder = 11;
+	int32 leftBorder = 1;
 
 	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
 
@@ -518,14 +579,23 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 	Texture texture = NULL;
 	CharSet charSet = NULL;
 	
-	if(!isDeleted(animatedSprite))
+	if(isDeleted(animatedSprite))
 	{
-		texture = Sprite::getTexture(animatedSprite);
+		return;
 	}
 
-	if(!isDeleted(texture))
+	texture = Sprite::getTexture(animatedSprite);
+
+	if(isDeleted(texture))
 	{
-		charSet = Texture::getCharSet(texture, false);
+		return;
+	}
+
+	charSet = Texture::getCharSet(texture, false);
+
+	if(isDeleted(charSet))
+	{
+		return;
 	}
 
 	int16 charsPerFrame = CharSet::getNumberOfChars(charSet) / Texture::getNumberOfFrames(texture);
@@ -533,18 +603,11 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 	int16 yOffset = topBorder;
 
 	// put the map into memory calculating the number of char for each reference
-	for(uint16 frame = 0; frame <= Texture::getNumberOfFrames(texture); frame++, yOffset += 2)
+	for(uint16 frame = 0; frame <= Texture::getNumberOfFrames(texture); frame++, yOffset += 1)
 	{
-		if(__SCREEN_HEIGHT_IN_CHARS <= yOffset)
+		if(18 <= yOffset)
 		{
-			xOffset += charsPerFrame;
-
-			if(__SCREEN_WIDTH_IN_CHARS <= xOffset)
-			{
-				break;
-			}
-
-			yOffset = topBorder;
+			break;
 		}
 
 		Mem::addHWORD

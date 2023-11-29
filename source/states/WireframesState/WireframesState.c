@@ -54,7 +54,7 @@ void WireframesState::destructor()
 
 void WireframesState::execute(void* owner __attribute__((unused)))
 {
-	if(this->showDetails)
+	if(this->showAdditionalDetails)
 	{
 		WireframeManager::print(WireframeManager::getInstance(), 1, 20);
 		DirectDraw::print(DirectDraw::getInstance(), 27, 20);
@@ -128,9 +128,9 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	return Base::processUserInput(this, userInput);
 }
 
-void WireframesState::showDetails()
+void WireframesState::showAdditionalDetails()
 {
 	Printing::clear(Printing::getInstance());
 
-	WireframesState::printHeader(this);
+	WireframesState::showHeader(this);
 }

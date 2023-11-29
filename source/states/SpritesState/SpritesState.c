@@ -74,7 +74,10 @@ void SpritesState::destructor()
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
 	// Don't print stuff every game cycle, it is a heavy process. This is just an example!
-	SpritesState::printSpriteDetails(this);
+	if(this->showAdditionalDetails)
+	{
+		SpritesState::showAdditionalDetails(this);
+	}
 }
 
 void SpritesState::processUserInput(const UserInput* userInput)
@@ -89,8 +92,7 @@ void SpritesState::processUserInput(const UserInput* userInput)
 				this->spriteType = kSpriteNoTypeEnd - 1;
 			}
 
-			SpritesState::printHeader(this);
-			SpritesState::showStuff(this);
+			SpritesState::show(this, true);
 			
 			return;
 		}
@@ -101,8 +103,7 @@ void SpritesState::processUserInput(const UserInput* userInput)
 				this->spriteType = kSpriteNoTypeStart + 1;
 			}
 
-			SpritesState::printHeader(this);
-			SpritesState::showStuff(this);
+			SpritesState::show(this, true);
 
 			return;
 		}
@@ -113,54 +114,69 @@ void SpritesState::processUserInput(const UserInput* userInput)
 
 void SpritesState::showStuff()
 {
-	this->showDetails = false;
-	SpritesState::setupBrightness(this, this->showDetails);
+	SpritesState::destroySprite(this);
 	SpritesState::createSprite(this);
 }
 
-void SpritesState::showDetails()
+void SpritesState::showExplanation()
 {
-	SpritesState::setupBrightness(this, this->showDetails);
-	SpritesState::printHeader(this);
-}
-
-void SpritesState::printHeader()
-{
-	Base::printHeader(this);
-
 	if(!isDeleted(this->sprite))
 	{
-		if(!this->showDetails)
+		int16 y = 3;
+		Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Game states", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Sprites", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Specs", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  User input", 1, y++, NULL);
+		y++;
+		Printing::text(Printing::getInstance(), "Other concepts: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Class extensions", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Class mutation", 1, y++, NULL);
+		y++;
+		Printing::text(Printing::getInstance(), "Classes: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  CharSet", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  *Sprite      ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  Texture", 1, y++, NULL);
+		y++;
+		Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  SpritesState", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "    createSprite", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "    destroySprite", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "    processUserInput", 1, y++, NULL);
+		y++;
+		Printing::text(Printing::getInstance(), "Specs: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  CogWheel*Sprite*", 1, y++, NULL);
+
+		y = 3;
+		Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 28, y++, NULL);
+
+		if(Sprite::isObject(this->sprite))
 		{
-			int16 y = 3;
-			Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-			Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 1, y, NULL);
-			Printing::text(Printing::getInstance(), "                 ", 9, ++y, NULL);
-
-			if(!Sprite::isObject(this->sprite))
-			{
-				Printing::text(Printing::getInstance(), "Mode: ", 1, y, NULL);
-
-				if(Sprite::isAffine(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "Affine   ", 7, y, NULL);
-				}
-				else if(Sprite::isHBias(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "HBias   ", 7, y, NULL);
-				}
-				else if(Sprite::isBgmap(this->sprite))
-				{
-					Printing::text(Printing::getInstance(), "Bgmap    ", 7, y, NULL);
-				}
-			}
+			Printing::text(Printing::getInstance(), "Mode: N/A", 28, y, NULL);
+		}
+		else if(Sprite::isAffine(this->sprite))
+		{
+			Printing::text(Printing::getInstance(), "Mode: Affine", 28, y, NULL);
+		}
+		else if(Sprite::isHBias(this->sprite))
+		{
+			Printing::text(Printing::getInstance(), "Mode: HBias", 28, y, NULL);
+		}
+		else if(Sprite::isBgmap(this->sprite))
+		{
+			Printing::text(Printing::getInstance(), "Mode: Bgmap", 28, y, NULL);
 		}
 	}	
 }
 
-void SpritesState::printSpriteDetails()
+void SpritesState::showAdditionalDetails()
 {
-	if(this->showDetails && !isDeleted(this->sprite))
+	SpritesState::showSpriteDetails(this);
+}
+
+void SpritesState::showSpriteDetails()
+{
+	if(!isDeleted(this->sprite))
 	{
 		Sprite::print(this->sprite, 1, 3);
 	}
@@ -170,8 +186,6 @@ void SpritesState::createSprite()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	SpritesState::restoreMethods();
-
-	SpritesState::destroySprite(this);
 
 	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
 	extern SpriteSpec CogWheelObjectSprite;
@@ -219,14 +233,14 @@ void SpritesState::createSprite()
 
 	if(!isDeleted(this->sprite))
 	{
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, __SCREEN_HEIGHT / 2, 1, 2};
+		PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
 		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
 		Sprite::resize(this->sprite, scale, __PIXELS_TO_METERS(0));
 	}
 
-	SpritesState::printHeader(this);
+	SpritesState::showHeader(this);
 }
 
 void SpritesState::destroySprite()
@@ -251,20 +265,23 @@ void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((u
 {
 	if(!isDeleted(this->sprite))
 	{
-		static int16 yPosition = __SCREEN_HEIGHT / 2;
+		static int16 yPosition = __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4;
 		static int16 delta = 1;
 
 		yPosition += delta;
 
-		if(__SCREEN_HEIGHT <= (unsigned)yPosition)
+		if(__HALF_SCREEN_HEIGHT / 2 >= yPosition || __SCREEN_HEIGHT <= yPosition)
 		{
 			delta = -delta;
 		}
 
-		PixelVector spritePosition = {__SCREEN_WIDTH / 2, yPosition, 1, 2};
+		PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4, yPosition, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
-		SpritesState::printSpriteDetails(this);
+		if(this->showAdditionalDetails)
+		{
+			SpritesState::showAdditionalDetails(this);
+		}
 	}
 }
 
@@ -277,15 +294,18 @@ void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__(
 
 		xPosition += delta;
 
-		if(__SCREEN_WIDTH <= (unsigned)xPosition)
+		if(__HALF_SCREEN_WIDTH >= xPosition || __SCREEN_WIDTH <= xPosition)
 		{
 			delta = -delta;
 		}
 
-		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2, 1, 2};
+		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
-		SpritesState::printSpriteDetails(this);
+		if(this->showAdditionalDetails)
+		{
+			SpritesState::showAdditionalDetails(this);
+		}
 	}
 }
 
@@ -298,12 +318,12 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 		xPosition += delta;
 
-		if(__SCREEN_WIDTH <= (unsigned)xPosition)
+		if(__HALF_SCREEN_WIDTH >= xPosition || __SCREEN_WIDTH <= xPosition)
 		{
 			delta = -delta;
 		}
 
-		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2, 1, 2};
+		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
 		static fixed_t zAngle = 0;
@@ -312,7 +332,10 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		Rotation rotation = {0, 0, zAngle};
 		Sprite::rotate(this->sprite, &rotation);
 
-		SpritesState::printSpriteDetails(this);
+		if(this->showAdditionalDetails)
+		{
+			SpritesState::showAdditionalDetails(this);
+		}
 	}
 }
 
@@ -329,7 +352,10 @@ void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unuse
 		PixelVector spritePosition = {xPosition, yPosition, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
-		SpritesState::printSpriteDetails(this);
+		if(this->showAdditionalDetails)
+		{
+			SpritesState::showAdditionalDetails(this);
+		}
 	}
 }
 

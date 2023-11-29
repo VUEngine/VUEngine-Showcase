@@ -112,7 +112,7 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 		AnimatedEntity::setLocalRotation(this->leaderPunk, &localRotation);
 
 		// Let just print some useful info
-		EntitiesState::showDetails(this);
+		EntitiesState::showAdditionalDetails(this);
 	}
 }
 
@@ -179,12 +179,12 @@ void EntitiesState::showStuff()
 	 */
 	this->leaderPunk = AnimatedEntity::safeCast(Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
 	
-	EntitiesState::printHeader(this);
+	EntitiesState::showHeader(this);
 }
 
-void EntitiesState::printHeader()
+void EntitiesState::showHeader()
 {
-	Base::printHeader(this);
+	Base::showHeader(this);
 
 	if(!isDeleted(this->leaderPunk))
 	{
@@ -197,7 +197,7 @@ void EntitiesState::printHeader()
 	}
 }
 
-void EntitiesState::showDetails()
+void EntitiesState::showAdditionalDetails()
 {
 	Printing::text(Printing::getInstance(), "Children:   ", 1, 5, NULL);
 	Printing::int32(Printing::getInstance(), AnimatedEntity::getChildCount(this->leaderPunk), 11, 5, NULL);

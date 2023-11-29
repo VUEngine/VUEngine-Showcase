@@ -84,7 +84,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 			}
 
 			VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-			PostProcessingEffectsState::printHeader(this);
+			PostProcessingEffectsState::showHeader(this);
 			PostProcessingEffectsState::printMessage(this);
 		}
 		else if(K_LR & userInput->releasedKey)
@@ -97,7 +97,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 			}
 
 			VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-			PostProcessingEffectsState::printHeader(this);
+			PostProcessingEffectsState::showHeader(this);
 			PostProcessingEffectsState::printMessage(this);
 		}
 	}
@@ -114,9 +114,9 @@ void PostProcessingEffectsState::showStuff()
 	
 }
 
-void PostProcessingEffectsState::printHeader()
+void PostProcessingEffectsState::showHeader()
 {
-	Base::printHeader(this);
+	Base::showHeader(this);
 
 	int16 y = 3;
 
@@ -138,11 +138,11 @@ void PostProcessingEffectsState::printHeader()
 	}
 }
 
-void PostProcessingEffectsState::showDetails()
+void PostProcessingEffectsState::showAdditionalDetails()
 {
-	PostProcessingEffectsState::printHeader(this);
+	PostProcessingEffectsState::showHeader(this);
 
-	if(this->showDetails)
+	if(this->showAdditionalDetails)
 	{
 		VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 
@@ -155,7 +155,7 @@ void PostProcessingEffectsState::showDetails()
 		PostProcessingEffectsState::showStuff(this);
 	}	
 
-	PostProcessingEffectsState::setupBrightness(this, this->showDetails);
+	PostProcessingEffectsState::setupBrightness(this, this->showAdditionalDetails);
 }
 
 void PostProcessingEffectsState::printMessage()
