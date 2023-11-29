@@ -154,7 +154,7 @@ void AnimationSchemesState::printHeader()
 	{
 		int16 y = 3;
 		Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-		Printing::text(Printing::getInstance(), "Animation schene: ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "Animation scheme: ", 1, y, NULL);
 
 		switch(this->animationScheme)
 		{

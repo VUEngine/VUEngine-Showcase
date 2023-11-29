@@ -218,7 +218,7 @@ static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 	}
 
 	Vector3D position = *AnimatedEntity::getPosition(punk);
-	char* punkName = AnimatedEntity::getName(punk);
+	const char* punkName = AnimatedEntity::getName(punk);
 	int16 col = __METERS_TO_PIXELS(position.x) / 10 + __HALF_SCREEN_WIDTH_IN_CHARS - strlen(punkName) / 2;
 
 	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
