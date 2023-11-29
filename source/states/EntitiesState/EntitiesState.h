@@ -24,6 +24,8 @@
 
 dynamic_singleton class EntitiesState : ShowcaseState
 {
+	AnimatedEntity leaderPunk;
+	
 	static EntitiesState getInstance();
 
 	void constructor();
@@ -31,8 +33,9 @@ dynamic_singleton class EntitiesState : ShowcaseState
 	override void enter(void* owner);
 	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
-	override void showDetails();
+	override void printHeader();
 	override void showStuff();
+	override void showDetails();
 }
 
 
