@@ -70,10 +70,11 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 		/*
 		 * Since the other punks are added as children to the leader punk, 
 		 * moving and rotating it will propagate to its children, so we don't
-		 * need to move nor rotate the children. Notice their relative positions
-		 * when changing direction:
-		 * If moving right the order is: Larry, Moe, Curly, then if Moe rotates
-		 * half way around the Y axies, then the order becomes: Curly, Moe, Larry.
+		 * need to move nor rotate the children. 
+		 * Notice their relative positions when changing direction:
+		 * If moving right the order is Larry, Moe, Curly, then if Moe rotates
+		 * half way around the Y axis (512 = 360 degrees), then the order becomes 
+		 * Curly, Moe, Larry. Another way: Curly is always in front of the others.
 		 */
 		Vector3D localPosition = *AnimatedEntity::getLocalPosition(this->leaderPunk);
 		Rotation localRotation = *AnimatedEntity::getLocalRotation(this->leaderPunk);
