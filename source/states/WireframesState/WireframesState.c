@@ -121,11 +121,11 @@ void WireframesState::processUserInput(const UserInput* userInput)
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "Main concepts: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "CONCEPTS ", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Camera control", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Wireframes", 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Classes: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "CLASSES: ", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Camera", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  DirectDraw", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Mesh", 2, y++, NULL);
@@ -133,14 +133,14 @@ void WireframesState::showExplanation()
 	Printing::text(Printing::getInstance(), "  WireframeManager", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "Other concepts: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "OTHER CONCEPTS: ", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Stage specs", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Methods: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "METHODS: ", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  WireframesState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "    processUserInput", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Specs: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "SPECS: ", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Pyramid", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "  WireframesStage", 26, y++, NULL);
 }
@@ -149,7 +149,7 @@ void WireframesState::showAdditionalDetails()
 {
 	WireframeManager::print(WireframeManager::getInstance(), 1, 3);
 	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
-	Printing::text(Printing::getInstance(), "CAMERA ", 31, 3, NULL);
+	Printing::text(Printing::getInstance(), "CAMERA ", 31, 3, "Debug");
 	Printing::text(Printing::getInstance(), "Position: ", 32, 5, NULL);
 	Vector3D::print(Camera::getPosition(Camera::getInstance()), 32, 6);
 	Printing::text(Printing::getInstance(), "Rotation: ", 32, 10, NULL);

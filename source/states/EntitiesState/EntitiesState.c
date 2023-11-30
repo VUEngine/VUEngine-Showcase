@@ -106,26 +106,26 @@ void EntitiesState::showStuff()
 void EntitiesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "Main concepts: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "CONCEPTS ", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Entities", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Parenting", 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Classes: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "CLASSES: ", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  AnimatedEntity", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Entity", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Stage", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "Specs: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "SPECS: ", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Punk", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "Other concepts: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "OTHER CONCEPTS: ", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Entity creation", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Entity destruction", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Stages", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Methods: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "METHODS: ", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  EntitiesState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "    createLeaderPunk", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "    movePunks", 26, y++, NULL);

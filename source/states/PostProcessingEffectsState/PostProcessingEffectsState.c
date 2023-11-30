@@ -120,21 +120,21 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "CONCEPTS ", 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  Frame buffers", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Post processing effects", 1, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "METHODS: ", 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  PostProcessingEffectsState", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), "    processUserInput", 1, y++, NULL);
 	
 	y = 3;
-	Printing::text(Printing::getInstance(), "Classes: ", 32, y++, NULL);
+	Printing::text(Printing::getInstance(), "CLASSES: ", 32, y++, "Debug");
 	Printing::text(Printing::getInstance(), "  I18n", 32, y++, NULL);
 	Printing::text(Printing::getInstance(), "  VIPManager", 32, y++, NULL);
 	y++;
 
-	Printing::text(Printing::getInstance(), "Effect: ", 32, y++, NULL);
+	Printing::text(Printing::getInstance(), "EFFECT: ", 32, y++, "Debug");
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{

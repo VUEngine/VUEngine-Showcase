@@ -123,28 +123,28 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "CONCEPTS: ", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  Game states", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Sprites", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Specs", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  User input", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "Other concepts: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "OTHER CONCEPTS: ", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  Class extensions", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Class mutation", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "Classes: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "CLASSES: ", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  CharSet", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  *Sprite      ", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Texture", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "METHODS: ", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  SpritesState", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "    createSprite", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "    destroySprite", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "    processUserInput", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "Specs: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "SPECS: ", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  CogWheel*Sprite*", 1, y++, NULL);
 
 		y = 3;
