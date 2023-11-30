@@ -123,7 +123,7 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), "CONCEPTS: ", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "  Game states", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Sprites", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "  Specs", 1, y++, NULL);

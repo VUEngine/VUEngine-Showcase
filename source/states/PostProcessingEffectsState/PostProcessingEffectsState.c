@@ -134,7 +134,7 @@ void PostProcessingEffectsState::showExplanation()
 	Printing::text(Printing::getInstance(), "  VIPManager", 32, y++, NULL);
 	y++;
 
-	Printing::text(Printing::getInstance(), "EFFECT: ", 32, y++, "Debug");
+	Printing::text(Printing::getInstance(), "EFFECT", 32, y++, "Debug");
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
