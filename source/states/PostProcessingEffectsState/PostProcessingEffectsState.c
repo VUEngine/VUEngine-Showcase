@@ -14,8 +14,6 @@
 
 #include <PostProcessingEffectsState.h>
 
-#include <I18n.h>
-#include <Languages.h>
 #include <PostProcessingDwarfPlanet.h>
 #include <PostProcessingRain.h>
 #include <PostProcessingTilt.h>
@@ -113,8 +111,6 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 void PostProcessingEffectsState::showStuff()
 {
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-
-	PostProcessingEffectsState::printMessage(this);
 }
 
 void PostProcessingEffectsState::showExplanation()
@@ -130,7 +126,6 @@ void PostProcessingEffectsState::showExplanation()
 	
 	y = 3;
 	Printing::text(Printing::getInstance(), "CLASSES", 32, y++, "Debug");
-	Printing::text(Printing::getInstance(), "I18n", 32, y++, NULL);
 	Printing::text(Printing::getInstance(), "VIPManager", 32, y++, NULL);
 	y++;
 
@@ -152,19 +147,4 @@ void PostProcessingEffectsState::showExplanation()
 	{
 		Printing::text(Printing::getInstance(), "Rain         ", 32, y, NULL);
 	}
-}
-
-void PostProcessingEffectsState::printMessage()
-{
-	const char* strPostProcessingEffects = I18n::getText(I18n::getInstance(), kStringPostProcessingEffects);
-
-	FontSize textSize = Printing::getTextSize(Printing::getInstance(), strPostProcessingEffects, "VirtualBoyExt");
-
-	Printing::text(
-		Printing::getInstance(),
-		strPostProcessingEffects,
-		(__SCREEN_WIDTH >> 4) - (textSize.x >> 1),
-		14,
-		"VirtualBoyExt"
-	);
 }

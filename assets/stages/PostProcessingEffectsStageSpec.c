@@ -22,6 +22,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+extern EntitySpec PdScreenshotEntity;
 extern EntitySpec LowPowerIndicatorEntity;
 
 
@@ -36,7 +37,8 @@ PositionedEntityROMSpec PostProcessingEffectsStageEntities[] =
 
 PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 {
-	{&LowPowerIndicatorEntity, {16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&PdScreenshotEntity, 		{0, 36, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntity, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -48,7 +50,6 @@ PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 FontROMSpec* const PostProcessingEffectsStageFonts[] =
 {
 	&DefaultFont,
-	&VirtualBoyExtFont,
 
 	NULL
 };

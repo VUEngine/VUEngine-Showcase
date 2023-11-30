@@ -25,8 +25,6 @@ extern FontSpec AstonishFont;
 extern FontSpec AstonishExtFont;
 extern FontSpec AstonishSFont;
 extern FontSpec AstonishSExtFont;
-extern FontSpec VirtualBoyFont;
-extern FontSpec VirtualBoyExtFont;
 
 
 #endif

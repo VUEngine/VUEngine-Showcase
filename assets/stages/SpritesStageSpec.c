@@ -48,7 +48,6 @@ PositionedEntityROMSpec SpritesStageUiEntities[] =
 FontROMSpec* const SpritesStageFonts[] =
 {
 	&DefaultFont,
-	&VirtualBoyExtFont,
 
 	NULL
 };

@@ -363,7 +363,7 @@ void AnimationSchemesState::destroySprites()
 void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* owner __attribute__((unused)))
 {
 	/* When Sprites use non shared Textures they all have to be
-	 * update their graphics when animated. Each will reserver its
+	 * update their graphics when animated. Each will reserve its
 	 * own chunk of graphics memory and updating all of them
 	 * will be heavier.	 
 	 */
