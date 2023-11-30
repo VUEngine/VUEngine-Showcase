@@ -14,8 +14,6 @@
 
 #include <PostProcessingEffectsState.h>
 
-#include <Camera.h>
-#include <CameraEffectManager.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <PostProcessingDwarfPlanet.h>
@@ -69,6 +67,13 @@ void PostProcessingEffectsState::destructor()
 	Base::destructor();
 }
 
+void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
+{
+	VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+	
+	Base::exit(this, owner);	
+}
+
 void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 {
 	// Check for UserInput and key definitions in KeypadManager.h
@@ -83,9 +88,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 				this->selectedPostProcessingEffect = sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1;
 			}
 
-			VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-			PostProcessingEffectsState::showHeader(this);
-			PostProcessingEffectsState::printMessage(this);
+			PostProcessingEffectsState::show(this, true);
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
@@ -96,9 +99,11 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 				this->selectedPostProcessingEffect = 0;
 			}
 
-			VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-			PostProcessingEffectsState::showHeader(this);
-			PostProcessingEffectsState::printMessage(this);
+			PostProcessingEffectsState::show(this, true);
+		}
+		else if(K_SEL & userInput->releasedKey)
+		{
+			return;
 		}
 	}
 
@@ -107,55 +112,46 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 void PostProcessingEffectsState::showStuff()
 {
-	PostProcessingEffectsState::printMessage(this);
-
-	// add wobble effect
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-	
+
+	PostProcessingEffectsState::printMessage(this);
 }
 
-void PostProcessingEffectsState::showHeader()
+void PostProcessingEffectsState::showExplanation()
 {
-	Base::showHeader(this);
-
 	int16 y = 3;
+	Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Frame buffers", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Post processing effects", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  PostProcessingEffectsState", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    processUserInput", 1, y++, NULL);
+	
+	y = 3;
+	Printing::text(Printing::getInstance(), "Classes: ", 32, y++, NULL);
+	Printing::text(Printing::getInstance(), "  I18n", 32, y++, NULL);
+	Printing::text(Printing::getInstance(), "  VIPManager", 32, y++, NULL);
+	y++;
+
+	Printing::text(Printing::getInstance(), "Effect: ", 32, y++, NULL);
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Effect: Wobble      ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "  Wobble      ", 32, y, NULL);
 	}
 	else if(PostProcessingTilt::tiltScreen == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Effect: Tilt        ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "  Tilt        ", 32, y, NULL);
 	}
 	else if(PostProcessingDwarfPlanet::dwarfPlanet == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Effect: Dwarf planet ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "  Dwarf planet ", 32, y, NULL);
 	}
 	else if(PostProcessingRain::waterFall == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Effect: Rain         ", 1, y, NULL);
+		Printing::text(Printing::getInstance(), "  Rain         ", 32, y, NULL);
 	}
-}
-
-void PostProcessingEffectsState::showAdditionalDetails()
-{
-	PostProcessingEffectsState::showHeader(this);
-
-	if(this->showAdditionalDetails)
-	{
-		VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-
-		Printing::printSprite(Printing::getInstance(), 1, 3);
-	}
-	else
-	{
-		PostProcessingEffectsState::printMessage(this);
-
-		PostProcessingEffectsState::showStuff(this);
-	}	
-
-	PostProcessingEffectsState::setupBrightness(this, this->showAdditionalDetails);
 }
 
 void PostProcessingEffectsState::printMessage()
@@ -168,7 +164,7 @@ void PostProcessingEffectsState::printMessage()
 		Printing::getInstance(),
 		strPostProcessingEffects,
 		(__SCREEN_WIDTH >> 4) - (textSize.x >> 1),
-		12,
+		14,
 		"VirtualBoyExt"
 	);
 }

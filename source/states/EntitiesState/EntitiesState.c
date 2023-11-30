@@ -121,6 +121,8 @@ void EntitiesState::showExplanation()
 
 	y = 3;
 	Printing::text(Printing::getInstance(), "Other concepts: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Entity creation", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Entity destruction", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "  Stages", 26, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), "Methods: ", 26, y++, NULL);
