@@ -23,7 +23,6 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec PyramidEntity;
 extern Sound StrangerThingsMainTheme_RSound;
 extern Sound StrangerThingsMainTheme_LSound;
 
@@ -34,11 +33,6 @@ extern Sound StrangerThingsMainTheme_LSound;
 
 PositionedEntityROMSpec PCMPlaybackStageEntities[] =
 {
-	{&PyramidEntity, {0, 0, 500,0}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntity, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntity, {1000, 0, 550,0}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntity, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, false},
-
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

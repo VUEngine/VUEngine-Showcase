@@ -132,7 +132,7 @@ ShapeROMSpec PyramidEntityShapes[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec PyramidEntity =
+EntityROMSpec Pyramid =
 {
 	// class allocator
 	__TYPE(Entity),

@@ -23,7 +23,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec PyramidEntity;
+extern EntitySpec Pyramid;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -32,10 +32,10 @@ extern EntitySpec PyramidEntity;
 
 PositionedEntityROMSpec WireframesStageEntities[] =
 {
-	{&PyramidEntity, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntity, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
+	{&Pyramid, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
+	{&Pyramid, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
+	{&Pyramid, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
+	{&Pyramid, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
