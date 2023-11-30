@@ -15,10 +15,8 @@
 #include <EntitiesState.h>
 
 #include <AnimatedEntity.h>
-#include <Camera.h>
-#include <CameraEffectManager.h>
-#include <DirectDraw.h>
 #include <Printing.h>
+#include <VirtualList.h>
 
 #include <debugConfig.h>
 #include <string.h>
@@ -28,7 +26,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 /*
- * Check assets/stage/EntitiesStageSpec.c
+ * Check assets/stage/EntitiesStageSpec.c"
  */
 extern StageROMSpec EntitiesStage;
 
@@ -65,6 +63,238 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
 
+	EntitiesState::movePunks(this);
+
+	Printing::text(Printing::getInstance(), "                                                ", 0, 25, NULL);
+	EntitiesState::printPunkName(this->leaderPunk, 25);
+	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 25);
+	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 25);
+
+	if(this->showAdditionalDetails)
+	{
+		EntitiesState::showAdditionalDetails(this);
+	}
+}
+
+void EntitiesState::processUserInput(const UserInput* userInput)
+{
+	if(!isDeleted(this->leaderPunk))
+	{
+		/*
+		* Let add some children to the leader punk taking into account
+		* whether it is moving to the left or to the right just to 
+		* make the input more intuitive		
+		*/
+		if(K_LL & userInput->releasedKey)
+		{
+			EntitiesState::createSlavePunk(this, K_LL);
+		}
+		else if(K_LR & userInput->releasedKey)
+		{
+			EntitiesState::createSlavePunk(this, K_LR);
+		}
+	}
+	
+	return Base::processUserInput(this, userInput);
+}
+
+void EntitiesState::showStuff()
+{
+	EntitiesState::createLeaderPunk(this);
+}
+
+void EntitiesState::showExplanation()
+{
+	int16 y = 3;
+	Printing::text(Printing::getInstance(), "Main concepts: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Entities", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Parenting", 2, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Classes: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  AnimatedEntity", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Entity", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Stage", 2, y++, NULL);
+
+	y++;
+	Printing::text(Printing::getInstance(), "Specs: ", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Punk", 2, y++, NULL);
+
+	y = 3;
+	Printing::text(Printing::getInstance(), "Other concepts: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Stages", 26, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Methods: ", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "  EntitiesState", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "    createLeaderPunk", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "    movePunks", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "    createSlavePunk", 26, y++, NULL);
+	y++;
+}
+
+void EntitiesState::showAdditionalDetails()
+{
+	if(isDeleted(this->leaderPunk))
+	{
+		return;;
+	}
+
+	int16 y = 3;
+	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->leaderPunk), 1, y++, NULL);
+
+	Printing::text(Printing::getInstance(), "Internal ID:   ", 2, ++y, NULL);
+	Printing::int32(Printing::getInstance(), AnimatedEntity::getInternalId(this->leaderPunk), 15, y++, NULL);
+	Printing::text(Printing::getInstance(), "Name:          ", 2, ++y, NULL);
+	Printing::text(Printing::getInstance(), AnimatedEntity::getName(this->leaderPunk), 15, y++, NULL);
+	Printing::text(Printing::getInstance(), "Children:      ", 2, ++y, NULL);
+	Printing::int32(Printing::getInstance(), AnimatedEntity::getChildCount(this->leaderPunk), 15, y++, NULL);
+
+	if(NULL != AnimatedEntity::getSprites(this->leaderPunk))
+	{
+		Printing::text(Printing::getInstance(), "Sprites:       ", 2, ++y, NULL);
+		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
+	}
+	else
+	{
+		Printing::text(Printing::getInstance(), "Sprites:       0", 2, ++y, NULL);
+		y++;
+	}
+
+	if(NULL != AnimatedEntity::getWireframes(this->leaderPunk))
+	{
+		Printing::text(Printing::getInstance(), "Wireframes:  ", 2, ++y, NULL);
+		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
+	}
+	else
+	{
+		Printing::text(Printing::getInstance(), "Wireframes:  0", 2, ++y, NULL);
+		y++;
+	}
+
+	if(NULL != AnimatedEntity::getShapes(this->leaderPunk))
+	{
+		Printing::text(Printing::getInstance(), "Shapes:   ", 2, ++y, NULL);
+		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getShapes(this->leaderPunk)), 15, y++, NULL);
+	}
+	else
+	{
+		Printing::text(Printing::getInstance(), "Shapes:      0", 2, ++y, NULL);
+		y++;
+	}
+
+	y = 5;
+	Printing::text(Printing::getInstance(), "Position", 22, y, NULL);
+	Printing::text(Printing::getInstance(), "Rotation", 37, y++, NULL);
+	Vector3D::print(*AnimatedEntity::getPosition(this->leaderPunk), 22, ++y);
+	Rotation::print(*AnimatedEntity::getRotation(this->leaderPunk), 37, y);
+
+	y = 11;
+	Printing::text(Printing::getInstance(), "Scale", 30, y++, NULL);
+	Scale::print(*AnimatedEntity::getScale(this->leaderPunk), 30, ++y);
+}
+
+static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
+{
+	if(isDeleted(punk))
+	{
+		return;
+	}
+
+	Vector3D position = *AnimatedEntity::getPosition(punk);
+	const char* punkName = AnimatedEntity::getName(punk);
+	int16 col = __METERS_TO_PIXELS(position.x) / 10 + __HALF_SCREEN_WIDTH_IN_CHARS - strlen(punkName) / 2;
+
+	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
+	{
+		return;
+	}
+
+	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
+/*	
+	if(isDeleted(punk))
+	{
+		return;
+	}
+
+	Vector3D position = *AnimatedEntity::getPosition(punk);
+	const char* punkName = AnimatedEntity::getName(punk);
+	int16 col = __HALF_SCREEN_WIDTH_IN_CHARS + __METERS_TO_PIXELS(position.x) / 10 - strlen(punkName) - 2;
+	int16 row = __HALF_SCREEN_HEIGHT_IN_CHARS + __METERS_TO_PIXELS(position.y) / 10;
+
+	Printing::text(Printing::getInstance(), "                               ", 16, row, NULL);
+
+	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
+	{
+		return;
+	}
+
+	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
+	*/
+}
+
+void EntitiesState::createLeaderPunk()
+{
+	if(NULL != this->leaderPunk)
+	{
+		return;
+	}
+		
+	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
+	extern EntitySpec Punk;
+	PositionedEntity positionedEntity = {&Punk, {0, 64, 16, 0}, 0, "Moe", NULL, NULL, false};
+
+	/*
+	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
+	 * directly anymore. Now, the engine takes care of all that by reading the EntitySpec.
+	 */
+	this->leaderPunk = AnimatedEntity::safeCast(Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
+}
+
+void EntitiesState::createSlavePunk(uint16 input)
+{
+	if(isDeleted(this->leaderPunk))
+	{
+		return;
+	}
+
+	char* childPunkName = NULL;
+	Vector3D childPunkPosition = Vector3D::zero();
+	Rotation rotation = *AnimatedEntity::getRotation(this->leaderPunk);
+
+	bool movingRight = 0 == rotation.y;
+
+	if(K_LL == input)
+	{
+		childPunkPosition.x = movingRight ? -__PIXELS_TO_METERS(80) : __PIXELS_TO_METERS(80);
+		childPunkName = movingRight ? "Larry" : "Curly";
+	}
+	else if(K_LR == input)
+	{
+		childPunkPosition.x = !movingRight ? -__PIXELS_TO_METERS(80) : __PIXELS_TO_METERS(80);
+		childPunkName = !movingRight ? "Larry" : "Curly";
+	}
+
+	if(NULL != childPunkName)
+	{
+		/*
+			* Let see if the punk already has a child with the selected name.
+			* If not, then create and add it as a child.
+			*/
+		AnimatedEntity childPunk = AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, childPunkName, false));
+
+		if(NULL != childPunk)
+		{
+			AnimatedEntity::deleteMyself(childPunk);
+		}
+		else
+		{
+			extern EntitySpec Punk;
+			AnimatedEntity::addChildEntity(this->leaderPunk, &Punk, 0, childPunkName, &childPunkPosition, NULL);
+		}
+	}
+}
+
+void EntitiesState::movePunks()
+{
 	if(!isDeleted(this->leaderPunk))
 	{
 		/*
@@ -110,122 +340,5 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 
 		// Make it to face left or right by rotating it around its Y axis
 		AnimatedEntity::setLocalRotation(this->leaderPunk, &localRotation);
-
-		// Let just print some useful info
-		EntitiesState::showAdditionalDetails(this);
 	}
-}
-
-void EntitiesState::processUserInput(const UserInput* userInput)
-{
-	if(!isDeleted(this->leaderPunk))
-	{
-		/*
-		* Let add some children to the leader punk taking into account
-		* whether it is moving to the left or to the right just to 
-		* make the input more intuitive		
-		*/
-		Vector3D childPunkPosition = Vector3D::zero();
-
-		char* childPunkName = NULL;
-
-		Rotation rotation = *AnimatedEntity::getRotation(this->leaderPunk);
-
-		bool movingRight = 0 == rotation.y;
-
-		if(K_LL & userInput->releasedKey)
-		{
-			childPunkPosition.x = movingRight ? -__PIXELS_TO_METERS(80) : __PIXELS_TO_METERS(80);
-			childPunkName = movingRight ? "Larry" : "Curly";
-		}
-		else if(K_LR & userInput->releasedKey)
-		{
-			childPunkPosition.x = !movingRight ? -__PIXELS_TO_METERS(80) : __PIXELS_TO_METERS(80);
-			childPunkName = !movingRight ? "Larry" : "Curly";
-		}
-
-		if(NULL != childPunkName)
-		{
-			/*
-			 * Let see if the punk already has a child with the selected name.
-			 * If not, then create and add it as a child.
-			 */
-			AnimatedEntity childPunk = AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, childPunkName, false));
-
-			if(NULL != childPunk)
-			{
-				AnimatedEntity::deleteMyself(childPunk);
-			}
-			else
-			{
-				extern EntitySpec Punk;
-				AnimatedEntity::addChildEntity(this->leaderPunk, &Punk, 0, childPunkName, &childPunkPosition, NULL);
-			}
-		}
-	}
-	
-	return Base::processUserInput(this, userInput);
-}
-
-void EntitiesState::showStuff()
-{
-	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
-	extern EntitySpec Punk;
-	PositionedEntity positionedEntity = {&Punk, {0, 32, 16, 0}, 0, "Moe", NULL, NULL, false};
-
-	/*
-	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
-	 * directly anymore. Now, the engine takes care of all that by reading the EntitySpec.
-	 */
-	this->leaderPunk = AnimatedEntity::safeCast(Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
-	
-	EntitiesState::showHeader(this);
-}
-
-void EntitiesState::showHeader()
-{
-	Base::showHeader(this);
-
-	if(!isDeleted(this->leaderPunk))
-	{
-		int16 y = 3;
-		Printing::text(Printing::getInstance(), "                      ", 1, y, NULL);
-		Printing::text(Printing::getInstance(), "Entity: ", 1, y, NULL);
-		Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->leaderPunk), 11, y++, NULL);
-		Printing::text(Printing::getInstance(), "Name: ", 1, y, NULL);
-		Printing::text(Printing::getInstance(), AnimatedEntity::getName(this->leaderPunk), 11, y++, NULL);
-	}
-}
-
-void EntitiesState::showAdditionalDetails()
-{
-	Printing::text(Printing::getInstance(), "Children:   ", 1, 5, NULL);
-	Printing::int32(Printing::getInstance(), AnimatedEntity::getChildCount(this->leaderPunk), 11, 5, NULL);
-	Printing::text(Printing::getInstance(), "Position:   ", 1, 6, NULL);
-	Vector3D::print(*AnimatedEntity::getLocalPosition(this->leaderPunk), 11, 6);
-	Printing::text(Printing::getInstance(), "Rotation:   ", 30, 6, NULL);
-	Rotation::print(*AnimatedEntity::getLocalRotation(this->leaderPunk), 40, 6);
-	Printing::text(Printing::getInstance(), "                                                ", 1, 21, NULL);
-	EntitiesState::printPunkName(this->leaderPunk, 21);
-	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 21);
-	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 21);
-}
-
-static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
-{
-	if(isDeleted(punk))
-	{
-		return;
-	}
-
-	Vector3D position = *AnimatedEntity::getPosition(punk);
-	const char* punkName = AnimatedEntity::getName(punk);
-	int16 col = __METERS_TO_PIXELS(position.x) / 10 + __HALF_SCREEN_WIDTH_IN_CHARS - strlen(punkName) / 2;
-
-	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
-	{
-		return;
-	}
-
-	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
 }

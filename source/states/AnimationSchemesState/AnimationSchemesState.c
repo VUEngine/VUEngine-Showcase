@@ -128,85 +128,6 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 	Base::processUserInput(this, userInput);
 }
 
-void AnimationSchemesState::createSprites()
-{
-	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
-	AnimationSchemesState::restoreMethods();
-
-	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
-	extern SpriteSpec PunkSpriteNotShared;
-	extern SpriteSpec PunkSpriteShared;
-	extern SpriteSpec PunkSpriteMultiframe;
-
-	SpriteSpec* spriteSpec = &PunkSpriteNotShared;
-
-	switch(this->animationScheme)
-	{
-		case kAnimationsNotSharedTexture:
-
-			spriteSpec = &PunkSpriteNotShared;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures);
-			break;
-
-		case kAnimationsSharedTexture:
-
-			spriteSpec = &PunkSpriteShared;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithSharedTextures);
-			break;
-
-		case kAnimationsMultiframeTexture:
-
-			spriteSpec = &PunkSpriteMultiframe;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures);
-			break;
-	}
-
-    for(int16 i = 0; i < 3; i++)
-    {
-		// Don't create Sprites directly
-        Sprite animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
-
-		if(!isDeleted(animatedSprite))
-		{
-			// I will need to access the sprites later on
-			VirtualList::pushBack(this->animatedSprites, animatedSprite);
-
-			extern AnimationFunctionROMSpec* PunkAnimations[];
-			
-			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
-			Sprite::setPosition(animatedSprite, &spritePosition);
-			
-			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
-
-			// Try to get the sprite's animation out of sync from the others'
-			Sprite::setActualFrame(animatedSprite, i * 12 / 3);
-		}
-	}
-}
-
-void AnimationSchemesState::destroySprites()
-{
-	if(!isDeleted(this->animatedSprites))
-	{
-		for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
-		{
-			Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
-			
-			if(!isDeleted(animatedSprite))
-			{
-				// Don't destroy the sprite directly		
-				SpriteManager::destroySprite(SpriteManager::getInstance(), animatedSprite);				
-			}
-		}
-
-		VirtualList::clear(this->animatedSprites);
-	}
-
-	// Clean manually graphics memory (the engine takes care of this when swapping states)
-	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
-	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
-}
-
 void AnimationSchemesState::showStuff()
 {
 	this->rotation = (Rotation){0, 0, 0};
@@ -214,6 +135,60 @@ void AnimationSchemesState::showStuff()
 	AnimationSchemesState::destroySprites(this);
 	AnimationSchemesState::createSprites(this);
 }
+
+void AnimationSchemesState::showExplanation()
+{
+	int16 y = 3;
+	Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Animations", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Other concepts: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  Lists", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Classes: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  *AnimatedSprite", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  VirtualList", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  VirtualNode", 1, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "  AnimationSchemesState", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    execute*", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    createSprites", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "    destroySprites", 1, y++, NULL);
+	y++;
+
+	if(kAnimationsMultiframeTexture != this->animationScheme)
+	{
+		Printing::text(Printing::getInstance(), "Specs: ", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "  PunkSprite*", 1, y++, NULL);
+	}
+
+	y = 3;
+	
+	switch(this->animationScheme)
+	{
+		case kAnimationsNotSharedTexture:
+
+			Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			break;
+
+		case kAnimationsSharedTexture:
+
+			Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+			break;
+
+		case kAnimationsMultiframeTexture:
+
+			Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			break;
+	}
+
+
+	Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
+}
+
 
 void AnimationSchemesState::showAdditionalDetails()
 {
@@ -299,57 +274,83 @@ void AnimationSchemesState::showAnimationDetails()
 	}
 }
 
-void AnimationSchemesState::showExplanation()
+void AnimationSchemesState::createSprites()
 {
-	int16 y = 3;
-	Printing::text(Printing::getInstance(), "Main concepts: ", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  Animations", 1, y++, NULL);
-	y++;
-	Printing::text(Printing::getInstance(), "Other concepts: ", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  Lists", 1, y++, NULL);
-	y++;
-	Printing::text(Printing::getInstance(), "Classes: ", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  *AnimatedSprite", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  VirtualList", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  VirtualNode", 1, y++, NULL);
-	y++;
-	Printing::text(Printing::getInstance(), "Methods: ", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  AnimationSchemesState", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    execute*", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    createSprites", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    destroySprites", 1, y++, NULL);
-	y++;
+	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
+	AnimationSchemesState::restoreMethods();
 
-	if(kAnimationsMultiframeTexture != this->animationScheme)
-	{
-		Printing::text(Printing::getInstance(), "Specs: ", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "  PunkSprite*", 1, y++, NULL);
-	}
+	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
+	extern SpriteSpec PunkSpriteNotShared;
+	extern SpriteSpec PunkSpriteShared;
+	extern SpriteSpec PunkSpriteMultiframe;
 
-	y = 3;
-	
+	SpriteSpec* spriteSpec = &PunkSpriteNotShared;
+
 	switch(this->animationScheme)
 	{
 		case kAnimationsNotSharedTexture:
 
-			Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
-			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			spriteSpec = &PunkSpriteNotShared;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures);
 			break;
 
 		case kAnimationsSharedTexture:
 
-			Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+			spriteSpec = &PunkSpriteShared;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithSharedTextures);
 			break;
 
 		case kAnimationsMultiframeTexture:
 
-			Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
-			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			spriteSpec = &PunkSpriteMultiframe;
+			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures);
 			break;
 	}
 
+    for(int16 i = 0; i < 3; i++)
+    {
+		// Don't create Sprites directly
+        Sprite animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
 
-	Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
+		if(!isDeleted(animatedSprite))
+		{
+			// I will need to access the sprites later on
+			VirtualList::pushBack(this->animatedSprites, animatedSprite);
+
+			extern AnimationFunctionROMSpec* PunkAnimations[];
+			
+			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
+			Sprite::setPosition(animatedSprite, &spritePosition);
+			
+			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
+
+			// Try to get the sprite's animation out of sync from the others'
+			Sprite::setActualFrame(animatedSprite, i * 12 / 3);
+		}
+	}
+}
+
+void AnimationSchemesState::destroySprites()
+{
+	if(!isDeleted(this->animatedSprites))
+	{
+		for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
+		{
+			Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
+			
+			if(!isDeleted(animatedSprite))
+			{
+				// Don't destroy the sprite directly		
+				SpriteManager::destroySprite(SpriteManager::getInstance(), animatedSprite);				
+			}
+		}
+
+		VirtualList::clear(this->animatedSprites);
+	}
+
+	// Clean manually graphics memory (the engine takes care of this when swapping states)
+	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
+	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
 }
 
 /*
