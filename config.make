@@ -4,7 +4,6 @@
 
 # VUEngine based plugins that the project uses
 PLUGINS 						= vuengine//fonts/AstonishFont \
-								  vuengine//fonts/VirtualBoyFont \
 								  vuengine//other/AutomaticPause \
 								  vuengine//other/I18n \
 								  vuengine//other/SaveDataManager \
