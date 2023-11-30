@@ -151,7 +151,7 @@ void WireframesState::showAdditionalDetails()
 	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
 	Printing::text(Printing::getInstance(), "CAMERA ", 31, 3, NULL);
 	Printing::text(Printing::getInstance(), "Position: ", 32, 5, NULL);
-	Rotation::print(Camera::getRotation(Camera::getInstance()), 32, 6);
+	Vector3D::print(Camera::getPosition(Camera::getInstance()), 32, 6);
 	Printing::text(Printing::getInstance(), "Rotation: ", 32, 10, NULL);
-	Vector3D::print(Camera::getPosition(Camera::getInstance()), 32, 11);
+	Rotation::print(Camera::getRotation(Camera::getInstance()), 32, 11);
 }
