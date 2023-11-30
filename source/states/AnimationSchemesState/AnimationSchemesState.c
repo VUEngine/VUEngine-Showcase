@@ -140,27 +140,27 @@ void AnimationSchemesState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "  Animations", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "Animations", 1, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "  Lists", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "Lists", 1, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), "CLASSES", 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "  *AnimatedSprite", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  VirtualList", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "  VirtualNode", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "*AnimatedSprite", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "VirtualList", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "VirtualNode", 1, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), "METHODS", 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "  AnimationSchemesState", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    execute*", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    createSprites", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "    destroySprites", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), "AnimationSchemesState", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), " execute*", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), " createSprites", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), " destroySprites", 1, y++, NULL);
 	y++;
 
 	if(kAnimationsMultiframeTexture != this->animationScheme)
 	{
 		Printing::text(Printing::getInstance(), "SPECS", 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "  PunkSprite*", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), "PunkSprite*", 1, y++, NULL);
 	}
 
 	y = 3;
