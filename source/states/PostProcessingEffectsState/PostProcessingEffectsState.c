@@ -108,6 +108,12 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 	Base::processUserInput(this, userInput);
 }
 
+void PostProcessingEffectsState::showControls()
+{
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+}
+
 void PostProcessingEffectsState::showStuff()
 {
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);

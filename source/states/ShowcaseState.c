@@ -198,6 +198,7 @@ void ShowcaseState::show(bool reloadStuff)
 	Printing::clear(Printing::getInstance());
 	
 	ShowcaseState::showHeader(this);
+	ShowcaseState::showControls(this);
 
 	if(reloadStuff)
 	{		
@@ -240,6 +241,10 @@ void ShowcaseState::showHeader()
 	Printing::text(Printing::getInstance(), className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_R_TRIGGER, 46, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_SELECTOR, 47, 0, NULL);
+}
+
+void ShowcaseState::showControls()
+{
 }
 
 void ShowcaseState::showStuff()

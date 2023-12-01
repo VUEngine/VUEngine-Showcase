@@ -37,7 +37,7 @@ PositionedEntityROMSpec PostProcessingEffectsStageEntities[] =
 
 PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 {
-	{&PdScreenshotEntity, 		{0, 36, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&PdScreenshotEntity, 		{0, 32, 0, 0}, 0, NULL, NULL, NULL, false},
 	{&LowPowerIndicatorEntity, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };

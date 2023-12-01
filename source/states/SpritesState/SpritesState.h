@@ -35,6 +35,7 @@ dynamic_singleton class SpritesState : ShowcaseState
 
 	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
+	override void showControls();
 	override void showStuff();
 	override void showExplanation();
 	override void showAdditionalDetails();

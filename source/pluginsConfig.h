@@ -27,7 +27,7 @@
 #define __PRECAUTION_SCREEN_TEXT_FONT						"AstonishExt"
 
 #define __WOBBLE_STARTING_ROW								(82)
-#define __WOBBLE_ENDING_ROW									(__SCREEN_HEIGHT)
+#define __WOBBLE_ENDING_ROW									(__SCREEN_HEIGHT - 4)
 
 #define __TILT_STARTING_ROW									(82)
 #define __TILT_ENDING_ROW									(__SCREEN_HEIGHT)
@@ -38,7 +38,7 @@
 #define __DWARF_PLANET_ENDING_COLUMN						(362)
 
 #define __WATERFALL_X_POSITION								(__HALF_SCREEN_WIDTH_METERS)
-#define __WATERFALL_Y_POSITION								(__HALF_SCREEN_HEIGHT_METERS + __PIXELS_TO_METERS(36))
+#define __WATERFALL_Y_POSITION								(__HALF_SCREEN_HEIGHT_METERS + __PIXELS_TO_METERS(32))
 #define __WATERFALL_WIDTH									(336)
 #define __WATERFALL_HEIGHT									(112)
 

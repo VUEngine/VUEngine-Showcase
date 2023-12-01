@@ -101,6 +101,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	 * So, moving the camera around the X axis will cause gimbal lock related issues
 	 * when rotations on the othe axis are applied too.
 	 */
+	/*
 	if(K_RU & userInput->holdKey)
 	{
 		rotation.x = __I_TO_FIX10_6(2);
@@ -110,12 +111,25 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	{
 		rotation.x = -__I_TO_FIX10_6(2);
 	}
+	*/
 
 	Camera camera = Camera::getInstance();
 	Camera::translate(camera, translation, false);
 	Camera::rotate(camera, rotation);
 
 	return Base::processUserInput(this, userInput);
+}
+
+void WireframesState::showControls()
+{
+	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 9, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void WireframesState::showExplanation()

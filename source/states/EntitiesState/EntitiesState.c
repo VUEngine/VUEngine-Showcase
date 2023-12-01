@@ -98,6 +98,13 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 	return Base::processUserInput(this, userInput);
 }
 
+void EntitiesState::showControls()
+{
+	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+}
+
 void EntitiesState::showStuff()
 {
 	EntitiesState::createLeaderPunk(this);

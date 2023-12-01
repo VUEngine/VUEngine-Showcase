@@ -39,6 +39,7 @@ abstract class ShowcaseState : GameState
 	void show(bool reloadStuff);
 
 	virtual void showHeader();
+	virtual void showControls();
 	virtual void showStuff();
 	virtual void showExplanation();
 	virtual void showAdditionalDetails();
