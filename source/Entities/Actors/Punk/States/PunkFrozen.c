@@ -54,6 +54,7 @@ void PunkFrozen::enter(void* owner)
 	}
 	
 	Punk::pauseAnimation(punk, true);
+	Punk::setActualFrame(punk, 7);
 }
 
 // state's handle message

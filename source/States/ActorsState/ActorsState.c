@@ -112,6 +112,7 @@ void ActorsState::showExplanation()
 	y++;
 	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Actor", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "MessageDispatcher*", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Punk", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "PunkState*", 2, y++, NULL);
 
