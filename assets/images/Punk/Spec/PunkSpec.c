@@ -727,10 +727,10 @@ AnimatedEntityROMSpec PunkEntity =
 PhysicalSpecificationROMSpec PunkActorPhysicalProperties =
 {
 	// mass
-	__F_TO_FIXED(1),
+	__F_TO_FIXED(0.5f),
 
 	// friction
-	__F_TO_FIXED(0.2f),
+	__F_TO_FIXED(0.1f),
 
 	// bounciness
 	__F_TO_FIXED(0),
@@ -739,7 +739,7 @@ PhysicalSpecificationROMSpec PunkActorPhysicalProperties =
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
 
 	// maximum speed
-	__F_TO_FIXED(10)
+	__F_TO_FIXED(3)
 };
 
 PunkROMSpec PunkActor =

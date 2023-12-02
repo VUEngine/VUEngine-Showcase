@@ -101,7 +101,7 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 
 		case kActorsStateHoldLeft:
 			
-			force.x = -Body::getMass(Punk::getBody(punk)) << 1;
+			force.x = -(Body::getMass(Punk::getBody(punk)) << 1);
 			break;
 
 		case kActorsStateHoldRight:
