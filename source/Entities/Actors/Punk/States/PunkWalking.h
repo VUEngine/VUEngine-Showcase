@@ -34,7 +34,6 @@ singleton class PunkWalking : State
 	void constructor();
 
 	override void enter(void* owner);
-	override void exit(void* owner);
 	override bool processMessage(void* owner, Telegram telegram);
 }
 

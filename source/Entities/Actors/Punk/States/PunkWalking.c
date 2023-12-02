@@ -72,11 +72,6 @@ void PunkWalking::executeCheckIfMoving(void* owner __attribute__ ((unused)))
 	}
 }
 
-void PunkWalking::exit(void* owner __attribute__ ((unused)))
-{
-	Base::exit(this, owner);
-}
-
 // state's handle message
 bool PunkWalking::processMessage(void* owner, Telegram telegram)
 {
