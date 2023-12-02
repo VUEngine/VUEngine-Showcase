@@ -99,9 +99,9 @@ void ActorsState::processUserInput(const UserInput* userInput)
 		 * an specific method that its class implements would be
 		 * way faster.
 		 */
-		ShowcaseState::propagateMessage(this, message);
+		ActorsState::propagateMessage(this, message);
 	}
-	
+
 	return Base::processUserInput(this, userInput);
 }
 
@@ -151,7 +151,7 @@ void ActorsState::showExplanation()
 
 void ActorsState::showAdditionalDetails()
 {
-	ShowcaseState::propagateMessage(this, kActorsStatePrintActorStatus);
+	ActorsState::propagateMessage(this, kActorsStatePrintActorStatus);
 }
 
 
