@@ -14,6 +14,7 @@
 
 #include <ShowcaseState.h>
 
+#include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <EntitiesState.h>
@@ -37,6 +38,7 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
+	(ShowcaseStateGetInstance)ActorsState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)EntitiesState::getInstance,

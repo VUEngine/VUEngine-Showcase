@@ -11,6 +11,4 @@
 #include <SpritesState.h>
 #include <WireframesState.h>
 
-
-
 #endif

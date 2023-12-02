@@ -12,9 +12,10 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <AnimatedEntity.h>
 #include <BgmapAnimatedSprite.h>
 #include <Box.h>
-#include <AnimatedEntity.h>
+#include <Punk.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -678,7 +679,7 @@ ShapeROMSpec PunkShapes[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-AnimatedEntityROMSpec Punk =
+AnimatedEntityROMSpec PunkEntity =
 {
 	{
 		// class allocator
@@ -721,4 +722,80 @@ AnimatedEntityROMSpec Punk =
 
 	// initial animation
 	"Move"
+};
+
+PhysicalSpecificationROMSpec PunkActorPhysicalProperties =
+{
+	// mass
+	__F_TO_FIXED(1),
+
+	// friction
+	__F_TO_FIXED(0.2f),
+
+	// bounciness
+	__F_TO_FIXED(0),
+
+	// maximum velocity
+	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
+
+	// maximum speed
+	__F_TO_FIXED(10)
+};
+
+PunkROMSpec PunkActor =
+{
+	{	
+		{
+			{
+				// class allocator
+				__TYPE(Punk),
+
+				// children
+				NULL,
+
+				// behaviors
+				NULL,
+
+				// extra
+				NULL,
+				
+				// sprites
+				(SpriteSpec**)PunkSprites,
+
+				// use z displacement in projection
+				false,
+
+				// wireframes
+				NULL,
+
+				// collision shapes
+				(ShapeSpec*)PunkShapes,
+
+				// size
+				// if 0, width and height will be inferred from the first sprite's texture's size
+				{0, 0, 0},
+
+				// gameworld's character's type
+				kTypeNone,
+
+				// physical specification
+				(PhysicalSpecification*)&PunkActorPhysicalProperties,
+			},
+
+			// pointer to the animation spec for the character
+			(const AnimationFunction**)&PunkAnimations,
+
+			// initial animation
+			"Move"
+		},
+
+		// true to create a body
+		true,
+
+		// axis subject to gravity
+		__NO_AXIS,
+
+		/// axis around which to rotate the entity when syncronizing with body
+		__Y_AXIS
+	}
 };
