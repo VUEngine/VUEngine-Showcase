@@ -45,6 +45,8 @@ void PunkWalking::destructor()
 // state's enter
 void PunkWalking::enter(void* owner)
 {
+	PunkWalking::restoreMethods();
+
 	Punk punk = Punk::safeCast(owner);
 
 	if(isDeleted(punk))
@@ -74,8 +76,6 @@ void PunkWalking::executeCheckIfMoving(void* owner __attribute__ ((unused)))
 void PunkWalking::exit(void* owner __attribute__ ((unused)))
 {
 	Base::exit(this, owner);
-
-	PunkWalking::restoreMethods();
 }
 
 // state's handle message
@@ -95,6 +95,9 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 		case kActorsStateReleasedLeft:
 		case kActorsStateReleasedRight:
 
+			/*
+			 * Start to check if the punk stopped only when there is no input.
+			 */
 			PunkWalking::mutateMethod(execute, PunkWalking::executeCheckIfMoving);
 			return true;
 			break;
@@ -116,6 +119,11 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 	}
 
 	Punk::applyForce(punk, &force, true);
+
+	/*
+	 * Don't check if not moving while there is a force applied to the punk.
+	 */
+	PunkWalking::restoreMethods();
 
 	return true;
 }
