@@ -68,7 +68,9 @@ bool Punk::handlePropagatedMessage(int32 message)
 
 			/*
 			 * My state machine will process this Telegram.
-			 * This is kind of convoluted, but this showcases
+			 * This is not very performant, but it is certainly, 
+			 * more elegant than calling directly a specific 
+			 * method in the current state, and this showcases
 			 * how to send messages to the current state in 
 			 * the state machine
 			 */ 

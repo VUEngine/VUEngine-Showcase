@@ -71,21 +71,35 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 
 void ActorsState::processUserInput(const UserInput* userInput)
 {
+	int32 message = kActorsStateNoMessage;
+
 	if(K_LL & userInput->holdKey)
 	{
-		ShowcaseState::propagateMessage(this, kActorsStateHoldLeft);
+		message = kActorsStateHoldLeft;
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
-		ShowcaseState::propagateMessage(this, kActorsStateReleasedLeft);
+		message = kActorsStateReleasedLeft;
 	}
 	else if(K_LR & userInput->holdKey)
 	{
-		ShowcaseState::propagateMessage(this, kActorsStateHoldRight);
+		message = kActorsStateHoldRight;
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		ShowcaseState::propagateMessage(this, kActorsStateReleasedRight);
+		message = kActorsStateReleasedRight;
+	}
+
+	if(kActorsStateNoMessage != message)
+	{
+		/*
+		 * Passing input to entities in this way, while elegant, 
+		 * is not very performant. Most likely, a way to get a 
+		 * pointer to the entity that the user controls and calling
+		 * an specific method that its class implements would be
+		 * way faster.
+		 */
+		ShowcaseState::propagateMessage(this, message);
 	}
 	
 	return Base::processUserInput(this, userInput);
