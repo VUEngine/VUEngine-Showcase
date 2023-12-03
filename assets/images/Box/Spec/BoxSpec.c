@@ -122,7 +122,7 @@ ShapeROMSpec BoxShapes[] =
 		__TYPE(Box),
 
 		// size (x, y, z)
-		{7 * 8, 6 * 8, 8},
+		{7 * 8, 6 * 8, 8 * 4},
 
 		// displacement (x, y, z, p)
 		{0, 0, 0, 0},

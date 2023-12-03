@@ -222,7 +222,7 @@ void ParticlesState::loadParticles()
 	{
 		ParticleSystem::setParticleSystemSpec(this->particleSystem, particleSystemEntitySpec, true);
 
-		Vector3D position = Vector3D::getFromPixelVector((PixelVector){__HALF_SCREEN_WIDTH / 2, -16, 0, 0});
+		Vector3D position = Vector3D::getFromPixelVector((PixelVector){__HALF_SCREEN_WIDTH / 2, -16, 32, 0});
 		ParticleSystem::setLocalPosition(this->particleSystem, &position);
 
 		ParticleSystem::start(this->particleSystem);

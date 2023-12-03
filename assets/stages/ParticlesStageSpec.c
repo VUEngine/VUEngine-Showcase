@@ -21,6 +21,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+extern EntitySpec BoxEntity;
 extern EntitySpec LowPowerIndicatorEntity;
 extern EntitySpec NormalStarsParticleSystem;
 
@@ -32,6 +33,7 @@ extern EntitySpec NormalStarsParticleSystem;
 PositionedEntityROMSpec ParticlesStageEntities[] =
 {
 	{&NormalStarsParticleSystem, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
+	{&BoxEntity, {__HALF_SCREEN_WIDTH / 2, 48, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -241,7 +243,7 @@ StageROMSpec ParticlesStage =
 		// gravity
 		{
 			__I_TO_FIX10_6(0),
-			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(9.8f),
 			__I_TO_FIX10_6(0),
 		},
 
