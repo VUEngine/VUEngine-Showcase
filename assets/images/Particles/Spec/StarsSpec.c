@@ -194,13 +194,13 @@ PhysicalParticleROMSpec PhysicalStarParticle =
 	},
 
 	// particle's minimum mass
-	__F_TO_FIX10_6(0.1f),
+	__F_TO_FIX10_6(0.05f),
 
 	// particle's mass delta (maximum = minimum + delta)
 	__F_TO_FIX10_6(0),
 
 	// axis subject to gravity (bitwise or of __X_AXIS, __Y_AXIS, __Z_AXIS, or false to disable)
-	__Z_AXIS,
+	__NO_AXIS,
 };
 
 // particle's spec
@@ -388,10 +388,10 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 	true,
 
 	// minimum generation delay in milliseconds
-	50,
+	5 * 8 * 20 / 16,
 
 	// maximum generation delay in milliseconds
-	80,
+	5 * 8 * 20 / 12,
 
 	// maximum number of alive particles
 	12,
@@ -412,24 +412,24 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 	(ParticleSpec*)&PhysicalStarParticle,
 
 	// minimum relative spawn position (x, y, z)
-	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(-1), __PIXELS_TO_METERS(0)},
+	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
 	// maximum relative spawn position (x, y, z)
-	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(1), __PIXELS_TO_METERS(0)},
+	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(0.5f), __F_TO_FIXED(0.5f), 0},
+	{__F_TO_FIXED(-5), __F_TO_FIXED(-5), __F_TO_FIXED(-5)},
 
 	// maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(2), __F_TO_FIXED(2), 0},
+	{__F_TO_FIXED(5), __F_TO_FIXED(5), __F_TO_FIXED(5)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT,
 
 	// use particle system movement vector for the force to apply to the particles
-	true
+	false
 };
 
 ParticleSystemROMSpec SolidStarsParticleSystem =
