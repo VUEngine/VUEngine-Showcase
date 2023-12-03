@@ -37,7 +37,7 @@ PositionedEntityROMSpec ActorsStageEntities[] =
 {
 	{&PunkActor, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{&BoxEntity, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&CogWheelEntity, {-130, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&CogWheelEntity, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

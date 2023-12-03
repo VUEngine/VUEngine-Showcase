@@ -16,6 +16,7 @@
 
 #include <ActorsState.h>
 #include <GameConfig.h>
+#include <Printing.h>
 #include <Punk.h>
 #include <Sprite.h>
 
@@ -64,7 +65,14 @@ void PunkDie::enter(void* owner)
 
 	Punk::playAnimation(punk, "Die");
 
-//	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
+	/*
+	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
+	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
+	 * the font CharSets are rewritten, other wise, the next message will not remain on the screen
+	 * or will become corrupt.
+	 */
+	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
 }
 
 void PunkDie::exit(void* owner)
@@ -82,5 +90,12 @@ void PunkDie::exit(void* owner)
 	extern SpriteSpec* PunkSprites[];
 	Punk::addSprites(punk, PunkSprites, true);
 
-//	Printing::text(Printing::getInstance(), "          ", 18, 27, "Debug");
+	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
+
+	Printing::text(Printing::getInstance(), "          ", 18, 20, "Debug");
+}
+
+void PunkDie::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+{
+	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
 }

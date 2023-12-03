@@ -64,9 +64,7 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
 	 * the font CharSets are rewritten.
 	 */
-
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
-
 }
 
 void ActorsState::execute(void* owner __attribute__((unused)))
