@@ -71,7 +71,7 @@ bool Punk::handleMessage(Telegram telegram)
 			break;
 	}
 
-	Base::handleMessage(this, telegram);	
+	return Base::handleMessage(this, telegram);	
 }
 
 /*
