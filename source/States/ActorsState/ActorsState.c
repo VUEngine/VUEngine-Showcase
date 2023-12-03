@@ -83,7 +83,7 @@ void ActorsState::exit(void* owner __attribute__((unused)))
 {
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
 
-	Base::execute(this, owner);
+	Base::exit(this, owner);
 }
 
 void ActorsState::processUserInput(const UserInput* userInput)
