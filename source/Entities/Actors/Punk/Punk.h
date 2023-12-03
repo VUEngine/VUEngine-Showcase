@@ -41,6 +41,7 @@ class Punk : Actor
 
 	void freeze();
 	void walk();
+	void onDieAnimationComplete(ListenerObject eventFirer);
 
 	override void ready(bool recursive);
 	override bool handlePropagatedMessage(int32 message);

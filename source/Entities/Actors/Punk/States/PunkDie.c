@@ -1,5 +1,5 @@
 /**
- * VUEngine Showcase
+ * Virtual WarZone
  *
  * © Jorge Eremiev <jorgech3@gmail.com>
  *
@@ -7,41 +7,58 @@
  * that was distributed with this source code.
  */
 
-#ifndef ACTORS_STATE_H_
-#define ACTORS_STATE_H_
+
+//---------------------------------------------------------------------------------------------------------
+//												INCLUDES
+//---------------------------------------------------------------------------------------------------------
+
+#include <PunkDie.h>
+
+#include <ActorsState.h>
+#include <GameConfig.h>
+#include <Punk.h>
+#include <Sprite.h>
+
+#include <debugUtilities.h>
 
 
 //---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
+//												PROTOTYPES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ShowcaseState.h>
-
-
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S MESSAGES
+//												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
 
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
-
-dynamic_singleton class ActorsState : ShowcaseState
+// class's constructor
+void PunkDie::constructor()
 {
-	static ActorsState getInstance();
-
-	void constructor();
-
-	override void enter(void* owner);
-	override void execute(void* owner);
-	override void exit(void* owner);
-	override void processUserInput(const UserInput* userInput);
-	override void showControls();
-	override void showStuff();
-	override void showExplanation();
-	override void showAdditionalDetails();
+	// construct base
+	Base::constructor();
 }
 
+// class's destructor
+void PunkDie::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
 
-#endif
+// state's enter
+void PunkDie::enter(void* owner)
+{
+	Punk punk = Punk::safeCast(owner);
+
+	if(isDeleted(punk))
+	{
+		return;
+	}
+
+	extern SpriteSpec* const PunkDyingSprites[];
+
+	Punk::addSprites(punk, PunkDyingSprites, true);
+
+	Punk::stopAllMovement(punk);
+
+	Punk::playAnimation(punk, "Die");
+}

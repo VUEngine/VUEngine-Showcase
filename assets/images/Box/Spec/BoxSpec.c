@@ -137,7 +137,7 @@ ShapeROMSpec BoxShapes[] =
 		false,
 
 		// layers in which I live
-		kSolidLayer,
+		kLayerSolid,
 
 		// layers to ignore when checking for collisions
 		kLayerNone,

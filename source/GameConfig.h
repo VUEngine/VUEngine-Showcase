@@ -21,13 +21,15 @@ enum Messages
 enum InGameTypes
 {
 	kTypeSolidObject = kTypeNone + 1,
-	kTypePunk
+	kTypePunk,
+	kTypeCogWheel
 };
 
 enum CollisionLayers
 {
-	kSolidLayer = kLayerNone + 1,
-	kPunkLayer
+	kLayerSolid = kLayerNone + 1,
+	kLayerDangers,
+	kLayerPunk
 };
 
 

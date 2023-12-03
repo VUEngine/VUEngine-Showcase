@@ -17,6 +17,7 @@
 #include <ActorsState.h>
 #include <GameConfig.h>
 #include <MessageDispatcher.h>
+#include <PunkDie.h>
 #include <PunkFrozen.h>
 #include <PunkWalking.h>
 #include <Telegram.h>
@@ -115,6 +116,12 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 			 */
 			return Base::enterCollision(this, collisionInformation);
 			break;
+
+		case kTypeCogWheel:
+
+			Punk::die(this);
+			return true;
+			break;
 	}
 
 	return false;
@@ -128,4 +135,19 @@ void Punk::freeze()
 void Punk::walk()
 {
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkWalking::getInstance()));	
+}
+
+void Punk::die()
+{
+	static bool death = false;
+	if(death) return;
+
+	death = true;
+	StateMachine::swapState(this->stateMachine, State::safeCast(PunkDie::getInstance()));	
+}
+
+void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
+{
+PRINT_TIME(20,30);
+//	Punk::resucitate(this);	
 }

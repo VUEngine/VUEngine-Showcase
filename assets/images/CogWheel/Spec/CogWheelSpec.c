@@ -12,10 +12,11 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-//#include <Entity.h>
-//#include <CogWheel.h>
+#include <Ball.h>
 #include <BgmapSprite.h>
 #include <BgmapSpriteExtensions.h>
+#include <CogWheel.h>
+#include <GameConfig.h>
 #include <MBgmapSprite.h>
 #include <ObjectSprite.h>
 #include <Texture.h>
@@ -210,7 +211,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffine =
 		__TRANSPARENCY_NONE,
 
 		// displacement
-		{0, 0, 0, 0},
+		{0, 0, 1, 0},
 	},
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
@@ -297,49 +298,81 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormal =
 	/// Bounds the sprite's size to provide culling; if 0, the value is inferred from the texture
 	0
 };
-/*
 
-BgmapSpriteROMSpec* const CogWheelBgSprites[] =
+
+BgmapSpriteROMSpec* const CogWheelEntitySprites[] =
 {
-	&CogWheelBgSprite,
+	&CogWheelBgmapSpriteAffine,
 	NULL
+};
+
+ShapeROMSpec CogWheelShapes[] =
+{
+	// floor
+	{
+		// shape
+		__TYPE(Ball),
+
+		// size (x, y, z)
+		{64 * 2, 64 * 2, 32},
+
+		// displacement (x, y, z, p)
+		{0, 0, 0, 0},
+
+		// rotation (x, y, z)
+		{0, 0, 0},
+
+		// scale (x, y, z)
+		{0, 0, 0},
+
+		// if true this shape checks for collisions against other shapes
+		false,
+
+		// layers in which I live
+		kLayerDangers,
+
+		// layers to ignore when checking for collisions
+		kLayerNone,
+	},
+
+	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
 CogWheelROMSpec CogWheelEntity =
 {
-	// class allocator
-	__TYPE(CogWheel),
+	{
+		// class allocator
+		__TYPE(CogWheel),
 
-	// children
-	NULL,
+		// children
+		NULL,
 
-	// behaviors
-	NULL,
+		// behaviors
+		NULL,
 
-	// extra
-	NULL,
+		// extra
+		NULL,
 
-	// sprites
-	(SpriteSpec**)CogWheelBgSprites,
+		// sprites
+		(SpriteSpec**)CogWheelEntitySprites,
 
-	// use z displacement in projection
-	false,
-			
-	// wireframes
-	(WireframeSpec**)NULL,
+		// use z displacement in projection
+		false,
+				
+		// wireframes
+		(WireframeSpec**)NULL,
 
-	// collision shapes
-	(ShapeSpec*)NULL,
+		// collision shapes
+		(ShapeSpec*)CogWheelShapes,
 
-	// size
-	// if 0, width and height will be inferred from the first sprite's texture's size
-	{0, 0, 0},
+		// size
+		// if 0, width and height will be inferred from the first sprite's texture's size
+		{0, 0, 0},
 
-	// gameworld's character's type
-	kTypeNone,
+		// gameworld's character's type
+		kTypeCogWheel,
 
-	// physical specification
-	(PhysicalSpecification*)NULL,
-
+		// physical specification
+		(PhysicalSpecification*)NULL,
+	}
 };
-*/

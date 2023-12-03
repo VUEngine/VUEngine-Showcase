@@ -25,6 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern EntitySpec BoxEntity;
+extern EntitySpec CogWheelEntity;
 extern EntitySpec PunkActor;
 
 
@@ -35,7 +36,8 @@ extern EntitySpec PunkActor;
 PositionedEntityROMSpec ActorsStageEntities[] =
 {
 	{&PunkActor, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&BoxEntity, {160, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&BoxEntity, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&CogWheelEntity, {-130, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -143,7 +145,7 @@ StageROMSpec ActorsStage =
 		12,
 
 		// maximum number of rows to compute on each call to the affine functions
-		112,
+		64 * 8,
 
 		// colors config
 		{

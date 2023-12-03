@@ -1,5 +1,5 @@
 /**
- * VUEngine Showcase
+ * Virtual WarZone
  *
  * © Jorge Eremiev <jorgech3@gmail.com>
  *
@@ -7,40 +7,33 @@
  * that was distributed with this source code.
  */
 
-#ifndef ACTORS_STATE_H_
-#define ACTORS_STATE_H_
+#ifndef PUNK_DIE_H_
+#define PUNK_DIE_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
+//												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ShowcaseState.h>
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S MESSAGES
-//---------------------------------------------------------------------------------------------------------
+#include <State.h>
 
 
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DECLARATION
+//											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-dynamic_singleton class ActorsState : ShowcaseState
+
+//---------------------------------------------------------------------------------------------------------
+//										PUBLIC INTERFACE
+//---------------------------------------------------------------------------------------------------------
+
+singleton class PunkDie : State
 {
-	static ActorsState getInstance();
+	static PunkDie getInstance();
 
 	void constructor();
 
 	override void enter(void* owner);
-	override void execute(void* owner);
-	override void exit(void* owner);
-	override void processUserInput(const UserInput* userInput);
-	override void showControls();
-	override void showStuff();
-	override void showExplanation();
-	override void showAdditionalDetails();
 }
 
 

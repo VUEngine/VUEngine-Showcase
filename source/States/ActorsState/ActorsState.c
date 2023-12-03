@@ -58,6 +58,15 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 
 	// Start animations, physics and messaging clocks
 	ActorsState::startClocks(this);
+
+	/*
+	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
+	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
+	 * the font CharSets are rewritten.
+	 */
+
+	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
+
 }
 
 void ActorsState::execute(void* owner __attribute__((unused)))
@@ -68,6 +77,13 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 	{
 		ActorsState::showAdditionalDetails(this);
 	}
+}
+
+void ActorsState::exit(void* owner __attribute__((unused)))
+{
+	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
+
+	Base::execute(this, owner);
 }
 
 void ActorsState::processUserInput(const UserInput* userInput)
@@ -104,6 +120,11 @@ void ActorsState::processUserInput(const UserInput* userInput)
 	}
 
 	return Base::processUserInput(this, userInput);
+}
+
+void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+{
+	ActorsState::show(this, false);
 }
 
 void ActorsState::showControls()
