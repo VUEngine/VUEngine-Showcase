@@ -1,7 +1,7 @@
 /**
  * VUEngine Showcase
  *
- * © Jorge Eremiev <jorgech3@gmail.com>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -15,33 +15,29 @@
 #include <Printing.h>
 #include <CharSet.h>
 #include <Fonts.h>
-#include <SoundWrapper.h>
-#include <debugConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec Pyramid;
+extern EntitySpec LowPowerIndicatorEntity;
+extern EntitySpec NormalStarsParticleSystem;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec WireframesStageEntities[] =
+PositionedEntityROMSpec ParticlesStageEntities[] =
 {
-	{&Pyramid, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
-
+	{&NormalStarsParticleSystem, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec WireframesStageUiEntities[] =
+PositionedEntityROMSpec ParticlesStageUiEntities[] =
 {
+	{&LowPowerIndicatorEntity, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -50,22 +46,23 @@ PositionedEntityROMSpec WireframesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const WireframesStageFonts[] =
+FontROMSpec* const ParticlesStageFonts[] =
 {
+	&DefaultFont,
+
 	NULL
 };
 
-SoundROM* WireframesStageSounds[] =
+SoundROM* ParticlesStageSounds[] =
 {
 	NULL
 };
-
 
 //---------------------------------------------------------------------------------------------------------
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec WireframesStage =
+StageROMSpec ParticlesStage =
 {
 	// allocator
 	__TYPE(Stage),
@@ -88,11 +85,11 @@ StageROMSpec WireframesStage =
 		// size
 		{
 			// x
-			8191,
+			__SCREEN_WIDTH,
 			// y
 			__SCREEN_HEIGHT,
 			// z
-			8191,
+			__SCREEN_DEPTH,
 		},
 
 		// camera's initial position inside the game world
@@ -120,16 +117,16 @@ StageROMSpec WireframesStage =
 			// y1
 			__SCREEN_HEIGHT,
 			// z1
-			8191 / 2,
+			__SCREEN_WIDTH * 5,
 		}
 	},
 
 	// streaming
 	{
 		// load padding
-		192,
+		40,
 		// unload padding
-		256,
+		16,
 		// streaming amplitude
 		24,
 		// particle removal delay cycles
@@ -144,7 +141,7 @@ StageROMSpec WireframesStage =
 		12,
 
 		// maximum number of rows to compute on each call to the affine functions
-		112,
+		16,
 
 		// colors config
 		{
@@ -199,7 +196,7 @@ StageROMSpec WireframesStage =
 		// can impact performance, make sure to configure only as large as maximally needed
 		{
 			// __spt0
-			0,
+			1024,
 			// __spt1
 			0,
 			// __spt2
@@ -227,7 +224,7 @@ StageROMSpec WireframesStage =
 			// maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__CAMERA_NEAR_PLANE,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
@@ -235,7 +232,7 @@ StageROMSpec WireframesStage =
 			// vertical view point center
 			__VERTICAL_VIEW_POINT_CENTER,
 			// scaling factor
-			__SCALING_MODIFIER_FACTOR
+			__SCALING_MODIFIER_FACTOR,
 		},
 	},
 
@@ -255,7 +252,7 @@ StageROMSpec WireframesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)WireframesStageFonts,
+		(FontSpec**)ParticlesStageFonts,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -264,19 +261,19 @@ StageROMSpec WireframesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)WireframesStageSounds,
+		(Sound**)ParticlesStageSounds,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)WireframesStageUiEntities,
+			(PositionedEntity*)ParticlesStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)WireframesStageEntities,
+		(PositionedEntity*)ParticlesStageEntities,
 	},
 
 	// post processing effects

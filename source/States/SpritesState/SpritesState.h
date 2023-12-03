@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef SPRITES_SCREEN_STATE_H_
-#define SPRITES_SCREEN_STATE_H_
+#ifndef SPRITES_STATE_H_
+#define SPRITES_STATE_H_
 
 
 //---------------------------------------------------------------------------------------------------------

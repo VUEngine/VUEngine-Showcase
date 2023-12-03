@@ -23,14 +23,16 @@ enum InGameTypes
 {
 	kTypeSolidObject = kTypeNone + 1,
 	kTypePunk,
-	kTypeCogWheel
+	kTypeCogWheel,
+	kTypeParticle
 };
 
 enum CollisionLayers
 {
 	kLayerSolid = kLayerNone + 1,
 	kLayerDangers,
-	kLayerPunk
+	kLayerPunk,
+	kLayerParticles
 };
 
 

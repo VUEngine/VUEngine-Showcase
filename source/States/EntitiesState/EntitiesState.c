@@ -51,14 +51,6 @@ void EntitiesState::destructor()
 	Base::destructor();
 }
 
-void EntitiesState::enter(void* owner __attribute__((unused)))
-{
-	Base::enter(this, owner);
-
-	// Must explicity call it otherwise nothing happens
-	EntitiesState::startAnimations(this);
-}
-
 void EntitiesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);

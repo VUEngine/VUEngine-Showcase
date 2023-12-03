@@ -179,7 +179,7 @@ void Punk::resucitate()
 
 /*
  * This is an EventListener added by the engine because the PunkDieAnimation
- * defines it as the callback for when its playback finish.
+ * defines it as the callback for when its playback finishes.
  */
 void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
 {

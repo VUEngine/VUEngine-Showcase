@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef ANIMATION_SCHEMES_STATE_H_
-#define ANIMATION_SCHEMES_STATE_H_
+#ifndef PARTICLES_STATE_H_
+#define PARTICLES_STATE_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -16,24 +16,24 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <ShowcaseState.h>
-#include <Sprite.h>
+#include <ParticleSystem.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-dynamic_singleton class AnimationSchemesState : ShowcaseState
+dynamic_singleton class ParticlesState : ShowcaseState
 {
-	Rotation rotation;
-	VirtualList animatedSprites;
-	uint32 animationScheme;
+	ParticleSystem particleSystem;
+	uint32 particlesType;
 
-	static AnimationSchemesState getInstance();
+	static ParticlesState getInstance();
 
 	void constructor();
 	void setupBrightness(bool dimm);
 
+	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override void showControls();
 	override void showStuff();

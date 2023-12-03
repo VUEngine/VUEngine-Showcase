@@ -18,6 +18,7 @@
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <EntitiesState.h>
+#include <ParticlesState.h>
 #include <Printing.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
@@ -38,6 +39,7 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
+	(ShowcaseStateGetInstance)ParticlesState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)EntitiesState::getInstance,
@@ -87,6 +89,9 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 
 	// show everything
 	ShowcaseState::show(this, true);
+	
+	// This starts animations, physics and messaging
+	ShowcaseState::startClocks(this);
 
 	// enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
