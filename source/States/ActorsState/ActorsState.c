@@ -15,6 +15,7 @@
 #include <ActorsState.h>
 
 #include <AnimatedEntity.h>
+#include <GameConfig.h>
 #include <Printing.h>
 #include <VirtualList.h>
 

@@ -22,19 +22,6 @@
 // 											CLASS'S MESSAGES
 //---------------------------------------------------------------------------------------------------------
 
-enum ActorsStateMessages
-{
-	/*
-	 * Must always start at kMessageLastEngine + 1
-	 */
-	kActorsStateNoMessage = kMessageLastEngine + 1,
-	kActorsStateHoldLeft,
-	kActorsStateReleasedLeft,
-	kActorsStateHoldRight,
-	kActorsStateReleasedRight,
-	kActorsStatePrintActorStatus,
-};
-
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DECLARATION

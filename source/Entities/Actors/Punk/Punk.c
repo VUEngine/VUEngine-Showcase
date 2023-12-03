@@ -15,6 +15,7 @@
 #include <Punk.h>
 
 #include <ActorsState.h>
+#include <GameConfig.h>
 #include <MessageDispatcher.h>
 #include <PunkFrozen.h>
 #include <PunkWalking.h>
@@ -88,25 +89,33 @@ bool Punk::handlePropagatedMessage(int32 message)
 // process collisions
 bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 {
-	/*
+	if(NULL == collisionInformation || isDeleted(collisionInformation->collidingShape))
+	{
+		return false;
+	}
+
 	Shape collidingShape = collisionInformation->collidingShape;
 	SpatialObject collidingObject = Shape::getOwner(collidingShape);
-	uint32 collidingObjectInGameType = SpatialObject::getInGameType(collidingObject);
 
-	Velocity velocity = (Velocity){-this->speed, 0, 0};
+	if(isDeleted(collidingObject))
+	{
+		return false;
+	}
+
+	uint32 collidingObjectInGameType = SpatialObject::getInGameType(collidingObject);
 
 	switch(collidingObjectInGameType)
 	{
-		// speed things up by breaking early
-		case kEnemyWall:
+		case kTypeSolidObject:
 
-			this->speed = -this->speed;
-			Punk::moveUniformly(this, &velocity);
+			/*
+			 * The Actor class can resolve collisions against solid objects by itself
+			 */
+			return Base::enterCollision(this, collisionInformation);
 			break;
 	}
-	*/
 
-	return false;
+	return Base::enterCollision(this, collisionInformation);
 }
 
 void Punk::freeze()

@@ -15,6 +15,7 @@
 #include <PunkFrozen.h>
 
 #include <ActorsState.h>
+#include <GameConfig.h>
 #include <Punk.h>
 #include <Telegram.h>
 

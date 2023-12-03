@@ -15,6 +15,7 @@
 #include <AnimatedEntity.h>
 #include <BgmapAnimatedSprite.h>
 #include <Box.h>
+#include <GameConfig.h>
 #include <Punk.h>
 
 
@@ -670,10 +671,10 @@ ShapeROMSpec PunkShapes[] =
 		true,
 
 		// layers in which I live
-		kLayerNone,
+		kPunkLayer,
 
 		// layers to ignore when checking for collisions
-		~kLayerNone,
+		~kSolidLayer,
 	},
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
@@ -776,7 +777,7 @@ PunkROMSpec PunkActor =
 				{0, 0, 0},
 
 				// gameworld's character's type
-				kTypeNone,
+				kTypePunk,
 
 				// physical specification
 				(PhysicalSpecification*)&PunkActorPhysicalProperties,

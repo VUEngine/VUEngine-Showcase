@@ -11,11 +11,12 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Stage.h>
-#include <Printing.h>
 #include <CharSet.h>
 #include <Fonts.h>
+#include <Printing.h>
+#include <Stage.h>
 #include <SoundWrapper.h>
+
 #include <debugConfig.h>
 
 
@@ -23,6 +24,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+extern EntitySpec BoxEntity;
 extern EntitySpec PunkActor;
 
 
@@ -33,6 +35,7 @@ extern EntitySpec PunkActor;
 PositionedEntityROMSpec ActorsStageEntities[] =
 {
 	{&PunkActor, {0, 64, 32, 0}, 0, NULL, NULL, NULL, false},
+	{&BoxEntity, {160, 64, 32, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
