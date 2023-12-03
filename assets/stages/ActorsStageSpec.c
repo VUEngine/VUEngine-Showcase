@@ -250,7 +250,7 @@ StageROMSpec ActorsStage =
 		},
 
 		// friction
-		__F_TO_FIX10_6(0.1f),
+		__F_TO_FIX10_6(0.01f),
 	},
 
 	// assets
