@@ -59,7 +59,7 @@ void PunkDie::enter(void* owner)
 	/*
 	 * Replace the sprites for the dying sprites
 	 */
-	extern SpriteSpec** PunkDyingSprites;
+	extern SpriteSpec* PunkDyingSprites[];
 	Punk::addSprites(punk, PunkDyingSprites, true);
 
 	Punk::playAnimation(punk, "Die");
@@ -79,7 +79,7 @@ void PunkDie::exit(void* owner)
 	/*
 	 * Restore the normal sprites
 	 */
-	extern SpriteSpec** PunkSprites;
+	extern SpriteSpec* PunkSprites[];
 	Punk::addSprites(punk, PunkSprites, true);
 
 //	Printing::text(Printing::getInstance(), "          ", 18, 27, "Debug");
