@@ -72,7 +72,7 @@ void PunkDie::enter(void* owner)
 	 * or will become corrupt.
 	 */
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
-	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), "YOU DIED... AGAIN", 18, 20, "Debug");
 }
 
 void PunkDie::exit(void* owner)
@@ -92,10 +92,10 @@ void PunkDie::exit(void* owner)
 
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 
-	Printing::text(Printing::getInstance(), "          ", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), "                  ", 18, 20, "Debug");
 }
 
 void PunkDie::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
 {
-	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), "YOU DIED... AGAIN", 18, 20, "Debug");
 }
