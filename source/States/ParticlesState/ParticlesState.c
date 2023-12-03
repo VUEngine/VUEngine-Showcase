@@ -181,7 +181,7 @@ void ParticlesState::showParticleDetails()
 
 void ParticlesState::loadParticles()
 {
-	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
+	// Check these specifications in assets/images/Stars/Spec/StarsSpec.c		
 	extern ParticleSystemSpec NormalStarsParticleSystem;
 	extern ParticleSystemSpec PhysicalStarsParticleSystem;
 	extern ParticleSystemSpec SolidStarsParticleSystem;
@@ -200,13 +200,13 @@ void ParticlesState::loadParticles()
 		case kParticlePhysical:
 
 			particleSystemEntitySpec = &PhysicalStarsParticleSystem;
-			yPosition = -8;
+			yPosition = 0;
 			break;
 
 		case kParticleSolid:
 
 			particleSystemEntitySpec = &SolidStarsParticleSystem;
-			yPosition = -8;
+			yPosition = 0;
 			break;
 	}
 

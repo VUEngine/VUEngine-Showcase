@@ -444,11 +444,11 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(-3), __F_TO_FIXED(-5), __F_TO_FIXED(-2)},
+	{__F_TO_FIXED(-2.5f), __F_TO_FIXED(-5), __F_TO_FIXED(-2)},
 
 	// maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(3), __F_TO_FIXED(-0.5f), __F_TO_FIXED(2)},
+	{__F_TO_FIXED(2.5f), __F_TO_FIXED(-1.5f), __F_TO_FIXED(2)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT,
@@ -530,11 +530,11 @@ ParticleSystemROMSpec SolidStarsParticleSystem =
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(-2), __F_TO_FIXED(-10), __F_TO_FIXED(-0.5f)},
+	{__F_TO_FIXED(-2), __F_TO_FIXED(-13), __F_TO_FIXED(-0.5f)},
 
 	// maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(2), __F_TO_FIXED(-5), __F_TO_FIXED(-0.25f)},
+	{__F_TO_FIXED(2), __F_TO_FIXED(-8), __F_TO_FIXED(-0.25f)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT,
