@@ -33,7 +33,7 @@ extern EntitySpec NormalStarsParticleSystem;
 PositionedEntityROMSpec ParticlesStageEntities[] =
 {
 	{&NormalStarsParticleSystem, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
-	{&BoxEntity, {__HALF_SCREEN_WIDTH / 2, 48, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&BoxEntity, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -212,7 +212,7 @@ StageROMSpec ParticlesStage =
 		// since the vip renders obj worlds in reverse order (__spt3 to __spt0)
 		{
 			// __spt0
-			0,
+			-1,
 			// __spt1
 			0,
 			// __spt2

@@ -34,6 +34,27 @@ extern uint16 StarMap[];
 AnimationFunctionROMSpec StarDefaultAnimation =
 {
 	// number of frames of this animation function
+	1,
+
+	// frames to play in animation
+	{0},
+
+	// number of cycles a frame of animation is displayed
+	8,
+
+	// whether to play it in loop or not
+	false,
+
+	// method to call on function completion
+	NULL,
+
+	// function's name
+	"Default",
+};
+
+AnimationFunctionROMSpec StarVanishAnimation =
+{
+	// number of frames of this animation function
 	5,
 
 	// frames to play in animation
@@ -49,13 +70,14 @@ AnimationFunctionROMSpec StarDefaultAnimation =
 	NULL,
 
 	// function's name
-	"Default",
+	"Vanish",
 };
 
 // an animation spec
-AnimationFunctionROMSpec* const StarAnimation[] =
+AnimationFunctionROMSpec* const StarAnimations[] =
 {
     (AnimationFunction*)&StarDefaultAnimation,
+    (AnimationFunction*)&StarVanishAnimation,
     NULL,
 };
 
@@ -163,10 +185,10 @@ ParticleROMSpec NormalStarParticle =
 	NULL,
 
 	// animation description (used only if sprite is animated)
-	(const AnimationFunction**)&StarAnimation,
+	(const AnimationFunction**)&StarAnimations,
 
 	// name of animation to play
-	"Default"
+	"Vanish"
 };
 
 // particle's spec
@@ -187,10 +209,10 @@ PhysicalParticleROMSpec PhysicalStarParticle =
 		NULL,
 
 		// animation description (used only if sprite is animated)
-		(const AnimationFunction**)&StarAnimation,
+		(const AnimationFunction**)&StarAnimations,
 
 		// name of animation to play
-		"Default"
+		"Vanish"
 	},
 
 	// particle's minimum mass
@@ -222,7 +244,7 @@ SolidParticleROMSpec SolidStarParticle =
 			NULL,
 
 			// animation description (used only if sprite is animated)
-			(const AnimationFunction**)&StarAnimation,
+			(const AnimationFunction**)&StarAnimations,
 
 			// name of animation to play
 			"Default"
@@ -245,7 +267,7 @@ SolidParticleROMSpec SolidStarParticle =
 	__F_TO_FIX10_6(0),
 
 	/// bounciness for physics
-	__F_TO_FIX10_6(0.5f),
+	__F_TO_FIX10_6(0.85f),
 
 	/// object's in-game type
 	kTypeParticle,
@@ -259,8 +281,8 @@ SolidParticleROMSpec SolidStarParticle =
 	/// disable collision detection when the particle stops
 	true,
 
-	/// pause animation until collision
-	true
+	/// animation to play upon collision
+	"Vanish"
 };
 
 ParticleSystemROMSpec NormalStarsParticleSystem =
@@ -329,10 +351,10 @@ ParticleSystemROMSpec NormalStarsParticleSystem =
 	(ParticleSpec*)&NormalStarParticle,
 
 	// minimum relative spawn position (x, y, z)
-	{__PIXELS_TO_METERS(-32), __PIXELS_TO_METERS(-32), __PIXELS_TO_METERS(-32)},
+	{__PIXELS_TO_METERS(-20), __PIXELS_TO_METERS(-16), __PIXELS_TO_METERS(0)},
 
 	// maximum relative spawn position (x, y, z)
-	{__PIXELS_TO_METERS(32), __PIXELS_TO_METERS(32), __PIXELS_TO_METERS(32)},
+	{__PIXELS_TO_METERS(20), __PIXELS_TO_METERS(16), __PIXELS_TO_METERS(16)},
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
@@ -422,11 +444,11 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(-5), __F_TO_FIXED(-5), __F_TO_FIXED(-5)},
+	{__F_TO_FIXED(-3), __F_TO_FIXED(-5), __F_TO_FIXED(-2)},
 
 	// maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(5), __F_TO_FIXED(5), __F_TO_FIXED(5)},
+	{__F_TO_FIXED(3), __F_TO_FIXED(-0.5f), __F_TO_FIXED(2)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT,
@@ -508,11 +530,11 @@ ParticleSystemROMSpec SolidStarsParticleSystem =
 
 	// minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(-2), __F_TO_FIXED(-10), __F_TO_FIXED(-2)},
+	{__F_TO_FIXED(-2), __F_TO_FIXED(-10), __F_TO_FIXED(-0.5f)},
 
 	// maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
-	{__F_TO_FIXED(2), __F_TO_FIXED(-5), __F_TO_FIXED(-2)},
+	{__F_TO_FIXED(2), __F_TO_FIXED(-5), __F_TO_FIXED(-0.25f)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT,
