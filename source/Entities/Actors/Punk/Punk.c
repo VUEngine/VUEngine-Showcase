@@ -137,6 +137,12 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 
 		case kTypeCogWheel:
 
+			/*
+			* Disable collision checks so this doesn't fire multiple times. 
+			* They are enabled by the Actor when starting to move.
+			*/
+			Punk::activeCollisionChecks(this, false);
+
 			Punk::die(this);
 			return true;
 			break;

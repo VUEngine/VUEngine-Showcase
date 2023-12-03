@@ -54,11 +54,6 @@ void PunkDie::enter(void* owner)
 		return;
 	}
 
-	/*
-	 * Disable collision checks. They are enabled by the Actor when
-	 * starting to move.
-	 */
-	Punk::activeCollisionChecks(punk, false);
 	Punk::stopAllMovement(punk);
 
 	/*
