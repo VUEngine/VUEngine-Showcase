@@ -16,6 +16,7 @@ enum Messages
 	kActorsStateHoldRight,
 	kActorsStateReleasedRight,
 	kActorsStatePrintActorStatus,
+	kActorsStateResucitate,
 };
 
 enum InGameTypes

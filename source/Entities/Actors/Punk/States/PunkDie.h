@@ -34,6 +34,7 @@ singleton class PunkDie : State
 	void constructor();
 
 	override void enter(void* owner);
+	override void exit(void* owner);
 }
 
 

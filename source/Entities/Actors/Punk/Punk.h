@@ -44,6 +44,7 @@ class Punk : Actor
 	void onDieAnimationComplete(ListenerObject eventFirer);
 
 	override void ready(bool recursive);
+	override bool handleMessage(Telegram telegram);
 	override bool handlePropagatedMessage(int32 message);
 	override bool enterCollision(const CollisionInformation* collisionInformation);
 }

@@ -57,6 +57,24 @@ void Punk::ready(bool recursive)
 }
 
 /*
+ * Messaging serves the purpose of communicating classes decoupling their interfaces
+ * (ie; not having to implement specific methods). These messages can be delayed too.
+*/
+bool Punk::handleMessage(Telegram telegram)
+{
+	switch(Telegram::getMessage(telegram))
+	{
+		case kActorsStateResucitate:
+
+			Punk::resucitate(this);
+			return true;
+			break;
+	}
+
+	Base::handleMessage(this, telegram);	
+}
+
+/*
  * Returning true stops the propagation
  */
 bool Punk::handlePropagatedMessage(int32 message)
@@ -139,15 +157,24 @@ void Punk::walk()
 
 void Punk::die()
 {
-	static bool death = false;
-	if(death) return;
-
-	death = true;
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkDie::getInstance()));	
+}
+
+void Punk::resucitate()
+{
+	Vector3D position = Vector3D::getFromPixelVector((PixelVector){0, 64, 0, 0});
+	Punk::setLocalPosition(this, &position);
+
+	Rotation rotation = Rotation::zero();
+	Punk::setLocalRotation(this, &rotation);
+
+	Punk::freeze(this);
 }
 
 void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
 {
-PRINT_TIME(20,30);
-//	Punk::resucitate(this);	
+	/*
+	 * Restore myself after 1 second
+	 */
+	Punk::sendMessageToSelf(this, kActorsStateResucitate, 1000, 0);
 }

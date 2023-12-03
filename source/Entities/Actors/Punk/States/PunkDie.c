@@ -54,11 +54,38 @@ void PunkDie::enter(void* owner)
 		return;
 	}
 
-	extern SpriteSpec* const PunkDyingSprites[];
-
-	Punk::addSprites(punk, PunkDyingSprites, true);
-
+	/*
+	 * Disable collision checks. They are enabled by the Actor when
+	 * starting to move.
+	 */
+	Punk::activeCollisionChecks(punk, false);
 	Punk::stopAllMovement(punk);
 
+	/*
+	 * Replace the sprites for the dying sprites
+	 */
+	extern SpriteSpec* const PunkDyingSprites[];
+	Punk::addSprites(punk, PunkDyingSprites, true);
+
 	Punk::playAnimation(punk, "Die");
+
+//	Printing::text(Printing::getInstance(), "YOU REDIED", 18, 20, "Debug");
+}
+
+void PunkDie::exit(void* owner)
+{
+	Punk punk = Punk::safeCast(owner);
+
+	if(isDeleted(punk))
+	{
+		return;
+	}
+
+	/*
+	 * Restore the normal sprites
+	 */
+	extern SpriteSpec* const PunkSprites[];
+	Punk::addSprites(punk, PunkSprites, true);
+
+//	Printing::text(Printing::getInstance(), "          ", 18, 27, "Debug");
 }
