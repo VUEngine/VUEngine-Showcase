@@ -108,6 +108,8 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 	{
 		case kTypeSolidObject:
 
+			Punk::freeze(this);
+
 			/*
 			 * The Actor class can resolve collisions against solid objects by itself
 			 */
@@ -115,7 +117,7 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 			break;
 	}
 
-	return Base::enterCollision(this, collisionInformation);
+	return false;
 }
 
 void Punk::freeze()

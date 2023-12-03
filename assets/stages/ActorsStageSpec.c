@@ -34,8 +34,8 @@ extern EntitySpec PunkActor;
 
 PositionedEntityROMSpec ActorsStageEntities[] =
 {
-	{&PunkActor, {0, 64, 32, 0}, 0, NULL, NULL, NULL, false},
-	{&BoxEntity, {160, 64, 32, 0}, 0, NULL, NULL, NULL, false},
+	{&PunkActor, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&BoxEntity, {160, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
@@ -224,9 +224,9 @@ StageROMSpec ActorsStage =
 		// optical configuration values
 		{
 			// maximum view distance's power into the horizon
-			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
+			__MAXIMUM_X_VIEW_DISTANCE >> 1, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			__SCREEN_WIDTH,
+			0,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
