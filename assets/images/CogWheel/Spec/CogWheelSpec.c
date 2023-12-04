@@ -42,7 +42,7 @@ extern uint16 CogWheelBackgroundMap[];
 CharSetROMSpec CogWheelCharset =
 {
 	// number of chars in function of the number of frames to load at the same time
-	133,
+	26,
 
 	// whether it is shared or not
 	true,
@@ -60,7 +60,7 @@ CharSetROMSpec CogWheelCharset =
 CharSetROMSpec CogWheelBackgroundCharset =
 {
 	// number of chars in function of the number of frames to load at the same time
-	133,
+	26,
 
 	// whether it is shared or not
 	true,
@@ -84,10 +84,10 @@ TextureROMSpec CogWheelTexture =
 	CogWheelMap,
 
 	// cols (max 64)
-	20,
+	16,
 
 	// rows (max 64)
-	20,
+	16,
 
 	// padding for affine/hbias transformations (cols, rows)
 	{10, 10},
@@ -96,7 +96,7 @@ TextureROMSpec CogWheelTexture =
 	1,
 
 	// palette number (0-3)
-	1,
+	0,
 
 	// recyclable
 	false,
@@ -129,7 +129,7 @@ TextureROMSpec CogWheelBackgroundTexture =
 	1,
 
 	// palette number (0-3)
-	1,
+	0,
 
 	// recyclable
 	false,
