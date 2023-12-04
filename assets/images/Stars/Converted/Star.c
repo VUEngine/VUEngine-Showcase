@@ -1,10 +1,10 @@
 //---------------------------------------------------------------------------------------------------------
 //
 //  Star
-//  • 8×40 pixels
-//  • 5 tiles, unreduced, not compressed
-//  • 1×5 map, not compressed
-//  • 5 animation frames, 1×1, spritesheet
+//  * 8x40 pixels
+//  * 5 tiles, unreduced, not compressed
+//  * 1x5 map, not compressed
+//  * 5 animation frames, 1x1, spritesheet
 //  Size: 84 + 10 = 94
 //
 //---------------------------------------------------------------------------------------------------------
