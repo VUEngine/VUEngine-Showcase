@@ -24,7 +24,7 @@
                 "framePointer": false,
                 "memorySections": {
                     "dram": {
-                        "length": -18,
+                        "length": -19,
                         "origin": "0x0003D800"
                     },
                     "exp": {
@@ -114,7 +114,13 @@
                     "runDelayedMessagesAtHalfFrameRate": false,
                     "timerResolution": 10
                 },
-                "game": [],
+                "game": [
+                    {
+                        "key": "__soundTest",
+                        "type": "boolean",
+                        "value": "1"
+                    }
+                ],
                 "math": {
                     "fixedPointPrecision": 6
                 },

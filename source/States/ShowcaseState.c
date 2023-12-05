@@ -17,12 +17,9 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <EntitiesState.h>
-#include <ParticlesState.h>
 #include <Printing.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
-#include <WireframesState.h>
 
 #include <Showcases.h>
 #include <string.h>
@@ -39,6 +36,7 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
+	(ShowcaseStateGetInstance)SoundsState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)EntitiesState::getInstance,

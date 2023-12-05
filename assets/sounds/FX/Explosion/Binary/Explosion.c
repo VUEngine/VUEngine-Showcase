@@ -1,0 +1,13 @@
+#include <MIDI.h>
+
+#define EXPLOSION_FREQ    	0x3E8
+#define EXPLOSION_DURATION 	1000
+
+
+const uint16 ExplosionTrack[] =
+{	
+	HOLD, EXPLOSION_FREQ, EXPLOSION_FREQ, ENDSOUND,
+	1, EXPLOSION_DURATION, EXPLOSION_DURATION, 
+	14, 10, 5,
+	1, 1, 1
+};
