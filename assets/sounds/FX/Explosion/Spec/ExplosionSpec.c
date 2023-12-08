@@ -109,7 +109,7 @@ SoundROM ExplosionSound =
 	false,
 
 	/// Target timer resolution in us
-	2000,
+	500,
 
 	/// Tracks
 	(SoundChannel**)ExplosionSoundChannels
