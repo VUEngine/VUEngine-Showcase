@@ -16,6 +16,7 @@
 
 #include <AnimatedEntity.h>
 #include <GameConfig.h>
+#include <KeypadManager.h>
 #include <Printing.h>
 #include <VirtualList.h>
 
@@ -65,6 +66,11 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 	 * the font CharSets are rewritten.
 	 */
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
+
+	/*
+	 * I need to register both released and hold buttons
+	 */
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
 }
 
 void ActorsState::execute(void* owner __attribute__((unused)))

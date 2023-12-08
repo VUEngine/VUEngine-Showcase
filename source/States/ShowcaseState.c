@@ -17,6 +17,7 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <KeypadManager.h>
 #include <Printing.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
@@ -90,6 +91,9 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	
 	// This starts animations, physics and messaging
 	ShowcaseState::startClocks(this);
+
+	// Only register when a button is released
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
 
 	// enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());

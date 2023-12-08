@@ -133,14 +133,11 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
  */
 void SoundsState::processUserInput(const UserInput* userInput)
 {
+	Base::processUserInput(this, userInput);
+
 	if(!(K_PWR & userInput->releasedKey))
 	{
-		if(K_SEL & userInput->releasedKey)
-		{
-			SoundWrapper::pause(this->soundWrapper);
-			SoundWrapper::rewind(this->soundWrapper);
-		}
-		else if(K_LL & userInput->releasedKey)
+		if(K_LL & userInput->releasedKey)
 		{
 			uint16 totalSounds = SoundsState::getTotalSounds(this);
 
@@ -186,6 +183,15 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				{
 					SoundWrapper::pause(this->soundWrapper);
 				}
+
+				if(this->showAdditionalDetails)		
+				{
+					SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
+				}
+				else
+				{
+					SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
+				}
 			}
 		}
 		else if(K_B & userInput->releasedKey)
@@ -196,20 +202,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			}
 		}
 	}
-
-	Base::processUserInput(this, userInput);
-
-	if(!isDeleted(this->soundWrapper))
-	{
-		if(this->showAdditionalDetails)		
-		{
-			SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
-		}
-		else
-		{
-			SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
-		}
-	}	
 }
 
 /**
@@ -291,8 +283,8 @@ void SoundsState::showControls()
 	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void SoundsState::showAdditionalDetails()
