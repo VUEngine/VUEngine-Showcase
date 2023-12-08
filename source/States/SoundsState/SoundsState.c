@@ -21,6 +21,9 @@
 #include <VUEngine.h>
 
 
+
+#include <debugUtilities.h>
+
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
@@ -97,6 +100,23 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	this->synchronizeGraphics = false;
 	this->updatePhysics = false;
 	this->processCollisions = false;
+
+	/*
+	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
+	 */
+	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
+}
+
+void SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
+{
+	if(!isDeleted(this->soundWrapper) && SoundWrapper::hasPCMTracks(this->soundWrapper))
+	{
+		if(this->showAdditionalDetails)
+		{
+			TimerManager::printStatus(TimerManager::getInstance(), 1, 19);
+			TimerManager::nextSecondStarted(TimerManager::getInstance());
+		}
+	}
 }
 
 bool SoundsState::stream()
@@ -121,6 +141,8 @@ void SoundsState::execute(void* owner __attribute__ ((unused)))
  */
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
+	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
+
 	SoundsState::releaseSoundWrapper(this);
 
 	Base::exit(this, owner);
@@ -227,6 +249,8 @@ void SoundsState::releaseSoundWrapper()
 {
 	if(!isDeleted(this->soundWrapper))
 	{
+		
+		SoundWrapper::removeEventListenerScopes(this->soundWrapper, ListenerObject::safeCast(this), kEventSoundReleased);
 		SoundWrapper::release(this->soundWrapper);
 
 		this->soundWrapper = NULL;
@@ -329,7 +353,10 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 			}
 			else if(!showOnlyTime)
 			{
-				SoundWrapper::printVolume(this->soundWrapper, 1, 17, false);
+				if(!SoundWrapper::hasPCMTracks(this->soundWrapper))
+				{
+					SoundWrapper::printVolume(this->soundWrapper, 1, 17, false);
+				}
 			}
 		}
 	}
@@ -355,17 +382,37 @@ void SoundsState::loadSound()
 
 	SoundsState::releaseSoundWrapper(this);
 
+	/*
+	 * Since PCM playback is too heavy on the CPU, it makes sense to set it per stage.
+	 * So, we set globally the target playback framerate (Hz) before creating any sound. 
+.	 */
+	SoundManager::setTargetPlaybackFrameRate(SoundManager::getInstance(), this->stageSpec->sound.pcmTargetPlaybackFrameRate);
+
+	/*
+	 * We configure the timer manager to match the sound's timing. This is done here as 
+	 * and example and shouldn't be used during gameplay, when it makes no sense to 
+	 * modify on the fly the timer interrupts' targets. 
+ 	 */
 	TimerManager::reset(TimerManager::getInstance());
 	TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
 	TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
 	TimerManager::setTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
 
+	/*
+	 * We ask for a SoundWrapper to the SoundManager and specify a callback for when the 
+	 * SoundWrapper is released, which happens automatically with any sound that doesn't
+	 * play in loop or when not explicitly told to not auto release by calling
+	 * SoundWrapper::autoReleaseOnFinish.
+	 */
 	this->soundWrapper = SoundManager::getSound(SoundManager::getInstance(), (Sound*)soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundWrapperReleased, ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->soundWrapper), "SoundsState::loadSound: no sound");
 
 	if(!isDeleted(this->soundWrapper))
 	{
+		/*
+		 * Listen for when the plaback finishes to update the UI. 
+		 */
 		SoundWrapper::addEventListener(this->soundWrapper, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundFinish, kEventSoundFinished);
 		SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
 		SoundsState::applyTimerSettings(this);
@@ -376,10 +423,18 @@ void SoundsState::loadSound()
 
 void SoundsState::onSoundFinish(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(!isDeleted(this->soundWrapper))
+	if(isDeleted(this->soundWrapper))
 	{
-		SoundWrapper::printPlaybackTime(this->soundWrapper, 24, 8);
-		SoundWrapper::printPlaybackProgress(this->soundWrapper, 1, 6);
+		return;
+	}
+
+	if(this->showAdditionalDetails)		
+	{
+		SoundWrapper::printMetadata(this->soundWrapper, 1, 4, false);
+	}
+	else
+	{
+		SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
 	}
 }
 
@@ -388,6 +443,7 @@ void SoundsState::onSoundWrapperReleased(ListenerObject eventFirer __attribute__
 	if(SoundWrapper::safeCast(eventFirer) == this->soundWrapper)
 	{
 		this->soundWrapper = NULL;
+		SoundsState::loadSound(this);
 	}
 }
 

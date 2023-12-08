@@ -94,7 +94,7 @@ SoundROM NoFearForTheFutureSound =
 	false,
 
 	// Target timer resolution in us
-	260,
+	100,
 
 	// Tracks
 	(SoundChannel**)NoFearForTheFutureSoundChannels

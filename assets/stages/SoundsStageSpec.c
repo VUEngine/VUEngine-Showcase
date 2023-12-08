@@ -75,7 +75,7 @@ StageROMSpec SoundsStage =
 
 	// Sound config
 	{
-		4000,
+		10000,
 		false
 	},
 
