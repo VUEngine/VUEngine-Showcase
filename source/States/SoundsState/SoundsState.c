@@ -413,7 +413,7 @@ void SoundsState::loadSound()
 		/*
 		 * Listen for when the plaback finishes to update the UI. 
 		 */
-		SoundWrapper::addEventListener(this->soundWrapper, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundFinish, kEventSoundFinished);
+		SoundWrapper::addEventListener(this->soundWrapper, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundPlaybackFinish, kEventSoundFinished);
 		SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
 		SoundsState::applyTimerSettings(this);
 	}
@@ -421,7 +421,7 @@ void SoundsState::loadSound()
 	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
-void SoundsState::onSoundFinish(ListenerObject eventFirer __attribute__((unused)))
+void SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
 {
 	if(isDeleted(this->soundWrapper))
 	{
