@@ -22,11 +22,6 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern Sound NoFearForTheFutureSound;
-extern Sound OracleOfSeasonsOverworldThemeSound;
-extern Sound EngineSound;
-extern Sound ExplosionSound;
-
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
@@ -51,10 +46,6 @@ const UserAnimatedEntity _userAnimatedEntities[] =
 
 const SoundROM* _userSounds[] =
 {
-	&OracleOfSeasonsOverworldThemeSound,
-	&ExplosionSound,
-	&NoFearForTheFutureSound,
-	&EngineSound,
 	NULL
 };
 

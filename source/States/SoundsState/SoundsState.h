@@ -18,7 +18,7 @@
 
 #include <ShowcaseState.h>
 
-#include <SoundTest.h>
+#include <SoundWrapper.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -32,7 +32,8 @@
 
 dynamic_singleton class SoundsState : ShowcaseState
 {
-	SoundTest soundTest;
+	SoundWrapper soundWrapper;
+	uint16 selectedSound;
 	
 	static SoundsState getInstance();
 
@@ -43,7 +44,10 @@ dynamic_singleton class SoundsState : ShowcaseState
 	override bool stream();
 	override void transform();
 	override void synchronizeGraphics();
+	override void showControls();
 	override void showStuff();
+	override void showExplanation();
+	override void showAdditionalDetails();
 }
 
 #endif
