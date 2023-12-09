@@ -162,6 +162,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		if(K_SEL & userInput->releasedKey)
 		{
 			SoundsState::loadSound(this);
+			SoundsState::showSoundMetadata(this);
 			return;
 		}
 
@@ -214,14 +215,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 					SoundWrapper::pause(this->soundWrapper);
 				}
 
-				if(this->showAdditionalDetails)		
-				{
-					SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
-				}
-				else
-				{
-					SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
-				}
+				SoundsState::showSoundMetadata(this);
 			}
 		}
 		else if(K_B & userInput->releasedKey)
@@ -229,6 +223,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			if(!isDeleted(this->soundWrapper))
 			{
 				SoundWrapper::rewind(this->soundWrapper);
+				SoundsState::showSoundMetadata(this);
 			}
 		}
 		
@@ -242,6 +237,8 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				}
 
 				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) - __F_TO_FIX7_9(0.01f));
+				SoundWrapper::rewind(this->soundWrapper);
+				SoundsState::showSoundMetadata(this);
 			}
 			else if(K_LU & userInput->releasedKey)
 			{
@@ -251,6 +248,8 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				}
 
 				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+				SoundWrapper::rewind(this->soundWrapper);
+				SoundsState::showSoundMetadata(this);
 			}
 			// Timer controls
 			else if(K_RU & userInput->releasedKey)
@@ -343,6 +342,8 @@ void SoundsState::processUserInput(const UserInput* userInput)
 						SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackFadeIn);
 					}
 				}
+
+				SoundsState::showSoundMetadata(this);
 			}
 		}		
 	}
@@ -403,13 +404,9 @@ void SoundsState::showExplanation()
 	Printing::text(Printing::getInstance(), " OracleOfSeasonsOverw...", 2, y++, NULL);
 
 	y++;
-
-	if(!isDeleted(this->soundWrapper))
-	{
-		y++;
-		Printing::text(Printing::getInstance(), "Sound", 2, y++, NULL);
-		SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
-	}
+	y++;
+	Printing::text(Printing::getInstance(), "Sound", 2, y++, NULL);
+	SoundsState::showSoundMetadata(this);
 
 	y = 3;
 	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
@@ -464,10 +461,7 @@ void SoundsState::showAdditionalDetails()
 	Printing::int32(printing, SoundsState::getTotalSounds(this), 1 + 1 + selectedSoundDigits + 1, 2, NULL);
 	Printing::text(printing, __CHAR_SELECTOR, 1 + 1 + selectedSoundDigits + 1 + totalSoundsDigits, 2, NULL);
 
-	if(!isDeleted(this->soundWrapper))
-	{
-		SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
-	}
+	SoundsState::showSoundMetadata(this);
 
 	SoundsState::printTimer(this);
 }
@@ -563,19 +557,7 @@ void SoundsState::loadSound()
 
 void SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(isDeleted(this->soundWrapper))
-	{
-		return;
-	}
-
-	if(this->showAdditionalDetails)		
-	{
-		SoundWrapper::printMetadata(this->soundWrapper, 1, 4, false);
-	}
-	else
-	{
-		SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
-	}
+	SoundsState::showSoundMetadata(this);
 }
 
 void SoundsState::onSoundWrapperReleased(ListenerObject eventFirer __attribute__((unused)))
@@ -584,6 +566,23 @@ void SoundsState::onSoundWrapperReleased(ListenerObject eventFirer __attribute__
 	{
 		this->soundWrapper = NULL;
 		SoundsState::loadSound(this);
+	}
+}
+
+void SoundsState::showSoundMetadata()
+{
+	if(isDeleted(this->soundWrapper))
+	{
+		return;
+	}
+
+	if(this->showAdditionalDetails)		
+	{
+		SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
+	}
+	else
+	{
+		SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
 	}
 }
 
