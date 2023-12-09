@@ -159,6 +159,14 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 	if(!(K_PWR & userInput->releasedKey))
 	{
+		if(K_SEL & userInput->releasedKey)
+		{
+			SoundsState::loadSound(this);
+			return;
+		}
+
+		bool timerChanged = false;
+		
 		if(K_LL & userInput->releasedKey)
 		{
 			uint16 totalSounds = SoundsState::getTotalSounds(this);
@@ -223,6 +231,120 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				SoundWrapper::rewind(this->soundWrapper);
 			}
 		}
+		
+		if(this->showAdditionalDetails)
+		{			
+			if(K_LD & userInput->releasedKey)
+			{
+				if(isDeleted(this->soundWrapper))
+				{
+					SoundsState::loadSound(this);
+				}
+
+				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) - __F_TO_FIX7_9(0.01f));
+			}
+			else if(K_LU & userInput->releasedKey)
+			{
+				if(isDeleted(this->soundWrapper))
+				{
+					SoundsState::loadSound(this);
+				}
+
+				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+			}
+			// Timer controls
+			else if(K_RU & userInput->releasedKey)
+			{
+				uint16 timerResolution = TimerManager::getResolution(TimerManager::getInstance());
+
+				switch(timerResolution)
+				{
+					case __TIMER_20US:
+
+						timerResolution = __TIMER_100US;
+						break;
+
+					case __TIMER_100US:
+
+						timerResolution = __TIMER_20US;
+						break;
+
+					default:
+
+						ASSERT(false, "SoundsState::processUserInput: wrong timer frequency");
+						break;
+				}
+
+				TimerManager::setResolution(TimerManager::getInstance(), timerResolution);
+				timerChanged = true;
+			}
+			else if(K_RD & userInput->releasedKey)
+			{
+				uint16 timePerInterruptUnits = TimerManager::getTimePerInterruptUnits(TimerManager::getInstance());
+				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+				switch(timePerInterruptUnits)
+				{
+					case kUS:
+
+						timePerInterruptUnits = kMS;
+						timePerInterrupt = 10;
+						break;
+
+					case kMS:
+
+						timePerInterruptUnits = kUS;
+						timePerInterrupt = 1000;
+						break;
+
+					default:
+
+						ASSERT(false, "SoundsState::processUserInput: wrong timer resolution scale");
+						break;
+				}
+
+				TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), timePerInterruptUnits);
+				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+				timerChanged = true;
+			}
+			else if(K_RL & userInput->releasedKey)
+			{
+				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+				timePerInterrupt -= TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+
+				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+				timerChanged = true;
+			}
+			else if(K_RR & userInput->releasedKey)
+			{
+				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+				timePerInterrupt += TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+
+				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+				timerChanged = true;
+			}
+
+			if(timerChanged)
+			{
+				SoundsState::applyTimerSettings(this);
+
+				SoundsState::printTimer(this);
+
+				if(!isDeleted(this->soundWrapper))
+				{
+					SoundWrapper::pause(this->soundWrapper);
+					SoundWrapper::rewind(this->soundWrapper);
+					SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
+
+					if(!SoundWrapper::isPaused(this->soundWrapper))
+					{
+						SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackFadeIn);
+					}
+				}
+			}
+		}		
 	}
 }
 
@@ -304,11 +426,29 @@ void SoundsState::showExplanation()
 
 void SoundsState::showControls()
 {
-	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	if(this->showAdditionalDetails)
+	{
+		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+		Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	}
+	else
+	{
+		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	}
 }
 
 void SoundsState::showAdditionalDetails()

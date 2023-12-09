@@ -164,7 +164,7 @@ SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel1 =
 	/// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel1Configuration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track
@@ -178,7 +178,7 @@ SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel2 =
 	/// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel2Configuration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track
@@ -192,7 +192,7 @@ SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel3 =
 	/// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel3Configuration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track

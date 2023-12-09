@@ -84,7 +84,7 @@ SoundChannelROM EngineSoundChannel =
 	/// Configuration
 	(SoundChannelConfiguration*)&EngineSoundChannelConfiguration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track

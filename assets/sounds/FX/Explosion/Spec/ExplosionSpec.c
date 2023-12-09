@@ -84,7 +84,7 @@ SoundChannelROM ExplosionSoundChannel =
 	/// Configuration
 	(SoundChannelConfiguration*)&ExplosionSoundChannelConfiguration,
 
-	/// Length (PCM)
+	//// Total number of samples
 	0,
 
 	/// Sound track

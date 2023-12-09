@@ -67,7 +67,7 @@ SoundChannelROM NoFearForTheFutureSoundChannel =
 	// Configuration
 	(SoundChannelConfiguration*) &NoFearForTheFutureSoundChannelConfiguration,
 
-	// Length (PCM)
+	/// Total number of samples
 	NoFearForTheFutureSoundTrackLength,
 
 	// Sound track
