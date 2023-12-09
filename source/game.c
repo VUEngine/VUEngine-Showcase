@@ -30,29 +30,31 @@
 int game(void)
 {
 	// initialize plugins
-/*
-	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), true);
-	GameSaveDataManager::restoreSettings(GameSaveDataManager::getInstance());
+//	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), true);
+//	GameSaveDataManager::restoreSettings(GameSaveDataManager::getInstance());
 	
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(PrecautionScreenState::getInstance()),
 		GameState::safeCast(AdjustmentScreenState::getInstance())
 	);
+
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(AdjustmentScreenState::getInstance()),
-		GameState::safeCast(AutomaticPauseSelectionScreenState::getInstance())
+		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
+/*
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
 		GameState::safeCast(LanguageSelectionScreenState::getInstance())
 	);
+
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 */
 	// start the game
-	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(ShowcaseState::getFirstShowcase()()));
+	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
 
 	// end program
 	return true;
