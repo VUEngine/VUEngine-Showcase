@@ -281,7 +281,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 					case kUS:
 
 						timePerInterruptUnits = kMS;
-						timePerInterrupt = 10;
+						timePerInterrupt = 1;
 						break;
 
 					case kMS:
