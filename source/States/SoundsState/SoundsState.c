@@ -220,35 +220,29 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		}
 		else if(K_B & userInput->releasedKey)
 		{
-			if(!isDeleted(this->soundWrapper))
-			{
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundsState::showSoundMetadata(this);
-			}
+			SoundWrapper::rewind(this->soundWrapper);
+			SoundsState::showSoundMetadata(this);
 		}
 		
 		if(this->showAdditionalDetails)
 		{			
+			if(isDeleted(this->soundWrapper))
+			{
+				return;
+			}
+
 			if(K_LD & userInput->releasedKey)
 			{
-				if(isDeleted(this->soundWrapper))
-				{
-					SoundsState::loadSound(this);
-				}
-
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) - __F_TO_FIX7_9(0.01f));
+				SoundWrapper::pause(this->soundWrapper);
 				SoundWrapper::rewind(this->soundWrapper);
+				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
 				SoundsState::showSoundMetadata(this);
 			}
 			else if(K_LU & userInput->releasedKey)
 			{
-				if(isDeleted(this->soundWrapper))
-				{
-					SoundsState::loadSound(this);
-				}
-
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+				SoundWrapper::pause(this->soundWrapper);
 				SoundWrapper::rewind(this->soundWrapper);
+				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
 				SoundsState::showSoundMetadata(this);
 			}
 			// Timer controls
@@ -331,16 +325,13 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 				SoundsState::printTimer(this);
 
-				if(!isDeleted(this->soundWrapper))
-				{
-					SoundWrapper::pause(this->soundWrapper);
-					SoundWrapper::rewind(this->soundWrapper);
-					SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
+				SoundWrapper::pause(this->soundWrapper);
+				SoundWrapper::rewind(this->soundWrapper);
+				SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
 
-					if(!SoundWrapper::isPaused(this->soundWrapper))
-					{
-						SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackFadeIn);
-					}
+				if(!SoundWrapper::isPaused(this->soundWrapper))
+				{
+					SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackFadeIn);
 				}
 
 				SoundsState::showSoundMetadata(this);
