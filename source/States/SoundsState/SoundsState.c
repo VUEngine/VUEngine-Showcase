@@ -161,7 +161,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	{
 		if(K_SEL & userInput->releasedKey)
 		{
-			SoundsState::loadSound(this);
+			SoundsState::loadSound(this, true);
 			SoundsState::showSoundMetadata(this);
 			return;
 		}
@@ -325,15 +325,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 				SoundsState::printTimer(this);
 
-				SoundWrapper::pause(this->soundWrapper);
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
-
-				if(!SoundWrapper::isPaused(this->soundWrapper))
-				{
-					SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackFadeIn);
-				}
-
+				SoundsState::loadSound(this, false);
 				SoundsState::showSoundMetadata(this);
 			}
 		}		
@@ -373,7 +365,7 @@ void SoundsState::releaseSoundWrapper()
 
 void SoundsState::showStuff()
 {
-	SoundsState::loadSound(this);
+	SoundsState::loadSound(this, true);
 }
 
 void SoundsState::showExplanation()
@@ -496,7 +488,7 @@ uint16 SoundsState::getTotalSounds()
 	return totalSounds;
 }
 
-void SoundsState::loadSound()
+void SoundsState::loadSound(bool resetTimerSettings)
 {
 	if(NULL == soundSamples[this->selectedSound])
 	{
@@ -518,10 +510,13 @@ void SoundsState::loadSound()
 	 * and example and shouldn't be used during gameplay, when it makes no sense to 
 	 * modify on the fly the timer interrupts' targets. 
  	 */
-	TimerManager::reset(TimerManager::getInstance());
-	TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
-	TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-	TimerManager::setTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
+	if(resetTimerSettings)
+	{
+		TimerManager::reset(TimerManager::getInstance());
+		TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
+		TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
+		TimerManager::setTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
+	}
 
 	/*
 	 * We ask for a SoundWrapper to the SoundManager and specify a callback for when the 
@@ -556,7 +551,7 @@ void SoundsState::onSoundWrapperReleased(ListenerObject eventFirer __attribute__
 	if(SoundWrapper::safeCast(eventFirer) == this->soundWrapper)
 	{
 		this->soundWrapper = NULL;
-		SoundsState::loadSound(this);
+		SoundsState::loadSound(this, true);
 	}
 }
 
