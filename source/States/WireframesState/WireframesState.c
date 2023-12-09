@@ -51,6 +51,16 @@ void WireframesState::destructor()
 	Base::destructor();
 }
 
+void WireframesState::enter(void* owner __attribute__((unused)))
+{
+	Base::enter(this, owner);
+	
+	/*
+	 * I need to register both released and hold buttons
+	 */
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
+}
+
 void WireframesState::execute(void* owner __attribute__((unused)))
 {
 	if(this->showAdditionalDetails)
