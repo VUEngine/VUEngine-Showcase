@@ -45,12 +45,13 @@ int game(void)
 	);
 
 	SplashScreenState::setNextState(
-		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
-		GameState::safeCast(LanguageSelectionScreenState::getInstance())
+		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
+		GameState::safeCast(AutomaticPauseSelectionScreenState::getInstance())
 	);
 
+
 	SplashScreenState::setNextState(
-		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
+		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 
