@@ -36,11 +36,6 @@ void GameSaveDataManager::destructor()
 	Base::destructor();
 }
 
-void GameSaveDataManager::restoreSettings()
-{
-	Base::restoreSettings(this);
-}
-
 uint8 GameSaveDataManager::getCustomValue()
 {
 	uint8 customValue = 0;

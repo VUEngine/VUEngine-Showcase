@@ -16,6 +16,7 @@
 #include <AutomaticPauseManager.h>
 #include <AutomaticPauseSelectionScreenState.h>
 #include <GameSaveDataManager.h>
+#include <I18n.h>
 #include <LanguageSelectionScreenState.h>
 #include <PrecautionScreenState.h>
 #include <ShowcaseState.h>
@@ -30,9 +31,9 @@
 int game(void)
 {
 	// initialize plugins
-//	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), true);
-//	GameSaveDataManager::restoreSettings(GameSaveDataManager::getInstance());
-	
+	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
+	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
+
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(PrecautionScreenState::getInstance()),
 		GameState::safeCast(AdjustmentScreenState::getInstance())
@@ -40,9 +41,9 @@ int game(void)
 
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(AdjustmentScreenState::getInstance()),
-		GameState::safeCast(ShowcaseState::getFirstShowcase()())
+		GameState::safeCast(LanguageSelectionScreenState::getInstance())
 	);
-/*
+
 	SplashScreenState::setNextState(
 		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
 		GameState::safeCast(LanguageSelectionScreenState::getInstance())
@@ -52,9 +53,9 @@ int game(void)
 		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
-*/
+
 	// start the game
-	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
+	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()), );
 
 	// end program
 	return true;
