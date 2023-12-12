@@ -22,42 +22,25 @@
 //											CLASS'S DECLARATION
 //---------------------------------------------------------------------------------------------------------
 
-typedef struct ResumedUserInput
+dynamic_singleton class PongState : ShowcaseState
 {
-	/// Currently pressed key(s)
-	uint16 pressedKey;
-	/// Released key(s)
-	uint16 releasedKey;
-	/// Held key(s)
-	uint16 holdKey;
-
-} ResumedUserInput;
-
-
-typedef struct DataToTransmit
-{
-	//Vector3D ballLocalPosition;
-	ResumedUserInput resumedUserInput;
-
-} DataToTransmit;
-
-singleton class PongState : ShowcaseState
-{
-	DataToTransmit opponentData;
 	bool isVersusMode;
 
 	static PongState getInstance();
 
 	void setVersusMode(bool value);
 	bool getVersusMode();
+	void reload();
 
 	override bool isVersusMode();
 	override void enter(void* owner);
 	override void exit(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override bool processUserInputRegardlessOfInput();
-
-	ResumedUserInput getOpponentInput();
+	override void showControls();
+	override void showStuff();
+	override void showExplanation();
+	override void showAdditionalDetails();
 }
 
 

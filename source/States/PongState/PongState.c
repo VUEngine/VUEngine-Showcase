@@ -24,6 +24,7 @@
 #include <KeypadManager.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
+#include <Printing.h>
 #include <Pong.h>
 #include <Utilities.h>
 
@@ -56,21 +57,6 @@ void PongState::destructor()
 	Base::destructor();
 }
 
-void PongState::setVersusMode(bool value)
-{
-	this->isVersusMode = value;
-}
-
-bool PongState::getVersusMode()
-{
-	return this->isVersusMode;
-}
-
-bool PongState::isVersusMode()
-{
-	return PongState::getVersusMode(this);
-}
-
 void PongState::enter(void* owner)
 {
 	if(PongState::isVersusMode(this))
@@ -86,62 +72,29 @@ void PongState::enter(void* owner)
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), !this->isVersusMode);
 
 	// start clocks to start animations
-	GameState::startClocks(GameState::safeCast(this));
+	PongState::startClocks(this);
 
 	// get the game ready
-	Pong::getReady(Pong::getInstance(), this->stage);
+	Pong::getReady(Pong::getInstance(), this->stage, false);
 	
 	// set input to be notified about
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
+
+	// enable comms	
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
 }
 
 void PongState::exit(void* owner)
 {
-	// call base
+	PongState::setVersusMode(this, false);
+	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+	
 	Base::exit(this, owner);
 }
 
 void PongState::processUserInput(const UserInput* userInput)
 {
-	if(userInput->pressedKey)
-	{
-		if(K_SEL & userInput->pressedKey)
-		{
-			// adjustment screen
-//				PlatformerLevelState::setModeToPaused(this);
-
-			// set next state of adjustment screen state to null so it can differentiate between
-			// being called the splash screen sequence or from within the game (a bit hacky...)
-//				SplashScreenState::setNextState(SplashScreenState::safeCast(AdjustmentScreenState::getInstance()), NULL);
-
-			// pause game and switch to adjustment screen state
-//				VUEngine::pause(VUEngine::getInstance(), GameState::safeCast(AdjustmentScreenState::getInstance()));
-
-			return;
-		}
-	}
-
-	if(this->isVersusMode)
-	{
-		this->opponentData.resumedUserInput.pressedKey = userInput->pressedKey;
-		this->opponentData.resumedUserInput.releasedKey = userInput->releasedKey;
-		this->opponentData.resumedUserInput.holdKey = userInput->holdKey;
-
-		uint32 sentMessage = kCommunicationMessageSendAndReceiveInput;
-		uint32 receivedMessage = sentMessage + 1;
-
-		do
-		{
-			CommunicationManager::sendAndReceiveData(CommunicationManager::getInstance(), sentMessage, (BYTE*)&this->opponentData, sizeof(this->opponentData));
-
-			receivedMessage = CommunicationManager::getReceivedMessage(CommunicationManager::getInstance());
-		}
-		while(receivedMessage != sentMessage);
-
-		this->opponentData = *(DataToTransmit*)CommunicationManager::getReceivedData(CommunicationManager::getInstance());
-	}
-
-	PongState::fireEvent(this, kEventUserInput);
+	Pong::processUserInput(Pong::getInstance(), userInput);
 
 	Base::processUserInput(this, userInput);
 }
@@ -151,8 +104,124 @@ bool PongState::processUserInputRegardlessOfInput()
 	return true;
 }
 
-ResumedUserInput PongState::getOpponentInput()
+void PongState::showControls()
 {
-	return this->opponentData.resumedUserInput;
+	Printing::clearRow(Printing::getInstance(), __SCREEN_HEIGHT_IN_CHARS - 1);
+	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+	if(!this->isVersusMode)
+	{
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	}
+	else
+	{
+		switch(Pong::getPlayerNumber(Pong::getInstance()))
+		{
+			case kPlayerOne:
+
+				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				break;
+
+			case kPlayerTwo:
+
+				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				break;
+		}
+	}
 }
 
+void PongState::showStuff()
+{
+}
+
+void PongState::showExplanation()
+{
+	int16 y = 3;
+	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "Communications", 2, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "CommunicationManager", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "Pong", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongBall", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongPaddle", 2, y++, NULL);
+
+	y++;
+	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "PongPaddleSpec", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongBallSpec", 2, y++, NULL);
+
+	y = 3;
+	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
+	y++;
+	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), "Pong", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), " syncWithRemote", 26, y++, NULL);
+	y++;
+
+	Pong::printScore(Pong::getInstance());
+	PongState::showConnectivityStatus(this);
+}
+
+void PongState::showAdditionalDetails()
+{
+	Pong::printScore(Pong::getInstance());
+	PongState::showConnectivityStatus(this);
+}
+
+void PongState::showConnectivityStatus()
+{
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	{
+		Printing::text(Printing::getInstance(), "CONNECTED", 19, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+	}
+	else	
+	{
+		Printing::text(Printing::getInstance(), " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+	}
+}
+
+void PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribute__((unused)))
+{	
+	PongState::setVersusMode(this, true);
+	Pong::getReady(Pong::getInstance(), this->stage, true);
+
+	this->showAdditionalDetails = true;
+	PongState::show(this, false);
+}
+
+void PongState::setVersusMode(bool value)
+{
+	this->isVersusMode = value;
+}
+
+bool PongState::getVersusMode()
+{
+	return this->isVersusMode;
+}
+
+bool PongState::isVersusMode()
+{
+	return PongState::getVersusMode(this);
+}
+
+void PongState::reload()
+{
+	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+
+	PongState::setVersusMode(this, false);
+	Pong::getReady(Pong::getInstance(), this->stage, true);
+
+	this->showAdditionalDetails = false;
+	PongState::show(this, false);
+
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
+}

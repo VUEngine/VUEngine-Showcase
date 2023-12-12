@@ -15,12 +15,14 @@
 #include <Pong.h>
 
 #include <CommunicationManager.h>
+#include <GameConfig.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
 #include <MessageDispatcher.h>
 #include <PongPaddle.h>
 #include <PongState.h>
 #include <SoundManager.h>
+#include <Utilities.h>
 #include <VirtualList.h>
 #include <VUEngine.h>
 
@@ -53,7 +55,6 @@ void Pong::constructor()
 
 void Pong::destructor()
 {
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onUserInput, kEventUserInput);
 	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
 	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
 
@@ -67,15 +68,20 @@ void Pong::destructor()
 	Base::destructor();
 }
 
-void Pong::getReady(Stage stage)
+void Pong::getReady(Stage stage, bool isVersusMode)
 {
+	if(!isDeleted(this->pongBall))
+	{
+		PongBall::deleteMyself(this->pongBall);
+
+	}
+
 	VirtualList::clear(this->playerPaddles);
 	VirtualList::clear(this->opponentPaddles);
 	this->leftScore = 0;
 	this->rightScore = 0;
 	this->pongBall = NULL;
 	
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onUserInput, kEventUserInput);
 	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
 	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
 
@@ -86,7 +92,7 @@ void Pong::getReady(Stage stage)
 
 	this->playerNumber = kPlayerAlone;
 
-	if(PongState::getVersusMode(PongState::getInstance()))
+	if(isVersusMode)
 	{
 		if(CommunicationManager::isMaster(CommunicationManager::getInstance()))
 		{
@@ -119,7 +125,6 @@ void Pong::getReady(Stage stage)
 		NM_ASSERT(1 == VirtualList::getSize(this->opponentPaddles), "Pong::getReady: didn't find left paddle");
 	}
 
-	ListenerObject::addEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onUserInput, kEventUserInput);
 	ListenerObject::addEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
 	ListenerObject::addEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
 
@@ -134,23 +139,48 @@ void Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 }
 
 // process user input
-void Pong::onUserInput(ListenerObject eventFirer __attribute__ ((unused)))
+void Pong::processUserInput(const UserInput* userInput)
 {
-	NM_ASSERT(PongState::safeCast(eventFirer), "Pong::onUserInput: wrong event firer");
-
-	UserInput userInput = KeypadManager::getUserInput(KeypadManager::getInstance());
-
-	if(0 != userInput.holdKey)
+	if(0 != userInput->holdKey)
 	{
-		Pong::onKeyHold(this, userInput.holdKey, this->playerPaddles);
+		Pong::onKeyHold(this, userInput->holdKey, this->playerPaddles);
 	}
 
-	ResumedUserInput resumedUserInput = PongState::getOpponentInput(PongState::safeCast(eventFirer));
-
-	if(0 != resumedUserInput.holdKey)
+	if(PongState::isVersusMode(PongState::getInstance()))
 	{
-		Pong::onKeyHold(this, resumedUserInput.holdKey, this->opponentPaddles);
+		Pong::syncWithRemote(this, userInput);
+
+		CondensedUserInput condensedUserInput = this->opponentData.condensedUserInput;
+
+		if((K_LT | K_RT) & condensedUserInput.releasedKey)
+		{
+			PongState::reload(PongState::getInstance());
+		}
+		else if(0 != condensedUserInput.holdKey)
+		{
+			Pong::onKeyHold(this, condensedUserInput.holdKey, this->opponentPaddles);
+		}
 	}
+}
+
+void Pong::syncWithRemote(const UserInput* userInput)
+{
+	this->opponentData.condensedUserInput.pressedKey = userInput->pressedKey;
+	this->opponentData.condensedUserInput.releasedKey = userInput->releasedKey;
+	this->opponentData.condensedUserInput.holdKey = userInput->holdKey;
+
+	uint32 sentMessage = kCommunicationMessageSendAndReceiveInput;
+	uint32 receivedMessage = sentMessage + 1;
+
+	do
+	{
+		CommunicationManager::sendAndReceiveData(CommunicationManager::getInstance(), sentMessage, (BYTE*)&this->opponentData, sizeof(this->opponentData));
+
+		receivedMessage = CommunicationManager::getReceivedMessage(CommunicationManager::getInstance());
+	}
+	while(receivedMessage != sentMessage);
+
+	this->opponentData = *(DataToTransmit*)CommunicationManager::getReceivedData(CommunicationManager::getInstance());
 }
 
 void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
@@ -214,14 +244,14 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 	{
 		if(0 < PongBall::getPosition(this->pongBall)->x)
 		{
-			if(999 > this->leftScore)
+			if(99 > this->leftScore)
 			{
 				this->leftScore++;			
 			}
 		}
 		else
 		{
-			if(999 > this->rightScore)
+			if(99 > this->rightScore)
 			{
 				this->rightScore++;			
 			}
@@ -241,20 +271,10 @@ int Pong::getPlayerNumber()
 
 void Pong::printScore()
 {
-	PRINT_TEXT("Total:	  ", 1, 27);
-	PRINT_INT(this->leftScore, 10, 27);
+	int16 y = 26;
+	PRINT_TEXT("P1:	  ", 1, y);
+	PRINT_INT(this->leftScore, 1 + 5 - Utilities::getDigitsCount(this->leftScore), y);
 
-	PRINT_TEXT("Total:	  ", 35, 27);
-	PRINT_INT(this->rightScore, 35 + 9, 27);
-
-	if(kPlayerOne == this->playerNumber)
-	{
-		PRINT_TEXT("Pong ", 3, 26);
-		PRINT_INT(this->playerNumber, 3 + 7, 26);
-	}
-	else if(kPlayerTwo == this->playerNumber)
-	{
-		PRINT_TEXT("Pong ", 38, 26);
-		PRINT_INT(this->playerNumber, 38 + 7, 26);
-	}
+	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
+	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Utilities::getDigitsCount(this->rightScore), y);
 }

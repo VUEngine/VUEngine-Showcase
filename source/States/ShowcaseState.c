@@ -45,7 +45,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)ParticlesState::getInstance,
 	(ShowcaseStateGetInstance)WireframesState::getInstance,
 	(ShowcaseStateGetInstance)SoundsState::getInstance,
-	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance
+	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance,
 };
 
 //---------------------------------------------------------------------------------------------------------
@@ -267,7 +267,7 @@ void ShowcaseState::showExplanation()
 
 void ShowcaseState::goToNext()
 {
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad(VUEngine::getInstance());
 
 	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }

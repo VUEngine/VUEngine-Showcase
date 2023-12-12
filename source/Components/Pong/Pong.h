@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef PLAYER_H_
-#define PLAYER_H_
+#ifndef PONG_H_
+#define PONG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -16,8 +16,11 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <ListenerObject.h>
+
+#include <KeypadManager.h>
 #include <PongBall.h>
 #include <Stage.h>
+#include <VirtualList.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -31,6 +34,24 @@ enum PlayerNumbers
 	kPlayerTwo
 };
 
+typedef struct CondensedUserInput
+{
+	/// Currently pressed key(s)
+	uint16 pressedKey;
+	/// Released key(s)
+	uint16 releasedKey;
+	/// Held key(s)
+	uint16 holdKey;
+
+} CondensedUserInput;
+
+
+typedef struct DataToTransmit
+{
+	//Vector3D ballLocalPosition;
+	CondensedUserInput condensedUserInput;
+
+} DataToTransmit;
 
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
@@ -38,7 +59,7 @@ enum PlayerNumbers
 
 singleton class Pong : ListenerObject
 {
-	/* spec pointer */
+	DataToTransmit opponentData;
 	PongBall pongBall;
 	VirtualList playerPaddles;
 	VirtualList opponentPaddles;
@@ -48,9 +69,10 @@ singleton class Pong : ListenerObject
 
 	static Pong getInstance();
 
+	void processUserInput(const UserInput* userInput);
 	void printScore();
 	int getPlayerNumber();
-	void getReady(Stage stage);
+	void getReady(Stage stage, bool isVersusMode);
 }
 
 

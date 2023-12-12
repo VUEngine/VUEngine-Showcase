@@ -39,7 +39,7 @@ void PongPaddle::constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, c
 
 	// save spec
 	this->pongPaddleSpec = pongPaddleSpec;
-	this->mustBounce = true;
+	this->mustBounce = false;
 }
 
 void PongPaddle::destructor()
@@ -87,8 +87,6 @@ bool PongPaddle::enterCollision(const CollisionInformation* collisionInformation
 		case kTypePongWall:
 
 			Base::enterCollision(this, collisionInformation);
-			this->mustBounce = false;
-			Body::setAxisSubjectToGravity(this->body, __NO_AXIS);
 			PongPaddle::stopAllMovement(this);
 			return true;
 			break;
