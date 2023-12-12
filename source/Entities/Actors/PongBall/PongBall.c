@@ -93,7 +93,7 @@ bool PongBall::handlePropagatedMessage(int32 message)
 	{
 		case kPongMessageResetPositions:
 			{
-				PongPaddle::stopAllMovement(this);
+				PongPaddle::stopMovement(this, __ALL_AXIS);
 				Vector3D localPosition = this->transformation.localPosition;
 				localPosition.y = 0;
 				PongPaddle::setLocalPosition(this, &localPosition);
@@ -125,14 +125,24 @@ void PongBall::startMovement()
 	// Force uniform movement along the X and Y axis, while Z is accelerated and handled by gravity
 	Body::setMaximumVelocity(this->body, this->pongBallSpec->maximumVelocity);
 
-	int16 angle = Utilities::random(Utilities::randomSeed(), 511);
+	int16 angle = Utilities::random(Utilities::randomSeed(), 64) - 32;
 
+	if(!PongState::isVersusMode(PongState::getInstance()))
+	{
+		angle = 0;
+	}
+	
 	Vector3D velocity =
 	{
 		__FIXED_MULT(this->pongBallSpec->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
 		__FIXED_MULT(this->pongBallSpec->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
 		0
 	};
+
+	if(50 > Utilities::random(Utilities::randomSeed(), 100))
+	{
+		velocity.x = -velocity.x;
+	}
 
 	Body::moveUniformly(this->body, velocity);
 	

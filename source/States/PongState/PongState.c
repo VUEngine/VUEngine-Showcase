@@ -88,7 +88,10 @@ void PongState::exit(void* owner)
 
 void PongState::processUserInput(const UserInput* userInput)
 {
-	Pong::processUserInput(Pong::getInstance(), userInput);
+	if(PongState::isVersusMode(this))
+	{
+		Pong::processUserInput(Pong::getInstance(), userInput);
+	}
 
 	Base::processUserInput(this, userInput);
 }
@@ -103,14 +106,7 @@ void PongState::showControls()
 	Printing::clearRow(Printing::getInstance(), __SCREEN_HEIGHT_IN_CHARS - 1);
 	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-	if(!this->isVersusMode)
-	{
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	}
-	else
+	if(this->isVersusMode)
 	{
 		switch(Pong::getPlayerNumber(Pong::getInstance()))
 		{
@@ -195,6 +191,7 @@ void PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribut
 void PongState::setVersusMode(bool value)
 {
 	this->isVersusMode = value;
+	this->showAdditionalDetails = value;
 }
 
 bool PongState::getVersusMode()
@@ -214,7 +211,6 @@ void PongState::remoteWentAway()
 	PongState::setVersusMode(this, false);
 	Pong::getReady(Pong::getInstance(), this->stage, false);
 
-	this->showAdditionalDetails = false;
 	PongState::show(this, false);
 
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);

@@ -156,22 +156,17 @@ void Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 // process user input
 void Pong::processUserInput(const UserInput* userInput)
 {
-
-	PRINT_INT(this->messageForRemote, 1, 26);
 	if(0 != userInput->holdKey)
 	{
 		Pong::onKeyHold(this, userInput->holdKey, this->playerPaddles);
 	}
 
-	if(PongState::isVersusMode(PongState::getInstance()))
+	if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		if((K_LT | K_RT) & userInput->releasedKey)
-		{
-			this->messageForRemote = kPongMessageGoodBye;			
-		}
-
-		Pong::syncWithRemote(this, userInput);
+		this->messageForRemote = kPongMessageGoodBye;			
 	}
+
+	Pong::syncWithRemote(this, userInput);
 }
 
 static uint32 Pong::getCommunicationCommand(uint32 message)

@@ -64,7 +64,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 	{
 		case kPongMessageResetPositions:
 			{
-				PongPaddle::stopAllMovement(this);
+				PongPaddle::stopMovement(this, __ALL_AXIS);
 				Vector3D localPosition = this->transformation.localPosition;
 				localPosition.y = 0;
 				PongPaddle::setLocalPosition(this, &localPosition);
@@ -105,7 +105,7 @@ bool PongPaddle::enterCollision(const CollisionInformation* collisionInformation
 		case kTypePongWall:
 
 			Base::enterCollision(this, collisionInformation);
-			PongPaddle::stopAllMovement(this);
+			PongPaddle::stopMovement(this, __ALL_AXIS);
 			return true;
 			break;
 	}
