@@ -213,12 +213,12 @@ bool PongState::isVersusMode()
 	return PongState::getVersusMode(this);
 }
 
-void PongState::reload()
+void PongState::remoteWentAway()
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
 	PongState::setVersusMode(this, false);
-	Pong::getReady(Pong::getInstance(), this->stage, true);
+	Pong::getReady(Pong::getInstance(), this->stage, false);
 
 	this->showAdditionalDetails = false;
 	PongState::show(this, false);

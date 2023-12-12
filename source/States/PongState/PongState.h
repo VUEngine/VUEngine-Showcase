@@ -30,7 +30,7 @@ dynamic_singleton class PongState : ShowcaseState
 
 	void setVersusMode(bool value);
 	bool getVersusMode();
-	void reload();
+	void remoteWentAway();
 
 	override bool isVersusMode();
 	override void enter(void* owner);

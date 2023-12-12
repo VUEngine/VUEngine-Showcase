@@ -154,7 +154,7 @@ void Pong::processUserInput(const UserInput* userInput)
 
 		if((K_LT | K_RT) & condensedUserInput.releasedKey)
 		{
-			PongState::reload(PongState::getInstance());
+			PongState::remoteWentAway(PongState::getInstance());
 		}
 		else if(0 != condensedUserInput.holdKey)
 		{
