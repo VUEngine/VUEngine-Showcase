@@ -66,7 +66,7 @@ MeshROMSpec PongPaddleMesh =
 
 WireframeROMSpec* const PongPaddleWireframes[] =
 {
-//	(WireframeSpec*)&PongPaddleMesh,
+	(WireframeSpec*)&PongPaddleMesh,
 	NULL
 };
 
