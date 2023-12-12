@@ -223,7 +223,7 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 		case kPlayerOne:
 		case kPlayerTwo:
 
-			if((K_RU | K_RU) & holdKey)
+			if((K_LU | K_RU) & holdKey)
 			{
 				normalizedDirection.y = __UP;
 				PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
