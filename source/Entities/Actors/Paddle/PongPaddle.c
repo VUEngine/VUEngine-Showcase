@@ -58,6 +58,24 @@ void PongPaddle::ready(bool recursive)
 	Body::sendMessages(this->body, false);
 }
 
+bool PongPaddle::handlePropagatedMessage(int32 message)
+{
+	switch(message)
+	{
+		case kPongMessageResetPositions:
+			{
+				PongPaddle::stopAllMovement(this);
+				Vector3D localPosition = this->transformation.localPosition;
+				localPosition.y = 0;
+				PongPaddle::setLocalPosition(this, &localPosition);
+			}
+
+			break;
+	}
+
+	return false;
+}
+
 void PongPaddle::moveTowards(NormalizedDirection direction)
 {
 	Vector3D force =

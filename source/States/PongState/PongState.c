@@ -59,12 +59,6 @@ void PongState::destructor()
 
 void PongState::enter(void* owner)
 {
-	if(PongState::isVersusMode(this))
-	{
-		// Reset random seed in multiplayer mode so both machines are completely in sync
-		Utilities::resetRandomSeed();
-	}
-
 	// call base
 	Base::enter(this, owner);
 

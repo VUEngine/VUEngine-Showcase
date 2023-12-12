@@ -17,7 +17,11 @@ enum Messages
 	kActorsStateReleasedRight,
 	kActorsStatePrintActorStatus,
 	kActorsStateResucitate,
-	kCommunicationMessageSendAndReceiveInput
+	kPongMessageResetPositions,
+	kPongMessageDummy,
+	kPongMessageSendInput,
+	kPongMessageSync,
+	kPongMessageGoodBye,	
 };
 
 enum InGameTypes

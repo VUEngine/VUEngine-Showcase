@@ -87,6 +87,25 @@ void PongBall::ready(bool recursive)
 	PongBall::startMovement(this);
 }
 
+bool PongBall::handlePropagatedMessage(int32 message)
+{
+	switch(message)
+	{
+		case kPongMessageResetPositions:
+			{
+				PongPaddle::stopAllMovement(this);
+				Vector3D localPosition = this->transformation.localPosition;
+				localPosition.y = 0;
+				PongPaddle::setLocalPosition(this, &localPosition);
+				PongBall::startMovement(this);
+			}
+
+			break;
+	}
+
+	return false;
+}
+
 void PongBall::onPositionTransmitted(ListenerObject eventFirer __attribute__((unused)))
 {
 	if(kPlayerTwo == Pong::getPlayerNumber(Pong::getInstance()))
@@ -107,8 +126,6 @@ void PongBall::startMovement()
 	Body::setMaximumVelocity(this->body, this->pongBallSpec->maximumVelocity);
 
 	int16 angle = Utilities::random(Utilities::randomSeed(), 511);
-
-	angle = 0;
 
 	Vector3D velocity =
 	{

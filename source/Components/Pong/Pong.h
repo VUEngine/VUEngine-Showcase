@@ -46,12 +46,14 @@ typedef struct CondensedUserInput
 } CondensedUserInput;
 
 
-typedef struct DataToTransmit
+typedef struct RemotePlayerData
 {
+	uint32 command;
+
 	//Vector3D ballLocalPosition;
 	CondensedUserInput condensedUserInput;
 
-} DataToTransmit;
+} RemotePlayerData;
 
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S DECLARATION
@@ -59,13 +61,13 @@ typedef struct DataToTransmit
 
 singleton class Pong : ListenerObject
 {
-	DataToTransmit opponentData;
 	PongBall pongBall;
 	VirtualList playerPaddles;
 	VirtualList opponentPaddles;
 	uint32 leftScore;
 	uint32 rightScore;
 	int playerNumber;
+	uint32 messageForRemote;
 
 	static Pong getInstance();
 
