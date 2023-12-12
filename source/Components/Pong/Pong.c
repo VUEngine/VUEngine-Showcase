@@ -274,49 +274,16 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 		0
 	};
 
-	switch(this->playerNumber)
+
+	if((K_LU | K_RU) & holdKey)
 	{
-		case kPlayerAlone:
-
-			if(K_LU & holdKey)
-			{
-				normalizedDirection.y = __UP;
-				PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-			}
-			else if(K_LD & holdKey)
-			{
-				normalizedDirection.y = __DOWN;
-				PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-			}
-			
-			if(K_RU & holdKey)
-			{
-				normalizedDirection.y = __UP;
-				PongPaddle::moveTowards(VirtualList::back(paddles), normalizedDirection);
-			}
-			else if(K_RD & holdKey)
-			{
-				normalizedDirection.y = __DOWN;
-				PongPaddle::moveTowards(VirtualList::back(paddles), normalizedDirection);
-			}
-
-			break;
-
-		case kPlayerOne:
-		case kPlayerTwo:
-
-			if((K_LU | K_RU) & holdKey)
-			{
-				normalizedDirection.y = __UP;
-				PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-			}
-			else if((K_LD | K_RD) & holdKey)
-			{
-				normalizedDirection.y = __DOWN;
-				PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-			}
-
-			break;			
+		normalizedDirection.y = __UP;
+		PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
+	}
+	else if((K_LD | K_RD) & holdKey)
+	{
+		normalizedDirection.y = __DOWN;
+		PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
 	}
 }
 
