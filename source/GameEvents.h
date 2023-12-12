@@ -18,6 +18,13 @@
 //---------------------------------------------------------------------------------------------------------
 
 
+enum GameEvents
+{
+	kEventUserInput = kEventEngineLast + 1,
+	kEventPongBallSpawned,
+	kEventPongBallStreamedOut,	
+};
+
 
 
 #endif

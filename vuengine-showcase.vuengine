@@ -208,7 +208,7 @@
                     "highPrecision": false,
                     "maximumBouncinessCoefficient": 1,
                     "maximumFrictionCoefficient": 1,
-                    "stopBouncingVelocityThreshold": 48,
+                    "stopBouncingVelocityThreshold": 8,
                     "stopVelocityThreshold": 8,
                     "timeElapsedDivisor": 2
                 },

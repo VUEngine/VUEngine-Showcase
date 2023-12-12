@@ -17,6 +17,7 @@ enum Messages
 	kActorsStateReleasedRight,
 	kActorsStatePrintActorStatus,
 	kActorsStateResucitate,
+	kCommunicationMessageSendAndReceiveInput
 };
 
 enum InGameTypes
@@ -24,7 +25,11 @@ enum InGameTypes
 	kTypeSolidObject = kTypeNone + 1,
 	kTypePunk,
 	kTypeCogWheel,
-	kTypeParticle
+	kTypeParticle,
+	kTypePongPaddle,
+	kTypePongBall,
+	kTypePongGoal,
+	kTypePongWall
 };
 
 enum CollisionLayers
@@ -32,7 +37,10 @@ enum CollisionLayers
 	kLayerSolid = kLayerNone + 1,
 	kLayerDangers,
 	kLayerPunk,
-	kLayerParticles
+	kLayerParticles,
+	kLayerPongPlayfield,
+	kLayerPongBall,
+	kLayerAll,
 };
 
 

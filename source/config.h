@@ -324,7 +324,7 @@
 
 // thresholds to stop bodies
 #define __STOP_VELOCITY_THRESHOLD									__PIXELS_TO_METERS(8)
-#define __STOP_BOUNCING_VELOCITY_THRESHOLD 							__PIXELS_TO_METERS(48)
+#define __STOP_BOUNCING_VELOCITY_THRESHOLD 							__PIXELS_TO_METERS(8)
 
 // maximum bounciness coefficient allowed
 #define __MAXIMUM_BOUNCINESS_COEFFICIENT							1.0f
