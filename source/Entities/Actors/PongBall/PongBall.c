@@ -100,7 +100,6 @@ void PongBall::onPositionTransmitted(ListenerObject eventFirer __attribute__((un
 void PongBall::startMovement()
 {
 	Vector3D localPosition = Vector3D::zero();
-	localPosition.z = __PIXELS_TO_METERS(16);
 	Entity::setLocalPosition(this, &localPosition);
 
 	// Force uniform movement along the X and Y axis, while Z is accelerated and handled by gravity

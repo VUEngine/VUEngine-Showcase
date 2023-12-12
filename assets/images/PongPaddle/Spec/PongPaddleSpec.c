@@ -30,14 +30,6 @@
 const PixelVector PongPaddleMeshesSegments[][2]=
 {
 	{
-		{-1, -8, 0, 0}, 
-		{-1, 8, 0, 0}, 
-	},
-	{
-		{1, -8, 0, 0}, 
-		{1, 8, 0, 0}, 
-	},
-	{
 		{0, -8, 0, 0}, 
 		{0, 8, 0, 0}, 
 	},
@@ -74,7 +66,7 @@ MeshROMSpec PongPaddleMesh =
 
 WireframeROMSpec* const PongPaddleWireframes[] =
 {
-	(WireframeSpec*)&PongPaddleMesh,
+//	(WireframeSpec*)&PongPaddleMesh,
 	NULL
 };
 

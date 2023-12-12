@@ -67,9 +67,9 @@ PositionedEntityROMSpec PongBallChildren[] =
 
 PositionedEntityROMSpec PongStageEntities[] =
 {
-	{&PongPaddleEntity, 		{-96, 0, 16, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, false},
-	{&PongPaddleEntity,	 		{+96, 0, 16, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, false},
-	{&PongBallEntity, 		{  0, 0, 16, 0}, 	0, PONG_BALL_NAME, NULL, NULL, false},
+	{&PongPaddleEntity, 		{-96, 0, 0, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, false},
+	{&PongPaddleEntity,	 		{+96, 0, 0, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, false},
+	{&PongBallEntity, 		{  0, 0, 0, 0}, 	0, PONG_BALL_NAME, NULL, NULL, false},
 /*
 	{&CollisionFloorCl,		{192, 112,	 96+16, 0},	0, NULL, NULL, (void*)&floorCollision, false}, // far border
 	{&CollisionCeilingCl,		{192,	112,	  -48, 0},	0, NULL, NULL, (void*)&ceilingCollision, false}, // front border
