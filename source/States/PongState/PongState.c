@@ -137,9 +137,7 @@ void PongState::showExplanation()
 	y++;
 	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "CommunicationManager", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Pong", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongBall", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongPaddle", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "Pong*", 2, y++, NULL);
 
 	y++;
 	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
