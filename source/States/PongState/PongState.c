@@ -158,14 +158,16 @@ void PongState::showExplanation()
 
 	y = 19;
 
-	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PongPaddleSpec", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongBallSpec", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "SPECS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), "PongBallSpec", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongPaddleSpec", 26, y++, NULL);
 
 	y = 19;
-	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Pong", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " syncWithRemote", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "METHODS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "Pong", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " syncWithRemote", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " transmitData", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " processReceived..", 2, y++, NULL);
 	y++;
 
 	PongState::showConnectivityStatus(this);

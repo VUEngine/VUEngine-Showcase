@@ -159,6 +159,9 @@ void Pong::processUserInput(const UserInput* userInput)
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
 
+	/*
+	 * This call will sync both systems.
+	 */
 	Pong::syncWithRemote(this, userInput);
 
 	if(this->allowPaddleMovement)
@@ -202,8 +205,15 @@ bool Pong::isMessageValid(uint32 message, uint8 command)
 
 void Pong::syncWithRemote(const UserInput* userInput)
 {
+	/*
+	 * A command is used to verify that the received message and the data
+	 * are valid.
+	 */
 	uint8 command = Pong::getCommunicationCommand(this->messageForRemote);
 
+	/*
+	 * This is the struct that we are going to send down the link port.
+	 */
 	RemotePlayerData remotePlayerData;
 
 	remotePlayerData.command = command;
@@ -220,17 +230,33 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 	const RemotePlayerData* remotePlayerData = NULL;
 	CommunicationManager communicationManager = CommunicationManager::getInstance();
 
-	// Send data synchronously
+	/*
+	 * Data will be send sychroniously. This means that if the cable is disconnect during
+	 * transmission, the behavior is undefined.
+	 */
 	do
 	{
+		/*
+		 * Data transmission can fail if there was already a request to send data.
+		 */
 		if(!CommunicationManager::sendAndReceiveData(communicationManager, messageForRemote, data, dataBytes))
 		{
+			/*
+			 * In this case, simply cancel all communications and try again. This supposes
+			 * that there are no other calls that could cause a race condition.
+			 */
 			CommunicationManager::cancelCommunications(communicationManager);
 		}
 
+		/*
+		 * Every transmission sends a control message and then the data itself.
+		 */
 		receivedMessage = CommunicationManager::getReceivedMessage(communicationManager);
 		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData(communicationManager);
 	}
+	/*
+	 * The validity of the message is based on the command that was received
+	 */
 	while(!Pong::isMessageValid(this, receivedMessage, remotePlayerData->command));
 
 	Pong::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
@@ -238,14 +264,15 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 
 void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
 {
+	/*
+	 * When both systems send the same message, they are in sync. If the received
+	 * message differs from what I've sent, then update appropriately the message 
+	 * that I will send in the next cycle.
+	 */
 	switch(receivedMessage)
 	{
 		case kPongMessageSync:
 
-			/*
-			 * When both systems send the same message, they are in sync
-			 * and the game can start			
-			 */
 			if(kPongMessageSync == messageForRemote)
 			{
 				Pong::fireEvent(this, kEventPongRemoteInSync);
