@@ -68,6 +68,8 @@ singleton class Pong : ListenerObject
 	int playerNumber;
 	uint32 messageForRemote;
 	bool isVersusMode;
+	bool allowPaddleMovement;
+	uint16 remoteHoldKey;
 
 	static Pong getInstance();
 

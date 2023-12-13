@@ -58,6 +58,8 @@ void Pong::constructor()
 	this->leftScore = 0;
 	this->rightScore = 0;
 	this->messageForRemote = kPongMessageSync;
+	this->allowPaddleMovement = false;
+	this->remoteHoldKey = 0;
 
 	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
 	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
@@ -88,6 +90,8 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 	this->rightScore = 0;
 	this->pongBall = NULL;
 	this->messageForRemote = kPongMessageSync;
+	this->allowPaddleMovement = false;
+	this->remoteHoldKey = 0;
 	
 	if(isDeleted(stage))
 	{
@@ -150,9 +154,22 @@ void Pong::processUserInput(const UserInput* userInput)
 		this->messageForRemote = kPongMessageGoodBye;			
 	}
 
-	if(Pong::syncWithRemote(this, userInput))
+	this->allowPaddleMovement = false;
+	this->remoteHoldKey = 0;
+
+	Pong::syncWithRemote(this, userInput);
+
+	if(this->allowPaddleMovement)
 	{
-		Pong::onKeyHold(this, userInput->holdKey, this->playerPaddles);
+		if(0 != userInput->holdKey)
+		{
+			Pong::onKeyHold(this, userInput->holdKey, this->playerPaddles);
+		}
+
+		if(0 != this->remoteHoldKey)
+		{
+			Pong::onKeyHold(this, this->remoteHoldKey, this->opponentPaddles);
+		}
 	}
 }
 
@@ -181,7 +198,7 @@ bool Pong::isMessageValid(uint32 message, uint8 command)
 	return Pong::getCommunicationCommand(message) == command;
 }
 
-bool Pong::syncWithRemote(const UserInput* userInput)
+void Pong::syncWithRemote(const UserInput* userInput)
 {
 	uint8 command = Pong::getCommunicationCommand(this->messageForRemote);
 
@@ -192,10 +209,10 @@ bool Pong::syncWithRemote(const UserInput* userInput)
 	remotePlayerData.condensedUserInput.releasedKey = userInput->releasedKey;
 	remotePlayerData.condensedUserInput.holdKey = userInput->holdKey;
 
-	return Pong::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
+	Pong::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
 }
 
-bool Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
+void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 {
 	uint32 receivedMessage = kPongMessageDummy;
 	const RemotePlayerData* remotePlayerData = NULL;
@@ -214,10 +231,10 @@ bool Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 	}
 	while(!Pong::isMessageValid(this, receivedMessage, remotePlayerData->command));
 
-	return Pong::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
+	Pong::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
 }
 
-bool Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
+void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
 {
 	switch(receivedMessage)
 	{
@@ -244,8 +261,8 @@ bool Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 			if(kPongMessageSendInput == messageForRemote)
 			{
-				Pong::onKeyHold(this, remotePlayerData->condensedUserInput.holdKey, this->opponentPaddles);
-				return true;
+				this->remoteHoldKey = remotePlayerData->condensedUserInput.holdKey;
+				this->allowPaddleMovement = true;
 			}
 			else if(kPongMessageSync == messageForRemote)
 			{
@@ -261,8 +278,6 @@ bool Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			this->messageForRemote = kPongMessageSync;
 			break;
 	}
-
-	return false;
 }
 
 void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)

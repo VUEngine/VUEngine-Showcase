@@ -24,6 +24,7 @@
 #include <KeypadManager.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
+#include <PhysicalWorld.h>
 #include <Printing.h>
 #include <Pong.h>
 #include <Utilities.h>
@@ -217,6 +218,9 @@ void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 {
 	// Reset random seed in multiplayer mode so both machines are completely in sync
 	Utilities::resetRandomSeed();
+
+	// Must reset the physical world too
+	PhysicalWorld::reset(this->physicalWorld);
 
 	// Must reset the clocks
 	PongState::startClocks(this);
