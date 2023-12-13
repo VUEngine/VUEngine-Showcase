@@ -44,6 +44,19 @@
 #define SPEED_X_MULTIPLIER								__I_TO_FIX10_6(2)
 #define SPEED_Y_MULTIPLIER								__I_TO_FIX10_6(2)
 
+
+//---------------------------------------------------------------------------------------------------------
+//												CLASS'S ATTRIBUTES
+//---------------------------------------------------------------------------------------------------------
+
+/*
+ * This is used to generate a new angle each time that the ball starts to move.
+ * For this to work, this has to be kept in sync between both VBs and is has to
+ * persist between calls to startMovement.
+ */
+static uint32 _randomSeed = 0;
+
+
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
 //---------------------------------------------------------------------------------------------------------
@@ -158,11 +171,20 @@ void PongBall::prepareToMove()
 
 void PongBall::startMovement()
 {
-	int16 angle = Utilities::random(Utilities::randomSeed(), 64) - 32;
+	int16 angle = 0;
 
-	if(!Pong::isVersusMode(Pong::getInstance()))
+	if(Pong::isVersusMode(Pong::getInstance()))
 	{
-		angle = 0;
+		if(0 == _randomSeed)
+		{
+			_randomSeed = 7;
+		}
+
+		_randomSeed ^= _randomSeed << 13;
+		_randomSeed ^= _randomSeed >> 17;
+		_randomSeed ^= _randomSeed << 5;
+
+		angle = Utilities::random(Utilities::randomSeed() + _randomSeed, 64) - 32;
 	}
 
 	Vector3D velocity =
@@ -172,7 +194,7 @@ void PongBall::startMovement()
 		0
 	};
 
-	if(50 > Utilities::random(Utilities::randomSeed(), 100))
+	if(50 > Utilities::random(Utilities::randomSeed() + _randomSeed, 100))
 	{
 		velocity.x = -velocity.x;
 	}
