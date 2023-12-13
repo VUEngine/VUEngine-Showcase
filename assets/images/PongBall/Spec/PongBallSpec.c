@@ -82,10 +82,10 @@ ShapeROMSpec PongBallEntityShapes[] =
 		true,
 
 		// layers in which I live
-		kLayerPongPlayfield | kLayerPongBall,
+		kLayerPongBall,
 
 		// layers to ignore when checking for collisions
-		kLayerNone,
+		kLayerAll & ~(kLayerPongPlayfield)
 	},
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}

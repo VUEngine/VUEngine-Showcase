@@ -2,6 +2,12 @@
 #define GAME_CONFIG_H_
 
 //---------------------------------------------------------------------------------------------------------
+// 												INCLUDES
+//---------------------------------------------------------------------------------------------------------
+
+#include <CollisionManager.h>
+
+//---------------------------------------------------------------------------------------------------------
 // 												ENUMS
 //---------------------------------------------------------------------------------------------------------
 
@@ -39,13 +45,13 @@ enum InGameTypes
 
 enum CollisionLayers
 {
-	kLayerSolid = kLayerNone + 1,
+	kLayerSolid 				= kLayerNone + 1,
 	kLayerDangers,
 	kLayerPunk,
 	kLayerParticles,
 	kLayerPongPlayfield,
 	kLayerPongBall,
-	kLayerAll,
+	kLayerAll					= __COLLISION_ALL_LAYERS,
 };
 
 

@@ -127,7 +127,7 @@ void PongBall::prepareToMove()
 	localPosition.z = __PIXELS_TO_METERS(128);
 	Entity::setLocalPosition(this, &localPosition);
 	PongBall::discardMessages(this, kPongBallMessageStartMoving);
-	PongBall::sendMessageToSelf(this, kPongBallMessageStartMoving, 1000, 0);
+	PongBall::sendMessageToSelf(this, kPongBallMessageStartMoving, 1500, 0);
 }
 
 void PongBall::startMovement()

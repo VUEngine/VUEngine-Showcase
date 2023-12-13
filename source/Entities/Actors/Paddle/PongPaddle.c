@@ -17,6 +17,7 @@
 #include <Box.h>
 #include <GameConfig.h>
 #include <Optics.h>
+#include <Pong.h>
 #include <VUEngine.h>
 
 
@@ -63,6 +64,8 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 	switch(message)
 	{
 		case kPongMessageResetPositions:
+
+			if(!Pong::isVersusMode(Pong::getInstance()))
 			{
 				PongPaddle::stopMovement(this, __ALL_AXIS);
 				Vector3D localPosition = this->transformation.localPosition;

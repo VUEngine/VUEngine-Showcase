@@ -25,60 +25,19 @@
 
 extern EntitySpec PongBallEntity;
 extern EntitySpec PongPaddleEntity;
+extern EntitySpec PongWallsEntity;
 
-/*
-const CollisionExtraInfo horizontalWallCollision =
-{
-	{48 * 8, 	4 * 8, 		48 * 8},
-	kLayerPongPlayfieldWalls
-};
-
-const CollisionExtraInfo verticalWallCollision =
-{
-	{4 * 8, 	28 * 8, 	48 * 8},
-	kLayerPongPlayfieldWalls
-};
-
-const CollisionExtraInfo ceilingCollision =
-{
-	{48 * 8, 	28 * 8, 	4 * 8},
-	kLayerPongPlayfieldCeiling
-};
-
-const CollisionExtraInfo floorCollision =
-{
-	{48 * 8, 	28 * 8, 	4 * 8},
-	kLayerPongPlayfieldFloor
-};
-
-*/
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
-/*
-PositionedEntityROMSpec PongBallChildren[] =
-{
-	{&PongBallParticlesParticleSystem, 			{0,	0,	 1, 0}, 	0, "Partcls", NULL, NULL, false},
-
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
-};
-*/
 
 PositionedEntityROMSpec PongStageEntities[] =
 {
-	{&PongPaddleEntity, 	{-96, 0, 128, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, false},
-	{&PongPaddleEntity,	 	{+96, 0, 128, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, false},
 	{&PongBallEntity, 		{  0, 0, 128, 0}, 	0, PONG_BALL_NAME, NULL, NULL, false},
-/*
-	{&CollisionFloorCl,		{192, 112,	 96+16, 0},	0, NULL, NULL, (void*)&floorCollision, false}, // far border
-	{&CollisionCeilingCl,		{192,	112,	  -48, 0},	0, NULL, NULL, (void*)&ceilingCollision, false}, // front border
-	{&CollisionWallCl,		{ 12, 112,	  0, 0},	0, NULL, NULL, (void*)&verticalWallCollision, false}, // left border
-	{&CollisionWallCl,		{384-12, 112,	  0, 0},	0, NULL, NULL, (void*)&verticalWallCollision, false}, // right border
-	{&CollisionWallCl,		{192,	16+12,	0, 0},	0, NULL, NULL, (void*)&horizontalWallCollision, false}, // top border
-	{&CollisionWallCl,		{192,	224-12,   0, 0},	0, NULL, NULL, (void*)&horizontalWallCollision, false}, // bottom border
-	{&CollisionWallCl,		{192,	112,	 48, 0},	0, NULL, NULL, (void*)&splitterCollision, false}, // splitter border
-*/
+	{&PongPaddleEntity, 	{-96, 0, 128, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, true},
+	{&PongPaddleEntity,	 	{+96, 0, 128, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
+	{&PongWallsEntity,		{ 0,  0, 128, 0},	0, NULL, NULL, NULL, true}, // bottom border
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -170,7 +129,7 @@ StageROMSpec PongStage =
 			// y1
 			__SCREEN_HEIGHT,
 			// z1
-			__SCREEN_WIDTH * 5
+			__SCREEN_DEPTH
 		}
 	},
 
@@ -179,7 +138,7 @@ StageROMSpec PongStage =
 		// load padding
 		0,
 		// unload padding
-		-32,
+		0,
 		// streaming amplitude
 		10,
 		// particle removal delay cycles
