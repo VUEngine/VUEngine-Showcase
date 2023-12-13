@@ -110,15 +110,6 @@ bool PongBall::handlePropagatedMessage(int32 message)
 	return false;
 }
 
-void PongBall::onPositionTransmitted(ListenerObject eventFirer __attribute__((unused)))
-{
-	if(kPlayerTwo == Pong::getPlayerNumber(Pong::getInstance()))
-	{
-		const Vector3D* otherWorldPosition = (Vector3D*)CommunicationManager::getReceivedData(CommunicationManager::getInstance());
-		Entity::setLocalPosition(this, otherWorldPosition);
-	}
-}
-
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
@@ -138,7 +129,7 @@ void PongBall::startMovement()
 	{
 		angle = 0;
 	}
-	
+
 	Vector3D velocity =
 	{
 		__FIXED_MULT(this->pongBallSpec->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
