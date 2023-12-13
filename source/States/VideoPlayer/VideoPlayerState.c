@@ -55,8 +55,6 @@ void VideoPlayerState::enter(void* owner __attribute__((unused)))
 	Base::enter(this, owner);
 
 	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
-
-	AnimatedEntity::pauseAnimation(videoEntity, true);
 }
 
 void VideoPlayerState::processUserInput(const UserInput* userInput)
@@ -81,8 +79,6 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 				{					
 					AnimatedEntity::playAnimation(videoEntity, "HiColor");
 				}
-
-				AnimatedEntity::pauseAnimation(videoEntity, true);
 
 				VideoPlayerState::show(this, false);
 			}
