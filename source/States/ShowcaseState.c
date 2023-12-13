@@ -37,7 +37,6 @@ static int8 _currentShowcaseState = 0;
 
 static ShowcaseStateGetInstance _showcaseStates [] =
 {
-	(ShowcaseStateGetInstance)VideoPlayerState::getInstance,
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)EntitiesState::getInstance,
@@ -45,6 +44,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)ParticlesState::getInstance,
 	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance,
 	(ShowcaseStateGetInstance)WireframesState::getInstance,
+	(ShowcaseStateGetInstance)VideoPlayerState::getInstance,
 	(ShowcaseStateGetInstance)SoundsState::getInstance,
 	(ShowcaseStateGetInstance)PongState::getInstance,
 };
