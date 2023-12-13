@@ -50,15 +50,6 @@ void PongPaddle::destructor()
 	Base::destructor();
 }
 
-void PongPaddle::ready(bool recursive)
-{
-	// call base
-	Base::ready(this, recursive);
-
-	// optimization
-	Body::sendMessages(this->body, false);
-}
-
 bool PongPaddle::handlePropagatedMessage(int32 message)
 {
 	switch(message)
@@ -88,7 +79,7 @@ void PongPaddle::moveTowards(NormalizedDirection direction)
 		0
 	};
 
-	PongPaddle::applyForce(this, &force, false);
+	PongPaddle::applyForce(this, &force, true);
 }
 
 bool PongPaddle::mustBounce()

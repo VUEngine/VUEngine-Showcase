@@ -45,12 +45,14 @@ enum InGameTypes
 
 enum CollisionLayers
 {
-	kLayerSolid 				= kLayerNone + 1,
-	kLayerDangers,
-	kLayerPunk,
-	kLayerParticles,
-	kLayerPongPlayfield,
-	kLayerPongBall,
+	kLayerSolid 				= 1 << (kLayerNone + 1),
+	kLayerDangers				= 1 << (kLayerNone + 2),
+	kLayerPunk					= 1 << (kLayerNone + 3),
+	kLayerParticles				= 1 << (kLayerNone + 4),
+	kLayerPongWalls				= 1 << (kLayerNone + 5),
+	kLayerPongPaddle			= 1 << (kLayerNone + 6),
+	kLayerPongPaddleHelper		= 1 << (kLayerNone + 7),
+	kLayerPongBall				= 1 << (kLayerNone + 8),
 	kLayerAll					= __COLLISION_ALL_LAYERS,
 };
 

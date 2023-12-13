@@ -61,7 +61,6 @@ class PongPaddle : Actor
 
 	void constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
 	void moveTowards(NormalizedDirection direction);
-	override void ready(bool recursive);
 	override bool handlePropagatedMessage(int32 message);
 	override bool mustBounce();
 	override bool enterCollision(const CollisionInformation* collisionInformation);

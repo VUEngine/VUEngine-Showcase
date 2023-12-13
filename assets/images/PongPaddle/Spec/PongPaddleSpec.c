@@ -14,6 +14,7 @@
 
 #include <PongPaddle.h>
 #include <Box.h>
+#include <Ball.h>
 #include <GameConfig.h>
 #include <Mesh.h>
 
@@ -72,17 +73,16 @@ WireframeROMSpec* const PongPaddleWireframes[] =
 
 ShapeROMSpec PongPaddleShapes[] =
 {
-/*
 	// wall collider
 	{
 		// shape
 		__TYPE(Ball),
 
 		// size (x, y, z)
-		{12, 28, 12},
+		{16, 16, 16},
 
 		// displacement (x, y, z, p)
-		{0, 0, -14, 0},
+		{0, 0, 0, 0},
 
 		// rotation (x, y, z)
 		{0, 0, 0},
@@ -94,12 +94,12 @@ ShapeROMSpec PongPaddleShapes[] =
 		true,
 
 		// layers in which I live
-		kLayerPongPlayfield,
+		kLayerPongPaddleHelper,
 
 		// layers to ignore when checking for collisions
-		kLayerAll & ~(kLayerPongPlayfieldWalls | kLayerPongPlayfieldFloor | kLayerPongPlayfieldFloor),
+		kLayerAll & ~(kLayerPongWalls)
 	},
-*/
+
 	// collider
 	{
 		// shape
@@ -121,10 +121,10 @@ ShapeROMSpec PongPaddleShapes[] =
 		false,
 
 		// layers in which I live
-		kLayerPongPlayfield,
+		kLayerPongPaddle,
 
 		// layers to ignore when checking for collisions
-		kLayerAll,
+		kLayerAll
 	},
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}

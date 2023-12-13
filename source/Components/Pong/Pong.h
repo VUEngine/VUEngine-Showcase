@@ -50,7 +50,6 @@ typedef struct RemotePlayerData
 {
 	uint32 command;
 
-	//Vector3D ballLocalPosition;
 	CondensedUserInput condensedUserInput;
 
 } RemotePlayerData;

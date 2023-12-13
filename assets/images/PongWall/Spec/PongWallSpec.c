@@ -34,7 +34,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		__TYPE(LineField),
 
 		// size (x, y, z)
-		{96 * 2, 0, 0},
+		{100 * 2, 0, 0},
 
 		// displacement (x, y, z, p)
 		{0, -68, 0, 0},
@@ -49,7 +49,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		false,
 
 		// layers in which I live
-		kLayerPongPlayfield,
+		kLayerPongWalls,
 
 		// layers to ignore when checking for collisions
 		kLayerAll,
@@ -61,7 +61,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		__TYPE(LineField),
 
 		// size (x, y, z)
-		{96 * 2, 0, 0},
+		{100 * 2, 0, 0},
 
 		// displacement (x, y, z, p)
 		{0, 64, 0, 0},
@@ -76,7 +76,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		false,
 
 		// layers in which I live
-		kLayerPongPlayfield,
+		kLayerPongWalls,
 
 		// layers to ignore when checking for collisions
 		kLayerAll,

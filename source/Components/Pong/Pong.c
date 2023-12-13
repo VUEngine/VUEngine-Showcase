@@ -81,12 +81,7 @@ void Pong::destructor()
 void Pong::getReady(Stage stage, bool isVersusMode)
 {
 	this->isVersusMode = isVersusMode;
-/*
-	if(!isDeleted(this->pongBall))
-	{
-		PongBall::deleteMyself(this->pongBall);
-	}
-*/
+
 	VirtualList::clear(this->playerPaddles);
 	VirtualList::clear(this->opponentPaddles);
 	this->leftScore = 0;
