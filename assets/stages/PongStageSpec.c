@@ -177,9 +177,9 @@ StageROMSpec PongStage =
 	// streaming
 	{
 		// load padding
-		20,
-		// unload padding
 		0,
+		// unload padding
+		-32,
 		// streaming amplitude
 		10,
 		// particle removal delay cycles

@@ -65,12 +65,12 @@ void PongState::enter(void* owner)
 	// disable automatic pause in versus mode
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), !this->isVersusMode);
 
-	// start clocks to start animations
-	PongState::startClocks(this);
-
 	// get the game ready
 	Pong::getReady(Pong::getInstance(), this->stage, false);
-	
+
+	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteInSync, kEventPongRemoteInSync);
+	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
+
 	// set input to be notified about
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
@@ -80,6 +80,9 @@ void PongState::enter(void* owner)
 
 void PongState::exit(void* owner)
 {
+	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteInSync, kEventPongRemoteInSync);
+	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
+
 	PongState::setVersusMode(this, false);
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 	
@@ -202,14 +205,26 @@ bool PongState::isVersusMode()
 	return PongState::getVersusMode(this);
 }
 
-void PongState::remoteWentAway()
+void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
+{
+	// Reset random seed in multiplayer mode so both machines are completely in sync
+	Utilities::resetRandomSeed();
+
+	// Must reset the clocks
+	PongState::startClocks(this);
+	
+	// Reset the entities
+	PongState::propagateMessage(this, kPongMessageResetPositions);
+}
+
+void PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
 	PongState::setVersusMode(this, false);
 	Pong::getReady(Pong::getInstance(), this->stage, false);
-
 	PongState::show(this, false);
+	PongState::propagateMessage(this, kPongMessageResetPositions);
 
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
 }

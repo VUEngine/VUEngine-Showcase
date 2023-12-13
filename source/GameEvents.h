@@ -23,6 +23,8 @@ enum GameEvents
 	kEventUserInput = kEventEngineLast + 1,
 	kEventPongBallSpawned,
 	kEventPongBallStreamedOut,	
+	kEventPongRemoteInSync,	
+	kEventPongRemoteWentAway,	
 };
 
 

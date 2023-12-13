@@ -54,15 +54,19 @@ void Pong::constructor()
 	this->playerPaddles = new VirtualList();
 	this->opponentPaddles = new VirtualList();
 
+	this->isVersusMode = false;
 	this->leftScore = 0;
 	this->rightScore = 0;
 	this->messageForRemote = kPongMessageSync;
+
+	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
+	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
 }
 
 void Pong::destructor()
 {
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
 
 	this->pongBall = NULL;
 	delete this->playerPaddles;
@@ -76,18 +80,13 @@ void Pong::destructor()
 
 void Pong::getReady(Stage stage, bool isVersusMode)
 {
-	if(isVersusMode)
-	{
-		// Reset random seed in multiplayer mode so both machines are completely in sync
-		Utilities::resetRandomSeed();
-	}
-
+	this->isVersusMode = isVersusMode;
+/*
 	if(!isDeleted(this->pongBall))
 	{
 		PongBall::deleteMyself(this->pongBall);
-
 	}
-
+*/
 	VirtualList::clear(this->playerPaddles);
 	VirtualList::clear(this->opponentPaddles);
 	this->leftScore = 0;
@@ -95,9 +94,6 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 	this->pongBall = NULL;
 	this->messageForRemote = kPongMessageSync;
 	
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	ListenerObject::removeEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
-
 	if(isDeleted(stage))
 	{
 		return;	
@@ -138,19 +134,19 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 		NM_ASSERT(1 == VirtualList::getSize(this->opponentPaddles), "Pong::getReady: didn't find left paddle");
 	}
 
-	ListenerObject::addEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	ListenerObject::addEventListener(PongState::getInstance(), ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
-
-	PongState::propagateMessage(PongState::getInstance(), kPongMessageResetPositions);
-
 	Pong::printScore(this);
+}
+
+bool Pong::isVersusMode()
+{
+	return this->isVersusMode;
 }
 
 void Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	NM_ASSERT(PongState::safeCast(eventFirer), "Pong::onPongBallSpawned: wrong event firer");
-
 	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
+
+	this->messageForRemote = kPongMessageSync;
 }
 
 // process user input
@@ -236,13 +232,17 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 	{
 		case kPongMessageSync:
 
+			/*
+			 * When both systems send the same message, they are in sync
+			 * and the game can start			
+			 */
 			if(kPongMessageSync == messageForRemote)
 			{
-				this->messageForRemote = kPongMessageSendInput;
+				Pong::fireEvent(this, kEventPongRemoteInSync);
 
-				PongState::propagateMessage(PongState::getInstance(), kPongMessageResetPositions);
+				this->messageForRemote = kPongMessageSendInput;
 			}
-			else if(kPongMessageSendInput == messageForRemote)
+			else
 			{
 				this->messageForRemote = kPongMessageSync;
 			}
@@ -255,13 +255,19 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			{
 				Pong::onKeyHold(this, remotePlayerData->condensedUserInput.holdKey, this->opponentPaddles);
 			}
+			else if(kPongMessageSync == messageForRemote)
+			{
+				this->messageForRemote = kPongMessageSync;
+			}
 
 			break;
 
 		case kPongMessageGoodBye:
 
-			PongState::remoteWentAway(PongState::getInstance());
-			break;			
+			Pong::fireEvent(this, kEventPongRemoteWentAway);
+			
+			this->messageForRemote = kPongMessageSync;
+			break;
 	}
 }
 
@@ -304,7 +310,9 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 			{
 				this->rightScore++;			
 			}
-		}				
+		}
+
+		this->pongBall = NULL;
 	}	
 
 	Pong::printScore(this);

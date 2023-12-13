@@ -68,6 +68,7 @@ singleton class Pong : ListenerObject
 	uint32 rightScore;
 	int playerNumber;
 	uint32 messageForRemote;
+	bool isVersusMode;
 
 	static Pong getInstance();
 
@@ -75,6 +76,7 @@ singleton class Pong : ListenerObject
 	void printScore();
 	int getPlayerNumber();
 	void getReady(Stage stage, bool isVersusMode);
+	bool isVersusMode();
 }
 
 

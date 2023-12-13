@@ -17,6 +17,7 @@ enum Messages
 	kActorsStateReleasedRight,
 	kActorsStatePrintActorStatus,
 	kActorsStateResucitate,
+	kPongBallMessageStartMoving,
 	kPongMessageResetPositions,
 	kPongMessageDummy,
 	kPongMessageSendInput,

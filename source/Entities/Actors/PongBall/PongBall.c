@@ -21,7 +21,7 @@
 #include <Optics.h>
 #include <Pong.h>
 #include <ParticleSystem.h>
-#include <PongState.h>
+#include <Telegram.h>
 #include <Utilities.h>
 #include <VUEngine.h>
 
@@ -63,7 +63,7 @@ void PongBall::destructor()
 {
 	if(!this->inCameraRange)
 	{
-		PongState::fireEvent(PongState::getInstance(), kEventPongBallStreamedOut);
+		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
 	}
 
 	// delete the super object
@@ -76,15 +76,25 @@ void PongBall::ready(bool recursive)
 	// call base
 	Base::ready(this, recursive);
 
-	if(!PongState::isVersusMode(PongState::getInstance()))
+//	this->particles = ParticleSystem::safeCast(Container::getChildByName(Container::safeCast(this), "Partcls", true));
+//	ParticleSystem::setLoop(this->particles, true);
+
+	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
+
+	PongBall::prepareToMove(this);
+}
+
+bool PongBall::handleMessage(Telegram telegram)
+{
+	switch(Telegram::getMessage(telegram))
 	{
-		this->particles = ParticleSystem::safeCast(Container::getChildByName(Container::safeCast(this), "Partcls", true));
-//		ParticleSystem::setLoop(this->particles, true);
+		case kPongBallMessageStartMoving:
+
+			PongBall::startMovement(this);
+			return true;		
 	}
 
-	PongState::fireEvent(PongState::getInstance(), kEventPongBallSpawned);
-
-	PongBall::startMovement(this);
+	return Base::handleMessage(this, telegram);	
 }
 
 bool PongBall::handlePropagatedMessage(int32 message)
@@ -92,14 +102,8 @@ bool PongBall::handlePropagatedMessage(int32 message)
 	switch(message)
 	{
 		case kPongMessageResetPositions:
-			{
-				PongPaddle::stopMovement(this, __ALL_AXIS);
-				Vector3D localPosition = this->transformation.localPosition;
-				localPosition.y = 0;
-				PongPaddle::setLocalPosition(this, &localPosition);
-				PongBall::startMovement(this);
-			}
 
+			PongBall::prepareToMove(this);
 			break;
 	}
 
@@ -115,19 +119,22 @@ void PongBall::onPositionTransmitted(ListenerObject eventFirer __attribute__((un
 	}
 }
 
-// start moving
-void PongBall::startMovement()
+void PongBall::prepareToMove()
 {
+	PongPaddle::stopMovement(this, __ALL_AXIS);
+	Body::setMaximumVelocity(this->body, this->pongBallSpec->maximumVelocity);
 	Vector3D localPosition = Vector3D::zero();
 	localPosition.z = __PIXELS_TO_METERS(128);
 	Entity::setLocalPosition(this, &localPosition);
+	PongBall::discardMessages(this, kPongBallMessageStartMoving);
+	PongBall::sendMessageToSelf(this, kPongBallMessageStartMoving, 1000, 0);
+}
 
-	// Force uniform movement along the X and Y axis, while Z is accelerated and handled by gravity
-	Body::setMaximumVelocity(this->body, this->pongBallSpec->maximumVelocity);
-
+void PongBall::startMovement()
+{
 	int16 angle = Utilities::random(Utilities::randomSeed(), 64) - 32;
 
-	if(!PongState::isVersusMode(PongState::getInstance()))
+	if(!Pong::isVersusMode(Pong::getInstance()))
 	{
 		angle = 0;
 	}
@@ -145,7 +152,6 @@ void PongBall::startMovement()
 	}
 
 	Body::moveUniformly(this->body, velocity);
-	
 }
 
 fix10_6 PongBall::getFrictionOnCollision(SpatialObject collidingObject __attribute__ ((unused)), const Vector3D* collidingObjectNormal __attribute__ ((unused)))
