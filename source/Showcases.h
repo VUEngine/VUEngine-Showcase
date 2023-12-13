@@ -13,6 +13,7 @@
 #include <PostProcessingEffectsState.h>
 #include <SoundsState.h>
 #include <SpritesState.h>
+#include <VideoPlayerState.h>
 #include <WireframesState.h>
 
 

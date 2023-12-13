@@ -20,6 +20,7 @@
 #include <Camera.h>
 #include <GameConfig.h>
 #include <GameEvents.h>
+#include <GameSaveDataManager.h>
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
@@ -64,7 +65,7 @@ void PongState::enter(void* owner)
 	Base::enter(this, owner);
 
 	// disable automatic pause in versus mode
-	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), !this->isVersusMode);
+	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), false);
 
 	// get the game ready
 	Pong::getReady(Pong::getInstance(), this->stage, false);
@@ -86,7 +87,9 @@ void PongState::exit(void* owner)
 
 	PongState::setVersusMode(this, false);
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
-	
+
+	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
+
 	Base::exit(this, owner);
 }
 
