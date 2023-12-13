@@ -31,8 +31,8 @@
 const PixelVector PongPaddleMeshesSegments[][2]=
 {
 	{
-		{0, -8, 0, 0}, 
-		{0, 8, 0, 0}, 
+		{0, -10, 0, 0}, 
+		{0, 10, 0, 0}, 
 	},
 
 	// limiter
@@ -79,7 +79,7 @@ ShapeROMSpec PongPaddleShapes[] =
 		__TYPE(Ball),
 
 		// size (x, y, z)
-		{16, 16, 16},
+		{16, 20, 16},
 
 		// displacement (x, y, z, p)
 		{0, 0, 0, 0},
@@ -106,7 +106,7 @@ ShapeROMSpec PongPaddleShapes[] =
 		__TYPE(Box),
 
 		// size (x, y, z)
-		{3, 16, 16},
+		{3, 20, 16},
 
 		// displacement (x, y, z, p)
 		{0, 0, 0, 0},

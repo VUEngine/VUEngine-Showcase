@@ -110,6 +110,41 @@ bool PongBall::handlePropagatedMessage(int32 message)
 	return false;
 }
 
+bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
+{
+	ASSERT(collisionInformation->collidingShape, "Actor::enterCollision: collidingShapes");
+
+	bool returnValue = Base::enterCollision(this, collisionInformation);
+
+	if(NULL == collisionInformation->collidingShape)
+	{
+		return returnValue;
+	}	
+
+	SpatialObject collidingObject = Shape::getOwner(collisionInformation->collidingShape);
+
+	switch(SpatialObject::getInGameType(collidingObject))
+	{
+		case kTypePongPaddle:
+
+			{
+				Vector3D velocity = *Body::getVelocity(this->body);
+
+				fixed_t yDisplacement = this->transformation.globalPosition.y - SpatialObject::getPosition(collidingObject)->y;
+
+//				velocity.x -= yDisplacement;
+				velocity.y += yDisplacement;
+
+				Body::setVelocity(this->body, &velocity);
+			}
+			break;
+	}
+
+
+	return returnValue;
+}
+
+
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
