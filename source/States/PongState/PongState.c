@@ -96,6 +96,11 @@ void PongState::processUserInput(const UserInput* userInput)
 		Pong::processUserInput(Pong::getInstance(), userInput);
 	}
 
+	if(K_SEL & userInput->releasedKey)
+	{
+		return;
+	}
+	
 	Base::processUserInput(this, userInput);
 }
 
@@ -107,10 +112,11 @@ bool PongState::processUserInputRegardlessOfInput()
 void PongState::showControls()
 {
 	Printing::clearRow(Printing::getInstance(), __SCREEN_HEIGHT_IN_CHARS - 1);
-	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
 	if(this->isVersusMode)
 	{
+		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
 		switch(Pong::getPlayerNumber(Pong::getInstance()))
 		{
 			case kPlayerOne:
@@ -137,28 +143,30 @@ void PongState::showExplanation()
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Communications", 2, y++, NULL);
+
 	y++;
 	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "CommunicationManager", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Pong*", 2, y++, NULL);
-
-	y++;
-	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PongPaddleSpec", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongBallSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
-	y++;
+
+	y = 19;
+
+	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "PongPaddleSpec", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongBallSpec", 2, y++, NULL);
+
+	y = 19;
 	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Pong", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " syncWithRemote", 26, y++, NULL);
 	y++;
 
-	Pong::printScore(Pong::getInstance());
 	PongState::showConnectivityStatus(this);
 }
 
