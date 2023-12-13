@@ -64,7 +64,7 @@ StageROMSpec VideoPlayerStage =
     // Timer config
     {
         __TIMER_100US,
-        10,
+        20,
         kMS,
     },
 

@@ -35,6 +35,7 @@ abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
 	bool showAdditionalDetails;
+	uint16 validSuboptionKeys;
 	int8 selectedPostProcessingEffect;
 
 	static ShowcaseStateGetInstance getFirstShowcase();

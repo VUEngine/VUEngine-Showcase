@@ -56,6 +56,7 @@ void PostProcessingEffectsState::constructor()
 
 	this->stageSpec = (StageSpec*)&PostProcessingEffectsStage;
 	this->selectedPostProcessingEffect = 0;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 // class's destructor

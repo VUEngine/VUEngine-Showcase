@@ -17,6 +17,7 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <GameSounds.h>
 #include <KeypadManager.h>
 #include <Printing.h>
 #include <VIPManager.h>
@@ -65,6 +66,7 @@ void ShowcaseState::constructor()
 
 	this->stageSpec = NULL;
 	this->showAdditionalDetails = false;
+	this->validSuboptionKeys = K_NON;
 }
 
 // class's destructor
@@ -173,6 +175,12 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{
+		if((this->validSuboptionKeys) & userInput->releasedKey)
+		{
+			SoundManager::playSound(SoundManager::getInstance(), &ChangeSelection1Sound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
+			return;
+		}
+
 		if(K_LT & userInput->releasedKey)
 		{
 			if(0 > --_currentShowcaseState)
@@ -180,7 +188,16 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 				_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
 			}
 
-			ShowcaseState::goToNext(this);
+			SoundManager::playSound
+			(
+				SoundManager::getInstance(), 
+				&ChangeSelection1Sound, 
+				kPlayAll, 
+				NULL, 
+				kSoundWrapperPlaybackNormal, 
+				(EventListener)ShowcaseState::goToNext, 
+				ListenerObject::safeCast(this)
+			);
 		}
 		else if(K_RT & userInput->releasedKey)
 		{
@@ -189,13 +206,24 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 				_currentShowcaseState = 0;
 			}
 
-			ShowcaseState::goToNext(this);
+			SoundManager::playSound
+			(
+				SoundManager::getInstance(), 
+				&ChangeSelection1Sound, 
+				kPlayAll, 
+				NULL, 
+				kSoundWrapperPlaybackNormal, 
+				(EventListener)ShowcaseState::goToNext, 
+				ListenerObject::safeCast(this)
+			);
 		}
 		else if(K_SEL & userInput->releasedKey)
 		{
 			this->showAdditionalDetails = !this->showAdditionalDetails;
 
 			ShowcaseState::show(this, false);
+
+			SoundManager::playSound(SoundManager::getInstance(), &ChangeSelection2Sound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 		}
 		else if(K_B & userInput->releasedKey)
 		{
@@ -266,7 +294,7 @@ void ShowcaseState::showExplanation()
 {
 }
 
-void ShowcaseState::goToNext()
+void ShowcaseState::goToNext(ListenerObject eventFirer __attribute__((unused)))
 {
 	VUEngine::disableKeypad(VUEngine::getInstance());
 

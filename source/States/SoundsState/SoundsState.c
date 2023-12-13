@@ -14,6 +14,7 @@
 
 #include <SoundsState.h>
 
+#include <GameSounds.h>
 #include <Printing.h>
 #include <SoundManager.h>
 #include <TimerManager.h>
@@ -29,12 +30,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern StageROMSpec SoundsStage;
-
-extern Sound NoFearForTheFutureSound;
-extern Sound OracleOfSeasonsOverworldThemeSound;
-extern Sound EngineSound;
-extern Sound ExplosionSound;
-
 
 const SoundROM* soundSamples[] =
 {
@@ -163,7 +158,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		{
 			SoundsState::loadSound(this, true);
 			SoundsState::showSoundMetadata(this);
-			return;
 		}
 
 		bool timerChanged = false;
@@ -182,8 +176,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			}
 
 			SoundsState::show(this, true);
-			
-			return;
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
@@ -200,7 +192,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 			SoundsState::show(this, true);
 
-			return;
 		}
 		else if(K_A & userInput->releasedKey)
 		{
@@ -226,110 +217,110 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		
 		if(this->showAdditionalDetails)
 		{			
-			if(isDeleted(this->soundWrapper))
+			if(!isDeleted(this->soundWrapper))
 			{
-				return;
-			}
-
-			if(K_LD & userInput->releasedKey)
-			{
-				SoundWrapper::pause(this->soundWrapper);
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
-				SoundsState::showSoundMetadata(this);
-			}
-			else if(K_LU & userInput->releasedKey)
-			{
-				SoundWrapper::pause(this->soundWrapper);
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
-				SoundsState::showSoundMetadata(this);
-			}
-			// Timer controls
-			else if(K_RU & userInput->releasedKey)
-			{
-				uint16 timerResolution = TimerManager::getResolution(TimerManager::getInstance());
-
-				switch(timerResolution)
+				if(K_LD & userInput->releasedKey)
 				{
-					case __TIMER_20US:
+					SoundWrapper::pause(this->soundWrapper);
+					SoundWrapper::rewind(this->soundWrapper);
+					SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+					SoundsState::showSoundMetadata(this);
+				}
+				else if(K_LU & userInput->releasedKey)
+				{
+					SoundWrapper::pause(this->soundWrapper);
+					SoundWrapper::rewind(this->soundWrapper);
+					SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+					SoundsState::showSoundMetadata(this);
+				}
+				// Timer controls
+				else if(K_RU & userInput->releasedKey)
+				{
+					uint16 timerResolution = TimerManager::getResolution(TimerManager::getInstance());
 
-						timerResolution = __TIMER_100US;
-						break;
+					switch(timerResolution)
+					{
+						case __TIMER_20US:
 
-					case __TIMER_100US:
+							timerResolution = __TIMER_100US;
+							break;
 
-						timerResolution = __TIMER_20US;
-						break;
+						case __TIMER_100US:
 
-					default:
+							timerResolution = __TIMER_20US;
+							break;
 
-						ASSERT(false, "SoundsState::processUserInput: wrong timer frequency");
-						break;
+						default:
+
+							ASSERT(false, "SoundsState::processUserInput: wrong timer frequency");
+							break;
+					}
+
+					TimerManager::setResolution(TimerManager::getInstance(), timerResolution);
+					timerChanged = true;
+				}
+				else if(K_RD & userInput->releasedKey)
+				{
+					uint16 timePerInterruptUnits = TimerManager::getTimePerInterruptUnits(TimerManager::getInstance());
+					uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+					switch(timePerInterruptUnits)
+					{
+						case kUS:
+
+							timePerInterruptUnits = kMS;
+							timePerInterrupt = 1;
+							break;
+
+						case kMS:
+
+							timePerInterruptUnits = kUS;
+							timePerInterrupt = 1000;
+							break;
+
+						default:
+
+							ASSERT(false, "SoundsState::processUserInput: wrong timer resolution scale");
+							break;
+					}
+
+					TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), timePerInterruptUnits);
+					TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+					timerChanged = true;
+				}
+				else if(K_RL & userInput->releasedKey)
+				{
+					uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+					timePerInterrupt -= TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+
+					TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+					timerChanged = true;
+				}
+				else if(K_RR & userInput->releasedKey)
+				{
+					uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
+
+					timePerInterrupt += TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+
+					TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
+					timerChanged = true;
 				}
 
-				TimerManager::setResolution(TimerManager::getInstance(), timerResolution);
-				timerChanged = true;
-			}
-			else if(K_RD & userInput->releasedKey)
-			{
-				uint16 timePerInterruptUnits = TimerManager::getTimePerInterruptUnits(TimerManager::getInstance());
-				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
-
-				switch(timePerInterruptUnits)
+				if(timerChanged)
 				{
-					case kUS:
+					SoundsState::applyTimerSettings(this);
 
-						timePerInterruptUnits = kMS;
-						timePerInterrupt = 1;
-						break;
+					SoundsState::printTimer(this);
 
-					case kMS:
-
-						timePerInterruptUnits = kUS;
-						timePerInterrupt = 1000;
-						break;
-
-					default:
-
-						ASSERT(false, "SoundsState::processUserInput: wrong timer resolution scale");
-						break;
+					SoundsState::loadSound(this, false);
+					SoundsState::showSoundMetadata(this);
 				}
-
-				TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), timePerInterruptUnits);
-				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
-				timerChanged = true;
-			}
-			else if(K_RL & userInput->releasedKey)
-			{
-				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
-
-				timePerInterrupt -= TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
-
-				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
-				timerChanged = true;
-			}
-			else if(K_RR & userInput->releasedKey)
-			{
-				uint16 timePerInterrupt = TimerManager::getTimePerInterrupt(TimerManager::getInstance());
-
-				timePerInterrupt += TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
-
-				TimerManager::setTimePerInterrupt(TimerManager::getInstance(), timePerInterrupt);
-				timerChanged = true;
-			}
-
-			if(timerChanged)
-			{
-				SoundsState::applyTimerSettings(this);
-
-				SoundsState::printTimer(this);
-
-				SoundsState::loadSound(this, false);
-				SoundsState::showSoundMetadata(this);
 			}
 		}		
 	}
+
+	Base::processUserInput(this, userInput);
 }
 
 /**

@@ -41,6 +41,7 @@ void VideoPlayerState::constructor()
 	Base::constructor();
 
 	this->stageSpec = (StageSpec*)&VideoPlayerStage;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 // class's destructor
@@ -85,7 +86,7 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 		}
 	}
 
-	return Base::processUserInput(this, userInput);
+	Base::processUserInput(this, userInput);
 }
 
 void VideoPlayerState::showControls()

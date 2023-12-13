@@ -67,7 +67,7 @@ StageROMSpec EntitiesStage =
 	// Timer config
 	{
 		__TIMER_100US,
-		100,
+		10,
 		kMS
 	},
 

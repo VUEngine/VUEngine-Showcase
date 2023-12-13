@@ -123,7 +123,7 @@ void ActorsState::processUserInput(const UserInput* userInput)
 		ActorsState::propagateMessage(this, message);
 	}
 
-	return Base::processUserInput(this, userInput);
+	Base::processUserInput(this, userInput);
 }
 
 void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))

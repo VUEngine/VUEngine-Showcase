@@ -53,6 +53,7 @@ void SpritesState::constructor()
 	this->stageSpec = (StageSpec*)&SpritesStage;
 	this->sprite = NULL;
 	this->spriteType = kSpriteNoTypeStart + 1;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 // class's destructor
@@ -93,8 +94,6 @@ void SpritesState::processUserInput(const UserInput* userInput)
 			}
 
 			SpritesState::show(this, true);
-			
-			return;
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
@@ -104,8 +103,6 @@ void SpritesState::processUserInput(const UserInput* userInput)
 			}
 
 			SpritesState::show(this, true);
-
-			return;
 		}
 	}
 

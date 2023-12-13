@@ -50,6 +50,7 @@ void ParticlesState::constructor()
 	this->stageSpec = (StageSpec*)&ParticlesStage;
 	this->particleSystem = NULL;
 	this->particlesType = kParticleNoTypeStart + 1;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 // class's destructor
@@ -87,8 +88,6 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 			}
 
 			ParticlesState::show(this, true);
-			
-			return;
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
@@ -98,8 +97,6 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 			}
 
 			ParticlesState::show(this, true);
-
-			return;
 		}
 	}
 

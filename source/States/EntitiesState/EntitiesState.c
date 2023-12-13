@@ -42,6 +42,7 @@ void EntitiesState::constructor()
 
 	this->stageSpec = (StageSpec*)&EntitiesStage;
 	this->leaderPunk = NULL;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 // class's destructor
@@ -87,7 +88,7 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 		}
 	}
 	
-	return Base::processUserInput(this, userInput);
+	Base::processUserInput(this, userInput);
 }
 
 void EntitiesState::showControls()

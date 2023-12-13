@@ -59,6 +59,7 @@ void AnimationSchemesState::constructor()
 	this->animatedSprites = new VirtualList();
 	this->animationScheme = kAnimationsNoneStart + 1;
 	this->rotation = (Rotation){0, 0, 0};
+	this->validSuboptionKeys = K_LL | K_LR | K_RU | K_RD | K_RL | K_RR;
 }
 
 // class's destructor
@@ -83,8 +84,6 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 			}
 
 			AnimationSchemesState::show(this, true);
-			
-			return;
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
@@ -94,8 +93,6 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 			}
 
 			AnimationSchemesState::show(this, true);
-
-			return;
 		}
 		/*
 		 * Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->rotation.

@@ -128,7 +128,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	Camera::translate(camera, translation, false);
 	Camera::rotate(camera, rotation);
 
-	return Base::processUserInput(this, userInput);
+	Base::processUserInput(this, userInput);
 }
 
 void WireframesState::showControls()
