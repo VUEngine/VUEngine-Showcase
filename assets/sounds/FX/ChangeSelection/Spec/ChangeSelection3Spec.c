@@ -1,5 +1,5 @@
 /**
- * VUEngine Platformer Demo
+ * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
@@ -90,7 +90,7 @@ SoundChannelROM* ChangeSelection3SoundChannels[] =
 SoundROM ChangeSelection3Sound =
 {
 	/// Name
-	"Change Selection Sound 1",
+	"Change Selection Sound 3",
 
 	/// Play in loop
 	false,

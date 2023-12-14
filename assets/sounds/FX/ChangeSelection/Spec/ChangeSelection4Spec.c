@@ -1,7 +1,7 @@
 /**
- * VUEngine Platformer Demo
+ * VUEngine Showcase
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * (c) Christian Radke and Jorge Eremiev
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -80,7 +80,8 @@ SoundChannelROM ChangeSelection4SoundChannel1 =
 	}
 };
 
-SoundChannelROM* ChangeSelection4SoundChannels[] =
+
+SoundChannelROM* const ChangeSelection4SoundChannels[] =
 {
 	&ChangeSelection4SoundChannel1,
 	NULL
@@ -89,7 +90,7 @@ SoundChannelROM* ChangeSelection4SoundChannels[] =
 SoundROM ChangeSelection4Sound =
 {
 	/// Name
-	"Change Selection Sound 2",
+	"Change Selection Sound 4",
 
 	/// Play in loop
 	false,

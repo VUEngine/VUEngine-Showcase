@@ -1,5 +1,5 @@
 /**
- * VUEngine Plugins Library
+ * VUEngine Showcase
  *
  * (c) Christian Radke and Jorge Eremiev
  *

@@ -1,5 +1,5 @@
 /**
- * VUEngine Platformer Demo
+ * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
@@ -20,7 +20,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern const uint16 ChangeSelection2SoundTrack[];
+extern const uint16 ChangeSelection2SoundTrack1[];
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -76,7 +76,7 @@ SoundChannelROM ChangeSelection2SoundChannel1 =
 
 	/// Sound track
 	{
-		(const uint8*)ChangeSelection2SoundTrack
+		(const uint8*)ChangeSelection2SoundTrack1
 	}
 };
 

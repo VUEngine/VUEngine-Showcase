@@ -1,5 +1,5 @@
 /**
- * VUEngine Platformer Demo
+ * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
@@ -19,11 +19,10 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-
-const uint16 ChangeSelection2SoundTrack[] =
+const uint16 ChangeSelection2SoundTrack1[] =
 {
   E_3, E_4, F_3, HOLD, ENDSOUND,
-  80, 80, 80, 20,
-  15, 11, 7, 3
+  80, 80, 80, 80,
+  15, 11, 7, 3,
 };
 
