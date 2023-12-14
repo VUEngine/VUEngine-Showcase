@@ -33,14 +33,14 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern const uint8 ExplosionSoundTrack[];
+extern const uint8 KilledSoundTrack[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-SoundChannelConfigurationROM ExplosionSoundChannelConfiguration =
+SoundChannelConfigurationROM KilledSoundChannelConfiguration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -79,31 +79,31 @@ SoundChannelConfigurationROM ExplosionSoundChannelConfiguration =
 	__SOUND_LR
 };
 
-SoundChannelROM ExplosionSoundChannel =
+SoundChannelROM KilledSoundChannel =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&ExplosionSoundChannelConfiguration,
+	(SoundChannelConfiguration*)&KilledSoundChannelConfiguration,
 
 	//// Total number of samples
 	0,
 
 	/// Sound track
 	{
-		ExplosionSoundTrack
+		KilledSoundTrack
 	}
 };
 
 
-SoundChannelROM* ExplosionSoundChannels[] =
+SoundChannelROM* KilledSoundChannels[] =
 {
-	&ExplosionSoundChannel,
+	&KilledSoundChannel,
 	NULL
 };
 
-SoundROM ExplosionSound =
+SoundROM KilledSound =
 {
 	/// Name
-	"Explosion",
+	"Killed",
 
 	/// Play in loop
 	false,
@@ -112,5 +112,5 @@ SoundROM ExplosionSound =
 	500,
 
 	/// Tracks
-	(SoundChannel**)ExplosionSoundChannels
+	(SoundChannel**)KilledSoundChannels
 };

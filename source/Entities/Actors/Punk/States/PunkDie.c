@@ -16,9 +16,11 @@
 
 #include <ActorsState.h>
 #include <GameConfig.h>
+#include <GameSounds.h>
 #include <Printing.h>
 #include <Punk.h>
 #include <Sprite.h>
+#include <SoundManager.h>
 
 #include <debugUtilities.h>
 
@@ -64,6 +66,17 @@ void PunkDie::enter(void* owner)
 	Punk::addSprites(punk, PunkDyingSprites, true);
 
 	Punk::playAnimation(punk, "Die");
+
+	SoundManager::playSound
+	(
+		SoundManager::getInstance(), 
+		&KilledSound, 
+		kPlayAll, 
+		NULL, 
+		kSoundWrapperPlaybackNormal,
+		NULL, 
+		NULL
+	);
 
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
