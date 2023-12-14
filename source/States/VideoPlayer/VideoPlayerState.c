@@ -59,25 +59,22 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 
 	if(!isDeleted(videoEntity))
 	{
-		if(!(K_PWR & userInput->releasedKey))
+		if(K_A & userInput->releasedKey)
 		{
-			if(K_A & userInput->releasedKey)
-			{
-				AnimatedEntity::pauseAnimation(videoEntity, AnimatedEntity::isPlayingAnimation(videoEntity));
+			AnimatedEntity::pauseAnimation(videoEntity, AnimatedEntity::isPlayingAnimation(videoEntity));
+		}
+		else if((K_LL | K_LR) & userInput->releasedKey)
+		{
+			if(AnimatedEntity::isAnimationLoaded(videoEntity, "HiColor"))
+			{					
+				AnimatedEntity::playAnimation(videoEntity, "4Color");
 			}
-			else if((K_LL | K_LR) & userInput->releasedKey)
-			{
-				if(AnimatedEntity::isAnimationLoaded(videoEntity, "HiColor"))
-				{					
-					AnimatedEntity::playAnimation(videoEntity, "4Color");
-				}
-				else
-				{					
-					AnimatedEntity::playAnimation(videoEntity, "HiColor");
-				}
+			else
+			{					
+				AnimatedEntity::playAnimation(videoEntity, "HiColor");
+			}
 
-				VideoPlayerState::show(this, false);
-			}
+			VideoPlayerState::show(this, false);
 		}
 	}
 

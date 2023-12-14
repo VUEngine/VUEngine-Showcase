@@ -75,53 +75,49 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
 	AnimationSchemesState::playSoundEffects(this, userInput, false);
 
-	// Check for UserInput and key definitions in KeypadManager.h
-	if(!(K_PWR & userInput->releasedKey))
+	if(K_LL & userInput->releasedKey)
 	{
-		if(K_LL & userInput->releasedKey)
+		if(kAnimationsNoneStart >= --this->animationScheme)
 		{
-			if(kAnimationsNoneStart >= --this->animationScheme)
-			{
-				this->animationScheme = kAnimationsNoneEnd - 1;
-			}
-
-			AnimationSchemesState::show(this, true);
-		}
-		else if(K_LR & userInput->releasedKey)
-		{
-			if(kAnimationsNoneEnd <= ++this->animationScheme)
-			{
-				this->animationScheme = kAnimationsNoneStart + 1;
-			}
-
-			AnimationSchemesState::show(this, true);
-		}
-		/*
-		 * Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->rotation.
-		 */
-		if(K_RU & userInput->releasedKey)
-		{
-			this->rotation.x = __I_TO_FIXED(255);
-		}
-		else if(K_RD & userInput->releasedKey)
-		{
-			this->rotation.x = 0;
-		}
-		else if(K_RL & userInput->releasedKey)
-		{
-			this->rotation.y = __I_TO_FIXED(255);
-		}
-		else if(K_RR & userInput->releasedKey)
-		{
-			this->rotation.y = 0;
+			this->animationScheme = kAnimationsNoneEnd - 1;
 		}
 
-		Sprite animatedSprite = Sprite::safeCast(VirtualList::getObjectAtPosition(this->animatedSprites, 1));
-			
-		if(!isDeleted(animatedSprite))
+		AnimationSchemesState::show(this, true);
+	}
+	else if(K_LR & userInput->releasedKey)
+	{
+		if(kAnimationsNoneEnd <= ++this->animationScheme)
 		{
-			Sprite::rotate(animatedSprite, &this->rotation);
+			this->animationScheme = kAnimationsNoneStart + 1;
 		}
+
+		AnimationSchemesState::show(this, true);
+	}
+	/*
+		* Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->rotation.
+		*/
+	if(K_RU & userInput->releasedKey)
+	{
+		this->rotation.x = __I_TO_FIXED(255);
+	}
+	else if(K_RD & userInput->releasedKey)
+	{
+		this->rotation.x = 0;
+	}
+	else if(K_RL & userInput->releasedKey)
+	{
+		this->rotation.y = __I_TO_FIXED(255);
+	}
+	else if(K_RR & userInput->releasedKey)
+	{
+		this->rotation.y = 0;
+	}
+
+	Sprite animatedSprite = Sprite::safeCast(VirtualList::getObjectAtPosition(this->animatedSprites, 1));
+		
+	if(!isDeleted(animatedSprite))
+	{
+		Sprite::rotate(animatedSprite, &this->rotation);
 	}
 
 	Base::processUserInput(this, userInput);

@@ -79,27 +79,23 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 {
 	ParticlesState::playSoundEffects(this, userInput, false);
 
-	// Check for UserInput and key definitions in KeypadManager.h
-	if(!(K_PWR & userInput->releasedKey))
+	if(K_LL & userInput->releasedKey)
 	{
-		if(K_LL & userInput->releasedKey)
+		if(kParticleNoTypeStart >= --this->particlesType)
 		{
-			if(kParticleNoTypeStart >= --this->particlesType)
-			{
-				this->particlesType = kParticleNoTypeEnd - 1;
-			}
-
-			ParticlesState::show(this, true);
+			this->particlesType = kParticleNoTypeEnd - 1;
 		}
-		else if(K_LR & userInput->releasedKey)
+
+		ParticlesState::show(this, true);
+	}
+	else if(K_LR & userInput->releasedKey)
+	{
+		if(kParticleNoTypeEnd <= ++this->particlesType)
 		{
-			if(kParticleNoTypeEnd <= ++this->particlesType)
-			{
-				this->particlesType = kParticleNoTypeStart + 1;
-			}
-
-			ParticlesState::show(this, true);
+			this->particlesType = kParticleNoTypeStart + 1;
 		}
+
+		ParticlesState::show(this, true);
 	}
 
 	Base::processUserInput(this, userInput);

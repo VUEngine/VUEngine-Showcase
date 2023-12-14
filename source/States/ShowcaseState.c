@@ -223,36 +223,33 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 void ShowcaseState::processUserInput(const UserInput* userInput)
 {
 	// Check for UserInput and key definitions in KeypadManager.h
-	if(!(K_PWR & userInput->releasedKey))
+	if(K_LT & userInput->releasedKey)
 	{
-		if(K_LT & userInput->releasedKey)
+		if(0 > --_currentShowcaseState)
 		{
-			if(0 > --_currentShowcaseState)
-			{
-				_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
-			}
+			_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
+		}
 
-			ShowcaseState::goToNext(this);
-		}
-		else if(K_RT & userInput->releasedKey)
+		ShowcaseState::goToNext(this);
+	}
+	else if(K_RT & userInput->releasedKey)
+	{
+		if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
 		{
-			if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
-			{
-				_currentShowcaseState = 0;
-			}
+			_currentShowcaseState = 0;
+		}
 
-			ShowcaseState::goToNext(this);
-		}
-		else if(K_SEL & userInput->releasedKey)
-		{
-			this->showAdditionalDetails = !this->showAdditionalDetails;
+		ShowcaseState::goToNext(this);
+	}
+	else if(K_SEL & userInput->releasedKey)
+	{
+		this->showAdditionalDetails = !this->showAdditionalDetails;
 
-			ShowcaseState::show(this, false);
-		}
-		else if(K_B & userInput->releasedKey)
-		{
-			// TODO
-		}
+		ShowcaseState::show(this, false);
+	}
+	else if(K_B & userInput->releasedKey)
+	{
+		// TODO
 	}
 }
 

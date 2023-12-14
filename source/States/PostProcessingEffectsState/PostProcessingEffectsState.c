@@ -75,36 +75,36 @@ void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
 
 void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 {
-	PostProcessingEffectsState::playSoundEffects(this, userInput, false);
-
-	if(!(K_PWR & userInput->releasedKey))
+	if(0 == (K_SEL & userInput->releasedKey))
 	{
-		if(K_LL & userInput->releasedKey)
+		PostProcessingEffectsState::playSoundEffects(this, userInput, false);
+	}
+
+	if(K_LL & userInput->releasedKey)
+	{
+		VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+
+		if(0 > --this->selectedPostProcessingEffect)
 		{
-			VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-
-			if(0 > --this->selectedPostProcessingEffect)
-			{
-				this->selectedPostProcessingEffect = sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1;
-			}
-
-			PostProcessingEffectsState::show(this, true);
+			this->selectedPostProcessingEffect = sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1;
 		}
-		else if(K_LR & userInput->releasedKey)
+
+		PostProcessingEffectsState::show(this, true);
+	}
+	else if(K_LR & userInput->releasedKey)
+	{
+		VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+
+		if((signed)(sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1) < ++this->selectedPostProcessingEffect)
 		{
-			VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
-
-			if((signed)(sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1) < ++this->selectedPostProcessingEffect)
-			{
-				this->selectedPostProcessingEffect = 0;
-			}
-
-			PostProcessingEffectsState::show(this, true);
+			this->selectedPostProcessingEffect = 0;
 		}
-		else if(K_SEL & userInput->releasedKey)
-		{
-			return;
-		}
+
+		PostProcessingEffectsState::show(this, true);
+	}
+	else if(K_SEL & userInput->releasedKey)
+	{
+		return;
 	}
 
 	Base::processUserInput(this, userInput);

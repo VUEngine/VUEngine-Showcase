@@ -85,27 +85,23 @@ void SpritesState::processUserInput(const UserInput* userInput)
 {
 	SpritesState::playSoundEffects(this, userInput, false);
 
-	// Check for UserInput and key definitions in KeypadManager.h
-	if(!(K_PWR & userInput->releasedKey))
+	if(K_LL & userInput->releasedKey)
 	{
-		if(K_LL & userInput->releasedKey)
+		if(kSpriteNoTypeStart >= --this->spriteType)
 		{
-			if(kSpriteNoTypeStart >= --this->spriteType)
-			{
-				this->spriteType = kSpriteNoTypeEnd - 1;
-			}
-
-			SpritesState::show(this, true);
+			this->spriteType = kSpriteNoTypeEnd - 1;
 		}
-		else if(K_LR & userInput->releasedKey)
+
+		SpritesState::show(this, true);
+	}
+	else if(K_LR & userInput->releasedKey)
+	{
+		if(kSpriteNoTypeEnd <= ++this->spriteType)
 		{
-			if(kSpriteNoTypeEnd <= ++this->spriteType)
-			{
-				this->spriteType = kSpriteNoTypeStart + 1;
-			}
-
-			SpritesState::show(this, true);
+			this->spriteType = kSpriteNoTypeStart + 1;
 		}
+
+		SpritesState::show(this, true);
 	}
 
 	Base::processUserInput(this, userInput);
