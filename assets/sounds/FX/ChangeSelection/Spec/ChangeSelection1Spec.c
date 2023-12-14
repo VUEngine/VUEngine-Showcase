@@ -27,7 +27,6 @@ extern const uint16 ChangeSelection1SoundTrack1[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-
 SoundChannelConfigurationROM ChangeSelection1SoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
