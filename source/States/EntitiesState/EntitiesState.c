@@ -174,14 +174,14 @@ void EntitiesState::showAdditionalDetails()
 		y++;
 	}
 
-	if(NULL != AnimatedEntity::getShapes(this->leaderPunk))
+	if(NULL != AnimatedEntity::getColliders(this->leaderPunk))
 	{
-		Printing::text(Printing::getInstance(), "Shapes:   ", 2, ++y, NULL);
-		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getShapes(this->leaderPunk)), 15, y++, NULL);
+		Printing::text(Printing::getInstance(), "Colliders:   ", 2, ++y, NULL);
+		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
-		Printing::text(Printing::getInstance(), "Shapes:      0", 2, ++y, NULL);
+		Printing::text(Printing::getInstance(), "Colliders:      0", 2, ++y, NULL);
 		y++;
 	}
 

@@ -306,11 +306,11 @@ BgmapSpriteROMSpec* const CogWheelEntitySprites[] =
 	NULL
 };
 
-ShapeROMSpec CogWheelShapes[] =
+ColliderROMSpec CogWheelColliders[] =
 {
 	// floor
 	{
-		// shape
+		// collider
 		__TYPE(Ball),
 
 		// size (x, y, z)
@@ -325,7 +325,7 @@ ShapeROMSpec CogWheelShapes[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		false,
 
 		// layers in which I live
@@ -363,7 +363,7 @@ CogWheelROMSpec CogWheelEntity =
 		(WireframeSpec**)NULL,
 
 		// collision shapes
-		(ShapeSpec*)CogWheelShapes,
+		(ColliderSpec*)CogWheelColliders,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size

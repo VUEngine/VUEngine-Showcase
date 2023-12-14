@@ -644,10 +644,10 @@ BgmapSpriteROMSpec* const PunkDyingSprites[] =
 };
 
 
-ShapeROMSpec PunkShapes[] =
+ColliderROMSpec PunkColliders[] =
 {
 	{
-		// shape
+		// collider
 		__TYPE(Box),
 
 		// size (x, y, z)
@@ -662,7 +662,7 @@ ShapeROMSpec PunkShapes[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		true,
 
 		// layers in which I live
@@ -700,7 +700,7 @@ AnimatedEntityROMSpec PunkEntity =
 		NULL,
 
 		// collision shapes
-		(ShapeSpec*)PunkShapes,
+		(ColliderSpec*)PunkColliders,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -765,7 +765,7 @@ PunkROMSpec PunkActor =
 				NULL,
 
 				// collision shapes
-				(ShapeSpec*)PunkShapes,
+				(ColliderSpec*)PunkColliders,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size

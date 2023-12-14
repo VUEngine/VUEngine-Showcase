@@ -71,11 +71,11 @@ WireframeROMSpec* const PongPaddleWireframes[] =
 	NULL
 };
 
-ShapeROMSpec PongPaddleShapes[] =
+ColliderROMSpec PongPaddleColliders[] =
 {
 	// wall collider
 	{
-		// shape
+		// collider
 		__TYPE(Ball),
 
 		// size (x, y, z)
@@ -90,7 +90,7 @@ ShapeROMSpec PongPaddleShapes[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		true,
 
 		// layers in which I live
@@ -102,7 +102,7 @@ ShapeROMSpec PongPaddleShapes[] =
 
 	// collider
 	{
-		// shape
+		// collider
 		__TYPE(Box),
 
 		// size (x, y, z)
@@ -117,7 +117,7 @@ ShapeROMSpec PongPaddleShapes[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		false,
 
 		// layers in which I live
@@ -175,7 +175,7 @@ PongPaddleROMSpec PongPaddleEntity =
 				(WireframeSpec**)PongPaddleWireframes,
 
 				// collision shapes
-				(ShapeSpec*)PongPaddleShapes,
+				(ColliderSpec*)PongPaddleColliders,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size

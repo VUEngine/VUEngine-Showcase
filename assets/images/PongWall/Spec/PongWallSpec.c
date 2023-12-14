@@ -26,11 +26,11 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-ShapeROMSpec PongWallsEntityShapes[] =
+ColliderROMSpec PongWallsEntityColliders[] =
 {
 	// linefield
 	{
-		// shape
+		// collider
 		__TYPE(LineField),
 
 		// size (x, y, z)
@@ -45,7 +45,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		false,
 
 		// layers in which I live
@@ -57,7 +57,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 
 	// linefield
 	{
-		// shape
+		// collider
 		__TYPE(LineField),
 
 		// size (x, y, z)
@@ -72,7 +72,7 @@ ShapeROMSpec PongWallsEntityShapes[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		false,
 
 		// layers in which I live
@@ -109,7 +109,7 @@ EntityROMSpec PongWallsEntity =
 	(WireframeSpec**)NULL,
 
 	// collision shapes
-	(ShapeSpec*)PongWallsEntityShapes,
+	(ColliderSpec*)PongWallsEntityColliders,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

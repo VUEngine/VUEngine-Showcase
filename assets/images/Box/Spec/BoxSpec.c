@@ -114,11 +114,11 @@ BgmapSpriteROMSpec* const BoxSprites[] =
 	NULL
 };
 
-ShapeROMSpec BoxShapes[] =
+ColliderROMSpec BoxColliders[] =
 {
 	// floor
 	{
-		// shape
+		// collider
 		__TYPE(Box),
 
 		// size (x, y, z)
@@ -133,7 +133,7 @@ ShapeROMSpec BoxShapes[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		false,
 
 		// layers in which I live
@@ -170,7 +170,7 @@ EntityROMSpec BoxEntity =
 	(WireframeSpec**)NULL,
 	
 	// collision shapes
-	(ShapeSpec*)BoxShapes,
+	(ColliderSpec*)BoxColliders,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

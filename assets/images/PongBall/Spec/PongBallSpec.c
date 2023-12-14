@@ -59,11 +59,11 @@ WireframeROMSpec* const PongBallEntityWireframes[] =
 	NULL
 };
 
-ShapeROMSpec PongBallEntityShapes[] =
+ColliderROMSpec PongBallEntityColliders[] =
 {
 	// ball
 	{
-		// shape
+		// collider
 		__TYPE(Ball),
 
 		// size (x, y, z)
@@ -78,7 +78,7 @@ ShapeROMSpec PongBallEntityShapes[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this shape checks for collisions against other shapes
+		// if true this collider checks for collisions against other shapes
 		true,
 
 		// layers in which I live
@@ -136,7 +136,7 @@ PongBallROMSpec PongBallEntity =
 				(WireframeSpec**)PongBallEntityWireframes,
 
 				// collision shapes
-				(ShapeSpec*)PongBallEntityShapes,
+				(ColliderSpec*)PongBallEntityColliders,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size

@@ -108,13 +108,13 @@ bool Punk::handlePropagatedMessage(int32 message)
 // process collisions
 bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 {
-	if(NULL == collisionInformation || isDeleted(collisionInformation->collidingShape))
+	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
 	{
 		return false;
 	}
 
-	Shape collidingShape = collisionInformation->collidingShape;
-	SpatialObject collidingObject = Shape::getOwner(collidingShape);
+	Collider otherCollider = collisionInformation->otherCollider;
+	SpatialObject collidingObject = Collider::getOwner(otherCollider);
 
 	if(isDeleted(collidingObject))
 	{

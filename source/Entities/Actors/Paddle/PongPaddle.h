@@ -16,7 +16,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <Actor.h>
-#include <Shape.h>
+#include <Collider.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ class PongPaddle : Actor
 	override bool handlePropagatedMessage(int32 message);
 	override bool mustBounce();
 	override bool enterCollision(const CollisionInformation* collisionInformation);
-	override void exitCollision(Shape shape, Shape shapeNotCollidingAnymore, bool isShapeImpenetrable);
+	override void exitCollision(Collider collider, Collider shapeNotCollidingAnymore, bool isColliderImpenetrable);
 	override bool isSubjectToGravity(Vector3D gravity);
 }
 

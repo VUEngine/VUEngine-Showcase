@@ -129,16 +129,16 @@ bool PongBall::handlePropagatedMessage(int32 message)
 
 bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->collidingShape, "Actor::enterCollision: collidingShapes");
+	ASSERT(collisionInformation->otherCollider, "Actor::enterCollision: otherColliders");
 
 	bool returnValue = Base::enterCollision(this, collisionInformation);
 
-	if(NULL == collisionInformation->collidingShape)
+	if(NULL == collisionInformation->otherCollider)
 	{
 		return returnValue;
 	}	
 
-	SpatialObject collidingObject = Shape::getOwner(collisionInformation->collidingShape);
+	SpatialObject collidingObject = Collider::getOwner(collisionInformation->otherCollider);
 
 	switch(SpatialObject::getInGameType(collidingObject))
 	{
