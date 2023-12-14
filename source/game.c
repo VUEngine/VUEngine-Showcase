@@ -30,8 +30,6 @@
 
 int game(void)
 {
-	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(ShowcaseState::getFirstShowcase()()));
-
 	// initialize plugins
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
 	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
