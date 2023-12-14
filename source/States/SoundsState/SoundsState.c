@@ -14,9 +14,9 @@
 
 #include <SoundsState.h>
 
-#include <GameSounds.h>
 #include <Printing.h>
 #include <SoundManager.h>
+#include <Sounds.h>
 #include <TimerManager.h>
 #include <Utilities.h>
 #include <VUEngine.h>

@@ -16,9 +16,9 @@
 
 #include <ActorsState.h>
 #include <GameConfig.h>
-#include <GameSounds.h>
 #include <Printing.h>
 #include <Punk.h>
+#include <Sounds.h>
 #include <Sprite.h>
 #include <SoundManager.h>
 

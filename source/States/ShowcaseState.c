@@ -17,9 +17,11 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
-#include <GameSounds.h>
 #include <KeypadManager.h>
 #include <Printing.h>
+#include <RumbleEffects.h>
+#include <RumbleManager.h>
+#include <Sounds.h>
 #include <TimerManager.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
@@ -189,6 +191,9 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 	if(NULL != this->playingSoundEffect)
 	{
+		RumbleManager::startEffect(&SelectOptionRumbleEffect);
+
+
 		/*
 		 * Prevent the user to mess up the playback by pressig the keypad's buttons
 		 * like a maniac.

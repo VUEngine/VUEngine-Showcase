@@ -17,11 +17,11 @@
 #include <CommunicationManager.h>
 #include <GameConfig.h>
 #include <GameEvents.h>
-#include <GameSounds.h>
 #include <KeypadManager.h>
 #include <MessageDispatcher.h>
 #include <PongPaddle.h>
 #include <PongState.h>
+#include <Sounds.h>
 #include <SoundManager.h>
 #include <Utilities.h>
 #include <VirtualList.h>
