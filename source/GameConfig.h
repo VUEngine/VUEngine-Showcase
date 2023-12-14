@@ -43,7 +43,7 @@ enum InGameTypes
 	kTypePongWall
 };
 
-enum CollisionLayers
+enum ColliderLayers
 {
 	kLayerSolid 				= 1 << (kLayerNone + 1),
 	kLayerDangers				= 1 << (kLayerNone + 2),
