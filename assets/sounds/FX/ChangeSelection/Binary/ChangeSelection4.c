@@ -23,6 +23,6 @@
 const uint16 ChangeSelection4SoundTrack1[] =
 {
   A_4, B_4, E_5, HOLD, ENDSOUND,
-  80, 80, 80, 120,
+  80, 80, 80, 40,
   15, 11, 7, 3,
 };

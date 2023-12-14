@@ -23,7 +23,7 @@
 const uint16 ChangeSelection2SoundTrack[] =
 {
   E_3, E_4, F_3, HOLD, ENDSOUND,
-  80, 80, 80, 1, 1,
-  15, 11, 7, 3 , 0
+  80, 80, 80, 20,
+  15, 11, 7, 3
 };
 
