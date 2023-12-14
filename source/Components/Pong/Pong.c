@@ -161,7 +161,10 @@ void Pong::processUserInput(const UserInput* userInput)
 	this->remoteHoldKey = 0;
 
 	/*
-	 * This call will sync both systems.
+	 * This call will sync both systems. The approach in this example is to get both
+	 * systems to follow the same code paths and only transmit the user input. So,
+	 * both are at the end of each frame in the same state. It is possible to run
+	 * the game in one and send the data to the other so this only shows it.
 	 */
 	Pong::syncWithRemote(this, userInput);
 
