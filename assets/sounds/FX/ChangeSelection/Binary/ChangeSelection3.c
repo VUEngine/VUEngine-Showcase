@@ -1,7 +1,7 @@
 /**
- * VUEngine Plugins Library
+ * VUEngine Platformer Demo
  *
- * (c) Christian Radke and Jorge Eremiev
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -20,9 +20,9 @@
 //---------------------------------------------------------------------------------------------------------
 
 
-const uint16 ConfirmSelection2SoundTrack1[] =
+const uint16 ChangeSelection3SoundTrack1[] =
 {
-  A_4, B_4, E_5, HOLD, ENDSOUND,
+  CS4, CS4, CS4, HOLD, ENDSOUND,
   80, 80, 80, 1, 1,
-  15, 15, 15, 15 , 0
+  10, 9, 8, 7 , 0,
 };

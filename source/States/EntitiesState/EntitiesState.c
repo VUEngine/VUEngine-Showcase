@@ -71,6 +71,8 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 
 void EntitiesState::processUserInput(const UserInput* userInput)
 {
+	EntitiesState::playSoundEffects(this, userInput, false);
+
 	if(!isDeleted(this->leaderPunk))
 	{
 		/*

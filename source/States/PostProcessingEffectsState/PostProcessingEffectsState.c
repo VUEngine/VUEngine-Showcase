@@ -75,7 +75,8 @@ void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
 
 void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 {
-	// Check for UserInput and key definitions in KeypadManager.h
+	PostProcessingEffectsState::playSoundEffects(this, userInput, false);
+
 	if(!(K_PWR & userInput->releasedKey))
 	{
 		if(K_LL & userInput->releasedKey)

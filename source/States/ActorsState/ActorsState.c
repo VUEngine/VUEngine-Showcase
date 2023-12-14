@@ -92,6 +92,8 @@ void ActorsState::exit(void* owner __attribute__((unused)))
 
 void ActorsState::processUserInput(const UserInput* userInput)
 {
+	ActorsState::playSoundEffects(this, userInput, false);
+
 	int32 message = kActorsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)

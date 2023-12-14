@@ -20,14 +20,14 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern const uint16 ConfirmSelection2SoundTrack1[];
+extern const uint16 ChangeSelection3SoundTrack1[];
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-SoundChannelConfigurationROM ConfirmSelection2SoundChannel1Configuration =
+SoundChannelConfigurationROM ChangeSelection3SoundChannel1Configuration =
 {
 	/// kMIDI, kPCM
 	kMIDI,
@@ -66,30 +66,31 @@ SoundChannelConfigurationROM ConfirmSelection2SoundChannel1Configuration =
 	__SOUND_LR
 };
 
-SoundChannelROM ConfirmSelection2SoundChannel1 =
+SoundChannelROM ChangeSelection3SoundChannel1 =
 {
 	/// Configuration
-	(SoundChannelConfiguration*)&ConfirmSelection2SoundChannel1Configuration,
+	(SoundChannelConfiguration*)&ChangeSelection3SoundChannel1Configuration,
 
 	/// Length (PCM)
 	0,
 
 	/// Sound track
 	{
-		(const uint8*)ConfirmSelection2SoundTrack1
+		(const uint8*)ChangeSelection3SoundTrack1
 	}
 };
 
-SoundChannelROM* ConfirmSelection2SoundChannels[] =
+
+SoundChannelROM* ChangeSelection3SoundChannels[] =
 {
-	&ConfirmSelection2SoundChannel1,
+	&ChangeSelection3SoundChannel1,
 	NULL
 };
 
-SoundROM ConfirmSelection2Sound =
+SoundROM ChangeSelection3Sound =
 {
 	/// Name
-	"Collect sound",
+	"Change Selection Sound 1",
 
 	/// Play in loop
 	false,
@@ -98,5 +99,5 @@ SoundROM ConfirmSelection2Sound =
 	500,
 
 	/// Tracks
-	(SoundChannel**)ConfirmSelection2SoundChannels
+	(SoundChannel**)ChangeSelection3SoundChannels
 };

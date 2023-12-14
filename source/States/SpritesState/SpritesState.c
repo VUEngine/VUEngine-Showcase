@@ -83,6 +83,8 @@ void SpritesState::execute(void* owner __attribute__((unused)))
 
 void SpritesState::processUserInput(const UserInput* userInput)
 {
+	SpritesState::playSoundEffects(this, userInput, false);
+
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{

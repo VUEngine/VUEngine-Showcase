@@ -66,6 +66,7 @@ void SoundsState::constructor()
 	this->stageSpec = (StageSpec*)&SoundsStage;
 	this->soundWrapper = NULL;
 	this->selectedSound = 0;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 /**
@@ -150,17 +151,21 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
  */
 void SoundsState::processUserInput(const UserInput* userInput)
 {
+	SoundsState::playSoundEffects(this, userInput, true);
+
 	Base::processUserInput(this, userInput);
 
 	if(!(K_PWR & userInput->releasedKey))
 	{
+		bool timerChanged = false;
+
 		if(K_SEL & userInput->releasedKey)
 		{
 			SoundsState::loadSound(this, true);
 			SoundsState::showSoundMetadata(this);
-		}
 
-		bool timerChanged = false;
+			timerChanged = true;
+		}
 		
 		if(K_LL & userInput->releasedKey)
 		{
@@ -216,7 +221,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		}
 		
 		if(this->showAdditionalDetails)
-		{			
+		{
 			if(!isDeleted(this->soundWrapper))
 			{
 				if(K_LD & userInput->releasedKey)
@@ -310,17 +315,13 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				if(timerChanged)
 				{
 					SoundsState::applyTimerSettings(this);
-
 					SoundsState::printTimer(this);
-
 					SoundsState::loadSound(this, false);
 					SoundsState::showSoundMetadata(this);
 				}
 			}
 		}		
 	}
-
-	Base::processUserInput(this, userInput);
 }
 
 /**
@@ -503,10 +504,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
  	 */
 	if(resetTimerSettings)
 	{
-		TimerManager::reset(TimerManager::getInstance());
-		TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
-		TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-		TimerManager::setTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
+		SoundsState::setTimerSettings(this);
 	}
 
 	/*
@@ -571,6 +569,13 @@ void SoundsState::printTimer()
 	}
 
 	TimerManager::print(TimerManager::getInstance(), 1, 11);
+}
+
+void SoundsState::setTimerSettings()
+{
+	TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
+	TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
+	TimerManager::setTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
 }
 
 void SoundsState::applyTimerSettings()

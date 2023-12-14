@@ -73,6 +73,8 @@ void AnimationSchemesState::destructor()
 
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
+	AnimationSchemesState::playSoundEffects(this, userInput, false);
+
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{

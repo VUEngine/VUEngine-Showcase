@@ -51,15 +51,10 @@ void VideoPlayerState::destructor()
 	Base::destructor();
 }
 
-void VideoPlayerState::enter(void* owner __attribute__((unused)))
-{
-	Base::enter(this, owner);
-
-	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
-}
-
 void VideoPlayerState::processUserInput(const UserInput* userInput)
 {
+	VideoPlayerState::playSoundEffects(this, userInput, false);
+
 	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 
 	if(!isDeleted(videoEntity))

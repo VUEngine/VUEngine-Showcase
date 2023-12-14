@@ -72,6 +72,8 @@ void WireframesState::execute(void* owner __attribute__((unused)))
 
 void WireframesState::processUserInput(const UserInput* userInput)
 {
+	WireframesState::playSoundEffects(this, userInput, false);
+
 	Vector3D translation = {0, 0, 0};
 	Rotation rotation = Rotation::zero();
 

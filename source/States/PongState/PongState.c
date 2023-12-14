@@ -95,6 +95,8 @@ void PongState::exit(void* owner)
 
 void PongState::processUserInput(const UserInput* userInput)
 {
+	PongState::playSoundEffects(this, userInput, true);
+
 	if(PongState::isVersusMode(this))
 	{
 		Pong::processUserInput(Pong::getInstance(), userInput);

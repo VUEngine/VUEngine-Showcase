@@ -17,6 +17,8 @@
 
 #include <GameState.h>
 
+#include <SoundWrapper.h>
+
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S MISC
@@ -34,6 +36,7 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
+	volatile Sound* playingSoundEffect;
 	bool showAdditionalDetails;
 	uint16 validSuboptionKeys;
 	int8 selectedPostProcessingEffect;
@@ -43,6 +46,7 @@ abstract class ShowcaseState : GameState
 	void constructor();
 	void setupBrightness(bool dimm);
 	void show(bool reloadStuff);
+	void playSoundEffects(const UserInput* userInput, bool lock);
 
 	virtual void showHeader();
 	virtual void showControls();

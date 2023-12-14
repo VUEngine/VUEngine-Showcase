@@ -20,6 +20,7 @@
 #include <GameSounds.h>
 #include <KeypadManager.h>
 #include <Printing.h>
+#include <TimerManager.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
 
@@ -67,6 +68,7 @@ void ShowcaseState::constructor()
 	this->stageSpec = NULL;
 	this->showAdditionalDetails = false;
 	this->validSuboptionKeys = K_NON;
+	this->playingSoundEffect = NULL;
 }
 
 // class's destructor
@@ -167,6 +169,54 @@ void ShowcaseState::resume(void* owner)
 	}
 }
 
+void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
+{
+	this->playingSoundEffect = NULL;
+
+	if((this->validSuboptionKeys) & userInput->releasedKey)
+	{
+		this->playingSoundEffect = &ChangeSelection3Sound;
+	}
+	else if((K_LT | K_RT) & userInput->releasedKey)
+	{
+		this->playingSoundEffect = &ChangeSelection1Sound;
+		lock = true;
+	}
+	else if(K_SEL & userInput->releasedKey)
+	{
+		this->playingSoundEffect = &ChangeSelection4Sound;
+	}	
+
+	if(NULL != this->playingSoundEffect)
+	{
+		if(lock)
+		{
+			TimerManager::enable(TimerManager::getInstance(), false);
+			TimerManager::setResolution(TimerManager::getInstance(), __TIMER_100US);
+			TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kMS);
+			TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 1);
+			TimerManager::initialize(TimerManager::getInstance());
+		}
+
+		SoundManager::playSound
+		(
+			SoundManager::getInstance(), 
+			this->playingSoundEffect, 
+			kPlayAll, 
+			NULL, 
+			kSoundWrapperPlaybackNormal,
+			lock ? (EventListener)ShowcaseState::soundEffectDone : NULL, 
+			lock ? ListenerObject::safeCast(this) : NULL
+		);
+		
+		if(lock)
+		{
+			volatile bool dummy = true;		
+			while(dummy && NULL != this->playingSoundEffect);
+		}
+	}
+}
+
 /*
  *	The engine calls State::processUserInput on the State top of its StateMachine's stack.
  */
@@ -175,12 +225,6 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{
-		if((this->validSuboptionKeys) & userInput->releasedKey)
-		{
-			SoundManager::playSound(SoundManager::getInstance(), &ChangeSelection1Sound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
-			return;
-		}
-
 		if(K_LT & userInput->releasedKey)
 		{
 			if(0 > --_currentShowcaseState)
@@ -188,16 +232,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 				_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
 			}
 
-			SoundManager::playSound
-			(
-				SoundManager::getInstance(), 
-				&ChangeSelection1Sound, 
-				kPlayAll, 
-				NULL, 
-				kSoundWrapperPlaybackNormal, 
-				(EventListener)ShowcaseState::goToNext, 
-				ListenerObject::safeCast(this)
-			);
+			ShowcaseState::goToNext(this);
 		}
 		else if(K_RT & userInput->releasedKey)
 		{
@@ -206,24 +241,13 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 				_currentShowcaseState = 0;
 			}
 
-			SoundManager::playSound
-			(
-				SoundManager::getInstance(), 
-				&ChangeSelection1Sound, 
-				kPlayAll, 
-				NULL, 
-				kSoundWrapperPlaybackNormal, 
-				(EventListener)ShowcaseState::goToNext, 
-				ListenerObject::safeCast(this)
-			);
+			ShowcaseState::goToNext(this);
 		}
 		else if(K_SEL & userInput->releasedKey)
 		{
 			this->showAdditionalDetails = !this->showAdditionalDetails;
 
 			ShowcaseState::show(this, false);
-
-			SoundManager::playSound(SoundManager::getInstance(), &ChangeSelection2Sound, kPlayAll, NULL, kSoundWrapperPlaybackNormal, NULL, NULL);
 		}
 		else if(K_B & userInput->releasedKey)
 		{
@@ -294,13 +318,6 @@ void ShowcaseState::showExplanation()
 {
 }
 
-void ShowcaseState::goToNext(ListenerObject eventFirer __attribute__((unused)))
-{
-	VUEngine::disableKeypad(VUEngine::getInstance());
-
-	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
-}
-
 void ShowcaseState::showAdditionalDetails()
 {}
 
@@ -319,4 +336,16 @@ void ShowcaseState::setupBrightness(bool dimm)
 	}
 
 	VIPManager::setupPalettes(VIPManager::getInstance(), &paletteConfig);
+}
+
+void ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
+{
+	this->playingSoundEffect = NULL;
+}
+
+void ShowcaseState::goToNext()
+{
+	VUEngine::disableKeypad(VUEngine::getInstance());
+
+	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }

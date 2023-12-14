@@ -19,8 +19,8 @@
 extern Sound BootSound;
 extern Sound ChangeSelection1Sound;
 extern Sound ChangeSelection2Sound;
-extern Sound ConfirmSelection1Sound;
-extern Sound ConfirmSelection2Sound;
+extern Sound ChangeSelection3Sound;
+extern Sound ChangeSelection4Sound;
 extern Sound EngineSound;
 extern Sound ExplosionSound;
 extern Sound GameOverSound;

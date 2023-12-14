@@ -28,7 +28,6 @@ dynamic_singleton class VideoPlayerState : ShowcaseState
 
 	void constructor();
 
-	override void enter(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override void showControls();
 	override void showExplanation();

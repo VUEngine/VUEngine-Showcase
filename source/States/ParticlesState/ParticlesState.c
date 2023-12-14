@@ -77,6 +77,8 @@ void ParticlesState::execute(void* owner __attribute__((unused)))
 
 void ParticlesState::processUserInput(const UserInput* userInput)
 {
+	ParticlesState::playSoundEffects(this, userInput, false);
+
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(!(K_PWR & userInput->releasedKey))
 	{
