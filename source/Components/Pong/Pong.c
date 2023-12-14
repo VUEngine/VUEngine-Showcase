@@ -17,6 +17,7 @@
 #include <CommunicationManager.h>
 #include <GameConfig.h>
 #include <GameEvents.h>
+#include <GameSounds.h>
 #include <KeypadManager.h>
 #include <MessageDispatcher.h>
 #include <PongPaddle.h>
@@ -354,7 +355,16 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	Pong::printScore(this);
 
-	//SoundManager::playFxSound(SoundManager::getInstance(), BALL_HIT_CEILING_SND, *SpatialObject::getPosition(SpatialObject::safeCast(eventFirer)));
+	SoundManager::playSound
+	(
+		SoundManager::getInstance(), 
+		&PointSound, 
+		kPlayAll, 
+		NULL, 
+		kSoundWrapperPlaybackNormal,
+		NULL, 
+		NULL
+	);
 }
 
 int Pong::getPlayerNumber()

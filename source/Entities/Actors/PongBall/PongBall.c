@@ -17,10 +17,12 @@
 #include <CommunicationManager.h>
 #include <GameEvents.h>
 #include <GameConfig.h>
+#include <GameSounds.h>
 #include <MessageDispatcher.h>
 #include <Optics.h>
 #include <Pong.h>
 #include <ParticleSystem.h>
+#include <SoundManager.h>
 #include <Telegram.h>
 #include <Utilities.h>
 #include <VUEngine.h>
@@ -153,6 +155,16 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 			break;
 	}
 
+	SoundManager::playSound
+	(
+		SoundManager::getInstance(), 
+		&HitPaddleSound, 
+		kPlayAll, 
+		NULL, 
+		kSoundWrapperPlaybackNormal,
+		NULL, 
+		NULL
+	);
 
 	return returnValue;
 }

@@ -24,7 +24,9 @@ extern Sound ChangeSelection4Sound;
 extern Sound EngineSound;
 extern Sound ExplosionSound;
 extern Sound GameOverSound;
+extern Sound HitPaddleSound;
 extern Sound NoFearForTheFutureSound;
 extern Sound OracleOfSeasonsOverworldThemeSound;
+extern Sound PointSound;
 
 #endif
