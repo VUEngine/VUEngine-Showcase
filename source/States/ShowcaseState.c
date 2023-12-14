@@ -189,14 +189,21 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 	if(NULL != this->playingSoundEffect)
 	{
-		if(lock)
-		{
-			TimerManager::enable(TimerManager::getInstance(), false);
-			TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
-			TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-			TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 1000);
-			TimerManager::initialize(TimerManager::getInstance());
-		}
+		/*
+		 * Prevent the user to mess up the playback by pressig the keypad's buttons
+		 * like a maniac.
+		 */
+		VUEngine::disableKeypad(VUEngine::getInstance());
+
+		/*
+		 * Make sure that the timer interrupts happen at a controlled frequency to
+		 * make sure that the sound effects sound the same in all stages
+		 */
+		TimerManager::enable(TimerManager::getInstance(), false);
+		TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
+		TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
+		TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 500);
+		TimerManager::initialize(TimerManager::getInstance());
 
 		SoundManager::playSound
 		(
@@ -205,13 +212,18 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 			kPlayAll, 
 			NULL, 
 			kSoundWrapperPlaybackNormal,
-			lock ? (EventListener)ShowcaseState::soundEffectDone : NULL, 
-			lock ? ListenerObject::safeCast(this) : NULL
+			(EventListener)ShowcaseState::soundEffectDone, 
+			ListenerObject::safeCast(this)
 		);
 		
 		if(lock)
 		{
-			volatile bool dummy = true;		
+			/*
+			 * Wait until ShowcaseState::soundEffectDone is called.
+			 * The dummy is necessary to prevent that the compiler
+			 * optimizes away the while loop.
+			 */
+			volatile bool dummy = true;
 			while(dummy && NULL != this->playingSoundEffect);
 		}
 	}
@@ -338,6 +350,16 @@ void ShowcaseState::setupBrightness(bool dimm)
 void ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
 {
 	this->playingSoundEffect = NULL;
+
+	/*
+	 * Restore timer settings
+	 */
+	Stage::setupTimer(this->stage);
+
+	/*
+	 * Allow the player to interact again.
+	 */
+	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
 void ShowcaseState::goToNext()

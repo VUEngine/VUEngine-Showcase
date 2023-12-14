@@ -36,7 +36,7 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
-	volatile Sound* playingSoundEffect;
+	Sound* playingSoundEffect;
 	bool showAdditionalDetails;
 	uint16 validSuboptionKeys;
 	int8 selectedPostProcessingEffect;
