@@ -18,6 +18,8 @@
 #include <GameConfig.h>
 #include <Printing.h>
 #include <Punk.h>
+#include <RumbleEffects.h>
+#include <RumbleManager.h>
 #include <Sounds.h>
 #include <Sprite.h>
 #include <SoundManager.h>
@@ -66,6 +68,8 @@ void PunkDie::enter(void* owner)
 	Punk::addSprites(punk, PunkDyingSprites, true);
 
 	Punk::playAnimation(punk, "Die");
+
+	RumbleManager::startEffect(&KilledRumbleEffect);
 
 	SoundManager::playSound
 	(

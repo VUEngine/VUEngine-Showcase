@@ -21,6 +21,8 @@
 #include <Optics.h>
 #include <Pong.h>
 #include <ParticleSystem.h>
+#include <RumbleEffects.h>
+#include <RumbleManager.h>
 #include <SoundManager.h>
 #include <Sounds.h>
 #include <Telegram.h>
@@ -154,6 +156,8 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 			}
 			break;
 	}
+
+	RumbleManager::startEffect(&HitPaddleRumbleEffect);
 
 	SoundManager::playSound
 	(

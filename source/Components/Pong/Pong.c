@@ -21,6 +21,8 @@
 #include <MessageDispatcher.h>
 #include <PongPaddle.h>
 #include <PongState.h>
+#include <RumbleEffects.h>
+#include <RumbleManager.h>
 #include <Sounds.h>
 #include <SoundManager.h>
 #include <Utilities.h>
@@ -357,6 +359,8 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 	}	
 
 	Pong::printScore(this);
+
+	RumbleManager::startEffect(&PointRumbleEffect);
 
 	SoundManager::playSound
 	(
