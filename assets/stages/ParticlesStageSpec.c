@@ -50,7 +50,7 @@ PositionedEntityROMSpec ParticlesStageUiEntities[] =
 
 FontROMSpec* const ParticlesStageFonts[] =
 {
-	&DefaultFont,
+	&DefaultFontSpec,
 
 	NULL
 };

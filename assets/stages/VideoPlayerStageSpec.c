@@ -46,8 +46,6 @@ PositionedEntityROMSpec VideoPlayerStageUiEntities[] =
 
 FontROMSpec* const VideoPlayerStageFonts[] =
 {
-	//&NumberFont,
-
 	NULL
 };
 

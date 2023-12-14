@@ -1,0 +1,11 @@
+{
+    "_id": "9liVCh8EFESnncqy",
+    "break": 255,
+    "effect": 10,
+    "frequency": 1,
+    "name": "Killed",
+    "overdrive": 255,
+    "stopBeforeStarting": true,
+    "sustainNegative": 255,
+    "sustainPositive": 255
+}

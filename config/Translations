@@ -1,0 +1,30 @@
+{
+    "languages": [
+        {
+            "code": "en",
+            "flag": "FlagUnitedKingdomEntity",
+            "localizedName": "English",
+            "name": "English"
+        },
+        {
+            "code": "de",
+            "flag": "FlagGermanyEntity",
+            "localizedName": "Deutsch",
+            "name": "German"
+        },
+        {
+            "code": "es",
+            "flag": "FlagSpainEntity",
+            "localizedName": "Español",
+            "name": "Spanish"
+        }
+    ],
+    "translations": {
+        "PostProcessingEffects": {
+            "de": "Hallo, Welt!",
+            "en": "Hello, World!",
+            "es": "Hola Mundo!",
+            "fr": "Bonjour Le Monde!"
+        }
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "_id": "IuyrDdpGzekkbiAH",
+    "break": 255,
+    "effect": 56,
+    "frequency": 1,
+    "name": "Point",
+    "overdrive": 255,
+    "stopBeforeStarting": true,
+    "sustainNegative": 255,
+    "sustainPositive": 80
+}

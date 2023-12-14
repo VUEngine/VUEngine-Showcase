@@ -17,16 +17,14 @@
 //                                               DEFINITIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-
 enum GameEvents
 {
-	kEventUserInput = kEventEngineLast + 1,
-	kEventPongBallSpawned,
-	kEventPongBallStreamedOut,	
-	kEventPongRemoteInSync,	
-	kEventPongRemoteWentAway,	
+	kEventPongBallSpawned = kEventEngineLast + 1,
+	kEventPongBallStreamedOut,
+	kEventPongRemoteInSync,
+	kEventPongRemoteWentAway,
+	kEventUserInput,
 };
-
 
 
 #endif

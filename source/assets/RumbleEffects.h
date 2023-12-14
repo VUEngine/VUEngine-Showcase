@@ -20,8 +20,8 @@
 extern RumbleEffectSpec ChangeSelection1RumbleEffect;
 extern RumbleEffectSpec ChangeSelection3RumbleEffect;
 extern RumbleEffectSpec ChangeSelection4RumbleEffect;
-extern RumbleEffectSpec KilledRumbleEffect;
 extern RumbleEffectSpec HitPaddleRumbleEffect;
+extern RumbleEffectSpec KilledRumbleEffect;
 extern RumbleEffectSpec PointRumbleEffect;
 
 

@@ -15,7 +15,6 @@ enum LanguageIdentifiers
 	kLanguageEnglish,
 	kLanguageGerman,
 	kLanguageSpanish,
-	kLanguageFrench,
 };
 
 enum LanguageStrings
@@ -26,8 +25,8 @@ enum LanguageStrings
     kStringAutomaticPauseSelectionOn,
     kStringAutomaticPauseSelectionTitle,
     kStringAutomaticPauseTitle,
-    kStringPostProcessingEffects,
     kStringLanguageSelectTitle,
+    kStringPostProcessingEffects,
     kStringPrecautionScreenBody,
 };
 

@@ -49,7 +49,7 @@ PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 
 FontROMSpec* const PostProcessingEffectsStageFonts[] =
 {
-	&DefaultFont,
+	&DefaultFontSpec,
 
 	NULL
 };
