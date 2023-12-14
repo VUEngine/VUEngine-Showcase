@@ -114,13 +114,7 @@
                     "runDelayedMessagesAtHalfFrameRate": false,
                     "timerResolution": 10
                 },
-                "game": [
-                    {
-                        "key": "__soundTest",
-                        "type": "boolean",
-                        "value": "1"
-                    }
-                ],
+                "game": [],
                 "math": {
                     "fixedPointPrecision": 6
                 },
@@ -507,8 +501,13 @@
         },
         "Events": {
             "gt8r5tybZRx1Xj9s": {
-                "typeId": "Events",
-                "events": []
+                "events": [
+                    "UserInput",
+                    "PongBallSpawned",
+                    "PongBallStreamedOut",
+                    "PongRemoteInSync",
+                    "PongRemoteWentAway"
+                ]
             }
         },
         "Translations": {
@@ -564,6 +563,11 @@
                 "gameTitle": "VUENGINE SHOWCASE",
                 "makerCode": "VU",
                 "revision": 0
+            }
+        },
+        "Messages": {
+            "Vc7THvzKJA96TWKJ": {
+                "messages": []
             }
         }
     }
