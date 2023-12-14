@@ -151,6 +151,11 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
  */
 void SoundsState::processUserInput(const UserInput* userInput)
 {
+	if(!isDeleted(this->soundWrapper))
+	{
+		SoundWrapper::pause(this->soundWrapper);
+	}
+
 	SoundsState::playSoundEffects(this, userInput, true);
 
 	Base::processUserInput(this, userInput);

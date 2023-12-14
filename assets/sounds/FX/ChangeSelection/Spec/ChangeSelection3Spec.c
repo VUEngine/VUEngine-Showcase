@@ -57,7 +57,7 @@ SoundChannelConfigurationROM ChangeSelection3SoundChannel1Configuration =
 	0x00,
 
 	/// Waveform data pointer
-	SineWaveForm,
+	SquareWaveForm,
 
 	/// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,

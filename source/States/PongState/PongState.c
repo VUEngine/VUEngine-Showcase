@@ -95,7 +95,10 @@ void PongState::exit(void* owner)
 
 void PongState::processUserInput(const UserInput* userInput)
 {
-	PongState::playSoundEffects(this, userInput, true);
+	if(0 == (K_SEL & userInput->releasedKey))
+	{
+		PongState::playSoundEffects(this, userInput, true);
+	}
 
 	if(PongState::isVersusMode(this))
 	{

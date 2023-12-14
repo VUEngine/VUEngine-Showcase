@@ -192,9 +192,9 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		if(lock)
 		{
 			TimerManager::enable(TimerManager::getInstance(), false);
-			TimerManager::setResolution(TimerManager::getInstance(), __TIMER_100US);
-			TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kMS);
-			TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 1);
+			TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
+			TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
+			TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 1000);
 			TimerManager::initialize(TimerManager::getInstance());
 		}
 

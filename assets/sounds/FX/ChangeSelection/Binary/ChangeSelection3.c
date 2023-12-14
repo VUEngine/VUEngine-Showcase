@@ -22,7 +22,7 @@
 
 const uint16 ChangeSelection3SoundTrack1[] =
 {
-  CS4, CS4, CS4, HOLD, ENDSOUND,
-  80, 80, 80, 1, 1,
-  10, 9, 8, 7 , 0,
+  B_4, B_4, A_4, HOLD, ENDSOUND,
+  80, 80, 80, 80,
+  15, 11, 7, 3,
 };
