@@ -93,8 +93,26 @@ const char* const EnglishLanguageStrings[] =
     "Mode:",
     /* kStringMultiframeLabel: */
     "Multiframe",
+    /* kStringMultiframeTextureLine1Label: */
+    "The sprites share the",
+    /* kStringMultiframeTextureLine2Label: */
+    "graphics but each can",
+    /* kStringMultiframeTextureLine3Label: */
+    "show a different frame",
+    /* kStringMultiframeTextureLine4Label: */
+    "from the same texture",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringNotSharedTextureLine1Label: */
+    "Each sprite has its",
+    /* kStringNotSharedTextureLine2Label: */
+    "its own texture and",
+    /* kStringNotSharedTextureLine3Label: */
+    "its own set of tiles",
+    /* kStringNotSharedTextureLine4Label: */
+    "Each one has to be",
+    /* kStringNotSharedTextureLine5Label: */
+    "animated individually",
     /* kStringOptimizedBgmapsLabel: */
     "Optimized BGMAPs",
     /* kStringOptimizedCharSetsLabel: */
@@ -119,6 +137,16 @@ const char* const EnglishLanguageStrings[] =
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSharedTextureLine1Label: */
+    "All sprites share",
+    /* kStringSharedTextureLine2Label: */
+    "the same tiles set",
+    /* kStringSharedTextureLine3Label: */
+    "and the same texture",
+    /* kStringSharedTextureLine4Label: */
+    "Only one of them",
+    /* kStringSharedTextureLine5Label: */
+    "needs to be animated",
     /* kStringSoundPlaybackLabel: */
     "Sound playback",
     /* kStringSpecsLabel: */
@@ -229,8 +257,26 @@ const char* const GermanLanguageStrings[] =
     "Mode:",
     /* kStringMultiframeLabel: */
     "Multiframe",
+    /* kStringMultiframeTextureLine1Label: */
+    "The sprites share the",
+    /* kStringMultiframeTextureLine2Label: */
+    "graphics but each can",
+    /* kStringMultiframeTextureLine3Label: */
+    "show a different frame",
+    /* kStringMultiframeTextureLine4Label: */
+    "from the same texture",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringNotSharedTextureLine1Label: */
+    "Each sprite has its",
+    /* kStringNotSharedTextureLine2Label: */
+    "its own texture and",
+    /* kStringNotSharedTextureLine3Label: */
+    "its own set of tiles",
+    /* kStringNotSharedTextureLine4Label: */
+    "Each one has to be",
+    /* kStringNotSharedTextureLine5Label: */
+    "animated individually",
     /* kStringOptimizedBgmapsLabel: */
     "Optimized BGMAPs",
     /* kStringOptimizedCharSetsLabel: */
@@ -255,6 +301,16 @@ const char* const GermanLanguageStrings[] =
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSharedTextureLine1Label: */
+    "All sprites share",
+    /* kStringSharedTextureLine2Label: */
+    "the same tiles set",
+    /* kStringSharedTextureLine3Label: */
+    "and the same texture",
+    /* kStringSharedTextureLine4Label: */
+    "Only one of them",
+    /* kStringSharedTextureLine5Label: */
+    "needs to be animated",
     /* kStringSoundPlaybackLabel: */
     "Sound playback",
     /* kStringSpecsLabel: */
@@ -365,8 +421,26 @@ const char* const SpanishLanguageStrings[] =
     "Modo:",
     /* kStringMultiframeLabel: */
     "Multi fotograma",
+    /* kStringMultiframeTextureLine1Label: */
+    "Los sprites comparten",
+    /* kStringMultiframeTextureLine2Label: */
+    "los gráficos pero cada",
+    /* kStringMultiframeTextureLine3Label: */
+    "uno puede mostrar un",
+    /* kStringMultiframeTextureLine4Label: */
+    "cuadro de la textura",
     /* kStringNotSharedLabel: */
     "No compartida",
+    /* kStringNotSharedTextureLine1Label: */
+    "Cada sprite tiene su",
+    /* kStringNotSharedTextureLine2Label: */
+    "propia textura y ",
+    /* kStringNotSharedTextureLine3Label: */
+    "conjunto de teselas",
+    /* kStringNotSharedTextureLine4Label: */
+    "Cada una debe ser",
+    /* kStringNotSharedTextureLine5Label: */
+    "animada individualmente",
     /* kStringOptimizedBgmapsLabel: */
     "BGMAPs optimizados",
     /* kStringOptimizedCharSetsLabel: */
@@ -391,6 +465,16 @@ const char* const SpanishLanguageStrings[] =
     "Lluvia",
     /* kStringSharedLabel: */
     "Compartida",
+    /* kStringSharedTextureLine1Label: */
+    "Los sprites comparten",
+    /* kStringSharedTextureLine2Label: */
+    "las mismas teselas",
+    /* kStringSharedTextureLine3Label: */
+    "y la misma textura",
+    /* kStringSharedTextureLine4Label: */
+    "Sólo uno de ellos",
+    /* kStringSharedTextureLine5Label: */
+    "necesita ser animado",
     /* kStringSoundPlaybackLabel: */
     "Reproducción de sonido",
     /* kStringSpecsLabel: */
@@ -501,8 +585,26 @@ const char* const FrenchLanguageStrings[] =
     "Mode:",
     /* kStringMultiframeLabel: */
     "Multiframe",
+    /* kStringMultiframeTextureLine1Label: */
+    "The sprites share the",
+    /* kStringMultiframeTextureLine2Label: */
+    "graphics but each can",
+    /* kStringMultiframeTextureLine3Label: */
+    "show a different frame",
+    /* kStringMultiframeTextureLine4Label: */
+    "from the same texture",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringNotSharedTextureLine1Label: */
+    "Each sprite has its",
+    /* kStringNotSharedTextureLine2Label: */
+    "its own texture and",
+    /* kStringNotSharedTextureLine3Label: */
+    "its own set of tiles",
+    /* kStringNotSharedTextureLine4Label: */
+    "Each one has to be",
+    /* kStringNotSharedTextureLine5Label: */
+    "animated individually",
     /* kStringOptimizedBgmapsLabel: */
     "Optimized BGMAPs",
     /* kStringOptimizedCharSetsLabel: */
@@ -527,6 +629,16 @@ const char* const FrenchLanguageStrings[] =
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSharedTextureLine1Label: */
+    "All sprites share",
+    /* kStringSharedTextureLine2Label: */
+    "the same tiles set",
+    /* kStringSharedTextureLine3Label: */
+    "and the same texture",
+    /* kStringSharedTextureLine4Label: */
+    "Only one of them",
+    /* kStringSharedTextureLine5Label: */
+    "needs to be animated",
     /* kStringSoundPlaybackLabel: */
     "Sound playback",
     /* kStringSpecsLabel: */

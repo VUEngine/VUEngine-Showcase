@@ -233,34 +233,34 @@ void AnimationSchemesState::showAnimationDetails()
 			case kAnimationsNotSharedTexture:
 
 				y = 7;
-				Printing::text(Printing::getInstance(), " Each sprite has its ", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " own set of tiles and", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " its own texture", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine1Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine2Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine3Label), 2, ++y, NULL);
+
 				y++;
-				Printing::text(Printing::getInstance(), " Each one has to be", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " animated individually", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine4Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine5Label), 2, ++y, NULL);
 				break;
 
 			case kAnimationsSharedTexture:
 	
 				y = 7;
-				Printing::text(Printing::getInstance(), " All sprites share ", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " the same tiles set", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " and the same texture", 1, ++y, NULL);
-				y++;
-				Printing::text(Printing::getInstance(), " Animations only need", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " to run in one of the", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " sprites", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine1Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine2Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine3Label), 2, ++y, NULL);
 
+				y++;
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine4Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine5Label), 2, ++y, NULL);
 				break;
 
 			case kAnimationsMultiframeTexture:
 
 				y = 2;
-				Printing::text(Printing::getInstance(), " The sprites share the", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " graphis but each can", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " show a different frame", 1, ++y, NULL);
-				Printing::text(Printing::getInstance(), " from the same texture", 1, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine1Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine2Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine3Label), 2, ++y, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine4Label), 2, ++y, NULL);
 				break;
 		}
 
@@ -275,7 +275,7 @@ void AnimationSchemesState::showAnimationDetails()
 			y = 17;
 		}
 
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCharMemoryLabel), 1, ++y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCharMemoryLabel), 2, ++y, NULL);
 		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 	}
 }

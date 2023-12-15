@@ -539,11 +539,77 @@
                     }
                 ],
                 "translations": {
+                    "ActorsLabel": {
+                        "de": "Actors",
+                        "en": "Actors",
+                        "es": "Actores",
+                        "fr": "Actors"
+                    },
+                    "AnimationsLabel": {
+                        "de": "Animations",
+                        "en": "Animations",
+                        "es": "Animaciones",
+                        "fr": "Animations"
+                    },
+                    "AnimationSubtitle": {
+                        "de": "ANIMATION",
+                        "en": "ANIMATION",
+                        "es": "ANIMACION",
+                        "fr": "ANIMATION"
+                    },
+                    "AninmationSubtitle": {
+                        "de": "ANIMATION",
+                        "en": "ANIMATION",
+                        "es": "ANIMACION",
+                        "fr": "ANIMATION"
+                    },
+                    "BgmapMemoryLabel": {
+                        "de": "BGMAP memory:",
+                        "en": "BGMAP memory:",
+                        "es": "Memoria BGMAP:",
+                        "fr": "BGMAP memory:"
+                    },
+                    "CameraControlLabel": {
+                        "de": "Camera control",
+                        "en": "Camera control",
+                        "es": "Control de cámara",
+                        "fr": "Camera control"
+                    },
+                    "CharMemoryLabel": {
+                        "de": "CHAR memory:",
+                        "en": "CHAR memory:",
+                        "es": "Memoria CHAR:",
+                        "fr": "CHAR memory:"
+                    },
                     "ClassesSubtitle": {
                         "de": "CLASSES",
                         "en": "CLASSES",
                         "es": "CLASES",
                         "fr": "CLASSES"
+                    },
+                    "ClassExtensionLabel": {
+                        "de": "Class extension",
+                        "en": "Class extension",
+                        "es": "Extensiones de clase",
+                        "fr": "Class extension"
+                    },
+                    "ClassMutationLabel": {
+                        "de": "Class mutation",
+                        "en": "Class mutation",
+                        "es": "Mutación de clases",
+                        "fr": "Class mutation"
+                    },
+                    "CollisionsLabel": {
+                        "de": "Collisions",
+                        "en": "Collisions",
+                        "es": "Colisiones",
+                        "fr": "Collisions"
+                    },
+                    "CommunicationsLabel": {
+                        "de": "Communications",
+                        "en": "Communications",
+                        "es": "Comunicaciones",
+                        "fr": "Communications"
                     },
                     "ConceptsSubtitle": {
                         "de": "CONCEPTS",
@@ -551,11 +617,137 @@
                         "es": "CONCEPTOS",
                         "fr": "CONCEPTS"
                     },
+                    "DwarfPlanetLabel": {
+                        "de": "Dwarf Planet",
+                        "en": "Dwarf Planet",
+                        "es": "Planeta Enano",
+                        "fr": "Dwarf Planet"
+                    },
+                    "EffectSubtitle": {
+                        "de": "EFFECT",
+                        "en": "EFFECT",
+                        "es": "EFECTO",
+                        "fr": "EFFECT"
+                    },
+                    "EntitiesLabel": {
+                        "de": "Entities",
+                        "en": "Entities",
+                        "es": "Entidades",
+                        "fr": "Entities"
+                    },
+                    "EntityCreationLabel": {
+                        "de": "Entity creation",
+                        "en": "Entity creation",
+                        "es": "Entidad: creación",
+                        "fr": "Entity creation"
+                    },
+                    "EntityDestructionLabel": {
+                        "de": "Entity destruction",
+                        "en": "Entity destruction",
+                        "es": "Entidad: destrucción ",
+                        "fr": "Entity destruction"
+                    },
+                    "EventsLabel": {
+                        "de": "Events",
+                        "en": "Events",
+                        "es": "Eventos",
+                        "fr": "Events"
+                    },
+                    "FrameBuffersLabel": {
+                        "de": "Frame buffers",
+                        "en": "Frame buffers",
+                        "es": "Búfer de video",
+                        "fr": "Frame buffers"
+                    },
+                    "GameStatesLabel": {
+                        "de": "Game states",
+                        "en": "Game states",
+                        "es": "Estados de juego",
+                        "fr": "Game states"
+                    },
+                    "HiColorLabel": {
+                        "de": "HiColor",
+                        "en": "HiColor",
+                        "es": "HiColor",
+                        "fr": "HiColor"
+                    },
+                    "LinkedListsLabel": {
+                        "de": "Linked lists",
+                        "en": "Linked lists",
+                        "es": "Listas enlazadas",
+                        "fr": "Linked lists"
+                    },
+                    "MessagingLabel": {
+                        "de": "Messaging",
+                        "en": "Messaging",
+                        "es": "Mensajes",
+                        "fr": "Messaging"
+                    },
                     "MethodsSubtitle": {
                         "de": "METHODS",
                         "en": "METHODS",
                         "es": "METODOS",
                         "fr": "METHODS"
+                    },
+                    "ModeLabel": {
+                        "de": "Mode:",
+                        "en": "Mode:",
+                        "es": "Modo:",
+                        "fr": "Mode:"
+                    },
+                    "MultiframeLabel": {
+                        "de": "Multiframe",
+                        "en": "Multiframe",
+                        "es": "Multi fotograma",
+                        "fr": "Multiframe"
+                    },
+                    "NotSharedLabel": {
+                        "de": "Not shared",
+                        "en": "Not shared",
+                        "es": "No compartida",
+                        "fr": "Not shared"
+                    },
+                    "NotSharedTextureLine1Label": {
+                        "de": "Each sprite has its",
+                        "en": "Each sprite has its",
+                        "es": "Cada sprite tiene su",
+                        "fr": "Each sprite has its"
+                    },
+                    "NotSharedTextureLine2Label": {
+                        "de": "its own texture and",
+                        "en": "its own texture and",
+                        "es": "propia textura y ",
+                        "fr": "its own texture and"
+                    },
+                    "NotSharedTextureLine3Label": {
+                        "de": "its own set of tiles",
+                        "en": "its own set of tiles",
+                        "es": "conjunto de teselas",
+                        "fr": "its own set of tiles"
+                    },
+                    "NotSharedTextureLine4Label": {
+                        "de": "Each one has to be",
+                        "en": "Each one has to be",
+                        "es": "Cada una debe ser",
+                        "fr": "Each one has to be"
+                    },
+                    "NotSharedTextureLine5Label": {
+                        "de": "animated individually",
+                        "en": "animated individually",
+                        "es": "animada individualmente",
+                        "fr": "animated individually"
+                    },
+                    "OptimizedBgmapsLabel": {
+                        "de": "Optimized BGMAPs",
+                        "en": "Optimized BGMAPs",
+                        "es": "BGMAPs optimizados",
+                        "fr": "Optimized BGMAPs"
+                    },
+                    "OptimizedCharSetsLabel": {
+                        "de": "Optimized CharSets",
+                        "en": "Optimized CharSets",
+                        "es": "CharSets optimizados",
+                        "fr": "Optimized CharSets"
                     },
                     "OtherConceptsSubtitle": {
                         "de": "OTHER CONCEPTS",
@@ -563,11 +755,125 @@
                         "es": "OTROS CONCEPTOS",
                         "fr": "OTHER CONCEPTS"
                     },
+                    "ParentingLabel": {
+                        "de": "Parenting",
+                        "en": "Parenting",
+                        "es": "Contenedores",
+                        "fr": "Parenting"
+                    },
+                    "ParticlesSubtitle": {
+                        "de": "PARTICLES TYPE",
+                        "en": "PARTICLES TYPE",
+                        "es": "TIPO DE PARTICULAS",
+                        "fr": "PARTICLES TYPE"
+                    },
+                    "ParticleSystemsLabel": {
+                        "de": "Particle systems",
+                        "en": "Particle systems",
+                        "es": "Sistemas de partículas",
+                        "fr": "Particle systems"
+                    },
+                    "ParticleTypesLabel": {
+                        "de": "Particle types",
+                        "en": "Particle types",
+                        "es": "Tipos de partículas",
+                        "fr": "Particle types"
+                    },
+                    "PhysicsLabel": {
+                        "de": "Physics",
+                        "en": "Physics",
+                        "es": "Física",
+                        "fr": "Physics"
+                    },
+                    "PostProcessingEffectsLabel": {
+                        "de": "Post processing effects",
+                        "en": "Post processing effects",
+                        "es": "Efectos gráficos",
+                        "fr": "Post processing effects"
+                    },
+                    "RainLabel": {
+                        "de": "Rain",
+                        "en": "Rain",
+                        "es": "Lluvia",
+                        "fr": "Rain"
+                    },
+                    "SharedLabel": {
+                        "de": "Shared",
+                        "en": "Shared",
+                        "es": "Compartida",
+                        "fr": "Shared"
+                    },
+                    "SharedTextureLine1Label": {
+                        "de": "All sprites share",
+                        "en": "All sprites share",
+                        "es": "Los sprites comparten",
+                        "fr": "All sprites share"
+                    },
+                    "SharedTextureLine2Label": {
+                        "de": "the same tiles set",
+                        "en": "the same tiles set",
+                        "es": "las mismas teselas",
+                        "fr": "the same tiles set"
+                    },
+                    "SharedTextureLine3Label": {
+                        "de": "and the same texture",
+                        "en": "and the same texture",
+                        "es": "y la misma textura",
+                        "fr": "and the same texture"
+                    },
+                    "SharedTextureLine4Label": {
+                        "de": "Only one of them",
+                        "en": "Only one of them",
+                        "es": "Sólo uno de ellos",
+                        "fr": "Only one of them"
+                    },
+                    "SharedTextureLine5Label": {
+                        "de": "needs to be animated",
+                        "en": "needs to be animated",
+                        "es": "necesita ser animado",
+                        "fr": "needs to be animated"
+                    },
+                    "SoundPlaybackLabel": {
+                        "de": "Sound playback",
+                        "en": "Sound playback",
+                        "es": "Reproducción de sonido",
+                        "fr": "Sound playback"
+                    },
+                    "SpecsLabel": {
+                        "de": "Specs",
+                        "en": "Specs",
+                        "es": "Especificaciones",
+                        "fr": "Specs"
+                    },
                     "SpecsSubtitle": {
                         "de": "SPECS",
                         "en": "SPECS",
                         "es": "ESPECIFICACIONES",
                         "fr": "SPECS"
+                    },
+                    "SpritesLabel": {
+                        "de": "Sprites",
+                        "en": "Sprites",
+                        "es": "Sprites",
+                        "fr": "Sprites"
+                    },
+                    "SpriteSubtitle": {
+                        "de": "SPRITE",
+                        "en": "SPRITE",
+                        "es": "SPRITE",
+                        "fr": "SPRITE"
+                    },
+                    "StagesLabel": {
+                        "de": "Stages",
+                        "en": "Stages",
+                        "es": "Escenas",
+                        "fr": "Stages"
+                    },
+                    "StateMachinesLabel": {
+                        "de": "State machines",
+                        "en": "State machines",
+                        "es": "Máquinas de estado",
+                        "fr": "State machines"
                     },
                     "StateTitle": {
                         "de": "STATE: ",
@@ -575,281 +881,59 @@
                         "es": "ESTADO: ",
                         "fr": "STATE: "
                     },
-                    "SpriteSubtitle": {
-                        "en": "SPRITE",
-                        "de": "SPRITE",
-                        "es": "SPRITE",
-                        "fr": "SPRITE"
-                    },
-                    "ModeLabel": {
-                        "en": "Mode:",
-                        "de": "Mode:",
-                        "es": "Modo:",
-                        "fr": "Mode:"
-                    },
-                    "AnimationSubtitle": {
-                        "en": "ANIMATION",
-                        "de": "ANIMATION",
-                        "es": "ANIMACION",
-                        "fr": "ANIMATION"
-                    },
-                    "NotSharedLabel": {
-                        "en": "Not shared",
-                        "de": "Not shared",
-                        "es": "No compartida",
-                        "fr": "Not shared"
-                    },
-                    "SharedLabel": {
-                        "en": "Shared",
-                        "de": "Shared",
-                        "es": "Compartida",
-                        "fr": "Shared"
-                    },
-                    "MultiframeLabel": {
-                        "en": "Multiframe",
-                        "de": "Multiframe",
-                        "es": "Multi fotograma",
-                        "fr": "Multiframe"
-                    },
-                    "CharMemoryLabel": {
-                        "en": "CHAR memory:",
-                        "de": "CHAR memory:",
-                        "es": "Memoria CHAR:",
-                        "fr": "CHAR memory:"
-                    },
-                    "BgmapMemoryLabel": {
-                        "en": "BGMAP memory:",
-                        "de": "BGMAP memory:",
-                        "es": "Memoria BGMAP:",
-                        "fr": "BGMAP memory:"
-                    },
-                    "ParticlesSubtitle": {
-                        "en": "PARTICLES TYPE",
-                        "de": "PARTICLES TYPE",
-                        "es": "TIPO DE PARTICULAS",
-                        "fr": "PARTICLES TYPE"
-                    },
-                    "EffectSubtitle": {
-                        "en": "EFFECT",
-                        "de": "EFFECT",
-                        "es": "EFECTO",
-                        "fr": "EFFECT"
-                    },
-                    "WobbleLabel": {
-                        "en": "Wobble",
-                        "de": "Wobble",
-                        "es": "Ondulado",
-                        "fr": "Wobble"
-                    },
                     "TiltELabel": {
-                        "en": "Tilt",
                         "de": "Tilt",
+                        "en": "Tilt",
                         "es": "Inclinado",
                         "fr": "Tilt"
                     },
-                    "DwarfPlanetLabel": {
-                        "en": "Dwarf Planet",
-                        "de": "Dwarf Planet",
-                        "es": "Planeta Enano",
-                        "fr": "Dwarf Planet"
-                    },
-                    "RainLabel": {
-                        "en": "Rain",
-                        "de": "Rain",
-                        "es": "Lluvia",
-                        "fr": "Rain"
-                    },
-                    "ActorsLabel": {
-                        "en": "Actors",
-                        "de": "Actors",
-                        "es": "Actores",
-                        "fr": "Actors"
-                    },
-                    "PhysicsLabel": {
-                        "en": "Physics",
-                        "de": "Physics",
-                        "es": "Física",
-                        "fr": "Physics"
-                    },
-                    "StateMachinesLabel": {
-                        "en": "State machines",
-                        "de": "State machines",
-                        "es": "Máquinas de estado",
-                        "fr": "State machines"
-                    },
-                    "CollisionsLabel": {
-                        "en": "Collisions",
-                        "de": "Collisions",
-                        "es": "Colisiones",
-                        "fr": "Collisions"
-                    },
-                    "EventsLabel": {
-                        "en": "Events",
-                        "de": "Events",
-                        "es": "Eventos",
-                        "fr": "Events"
-                    },
-                    "MessagingLabel": {
-                        "en": "Messaging",
-                        "de": "Messaging",
-                        "es": "Mensajes",
-                        "fr": "Messaging"
-                    },
-                    "AnimationsLabel": {
-                        "en": "Animations",
-                        "de": "Animations",
-                        "es": "Animaciones",
-                        "fr": "Animations"
-                    },
-                    "EntitiesLabel": {
-                        "en": "Entities",
-                        "de": "Entities",
-                        "es": "Entidades",
-                        "fr": "Entities"
-                    },
-                    "ParentingLabel": {
-                        "en": "Parenting",
-                        "de": "Parenting",
-                        "es": "Contenedores",
-                        "fr": "Parenting"
-                    },
-                    "EntityCreationLabel": {
-                        "en": "Entity creation",
-                        "de": "Entity creation",
-                        "es": "Entidad: creación",
-                        "fr": "Entity creation"
-                    },
-                    "EntityDestructionLabel": {
-                        "en": "Entity destruction",
-                        "de": "Entity destruction",
-                        "es": "Entidad: destrucción ",
-                        "fr": "Entity destruction"
-                    },
-                    "StagesLabel": {
-                        "en": "Stages",
-                        "de": "Stages",
-                        "es": "Escenas",
-                        "fr": "Stages"
-                    },
-                    "LinkedListsLabel": {
-                        "en": "Linked lists",
-                        "de": "Linked lists",
-                        "es": "Listas enlazadas",
-                        "fr": "Linked lists"
-                    },
-                    "ParticleSystemsLabel": {
-                        "en": "Particle systems",
-                        "de": "Particle systems",
-                        "es": "Sistemas de partículas",
-                        "fr": "Particle systems"
-                    },
-                    "ParticleTypesLabel": {
-                        "en": "Particle types",
-                        "de": "Particle types",
-                        "es": "Tipos de partículas",
-                        "fr": "Particle types"
-                    },
-                    "CommunicationsLabel": {
-                        "en": "Communications",
-                        "de": "Communications",
-                        "es": "Comunicaciones",
-                        "fr": "Communications"
-                    },
-                    "FrameBuffersLabel": {
-                        "en": "Frame buffers",
-                        "de": "Frame buffers",
-                        "es": "Búfer de video",
-                        "fr": "Frame buffers"
-                    },
-                    "PostProcessingEffectsLabel": {
-                        "en": "Post processing effects",
-                        "de": "Post processing effects",
-                        "es": "Efectos gráficos",
-                        "fr": "Post processing effects"
-                    },
-                    "SoundPlaybackLabel": {
-                        "en": "Sound playback",
-                        "de": "Sound playback",
-                        "es": "Reproducción de sonido",
-                        "fr": "Sound playback"
-                    },
                     "TimerSettingsLabel": {
-                        "en": "Timer settings",
                         "de": "Timer settings",
+                        "en": "Timer settings",
                         "es": "Configuración de reloj",
                         "fr": "Timer settings"
                     },
-                    "GameStatesLabel": {
-                        "en": "Game states",
-                        "de": "Game states",
-                        "es": "Estados de juego",
-                        "fr": "Game states"
-                    },
-                    "SpritesLabel": {
-                        "en": "Sprites",
-                        "de": "Sprites",
-                        "es": "Sprites",
-                        "fr": "Sprites"
-                    },
-                    "SpecsLabel": {
-                        "en": "Specs",
-                        "de": "Specs",
-                        "es": "Especificaciones",
-                        "fr": "Specs"
-                    },
                     "UserInputLabel": {
-                        "en": "User input",
                         "de": "User input",
+                        "en": "User input",
                         "es": "Entrada de usuario",
                         "fr": "User input"
                     },
-                    "ClassExtensionLabel": {
-                        "en": "Class extension",
-                        "de": "Class extension",
-                        "es": "Extensiones de clase",
-                        "fr": "Class extension"
-                    },
-                    "ClassMutationLabel": {
-                        "en": "Class mutation",
-                        "de": "Class mutation",
-                        "es": "Mutación de clases",
-                        "fr": "Class mutation"
-                    },
-                    "HiColorLabel": {
-                        "en": "HiColor",
-                        "de": "HiColor",
-                        "es": "HiColor",
-                        "fr": "HiColor"
-                    },
-                    "OptimizedCharSetsLabel": {
-                        "en": "Optimized CharSets",
-                        "de": "Optimized CharSets",
-                        "es": "CharSets optimizados",
-                        "fr": "Optimized CharSets"
-                    },
-                    "OptimizedBgmapsLabel": {
-                        "en": "Optimized BGMAPs",
-                        "de": "Optimized BGMAPs",
-                        "es": "BGMAPs optimizados",
-                        "fr": "Optimized BGMAPs"
-                    },
-                    "CameraControlLabel": {
-                        "en": "Camera control",
-                        "de": "Camera control",
-                        "es": "Control de cámara",
-                        "fr": "Camera control"
-                    },
                     "WireframesLabel": {
-                        "en": "Wireframes",
                         "de": "Wireframes",
+                        "en": "Wireframes",
                         "es": "Wireframes",
                         "fr": "Wireframes"
                     },
-                    "AninmationSubtitle": {
-                        "en": "ANIMATION",
-                        "de": "ANIMATION",
-                        "es": "ANIMACION",
-                        "fr": "ANIMATION"
+                    "WobbleLabel": {
+                        "de": "Wobble",
+                        "en": "Wobble",
+                        "es": "Ondulado",
+                        "fr": "Wobble"
+                    },
+                    "MultiframeTextureLine1Label": {
+                        "en": "The sprites share the",
+                        "de": "The sprites share the",
+                        "es": "Los sprites comparten",
+                        "fr": "The sprites share the"
+                    },
+                    "MultiframeTextureLine2Label": {
+                        "en": "graphics but each can",
+                        "de": "graphics but each can",
+                        "es": "los gráficos pero cada",
+                        "fr": "graphics but each can"
+                    },
+                    "MultiframeTextureLine3Label": {
+                        "en": "show a different frame",
+                        "de": "show a different frame",
+                        "es": "uno puede mostrar un",
+                        "fr": "show a different frame"
+                    },
+                    "MultiframeTextureLine4Label": {
+                        "en": "from the same texture",
+                        "de": "from the same texture",
+                        "es": "cuadro de la textura",
+                        "fr": "from the same texture"
                     }
                 }
             }
