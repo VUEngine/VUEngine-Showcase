@@ -14,6 +14,8 @@
 
 #include <ParticlesState.h>
 
+#include <I18n.h>
+#include <Languages.h>
 #include <Printing.h>
 #include <Stage.h>
 
@@ -118,44 +120,44 @@ void ParticlesState::showExplanation()
 	if(!isDeleted(this->particleSystem))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "Particle systems", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Particle types", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Particle specs", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "CLASSES", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "Particle", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "ParticleSystem", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "PhysicalParticle", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "SolidParticle", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "METHODS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "ParticlesState", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), " loadParticles", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), " processUserInput", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "SPECS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "*StarParticle", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "*StarsParticleSystem*", 1, y++, NULL);
 
 		y = 3;
-		Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->particleSystem), 28, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "Debug");
 
 		switch(this->particlesType)
 		{
 			case kParticleNormal:
 
-				Printing::text(Printing::getInstance(), "Type: Normal", 28, y, NULL);
+				Printing::text(Printing::getInstance(), "Particle", 28, y, NULL);
 				break;
 
 			case kParticlePhysical:
 
-				Printing::text(Printing::getInstance(), "Type: Physical", 28, y, NULL);
+				Printing::text(Printing::getInstance(), "PhysicalParticle", 28, y, NULL);
 				break;
 
 			case kParticleSolid:
 
-				Printing::text(Printing::getInstance(), "Type: Solid", 28, y, NULL);
+				Printing::text(Printing::getInstance(), "SolidParticle", 28, y, NULL);
 				break;
 		}
 	}	

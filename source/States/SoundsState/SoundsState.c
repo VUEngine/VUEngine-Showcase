@@ -14,6 +14,8 @@
 
 #include <SoundsState.h>
 
+#include <I18n.h>
+#include <Languages.h>
 #include <Printing.h>
 #include <SoundManager.h>
 #include <Sounds.h>
@@ -370,16 +372,16 @@ void SoundsState::showStuff()
 void SoundsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Sound specs", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Sound wrappers", 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundManager", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "SoundWrapper", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), " EngineSound", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), " ExplosionSound", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), " NoFearForTheFutureSound", 2, y++, NULL);
@@ -391,12 +393,12 @@ void SoundsState::showExplanation()
 	SoundsState::showSoundMetadata(this);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Chiptunes", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "PCM", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Plaback", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundsState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " loadSound", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " releaseSoundWrapper", 26, y++, NULL);

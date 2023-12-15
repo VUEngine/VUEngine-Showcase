@@ -14,6 +14,8 @@
 
 #include <PostProcessingEffectsState.h>
 
+#include <I18n.h>
+#include <Languages.h>
 #include <PostProcessingDwarfPlanet.h>
 #include <PostProcessingRain.h>
 #include <PostProcessingTilt.h>
@@ -124,35 +126,36 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Frame buffers", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), "Post processing effects", 1, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "METHODS", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "PostProcessingEffectsState", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), " processUserInput", 1, y++, NULL);
 	
 	y = 3;
-	Printing::text(Printing::getInstance(), "CLASSES", 32, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "Debug");
 	Printing::text(Printing::getInstance(), "VIPManager", 32, y++, NULL);
 	y++;
 
-	Printing::text(Printing::getInstance(), "EFFECT", 32, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "Debug");
+	Printing::text(Printing::getInstance(), "            ", 32, y, NULL);
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Wobble      ", 32, y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringWobbleLabel), 32, y, NULL);
 	}
 	else if(PostProcessingTilt::tiltScreen == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Tilt        ", 32, y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringTiltELabel), 32, y, NULL);
 	}
 	else if(PostProcessingDwarfPlanet::dwarfPlanet == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Dwarf planet ", 32, y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringDwarfPlanetLabel), 32, y, NULL);
 	}
 	else if(PostProcessingRain::waterFall == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), "Rain         ", 32, y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
 	}
 }

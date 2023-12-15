@@ -20,15 +20,34 @@ enum LanguageIdentifiers
 
 enum LanguageStrings
 {
+    kStringAnimationSubtitle,
     kStringAutomaticPauseBody,
     kStringAutomaticPauseSelectionBody,
     kStringAutomaticPauseSelectionOff,
     kStringAutomaticPauseSelectionOn,
     kStringAutomaticPauseSelectionTitle,
     kStringAutomaticPauseTitle,
-    kStringPostProcessingEffects,
+    kStringBgmapMemoryLabel,
+    kStringCharMemoryLabel,
+    kStringClassesSubtitle,
+    kStringConceptsSubtitle,
+    kStringDwarfPlanetLabel,
+    kStringEffectSubtitle,
     kStringLanguageSelectTitle,
+    kStringMethodsSubtitle,
+    kStringModeLabel,
+    kStringMultiframeLabel,
+    kStringNotSharedLabel,
+    kStringOtherConceptsSubtitle,
+    kStringParticlesSubtitle,
     kStringPrecautionScreenBody,
+    kStringRainLabel,
+    kStringSharedLabel,
+    kStringSpecsSubtitle,
+    kStringSpriteSubtitle,
+    kStringStateTitle,
+    kStringTiltELabel,
+    kStringWobbleLabel,
 };
 
 

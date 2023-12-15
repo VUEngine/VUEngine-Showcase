@@ -25,6 +25,8 @@ extern EntitySpec FlagFranceEntity;
 
 const char* const EnglishLanguageStrings[] =
 {
+    /* kStringAnimationSubtitle: */
+    "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Please take a rest!",
     /* kStringAutomaticPauseSelectionBody: */
@@ -37,12 +39,48 @@ const char* const EnglishLanguageStrings[] =
     "AUTOMATIC PAUSE",
     /* kStringAutomaticPauseTitle: */
     "AUTOMATIC PAUSE",
-    /* kStringPostProcessingEffects: */
-    "Hello, World!",
+    /* kStringBgmapMemoryLabel: */
+    "BGMAP memory:",
+    /* kStringCharMemoryLabel: */
+    "CHAR memory:",
+    /* kStringClassesSubtitle: */
+    "CLASSES",
+    /* kStringConceptsSubtitle: */
+    "CONCEPTS",
+    /* kStringDwarfPlanetLabel: */
+    "Dwarf Planet",
+    /* kStringEffectSubtitle: */
+    "EFFECT",
     /* kStringLanguageSelectTitle: */
     "LANGUAGE SELECT",
+    /* kStringMethodsSubtitle: */
+    "METHODS",
+    /* kStringModeLabel: */
+    "Mode:",
+    /* kStringMultiframeLabel: */
+    "Multiframe",
+    /* kStringNotSharedLabel: */
+    "Not shared",
+    /* kStringOtherConceptsSubtitle: */
+    "OTHER CONCEPTS",
+    /* kStringParticlesSubtitle: */
+    "PARTICLES TYPE",
     /* kStringPrecautionScreenBody: */
-    "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING"
+    "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING",
+    /* kStringRainLabel: */
+    "Rain",
+    /* kStringSharedLabel: */
+    "Shared",
+    /* kStringSpecsSubtitle: */
+    "SPECS",
+    /* kStringSpriteSubtitle: */
+    "SPRITE",
+    /* kStringStateTitle: */
+    "STATE: ",
+    /* kStringTiltELabel: */
+    "Tilt",
+    /* kStringWobbleLabel: */
+    "Wobble",
 };
 
 const LangROMSpec EnglishLanguage =
@@ -59,6 +97,8 @@ const LangROMSpec EnglishLanguage =
 
 const char* const GermanLanguageStrings[] =
 {
+    /* kStringAnimationSubtitle: */
+    "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Bitte mache eine Pause!",
     /* kStringAutomaticPauseSelectionBody: */
@@ -71,12 +111,48 @@ const char* const GermanLanguageStrings[] =
     "AUTOMATISCHE PAUSE",
     /* kStringAutomaticPauseTitle: */
     "AUTOMATISCHE PAUSE",
-    /* kStringPostProcessingEffects: */
-    "Hallo, Welt!",
+    /* kStringBgmapMemoryLabel: */
+    "BGMAP memory:",
+    /* kStringCharMemoryLabel: */
+    "CHAR memory:",
+    /* kStringClassesSubtitle: */
+    "CLASSES",
+    /* kStringConceptsSubtitle: */
+    "CONCEPTS",
+    /* kStringDwarfPlanetLabel: */
+    "Dwarf Planet",
+    /* kStringEffectSubtitle: */
+    "EFFECT",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
+    /* kStringMethodsSubtitle: */
+    "METHODS",
+    /* kStringModeLabel: */
+    "Mode:",
+    /* kStringMultiframeLabel: */
+    "Multiframe",
+    /* kStringNotSharedLabel: */
+    "Not shared",
+    /* kStringOtherConceptsSubtitle: */
+    "OTHER CONCEPTS",
+    /* kStringParticlesSubtitle: */
+    "PARTICLES TYPE",
     /* kStringPrecautionScreenBody: */
-    "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE"
+    "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE",
+    /* kStringRainLabel: */
+    "Rain",
+    /* kStringSharedLabel: */
+    "Shared",
+    /* kStringSpecsSubtitle: */
+    "SPECS",
+    /* kStringSpriteSubtitle: */
+    "SPRITE",
+    /* kStringStateTitle: */
+    "STATE: ",
+    /* kStringTiltELabel: */
+    "Tilt",
+    /* kStringWobbleLabel: */
+    "Wobble",
 };
 
 const LangROMSpec GermanLanguage =
@@ -93,30 +169,68 @@ const LangROMSpec GermanLanguage =
 
 const char* const SpanishLanguageStrings[] =
 {
+    /* kStringAnimationSubtitle: */
+    "ANIMACION",
     /* kStringAutomaticPauseBody: */
-    "ï¿½Por favor, tï¿½mese un descanso!",
+    "¡Por favor, tómese un descanso!",
     /* kStringAutomaticPauseSelectionBody: */
-    " La funciï¿½n automï¿½tica de pausa te\nrecordarï¿½ que debes tomar un descanso\n  approximadamente cada 30 minutos",
+    " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos",
     /* kStringAutomaticPauseSelectionOff: */
     "Apagado",
     /* kStringAutomaticPauseSelectionOn: */
     "Encendido",
     /* kStringAutomaticPauseSelectionTitle: */
-    "PAUSA AUTOMï¿½TICA",
+    "PAUSA AUTOMÁTICA",
     /* kStringAutomaticPauseTitle: */
-    "PAUSA AUTOMï¿½TICA",
-    /* kStringPostProcessingEffects: */
-    "Â¡Hola Mundo!",
+    "PAUSA AUTOMÁTICA",
+    /* kStringBgmapMemoryLabel: */
+    "Memoria BGMAP:",
+    /* kStringCharMemoryLabel: */
+    "Memoria CHAR:",
+    /* kStringClassesSubtitle: */
+    "CLASES",
+    /* kStringConceptsSubtitle: */
+    "CONCEPTOS",
+    /* kStringDwarfPlanetLabel: */
+    "Planeta Enano",
+    /* kStringEffectSubtitle: */
+    "EFECTO",
     /* kStringLanguageSelectTitle: */
     "SELECCIONAR IDIOMA",
+    /* kStringMethodsSubtitle: */
+    "METODOS",
+    /* kStringModeLabel: */
+    "Modo:",
+    /* kStringMultiframeLabel: */
+    "Multi fotograma",
+    /* kStringNotSharedLabel: */
+    "No compartida",
+    /* kStringOtherConceptsSubtitle: */
+    "OTROS CONCEPTOS",
+    /* kStringParticlesSubtitle: */
+    "TIPO DE PARTICULAS",
     /* kStringPrecautionScreenBody: */
-    "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR"
+    "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
+    /* kStringRainLabel: */
+    "Lluvia",
+    /* kStringSharedLabel: */
+    "Compartida",
+    /* kStringSpecsSubtitle: */
+    "ESPECIFICACIONES",
+    /* kStringSpriteSubtitle: */
+    "SPRITE",
+    /* kStringStateTitle: */
+    "ESTADO: ",
+    /* kStringTiltELabel: */
+    "Inclinado",
+    /* kStringWobbleLabel: */
+    "Ondulado",
 };
 
 const LangROMSpec SpanishLanguage =
 {
 	// language name
-	"Espaï¿½ol",
+	"Español",
 
 	// flag entity
 	&FlagSpainEntity,
@@ -127,30 +241,68 @@ const LangROMSpec SpanishLanguage =
 
 const char* const FrenchLanguageStrings[] =
 {
+    /* kStringAnimationSubtitle: */
+    "ANIMATION",
     /* kStringAutomaticPauseBody: */
-    "Se il vous plaï¿½t, prendre un repos!",
+    "Se il vous plaît, prendre un repos!",
     /* kStringAutomaticPauseSelectionBody: */
     "  La fonction Pause automatique va\nvous rappelerez de prendre une pause\n  de jeu chaque 30 minutes environ",
     /* kStringAutomaticPauseSelectionOff: */
-    "Desactivï¿½",
+    "Desactivé",
     /* kStringAutomaticPauseSelectionOn: */
-    "Activï¿½",
+    "Activé",
     /* kStringAutomaticPauseSelectionTitle: */
     "PAUSE AUTOMATIQUE",
     /* kStringAutomaticPauseTitle: */
     "PAUSE AUTOMATIQUE",
-    /* kStringPostProcessingEffects: */
-    "Bonjour Le Monde!",
+    /* kStringBgmapMemoryLabel: */
+    "BGMAP memory:",
+    /* kStringCharMemoryLabel: */
+    "CHAR memory:",
+    /* kStringClassesSubtitle: */
+    "CLASSES",
+    /* kStringConceptsSubtitle: */
+    "CONCEPTS",
+    /* kStringDwarfPlanetLabel: */
+    "Dwarf Planet",
+    /* kStringEffectSubtitle: */
+    "EFFECT",
     /* kStringLanguageSelectTitle: */
     "CHOIX DE LA LANGUE",
+    /* kStringMethodsSubtitle: */
+    "METHODS",
+    /* kStringModeLabel: */
+    "Mode:",
+    /* kStringMultiframeLabel: */
+    "Multiframe",
+    /* kStringNotSharedLabel: */
+    "Not shared",
+    /* kStringOtherConceptsSubtitle: */
+    "OTHER CONCEPTS",
+    /* kStringParticlesSubtitle: */
+    "PARTICLES TYPE",
     /* kStringPrecautionScreenBody: */
-    "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRï¿½CAUTIONS\n    A AVANT DE JOUER"
+    "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER",
+    /* kStringRainLabel: */
+    "Rain",
+    /* kStringSharedLabel: */
+    "Shared",
+    /* kStringSpecsSubtitle: */
+    "SPECS",
+    /* kStringSpriteSubtitle: */
+    "SPRITE",
+    /* kStringStateTitle: */
+    "STATE: ",
+    /* kStringTiltELabel: */
+    "Tilt",
+    /* kStringWobbleLabel: */
+    "Wobble",
 };
 
 const LangROMSpec FrenchLanguage =
 {
 	// language name
-	"Franï¿½ais",
+	"Français",
 
 	// flag entity
 	&FlagFranceEntity,

@@ -17,7 +17,9 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <I18n.h>
 #include <KeypadManager.h>
+#include <Languages.h>
 #include <Printing.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
@@ -304,7 +306,7 @@ void ShowcaseState::showHeader()
 	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(Printing::getInstance(), currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
-	const char* statePrefix = "STATE: ";
+	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
 	FontSize statePrefixTextSize = Printing::getTextSize(Printing::getInstance(), statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);

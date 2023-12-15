@@ -16,6 +16,8 @@
 
 #include <BgmapSprite.h>
 #include <CameraEffectManager.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <Printing.h>
 #include <SpriteManager.h>
 
@@ -125,48 +127,50 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "Game states", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Sprites", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Specs", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "User input", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "Class extensions", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Class mutation", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "CLASSES", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "CharSet", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "*Sprite      ", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), "Texture", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "METHODS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "SpritesState", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), " createSprite", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), " destroySprite", 1, y++, NULL);
 		Printing::text(Printing::getInstance(), " processUserInput", 1, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), "SPECS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "CogWheel*Sprite*", 1, y++, NULL);
 
 		y = 3;
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "Debug");
 		Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->sprite), 28, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringModeLabel), 28, y, NULL);
 
 		if(Sprite::isObject(this->sprite))
 		{
-			Printing::text(Printing::getInstance(), "Mode: N/A", 28, y, NULL);
+			Printing::text(Printing::getInstance(), "N/A", 33, y, NULL);
 		}
 		else if(Sprite::isAffine(this->sprite))
 		{
-			Printing::text(Printing::getInstance(), "Mode: Affine", 28, y, NULL);
+			Printing::text(Printing::getInstance(), "Affine", 33, y, NULL);
 		}
 		else if(Sprite::isHBias(this->sprite))
 		{
-			Printing::text(Printing::getInstance(), "Mode: HBias", 28, y, NULL);
+			Printing::text(Printing::getInstance(), "HBias", 33, y, NULL);
 		}
 		else if(Sprite::isBgmap(this->sprite))
 		{
-			Printing::text(Printing::getInstance(), "Mode: Bgmap", 28, y, NULL);
+			Printing::text(Printing::getInstance(), "BGMAP", 33, y, NULL);
 		}
 	}	
 }

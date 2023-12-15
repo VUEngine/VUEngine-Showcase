@@ -16,6 +16,8 @@
 
 #include <AnimatedEntity.h>
 #include <GameConfig.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <KeypadManager.h>
 #include <Printing.h>
 #include <VirtualList.h>
@@ -147,28 +149,28 @@ void ActorsState::showStuff()
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Actors", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Physics", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "State machines", 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Actor", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "MessageDispatcher*", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Punk", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "PunkState*", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Punk", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "ActorsState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " propagateMessage", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Punk", 26, y++, NULL);

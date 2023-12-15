@@ -539,11 +539,125 @@
                     }
                 ],
                 "translations": {
-                    "PostProcessingEffects": {
-                        "de": "Hallo, Welt!",
-                        "en": "Hello, World!",
-                        "es": "Hola Mundo!",
-                        "fr": "Bonjour Le Monde!"
+                    "ClassesSubtitle": {
+                        "de": "CLASSES",
+                        "en": "CLASSES",
+                        "es": "CLASES",
+                        "fr": "CLASSES"
+                    },
+                    "ConceptsSubtitle": {
+                        "de": "CONCEPTS",
+                        "en": "CONCEPTS",
+                        "es": "CONCEPTOS",
+                        "fr": "CONCEPTS"
+                    },
+                    "MethodsSubtitle": {
+                        "de": "METHODS",
+                        "en": "METHODS",
+                        "es": "METODOS",
+                        "fr": "METHODS"
+                    },
+                    "OtherConceptsSubtitle": {
+                        "de": "OTHER CONCEPTS",
+                        "en": "OTHER CONCEPTS",
+                        "es": "OTROS CONCEPTOS",
+                        "fr": "OTHER CONCEPTS"
+                    },
+                    "SpecsSubtitle": {
+                        "de": "SPECS",
+                        "en": "SPECS",
+                        "es": "ESPECIFICACIONES",
+                        "fr": "SPECS"
+                    },
+                    "StateTitle": {
+                        "de": "STATE: ",
+                        "en": "STATE: ",
+                        "es": "ESTADO: ",
+                        "fr": "STATE: "
+                    },
+                    "SpriteSubtitle": {
+                        "en": "SPRITE",
+                        "de": "SPRITE",
+                        "es": "SPRITE",
+                        "fr": "SPRITE"
+                    },
+                    "ModeLabel": {
+                        "en": "Mode:",
+                        "de": "Mode:",
+                        "es": "Modo:",
+                        "fr": "Mode:"
+                    },
+                    "AnimationSubtitle": {
+                        "en": "ANIMATION",
+                        "de": "ANIMATION",
+                        "es": "ANIMACION",
+                        "fr": "ANIMATION"
+                    },
+                    "NotSharedLabel": {
+                        "en": "Not shared",
+                        "de": "Not shared",
+                        "es": "No compartida",
+                        "fr": "Not shared"
+                    },
+                    "SharedLabel": {
+                        "en": "Shared",
+                        "de": "Shared",
+                        "es": "Compartida",
+                        "fr": "Shared"
+                    },
+                    "MultiframeLabel": {
+                        "en": "Multiframe",
+                        "de": "Multiframe",
+                        "es": "Multi fotograma",
+                        "fr": "Multiframe"
+                    },
+                    "CharMemoryLabel": {
+                        "en": "CHAR memory:",
+                        "de": "CHAR memory:",
+                        "es": "Memoria CHAR:",
+                        "fr": "CHAR memory:"
+                    },
+                    "BgmapMemoryLabel": {
+                        "en": "BGMAP memory:",
+                        "de": "BGMAP memory:",
+                        "es": "Memoria BGMAP:",
+                        "fr": "BGMAP memory:"
+                    },
+                    "ParticlesSubtitle": {
+                        "en": "PARTICLES TYPE",
+                        "de": "PARTICLES TYPE",
+                        "es": "TIPO DE PARTICULAS",
+                        "fr": "PARTICLES TYPE"
+                    },
+                    "EffectSubtitle": {
+                        "en": "EFFECT",
+                        "de": "EFFECT",
+                        "es": "EFECTO",
+                        "fr": "EFFECT"
+                    },
+                    "WobbleLabel": {
+                        "en": "Wobble",
+                        "de": "Wobble",
+                        "es": "Ondulado",
+                        "fr": "Wobble"
+                    },
+                    "TiltELabel": {
+                        "en": "Tilt",
+                        "de": "Tilt",
+                        "es": "Inclinado",
+                        "fr": "Tilt"
+                    },
+                    "DwarfPlanetLabel": {
+                        "en": "Dwarf Planet",
+                        "de": "Dwarf Planet",
+                        "es": "Planeta Enano",
+                        "fr": "Dwarf Planet"
+                    },
+                    "RainLabel": {
+                        "en": "Rain",
+                        "de": "Rain",
+                        "es": "Lluvia",
+                        "fr": "Rain"
                     }
                 }
             }

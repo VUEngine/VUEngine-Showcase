@@ -150,28 +150,28 @@ void PongState::showStuff()
 void PongState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Communications", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "CommunicationManager", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Pong*", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
 
 	y = 19;
 
-	Printing::text(Printing::getInstance(), "SPECS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "PongBallSpec", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "PongPaddleSpec", 26, y++, NULL);
 
 	y = 19;
-	Printing::text(Printing::getInstance(), "METHODS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Pong", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), " syncWithRemote", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), " transmitData", 2, y++, NULL);

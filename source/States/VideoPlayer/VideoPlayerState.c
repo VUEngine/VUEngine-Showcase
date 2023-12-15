@@ -15,6 +15,8 @@
 #include <VideoPlayerState.h>
 
 #include <AnimatedEntity.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <Printing.h>
 
 #include <debugConfig.h>
@@ -93,26 +95,26 @@ void VideoPlayerState::showControls()
 void VideoPlayerState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Animations", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "HiColor", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "CLASSES", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "AnimatedEntity", 2, y++, NULL);
 	Printing::text(Printing::getInstance(), "Sprite", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "SPECS", 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "VideoEntity", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Optimized charsets", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Optimized textures", 26, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), "METHODS", 26, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "VideoPlayerState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " processUserInput", 26, y++, NULL);
 

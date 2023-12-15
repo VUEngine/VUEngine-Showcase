@@ -16,6 +16,8 @@
 
 #include <BgmapTextureManager.h>
 #include <CharSet.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <Mem.h>
 #include <Printing.h>
 #include <SpriteManager.h>
@@ -146,18 +148,18 @@ void AnimationSchemesState::showStuff()
 void AnimationSchemesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), "CONCEPTS", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Animations", 1, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "OTHER CONCEPTS", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Lists", 1, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "CLASSES", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "*AnimatedSprite", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), "VirtualList", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), "VirtualNode", 1, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), "METHODS", 1, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
 	Printing::text(Printing::getInstance(), "AnimationSchemesState", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), " execute*", 1, y++, NULL);
 	Printing::text(Printing::getInstance(), " createSprites", 1, y++, NULL);
@@ -166,34 +168,32 @@ void AnimationSchemesState::showExplanation()
 
 	if(kAnimationsMultiframeTexture != this->animationScheme)
 	{
-		Printing::text(Printing::getInstance(), "SPECS", 1, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 1, y++, "Debug");
 		Printing::text(Printing::getInstance(), "PunkSprite*", 1, y++, NULL);
 	}
 
 	y = 3;
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 28, y++, "Debug");
 	
 	switch(this->animationScheme)
 	{
 		case kAnimationsNotSharedTexture:
 
-			Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
-			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedLabel), 28, y++, NULL);
 			break;
 
 		case kAnimationsSharedTexture:
 
-			Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedLabel), 28, y++, NULL);
 			break;
 
 		case kAnimationsMultiframeTexture:
 
-			Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
-			Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+			Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeLabel), 28, y++, NULL);
 			break;
 	}
 
-
-	Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 }
 
 
@@ -208,23 +208,23 @@ void AnimationSchemesState::showAnimationDetails()
 	{
 		int16 y = 3;
 
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 28, y++, "Debug");
+		
 		switch(this->animationScheme)
 		{
 			case kAnimationsNotSharedTexture:
 
-				Printing::text(Printing::getInstance(), "Not shared", 28, y++, NULL);
-				Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedLabel), 28, y++, NULL);
 				break;
 
 			case kAnimationsSharedTexture:
 
-				Printing::text(Printing::getInstance(), "Shared animation", 28, y++, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedLabel), 28, y++, NULL);
 				break;
 
 			case kAnimationsMultiframeTexture:
 
-				Printing::text(Printing::getInstance(), "Multiframe", 28, y++, NULL);
-				Printing::text(Printing::getInstance(), "animation", 28, y++, NULL);
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeLabel), 28, y++, NULL);
 				break;
 		}
 
@@ -275,9 +275,8 @@ void AnimationSchemesState::showAnimationDetails()
 			y = 17;
 		}
 
-		Printing::text(Printing::getInstance(), "CHAR memory: ", 1, ++y, NULL);
-
-		Printing::text(Printing::getInstance(), "BGMAP memory: ", 28, 18, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCharMemoryLabel), 1, ++y, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 	}
 }
 
