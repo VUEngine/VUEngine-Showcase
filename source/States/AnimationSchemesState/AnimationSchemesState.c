@@ -232,35 +232,23 @@ void AnimationSchemesState::showAnimationDetails()
 		{
 			case kAnimationsNotSharedTexture:
 
-				y = 7;
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine1Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine2Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine3Label), 2, ++y, NULL);
-
-				y++;
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine4Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLine5Label), 2, ++y, NULL);
+				y = 8;
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringNotSharedTextureLabel), 2, y, NULL);
+				y += 6;
 				break;
 
 			case kAnimationsSharedTexture:
 	
-				y = 7;
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine1Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine2Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine3Label), 2, ++y, NULL);
-
-				y++;
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine4Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLine5Label), 2, ++y, NULL);
+				y = 8;
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSharedTextureLabel), 2, y, NULL);
+				y += 6;
 				break;
 
 			case kAnimationsMultiframeTexture:
 
-				y = 2;
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine1Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine2Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine3Label), 2, ++y, NULL);
-				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLine4Label), 2, ++y, NULL);
+				y = 3;
+				Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMultiframeTextureLabel), 2, y, NULL);
+				y += 3;
 				break;
 		}
 

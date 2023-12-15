@@ -124,7 +124,7 @@ void VideoPlayerState::showExplanation()
 void VideoPlayerState::showAnimationDetails()
 {
 	int16 y = 25;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAninmationSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "Debug");
 
 	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 

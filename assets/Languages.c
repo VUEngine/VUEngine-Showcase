@@ -20,8 +20,6 @@ extern LangROMSpec GermanLanguageSpec;
 extern EntitySpec FlagGermanyEntity;
 extern LangROMSpec SpanishLanguageSpec;
 extern EntitySpec FlagSpainEntity;
-extern LangROMSpec FrenchLanguageSpec;
-extern EntitySpec FlagFranceEntity;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -33,7 +31,6 @@ LangROMSpec* const _languages[] =
 	&EnglishLanguageSpec,
 	&GermanLanguageSpec,
 	&SpanishLanguageSpec,
-	&FrenchLanguageSpec,
 	
 	NULL
 };
@@ -45,8 +42,6 @@ const char* const EnglishLanguageStrings[] =
     /* kStringAnimationsLabel: */
     "Animations",
     /* kStringAnimationSubtitle: */
-    "ANIMATION",
-    /* kStringAninmationSubtitle: */
     "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Please take a rest!",
@@ -108,26 +103,12 @@ const char* const EnglishLanguageStrings[] =
     "Mode:",
     /* kStringMultiframeLabel: */
     "Multiframe",
-    /* kStringMultiframeTextureLine1Label: */
-    "The sprites share the",
-    /* kStringMultiframeTextureLine2Label: */
-    "graphics but each can",
-    /* kStringMultiframeTextureLine3Label: */
-    "show a different frame",
-    /* kStringMultiframeTextureLine4Label: */
-    "from the same texture",
+    /* kStringMultiframeTextureLabel: */
+    "The sprites share the\ngraphics but each can\nshow a different frame\nfrom the same texture",
     /* kStringNotSharedLabel: */
     "Not shared",
-    /* kStringNotSharedTextureLine1Label: */
-    "Each sprite has its",
-    /* kStringNotSharedTextureLine2Label: */
-    "its own texture and",
-    /* kStringNotSharedTextureLine3Label: */
-    "its own set of tiles",
-    /* kStringNotSharedTextureLine4Label: */
-    "Each one has to be",
-    /* kStringNotSharedTextureLine5Label: */
-    "animated individually",
+    /* kStringNotSharedTextureLabel: */
+    "Each sprite has its\nown texture and its\nown set of tiles\n\nEach one has to be\nanimated individually",
     /* kStringOptimizedBgmapsLabel: */
     "Optimized BGMAPs",
     /* kStringOptimizedCharSetsLabel: */
@@ -152,16 +133,8 @@ const char* const EnglishLanguageStrings[] =
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
-    /* kStringSharedTextureLine1Label: */
-    "All sprites share",
-    /* kStringSharedTextureLine2Label: */
-    "the same tiles set",
-    /* kStringSharedTextureLine3Label: */
-    "and the same texture",
-    /* kStringSharedTextureLine4Label: */
-    "Only one of them",
-    /* kStringSharedTextureLine5Label: */
-    "needs to be animated",
+    /* kStringSharedTextureLabel: */
+    "All sprites share\nthe same tiles set\nand the same texture\n\nOnly one of them\nneeds to be animated",
     /* kStringSoundPlaybackLabel: */
     "Sound playback",
     /* kStringSpecsLabel: */
@@ -177,7 +150,7 @@ const char* const EnglishLanguageStrings[] =
     /* kStringStateMachinesLabel: */
     "State machines",
     /* kStringStateTitle: */
-    "STATE: ",
+    "STATE:",
     /* kStringTiltELabel: */
     "Tilt",
     /* kStringTimerSettingsLabel: */
@@ -205,12 +178,10 @@ const LangROMSpec EnglishLanguageSpec =
 const char* const GermanLanguageStrings[] =
 {
     /* kStringActorsLabel: */
-    "Actors",
+    "Akteure",
     /* kStringAnimationsLabel: */
-    "Animations",
+    "Animationen",
     /* kStringAnimationSubtitle: */
-    "ANIMATION",
-    /* kStringAninmationSubtitle: */
     "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Bitte mache eine Pause!",
@@ -225,109 +196,87 @@ const char* const GermanLanguageStrings[] =
     /* kStringAutomaticPauseTitle: */
     "AUTOMATISCHE PAUSE",
     /* kStringBgmapMemoryLabel: */
-    "BGMAP memory:",
+    "BGMAP-Speicher:",
     /* kStringCameraControlLabel: */
-    "Camera control",
+    "Kamerakontrolle",
     /* kStringCharMemoryLabel: */
-    "CHAR memory:",
+    "CHAR-Speicher:",
     /* kStringClassesSubtitle: */
-    "CLASSES",
+    "KLASSEN",
     /* kStringClassExtensionLabel: */
-    "Class extension",
+    "Klassenerweiterung",
     /* kStringClassMutationLabel: */
-    "Class mutation",
+    "Klassenmutationen",
     /* kStringCollisionsLabel: */
-    "Collisions",
+    "Kollisionen",
     /* kStringCommunicationsLabel: */
-    "Communications",
+    "Kommunikation",
     /* kStringConceptsSubtitle: */
-    "CONCEPTS",
+    "KONZEPTE",
     /* kStringDwarfPlanetLabel: */
-    "Dwarf Planet",
+    "Zwergplanet",
     /* kStringEffectSubtitle: */
     "EFFECT",
     /* kStringEntitiesLabel: */
-    "Entities",
+    "Entitäten",
     /* kStringEntityCreationLabel: */
-    "Entity creation",
+    "Entitäts-Konstruktoren",
     /* kStringEntityDestructionLabel: */
-    "Entity destruction",
+    "Entitäts-Destruktoren",
     /* kStringEventsLabel: */
-    "Events",
+    "Ereignisse",
     /* kStringFrameBuffersLabel: */
-    "Frame buffers",
+    "Framebuffer",
     /* kStringGameStatesLabel: */
-    "Game states",
+    "Spielzustände",
     /* kStringHiColorLabel: */
     "HiColor",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
     /* kStringLinkedListsLabel: */
-    "Linked lists",
+    "Verkettete Listen",
     /* kStringMessagingLabel: */
     "Messaging",
     /* kStringMethodsSubtitle: */
-    "METHODS",
+    "METHODEN",
     /* kStringModeLabel: */
-    "Mode:",
+    "Modus:",
     /* kStringMultiframeLabel: */
     "Multiframe",
-    /* kStringMultiframeTextureLine1Label: */
-    "The sprites share the",
-    /* kStringMultiframeTextureLine2Label: */
-    "graphics but each can",
-    /* kStringMultiframeTextureLine3Label: */
-    "show a different frame",
-    /* kStringMultiframeTextureLine4Label: */
-    "from the same texture",
+    /* kStringMultiframeTextureLabel: */
+    "Sprites teilen sich die\nGrafiken, aber jedes kann\neinen anderen Frame\nderselben Textur zeigen",
     /* kStringNotSharedLabel: */
-    "Not shared",
-    /* kStringNotSharedTextureLine1Label: */
-    "Each sprite has its",
-    /* kStringNotSharedTextureLine2Label: */
-    "its own texture and",
-    /* kStringNotSharedTextureLine3Label: */
-    "its own set of tiles",
-    /* kStringNotSharedTextureLine4Label: */
-    "Each one has to be",
-    /* kStringNotSharedTextureLine5Label: */
-    "animated individually",
+    "Nicht geteilt",
+    /* kStringNotSharedTextureLabel: */
+    "Jedes Sprite hat seine\neigene Textur und einen\neigenen Kachelsatz\n\nJedes Sprite muss\neinzeln animiert werden",
     /* kStringOptimizedBgmapsLabel: */
-    "Optimized BGMAPs",
+    "Optimierte BGMAPs",
     /* kStringOptimizedCharSetsLabel: */
-    "Optimized CharSets",
+    "Optimierte CharSets",
     /* kStringOtherConceptsSubtitle: */
-    "OTHER CONCEPTS",
+    "WEITERE KONZEPTE",
     /* kStringParentingLabel: */
     "Parenting",
     /* kStringParticlesSubtitle: */
-    "PARTICLES TYPE",
+    "PARTIKEL-TYP",
     /* kStringParticleSystemsLabel: */
-    "Particle systems",
+    "Partikelsysteme",
     /* kStringParticleTypesLabel: */
-    "Particle types",
+    "Partikel-Typen",
     /* kStringPhysicsLabel: */
-    "Physics",
+    "Physik",
     /* kStringPostProcessingEffectsLabel: */
-    "Post processing effects",
+    "Post-Processing Effekte",
     /* kStringPrecautionScreenBody: */
     "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE",
     /* kStringRainLabel: */
-    "Rain",
+    "Regen",
     /* kStringSharedLabel: */
-    "Shared",
-    /* kStringSharedTextureLine1Label: */
-    "All sprites share",
-    /* kStringSharedTextureLine2Label: */
-    "the same tiles set",
-    /* kStringSharedTextureLine3Label: */
-    "and the same texture",
-    /* kStringSharedTextureLine4Label: */
-    "Only one of them",
-    /* kStringSharedTextureLine5Label: */
-    "needs to be animated",
+    "Geteilt",
+    /* kStringSharedTextureLabel: */
+    "Alle Sprites teilen sich\ndenselben Kachelsatz\nund die selbe Textur\n\nNur ein Sprite\nmuss animiert werden",
     /* kStringSoundPlaybackLabel: */
-    "Sound playback",
+    "Sound-Playback",
     /* kStringSpecsLabel: */
     "Specs",
     /* kStringSpecsSubtitle: */
@@ -339,19 +288,19 @@ const char* const GermanLanguageStrings[] =
     /* kStringStagesLabel: */
     "Stages",
     /* kStringStateMachinesLabel: */
-    "State machines",
+    "Zustandsautomaten",
     /* kStringStateTitle: */
-    "STATE: ",
+    "ZUSTAND:",
     /* kStringTiltELabel: */
-    "Tilt",
+    "Gekippt",
     /* kStringTimerSettingsLabel: */
-    "Timer settings",
+    "Timer-Einstellungen",
     /* kStringUserInputLabel: */
-    "User input",
+    "Benutzereingaben",
     /* kStringWireframesLabel: */
     "Wireframes",
     /* kStringWobbleLabel: */
-    "Wobble",
+    "Taumeln",
 };
 
 const LangROMSpec GermanLanguageSpec =
@@ -373,8 +322,6 @@ const char* const SpanishLanguageStrings[] =
     /* kStringAnimationsLabel: */
     "Animaciones",
     /* kStringAnimationSubtitle: */
-    "ANIMACION",
-    /* kStringAninmationSubtitle: */
     "ANIMACION",
     /* kStringAutomaticPauseBody: */
     "¡Por favor, tómese un descanso!",
@@ -436,26 +383,12 @@ const char* const SpanishLanguageStrings[] =
     "Modo:",
     /* kStringMultiframeLabel: */
     "Multi fotograma",
-    /* kStringMultiframeTextureLine1Label: */
-    "Los sprites comparten",
-    /* kStringMultiframeTextureLine2Label: */
-    "los gráficos pero cada",
-    /* kStringMultiframeTextureLine3Label: */
-    "uno puede mostrar un",
-    /* kStringMultiframeTextureLine4Label: */
-    "cuadro de la textura",
+    /* kStringMultiframeTextureLabel: */
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos",
     /* kStringNotSharedLabel: */
     "No compartida",
-    /* kStringNotSharedTextureLine1Label: */
-    "Cada sprite tiene su",
-    /* kStringNotSharedTextureLine2Label: */
-    "propia textura y ",
-    /* kStringNotSharedTextureLine3Label: */
-    "conjunto de teselas",
-    /* kStringNotSharedTextureLine4Label: */
-    "Cada una debe ser",
-    /* kStringNotSharedTextureLine5Label: */
-    "animada individualmente",
+    /* kStringNotSharedTextureLabel: */
+    "Cada sprite tiene su\npropia textura y \nconjunto de teselas\n\nCada una debe ser\nanimada individualmente",
     /* kStringOptimizedBgmapsLabel: */
     "BGMAPs optimizados",
     /* kStringOptimizedCharSetsLabel: */
@@ -480,16 +413,8 @@ const char* const SpanishLanguageStrings[] =
     "Lluvia",
     /* kStringSharedLabel: */
     "Compartida",
-    /* kStringSharedTextureLine1Label: */
-    "Los sprites comparten",
-    /* kStringSharedTextureLine2Label: */
-    "las mismas teselas",
-    /* kStringSharedTextureLine3Label: */
-    "y la misma textura",
-    /* kStringSharedTextureLine4Label: */
-    "Sólo uno de ellos",
-    /* kStringSharedTextureLine5Label: */
-    "necesita ser animado",
+    /* kStringSharedTextureLabel: */
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSólo uno de ellos\nnecesita ser animado",
     /* kStringSoundPlaybackLabel: */
     "Reproducción de sonido",
     /* kStringSpecsLabel: */
@@ -505,7 +430,7 @@ const char* const SpanishLanguageStrings[] =
     /* kStringStateMachinesLabel: */
     "Máquinas de estado",
     /* kStringStateTitle: */
-    "ESTADO: ",
+    "ESTADO:",
     /* kStringTiltELabel: */
     "Inclinado",
     /* kStringTimerSettingsLabel: */
@@ -528,168 +453,4 @@ const LangROMSpec SpanishLanguageSpec =
 	
 	// strings
 	(const char**)SpanishLanguageStrings
-};
-
-const char* const FrenchLanguageStrings[] =
-{
-    /* kStringActorsLabel: */
-    "Actors",
-    /* kStringAnimationsLabel: */
-    "Animations",
-    /* kStringAnimationSubtitle: */
-    "ANIMATION",
-    /* kStringAninmationSubtitle: */
-    "ANIMATION",
-    /* kStringAutomaticPauseBody: */
-    "Se il vous plaît, prendre un repos!",
-    /* kStringAutomaticPauseSelectionBody: */
-    "  La fonction Pause automatique va\nvous rappelerez de prendre une pause\n  de jeu chaque 30 minutes environ",
-    /* kStringAutomaticPauseSelectionOff: */
-    "Desactivé",
-    /* kStringAutomaticPauseSelectionOn: */
-    "Activé",
-    /* kStringAutomaticPauseSelectionTitle: */
-    "PAUSE AUTOMATIQUE",
-    /* kStringAutomaticPauseTitle: */
-    "PAUSE AUTOMATIQUE",
-    /* kStringBgmapMemoryLabel: */
-    "BGMAP memory:",
-    /* kStringCameraControlLabel: */
-    "Camera control",
-    /* kStringCharMemoryLabel: */
-    "CHAR memory:",
-    /* kStringClassesSubtitle: */
-    "CLASSES",
-    /* kStringClassExtensionLabel: */
-    "Class extension",
-    /* kStringClassMutationLabel: */
-    "Class mutation",
-    /* kStringCollisionsLabel: */
-    "Collisions",
-    /* kStringCommunicationsLabel: */
-    "Communications",
-    /* kStringConceptsSubtitle: */
-    "CONCEPTS",
-    /* kStringDwarfPlanetLabel: */
-    "Dwarf Planet",
-    /* kStringEffectSubtitle: */
-    "EFFECT",
-    /* kStringEntitiesLabel: */
-    "Entities",
-    /* kStringEntityCreationLabel: */
-    "Entity creation",
-    /* kStringEntityDestructionLabel: */
-    "Entity destruction",
-    /* kStringEventsLabel: */
-    "Events",
-    /* kStringFrameBuffersLabel: */
-    "Frame buffers",
-    /* kStringGameStatesLabel: */
-    "Game states",
-    /* kStringHiColorLabel: */
-    "HiColor",
-    /* kStringLanguageSelectTitle: */
-    "CHOIX DE LA LANGUE",
-    /* kStringLinkedListsLabel: */
-    "Linked lists",
-    /* kStringMessagingLabel: */
-    "Messaging",
-    /* kStringMethodsSubtitle: */
-    "METHODS",
-    /* kStringModeLabel: */
-    "Mode:",
-    /* kStringMultiframeLabel: */
-    "Multiframe",
-    /* kStringMultiframeTextureLine1Label: */
-    "The sprites share the",
-    /* kStringMultiframeTextureLine2Label: */
-    "graphics but each can",
-    /* kStringMultiframeTextureLine3Label: */
-    "show a different frame",
-    /* kStringMultiframeTextureLine4Label: */
-    "from the same texture",
-    /* kStringNotSharedLabel: */
-    "Not shared",
-    /* kStringNotSharedTextureLine1Label: */
-    "Each sprite has its",
-    /* kStringNotSharedTextureLine2Label: */
-    "its own texture and",
-    /* kStringNotSharedTextureLine3Label: */
-    "its own set of tiles",
-    /* kStringNotSharedTextureLine4Label: */
-    "Each one has to be",
-    /* kStringNotSharedTextureLine5Label: */
-    "animated individually",
-    /* kStringOptimizedBgmapsLabel: */
-    "Optimized BGMAPs",
-    /* kStringOptimizedCharSetsLabel: */
-    "Optimized CharSets",
-    /* kStringOtherConceptsSubtitle: */
-    "OTHER CONCEPTS",
-    /* kStringParentingLabel: */
-    "Parenting",
-    /* kStringParticlesSubtitle: */
-    "PARTICLES TYPE",
-    /* kStringParticleSystemsLabel: */
-    "Particle systems",
-    /* kStringParticleTypesLabel: */
-    "Particle types",
-    /* kStringPhysicsLabel: */
-    "Physics",
-    /* kStringPostProcessingEffectsLabel: */
-    "Post processing effects",
-    /* kStringPrecautionScreenBody: */
-    "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER",
-    /* kStringRainLabel: */
-    "Rain",
-    /* kStringSharedLabel: */
-    "Shared",
-    /* kStringSharedTextureLine1Label: */
-    "All sprites share",
-    /* kStringSharedTextureLine2Label: */
-    "the same tiles set",
-    /* kStringSharedTextureLine3Label: */
-    "and the same texture",
-    /* kStringSharedTextureLine4Label: */
-    "Only one of them",
-    /* kStringSharedTextureLine5Label: */
-    "needs to be animated",
-    /* kStringSoundPlaybackLabel: */
-    "Sound playback",
-    /* kStringSpecsLabel: */
-    "Specs",
-    /* kStringSpecsSubtitle: */
-    "SPECS",
-    /* kStringSpritesLabel: */
-    "Sprites",
-    /* kStringSpriteSubtitle: */
-    "SPRITE",
-    /* kStringStagesLabel: */
-    "Stages",
-    /* kStringStateMachinesLabel: */
-    "State machines",
-    /* kStringStateTitle: */
-    "STATE: ",
-    /* kStringTiltELabel: */
-    "Tilt",
-    /* kStringTimerSettingsLabel: */
-    "Timer settings",
-    /* kStringUserInputLabel: */
-    "User input",
-    /* kStringWireframesLabel: */
-    "Wireframes",
-    /* kStringWobbleLabel: */
-    "Wobble",
-};
-
-const LangROMSpec FrenchLanguageSpec =
-{
-	// language name
-	"Français",
-
-	// flag entity
-	&FlagFranceEntity,
-	
-	// strings
-	(const char**)FrenchLanguageStrings
 };
