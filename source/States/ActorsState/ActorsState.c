@@ -22,7 +22,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 #include <string.h>
 
 

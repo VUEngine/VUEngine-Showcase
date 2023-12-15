@@ -16,7 +16,7 @@
 #include <CharSet.h>
 #include <Fonts.h>
 #include <SoundWrapper.h>
-#include <debugConfig.h>
+#include <DebugConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------

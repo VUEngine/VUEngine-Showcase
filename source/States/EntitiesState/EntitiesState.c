@@ -20,7 +20,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include <debugConfig.h>
+#include <DebugConfig.h>
 #include <string.h>
 
 //---------------------------------------------------------------------------------------------------------

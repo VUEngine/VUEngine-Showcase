@@ -19,7 +19,7 @@
 #include <Languages.h>
 #include <Printing.h>
 
-#include <debugConfig.h>
+#include <DebugConfig.h>
 #include <string.h>
 
 

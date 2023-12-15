@@ -11,37 +11,30 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <Stage.h>
+#include <Printing.h>
 #include <CharSet.h>
 #include <Fonts.h>
-#include <Printing.h>
-#include <Stage.h>
 #include <SoundWrapper.h>
-
-#include <debugConfig.h>
+#include <DebugConfig.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec BoxEntity;
-extern EntitySpec CogWheelEntity;
-extern EntitySpec PunkActor;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec ActorsStageEntities[] =
+PositionedEntityROMSpec EntitiesStageEntities[] =
 {
-	{&PunkActor, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&BoxEntity, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&CogWheelEntity, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ActorsStageUiEntities[] =
+PositionedEntityROMSpec EntitiesStageUiEntities[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -51,12 +44,12 @@ PositionedEntityROMSpec ActorsStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const ActorsStageFonts[] =
+FontROMSpec* const EntitiesStageFonts[] =
 {
 	NULL
 };
 
-SoundROM* ActorsStageSounds[] =
+SoundROM* EntitiesStageSounds[] =
 {
 	NULL
 };
@@ -66,7 +59,7 @@ SoundROM* ActorsStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec ActorsStage =
+StageROMSpec EntitiesStage =
 {
 	// allocator
 	__TYPE(Stage),
@@ -145,7 +138,7 @@ StageROMSpec ActorsStage =
 		12,
 
 		// maximum number of rows to compute on each call to the affine functions
-		64 * 8,
+		112,
 
 		// colors config
 		{
@@ -226,9 +219,9 @@ StageROMSpec ActorsStage =
 		// optical configuration values
 		{
 			// maximum view distance's power into the horizon
-			__MAXIMUM_X_VIEW_DISTANCE >> 1, __MAXIMUM_Y_VIEW_DISTANCE,
+			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// distance of the eyes to the screen
-			0,
+			__SCREEN_WIDTH,
 			// distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
 			// horizontal view point center
@@ -250,13 +243,13 @@ StageROMSpec ActorsStage =
 		},
 
 		// friction
-		__F_TO_FIX10_6(0.01f),
+		__F_TO_FIX10_6(0.1f),
 	},
 
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)ActorsStageFonts,
+		(FontSpec**)EntitiesStageFonts,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -265,19 +258,19 @@ StageROMSpec ActorsStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)ActorsStageSounds,
+		(Sound**)EntitiesStageSounds,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)ActorsStageUiEntities,
+			(PositionedEntity*)EntitiesStageUiEntities,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)ActorsStageEntities,
+		(PositionedEntity*)EntitiesStageEntities,
 	},
 
 	// post processing effects

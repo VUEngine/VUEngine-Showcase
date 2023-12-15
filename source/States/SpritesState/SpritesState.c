@@ -21,7 +21,7 @@
 #include <Printing.h>
 #include <SpriteManager.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 #include <string.h>
 
 //---------------------------------------------------------------------------------------------------------
