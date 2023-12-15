@@ -1,0 +1,26 @@
+{
+    "_id": "MKHXmsUOpe5HvvHM",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
+    },
+    "files": [
+        "assets/Image/CogWheel/CogWheel.png",
+        "assets/Image/CogWheel/CogWheelBackground.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": true,
+            "unique": true
+        }
+    },
+    "name": "Cog Wheel",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}

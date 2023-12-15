@@ -1,0 +1,11 @@
+{
+    "_id": "7V1TN9YXDI9yr1Hw",
+    "break": 255,
+    "effect": 37,
+    "frequency": 1,
+    "name": "Hit Paddle",
+    "overdrive": 255,
+    "stopBeforeStarting": true,
+    "sustainNegative": 255,
+    "sustainPositive": 255
+}

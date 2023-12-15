@@ -1,0 +1,26 @@
+{
+    "_id": "YIK9dVKqdNVpCEkZ",
+    "animation": {
+        "frames": 24,
+        "individualFiles": false,
+        "isAnimation": true
+    },
+    "files": [
+        "assets/Image/Punk/PunkDying.png",
+        "assets/Image/Punk/PunkDyingBlack.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": false,
+            "unique": false
+        }
+    },
+    "name": "Punk Dying",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}

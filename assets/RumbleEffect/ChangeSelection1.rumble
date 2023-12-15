@@ -1,0 +1,11 @@
+{
+    "_id": "2Iz4MLcwMoTy0Pug",
+    "break": 255,
+    "effect": 8,
+    "frequency": 2,
+    "name": "Change Selection 1",
+    "overdrive": 255,
+    "stopBeforeStarting": true,
+    "sustainNegative": 255,
+    "sustainPositive": 255
+}
