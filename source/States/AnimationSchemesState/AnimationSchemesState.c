@@ -148,28 +148,28 @@ void AnimationSchemesState::showStuff()
 void AnimationSchemesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Animations", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Lists", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringLinkedListsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "*AnimatedSprite", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "VirtualList", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "VirtualNode", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "*AnimatedSprite", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "VirtualList", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "VirtualNode", 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "AnimationSchemesState", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), " execute*", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), " createSprites", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), " destroySprites", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "AnimationSchemesState", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " execute*", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " createSprites", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " destroySprites", 2, y++, NULL);
 	y++;
 
 	if(kAnimationsMultiframeTexture != this->animationScheme)
 	{
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "PunkSprite*", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), "PunkSprite*", 2, y++, NULL);
 	}
 
 	y = 3;

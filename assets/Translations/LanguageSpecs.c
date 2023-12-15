@@ -25,7 +25,13 @@ extern EntitySpec FlagFranceEntity;
 
 const char* const EnglishLanguageStrings[] =
 {
+    /* kStringActorsLabel: */
+    "Actors",
+    /* kStringAnimationsLabel: */
+    "Animations",
     /* kStringAnimationSubtitle: */
+    "ANIMATION",
+    /* kStringAninmationSubtitle: */
     "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Please take a rest!",
@@ -41,18 +47,46 @@ const char* const EnglishLanguageStrings[] =
     "AUTOMATIC PAUSE",
     /* kStringBgmapMemoryLabel: */
     "BGMAP memory:",
+    /* kStringCameraControlLabel: */
+    "Camera control",
     /* kStringCharMemoryLabel: */
     "CHAR memory:",
     /* kStringClassesSubtitle: */
     "CLASSES",
+    /* kStringClassExtensionLabel: */
+    "Class extension",
+    /* kStringClassMutationLabel: */
+    "Class mutation",
+    /* kStringCollisionsLabel: */
+    "Collisions",
+    /* kStringCommunicationsLabel: */
+    "Communications",
     /* kStringConceptsSubtitle: */
     "CONCEPTS",
     /* kStringDwarfPlanetLabel: */
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
     "EFFECT",
+    /* kStringEntitiesLabel: */
+    "Entities",
+    /* kStringEntityCreationLabel: */
+    "Entity creation",
+    /* kStringEntityDestructionLabel: */
+    "Entity destruction",
+    /* kStringEventsLabel: */
+    "Events",
+    /* kStringFrameBuffersLabel: */
+    "Frame buffers",
+    /* kStringGameStatesLabel: */
+    "Game states",
+    /* kStringHiColorLabel: */
+    "HiColor",
     /* kStringLanguageSelectTitle: */
     "LANGUAGE SELECT",
+    /* kStringLinkedListsLabel: */
+    "Linked lists",
+    /* kStringMessagingLabel: */
+    "Messaging",
     /* kStringMethodsSubtitle: */
     "METHODS",
     /* kStringModeLabel: */
@@ -61,24 +95,54 @@ const char* const EnglishLanguageStrings[] =
     "Multiframe",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringOptimizedBgmapsLabel: */
+    "Optimized BGMAPs",
+    /* kStringOptimizedCharSetsLabel: */
+    "Optimized CharSets",
     /* kStringOtherConceptsSubtitle: */
     "OTHER CONCEPTS",
+    /* kStringParentingLabel: */
+    "Parenting",
     /* kStringParticlesSubtitle: */
     "PARTICLES TYPE",
+    /* kStringParticleSystemsLabel: */
+    "Particle systems",
+    /* kStringParticleTypesLabel: */
+    "Particle types",
+    /* kStringPhysicsLabel: */
+    "Physics",
+    /* kStringPostProcessingEffectsLabel: */
+    "Post processing effects",
     /* kStringPrecautionScreenBody: */
     "     IMPORTANT\nREAD INSTRUCTION AND\nPRECAUTION BOOKLETS\n  BEFORE OPERATING",
     /* kStringRainLabel: */
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSoundPlaybackLabel: */
+    "Sound playback",
+    /* kStringSpecsLabel: */
+    "Specs",
     /* kStringSpecsSubtitle: */
     "SPECS",
+    /* kStringSpritesLabel: */
+    "Sprites",
     /* kStringSpriteSubtitle: */
     "SPRITE",
+    /* kStringStagesLabel: */
+    "Stages",
+    /* kStringStateMachinesLabel: */
+    "State machines",
     /* kStringStateTitle: */
     "STATE: ",
     /* kStringTiltELabel: */
     "Tilt",
+    /* kStringTimerSettingsLabel: */
+    "Timer settings",
+    /* kStringUserInputLabel: */
+    "User input",
+    /* kStringWireframesLabel: */
+    "Wireframes",
     /* kStringWobbleLabel: */
     "Wobble",
 };
@@ -97,7 +161,13 @@ const LangROMSpec EnglishLanguage =
 
 const char* const GermanLanguageStrings[] =
 {
+    /* kStringActorsLabel: */
+    "Actors",
+    /* kStringAnimationsLabel: */
+    "Animations",
     /* kStringAnimationSubtitle: */
+    "ANIMATION",
+    /* kStringAninmationSubtitle: */
     "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Bitte mache eine Pause!",
@@ -113,18 +183,46 @@ const char* const GermanLanguageStrings[] =
     "AUTOMATISCHE PAUSE",
     /* kStringBgmapMemoryLabel: */
     "BGMAP memory:",
+    /* kStringCameraControlLabel: */
+    "Camera control",
     /* kStringCharMemoryLabel: */
     "CHAR memory:",
     /* kStringClassesSubtitle: */
     "CLASSES",
+    /* kStringClassExtensionLabel: */
+    "Class extension",
+    /* kStringClassMutationLabel: */
+    "Class mutation",
+    /* kStringCollisionsLabel: */
+    "Collisions",
+    /* kStringCommunicationsLabel: */
+    "Communications",
     /* kStringConceptsSubtitle: */
     "CONCEPTS",
     /* kStringDwarfPlanetLabel: */
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
     "EFFECT",
+    /* kStringEntitiesLabel: */
+    "Entities",
+    /* kStringEntityCreationLabel: */
+    "Entity creation",
+    /* kStringEntityDestructionLabel: */
+    "Entity destruction",
+    /* kStringEventsLabel: */
+    "Events",
+    /* kStringFrameBuffersLabel: */
+    "Frame buffers",
+    /* kStringGameStatesLabel: */
+    "Game states",
+    /* kStringHiColorLabel: */
+    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
+    /* kStringLinkedListsLabel: */
+    "Linked lists",
+    /* kStringMessagingLabel: */
+    "Messaging",
     /* kStringMethodsSubtitle: */
     "METHODS",
     /* kStringModeLabel: */
@@ -133,24 +231,54 @@ const char* const GermanLanguageStrings[] =
     "Multiframe",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringOptimizedBgmapsLabel: */
+    "Optimized BGMAPs",
+    /* kStringOptimizedCharSetsLabel: */
+    "Optimized CharSets",
     /* kStringOtherConceptsSubtitle: */
     "OTHER CONCEPTS",
+    /* kStringParentingLabel: */
+    "Parenting",
     /* kStringParticlesSubtitle: */
     "PARTICLES TYPE",
+    /* kStringParticleSystemsLabel: */
+    "Particle systems",
+    /* kStringParticleTypesLabel: */
+    "Particle types",
+    /* kStringPhysicsLabel: */
+    "Physics",
+    /* kStringPostProcessingEffectsLabel: */
+    "Post processing effects",
     /* kStringPrecautionScreenBody: */
     "        WICHTIG\nBITTE LESEN SIE VOR DEM\n SPIELEN DIE ANLEITUNG\nUND SICHERHEITSHINWEISE",
     /* kStringRainLabel: */
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSoundPlaybackLabel: */
+    "Sound playback",
+    /* kStringSpecsLabel: */
+    "Specs",
     /* kStringSpecsSubtitle: */
     "SPECS",
+    /* kStringSpritesLabel: */
+    "Sprites",
     /* kStringSpriteSubtitle: */
     "SPRITE",
+    /* kStringStagesLabel: */
+    "Stages",
+    /* kStringStateMachinesLabel: */
+    "State machines",
     /* kStringStateTitle: */
     "STATE: ",
     /* kStringTiltELabel: */
     "Tilt",
+    /* kStringTimerSettingsLabel: */
+    "Timer settings",
+    /* kStringUserInputLabel: */
+    "User input",
+    /* kStringWireframesLabel: */
+    "Wireframes",
     /* kStringWobbleLabel: */
     "Wobble",
 };
@@ -169,7 +297,13 @@ const LangROMSpec GermanLanguage =
 
 const char* const SpanishLanguageStrings[] =
 {
+    /* kStringActorsLabel: */
+    "Actores",
+    /* kStringAnimationsLabel: */
+    "Animaciones",
     /* kStringAnimationSubtitle: */
+    "ANIMACION",
+    /* kStringAninmationSubtitle: */
     "ANIMACION",
     /* kStringAutomaticPauseBody: */
     "¡Por favor, tómese un descanso!",
@@ -185,18 +319,46 @@ const char* const SpanishLanguageStrings[] =
     "PAUSA AUTOMÁTICA",
     /* kStringBgmapMemoryLabel: */
     "Memoria BGMAP:",
+    /* kStringCameraControlLabel: */
+    "Control de cámara",
     /* kStringCharMemoryLabel: */
     "Memoria CHAR:",
     /* kStringClassesSubtitle: */
     "CLASES",
+    /* kStringClassExtensionLabel: */
+    "Extensiones de clase",
+    /* kStringClassMutationLabel: */
+    "Mutación de clases",
+    /* kStringCollisionsLabel: */
+    "Colisiones",
+    /* kStringCommunicationsLabel: */
+    "Comunicaciones",
     /* kStringConceptsSubtitle: */
     "CONCEPTOS",
     /* kStringDwarfPlanetLabel: */
     "Planeta Enano",
     /* kStringEffectSubtitle: */
     "EFECTO",
+    /* kStringEntitiesLabel: */
+    "Entidades",
+    /* kStringEntityCreationLabel: */
+    "Entidad: creación",
+    /* kStringEntityDestructionLabel: */
+    "Entidad: destrucción ",
+    /* kStringEventsLabel: */
+    "Eventos",
+    /* kStringFrameBuffersLabel: */
+    "Búfer de video",
+    /* kStringGameStatesLabel: */
+    "Estados de juego",
+    /* kStringHiColorLabel: */
+    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SELECCIONAR IDIOMA",
+    /* kStringLinkedListsLabel: */
+    "Listas enlazadas",
+    /* kStringMessagingLabel: */
+    "Mensajes",
     /* kStringMethodsSubtitle: */
     "METODOS",
     /* kStringModeLabel: */
@@ -205,24 +367,54 @@ const char* const SpanishLanguageStrings[] =
     "Multi fotograma",
     /* kStringNotSharedLabel: */
     "No compartida",
+    /* kStringOptimizedBgmapsLabel: */
+    "BGMAPs optimizados",
+    /* kStringOptimizedCharSetsLabel: */
+    "CharSets optimizados",
     /* kStringOtherConceptsSubtitle: */
     "OTROS CONCEPTOS",
+    /* kStringParentingLabel: */
+    "Contenedores",
     /* kStringParticlesSubtitle: */
     "TIPO DE PARTICULAS",
+    /* kStringParticleSystemsLabel: */
+    "Sistemas de partículas",
+    /* kStringParticleTypesLabel: */
+    "Tipos de partículas",
+    /* kStringPhysicsLabel: */
+    "Física",
+    /* kStringPostProcessingEffectsLabel: */
+    "Efectos gráficos",
     /* kStringPrecautionScreenBody: */
     "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
     /* kStringRainLabel: */
     "Lluvia",
     /* kStringSharedLabel: */
     "Compartida",
+    /* kStringSoundPlaybackLabel: */
+    "Reproducción de sonido",
+    /* kStringSpecsLabel: */
+    "Especificaciones",
     /* kStringSpecsSubtitle: */
     "ESPECIFICACIONES",
+    /* kStringSpritesLabel: */
+    "Sprites",
     /* kStringSpriteSubtitle: */
     "SPRITE",
+    /* kStringStagesLabel: */
+    "Escenas",
+    /* kStringStateMachinesLabel: */
+    "Máquinas de estado",
     /* kStringStateTitle: */
     "ESTADO: ",
     /* kStringTiltELabel: */
     "Inclinado",
+    /* kStringTimerSettingsLabel: */
+    "Configuración de reloj",
+    /* kStringUserInputLabel: */
+    "Entrada de usuario",
+    /* kStringWireframesLabel: */
+    "Wireframes",
     /* kStringWobbleLabel: */
     "Ondulado",
 };
@@ -241,7 +433,13 @@ const LangROMSpec SpanishLanguage =
 
 const char* const FrenchLanguageStrings[] =
 {
+    /* kStringActorsLabel: */
+    "Actors",
+    /* kStringAnimationsLabel: */
+    "Animations",
     /* kStringAnimationSubtitle: */
+    "ANIMATION",
+    /* kStringAninmationSubtitle: */
     "ANIMATION",
     /* kStringAutomaticPauseBody: */
     "Se il vous plaît, prendre un repos!",
@@ -257,18 +455,46 @@ const char* const FrenchLanguageStrings[] =
     "PAUSE AUTOMATIQUE",
     /* kStringBgmapMemoryLabel: */
     "BGMAP memory:",
+    /* kStringCameraControlLabel: */
+    "Camera control",
     /* kStringCharMemoryLabel: */
     "CHAR memory:",
     /* kStringClassesSubtitle: */
     "CLASSES",
+    /* kStringClassExtensionLabel: */
+    "Class extension",
+    /* kStringClassMutationLabel: */
+    "Class mutation",
+    /* kStringCollisionsLabel: */
+    "Collisions",
+    /* kStringCommunicationsLabel: */
+    "Communications",
     /* kStringConceptsSubtitle: */
     "CONCEPTS",
     /* kStringDwarfPlanetLabel: */
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
     "EFFECT",
+    /* kStringEntitiesLabel: */
+    "Entities",
+    /* kStringEntityCreationLabel: */
+    "Entity creation",
+    /* kStringEntityDestructionLabel: */
+    "Entity destruction",
+    /* kStringEventsLabel: */
+    "Events",
+    /* kStringFrameBuffersLabel: */
+    "Frame buffers",
+    /* kStringGameStatesLabel: */
+    "Game states",
+    /* kStringHiColorLabel: */
+    "HiColor",
     /* kStringLanguageSelectTitle: */
     "CHOIX DE LA LANGUE",
+    /* kStringLinkedListsLabel: */
+    "Linked lists",
+    /* kStringMessagingLabel: */
+    "Messaging",
     /* kStringMethodsSubtitle: */
     "METHODS",
     /* kStringModeLabel: */
@@ -277,24 +503,54 @@ const char* const FrenchLanguageStrings[] =
     "Multiframe",
     /* kStringNotSharedLabel: */
     "Not shared",
+    /* kStringOptimizedBgmapsLabel: */
+    "Optimized BGMAPs",
+    /* kStringOptimizedCharSetsLabel: */
+    "Optimized CharSets",
     /* kStringOtherConceptsSubtitle: */
     "OTHER CONCEPTS",
+    /* kStringParentingLabel: */
+    "Parenting",
     /* kStringParticlesSubtitle: */
     "PARTICLES TYPE",
+    /* kStringParticleSystemsLabel: */
+    "Particle systems",
+    /* kStringParticleTypesLabel: */
+    "Particle types",
+    /* kStringPhysicsLabel: */
+    "Physics",
+    /* kStringPostProcessingEffectsLabel: */
+    "Post processing effects",
     /* kStringPrecautionScreenBody: */
     "        IMPORTANT\nPRENEZ CONAISSANCE DE LA\nNOTICE ET DES PRÉCAUTIONS\n    A AVANT DE JOUER",
     /* kStringRainLabel: */
     "Rain",
     /* kStringSharedLabel: */
     "Shared",
+    /* kStringSoundPlaybackLabel: */
+    "Sound playback",
+    /* kStringSpecsLabel: */
+    "Specs",
     /* kStringSpecsSubtitle: */
     "SPECS",
+    /* kStringSpritesLabel: */
+    "Sprites",
     /* kStringSpriteSubtitle: */
     "SPRITE",
+    /* kStringStagesLabel: */
+    "Stages",
+    /* kStringStateMachinesLabel: */
+    "State machines",
     /* kStringStateTitle: */
     "STATE: ",
     /* kStringTiltELabel: */
     "Tilt",
+    /* kStringTimerSettingsLabel: */
+    "Timer settings",
+    /* kStringUserInputLabel: */
+    "User input",
+    /* kStringWireframesLabel: */
+    "Wireframes",
     /* kStringWobbleLabel: */
     "Wobble",
 };

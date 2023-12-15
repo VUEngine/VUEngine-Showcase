@@ -373,8 +373,8 @@ void SoundsState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Sound specs", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Sound wrappers", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSoundPlaybackLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringTimerSettingsLabel), 2, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundManager", 2, y++, NULL);
@@ -396,7 +396,6 @@ void SoundsState::showExplanation()
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Chiptunes", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "PCM", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Plaback", 26, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundsState", 26, y++, NULL);

@@ -126,13 +126,13 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Frame buffers", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "Post processing effects", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringFrameBuffersLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringPostProcessingEffectsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PostProcessingEffectsState", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), " processUserInput", 1, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+	Printing::text(Printing::getInstance(), "PostProcessingEffectsState", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), " processUserInput", 2, y++, NULL);
 	
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "Debug");

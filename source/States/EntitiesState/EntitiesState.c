@@ -111,8 +111,8 @@ void EntitiesState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Entities", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Parenting", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntitiesLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "AnimatedEntity", 2, y++, NULL);
@@ -125,9 +125,9 @@ void EntitiesState::showExplanation()
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Entity creation", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Entity destruction", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Stages", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntityCreationLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntityDestructionLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "EntitiesState", 26, y++, NULL);
@@ -145,7 +145,7 @@ void EntitiesState::showAdditionalDetails()
 	}
 
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->leaderPunk), 1, y++, NULL);
+	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
 
 	Printing::text(Printing::getInstance(), "Internal ID:   ", 2, ++y, NULL);
 	Printing::int32(Printing::getInstance(), AnimatedEntity::getInternalId(this->leaderPunk), 15, y++, NULL);

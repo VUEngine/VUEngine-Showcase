@@ -127,29 +127,29 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "Game states", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "Sprites", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "Specs", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "User input", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringGameStatesLabel), 2, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpritesLabel), 2, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsLabel), 2, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringUserInputLabel), 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "Class extensions", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "Class mutation", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "CharSet", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "*Sprite      ", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), "Texture", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), "CharSet", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), "*Sprite      ", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), "Texture", 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "SpritesState", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), " createSprite", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), " destroySprite", 1, y++, NULL);
-		Printing::text(Printing::getInstance(), " processUserInput", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), "SpritesState", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), " createSprite", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), " destroySprite", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), " processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 1, y++, "Debug");
-		Printing::text(Printing::getInstance(), "CogWheel*Sprite*", 1, y++, NULL);
+		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+		Printing::text(Printing::getInstance(), "CogWheel*Sprite*", 2, y++, NULL);
 
 		y = 3;
 		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "Debug");

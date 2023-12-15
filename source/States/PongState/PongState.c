@@ -151,7 +151,7 @@ void PongState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Communications", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCommunicationsLabel), 2, y++, NULL);
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
@@ -160,9 +160,9 @@ void PongState::showExplanation()
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 
 	y = 19;
 

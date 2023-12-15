@@ -96,8 +96,8 @@ void VideoPlayerState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Animations", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "HiColor", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringHiColorLabel), 2, y++, NULL);
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
@@ -110,8 +110,8 @@ void VideoPlayerState::showExplanation()
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Optimized charsets", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Optimized textures", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOptimizedCharSetsLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOptimizedBgmapsLabel), 26, y++, NULL);
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
@@ -123,15 +123,14 @@ void VideoPlayerState::showExplanation()
 
 void VideoPlayerState::showAnimationDetails()
 {
-	int16 y = 26;
-	Printing::text(Printing::getInstance(), "Animation", 1, y++, NULL);
-	Printing::text(Printing::getInstance(), "Name: ", 1, y, NULL);
+	int16 y = 25;
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringAninmationSubtitle), 2, y++, "Debug");
 
 	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 
 	if(!isDeleted(videoEntity))
 	{
-		Printing::text(Printing::getInstance(), AnimatedEntity::getPlayingAnimationName(videoEntity), 1 + 5, y++, NULL);
+		Printing::text(Printing::getInstance(), AnimatedEntity::getPlayingAnimationName(videoEntity), 2, y++, NULL);
 	}
 }
 

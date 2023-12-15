@@ -658,6 +658,198 @@
                         "de": "Rain",
                         "es": "Lluvia",
                         "fr": "Rain"
+                    },
+                    "ActorsLabel": {
+                        "en": "Actors",
+                        "de": "Actors",
+                        "es": "Actores",
+                        "fr": "Actors"
+                    },
+                    "PhysicsLabel": {
+                        "en": "Physics",
+                        "de": "Physics",
+                        "es": "Física",
+                        "fr": "Physics"
+                    },
+                    "StateMachinesLabel": {
+                        "en": "State machines",
+                        "de": "State machines",
+                        "es": "Máquinas de estado",
+                        "fr": "State machines"
+                    },
+                    "CollisionsLabel": {
+                        "en": "Collisions",
+                        "de": "Collisions",
+                        "es": "Colisiones",
+                        "fr": "Collisions"
+                    },
+                    "EventsLabel": {
+                        "en": "Events",
+                        "de": "Events",
+                        "es": "Eventos",
+                        "fr": "Events"
+                    },
+                    "MessagingLabel": {
+                        "en": "Messaging",
+                        "de": "Messaging",
+                        "es": "Mensajes",
+                        "fr": "Messaging"
+                    },
+                    "AnimationsLabel": {
+                        "en": "Animations",
+                        "de": "Animations",
+                        "es": "Animaciones",
+                        "fr": "Animations"
+                    },
+                    "EntitiesLabel": {
+                        "en": "Entities",
+                        "de": "Entities",
+                        "es": "Entidades",
+                        "fr": "Entities"
+                    },
+                    "ParentingLabel": {
+                        "en": "Parenting",
+                        "de": "Parenting",
+                        "es": "Contenedores",
+                        "fr": "Parenting"
+                    },
+                    "EntityCreationLabel": {
+                        "en": "Entity creation",
+                        "de": "Entity creation",
+                        "es": "Entidad: creación",
+                        "fr": "Entity creation"
+                    },
+                    "EntityDestructionLabel": {
+                        "en": "Entity destruction",
+                        "de": "Entity destruction",
+                        "es": "Entidad: destrucción ",
+                        "fr": "Entity destruction"
+                    },
+                    "StagesLabel": {
+                        "en": "Stages",
+                        "de": "Stages",
+                        "es": "Escenas",
+                        "fr": "Stages"
+                    },
+                    "LinkedListsLabel": {
+                        "en": "Linked lists",
+                        "de": "Linked lists",
+                        "es": "Listas enlazadas",
+                        "fr": "Linked lists"
+                    },
+                    "ParticleSystemsLabel": {
+                        "en": "Particle systems",
+                        "de": "Particle systems",
+                        "es": "Sistemas de partículas",
+                        "fr": "Particle systems"
+                    },
+                    "ParticleTypesLabel": {
+                        "en": "Particle types",
+                        "de": "Particle types",
+                        "es": "Tipos de partículas",
+                        "fr": "Particle types"
+                    },
+                    "CommunicationsLabel": {
+                        "en": "Communications",
+                        "de": "Communications",
+                        "es": "Comunicaciones",
+                        "fr": "Communications"
+                    },
+                    "FrameBuffersLabel": {
+                        "en": "Frame buffers",
+                        "de": "Frame buffers",
+                        "es": "Búfer de video",
+                        "fr": "Frame buffers"
+                    },
+                    "PostProcessingEffectsLabel": {
+                        "en": "Post processing effects",
+                        "de": "Post processing effects",
+                        "es": "Efectos gráficos",
+                        "fr": "Post processing effects"
+                    },
+                    "SoundPlaybackLabel": {
+                        "en": "Sound playback",
+                        "de": "Sound playback",
+                        "es": "Reproducción de sonido",
+                        "fr": "Sound playback"
+                    },
+                    "TimerSettingsLabel": {
+                        "en": "Timer settings",
+                        "de": "Timer settings",
+                        "es": "Configuración de reloj",
+                        "fr": "Timer settings"
+                    },
+                    "GameStatesLabel": {
+                        "en": "Game states",
+                        "de": "Game states",
+                        "es": "Estados de juego",
+                        "fr": "Game states"
+                    },
+                    "SpritesLabel": {
+                        "en": "Sprites",
+                        "de": "Sprites",
+                        "es": "Sprites",
+                        "fr": "Sprites"
+                    },
+                    "SpecsLabel": {
+                        "en": "Specs",
+                        "de": "Specs",
+                        "es": "Especificaciones",
+                        "fr": "Specs"
+                    },
+                    "UserInputLabel": {
+                        "en": "User input",
+                        "de": "User input",
+                        "es": "Entrada de usuario",
+                        "fr": "User input"
+                    },
+                    "ClassExtensionLabel": {
+                        "en": "Class extension",
+                        "de": "Class extension",
+                        "es": "Extensiones de clase",
+                        "fr": "Class extension"
+                    },
+                    "ClassMutationLabel": {
+                        "en": "Class mutation",
+                        "de": "Class mutation",
+                        "es": "Mutación de clases",
+                        "fr": "Class mutation"
+                    },
+                    "HiColorLabel": {
+                        "en": "HiColor",
+                        "de": "HiColor",
+                        "es": "HiColor",
+                        "fr": "HiColor"
+                    },
+                    "OptimizedCharSetsLabel": {
+                        "en": "Optimized CharSets",
+                        "de": "Optimized CharSets",
+                        "es": "CharSets optimizados",
+                        "fr": "Optimized CharSets"
+                    },
+                    "OptimizedBgmapsLabel": {
+                        "en": "Optimized BGMAPs",
+                        "de": "Optimized BGMAPs",
+                        "es": "BGMAPs optimizados",
+                        "fr": "Optimized BGMAPs"
+                    },
+                    "CameraControlLabel": {
+                        "en": "Camera control",
+                        "de": "Camera control",
+                        "es": "Control de cámara",
+                        "fr": "Camera control"
+                    },
+                    "WireframesLabel": {
+                        "en": "Wireframes",
+                        "de": "Wireframes",
+                        "es": "Wireframes",
+                        "fr": "Wireframes"
+                    },
+                    "AninmationSubtitle": {
+                        "en": "ANIMATION",
+                        "de": "ANIMATION",
+                        "es": "ANIMACION",
+                        "fr": "ANIMATION"
                     }
                 }
             }

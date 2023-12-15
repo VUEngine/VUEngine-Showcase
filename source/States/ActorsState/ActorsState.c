@@ -150,9 +150,9 @@ void ActorsState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Actors", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Physics", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "State machines", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringStateMachinesLabel), 2, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "Actor", 2, y++, NULL);
@@ -166,16 +166,16 @@ void ActorsState::showExplanation()
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Collisions", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Events", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Messaging", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "ActorsState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " propagateMessage", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), "Punk", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " enterCollision", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " handlePropagatedMessage", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), " handlePropagatedMe...", 26, y++, NULL);
 	y++;
 }
 
