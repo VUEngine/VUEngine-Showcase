@@ -18,13 +18,13 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-extern FontSpec DefaultFont;
-extern FontSpec ProfilerFont;
-extern FontSpec DebugFont;
-extern FontSpec AstonishFont;
-extern FontSpec AstonishExtFont;
-extern FontSpec AstonishSFont;
-extern FontSpec AstonishSExtFont;
+extern FontSpec DefaultFontSpec;
+extern FontSpec ProfilerFontSpec;
+extern FontSpec DebugFontSpec;
+extern FontSpec AstonishFontSpec;
+extern FontSpec AstonishExtFontSpec;
+extern FontSpec AstonishSFontSpec;
+extern FontSpec AstonishSExtFontSpec;
 
 
 #endif

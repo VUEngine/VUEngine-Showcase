@@ -47,7 +47,7 @@ PositionedEntityROMSpec AnimationSchemesStageUiEntities[] =
 
 FontROMSpec* const AnimationSchemesStageFonts[] =
 {
-	&DefaultFont,
+	&DefaultFontSpec,
 
 	NULL
 };

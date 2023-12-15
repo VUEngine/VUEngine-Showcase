@@ -15,13 +15,13 @@
 
 FontSpec* const _fonts[] =
 {
-	(FontSpec*)&DefaultFont,
-	(FontSpec*)&ProfilerFont,
-	(FontSpec*)&DebugFont,
-	(FontSpec*)&AstonishFont,
-	(FontSpec*)&AstonishExtFont,
-	(FontSpec*)&AstonishSFont,
-	(FontSpec*)&AstonishSExtFont,
+	(FontSpec*)&DefaultFontSpec,
+	(FontSpec*)&ProfilerFontSpec,
+	(FontSpec*)&DebugFontSpec,
+	(FontSpec*)&AstonishFontSpec,
+	(FontSpec*)&AstonishExtFontSpec,
+	(FontSpec*)&AstonishSFontSpec,
+	(FontSpec*)&AstonishSExtFontSpec,
 	
 	NULL
 };

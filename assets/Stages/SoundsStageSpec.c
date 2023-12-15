@@ -47,7 +47,7 @@ PositionedEntityROMSpec SoundsStageUiEntities[] =
 
 FontROMSpec* const SoundsStageFonts[] =
 {
-	&DefaultFont,
+	&DefaultFontSpec,
 
 	NULL
 };
