@@ -25,6 +25,7 @@
 #include <RumbleManager.h>
 #include <Sounds.h>
 #include <TimerManager.h>
+#include <Utilities.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
 
@@ -302,7 +303,7 @@ void ShowcaseState::show(bool reloadStuff)
 
 void ShowcaseState::showHeader()
 {
-	const char* currentShowCaseNumberPrefix = "( / ) ";
+	const char* currentShowCaseNumberPrefix = "(  /  ) ";
 	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(Printing::getInstance(), currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
@@ -317,8 +318,8 @@ void ShowcaseState::showHeader()
 	Printing::text(Printing::getInstance(), __CHAR_SELECTOR_LEFT, 0, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_L_TRIGGER, 1, 0, NULL);
 	Printing::text(Printing::getInstance(), currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
-	Printing::int32(Printing::getInstance(), _currentShowcaseState + 1, textStartXPosition + 1, 0, NULL);
-	Printing::int32(Printing::getInstance(), numberOfShowCaseStates, textStartXPosition + 3, 0, NULL);
+	Printing::text(Printing::getInstance(), Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
+	Printing::int32(Printing::getInstance(), numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
 	Printing::text(Printing::getInstance(), statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "Debug");
 	Printing::text(Printing::getInstance(), className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_R_TRIGGER, 46, 0, NULL);
