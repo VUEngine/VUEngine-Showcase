@@ -1,0 +1,12 @@
+{
+    "types": [
+		"CogWheel",
+		"Particle",
+		"PongBall",
+		"PongGoal",
+		"PongPaddle",
+		"PongWall",
+		"Punk",
+		"SolidObject"
+    ]
+}

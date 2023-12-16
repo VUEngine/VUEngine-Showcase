@@ -1,0 +1,17 @@
+{
+    "messages": [
+		"ActorsStateHoldLeft",
+		"ActorsStateHoldRight",
+		"ActorsStateNoMessage",
+		"ActorsStatePrintActorStatus",
+		"ActorsStateReleasedLeft",
+		"ActorsStateReleasedRight",
+		"ActorsStateResucitate",
+		"PongBallMessageStartMoving",
+		"PongMessageDummy",
+		"PongMessageGoodBye",	
+		"PongMessageResetPositions",
+		"PongMessageSendInput",
+		"PongMessageSync"
+    ]
+}
