@@ -1,7 +1,8 @@
 # VUEngine Showcase
 
-Showcase project to be used as the foundation for learning about VUEngine's capabilities.
+Showcase project to be used as the foundation for learning about VUEngine's concepts and capabilities.
 
+![](screenshot.png?raw=true)
 
 ## License
 
