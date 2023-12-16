@@ -300,7 +300,6 @@ void ShowcaseState::show(bool reloadStuff)
 	SpritesState::setupBrightness(this, this->showAdditionalDetails);
 }
 
-
 void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "(  /  ) ";
@@ -313,7 +312,7 @@ void ShowcaseState::showHeader()
 	const char* className = __GET_CLASS_NAME(this);
 	FontSize classNameTextSize = Printing::getTextSize(Printing::getInstance(), className, NULL);
 
-	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1);
+	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
 	Printing::text(Printing::getInstance(), __CHAR_SELECTOR_LEFT, 0, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_L_TRIGGER, 1, 0, NULL);
@@ -321,7 +320,7 @@ void ShowcaseState::showHeader()
 	Printing::text(Printing::getInstance(), Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
 	Printing::int32(Printing::getInstance(), numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
 	Printing::text(Printing::getInstance(), statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "Debug");
-	Printing::text(Printing::getInstance(), className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x, 0, NULL);
+	Printing::text(Printing::getInstance(), className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_R_TRIGGER, 46, 0, NULL);
 	Printing::text(Printing::getInstance(), __CHAR_SELECTOR, 47, 0, NULL);
 }

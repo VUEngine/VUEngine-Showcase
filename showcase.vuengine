@@ -1,0 +1,22 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"name": "VUEngine Showcase",
+	"plugins": [
+		"vuengine//fonts/AstonishFont",
+		"vuengine//other/AutomaticPause",
+		"vuengine//other/I18n",
+		"vuengine//other/SaveDataManager",
+		"vuengine//postProcessing/DwarfPlanet",
+		"vuengine//postProcessing/Rain",
+		"vuengine//postProcessing/Tilt",
+		"vuengine//postProcessing/Wobble",
+		"vuengine//states/splash/AdjustmentScreenVUEngine",
+		"vuengine//states/splash/AutomaticPauseSelectionScreen",
+		"vuengine//states/splash/LanguageSelectionScreen",
+		"vuengine//states/splash/PrecautionScreen"
+	]
+}

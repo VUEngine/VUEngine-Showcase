@@ -30,7 +30,7 @@
 #include <Pong.h>
 #include <Utilities.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 #include <string.h>
 
 

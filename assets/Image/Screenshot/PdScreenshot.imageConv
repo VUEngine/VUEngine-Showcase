@@ -1,0 +1,26 @@
+{
+    "_id": "qmznvDL3SRFJ6uo8",
+    "animation": {
+        "frames": 0,
+        "individualFiles": false,
+        "isAnimation": false
+    },
+    "files": [
+        "assets/Image/Screenshot/PdScreenshotL.png",
+        "assets/Image/Screenshot/PdScreenshotR.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": true,
+            "unique": true
+        }
+    },
+    "name": "Pd Screenshot",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": true
+    }
+}

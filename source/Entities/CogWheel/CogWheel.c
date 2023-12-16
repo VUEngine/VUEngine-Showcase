@@ -14,7 +14,7 @@
 
 #include <CogWheel.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 
 
 //---------------------------------------------------------------------------------------------------------

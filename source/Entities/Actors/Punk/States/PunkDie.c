@@ -24,7 +24,7 @@
 #include <Sprite.h>
 #include <SoundManager.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 
 
 //---------------------------------------------------------------------------------------------------------

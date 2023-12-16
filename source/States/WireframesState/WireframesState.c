@@ -21,7 +21,7 @@
 #include <Printing.h>
 #include <WireframeManager.h>
 
-#include <debugConfig.h>
+#include <DebugConfig.h>
 #include <string.h>
 
 

@@ -24,7 +24,7 @@
 #include <ShowcaseState.h>
 #include <StateMachine.h>
 
-#include <debugUtilities.h>
+#include <DebugUtilities.h>
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -1,0 +1,26 @@
+{
+    "_id": "m1MkRE5aoElQSqUS",
+    "animation": {
+        "frames": 12,
+        "individualFiles": false,
+        "isAnimation": true
+    },
+    "files": [
+        "assets/Image/Punk/Punk.png",
+        "assets/Image/Punk/PunkBlack.png"
+    ],
+    "map": {
+        "compression": "none",
+        "generate": true,
+        "reduce": {
+            "flipped": false,
+            "unique": false
+        }
+    },
+    "name": "Punk",
+    "section": "rom",
+    "tileset": {
+        "compression": "none",
+        "shared": false
+    }
+}
