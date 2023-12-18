@@ -15,10 +15,10 @@
 #include <ActorsState.h>
 
 #include <AnimatedEntity.h>
-#include <GameConfig.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <KeypadManager.h>
+#include <Messages.h>
 #include <Printing.h>
 #include <VirtualList.h>
 
@@ -96,26 +96,26 @@ void ActorsState::processUserInput(const UserInput* userInput)
 {
 	ActorsState::playSoundEffects(this, userInput, false);
 
-	int32 message = kActorsStateNoMessage;
+	int32 message = kMessageActorsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)
 	{
-		message = kActorsStateHoldLeft;
+		message = kMessageActorsStateHoldLeft;
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
-		message = kActorsStateReleasedLeft;
+		message = kMessageActorsStateReleasedLeft;
 	}
 	else if(K_LR & userInput->holdKey)
 	{
-		message = kActorsStateHoldRight;
+		message = kMessageActorsStateHoldRight;
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		message = kActorsStateReleasedRight;
+		message = kMessageActorsStateReleasedRight;
 	}
 
-	if(kActorsStateNoMessage != message)
+	if(kMessageActorsStateNoMessage != message)
 	{
 		/*
 		 * Passing input to entities in this way, while elegant, 
@@ -181,7 +181,7 @@ void ActorsState::showExplanation()
 
 void ActorsState::showAdditionalDetails()
 {
-	ActorsState::propagateMessage(this, kActorsStatePrintActorStatus);
+	ActorsState::propagateMessage(this, kMessageActorsStatePrintActorStatus);
 }
 
 

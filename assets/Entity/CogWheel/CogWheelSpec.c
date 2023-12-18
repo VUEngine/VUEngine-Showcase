@@ -16,7 +16,8 @@
 #include <BgmapSprite.h>
 #include <BgmapSpriteExtensions.h>
 #include <CogWheel.h>
-#include <GameConfig.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
 #include <MBgmapSprite.h>
 #include <ObjectSprite.h>
 #include <Texture.h>

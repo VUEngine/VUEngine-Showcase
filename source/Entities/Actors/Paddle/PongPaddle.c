@@ -15,7 +15,8 @@
 #include <PongPaddle.h>
 
 #include <Box.h>
-#include <GameConfig.h>
+#include <InGameTypes.h>
+#include <Messages.h>
 #include <Optics.h>
 #include <Pong.h>
 #include <VUEngine.h>
@@ -54,7 +55,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kPongMessageResetPositions:
+		case kMessagePongResetPositions:
 
 			if(!Pong::isVersusMode(Pong::getInstance()))
 			{

@@ -15,9 +15,9 @@
 #include <Pong.h>
 
 #include <CommunicationManager.h>
-#include <GameConfig.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
+#include <Messages.h>
 #include <MessageDispatcher.h>
 #include <PongPaddle.h>
 #include <PongState.h>
@@ -60,7 +60,7 @@ void Pong::constructor()
 	this->isVersusMode = false;
 	this->leftScore = 0;
 	this->rightScore = 0;
-	this->messageForRemote = kPongMessageSync;
+	this->messageForRemote = kMessagePongSync;
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
 
@@ -92,7 +92,7 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 	this->leftScore = 0;
 	this->rightScore = 0;
 	this->pongBall = NULL;
-	this->messageForRemote = kPongMessageSync;
+	this->messageForRemote = kMessagePongSync;
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
 	
@@ -148,7 +148,7 @@ void Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 
-	this->messageForRemote = kPongMessageSync;
+	this->messageForRemote = kMessagePongSync;
 }
 
 // process user input
@@ -156,7 +156,7 @@ void Pong::processUserInput(const UserInput* userInput)
 {
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		this->messageForRemote = kPongMessageGoodBye;			
+		this->messageForRemote = kMessagePongGoodBye;			
 	}
 
 	this->allowPaddleMovement = false;
@@ -188,15 +188,15 @@ static uint32 Pong::getCommunicationCommand(uint32 message)
 {
 	switch(message)
 	{
-		case kPongMessageSync:
+		case kMessagePongSync:
 
 			return PONG_SYNC_WITH_REMOTE;
 
-		case kPongMessageSendInput:
+		case kMessagePongSendInput:
 
 			return PONG_SEND_USER_INPUT;
 
-		case kPongMessageGoodBye:
+		case kMessagePongGoodBye:
 
 			return PONG_REMOTE_GO_AWAY;
 	}
@@ -232,7 +232,7 @@ void Pong::syncWithRemote(const UserInput* userInput)
 
 void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 {
-	uint32 receivedMessage = kPongMessageDummy;
+	uint32 receivedMessage = kMessagePongDummy;
 	const RemotePlayerData* remotePlayerData = NULL;
 	CommunicationManager communicationManager = CommunicationManager::getInstance();
 
@@ -277,40 +277,40 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 	 */
 	switch(receivedMessage)
 	{
-		case kPongMessageSync:
+		case kMessagePongSync:
 
-			if(kPongMessageSync == messageForRemote)
+			if(kMessagePongSync == messageForRemote)
 			{
 				Pong::fireEvent(this, kEventPongRemoteInSync);
 		
-				this->messageForRemote = kPongMessageSendInput;
+				this->messageForRemote = kMessagePongSendInput;
 			}
 			else
 			{
-				this->messageForRemote = kPongMessageSync;
+				this->messageForRemote = kMessagePongSync;
 			}
 
 			break;
 
-		case kPongMessageSendInput:
+		case kMessagePongSendInput:
 
-			if(kPongMessageSendInput == messageForRemote)
+			if(kMessagePongSendInput == messageForRemote)
 			{
 				this->remoteHoldKey = remotePlayerData->condensedUserInput.holdKey;
 				this->allowPaddleMovement = true;
 			}
-			else if(kPongMessageSync == messageForRemote)
+			else if(kMessagePongSync == messageForRemote)
 			{
-				this->messageForRemote = kPongMessageSync;
+				this->messageForRemote = kMessagePongSync;
 			}
 
 			break;
 
-		case kPongMessageGoodBye:
+		case kMessagePongGoodBye:
 
 			Pong::fireEvent(this, kEventPongRemoteWentAway);
 			
-			this->messageForRemote = kPongMessageSync;
+			this->messageForRemote = kMessagePongSync;
 			break;
 	}
 }

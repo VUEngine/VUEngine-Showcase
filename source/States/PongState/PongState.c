@@ -18,13 +18,13 @@
 #include <AutomaticPauseManager.h>
 #include <CommunicationManager.h>
 #include <Camera.h>
-#include <GameConfig.h>
 #include <GameEvents.h>
 #include <GameSaveDataManager.h>
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
+#include <Messages.h>
 #include <PhysicalWorld.h>
 #include <Printing.h>
 #include <Pong.h>
@@ -236,7 +236,7 @@ void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	PongState::startClocks(this);
 	
 	// Reset the entities
-	PongState::propagateMessage(this, kPongMessageResetPositions);
+	PongState::propagateMessage(this, kMessagePongResetPositions);
 }
 
 void PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
@@ -246,7 +246,7 @@ void PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused
 	PongState::setVersusMode(this, false);
 	Pong::getReady(Pong::getInstance(), this->stage, false);
 	PongState::show(this, false);
-	PongState::propagateMessage(this, kPongMessageResetPositions);
+	PongState::propagateMessage(this, kMessagePongResetPositions);
 
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
 }

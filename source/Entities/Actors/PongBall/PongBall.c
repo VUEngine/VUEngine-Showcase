@@ -16,8 +16,9 @@
 
 #include <CommunicationManager.h>
 #include <GameEvents.h>
-#include <GameConfig.h>
+#include <InGameTypes.h>
 #include <MessageDispatcher.h>
+#include <Messages.h>
 #include <Optics.h>
 #include <Pong.h>
 #include <ParticleSystem.h>
@@ -105,7 +106,7 @@ bool PongBall::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kPongBallMessageStartMoving:
+		case kMessagePongBallStartMoving:
 
 			PongBall::startMovement(this);
 			return true;		
@@ -118,7 +119,7 @@ bool PongBall::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kPongMessageResetPositions:
+		case kMessagePongResetPositions:
 
 			PongBall::prepareToMove(this);
 			break;
@@ -181,8 +182,8 @@ void PongBall::prepareToMove()
 	Vector3D localPosition = Vector3D::zero();
 	localPosition.z = __PIXELS_TO_METERS(128);
 	Entity::setLocalPosition(this, &localPosition);
-	PongBall::discardMessages(this, kPongBallMessageStartMoving);
-	PongBall::sendMessageToSelf(this, kPongBallMessageStartMoving, 1500, 0);
+	PongBall::discardMessages(this, kMessagePongBallStartMoving);
+	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
 }
 
 void PongBall::startMovement()

@@ -1,12 +1,12 @@
 {
     "types": [
-		"CogWheel",
-		"Particle",
-		"PongBall",
-		"PongGoal",
-		"PongPaddle",
-		"PongWall",
-		"Punk",
-		"SolidObject"
+        "Cog Wheel",
+        "Particle",
+        "Pong Ball",
+        "Pong Goal",
+        "Pong Paddle",
+        "Pong Wall",
+        "Punk",
+        "Solid Object"
     ]
 }

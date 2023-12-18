@@ -15,7 +15,7 @@
 #include <PunkWalking.h>
 
 #include <ActorsState.h>
-#include <GameConfig.h>
+#include <Messages.h>
 #include <Punk.h>
 #include <Telegram.h>
 
@@ -87,8 +87,8 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 
 	switch(Telegram::getMessage(telegram))
 	{
-		case kActorsStateReleasedLeft:
-		case kActorsStateReleasedRight:
+		case kMessageActorsStateReleasedLeft:
+		case kMessageActorsStateReleasedRight:
 
 			/*
 			 * Start to check if the punk stopped only when there is no input.
@@ -97,12 +97,12 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 			return true;
 			break;
 
-		case kActorsStateHoldLeft:
+		case kMessageActorsStateHoldLeft:
 			
 			force.x = -(Body::getMass(Punk::getBody(punk)) << 1);
 			break;
 
-		case kActorsStateHoldRight:
+		case kMessageActorsStateHoldRight:
 
 			force.x = Body::getMass(Punk::getBody(punk)) << 1;
 			break;

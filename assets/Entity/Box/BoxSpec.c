@@ -14,8 +14,9 @@
 
 #include <BgmapSprite.h>
 #include <Box.h>
+#include <ColliderLayers.h>
 #include <Entity.h>
-#include <GameConfig.h>
+#include <InGameTypes.h>
 
 
 //---------------------------------------------------------------------------------------------------------

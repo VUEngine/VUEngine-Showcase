@@ -15,8 +15,9 @@
 #include <Punk.h>
 
 #include <ActorsState.h>
-#include <GameConfig.h>
+#include <InGameTypes.h>
 #include <MessageDispatcher.h>
+#include <Messages.h>
 #include <PunkDie.h>
 #include <PunkFrozen.h>
 #include <PunkWalking.h>
@@ -64,7 +65,7 @@ bool Punk::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kActorsStateResucitate:
+		case kMessageActorsStateResucitate:
 
 			Punk::resucitate(this);
 			return true;
@@ -81,10 +82,10 @@ bool Punk::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kActorsStateHoldLeft:
-		case kActorsStateHoldRight:
-		case kActorsStateReleasedLeft:
-		case kActorsStateReleasedRight:
+		case kMessageActorsStateHoldLeft:
+		case kMessageActorsStateHoldRight:
+		case kMessageActorsStateReleasedLeft:
+		case kMessageActorsStateReleasedRight:
 
 			/*
 			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
@@ -95,7 +96,7 @@ bool Punk::handlePropagatedMessage(int32 message)
 			return true;
 			break;
 
-		case kActorsStatePrintActorStatus:
+		case kMessageActorsStatePrintActorStatus:
 
 			Body::print(this->body, 1, 3);
 			return true;
@@ -186,5 +187,5 @@ void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unuse
 	/*
 	 * Restore myself after 1 second
 	 */
-	Punk::sendMessageToSelf(this, kActorsStateResucitate, 1000, 0);
+	Punk::sendMessageToSelf(this, kMessageActorsStateResucitate, 1000, 0);
 }

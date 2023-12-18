@@ -15,7 +15,7 @@
 #include <PunkFrozen.h>
 
 #include <ActorsState.h>
-#include <GameConfig.h>
+#include <Messages.h>
 #include <Punk.h>
 #include <Telegram.h>
 
@@ -70,8 +70,8 @@ bool PunkFrozen::processMessage(void* owner, Telegram telegram)
 
 	switch(Telegram::getMessage(telegram))
 	{
-		case kActorsStateHoldLeft:
-		case kActorsStateHoldRight:
+		case kMessageActorsStateHoldLeft:
+		case kMessageActorsStateHoldRight:
 
 			Punk::walk(punk);
 			return true;

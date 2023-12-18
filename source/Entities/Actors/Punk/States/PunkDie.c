@@ -15,7 +15,6 @@
 #include <PunkDie.h>
 
 #include <ActorsState.h>
-#include <GameConfig.h>
 #include <Printing.h>
 #include <Punk.h>
 #include <RumbleEffects.h>

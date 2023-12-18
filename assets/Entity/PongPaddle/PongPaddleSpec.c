@@ -15,7 +15,8 @@
 #include <PongPaddle.h>
 #include <Box.h>
 #include <Ball.h>
-#include <GameConfig.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
 #include <Mesh.h>
 
 

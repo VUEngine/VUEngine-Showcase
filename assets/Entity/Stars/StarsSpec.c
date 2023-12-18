@@ -12,7 +12,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <GameConfig.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
 #include <ParticleSystem.h>
 #include <SolidParticle.h>
 #include <ObjectAnimatedSprite.h>
