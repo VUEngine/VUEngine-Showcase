@@ -12,7 +12,7 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PostProcessingEffectsState.h>
+#include <string.h>
 
 #include <I18n.h>
 #include <Languages.h>
@@ -23,7 +23,8 @@
 #include <Printing.h>
 #include <VIPManager.h>
 
-#include <string.h>
+#include "PostProcessingEffectsState.h"
+
 
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS

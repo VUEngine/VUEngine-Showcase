@@ -12,9 +12,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PunkDie.h>
-
 #include <ActorsState.h>
+#include <DebugUtilities.h>
 #include <Printing.h>
 #include <Punk.h>
 #include <RumbleEffects.h>
@@ -23,7 +22,7 @@
 #include <Sprite.h>
 #include <SoundManager.h>
 
-#include <DebugUtilities.h>
+#include "PunkDie.h"
 
 
 //---------------------------------------------------------------------------------------------------------

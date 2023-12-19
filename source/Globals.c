@@ -12,10 +12,10 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <VUEngine.h>
+#include <AnimationInspector.h>
 #include <Debug.h>
 #include <StageEditor.h>
-#include <AnimationInspector.h>
+#include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------

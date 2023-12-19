@@ -12,9 +12,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Punk.h>
-
 #include <ActorsState.h>
+#include <DebugUtilities.h>
 #include <InGameTypes.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
@@ -25,7 +24,7 @@
 #include <ShowcaseState.h>
 #include <StateMachine.h>
 
-#include <DebugUtilities.h>
+#include "Punk.h"
 
 
 //---------------------------------------------------------------------------------------------------------

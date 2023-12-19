@@ -12,7 +12,7 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ShowcaseState.h>
+#include <string.h>
 
 #include <ActorsState.h>
 #include <Camera.h>
@@ -23,14 +23,15 @@
 #include <Printing.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
+#include <Showcases.h>
 #include <Sounds.h>
 #include <TimerManager.h>
 #include <Utilities.h>
 #include <VIPManager.h>
 #include <VUEngine.h>
 
-#include <Showcases.h>
-#include <string.h>
+#include "ShowcaseState.h"
+
 
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS

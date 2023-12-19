@@ -12,12 +12,12 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-
-#include <PongState.h>
+#include <string.h>
 
 #include <AutomaticPauseManager.h>
 #include <CommunicationManager.h>
 #include <Camera.h>
+#include <DebugUtilities.h>
 #include <GameEvents.h>
 #include <GameSaveDataManager.h>
 #include <I18n.h>
@@ -30,8 +30,7 @@
 #include <Pong.h>
 #include <Utilities.h>
 
-#include <DebugUtilities.h>
-#include <string.h>
+#include "PongState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

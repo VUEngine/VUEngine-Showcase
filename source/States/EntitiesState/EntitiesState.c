@@ -12,16 +12,17 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <EntitiesState.h>
+#include <string.h>
 
 #include <AnimatedEntity.h>
+#include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include <DebugConfig.h>
-#include <string.h>
+#include "EntitiesState.h"
+
 
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS

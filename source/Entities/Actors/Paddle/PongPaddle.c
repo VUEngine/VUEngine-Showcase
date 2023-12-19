@@ -12,14 +12,14 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PongPaddle.h>
-
 #include <Box.h>
 #include <InGameTypes.h>
 #include <Messages.h>
 #include <Optics.h>
 #include <Pong.h>
 #include <VUEngine.h>
+
+#include "PongPaddle.h"
 
 
 //---------------------------------------------------------------------------------------------------------

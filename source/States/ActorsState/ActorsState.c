@@ -12,9 +12,10 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ActorsState.h>
+#include <string.h>
 
 #include <AnimatedEntity.h>
+#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <KeypadManager.h>
@@ -22,8 +23,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include <DebugUtilities.h>
-#include <string.h>
+#include "ActorsState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

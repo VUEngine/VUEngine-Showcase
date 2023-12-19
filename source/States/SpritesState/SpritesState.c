@@ -12,17 +12,18 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <SpritesState.h>
+#include <string.h>
 
 #include <BgmapSprite.h>
 #include <CameraEffectManager.h>
+#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
 #include <SpriteManager.h>
 
-#include <DebugUtilities.h>
-#include <string.h>
+#include "SpritesState.h"
+
 
 //---------------------------------------------------------------------------------------------------------
 // 												DECLARATIONS

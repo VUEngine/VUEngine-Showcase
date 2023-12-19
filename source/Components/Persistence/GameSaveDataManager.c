@@ -13,9 +13,11 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <stddef.h>
-#include <VirtualList.h>
+
 #include <SRAMManager.h>
-#include <GameSaveDataManager.h>
+#include <VirtualList.h>
+
+#include "GameSaveDataManager.h"
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -12,9 +12,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <PongBall.h>
-
 #include <CommunicationManager.h>
+#include <DebugUtilities.h>
 #include <GameEvents.h>
 #include <InGameTypes.h>
 #include <MessageDispatcher.h>
@@ -30,7 +29,8 @@
 #include <Utilities.h>
 #include <VUEngine.h>
 
-#include <DebugUtilities.h>
+#include "PongBall.h"
+
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -12,15 +12,15 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <ParticlesState.h>
+#include <string.h>
 
+#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
 #include <Stage.h>
 
-#include <DebugUtilities.h>
-#include <string.h>
+#include "ParticlesState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

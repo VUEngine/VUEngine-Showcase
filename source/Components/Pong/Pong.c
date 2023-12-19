@@ -12,9 +12,8 @@
 //												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <Pong.h>
-
 #include <CommunicationManager.h>
+#include <DebugUtilities.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
 #include <Messages.h>
@@ -29,7 +28,8 @@
 #include <VirtualList.h>
 #include <VUEngine.h>
 
-#include <DebugUtilities.h>
+#include "Pong.h"
+
 
 //---------------------------------------------------------------------------------------------------------
 //											CLASS'S MACROS

@@ -12,17 +12,17 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <WireframesState.h>
+#include <string.h>
 
 #include <Camera.h>
+#include <DebugConfig.h>
 #include <DirectDraw.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
 #include <WireframeManager.h>
 
-#include <DebugConfig.h>
-#include <string.h>
+#include "WireframesState.h"
 
 
 //---------------------------------------------------------------------------------------------------------

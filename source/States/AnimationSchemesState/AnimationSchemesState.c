@@ -12,10 +12,11 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <AnimationSchemesState.h>
+#include <string.h>
 
 #include <BgmapTextureManager.h>
 #include <CharSet.h>
+#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Mem.h>
@@ -26,8 +27,7 @@
 #include <VirtualList.h>
 #include <VirtualNode.h>
 
-#include <DebugUtilities.h>
-#include <string.h>
+#include "AnimationSchemesState.h"
 
 
 //---------------------------------------------------------------------------------------------------------
