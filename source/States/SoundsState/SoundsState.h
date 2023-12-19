@@ -42,8 +42,6 @@ dynamic_singleton class SoundsState : ShowcaseState
 	override void exit(void* owner);
 	override void processUserInput(const UserInput*  userInput);
 	override bool stream();
-	override void transform();
-	override void synchronizeGraphics();
 	override void showControls();
 	override void showStuff();
 	override void showExplanation();

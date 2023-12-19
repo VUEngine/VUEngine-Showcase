@@ -358,6 +358,8 @@ void AnimationSchemesState::destroySprites()
  */
 void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	/* When Sprites use non shared Textures they all have to be
 	 * update their graphics when animated. Each will reserve its
 	 * own chunk of graphics memory and updating all of them
@@ -382,6 +384,8 @@ void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* own
 
 void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	/* When Sprites share a Texture (and the underlying CharSet)
 	 * animating one of them will animate the other because the
 	 * underlying graphics are shared by all of them.
@@ -404,6 +408,8 @@ void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner 
 
 void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	/* Multiframe Textures write all the frames of animation in graphics memory.
 	 * They should always be shared Texture, otherwise graphics memory would be
 	 * wasted by writing multiple times the same spreadsheet.

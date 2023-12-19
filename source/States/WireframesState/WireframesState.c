@@ -65,6 +65,8 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 
 void WireframesState::execute(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+	
 	if(this->showAdditionalDetails)
 	{
 		WireframesState::showAdditionalDetails(this);

@@ -22,8 +22,8 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec PdScreenshotEntitySpec;
 extern EntitySpec LowPowerIndicatorEntitySpec;
+extern EntitySpec PdScreenshotEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -38,7 +38,7 @@ PositionedEntityROMSpec PostProcessingEffectsStageEntitySpecs[] =
 PositionedEntityROMSpec PostProcessingEffectsStageUiEntitySpecs[] =
 {
 	{&PdScreenshotEntitySpec, 		{0, 32, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&LowPowerIndicatorEntitySpec, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

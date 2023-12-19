@@ -39,7 +39,7 @@ PositionedEntityROMSpec ParticlesStageEntitySpecs[] =
 
 PositionedEntityROMSpec ParticlesStageUiEntitySpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{0 - 16, -112 + 12, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

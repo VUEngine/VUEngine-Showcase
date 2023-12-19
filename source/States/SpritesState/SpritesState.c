@@ -78,6 +78,8 @@ void SpritesState::destructor()
  */
 void SpritesState::execute(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	// Don't print stuff every game cycle, it is a heavy process. This is just an example!
 	if(this->showAdditionalDetails)
 	{
@@ -271,6 +273,8 @@ void SpritesState::destroySprite()
  */
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	if(!isDeleted(this->sprite))
 	{
 		static int16 yPosition = __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4;
@@ -295,6 +299,8 @@ void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((u
 
 void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	if(!isDeleted(this->sprite))
 	{
 		static int16 xPosition = __SCREEN_WIDTH / 2;
@@ -319,6 +325,8 @@ void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__(
 
 void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	if(!isDeleted(this->sprite))
 	{
 		static int16 xPosition = __SCREEN_WIDTH / 2;
@@ -349,6 +357,8 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unused)))
 {
+	Base::execute(this, owner);
+
 	if(!isDeleted(this->sprite))
 	{
 		static int16 xPosition = __SCREEN_WIDTH / 2;

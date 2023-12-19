@@ -42,4 +42,9 @@
 #define __WATERFALL_WIDTH									(336)
 #define __WATERFALL_HEIGHT									(112)
 
+#define __LOW_POWER_ENTITY_X_POSITION						180
+#define __LOW_POWER_ENTITY_Y_POSITION						-96
+#define __LOW_POWER_ENTITY_Z_POSITION						0
+#define __LOW_POWER_ENTITY_Z_DISPLACEMENT					0
+
 #endif

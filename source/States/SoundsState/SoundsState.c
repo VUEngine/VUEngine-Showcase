@@ -96,8 +96,6 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	Base::enter(this, owner);
 
 	this->stream = false;
-	this->transform = false;
-	this->synchronizeGraphics = false;
 	this->updatePhysics = false;
 	this->processCollisions = false;
 
@@ -131,6 +129,8 @@ bool SoundsState::stream()
  */
 void SoundsState::execute(void* owner __attribute__ ((unused)))
 {
+	Base::execute(this, owner);
+	
 	SoundsState::showSoundPlayback(this, !this->showAdditionalDetails);
 }
 
@@ -335,21 +335,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	}		
 }
 
-/**
- * Transform
- *
- */
-void SoundsState::transform()
-{
-}
-
-/**
- * Sync graphics
- *
- */
-void SoundsState::synchronizeGraphics()
-{
-}
 
 /**
  * Release sound

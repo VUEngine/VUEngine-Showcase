@@ -23,6 +23,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
+extern EntitySpec LowPowerIndicatorEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -36,6 +37,7 @@ PositionedEntityROMSpec EntitiesStageEntitySpecs[] =
 
 PositionedEntityROMSpec EntitiesStageUiEntitySpecs[] =
 {
+	{&LowPowerIndicatorEntitySpec, 	{__LOW_POWER_ENTITY_X_POSITION, __LOW_POWER_ENTITY_Y_POSITION, __LOW_POWER_ENTITY_Z_POSITION, __LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
