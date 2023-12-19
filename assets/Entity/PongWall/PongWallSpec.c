@@ -115,5 +115,5 @@ EntityROMSpec PongWallsEntity =
 	kTypePongWall,
 
 	// physical specification
-	(PhysicalSpecification*)NULL,
+	(PhysicalProperties*)NULL,
 };

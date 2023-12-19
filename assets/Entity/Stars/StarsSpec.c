@@ -320,7 +320,7 @@ ParticleSystemROMSpec NormalStarsParticleSystem =
 		kTypeNone,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	},
 
 	// reuse expired particles?
@@ -406,7 +406,7 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 		kTypeNone,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	},
 
 	// reuse expired particles?
@@ -492,7 +492,7 @@ ParticleSystemROMSpec SolidStarsParticleSystem =
 		kTypeNone,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	},
 
 	// reuse expired particles?

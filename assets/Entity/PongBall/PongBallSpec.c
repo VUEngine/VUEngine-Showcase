@@ -142,7 +142,7 @@ PongBallROMSpec PongBallEntity =
 				kTypePongBall,
 
 				// physical specification
-				(PhysicalSpecification*)&PongBallEntityPhysicalProperties,
+				(PhysicalProperties*)&PongBallEntityPhysicalProperties,
 			},
 
 			// pointer to the animation spec for the item

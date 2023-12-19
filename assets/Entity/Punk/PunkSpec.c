@@ -711,7 +711,7 @@ AnimatedEntityROMSpec PunkEntity =
 		kTypeNone,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	},
 
 	// pointer to the animation spec for the character
@@ -776,7 +776,7 @@ PunkROMSpec PunkActor =
 				kTypePunk,
 
 				// physical specification
-				(PhysicalSpecification*)&PunkActorPhysicalProperties,
+				(PhysicalProperties*)&PunkActorPhysicalProperties,
 			},
 
 			// pointer to the animation spec for the character

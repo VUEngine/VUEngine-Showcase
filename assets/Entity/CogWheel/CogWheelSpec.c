@@ -374,6 +374,6 @@ CogWheelROMSpec CogWheelEntity =
 		kTypeCogWheel,
 
 		// physical specification
-		(PhysicalSpecification*)NULL,
+		(PhysicalProperties*)NULL,
 	}
 };

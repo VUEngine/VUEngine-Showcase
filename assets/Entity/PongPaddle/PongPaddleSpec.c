@@ -186,7 +186,7 @@ PongPaddleROMSpec PongPaddleEntity =
 				kTypePongPaddle,
 
 				// physical specification
-				(PhysicalSpecification*)&PongPaddlePhysicalProperties,
+				(PhysicalProperties*)&PongPaddlePhysicalProperties,
 			},
 
 			// pointer to the animation spec for the item
