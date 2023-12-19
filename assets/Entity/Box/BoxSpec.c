@@ -31,7 +31,7 @@ extern uint16 BoxMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-CharSetROMSpec BoxCharset =
+CharSetROMSpec BoxCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	42,
@@ -49,10 +49,10 @@ CharSetROMSpec BoxCharset =
 	NULL,
 };
 
-TextureROMSpec BoxTexture =
+TextureROMSpec BoxTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&BoxCharset,
+	(CharSetSpec*)&BoxCharsetSpec,
 
 	// bgmap spec
 	BoxMap,
@@ -82,14 +82,14 @@ TextureROMSpec BoxTexture =
 	false,
 };
 
-BgmapSpriteROMSpec BoxSprite =
+BgmapSpriteROMSpec BoxSpriteSpecspec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&BoxTexture,
+		(TextureSpec*)&BoxTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -109,13 +109,13 @@ BgmapSpriteROMSpec BoxSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const BoxSprites[] =
+BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
 {
-	&BoxSprite,
+	&BoxSpriteSpecspec,
 	NULL
 };
 
-ColliderROMSpec BoxColliders[] =
+ColliderROMSpec BoxColliderSpecs[] =
 {
 	// floor
 	{
@@ -147,7 +147,7 @@ ColliderROMSpec BoxColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec BoxEntity =
+EntityROMSpec BoxEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -162,7 +162,7 @@ EntityROMSpec BoxEntity =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)BoxSprites,
+	(SpriteSpec**)BoxSpriteSpecs,
 
 	// use z displacement in projection
 	false,
@@ -171,7 +171,7 @@ EntityROMSpec BoxEntity =
 	(WireframeSpec**)NULL,
 	
 	// collision shapes
-	(ColliderSpec*)BoxColliders,
+	(ColliderSpec*)BoxColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

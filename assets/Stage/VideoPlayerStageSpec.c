@@ -21,7 +21,7 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec VideoEntity;
+extern EntitySpec VideoEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -30,12 +30,12 @@ extern EntitySpec VideoEntity;
 
 PositionedEntityROMSpec VideoPlayerStageChildren[] =
 {
-	{&VideoEntity,			{0, 0, 1, 0}, 1, "Video", NULL, NULL, true},
+	{&VideoEntitySpec,			{0, 0, 1, 0}, 1, "Video", NULL, NULL, true},
 
 	{NULL,{0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec VideoPlayerStageUiEntities[] =
+PositionedEntityROMSpec VideoPlayerStageUiEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -44,7 +44,7 @@ PositionedEntityROMSpec VideoPlayerStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const VideoPlayerStageFonts[] =
+FontROMSpec* const VideoPlayerStageFontSpecs[] =
 {
 	NULL
 };
@@ -54,7 +54,7 @@ FontROMSpec* const VideoPlayerStageFonts[] =
 // 											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec VideoPlayerStage =
+StageROMSpec VideoPlayerStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -242,7 +242,7 @@ StageROMSpec VideoPlayerStage =
     // assets
     {
         // fonts to preload
-        (FontSpec**)VideoPlayerStageFonts,
+        (FontSpec**)VideoPlayerStageFontSpecs,
 
         // char sets to preload
         (CharSetSpec**)NULL,

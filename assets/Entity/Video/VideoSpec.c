@@ -32,7 +32,7 @@ extern uint16 VideoRMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec VideoHiColorAnimation =
+AnimationFunctionROMSpec VideoHiColorAnimationSpec =
 {
 	// number of frames of this animation function
 	470,
@@ -70,7 +70,7 @@ AnimationFunctionROMSpec VideoHiColorAnimation =
 	"HiColor",
 };
 
-AnimationFunctionROMSpec Video4ColorAnimation =
+AnimationFunctionROMSpec Video4ColorAnimationSpec =
 {
 	// number of frames of this animation function
 	470,
@@ -109,14 +109,14 @@ AnimationFunctionROMSpec Video4ColorAnimation =
 };
 
 // an animation spec
-AnimationFunctionROMSpec* VideoAnimations[] =
+AnimationFunctionROMSpec* VideoAnimationSpecs[] =
 {
-	(AnimationFunction*)&VideoHiColorAnimation,
-	(AnimationFunction*)&Video4ColorAnimation,
+	(AnimationFunction*)&VideoHiColorAnimationSpec,
+	(AnimationFunction*)&Video4ColorAnimationSpec,
 	NULL,
 };
 
-CharSetROMSpec VideoLCharset =
+CharSetROMSpec VideoLCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	633,
@@ -134,7 +134,7 @@ CharSetROMSpec VideoLCharset =
 	VideoLTilesFrameOffsets
 };
 
-CharSetROMSpec VideoRCharset =
+CharSetROMSpec VideoRCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	647,
@@ -152,10 +152,10 @@ CharSetROMSpec VideoRCharset =
 	VideoRTilesFrameOffsets
 };
 
-TextureROMSpec VideoLTexture =
+TextureROMSpec VideoLTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&VideoLCharset,
+	(CharSetSpec*)&VideoLCharsetSpec,
 
 	// bgmap spec
 	VideoLMap,
@@ -185,10 +185,10 @@ TextureROMSpec VideoLTexture =
 	false
 };
 
-TextureROMSpec VideoRTexture =
+TextureROMSpec VideoRTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&VideoRCharset,
+	(CharSetSpec*)&VideoRCharsetSpec,
 
 	// bgmap spec
 	VideoRMap,
@@ -218,14 +218,14 @@ TextureROMSpec VideoRTexture =
 	false
 };
 
-BgmapSpriteROMSpec VideoLSprite =
+BgmapSpriteROMSpec VideoLSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&VideoLTexture,
+		(TextureSpec*)&VideoLTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -245,14 +245,14 @@ BgmapSpriteROMSpec VideoLSprite =
 	__WORLD_LON,
 };
 
-BgmapSpriteROMSpec VideoRSprite =
+BgmapSpriteROMSpec VideoRSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&VideoRTexture,
+		(TextureSpec*)&VideoRTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -272,14 +272,14 @@ BgmapSpriteROMSpec VideoRSprite =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const VideoSprites[] =
+BgmapSpriteROMSpec* const VideoSpriteSpecs[] =
 {
-	&VideoLSprite,
-	&VideoRSprite,
+	&VideoLSpriteSpec,
+	&VideoRSpriteSpec,
 	NULL
 };
 
-AnimatedEntityROMSpec VideoEntity =
+AnimatedEntityROMSpec VideoEntitySpec =
 {
 	{
 		// class allocator
@@ -295,7 +295,7 @@ AnimatedEntityROMSpec VideoEntity =
 		NULL,
 
 		// sprites
-		(SpriteSpec**)VideoSprites,
+		(SpriteSpec**)VideoSpriteSpecs,
 
 		// use z displacement in projection
 		false,
@@ -318,7 +318,7 @@ AnimatedEntityROMSpec VideoEntity =
 	},
 
 	// pointer to the animation spec for the item
-	(const AnimationFunction**)&VideoAnimations,
+	(const AnimationFunction**)&VideoAnimationSpecs,
 
 	// initial animation
 	"HiColor"

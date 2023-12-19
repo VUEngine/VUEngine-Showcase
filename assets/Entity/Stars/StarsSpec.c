@@ -31,7 +31,7 @@ extern uint16 StarMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec StarDefaultAnimation =
+AnimationFunctionROMSpec StarDefaultAnimationSpec =
 {
 	// number of frames of this animation function
 	1,
@@ -52,7 +52,7 @@ AnimationFunctionROMSpec StarDefaultAnimation =
 	"Default",
 };
 
-AnimationFunctionROMSpec StarVanishAnimation =
+AnimationFunctionROMSpec StarVanishAnimationSpec =
 {
 	// number of frames of this animation function
 	5,
@@ -74,14 +74,14 @@ AnimationFunctionROMSpec StarVanishAnimation =
 };
 
 // an animation spec
-AnimationFunctionROMSpec* const StarAnimations[] =
+AnimationFunctionROMSpec* const StarAnimationSpecs[] =
 {
-    (AnimationFunction*)&StarDefaultAnimation,
-    (AnimationFunction*)&StarVanishAnimation,
+    (AnimationFunction*)&StarDefaultAnimationSpec,
+    (AnimationFunction*)&StarVanishAnimationSpec,
     NULL,
 };
 
-CharSetROMSpec StarCharset =
+CharSetROMSpec StarCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	5,
@@ -99,10 +99,10 @@ CharSetROMSpec StarCharset =
 	NULL,
 };
 
-TextureROMSpec StarTexture =
+TextureROMSpec StarTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&StarCharset,
+	(CharSetSpec*)&StarCharsetSpec,
 
 	// bgmap spec
 	StarMap,
@@ -133,14 +133,14 @@ TextureROMSpec StarTexture =
 
 };
 
-ObjectSpriteROMSpec StarSprite =
+ObjectSpriteROMSpec StarSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(ObjectAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&StarTexture,
+		(TextureSpec*)&StarTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -162,14 +162,14 @@ ObjectSpriteROMSpec StarSprite =
 //---------------------------------------------------------------------------------------------------------
 
 
-SpriteSpec* const StarSprites[] =
+SpriteSpec* const StarSpriteSpecs[] =
 {
-	(SpriteSpec*)&StarSprite,
+	(SpriteSpec*)&StarSpriteSpec,
 	NULL
 };
 
 // particle's spec
-ParticleROMSpec NormalStarParticle =
+ParticleROMSpec StarParticleNormalSpec =
 {
 	// allocator
 	__TYPE(Particle),
@@ -185,14 +185,14 @@ ParticleROMSpec NormalStarParticle =
 	NULL,
 
 	// animation description (used only if sprite is animated)
-	(const AnimationFunction**)&StarAnimations,
+	(const AnimationFunction**)&StarAnimationSpecs,
 
 	// name of animation to play
 	"Vanish"
 };
 
 // particle's spec
-PhysicalParticleROMSpec PhysicalStarParticle =
+PhysicalParticleROMSpec StarParticlePhysicalSpec =
 {
 	{
 		// allocator
@@ -209,7 +209,7 @@ PhysicalParticleROMSpec PhysicalStarParticle =
 		NULL,
 
 		// animation description (used only if sprite is animated)
-		(const AnimationFunction**)&StarAnimations,
+		(const AnimationFunction**)&StarAnimationSpecs,
 
 		// name of animation to play
 		"Vanish"
@@ -226,7 +226,7 @@ PhysicalParticleROMSpec PhysicalStarParticle =
 };
 
 // particle's spec
-SolidParticleROMSpec SolidStarParticle =
+SolidParticleROMSpec StarParticleSolidSpec =
 {
 	{
 		{
@@ -244,7 +244,7 @@ SolidParticleROMSpec SolidStarParticle =
 			NULL,
 
 			// animation description (used only if sprite is animated)
-			(const AnimationFunction**)&StarAnimations,
+			(const AnimationFunction**)&StarAnimationSpecs,
 
 			// name of animation to play
 			"Default"
@@ -285,7 +285,7 @@ SolidParticleROMSpec SolidStarParticle =
 	"Vanish"
 };
 
-ParticleSystemROMSpec NormalStarsParticleSystem =
+ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
 	{
 		// class allocator
@@ -339,7 +339,7 @@ ParticleSystemROMSpec NormalStarsParticleSystem =
 	1,
 
 	// array of sprites
-	(const SpriteSpec**)StarSprites,
+	(const SpriteSpec**)StarSpriteSpecs,
 
 	// array of wireframes
 	(const WireframeSpec**)NULL,
@@ -348,7 +348,7 @@ ParticleSystemROMSpec NormalStarsParticleSystem =
 	false,
 
 	// particle spec
-	(ParticleSpec*)&NormalStarParticle,
+	(ParticleSpec*)&StarParticleNormalSpec,
 
 	// minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(-20), __PIXELS_TO_METERS(-16), __PIXELS_TO_METERS(0)},
@@ -371,7 +371,7 @@ ParticleSystemROMSpec NormalStarsParticleSystem =
 	false
 };
 
-ParticleSystemROMSpec PhysicalStarsParticleSystem =
+ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
 		// class allocator
@@ -425,7 +425,7 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 	1,
 
 	// array of sprites
-	(const SpriteSpec**)StarSprites,
+	(const SpriteSpec**)StarSpriteSpecs,
 
 	// array of wireframes
 	(const WireframeSpec**)NULL,
@@ -434,7 +434,7 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 	false,
 
 	// particle spec
-	(ParticleSpec*)&PhysicalStarParticle,
+	(ParticleSpec*)&StarParticlePhysicalSpec,
 
 	// minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
@@ -457,7 +457,7 @@ ParticleSystemROMSpec PhysicalStarsParticleSystem =
 	false
 };
 
-ParticleSystemROMSpec SolidStarsParticleSystem =
+ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
 	{
 		// class allocator
@@ -511,7 +511,7 @@ ParticleSystemROMSpec SolidStarsParticleSystem =
 	1,
 
 	// array of sprites
-	(const SpriteSpec**)StarSprites,
+	(const SpriteSpec**)StarSpriteSpecs,
 
 	// array of wireframes
 	(const WireframeSpec**)NULL,
@@ -520,7 +520,7 @@ ParticleSystemROMSpec SolidStarsParticleSystem =
 	false,
 
 	// particle spec
-	(ParticleSpec*)&SolidStarParticle,
+	(ParticleSpec*)&StarParticleSolidSpec,
 
 	// minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},

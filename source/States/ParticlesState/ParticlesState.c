@@ -27,8 +27,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec ParticlesStage;
-
 enum ParticleTypes
 {
 	kParticleNoTypeStart = 0,
@@ -49,7 +47,11 @@ void ParticlesState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&ParticlesStage;
+	/*
+	 * Check assets/stage/ParticlesStageSpec.c
+	 */
+	extern StageROMSpec ParticlesStageSpec;
+	this->stageSpec = (StageSpec*)&ParticlesStageSpec;
 	this->particleSystem = NULL;
 	this->particlesType = kParticleNoTypeStart + 1;
 	this->validSuboptionKeys = K_LL | K_LR;
@@ -178,9 +180,9 @@ void ParticlesState::showParticleDetails()
 void ParticlesState::loadParticles()
 {
 	// Check these specifications in assets/images/Stars/Spec/StarsSpec.c		
-	extern ParticleSystemSpec NormalStarsParticleSystem;
-	extern ParticleSystemSpec PhysicalStarsParticleSystem;
-	extern ParticleSystemSpec SolidStarsParticleSystem;
+	extern ParticleSystemSpec StarsParticleSystemNormalSpec;
+	extern ParticleSystemSpec StarsParticleSystemPhysicalSpec;
+	extern ParticleSystemSpec StarsParticleSystemSolidSpec;
 
 	ParticleSystemSpec* particleSystemEntitySpec = NULL;
 	int16 yPosition = 0;
@@ -189,19 +191,19 @@ void ParticlesState::loadParticles()
 	{
 		case kParticleNormal:
 
-			particleSystemEntitySpec = &NormalStarsParticleSystem;
+			particleSystemEntitySpec = &StarsParticleSystemNormalSpec;
 			yPosition = -16;
 			break;
 
 		case kParticlePhysical:
 
-			particleSystemEntitySpec = &PhysicalStarsParticleSystem;
+			particleSystemEntitySpec = &StarsParticleSystemPhysicalSpec;
 			yPosition = 0;
 			break;
 
 		case kParticleSolid:
 
-			particleSystemEntitySpec = &SolidStarsParticleSystem;
+			particleSystemEntitySpec = &StarsParticleSystemSolidSpec;
 			yPosition = 0;
 			break;
 	}

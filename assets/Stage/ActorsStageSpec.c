@@ -24,24 +24,24 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec BoxEntity;
-extern EntitySpec CogWheelEntity;
-extern EntitySpec PunkActor;
+extern EntitySpec BoxEntitySpec;
+extern EntitySpec CogWheelEntitySpec;
+extern EntitySpec PunkActorSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec ActorsStageEntities[] =
+PositionedEntityROMSpec ActorsStageEntitySpecs[] =
 {
-	{&PunkActor, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&BoxEntity, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&CogWheelEntity, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&PunkActorSpec, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&BoxEntitySpec, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&CogWheelEntitySpec, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ActorsStageUiEntities[] =
+PositionedEntityROMSpec ActorsStageUiEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -51,12 +51,12 @@ PositionedEntityROMSpec ActorsStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const ActorsStageFonts[] =
+FontROMSpec* const ActorsStageFontSpecs [] =
 {
 	NULL
 };
 
-SoundROM* ActorsStageSounds[] =
+SoundROM* ActorsStageSoundSpecs[] =
 {
 	NULL
 };
@@ -66,7 +66,7 @@ SoundROM* ActorsStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec ActorsStage =
+StageROMSpec ActorsStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -256,7 +256,7 @@ StageROMSpec ActorsStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)ActorsStageFonts,
+		(FontSpec**)ActorsStageFontSpecs ,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -265,19 +265,19 @@ StageROMSpec ActorsStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)ActorsStageSounds,
+		(Sound**)ActorsStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)ActorsStageUiEntities,
+			(PositionedEntity*)ActorsStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)ActorsStageEntities,
+		(PositionedEntity*)ActorsStageEntitySpecs,
 	},
 
 	// post processing effects

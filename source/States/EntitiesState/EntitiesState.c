@@ -27,11 +27,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-/*
- * Check assets/stage/EntitiesStageSpec.c"
- */
-extern StageROMSpec EntitiesStage;
-
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DEFINITION
@@ -42,7 +37,11 @@ void EntitiesState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&EntitiesStage;
+	/*
+	 * Check assets/stage/EntitiesStageSpec.c"
+	 */
+	extern StageROMSpec EntitiesStageSpec;
+	this->stageSpec = (StageSpec*)&EntitiesStageSpec;
 	this->leaderPunk = NULL;
 	this->validSuboptionKeys = K_LL | K_LR;
 }
@@ -121,7 +120,7 @@ void EntitiesState::showExplanation()
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PunkEntity", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PunkEntitySpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
@@ -245,8 +244,8 @@ void EntitiesState::createLeaderPunk()
 	}
 		
 	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
-	extern EntitySpec PunkEntity;
-	PositionedEntity positionedEntity = {&PunkEntity, {0, 64, 16, 0}, 0, "Moe", NULL, NULL, false};
+	extern EntitySpec PunkEntitySpec;
+	PositionedEntity positionedEntity = {&PunkEntitySpec, {0, 64, 16, 0}, 0, "Moe", NULL, NULL, false};
 
 	/*
 	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
@@ -293,8 +292,8 @@ void EntitiesState::createSlavePunk(uint16 input)
 		}
 		else
 		{
-			extern EntitySpec PunkEntity;
-			AnimatedEntity::addChildEntity(this->leaderPunk, &PunkEntity, 0, childPunkName, &childPunkPosition, NULL);
+			extern EntitySpec PunkEntitySpec;
+			AnimatedEntity::addChildEntity(this->leaderPunk, &PunkEntitySpec, 0, childPunkName, &childPunkPosition, NULL);
 		}
 	}
 }

@@ -29,12 +29,12 @@
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec EntitiesStageEntities[] =
+PositionedEntityROMSpec EntitiesStageEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec EntitiesStageUiEntities[] =
+PositionedEntityROMSpec EntitiesStageUiEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -44,12 +44,12 @@ PositionedEntityROMSpec EntitiesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const EntitiesStageFonts[] =
+FontROMSpec* const EntitiesStageFontSpecs[] =
 {
 	NULL
 };
 
-SoundROM* EntitiesStageSounds[] =
+SoundROM* EntitiesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -59,7 +59,7 @@ SoundROM* EntitiesStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec EntitiesStage =
+StageROMSpec EntitiesStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -249,7 +249,7 @@ StageROMSpec EntitiesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)EntitiesStageFonts,
+		(FontSpec**)EntitiesStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -258,19 +258,19 @@ StageROMSpec EntitiesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)EntitiesStageSounds,
+		(Sound**)EntitiesStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)EntitiesStageUiEntities,
+			(PositionedEntity*)EntitiesStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)EntitiesStageEntities,
+		(PositionedEntity*)EntitiesStageEntitySpecs,
 	},
 
 	// post processing effects

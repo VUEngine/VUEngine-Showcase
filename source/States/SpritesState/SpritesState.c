@@ -28,8 +28,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec SpritesStage;
-
 enum SpriteTypes
 {
 	kSpriteNoTypeStart = 0,
@@ -52,7 +50,11 @@ void SpritesState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&SpritesStage;
+	/*
+	 * Check assets/stage/SpritesStageSpec.c
+	 */
+	extern StageROMSpec SpritesStageSpec;
+	this->stageSpec = (StageSpec*)&SpritesStageSpec;
 	this->sprite = NULL;
 	this->spriteType = kSpriteNoTypeStart + 1;
 	this->validSuboptionKeys = K_LL | K_LR;
@@ -194,11 +196,11 @@ void SpritesState::createSprite()
 	SpritesState::restoreMethods();
 
 	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
-	extern SpriteSpec CogWheelObjectSprite;
-	extern SpriteSpec CogWheelBgmapSpriteNormal;
-	extern SpriteSpec CogWheelBgmapSpriteAffine;
-	extern SpriteSpec CogWheelBgmapSpriteHBias;
-	extern SpriteSpec CogWheelMBgmapSpriteNormal;
+	extern SpriteSpec CogWheelObjectSpriteSpec;
+	extern SpriteSpec CogWheelBgmapSpriteNormalSpec;
+	extern SpriteSpec CogWheelBgmapSpriteAffineSpec;
+	extern SpriteSpec CogWheelBgmapSpriteHBiasSpec;
+	extern SpriteSpec CogWheelMBgmapSpriteNormalSpec;
 
 	SpriteSpec* spriteSpec = NULL;
 
@@ -206,31 +208,31 @@ void SpritesState::createSprite()
 	{
 		case kSpriteObject:
 
-			spriteSpec = &CogWheelObjectSprite;
+			spriteSpec = &CogWheelObjectSpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteHorizontalTranslation);
 			break;
 
 		case kSpriteBgmapNormal:
 
-			spriteSpec = &CogWheelBgmapSpriteNormal;
+			spriteSpec = &CogWheelBgmapSpriteNormalSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteVerticalTranslation);
 			break;
 
 		case kSpriteBgmapAffine:
 
-			spriteSpec = &CogWheelBgmapSpriteAffine;
+			spriteSpec = &CogWheelBgmapSpriteAffineSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteRotation);
 			break;
 
 		case kSpriteBgmapHBias:
 
 			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
-			spriteSpec = &CogWheelBgmapSpriteHBias;
+			spriteSpec = &CogWheelBgmapSpriteHBiasSpec;
 			break;
 
 		case kSpriteMBgmap:
 
-			spriteSpec = &CogWheelMBgmapSpriteNormal;
+			spriteSpec = &CogWheelMBgmapSpriteNormalSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
 	}
 

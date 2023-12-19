@@ -34,8 +34,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec AnimationSchemesStage;
-
 
 enum AnimationSchemes
 {
@@ -57,7 +55,11 @@ void AnimationSchemesState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&AnimationSchemesStage;
+	/*
+	 * Check assets/stage/AnimationSchemesStageSpec.c
+	 */
+	extern StageROMSpec AnimationSchemesStageSpec;
+	this->stageSpec = (StageSpec*)&AnimationSchemesStageSpec;
 	this->animatedSprites = new VirtualList();
 	this->animationScheme = kAnimationsNoneStart + 1;
 	this->rotation = (Rotation){0, 0, 0};
@@ -274,29 +276,29 @@ void AnimationSchemesState::createSprites()
 	AnimationSchemesState::restoreMethods();
 
 	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
-	extern SpriteSpec PunkSpriteNotShared;
-	extern SpriteSpec PunkSpriteShared;
-	extern SpriteSpec PunkSpriteMultiframe;
+	extern SpriteSpec PunkSpriteNotSharedSpec;
+	extern SpriteSpec PunkSpriteSharedSpec;
+	extern SpriteSpec PunkSpriteMultiframeSpec;
 
-	SpriteSpec* spriteSpec = &PunkSpriteNotShared;
+	SpriteSpec* spriteSpec = &PunkSpriteNotSharedSpec;
 
 	switch(this->animationScheme)
 	{
 		case kAnimationsNotSharedTexture:
 
-			spriteSpec = &PunkSpriteNotShared;
+			spriteSpec = &PunkSpriteNotSharedSpec;
 			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures);
 			break;
 
 		case kAnimationsSharedTexture:
 
-			spriteSpec = &PunkSpriteShared;
+			spriteSpec = &PunkSpriteSharedSpec;
 			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithSharedTextures);
 			break;
 
 		case kAnimationsMultiframeTexture:
 
-			spriteSpec = &PunkSpriteMultiframe;
+			spriteSpec = &PunkSpriteMultiframeSpec;
 			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures);
 			break;
 	}
@@ -311,12 +313,12 @@ void AnimationSchemesState::createSprites()
 			// I will need to access the sprites later on
 			VirtualList::pushBack(this->animatedSprites, animatedSprite);
 
-			extern AnimationFunctionROMSpec* PunkAnimations[];
+			extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
 			
 			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
 			Sprite::setPosition(animatedSprite, &spritePosition);
 			
-			Sprite::play(animatedSprite, PunkAnimations, "Move", NULL);
+			Sprite::play(animatedSprite, PunkAnimationSpecs, "Move", NULL);
 
 			// Try to get the sprite's animation out of sync from the others'
 			Sprite::setActualFrame(animatedSprite, i * 12 / 3);

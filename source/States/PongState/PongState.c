@@ -38,8 +38,6 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec PongStage;
-
 
 //---------------------------------------------------------------------------------------------------------
 //												CLASS'S METHODS
@@ -49,7 +47,11 @@ void PongState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&PongStage;
+	/*
+	 * Check assets/stage/PongStageSpec.c
+	 */
+	extern StageROMSpec PongStageSpec;
+	this->stageSpec = (StageSpec*)&PongStageSpec;
 	this->isVersusMode = false;
 }
 

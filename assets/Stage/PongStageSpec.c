@@ -23,26 +23,26 @@
 //											DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec PongBallEntity;
-extern EntitySpec PongPaddleEntity;
-extern EntitySpec PongWallsEntity;
+extern EntitySpec PongBallEntitySpec;
+extern EntitySpec PongPaddleEntitySpec;
+extern EntitySpec PongWallsEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec PongStageEntities[] =
+PositionedEntityROMSpec PongStageEntitySpecs[] =
 {
-	{&PongBallEntity, 		{  0, 0, 128, 0}, 	0, PONG_BALL_NAME, NULL, NULL, false},
-	{&PongPaddleEntity, 	{-96, 0, 128, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, true},
-	{&PongPaddleEntity,	 	{+96, 0, 128, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
-	{&PongWallsEntity,		{ 0,  0, 128, 0},	0, NULL, NULL, NULL, true}, // bottom border
+	{&PongBallEntitySpec, 		{  0, 0, 128, 0}, 	0, PONG_BALL_NAME, NULL, NULL, false},
+	{&PongPaddleEntitySpec, 	{-96, 0, 128, 0}, 	0, PADDLE_LEFT_NAME, NULL, NULL, true},
+	{&PongPaddleEntitySpec,	 	{+96, 0, 128, 0}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
+	{&PongWallsEntitySpec,		{ 0,  0, 128, 0},	0, NULL, NULL, NULL, true}, // bottom border
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec PongStageUiEntities[] =
+PositionedEntityROMSpec PongStageUiEntitySpecs[] =
 {
 //	{&LowPowerIndicatorEntity, 	{ 25,  	 25, 	  -1, 0},	0, NULL, NULL, NULL, false},
 
@@ -54,7 +54,7 @@ PositionedEntityROMSpec PongStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const PongStageFonts[] =
+FontROMSpec* const PongStageFontSpecs[] =
 {
 	NULL
 };
@@ -74,7 +74,7 @@ TextureSpec* const PongStageTextures[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec PongStage =
+StageROMSpec PongStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -263,7 +263,7 @@ StageROMSpec PongStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)PongStageFonts,
+		(FontSpec**)PongStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)PongStageCharsets,
@@ -279,12 +279,12 @@ StageROMSpec PongStage =
 	{
 		// ui
 		{
-			(PositionedEntity*)PongStageUiEntities,
+			(PositionedEntity*)PongStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)PongStageEntities,
+		(PositionedEntity*)PongStageEntitySpecs,
 	},
 
 	// post processing effects

@@ -23,7 +23,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-SphereROMSpec PongBallEntityMesh =
+SphereROMSpec PongBallMeshSpec =
 {
 	{
 		/// class allocator
@@ -49,13 +49,13 @@ SphereROMSpec PongBallEntityMesh =
 	true
 };
 
-WireframeROMSpec* const PongBallEntityWireframes[] =
+WireframeROMSpec* const PongBallWireframeSpecs[] =
 {
-	(WireframeSpec*)&PongBallEntityMesh,
+	(WireframeSpec*)&PongBallMeshSpec,
 	NULL
 };
 
-ColliderROMSpec PongBallEntityColliders[] =
+ColliderROMSpec PongBallColliderSpecs[] =
 {
 	// ball
 	{
@@ -87,7 +87,7 @@ ColliderROMSpec PongBallEntityColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-PhysicalSpecificationROMSpec PongBallEntityPhysicalProperties =
+PhysicalSpecificationROMSpec PongBallPhysicalPropertiesSpec =
 {
 	// mass
 	__F_TO_FIX10_6(0.1f),
@@ -105,7 +105,7 @@ PhysicalSpecificationROMSpec PongBallEntityPhysicalProperties =
 	__I_TO_FIXED(2)
 };
 
-PongBallROMSpec PongBallEntity =
+PongBallROMSpec PongBallEntitySpec =
 {
 	{
 		{
@@ -129,10 +129,10 @@ PongBallROMSpec PongBallEntity =
 				false,
 			
 				// wireframes
-				(WireframeSpec**)PongBallEntityWireframes,
+				(WireframeSpec**)PongBallWireframeSpecs,
 
 				// collision shapes
-				(ColliderSpec*)PongBallEntityColliders,
+				(ColliderSpec*)PongBallColliderSpecs,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -142,7 +142,7 @@ PongBallROMSpec PongBallEntity =
 				kTypePongBall,
 
 				// physical specification
-				(PhysicalProperties*)&PongBallEntityPhysicalProperties,
+				(PhysicalProperties*)&PongBallPhysicalPropertiesSpec,
 			},
 
 			// pointer to the animation spec for the item

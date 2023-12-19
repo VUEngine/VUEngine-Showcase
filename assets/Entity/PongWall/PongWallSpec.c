@@ -22,7 +22,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-ColliderROMSpec PongWallsEntityColliders[] =
+ColliderROMSpec PongWallsColliderSpecs[] =
 {
 	// linefield
 	{
@@ -81,7 +81,7 @@ ColliderROMSpec PongWallsEntityColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec PongWallsEntity =
+EntityROMSpec PongWallsEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -105,7 +105,7 @@ EntityROMSpec PongWallsEntity =
 	(WireframeSpec**)NULL,
 
 	// collision shapes
-	(ColliderSpec*)PongWallsEntityColliders,
+	(ColliderSpec*)PongWallsColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

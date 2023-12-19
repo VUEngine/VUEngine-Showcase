@@ -39,7 +39,7 @@ extern uint16 PunkDyingBlackMap[];
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-AnimationFunctionROMSpec PunkMoveAnimation =
+AnimationFunctionROMSpec PunkMoveAnimationSpec =
 {
 	// number of frames of this animation function
 	12,
@@ -60,7 +60,7 @@ AnimationFunctionROMSpec PunkMoveAnimation =
 	"Move",
 };
 
-AnimationFunctionROMSpec PunkDieAnimation =
+AnimationFunctionROMSpec PunkDieAnimationSpec =
 {
 	// number of frames of this animation function
 	11,
@@ -83,50 +83,14 @@ AnimationFunctionROMSpec PunkDieAnimation =
 	"Die",
 };
 
-AnimationFunctionROMSpec* PunkAnimations[] =
+AnimationFunctionROMSpec* PunkAnimationSpecs[] =
 {
-	(AnimationFunctionROMSpec*)&PunkMoveAnimation,
-	(AnimationFunctionROMSpec*)&PunkDieAnimation,
+	(AnimationFunctionROMSpec*)&PunkMoveAnimationSpec,
+	(AnimationFunctionROMSpec*)&PunkDieAnimationSpec,
 	NULL,
 };
 
-CharSetROMSpec PunkCharset =
-{
-	// number of chars in function of the number of frames to load at the same time
-	4*6,
-
-	// whether it is shared or not
-	true,
-	
-	// whether the tiles are optimized or not
-	false,
-
-	// char spec
-	PunkTiles,
-
-	// pointer to the frames offsets
-	NULL,
-};
-
-CharSetROMSpec PunkCharsetNotShared =
-{
-	// number of chars in function of the number of frames to load at the same time
-	4*6,
-
-	// whether it is shared or not
-	false,
-	
-	// whether the tiles are optimized or not
-	false,
-
-	// char spec
-	PunkTiles,
-
-	// pointer to the frames offsets
-	NULL,
-};
-
-CharSetROMSpec PunkCharsetShared =
+CharSetROMSpec PunkCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	4*6,
@@ -144,7 +108,43 @@ CharSetROMSpec PunkCharsetShared =
 	NULL,
 };
 
-CharSetROMSpec PunkCharsetMultiframe =
+CharSetROMSpec PunkCharsetNotSharedSpec =
+{
+	// number of chars in function of the number of frames to load at the same time
+	4*6,
+
+	// whether it is shared or not
+	false,
+	
+	// whether the tiles are optimized or not
+	false,
+
+	// char spec
+	PunkTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
+CharSetROMSpec PunkCharsetSharedSpec =
+{
+	// number of chars in function of the number of frames to load at the same time
+	4*6,
+
+	// whether it is shared or not
+	true,
+	
+	// whether the tiles are optimized or not
+	false,
+
+	// char spec
+	PunkTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
+CharSetROMSpec PunkCharsetMultiframeSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	4*6 * 12,
@@ -162,7 +162,7 @@ CharSetROMSpec PunkCharsetMultiframe =
 	NULL,
 };
 
-CharSetROMSpec PunkBlackCharset =
+CharSetROMSpec PunkBlackCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	4*6,
@@ -180,9 +180,9 @@ CharSetROMSpec PunkBlackCharset =
 	NULL,
 };
 
-TextureROMSpec PunkTexture =
+TextureROMSpec PunkTextureSpec =
 {
-	(CharSetSpec*)&PunkCharset,
+	(CharSetSpec*)&PunkCharsetSpec,
 
 	// bgmap spec
 	PunkMap,
@@ -212,9 +212,9 @@ TextureROMSpec PunkTexture =
 	false,
 };
 
-TextureROMSpec PunkTextureNotShared =
+TextureROMSpec PunkTextureNotSharedSpec =
 {
-	(CharSetSpec*)&PunkCharsetNotShared,
+	(CharSetSpec*)&PunkCharsetNotSharedSpec,
 
 	// bgmap spec
 	PunkMap,
@@ -244,9 +244,9 @@ TextureROMSpec PunkTextureNotShared =
 	false,
 };
 
-TextureROMSpec PunkTextureShared =
+TextureROMSpec PunkTextureSharedSpec =
 {
-	(CharSetSpec*)&PunkCharsetShared,
+	(CharSetSpec*)&PunkCharsetSharedSpec,
 
 	// bgmap spec
 	PunkMap,
@@ -276,9 +276,9 @@ TextureROMSpec PunkTextureShared =
 	false,
 };
 
-TextureROMSpec PunkTextureMultiframe =
+TextureROMSpec PunkTextureMultiframeSpec =
 {
-	(CharSetSpec*)&PunkCharsetMultiframe,
+	(CharSetSpec*)&PunkCharsetMultiframeSpec,
 
 	// bgmap spec
 	PunkMap,
@@ -308,9 +308,9 @@ TextureROMSpec PunkTextureMultiframe =
 	false,
 };
 
-TextureROMSpec PunkBlackTexture =
+TextureROMSpec PunkBlackTextureSpec =
 {
-	(CharSetSpec*)&PunkBlackCharset,
+	(CharSetSpec*)&PunkBlackCharsetSpec,
 
 	// bgmap spec
 	PunkBlackMap,
@@ -340,14 +340,14 @@ TextureROMSpec PunkBlackTexture =
 	false,
 };
 
-BgmapSpriteROMSpec PunkSprite =
+BgmapSpriteROMSpec PunkSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkTexture,
+		(TextureSpec*)&PunkTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -367,14 +367,14 @@ BgmapSpriteROMSpec PunkSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec PunkSpriteNotShared =
+BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkTextureNotShared,
+		(TextureSpec*)&PunkTextureNotSharedSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -394,14 +394,14 @@ BgmapSpriteROMSpec PunkSpriteNotShared =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec PunkSpriteShared =
+BgmapSpriteROMSpec PunkSpriteSharedSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkTextureShared,
+		(TextureSpec*)&PunkTextureSharedSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -421,14 +421,14 @@ BgmapSpriteROMSpec PunkSpriteShared =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec PunkSpriteMultiframe =
+BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkTextureMultiframe,
+		(TextureSpec*)&PunkTextureMultiframeSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -448,14 +448,14 @@ BgmapSpriteROMSpec PunkSpriteMultiframe =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec PunkBlackSprite =
+BgmapSpriteROMSpec PunkBlackSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkBlackTexture,
+		(TextureSpec*)&PunkBlackTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -475,14 +475,14 @@ BgmapSpriteROMSpec PunkBlackSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const PunkSprites[] =
+BgmapSpriteROMSpec* const PunkSpriteSpecs[] =
 {
-	&PunkSprite,
-	&PunkBlackSprite,
+	&PunkSpriteSpec,
+	&PunkBlackSpriteSpec,
 	NULL
 };
 
-CharSetROMSpec PunkDyingCharset =
+CharSetROMSpec PunkDyingCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	8*6,
@@ -500,7 +500,7 @@ CharSetROMSpec PunkDyingCharset =
 	NULL,
 };
 
-CharSetROMSpec PunkDyingBlackCharset =
+CharSetROMSpec PunkDyingBlackCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	8*6,
@@ -518,9 +518,9 @@ CharSetROMSpec PunkDyingBlackCharset =
 	NULL,
 };
 
-TextureROMSpec PunkDyingTexture =
+TextureROMSpec PunkDyingTextureSpec =
 {
-	(CharSetSpec*)&PunkDyingCharset,
+	(CharSetSpec*)&PunkDyingCharsetSpec,
 
 	// bgmap spec
 	PunkDyingMap,
@@ -550,9 +550,9 @@ TextureROMSpec PunkDyingTexture =
 	false,
 };
 
-TextureROMSpec PunkDyingBlackTexture =
+TextureROMSpec PunkDyingBlackTextureSpec =
 {
-	(CharSetSpec*)&PunkDyingBlackCharset,
+	(CharSetSpec*)&PunkDyingBlackCharsetSpec,
 
 	// bgmap spec
 	PunkDyingBlackMap,
@@ -582,14 +582,14 @@ TextureROMSpec PunkDyingBlackTexture =
 	false,
 };
 
-BgmapSpriteROMSpec PunkDyingSprite =
+BgmapSpriteROMSpec PunkDyingSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkDyingTexture,
+		(TextureSpec*)&PunkDyingTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -610,14 +610,14 @@ BgmapSpriteROMSpec PunkDyingSprite =
 };
 
 
-BgmapSpriteROMSpec PunkDyingBlackSprite =
+BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapAnimatedSprite),
 
 		// texture spec
-		(TextureSpec*)&PunkDyingBlackTexture,
+		(TextureSpec*)&PunkDyingBlackTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -637,15 +637,15 @@ BgmapSpriteROMSpec PunkDyingBlackSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const PunkDyingSprites[] =
+BgmapSpriteROMSpec* const PunkDyingSpriteSpecs[] =
 {
-	&PunkDyingSprite,
-	&PunkDyingBlackSprite,
+	&PunkDyingSpriteSpec,
+	&PunkDyingBlackSpriteSpec,
 	NULL
 };
 
 
-ColliderROMSpec PunkColliders[] =
+ColliderROMSpec PunkColliderSpecs[] =
 {
 	{
 		// collider
@@ -676,7 +676,7 @@ ColliderROMSpec PunkColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-AnimatedEntityROMSpec PunkEntity =
+AnimatedEntityROMSpec PunkEntitySpec =
 {
 	{
 		// class allocator
@@ -692,7 +692,7 @@ AnimatedEntityROMSpec PunkEntity =
 		NULL,
 		
 		// sprites
-		(SpriteSpec**)PunkSprites,
+		(SpriteSpec**)PunkSpriteSpecs,
 
 		// use z displacement in projection
 		false,
@@ -701,7 +701,7 @@ AnimatedEntityROMSpec PunkEntity =
 		NULL,
 
 		// collision shapes
-		(ColliderSpec*)PunkColliders,
+		(ColliderSpec*)PunkColliderSpecs,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -715,13 +715,13 @@ AnimatedEntityROMSpec PunkEntity =
 	},
 
 	// pointer to the animation spec for the character
-	(const AnimationFunction**)&PunkAnimations,
+	(const AnimationFunction**)&PunkAnimationSpecs,
 
 	// initial animation
 	"Move"
 };
 
-PhysicalSpecificationROMSpec PunkActorPhysicalProperties =
+PhysicalSpecificationROMSpec PunkPhysicalPropertiesSpec =
 {
 	// mass
 	__F_TO_FIXED(0.5f),
@@ -739,7 +739,7 @@ PhysicalSpecificationROMSpec PunkActorPhysicalProperties =
 	__F_TO_FIXED(3)
 };
 
-PunkROMSpec PunkActor =
+PunkROMSpec PunkActorSpec =
 {
 	{	
 		{
@@ -757,7 +757,7 @@ PunkROMSpec PunkActor =
 				NULL,
 				
 				// sprites
-				(SpriteSpec**)PunkSprites,
+				(SpriteSpec**)PunkSpriteSpecs,
 
 				// use z displacement in projection
 				false,
@@ -766,7 +766,7 @@ PunkROMSpec PunkActor =
 				NULL,
 
 				// collision shapes
-				(ColliderSpec*)PunkColliders,
+				(ColliderSpec*)PunkColliderSpecs,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -776,11 +776,11 @@ PunkROMSpec PunkActor =
 				kTypePunk,
 
 				// physical specification
-				(PhysicalProperties*)&PunkActorPhysicalProperties,
+				(PhysicalProperties*)&PunkPhysicalPropertiesSpec,
 			},
 
 			// pointer to the animation spec for the character
-			(const AnimationFunction**)&PunkAnimations,
+			(const AnimationFunction**)&PunkAnimationSpecs,
 
 			// initial animation
 			"Move"

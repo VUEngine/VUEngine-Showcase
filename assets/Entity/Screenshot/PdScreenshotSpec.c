@@ -31,7 +31,7 @@ extern uint16 PdScreenshotRMap[];
 //---------------------------------------------------------------------------------------------------------
 
 
-CharSetROMSpec PdScreenshotCharset =
+CharSetROMSpec PdScreenshotCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	460,
@@ -49,10 +49,10 @@ CharSetROMSpec PdScreenshotCharset =
 	NULL,
 };
 
-TextureROMSpec PdScreenshotLTexture =
+TextureROMSpec PdScreenshotLTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&PdScreenshotCharset,
+	(CharSetSpec*)&PdScreenshotCharsetSpec,
 
 	// bgmap spec
 	PdScreenshotLMap,
@@ -82,10 +82,10 @@ TextureROMSpec PdScreenshotLTexture =
 	false,
 };
 
-TextureROMSpec PdScreenshotRTexture =
+TextureROMSpec PdScreenshotRTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&PdScreenshotCharset,
+	(CharSetSpec*)&PdScreenshotCharsetSpec,
 
 	// bgmap spec
 	PdScreenshotRMap,
@@ -115,14 +115,14 @@ TextureROMSpec PdScreenshotRTexture =
 	false,
 };
 
-BgmapSpriteROMSpec PdScreenshotLSprite =
+BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&PdScreenshotLTexture,
+		(TextureSpec*)&PdScreenshotLTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -142,14 +142,14 @@ BgmapSpriteROMSpec PdScreenshotLSprite =
 	__WORLD_LON,
 };
 
-BgmapSpriteROMSpec PdScreenshotRSprite =
+BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&PdScreenshotRTexture,
+		(TextureSpec*)&PdScreenshotRTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -169,14 +169,14 @@ BgmapSpriteROMSpec PdScreenshotRSprite =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const PdScreenshotSprites[] =
+BgmapSpriteROMSpec* const PdScreenshotSpriteSpecs[] =
 {
-	&PdScreenshotLSprite,
-	&PdScreenshotRSprite,
+	&PdScreenshotLSpriteSpec,
+	&PdScreenshotRSpriteSpec,
 	NULL
 };
 
-EntityROMSpec PdScreenshotEntity =
+EntityROMSpec PdScreenshotEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -191,7 +191,7 @@ EntityROMSpec PdScreenshotEntity =
 	NULL,
 
 	// sprites
-	(SpriteSpec**)PdScreenshotSprites,
+	(SpriteSpec**)PdScreenshotSpriteSpecs,
 
 	// use z displacement in projection
 	false,

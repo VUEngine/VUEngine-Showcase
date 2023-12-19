@@ -31,8 +31,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec SoundsStage;
-
 const SoundROM* soundSamples[] =
 {
 	&OracleOfSeasonsOverworldThemeSound,
@@ -65,7 +63,11 @@ void SoundsState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&SoundsStage;
+	/*
+	 * Check assets/stage/SoundsStageSpec.c
+	 */
+	extern StageROMSpec SoundsStageSpec;
+	this->stageSpec = (StageSpec*)&SoundsStageSpec;
 	this->soundWrapper = NULL;
 	this->selectedSound = 0;
 	this->validSuboptionKeys = K_LL | K_LR;

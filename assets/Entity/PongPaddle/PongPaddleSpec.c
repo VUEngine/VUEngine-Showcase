@@ -29,7 +29,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-const PixelVector PongPaddleMeshesSegments[][2]=
+const PixelVector PongPaddleMeshSpecesSegments[][2]=
 {
 	{
 		{0, -10, 0, 0}, 
@@ -43,7 +43,7 @@ const PixelVector PongPaddleMeshesSegments[][2]=
 	},
 };
 
-MeshROMSpec PongPaddleMesh =
+MeshROMSpec PongPaddleMeshSpec =
 {
 	{
 		/// class allocator
@@ -63,16 +63,16 @@ MeshROMSpec PongPaddleMesh =
 	},
 
 	/// segments
-	(PixelVector(*)[2])PongPaddleMeshesSegments
+	(PixelVector(*)[2])PongPaddleMeshSpecesSegments
 };
 
-WireframeROMSpec* const PongPaddleWireframes[] =
+WireframeROMSpec* const PongPaddleWireframeSpecs[] =
 {
-	(WireframeSpec*)&PongPaddleMesh,
+	(WireframeSpec*)&PongPaddleMeshSpec,
 	NULL
 };
 
-ColliderROMSpec PongPaddleColliders[] =
+ColliderROMSpec PongPaddleColliderSpecs[] =
 {
 	// wall collider
 	{
@@ -131,7 +131,7 @@ ColliderROMSpec PongPaddleColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-PhysicalSpecificationROMSpec PongPaddlePhysicalProperties =
+PhysicalSpecificationROMSpec PongPaddlePhysicalPropertiesSpec =
 {
 	// mass
 	__F_TO_FIX10_6(0.55f),
@@ -149,7 +149,7 @@ PhysicalSpecificationROMSpec PongPaddlePhysicalProperties =
 	__I_TO_FIX10_6(8)
 };
 
-PongPaddleROMSpec PongPaddleEntity =
+PongPaddleROMSpec PongPaddleEntitySpec =
 {
 	{
 		{
@@ -173,10 +173,10 @@ PongPaddleROMSpec PongPaddleEntity =
 				false,
 			
 				// wireframes
-				(WireframeSpec**)PongPaddleWireframes,
+				(WireframeSpec**)PongPaddleWireframeSpecs,
 
 				// collision shapes
-				(ColliderSpec*)PongPaddleColliders,
+				(ColliderSpec*)PongPaddleColliderSpecs,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -186,7 +186,7 @@ PongPaddleROMSpec PongPaddleEntity =
 				kTypePongPaddle,
 
 				// physical specification
-				(PhysicalProperties*)&PongPaddlePhysicalProperties,
+				(PhysicalProperties*)&PongPaddlePhysicalPropertiesSpec,
 			},
 
 			// pointer to the animation spec for the item

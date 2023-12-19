@@ -29,11 +29,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-/*
- * Check assets/stage/WireframesStageSpec.c
- */
-extern StageROMSpec WireframesStage;
-
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DEFINITION
@@ -44,7 +39,11 @@ void WireframesState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&WireframesStage;
+	/*
+	 * Check assets/stage/WireframesStageSpec.c
+	 */
+	extern StageROMSpec WireframesStageSpec;
+	this->stageSpec = (StageSpec*)&WireframesStageSpec;
 }
 
 // class's destructor

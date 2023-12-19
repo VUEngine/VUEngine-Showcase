@@ -29,7 +29,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern StageROMSpec PostProcessingEffectsStage;
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S ATTRIBUTES
@@ -56,7 +55,11 @@ void PostProcessingEffectsState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&PostProcessingEffectsStage;
+	/*
+	 * Check assets/stage/PostProcessingEffectsStageSpec.c
+	 */
+	extern StageROMSpec PostProcessingEffectsStageSpec;
+	this->stageSpec = (StageSpec*)&PostProcessingEffectsStageSpec;
 	this->selectedPostProcessingEffect = 0;
 	this->validSuboptionKeys = K_LL | K_LR;
 }

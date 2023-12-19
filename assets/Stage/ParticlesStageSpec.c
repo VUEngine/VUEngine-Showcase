@@ -21,23 +21,23 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec BoxEntity;
+extern EntitySpec BoxEntitySpec;
 extern EntitySpec LowPowerIndicatorEntity;
-extern EntitySpec NormalStarsParticleSystem;
+extern EntitySpec StarsParticleSystemNormalSpec;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec ParticlesStageEntities[] =
+PositionedEntityROMSpec ParticlesStageEntitySpecs[] =
 {
-	{&NormalStarsParticleSystem, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
-	{&BoxEntity, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&StarsParticleSystemNormalSpec, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
+	{&BoxEntitySpec, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ParticlesStageUiEntities[] =
+PositionedEntityROMSpec ParticlesStageUiEntitySpecs[] =
 {
 	{&LowPowerIndicatorEntity, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
@@ -48,14 +48,14 @@ PositionedEntityROMSpec ParticlesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const ParticlesStageFonts[] =
+FontROMSpec* const ParticlesStageFontSpecs[] =
 {
 	&DefaultFontSpec,
 
 	NULL
 };
 
-SoundROM* ParticlesStageSounds[] =
+SoundROM* ParticlesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -64,7 +64,7 @@ SoundROM* ParticlesStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec ParticlesStage =
+StageROMSpec ParticlesStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -254,7 +254,7 @@ StageROMSpec ParticlesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)ParticlesStageFonts,
+		(FontSpec**)ParticlesStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -263,19 +263,19 @@ StageROMSpec ParticlesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)ParticlesStageSounds,
+		(Sound**)ParticlesStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)ParticlesStageUiEntities,
+			(PositionedEntity*)ParticlesStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)ParticlesStageEntities,
+		(PositionedEntity*)ParticlesStageEntitySpecs,
 	},
 
 	// post processing effects

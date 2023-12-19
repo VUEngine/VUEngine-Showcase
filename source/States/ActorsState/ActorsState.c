@@ -30,11 +30,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-/*
- * Check assets/stage/ActorsStageSpec.c"
- */
-extern StageROMSpec ActorsStage;
-
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DEFINITION
@@ -45,7 +40,11 @@ void ActorsState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&ActorsStage;
+	/*
+	 * Check assets/stage/ActorsStageSpecSpec.c"
+	 */
+	extern StageROMSpec ActorsStageSpec;
+	this->stageSpec = (StageSpec*)&ActorsStageSpec;
 }
 
 // class's destructor

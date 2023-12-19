@@ -40,7 +40,7 @@ extern uint16 CogWheelBackgroundMap[];
 //---------------------------------------------------------------------------------------------------------
 
 
-CharSetROMSpec CogWheelCharset =
+CharSetROMSpec CogWheelCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	26,
@@ -58,7 +58,7 @@ CharSetROMSpec CogWheelCharset =
 	NULL,
 };
 
-CharSetROMSpec CogWheelBackgroundCharset =
+CharSetROMSpec CogWheelBackgroundCharsetSpec =
 {
 	// number of chars in function of the number of frames to load at the same time
 	26,
@@ -76,10 +76,10 @@ CharSetROMSpec CogWheelBackgroundCharset =
 	NULL,
 };
 
-TextureROMSpec CogWheelTexture =
+TextureROMSpec CogWheelTextureSpec =
 {
 	// charset spec
-	(CharSetSpec*)&CogWheelCharset,
+	(CharSetSpec*)&CogWheelCharsetSpec,
 
 	// bgmap spec
 	CogWheelMap,
@@ -112,7 +112,7 @@ TextureROMSpec CogWheelTexture =
 TextureROMSpec CogWheelBackgroundTexture =
 {
 	// charset spec
-	(CharSetSpec*)&CogWheelBackgroundCharset,
+	(CharSetSpec*)&CogWheelBackgroundCharsetSpec,
 
 	// bgmap spec
 	CogWheelBackgroundMap,
@@ -142,20 +142,20 @@ TextureROMSpec CogWheelBackgroundTexture =
 	false,
 };
 
-TextureROMSpec* const CogWheelBackgroundTextures[] =
+TextureROMSpec* const CogWheelBackgroundTextureSpecs[] =
 {
 	(TextureSpec*)&CogWheelBackgroundTexture,
 	NULL
 };
 
-ObjectSpriteROMSpec CogWheelObjectSprite =
+ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 {
 	{
 		// sprite's type
 		__TYPE(ObjectSprite),
 
 		// texture spec
-		(TextureSpec*)&CogWheelTexture,
+		(TextureSpec*)&CogWheelTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -172,14 +172,14 @@ ObjectSpriteROMSpec CogWheelObjectSprite =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec CogWheelBgmapSpriteNormal =
+BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&CogWheelTexture,
+		(TextureSpec*)&CogWheelTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -199,14 +199,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormal =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec CogWheelBgmapSpriteAffine =
+BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&CogWheelTexture,
+		(TextureSpec*)&CogWheelTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -226,14 +226,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffine =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec CogWheelBgmapSpriteHBias =
+BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 {
 	{
 		// sprite's type
 		__TYPE(BgmapSprite),
 
 		// texture spec
-		(TextureSpec*)&CogWheelTexture,
+		(TextureSpec*)&CogWheelTextureSpec,
 
 		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
@@ -253,7 +253,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteHBias =
 	__WORLD_ON,
 };
 
-MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormal =
+MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 {
 	{
 		{
@@ -282,7 +282,7 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormal =
 	},
 
 	/// texture to use with the sprite
-	(TextureSpec**)CogWheelBackgroundTextures,
+	(TextureSpec**)CogWheelBackgroundTextureSpecs,
 
 	/// SCX/SCY value
 	__WORLD_1x1,
@@ -301,13 +301,13 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormal =
 };
 
 
-BgmapSpriteROMSpec* const CogWheelEntitySprites[] =
+BgmapSpriteROMSpec* const CogWheelSpriteSpecs[] =
 {
-	&CogWheelBgmapSpriteAffine,
+	&CogWheelBgmapSpriteAffineSpec,
 	NULL
 };
 
-ColliderROMSpec CogWheelColliders[] =
+ColliderROMSpec CogWheelColliderSpecs[] =
 {
 	// floor
 	{
@@ -339,7 +339,7 @@ ColliderROMSpec CogWheelColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-CogWheelROMSpec CogWheelEntity =
+CogWheelROMSpec CogWheelEntitySpec =
 {
 	{
 		// class allocator
@@ -355,7 +355,7 @@ CogWheelROMSpec CogWheelEntity =
 		NULL,
 
 		// sprites
-		(SpriteSpec**)CogWheelEntitySprites,
+		(SpriteSpec**)CogWheelSpriteSpecs,
 
 		// use z displacement in projection
 		false,
@@ -364,7 +364,7 @@ CogWheelROMSpec CogWheelEntity =
 		(WireframeSpec**)NULL,
 
 		// collision shapes
-		(ColliderSpec*)CogWheelColliders,
+		(ColliderSpec*)CogWheelColliderSpecs,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size

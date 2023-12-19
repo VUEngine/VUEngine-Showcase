@@ -29,12 +29,12 @@ extern EntitySpec LowPowerIndicatorEntity;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec AnimationSchemesStageEntities[] =
+PositionedEntityROMSpec AnimationSchemesStageEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec AnimationSchemesStageUiEntities[] =
+PositionedEntityROMSpec AnimationSchemesStageUiEntitySpecs[] =
 {
 //	{&LowPowerIndicatorEntity, {16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
@@ -45,14 +45,14 @@ PositionedEntityROMSpec AnimationSchemesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const AnimationSchemesStageFonts[] =
+FontROMSpec* const AnimationSchemesStageFontSpecs[] =
 {
 	&DefaultFontSpec,
 
 	NULL
 };
 
-SoundROM* AnimationSchemesStageSounds[] =
+SoundROM* AnimationSchemesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -61,7 +61,7 @@ SoundROM* AnimationSchemesStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec AnimationSchemesStage =
+StageROMSpec AnimationSchemesStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -251,7 +251,7 @@ StageROMSpec AnimationSchemesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)AnimationSchemesStageFonts,
+		(FontSpec**)AnimationSchemesStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -260,14 +260,14 @@ StageROMSpec AnimationSchemesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)AnimationSchemesStageSounds,
+		(Sound**)AnimationSchemesStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)AnimationSchemesStageUiEntities,
+			(PositionedEntity*)AnimationSchemesStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 

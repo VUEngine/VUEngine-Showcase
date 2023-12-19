@@ -23,24 +23,24 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec Pyramid;
+extern EntitySpec PyramidEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec WireframesStageEntities[] =
+PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&Pyramid, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
-	{&Pyramid, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntitySpec, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntitySpec, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntitySpec, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntitySpec, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec WireframesStageUiEntities[] =
+PositionedEntityROMSpec WireframesStageUiEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -50,12 +50,12 @@ PositionedEntityROMSpec WireframesStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const WireframesStageFonts[] =
+FontROMSpec* const WireframesStageFontSpecs[] =
 {
 	NULL
 };
 
-SoundROM* WireframesStageSounds[] =
+SoundROM* WireframesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -65,7 +65,7 @@ SoundROM* WireframesStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec WireframesStage =
+StageROMSpec WireframesStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -255,7 +255,7 @@ StageROMSpec WireframesStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)WireframesStageFonts,
+		(FontSpec**)WireframesStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -264,19 +264,19 @@ StageROMSpec WireframesStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)WireframesStageSounds,
+		(Sound**)WireframesStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)WireframesStageUiEntities,
+			(PositionedEntity*)WireframesStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)WireframesStageEntities,
+		(PositionedEntity*)WireframesStageEntitySpecs,
 	},
 
 	// post processing effects

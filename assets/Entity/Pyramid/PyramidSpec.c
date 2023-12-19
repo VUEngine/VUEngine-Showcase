@@ -27,7 +27,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-const PixelVector PyramidEntityMeshesSegments[][2]=
+const PixelVector PyramidMeshesSegments[][2]=
 {
 	// base
 	{
@@ -72,7 +72,7 @@ const PixelVector PyramidEntityMeshesSegments[][2]=
 	},
 };
 
-MeshROMSpec PyramidEntityMesh =
+MeshROMSpec PyramidMeshSpec =
 {
 	{
 		/// class allocator
@@ -92,16 +92,16 @@ MeshROMSpec PyramidEntityMesh =
 	},
 
 	/// segments
-	(PixelVector(*)[2])PyramidEntityMeshesSegments
+	(PixelVector(*)[2])PyramidMeshesSegments
 };
 
-WireframeROMSpec* const PyramidEntityWireframes[] =
+WireframeROMSpec* const PyramidWireframeSpecs[] =
 {
-	(WireframeSpec*)&PyramidEntityMesh,
+	(WireframeSpec*)&PyramidMeshSpec,
 	NULL
 };
 
-ColliderROMSpec PyramidEntityColliders[] =
+ColliderROMSpec PyramidColliderSpecs[] =
 {
 	{
 		// collider
@@ -132,7 +132,7 @@ ColliderROMSpec PyramidEntityColliders[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec Pyramid =
+EntityROMSpec PyramidEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -153,10 +153,10 @@ EntityROMSpec Pyramid =
 	false,
 
 	/// Wireframes
-	(WireframeSpec**)PyramidEntityWireframes,
+	(WireframeSpec**)PyramidWireframeSpecs,
 
 	/// collision shapes
-	(ColliderSpec*)PyramidEntityColliders,
+	(ColliderSpec*)PyramidColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

@@ -27,11 +27,6 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-/*
- * Check assets/stage/VideoPlayerStageSpec.c
- */
-extern StageROMSpec VideoPlayerStage;
-
 
 //---------------------------------------------------------------------------------------------------------
 // 											CLASS'S DEFINITION
@@ -42,7 +37,11 @@ void VideoPlayerState::constructor()
 {
 	Base::constructor();
 
-	this->stageSpec = (StageSpec*)&VideoPlayerStage;
+	/*
+	 * Check assets/stage/VideoPlayerStageSpec.c
+	 */
+	extern StageROMSpec VideoPlayerStageSpec;
+	this->stageSpec = (StageSpec*)&VideoPlayerStageSpec;
 	this->validSuboptionKeys = K_LL | K_LR;
 }
 

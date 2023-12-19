@@ -22,7 +22,7 @@
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-extern EntitySpec PdScreenshotEntity;
+extern EntitySpec PdScreenshotEntitySpec;
 extern EntitySpec LowPowerIndicatorEntity;
 
 
@@ -30,14 +30,14 @@ extern EntitySpec LowPowerIndicatorEntity;
 // 											ENTITY LISTS
 //---------------------------------------------------------------------------------------------------------
 
-PositionedEntityROMSpec PostProcessingEffectsStageEntities[] =
+PositionedEntityROMSpec PostProcessingEffectsStageEntitySpecs[] =
 {
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
+PositionedEntityROMSpec PostProcessingEffectsStageUiEntitySpecs[] =
 {
-	{&PdScreenshotEntity, 		{0, 32, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&PdScreenshotEntitySpec, 		{0, 32, 0, 0}, 0, NULL, NULL, NULL, false},
 	{&LowPowerIndicatorEntity, 	{16, 12, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
@@ -47,14 +47,14 @@ PositionedEntityROMSpec PostProcessingEffectsStageUiEntities[] =
 // 											PRELOAD LISTS
 //---------------------------------------------------------------------------------------------------------
 
-FontROMSpec* const PostProcessingEffectsStageFonts[] =
+FontROMSpec* const PostProcessingEffectsStageFontSpecs[] =
 {
 	&DefaultFontSpec,
 
 	NULL
 };
 
-SoundROM* PostProcessingEffectsStageSounds[] =
+SoundROM* PostProcessingEffectsStageSoundSpecs[] =
 {
 	NULL
 };
@@ -63,7 +63,7 @@ SoundROM* PostProcessingEffectsStageSounds[] =
 //											STAGE DEFINITION
 //---------------------------------------------------------------------------------------------------------
 
-StageROMSpec PostProcessingEffectsStage =
+StageROMSpec PostProcessingEffectsStageSpec =
 {
 	// allocator
 	__TYPE(Stage),
@@ -253,7 +253,7 @@ StageROMSpec PostProcessingEffectsStage =
 	// assets
 	{
 		// fonts to preload
-		(FontSpec**)PostProcessingEffectsStageFonts,
+		(FontSpec**)PostProcessingEffectsStageFontSpecs,
 
 		// char sets to preload
 		(CharSetSpec**)NULL,
@@ -262,19 +262,19 @@ StageROMSpec PostProcessingEffectsStage =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)PostProcessingEffectsStageSounds,
+		(Sound**)PostProcessingEffectsStageSoundSpecs,
 	},
 
 	// entities
 	{
 		// ui
 		{
-			(PositionedEntity*)PostProcessingEffectsStageUiEntities,
+			(PositionedEntity*)PostProcessingEffectsStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// children
-		(PositionedEntity*)PostProcessingEffectsStageEntities,
+		(PositionedEntity*)PostProcessingEffectsStageEntitySpecs,
 	},
 
 	// post processing effects
