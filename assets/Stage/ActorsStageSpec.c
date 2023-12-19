@@ -27,6 +27,7 @@
 extern EntitySpec BoxEntitySpec;
 extern EntitySpec CogWheelEntitySpec;
 extern EntitySpec PunkActorSpec;
+extern EntitySpec LowPowerIndicatorEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------

@@ -44,7 +44,7 @@ PositionedEntityROMSpec PongStageEntitySpecs[] =
 
 PositionedEntityROMSpec PongStageUiEntitySpecs[] =
 {
-//	{&LowPowerIndicatorEntity, 	{ 25,  	 25, 	  -1, 0},	0, NULL, NULL, NULL, false},
+//	{&LowPowerIndicatorEntitySpec, 	{ 25,  	 25, 	  -1, 0},	0, NULL, NULL, NULL, false},
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
