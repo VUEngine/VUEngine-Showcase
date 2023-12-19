@@ -344,7 +344,11 @@ void AnimationSchemesState::destroySprites()
 		VirtualList::clear(this->animatedSprites);
 	}
 
-	// Clean manually graphics memory (the engine takes care of this when swapping states)
+	/*
+	 * Cleaning graphics memory explicitly should not be done in general, the engine takes 
+	 * care of this when swapping states. We do it here becuase BGMAP memory cannot be 
+	 * defragmented and loading non shared textures would quickly deplete it.
+	 */ 
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
 }
