@@ -83,7 +83,7 @@ void PunkDie::enter(void* owner)
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
-	 * the font CharSets are rewritten, other wise, the next message will not remain on the screen
+	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);

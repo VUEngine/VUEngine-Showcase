@@ -364,10 +364,10 @@ void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* own
 {
 	Base::execute(this, owner);
 
-	/* When Sprites use non shared Textures they all have to be
+	/* When Sprites use non shared Textures they all have to
 	 * update their graphics when animated. Each will reserve its
 	 * own chunk of graphics memory and updating all of them
-	 * will be heavier.	 
+	 * will require more processing resources.	 
 	 */
 	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
 	{
@@ -391,7 +391,7 @@ void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner 
 	Base::execute(this, owner);
 
 	/* When Sprites share a Texture (and the underlying CharSet)
-	 * animating one of them will animate the other because the
+	 * animating one of them will animate the others because the
 	 * underlying graphics are shared by all of them.
 	 * This saves on performance too because the graphics memory
 	 * is only updated once.
@@ -415,8 +415,8 @@ void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* ow
 	Base::execute(this, owner);
 
 	/* Multiframe Textures write all the frames of animation in graphics memory.
-	 * They should always be shared Texture, otherwise graphics memory would be
-	 * wasted by writing multiple times the same spreadsheet.
+	 * They should always be shared, otherwise processing power would be wasted
+	 * by writing multiple times the same spreadsheet.
 	 * The animations of the Sprites that use these Textures are not constrained 
 	 * to be in sync.
 	 */

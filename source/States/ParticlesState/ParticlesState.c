@@ -208,7 +208,7 @@ void ParticlesState::loadParticles()
 			break;
 	}
 
-	// Don't create Particles directly
+	// Retrieve the particle system from the stage
 	this->particleSystem = ParticleSystem::safeCast(Stage::getChildByName(this->stage, "Stars", false));
 
 	NM_ASSERT(!isDeleted(this->particleSystem), "ParticlesState::loadParticles: stars not found");

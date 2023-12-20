@@ -215,26 +215,6 @@ static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 	}
 
 	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
-/*	
-	if(isDeleted(punk))
-	{
-		return;
-	}
-
-	Vector3D position = *AnimatedEntity::getPosition(punk);
-	const char* punkName = AnimatedEntity::getName(punk);
-	int16 col = __HALF_SCREEN_WIDTH_IN_CHARS + __METERS_TO_PIXELS(position.x) / 10 - strlen(punkName) - 2;
-	int16 row = __HALF_SCREEN_HEIGHT_IN_CHARS + __METERS_TO_PIXELS(position.y) / 10;
-
-	Printing::text(Printing::getInstance(), "                               ", 16, row, NULL);
-
-	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
-	{
-		return;
-	}
-
-	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
-	*/
 }
 
 void EntitiesState::createLeaderPunk()
@@ -282,9 +262,9 @@ void EntitiesState::createSlavePunk(uint16 input)
 	if(NULL != childPunkName)
 	{
 		/*
-			* Let see if the punk already has a child with the selected name.
-			* If not, then create and add it as a child.
-			*/
+		 * Let's see if the punk already has a child with the selected name.
+		 * If not, then create and add it as a child.
+		 */
 		AnimatedEntity childPunk = AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, childPunkName, false));
 
 		if(NULL != childPunk)
