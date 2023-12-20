@@ -262,7 +262,6 @@ StageROMSpec VideoPlayerStageSpec =
         {
 			(PositionedEntity*)VideoPlayerStageUiEntitySpecs,
 			__TYPE(UIContainer),
-            NULL,
         },
 
         // children

@@ -44,13 +44,7 @@
         "runDelayedMessagesAtHalfFrameRate": false,
         "timerResolution": 10
     },
-    "game": [
-        {
-            "key": "__soundTest",
-            "type": "boolean",
-            "value": "1"
-        }
-    ],
+    "game": [],
     "math": {
         "fixedPointPrecision": 6
     },

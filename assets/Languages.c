@@ -15,11 +15,11 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern LangROMSpec EnglishLanguageSpec;
-extern EntitySpec FlagUnitedKingdomEntity;
+extern EntitySpec FlagUnitedKingdomEntitySpec;
 extern LangROMSpec GermanLanguageSpec;
-extern EntitySpec FlagGermanyEntity;
+extern EntitySpec FlagGermanyEntitySpec;
 extern LangROMSpec SpanishLanguageSpec;
-extern EntitySpec FlagSpainEntity;
+extern EntitySpec FlagSpainEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -169,7 +169,7 @@ const LangROMSpec EnglishLanguageSpec =
 	"English",
 
 	// flag entity
-	&FlagUnitedKingdomEntity,
+	&FlagUnitedKingdomEntitySpec,
 	
 	// strings
 	(const char**)EnglishLanguageStrings
@@ -309,7 +309,7 @@ const LangROMSpec GermanLanguageSpec =
 	"Deutsch",
 
 	// flag entity
-	&FlagGermanyEntity,
+	&FlagGermanyEntitySpec,
 	
 	// strings
 	(const char**)GermanLanguageStrings
@@ -449,7 +449,7 @@ const LangROMSpec SpanishLanguageSpec =
 	"Español",
 
 	// flag entity
-	&FlagSpainEntity,
+	&FlagSpainEntitySpec,
 	
 	// strings
 	(const char**)SpanishLanguageStrings

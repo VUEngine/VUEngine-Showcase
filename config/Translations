@@ -2,19 +2,19 @@
     "languages": [
         {
             "code": "en",
-            "flag": "FlagUnitedKingdomEntity",
+            "flag": "FlagUnitedKingdomEntitySpec",
             "localizedName": "English",
             "name": "English"
         },
         {
             "code": "de",
-            "flag": "FlagGermanyEntity",
+            "flag": "FlagGermanyEntitySpec",
             "localizedName": "Deutsch",
             "name": "German"
         },
         {
             "code": "es",
-            "flag": "FlagSpainEntity",
+            "flag": "FlagSpainEntitySpec",
             "localizedName": "Español",
             "name": "Spanish"
         }
