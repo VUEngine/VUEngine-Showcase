@@ -721,7 +721,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 	"Move"
 };
 
-PhysicalSpecificationROMSpec PunkPhysicalPropertiesSpec =
+PhysicalPropertiesROMSpec PunkPhysicalPropertiesSpec =
 {
 	// mass
 	__F_TO_FIXED(0.5f),

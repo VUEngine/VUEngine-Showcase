@@ -87,7 +87,7 @@ ColliderROMSpec PongBallColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-PhysicalSpecificationROMSpec PongBallPhysicalPropertiesSpec =
+PhysicalPropertiesROMSpec PongBallPhysicalPropertiesSpec =
 {
 	// mass
 	__F_TO_FIX10_6(0.1f),
