@@ -118,8 +118,8 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 void PostProcessingEffectsState::showControls()
 {
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void PostProcessingEffectsState::showStuff()
@@ -130,36 +130,36 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringFrameBuffersLabel), 2, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringPostProcessingEffectsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringFrameBuffersLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPostProcessingEffectsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PostProcessingEffectsState", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " processUserInput", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "PostProcessingEffectsState", 2, y++, NULL);
+	Printing::text(this->printing, " processUserInput", 2, y++, NULL);
 	
 	y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "Debug");
-	Printing::text(Printing::getInstance(), "VIPManager", 32, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "Debug");
+	Printing::text(this->printing, "VIPManager", 32, y++, NULL);
 	y++;
 
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "Debug");
-	Printing::text(Printing::getInstance(), "            ", 32, y, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "Debug");
+	Printing::text(this->printing, "            ", 32, y, NULL);
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringWobbleLabel), 32, y, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringWobbleLabel), 32, y, NULL);
 	}
 	else if(PostProcessingTilt::tiltScreen == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringTiltELabel), 32, y, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringTiltELabel), 32, y, NULL);
 	}
 	else if(PostProcessingDwarfPlanet::dwarfPlanet == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringDwarfPlanetLabel), 32, y, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringDwarfPlanetLabel), 32, y, NULL);
 	}
 	else if(PostProcessingRain::waterFall == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
 	}
 }

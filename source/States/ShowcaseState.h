@@ -15,9 +15,10 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
-#include <GameState.h>
-
+#include <Printing.h>
 #include <Sound.h>
+
+#include <GameState.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -36,6 +37,7 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
+	Printing printing;
 	SoundSpec* playingSoundEffect;
 	bool showAdditionalDetails;
 	uint16 validSuboptionKeys;

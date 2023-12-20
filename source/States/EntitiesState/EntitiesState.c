@@ -60,10 +60,10 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 
 	EntitiesState::movePunks(this);
 
-	Printing::text(Printing::getInstance(), "                                                ", 0, 25, NULL);
-	EntitiesState::printPunkName(this->leaderPunk, 25);
-	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 25);
-	EntitiesState::printPunkName(AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 25);
+	Printing::text(this->printing, "                                                ", 0, 25, NULL);
+	EntitiesState::printPunkName(this, this->leaderPunk, 25);
+	EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 25);
+	EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 25);
 
 	if(this->showAdditionalDetails)
 	{
@@ -97,9 +97,9 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 
 void EntitiesState::showControls()
 {
-	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void EntitiesState::showStuff()
@@ -110,30 +110,30 @@ void EntitiesState::showStuff()
 void EntitiesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntitiesLabel), 2, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntitiesLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "AnimatedEntity", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Entity", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Stage", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "AnimatedEntity", 2, y++, NULL);
+	Printing::text(this->printing, "Entity", 2, y++, NULL);
+	Printing::text(this->printing, "Stage", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PunkEntitySpec", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "PunkEntitySpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntityCreationLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEntityDestructionLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityCreationLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityDestructionLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "EntitiesState", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " createLeaderPunk", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " movePunks", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " createSlavePunk", 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, "EntitiesState", 26, y++, NULL);
+	Printing::text(this->printing, " createLeaderPunk", 26, y++, NULL);
+	Printing::text(this->printing, " movePunks", 26, y++, NULL);
+	Printing::text(this->printing, " createSlavePunk", 26, y++, NULL);
 	y++;
 }
 
@@ -145,60 +145,60 @@ void EntitiesState::showAdditionalDetails()
 	}
 
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), __GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
+	Printing::text(this->printing, __GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
 
-	Printing::text(Printing::getInstance(), "Internal ID:   ", 2, ++y, NULL);
-	Printing::int32(Printing::getInstance(), AnimatedEntity::getInternalId(this->leaderPunk), 15, y++, NULL);
-	Printing::text(Printing::getInstance(), "Name:          ", 2, ++y, NULL);
-	Printing::text(Printing::getInstance(), AnimatedEntity::getName(this->leaderPunk), 15, y++, NULL);
-	Printing::text(Printing::getInstance(), "Children:      ", 2, ++y, NULL);
-	Printing::int32(Printing::getInstance(), AnimatedEntity::getChildCount(this->leaderPunk), 15, y++, NULL);
+	Printing::text(this->printing, "Internal ID:   ", 2, ++y, NULL);
+	Printing::int32(this->printing, AnimatedEntity::getInternalId(this->leaderPunk), 15, y++, NULL);
+	Printing::text(this->printing, "Name:          ", 2, ++y, NULL);
+	Printing::text(this->printing, AnimatedEntity::getName(this->leaderPunk), 15, y++, NULL);
+	Printing::text(this->printing, "Children:      ", 2, ++y, NULL);
+	Printing::int32(this->printing, AnimatedEntity::getChildCount(this->leaderPunk), 15, y++, NULL);
 
 	if(NULL != AnimatedEntity::getSprites(this->leaderPunk))
 	{
-		Printing::text(Printing::getInstance(), "Sprites:       ", 2, ++y, NULL);
-		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
+		Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
+		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
-		Printing::text(Printing::getInstance(), "Sprites:       0", 2, ++y, NULL);
+		Printing::text(this->printing, "Sprites:       0", 2, ++y, NULL);
 		y++;
 	}
 
 	if(NULL != AnimatedEntity::getWireframes(this->leaderPunk))
 	{
-		Printing::text(Printing::getInstance(), "Wireframes:  ", 2, ++y, NULL);
-		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
+		Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
+		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
-		Printing::text(Printing::getInstance(), "Wireframes:  0", 2, ++y, NULL);
+		Printing::text(this->printing, "Wireframes:  0", 2, ++y, NULL);
 		y++;
 	}
 
 	if(NULL != AnimatedEntity::getColliders(this->leaderPunk))
 	{
-		Printing::text(Printing::getInstance(), "Colliders:   ", 2, ++y, NULL);
-		Printing::int32(Printing::getInstance(), VirtualList::getSize(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
+		Printing::text(this->printing, "Colliders:   ", 2, ++y, NULL);
+		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
-		Printing::text(Printing::getInstance(), "Colliders:      0", 2, ++y, NULL);
+		Printing::text(this->printing, "Colliders:      0", 2, ++y, NULL);
 		y++;
 	}
 
 	y = 5;
-	Printing::text(Printing::getInstance(), "Position", 22, y, NULL);
-	Printing::text(Printing::getInstance(), "Rotation", 37, y++, NULL);
+	Printing::text(this->printing, "Position", 22, y, NULL);
+	Printing::text(this->printing, "Rotation", 37, y++, NULL);
 	Vector3D::print(*AnimatedEntity::getPosition(this->leaderPunk), 22, ++y);
 	Rotation::print(*AnimatedEntity::getRotation(this->leaderPunk), 37, y);
 
 	y = 11;
-	Printing::text(Printing::getInstance(), "Scale", 30, y++, NULL);
+	Printing::text(this->printing, "Scale", 30, y++, NULL);
 	Scale::print(*AnimatedEntity::getScale(this->leaderPunk), 30, ++y);
 }
 
-static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
+void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 {
 	if(isDeleted(punk))
 	{
@@ -214,7 +214,7 @@ static void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 		return;
 	}
 
-	Printing::text(Printing::getInstance(), punkName, col, row, NULL);
+	Printing::text(this->printing, punkName, col, row, NULL);
 }
 
 void EntitiesState::createLeaderPunk()

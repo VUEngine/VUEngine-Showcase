@@ -107,9 +107,9 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 
 void ParticlesState::showControls()
 {
-	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void ParticlesState::showStuff()
@@ -122,43 +122,43 @@ void ParticlesState::showExplanation()
 	if(!isDeleted(this->particleSystem))
 	{
 		int16 y = 3;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), "Particle", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), "ParticleSystem", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), "PhysicalParticle", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), "SolidParticle", 2, y++, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, "Particle", 2, y++, NULL);
+		Printing::text(this->printing, "ParticleSystem", 2, y++, NULL);
+		Printing::text(this->printing, "PhysicalParticle", 2, y++, NULL);
+		Printing::text(this->printing, "SolidParticle", 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), "ParticlesState", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), " loadParticles", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), " processUserInput", 2, y++, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, "ParticlesState", 2, y++, NULL);
+		Printing::text(this->printing, " loadParticles", 2, y++, NULL);
+		Printing::text(this->printing, " processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), "StarParticle*Spec", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), "StarsParticleSystem*Spec", 2, y++, NULL);
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, "StarParticle*Spec", 2, y++, NULL);
+		Printing::text(this->printing, "StarsParticleSystem*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "Debug");
 
 		switch(this->particlesType)
 		{
 			case kParticleNormal:
 
-				Printing::text(Printing::getInstance(), "Particle", 28, y, NULL);
+				Printing::text(this->printing, "Particle", 28, y, NULL);
 				break;
 
 			case kParticlePhysical:
 
-				Printing::text(Printing::getInstance(), "PhysicalParticle", 28, y, NULL);
+				Printing::text(this->printing, "PhysicalParticle", 28, y, NULL);
 				break;
 
 			case kParticleSolid:
 
-				Printing::text(Printing::getInstance(), "SolidParticle", 28, y, NULL);
+				Printing::text(this->printing, "SolidParticle", 28, y, NULL);
 				break;
 		}
 	}	

@@ -357,35 +357,35 @@ void SoundsState::showStuff()
 void SoundsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSoundPlaybackLabel), 2, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringTimerSettingsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSoundPlaybackLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringTimerSettingsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "SoundManager", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Sound", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "SoundManager", 2, y++, NULL);
+	Printing::text(this->printing, "Sound", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), " EngineSound", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " ExplosionSound", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " NoFearForTheFutureSound", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " OracleOfSeasonsOverw...", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, " EngineSound", 2, y++, NULL);
+	Printing::text(this->printing, " ExplosionSound", 2, y++, NULL);
+	Printing::text(this->printing, " NoFearForTheFutureSound", 2, y++, NULL);
+	Printing::text(this->printing, " OracleOfSeasonsOverw...", 2, y++, NULL);
 
 	y++;
 	y++;
-	Printing::text(Printing::getInstance(), "Sound", 2, y++, NULL);
+	Printing::text(this->printing, "Sound", 2, y++, NULL);
 	SoundsState::showSoundMetadata(this);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Chiptunes", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "PCM", 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, "Chiptunes", 26, y++, NULL);
+	Printing::text(this->printing, "PCM", 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "SoundsState", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " loadSound", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " releaseSound", 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, "SoundsState", 26, y++, NULL);
+	Printing::text(this->printing, " loadSound", 26, y++, NULL);
+	Printing::text(this->printing, " releaseSound", 26, y++, NULL);
 	y++;
 }
 
@@ -393,32 +393,32 @@ void SoundsState::showControls()
 {
 	if(this->showAdditionalDetails)
 	{
-		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-		Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	}
 	else
 	{
-		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(Printing::getInstance(), __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	}
 }
 
 void SoundsState::showAdditionalDetails()
 {
-	Printing printing = Printing::getInstance();
+	Printing printing = this->printing;
 
 	uint16 totalSounds = SoundsState::getTotalSounds(this);
 

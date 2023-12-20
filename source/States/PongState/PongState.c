@@ -121,24 +121,24 @@ bool PongState::processUserInputRegardlessOfInput()
 
 void PongState::showControls()
 {
-	Printing::clearRow(Printing::getInstance(), __SCREEN_HEIGHT_IN_CHARS - 1);
+	Printing::clearRow(this->printing, __SCREEN_HEIGHT_IN_CHARS - 1);
 
 	if(this->isVersusMode)
 	{
-		Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
 		switch(Pong::getPlayerNumber(Pong::getInstance()))
 		{
 			case kPlayerOne:
 
-				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(this->printing, __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(this->printing, __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 				break;
 
 			case kPlayerTwo:
 
-				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(this->printing, __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(this->printing, __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 				break;
 		}
 	}
@@ -151,32 +151,32 @@ void PongState::showStuff()
 void PongState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCommunicationsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCommunicationsLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "CommunicationManager", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Pong*", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "CommunicationManager", 2, y++, NULL);
+	Printing::text(this->printing, "Pong*", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 
 	y = 19;
 
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PongBallEntitySpec", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongPaddleEntitySpec", 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, "PongBallEntitySpec", 26, y++, NULL);
+	Printing::text(this->printing, "PongPaddleEntitySpec", 26, y++, NULL);
 
 	y = 19;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Pong", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " syncWithRemote", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " transmitData", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), " processReceived..", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "Pong", 2, y++, NULL);
+	Printing::text(this->printing, " syncWithRemote", 2, y++, NULL);
+	Printing::text(this->printing, " transmitData", 2, y++, NULL);
+	Printing::text(this->printing, " processReceived..", 2, y++, NULL);
 	y++;
 
 	PongState::showConnectivityStatus(this);
@@ -192,11 +192,11 @@ void PongState::showConnectivityStatus()
 {
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
-		Printing::text(Printing::getInstance(), "CONNECTED", 19, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+		Printing::text(this->printing, "CONNECTED", 19, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
 	}
 	else	
 	{
-		Printing::text(Printing::getInstance(), " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+		Printing::text(this->printing, " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
 	}
 }
 

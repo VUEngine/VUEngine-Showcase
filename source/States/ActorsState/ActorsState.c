@@ -66,7 +66,7 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
 	 * the font CharSets are rewritten.
 	 */
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::addEventListener(this->printing, ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
 
 	/*
 	 * I need to register both released and hold buttons
@@ -86,7 +86,7 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 
 void ActorsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::removeEventListener(this->printing, ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
 
 	Base::exit(this, owner);
 }
@@ -136,9 +136,9 @@ void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__(
 
 void ActorsState::showControls()
 {
-	Printing::text(Printing::getInstance(), __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 void ActorsState::showStuff()
@@ -148,33 +148,33 @@ void ActorsState::showStuff()
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringStateMachinesLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStateMachinesLabel), 2, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Actor", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "MessageDispatcher*", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "Punk", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "PunkState*", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "Actor", 2, y++, NULL);
+	Printing::text(this->printing, "MessageDispatcher*", 2, y++, NULL);
+	Printing::text(this->printing, "Punk", 2, y++, NULL);
+	Printing::text(this->printing, "PunkState*", 2, y++, NULL);
 
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PunkActorSpec", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, "PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 	y++;
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "ActorsState", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " propagateMessage", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "Punk", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " enterCollision", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " handlePropagatedMe...", 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, "ActorsState", 26, y++, NULL);
+	Printing::text(this->printing, " propagateMessage", 26, y++, NULL);
+	Printing::text(this->printing, "Punk", 26, y++, NULL);
+	Printing::text(this->printing, " enterCollision", 26, y++, NULL);
+	Printing::text(this->printing, " handlePropagatedMe...", 26, y++, NULL);
 	y++;
 }
 

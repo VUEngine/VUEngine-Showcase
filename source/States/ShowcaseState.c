@@ -75,6 +75,7 @@ void ShowcaseState::constructor()
 	this->showAdditionalDetails = false;
 	this->validSuboptionKeys = K_NON;
 	this->playingSoundEffect = NULL;
+	this->printing = Printing::getInstance();
 }
 
 // class's destructor
@@ -279,7 +280,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 
 void ShowcaseState::show(bool reloadStuff)
 {
-	Printing::clear(Printing::getInstance());
+	Printing::clear(this->printing);
 	
 	ShowcaseState::showHeader(this);
 	ShowcaseState::showControls(this);
@@ -304,26 +305,26 @@ void ShowcaseState::show(bool reloadStuff)
 void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "(  /  ) ";
-	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(Printing::getInstance(), currentShowCaseNumberPrefix, NULL);
+	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(this->printing, currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
 	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
-	FontSize statePrefixTextSize = Printing::getTextSize(Printing::getInstance(), statePrefix, NULL);
+	FontSize statePrefixTextSize = Printing::getTextSize(this->printing, statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);
-	FontSize classNameTextSize = Printing::getTextSize(Printing::getInstance(), className, NULL);
+	FontSize classNameTextSize = Printing::getTextSize(this->printing, className, NULL);
 
 	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
-	Printing::text(Printing::getInstance(), __CHAR_SELECTOR_LEFT, 0, 0, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_L_TRIGGER, 1, 0, NULL);
-	Printing::text(Printing::getInstance(), currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
-	Printing::text(Printing::getInstance(), Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
-	Printing::int32(Printing::getInstance(), numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
-	Printing::text(Printing::getInstance(), statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "Debug");
-	Printing::text(Printing::getInstance(), className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_R_TRIGGER, 46, 0, NULL);
-	Printing::text(Printing::getInstance(), __CHAR_SELECTOR, 47, 0, NULL);
+	Printing::text(this->printing, __CHAR_SELECTOR_LEFT, 0, 0, NULL);
+	Printing::text(this->printing, __CHAR_L_TRIGGER, 1, 0, NULL);
+	Printing::text(this->printing, currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
+	Printing::text(this->printing, Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
+	Printing::int32(this->printing, numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
+	Printing::text(this->printing, statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "Debug");
+	Printing::text(this->printing, className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
+	Printing::text(this->printing, __CHAR_R_TRIGGER, 46, 0, NULL);
+	Printing::text(this->printing, __CHAR_SELECTOR, 47, 0, NULL);
 }
 
 void ShowcaseState::showControls()
