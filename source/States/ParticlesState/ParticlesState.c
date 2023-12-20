@@ -138,8 +138,8 @@ void ParticlesState::showExplanation()
 		Printing::text(Printing::getInstance(), " processUserInput", 2, y++, NULL);
 		y++;
 		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), "*StarParticle", 2, y++, NULL);
-		Printing::text(Printing::getInstance(), "*StarsParticleSystem*", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), "StarParticle*Spec", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), "StarsParticleSystem*Spec", 2, y++, NULL);
 
 		y = 3;
 		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "Debug");

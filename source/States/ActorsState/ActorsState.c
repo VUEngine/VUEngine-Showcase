@@ -161,7 +161,7 @@ void ActorsState::showExplanation()
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Punk", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");

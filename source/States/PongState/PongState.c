@@ -168,8 +168,8 @@ void PongState::showExplanation()
 	y = 19;
 
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "PongBallSpec", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "PongPaddleSpec", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongBallEntitySpec", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "PongPaddleEntitySpec", 26, y++, NULL);
 
 	y = 19;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");

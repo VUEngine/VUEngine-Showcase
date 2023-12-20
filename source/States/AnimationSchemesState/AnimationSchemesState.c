@@ -171,7 +171,7 @@ void AnimationSchemesState::showExplanation()
 	if(kAnimationsMultiframeTexture != this->animationScheme)
 	{
 		Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-		Printing::text(Printing::getInstance(), "PunkSprite*", 2, y++, NULL);
+		Printing::text(Printing::getInstance(), "PunkSprite*Spec", 2, y++, NULL);
 	}
 
 	y = 3;

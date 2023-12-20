@@ -170,8 +170,8 @@ void WireframesState::showExplanation()
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
-	Printing::text(Printing::getInstance(), "Pyramid", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), "WireframesStage", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "PyramidEntitySpec", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), "WireframesStageSpec", 26, y++, NULL);
 }
 
 void WireframesState::showAdditionalDetails()
