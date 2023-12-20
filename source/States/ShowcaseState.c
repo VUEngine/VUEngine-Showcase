@@ -182,18 +182,18 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 	if((this->validSuboptionKeys) & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection3Sound;
+		this->playingSoundEffect = &ChangeSelection3SoundSpec;
 		rumbleEffect = &ChangeSelection3RumbleEffect;
 	}
 	else if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection1Sound;
+		this->playingSoundEffect = &ChangeSelection1SoundSpec;
 		rumbleEffect = &ChangeSelection1RumbleEffect;
 		lock = true;
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection4Sound;
+		this->playingSoundEffect = &ChangeSelection4SoundSpec;
 		rumbleEffect = &ChangeSelection4RumbleEffect;
 	}
 
@@ -223,7 +223,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 			this->playingSoundEffect, 
 			kPlayAll, 
 			NULL, 
-			kSoundWrapperPlaybackNormal,
+			kSoundPlaybackNormal,
 			(EventListener)ShowcaseState::soundEffectDone, 
 			ListenerObject::safeCast(this)
 		);

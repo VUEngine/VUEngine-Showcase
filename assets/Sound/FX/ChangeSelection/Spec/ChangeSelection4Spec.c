@@ -87,7 +87,7 @@ SoundChannelROM* const ChangeSelection4SoundChannels[] =
 	NULL
 };
 
-SoundROM ChangeSelection4Sound =
+SoundROMSpec ChangeSelection4SoundSpec =
 {
 	/// Name
 	"Change Selection Sound 4",

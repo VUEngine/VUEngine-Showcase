@@ -87,7 +87,7 @@ SoundChannelROM* PointSoundChannels[] =
 	NULL
 };
 
-SoundROM PointSound =
+SoundROMSpec PointSoundSpec =
 {
 	/// Name
 	"Change Selection Sound 3",

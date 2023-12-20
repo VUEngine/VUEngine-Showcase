@@ -18,7 +18,7 @@
 
 #include <ShowcaseState.h>
 
-#include <SoundWrapper.h>
+#include <Sound.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 
 dynamic_singleton class SoundsState : ShowcaseState
 {
-	SoundWrapper soundWrapper;
+	Sound sound;
 	uint16 selectedSound;
 	
 	static SoundsState getInstance();

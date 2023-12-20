@@ -15,7 +15,7 @@
 #include <Printing.h>
 #include <CharSet.h>
 #include <Fonts.h>
-#include <SoundWrapper.h>
+#include <Sound.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -52,7 +52,7 @@ FontROMSpec* const SpritesStageFontSpecs[] =
 	NULL
 };
 
-SoundROM* SpritesStageSoundSpecs[] =
+SoundROMSpec* SpritesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -260,7 +260,7 @@ StageROMSpec SpritesStageSpec =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)SpritesStageSoundSpecs,
+		(SoundSpec**)SpritesStageSoundSpecs,
 	},
 
 	// entities

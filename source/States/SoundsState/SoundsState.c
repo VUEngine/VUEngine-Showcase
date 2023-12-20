@@ -29,12 +29,12 @@
 // 												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
 
-const SoundROM* soundSamples[] =
+const SoundROMSpec* soundSamples[] =
 {
-	&OracleOfSeasonsOverworldThemeSound,
-	&NoFearForTheFutureSound,
-	&ExplosionSound,
-	&EngineSound,
+	&OracleOfSeasonsOverworldThemeSoundSpec,
+	&NoFearForTheFutureSoundSpec,
+	&ExplosionSoundSpec,
+	&EngineSoundSpec,
 	NULL
 };
 
@@ -66,7 +66,7 @@ void SoundsState::constructor()
 	 */
 	extern StageROMSpec SoundsStageSpec;
 	this->stageSpec = (StageSpec*)&SoundsStageSpec;
-	this->soundWrapper = NULL;
+	this->sound = NULL;
 	this->selectedSound = 0;
 	this->validSuboptionKeys = K_LL | K_LR;
 }
@@ -78,7 +78,7 @@ void SoundsState::constructor()
  */
 void SoundsState::destructor()
 {
-	SoundsState::releaseSoundWrapper(this);
+	SoundsState::releaseSound(this);
 
 	// destroy base
 	Base::destructor();
@@ -105,7 +105,7 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 
 void SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(!isDeleted(this->soundWrapper) && SoundWrapper::hasPCMTracks(this->soundWrapper))
+	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
 	{
 		if(this->showAdditionalDetails)
 		{
@@ -141,7 +141,7 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
 	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
 
-	SoundsState::releaseSoundWrapper(this);
+	SoundsState::releaseSound(this);
 
 	Base::exit(this, owner);
 }
@@ -153,17 +153,17 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
  */
 void SoundsState::processUserInput(const UserInput* userInput)
 {
-	if(!isDeleted(this->soundWrapper))
+	if(!isDeleted(this->sound))
 	{
 		if(K_A & userInput->releasedKey)
 		{
-			if(!SoundWrapper::isTurnedOn(this->soundWrapper) || SoundWrapper::isPaused(this->soundWrapper))
+			if(!Sound::isTurnedOn(this->sound) || Sound::isPaused(this->sound))
 			{
-				SoundWrapper::play(this->soundWrapper, NULL, kSoundWrapperPlaybackNormal);
+				Sound::play(this->sound, NULL, kSoundPlaybackNormal);
 			}
 			else
 			{
-				SoundWrapper::pause(this->soundWrapper);
+				Sound::pause(this->sound);
 			}
 
 			SoundsState::showSoundMetadata(this);
@@ -172,16 +172,16 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		}
 		else if(K_B & userInput->releasedKey)
 		{
-			SoundWrapper::rewind(this->soundWrapper);
+			Sound::rewind(this->sound);
 			SoundsState::showSoundMetadata(this);
 
 			return;
 		}
 	}	
 
-	if(!isDeleted(this->soundWrapper))
+	if(!isDeleted(this->sound))
 	{
-		SoundWrapper::pause(this->soundWrapper);
+		Sound::pause(this->sound);
 	}
 
 	SoundsState::playSoundEffects(this, userInput, true);
@@ -232,20 +232,20 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	
 	if(this->showAdditionalDetails)
 	{
-		if(!isDeleted(this->soundWrapper))
+		if(!isDeleted(this->sound))
 		{
 			if(K_LD & userInput->releasedKey)
 			{
-				SoundWrapper::pause(this->soundWrapper);
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+				Sound::pause(this->sound);
+				Sound::rewind(this->sound);
+				Sound::setSpeed(this->sound, Sound::getSpeed(this->sound) +  __F_TO_FIX7_9(0.01f));
 				SoundsState::showSoundMetadata(this);
 			}
 			else if(K_LU & userInput->releasedKey)
 			{
-				SoundWrapper::pause(this->soundWrapper);
-				SoundWrapper::rewind(this->soundWrapper);
-				SoundWrapper::setSpeed(this->soundWrapper, SoundWrapper::getSpeed(this->soundWrapper) +  __F_TO_FIX7_9(0.01f));
+				Sound::pause(this->sound);
+				Sound::rewind(this->sound);
+				Sound::setSpeed(this->sound, Sound::getSpeed(this->sound) +  __F_TO_FIX7_9(0.01f));
 				SoundsState::showSoundMetadata(this);
 			}
 			// Timer controls
@@ -337,15 +337,15 @@ void SoundsState::processUserInput(const UserInput* userInput)
 /**
  * Release sound
  */
-void SoundsState::releaseSoundWrapper()
+void SoundsState::releaseSound()
 {
-	if(!isDeleted(this->soundWrapper))
+	if(!isDeleted(this->sound))
 	{
 		
-		SoundWrapper::removeEventListenerScopes(this->soundWrapper, ListenerObject::safeCast(this), kEventSoundReleased);
-		SoundWrapper::release(this->soundWrapper);
+		Sound::removeEventListenerScopes(this->sound, ListenerObject::safeCast(this), kEventSoundReleased);
+		Sound::release(this->sound);
 
-		this->soundWrapper = NULL;
+		this->sound = NULL;
 	}
 }
 
@@ -363,7 +363,7 @@ void SoundsState::showExplanation()
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundManager", 2, y++, NULL);
-	Printing::text(Printing::getInstance(), "SoundWrapper", 2, y++, NULL);
+	Printing::text(Printing::getInstance(), "Sound", 2, y++, NULL);
 
 	y++;
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
@@ -385,7 +385,7 @@ void SoundsState::showExplanation()
 	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
 	Printing::text(Printing::getInstance(), "SoundsState", 26, y++, NULL);
 	Printing::text(Printing::getInstance(), " loadSound", 26, y++, NULL);
-	Printing::text(Printing::getInstance(), " releaseSoundWrapper", 26, y++, NULL);
+	Printing::text(Printing::getInstance(), " releaseSound", 26, y++, NULL);
 	y++;
 }
 
@@ -436,12 +436,12 @@ void SoundsState::showAdditionalDetails()
 
 void SoundsState::showSoundPlayback(bool showOnlyTime)
 {
-	if(!isDeleted(this->soundWrapper))
+	if(!isDeleted(this->sound))
 	{
 		if(showOnlyTime)
 		{
-			SoundWrapper::printPlaybackProgress(this->soundWrapper, 3, 23);
-			SoundWrapper::printPlaybackTime(this->soundWrapper, 26, 25);
+			Sound::printPlaybackProgress(this->sound, 3, 23);
+			Sound::printPlaybackTime(this->sound, 26, 25);
 		}
 		else
 		{
@@ -450,14 +450,14 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 
 			if(!printVolume)
 			{
-				SoundWrapper::printPlaybackProgress(this->soundWrapper, 1, 6);
-				SoundWrapper::printPlaybackTime(this->soundWrapper, 24, 8);
+				Sound::printPlaybackProgress(this->sound, 1, 6);
+				Sound::printPlaybackTime(this->sound, 24, 8);
 			}
 			else if(!showOnlyTime)
 			{
-				if(!SoundWrapper::hasPCMTracks(this->soundWrapper))
+				if(!Sound::hasPCMTracks(this->sound))
 				{
-					SoundWrapper::printVolume(this->soundWrapper, 1, 17, false);
+					Sound::printVolume(this->sound, 1, 17, false);
 				}
 			}
 		}
@@ -482,7 +482,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
-	SoundsState::releaseSoundWrapper(this);
+	SoundsState::releaseSound(this);
 
 	/*
 	 * Since PCM playback is too heavy on the CPU, it makes sense to set it per stage.
@@ -501,22 +501,22 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	}
 
 	/*
-	 * We ask for a SoundWrapper to the SoundManager and specify a callback for when the 
-	 * SoundWrapper is released, which happens automatically with any sound that doesn't
+	 * We ask for a Sound to the SoundManager and specify a callback for when the 
+	 * Sound is released, which happens automatically with any sound that doesn't
 	 * play in loop or when not explicitly told to not auto release by calling
-	 * SoundWrapper::autoReleaseOnFinish.
+	 * Sound::autoReleaseOnFinish.
 	 */
-	this->soundWrapper = SoundManager::getSound(SoundManager::getInstance(), (Sound*)soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundWrapperReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
 
-	NM_ASSERT(!isDeleted(this->soundWrapper), "SoundsState::loadSound: no sound");
+	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 
-	if(!isDeleted(this->soundWrapper))
+	if(!isDeleted(this->sound))
 	{
 		/*
 		 * Listen for when the plaback finishes to update the UI. 
 		 */
-		SoundWrapper::addEventListener(this->soundWrapper, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundPlaybackFinish, kEventSoundFinished);
-		SoundWrapper::computeTimerResolutionFactor(this->soundWrapper);
+		Sound::addEventListener(this->sound, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundPlaybackFinish, kEventSoundFinished);
+		Sound::computeTimerResolutionFactor(this->sound);
 		SoundsState::applyTimerSettings(this);
 	}
 
@@ -528,29 +528,29 @@ void SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__(
 	SoundsState::showSoundMetadata(this);
 }
 
-void SoundsState::onSoundWrapperReleased(ListenerObject eventFirer __attribute__((unused)))
+void SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(SoundWrapper::safeCast(eventFirer) == this->soundWrapper)
+	if(Sound::safeCast(eventFirer) == this->sound)
 	{
-		this->soundWrapper = NULL;
+		this->sound = NULL;
 		SoundsState::loadSound(this, true);
 	}
 }
 
 void SoundsState::showSoundMetadata()
 {
-	if(isDeleted(this->soundWrapper))
+	if(isDeleted(this->sound))
 	{
 		return;
 	}
 
 	if(this->showAdditionalDetails)		
 	{
-		SoundWrapper::printMetadata(this->soundWrapper, 1, 4, true);
+		Sound::printMetadata(this->sound, 1, 4, true);
 	}
 	else
 	{
-		SoundWrapper::printMetadata(this->soundWrapper, 3, 21, false);
+		Sound::printMetadata(this->sound, 3, 21, false);
 	}
 }
 

@@ -100,7 +100,7 @@ SoundChannelROM* KilledSoundChannels[] =
 	NULL
 };
 
-SoundROM KilledSound =
+SoundROMSpec KilledSoundSpec =
 {
 	/// Name
 	"Killed",

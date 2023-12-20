@@ -272,7 +272,7 @@ StageROMSpec PongStageSpec =
 		(TextureSpec**)PongStageTextures,
 
 		// background music
-		(Sound**)NULL,
+		(SoundSpec**)NULL,
 	},
 
 	// entities

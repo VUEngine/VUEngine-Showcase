@@ -87,7 +87,7 @@ SoundChannelROM* HitPaddleSoundChannels[] =
 	NULL
 };
 
-SoundROM HitPaddleSound =
+SoundROMSpec HitPaddleSoundSpec =
 {
 	/// Name
 	"Change Selection Sound 3",

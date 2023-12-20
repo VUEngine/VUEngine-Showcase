@@ -100,7 +100,7 @@ SoundChannelROM* EngineSoundChannels[] =
 	NULL
 };
 
-SoundROM EngineSound =
+SoundROMSpec EngineSoundSpec =
 {
 	/// Name
 	"Engine",

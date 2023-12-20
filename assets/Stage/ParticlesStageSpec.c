@@ -55,7 +55,7 @@ FontROMSpec* const ParticlesStageFontSpecs[] =
 	NULL
 };
 
-SoundROM* ParticlesStageSoundSpecs[] =
+SoundROMSpec* ParticlesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -263,7 +263,7 @@ StageROMSpec ParticlesStageSpec =
 		(TextureSpec**)NULL,
 
 		// background music
-		(Sound**)ParticlesStageSoundSpecs,
+		(SoundSpec**)ParticlesStageSoundSpecs,
 	},
 
 	// entities

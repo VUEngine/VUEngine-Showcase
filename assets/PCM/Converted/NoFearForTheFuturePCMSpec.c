@@ -43255,7 +43255,7 @@ SoundChannelROM* const NoFearForTheFutureSoundChannels[] =
     NULL
 };
 
-SoundROM NoFearForTheFutureSound =
+SoundROMSpec NoFearForTheFutureSoundSpec =
 {
 	// Name
 	"No Fear For The Future",

@@ -210,7 +210,7 @@ SoundChannelROM* OracleOfSeasonsOverworldThemeSoundChannels[] =
 	NULL
 };
 
-SoundROM OracleOfSeasonsOverworldThemeSound =
+SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 {
 	/// Name
 	"Oracle of Seasons - Overworld",

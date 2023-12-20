@@ -252,7 +252,7 @@ SoundChannelROM* const GameOverSoundChannels[] =
 	NULL
 };
 
-SoundROM GameOverSoundSound =
+SoundROMSpec GameOverSoundSoundSpec =
 {
 	/// Name
 	"Game Over Sound",

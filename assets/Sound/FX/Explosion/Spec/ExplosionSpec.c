@@ -100,7 +100,7 @@ SoundChannelROM* ExplosionSoundChannels[] =
 	NULL
 };
 
-SoundROM ExplosionSound =
+SoundROMSpec ExplosionSoundSpec =
 {
 	/// Name
 	"Explosion",

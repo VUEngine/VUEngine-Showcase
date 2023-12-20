@@ -17,7 +17,7 @@
 
 #include <GameState.h>
 
-#include <SoundWrapper.h>
+#include <Sound.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -36,7 +36,7 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 abstract class ShowcaseState : GameState
 {
 	StageSpec* stageSpec;
-	Sound* playingSoundEffect;
+	SoundSpec* playingSoundEffect;
 	bool showAdditionalDetails;
 	uint16 validSuboptionKeys;
 	int8 selectedPostProcessingEffect;

@@ -87,7 +87,7 @@ SoundChannelROM* ChangeSelection2SoundChannels[] =
 	NULL
 };
 
-SoundROM ChangeSelection2Sound =
+SoundROMSpec ChangeSelection2SoundSpec =
 {
 	/// Name
 	"Change Selection Sound 2",

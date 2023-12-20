@@ -196,7 +196,7 @@ SoundChannelROM* const BootSoundChannels[] =
 	NULL
 };
 
-SoundROM BootSound =
+SoundROMSpec BootSoundSpec =
 {
 	/// Name
 	"Boot Sound",

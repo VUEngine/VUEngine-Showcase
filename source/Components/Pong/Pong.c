@@ -365,10 +365,10 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 	SoundManager::playSound
 	(
 		SoundManager::getInstance(), 
-		&PointSound, 
+		&PointSoundSpec, 
 		kPlayAll, 
 		NULL, 
-		kSoundWrapperPlaybackNormal,
+		kSoundPlaybackNormal,
 		NULL, 
 		NULL
 	);
