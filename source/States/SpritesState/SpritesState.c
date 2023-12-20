@@ -344,7 +344,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		Sprite::setPosition(this->sprite, &spritePosition);
 
 		static fixed_t zAngle = 0;
-		zAngle += __I_TO_FIXED(delta);
+		zAngle += __I_TO_FIXED(delta * 2);
 
 		Rotation rotation = {0, 0, zAngle};
 		Sprite::rotate(this->sprite, &rotation);
