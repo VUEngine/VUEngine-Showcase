@@ -13,7 +13,7 @@
 //                                               DEFINITIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-RumbleEffectROMSpec PointRumbleEffect =
+RumbleEffectROMSpec PointRumbleEffectSpec =
 {
 	// Effect #
 	56,

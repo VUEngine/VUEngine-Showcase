@@ -13,7 +13,7 @@
 //                                               DEFINITIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-RumbleEffectROMSpec HitPaddleRumbleEffect =
+RumbleEffectROMSpec HitPaddleRumbleEffectSpec =
 {
 	// Effect #
 	37,

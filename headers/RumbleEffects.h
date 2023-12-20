@@ -17,12 +17,12 @@
 //                                              DECLARATIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-extern RumbleEffectSpec ChangeSelection1RumbleEffect;
-extern RumbleEffectSpec ChangeSelection3RumbleEffect;
-extern RumbleEffectSpec ChangeSelection4RumbleEffect;
-extern RumbleEffectSpec HitPaddleRumbleEffect;
-extern RumbleEffectSpec KilledRumbleEffect;
-extern RumbleEffectSpec PointRumbleEffect;
+extern RumbleEffectSpec ChangeSelection1RumbleEffectSpec;
+extern RumbleEffectSpec ChangeSelection3RumbleEffectSpec;
+extern RumbleEffectSpec ChangeSelection4RumbleEffectSpec;
+extern RumbleEffectSpec HitPaddleRumbleEffectSpec;
+extern RumbleEffectSpec KilledRumbleEffectSpec;
+extern RumbleEffectSpec PointRumbleEffectSpec;
 
 
 #endif

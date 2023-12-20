@@ -13,7 +13,7 @@
 //                                               DEFINITIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-RumbleEffectROMSpec KilledRumbleEffect =
+RumbleEffectROMSpec KilledRumbleEffectSpec =
 {
 	// Effect #
 	10,

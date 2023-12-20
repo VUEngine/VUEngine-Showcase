@@ -13,7 +13,7 @@
 //                                               DEFINITIONS                                               
 //---------------------------------------------------------------------------------------------------------
 
-RumbleEffectROMSpec ChangeSelection1RumbleEffect =
+RumbleEffectROMSpec ChangeSelection1RumbleEffectSpec =
 {
 	// Effect #
 	8,

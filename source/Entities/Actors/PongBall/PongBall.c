@@ -158,7 +158,7 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 			break;
 	}
 
-	RumbleManager::startEffect(&HitPaddleRumbleEffect);
+	RumbleManager::startEffect(&HitPaddleRumbleEffectSpec);
 
 	SoundManager::playSound
 	(

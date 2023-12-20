@@ -360,7 +360,7 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	Pong::printScore(this);
 
-	RumbleManager::startEffect(&PointRumbleEffect);
+	RumbleManager::startEffect(&PointRumbleEffectSpec);
 
 	SoundManager::playSound
 	(
