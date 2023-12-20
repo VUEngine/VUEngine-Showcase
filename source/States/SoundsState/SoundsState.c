@@ -157,7 +157,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	{
 		if(K_A & userInput->releasedKey)
 		{
-			if(!Sound::isTurnedOn(this->sound) || Sound::isPaused(this->sound))
+			if(!Sound::isPlaying(this->sound))
 			{
 				Sound::play(this->sound, NULL, kSoundPlaybackNormal);
 			}
