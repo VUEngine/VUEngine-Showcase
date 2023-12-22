@@ -1,5 +1,5 @@
 /**
- * VUEngine Platformer Demo
+ * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
