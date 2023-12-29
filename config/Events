@@ -1,9 +1,9 @@
 {
-	"events": [
-		"PongBallSpawned",
-		"PongBallStreamedOut",
-		"PongRemoteInSync",
-		"PongRemoteWentAway",
-		"UserInput"
-	]
+    "events": [
+        "Pong Ball Spawned",
+        "Pong Ball Streamed Out",
+        "Pong Remote In Sync",
+        "Pong Remote Went Away",
+        "User Input"
+    ]
 }
