@@ -82,7 +82,7 @@ TextureROMSpec BoxTextureSpec =
 	false,
 };
 
-BgmapSpriteROMSpec BoxSpriteSpecspec =
+BgmapSpriteROMSpec BoxSpriteSpec =
 {
 	{
 		// sprite's type
@@ -111,7 +111,7 @@ BgmapSpriteROMSpec BoxSpriteSpecspec =
 
 BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
 {
-	&BoxSpriteSpecspec,
+	&BoxSpriteSpec,
 	NULL
 };
 

@@ -41,7 +41,7 @@ void ActorsState::constructor()
 	Base::constructor();
 
 	/*
-	 * Check assets/stage/ActorsStageSpecSpec.c"
+	 * Check assets/stage/ActorsStageSpec.c"
 	 */
 	extern StageROMSpec ActorsStageSpec;
 	this->stageSpec = (StageSpec*)&ActorsStageSpec;
