@@ -280,23 +280,23 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 		__WORLD_ON,
 	},
 
-	/// texture to use with the sprite
+	// texture to use with the sprite
 	(TextureSpec**)CogWheelBackgroundTextureSpecs,
 
-	/// SCX/SCY value
+	// SCX/SCY value
 	__WORLD_1x1,
 
-	/// flag to loop the x axis
+	// flag to loop the x axis
 	true,
 
-	/// flag to loop the y axis
+	// flag to loop the y axis
 	true,
 
-	/// Bounds the sprite's size to provide culling; if 0, the value is inferred from the texture
+	// Bounds the sprite's size to provide culling; if 0, the value is inferred from the texture
 	0,
 
-	/// Bounds the sprite's size to provide culling; if 0, the value is inferred from the texture
-	0
+	// Bounds the sprite's size to provide culling; if 0, the value is inferred from the texture
+	0,
 };
 
 

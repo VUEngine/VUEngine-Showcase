@@ -24,7 +24,7 @@
 
 typedef struct PunkSpec
 {
-	/// Actor spec
+	// Actor spec
 	ActorSpec actorSpec;
 
 } PunkSpec;

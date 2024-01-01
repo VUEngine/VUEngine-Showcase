@@ -36,11 +36,11 @@ enum PlayerNumbers
 
 typedef struct CondensedUserInput
 {
-	/// Currently pressed key(s)
+	// Currently pressed key(s)
 	uint16 pressedKey;
-	/// Released key(s)
+	// Released key(s)
 	uint16 releasedKey;
-	/// Held key(s)
+	// Held key(s)
 	uint16 holdKey;
 
 } CondensedUserInput;

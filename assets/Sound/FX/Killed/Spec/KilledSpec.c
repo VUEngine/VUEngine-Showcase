@@ -29,52 +29,52 @@ extern const uint8 KilledSoundTrack[];
 
 SoundChannelConfigurationROM KilledSoundChannelConfiguration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x00,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0x00,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0xF7,
 
-	/// SxEV1
+	// SxEV1
 	0x11,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	TriangleWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNoise,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM KilledSoundChannel =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*)&KilledSoundChannelConfiguration,
 
-	//// Total number of samples
+	/// Total number of samples
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		KilledSoundTrack
 	}
@@ -89,15 +89,15 @@ SoundChannelROM* KilledSoundChannels[] =
 
 SoundROMSpec KilledSoundSpec =
 {
-	/// Name
+	// Name
 	"Killed",
 
-	/// Play in loop
+	// Play in loop
 	false,
 
-	/// Target timer resolution in us
+	// Target timer resolution in us
 	500,
 
-	/// Tracks
+	// Tracks
 	(SoundChannel**)KilledSoundChannels
 };

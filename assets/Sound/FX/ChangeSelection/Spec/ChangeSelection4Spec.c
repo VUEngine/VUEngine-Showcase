@@ -29,52 +29,52 @@ extern const uint16 ChangeSelection4SoundTrack1[];
 
 SoundChannelConfigurationROM ChangeSelection4SoundChannel1Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x80,
 
-	/// SxEV1
+	// SxEV1
 	0x01,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SquareWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM ChangeSelection4SoundChannel1 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*)&ChangeSelection4SoundChannel1Configuration,
 
-	/// Length (PCM)
+	// Length (PCM)
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		(const uint8*)ChangeSelection4SoundTrack1
 	}
@@ -89,15 +89,15 @@ SoundChannelROM* const ChangeSelection4SoundChannels[] =
 
 SoundROMSpec ChangeSelection4SoundSpec =
 {
-	/// Name
+	// Name
 	"Change Selection Sound 4",
 
-	/// Play in loop
+	// Play in loop
 	false,
 
-	/// Target timer resolution in us
+	// Target timer resolution in us
 	500,
 
-	/// Tracks
+	// Tracks
 	(SoundChannel**)ChangeSelection4SoundChannels
 };

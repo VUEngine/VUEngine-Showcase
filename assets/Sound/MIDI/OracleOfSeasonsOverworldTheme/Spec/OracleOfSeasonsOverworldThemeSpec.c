@@ -31,130 +31,130 @@ extern const uint8 OracleOfSeasonsOverworldThemeSoundTrack3[];
 
 SoundChannelConfigurationROM OracleOfSeasonsOverworldThemeSoundChannel1Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x40,
 
-	/// SxEV1
+	// SxEV1
 	0x00,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SawtoothWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelConfigurationROM OracleOfSeasonsOverworldThemeSoundChannel2Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x40,
 
-	/// SxEV1
+	// SxEV1
 	0x00,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SawtoothWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelConfigurationROM OracleOfSeasonsOverworldThemeSoundChannel3Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x40,
 
-	/// SxEV1
+	// SxEV1
 	0x00,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SawtoothWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel1 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel1Configuration,
 
-	//// Total number of samples
+	/// Total number of samples
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		OracleOfSeasonsOverworldThemeSoundTrack1
 	}
@@ -162,13 +162,13 @@ SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel1 =
 
 SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel2 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel2Configuration,
 
-	//// Total number of samples
+	/// Total number of samples
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		OracleOfSeasonsOverworldThemeSoundTrack2
 	}
@@ -176,13 +176,13 @@ SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel2 =
 
 SoundChannelROM OracleOfSeasonsOverworldThemeSoundChannel3 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*) &OracleOfSeasonsOverworldThemeSoundChannel3Configuration,
 
-	//// Total number of samples
+	/// Total number of samples
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		OracleOfSeasonsOverworldThemeSoundTrack3
 	}
@@ -199,15 +199,15 @@ SoundChannelROM* OracleOfSeasonsOverworldThemeSoundChannels[] =
 
 SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 {
-	/// Name
+	// Name
 	"Oracle of Seasons - Overworld",
 
-	/// Play in loop
+	// Play in loop
 	true,
 
-	/// Target timer resolution in us
+	// Target timer resolution in us
 	880,
 
-	/// Tracks
+	// Tracks
 	(SoundChannel**)OracleOfSeasonsOverworldThemeSoundChannels
 };

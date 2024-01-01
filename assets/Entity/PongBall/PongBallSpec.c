@@ -23,22 +23,22 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-SphereROMSpec PongBallMeshSpec =
+SphereROMSpec PongBallWireframeSpec =
 {
 	{
-		/// class allocator
+		// class allocator
 		__TYPE(Sphere),
 
-		/// displacement
+		// displacement
 		{0, 0, 0},
 		
-		/// color
+		// color
 		__COLOR_BLACK,
 
-		/// transparent
+		// transparent
 		__TRANSPARENCY_NONE,
 
-		/// interlaced
+		// interlaced
 		false
 	},
 
@@ -46,12 +46,12 @@ SphereROMSpec PongBallMeshSpec =
 	__PIXELS_TO_METERS(4),
 
 	// draw center
-	true
+	true,
 };
 
 WireframeROMSpec* const PongBallWireframeSpecs[] =
 {
-	(WireframeSpec*)&PongBallMeshSpec,
+	(WireframeSpec*)&PongBallWireframeSpec,
 	NULL
 };
 

@@ -31,52 +31,52 @@ extern const uint16 BootSoundTrack3[];
 
 SoundChannelConfigurationROM BootSoundChannel1Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x80,
 
-	/// SxEV1
+	// SxEV1
 	0x01,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SquareWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM BootSoundChannel1 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*)&BootSoundChannel1Configuration,
 
-	/// Length (PCM)
+	// Length (PCM)
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		(const uint8*)BootSoundTrack1
 	}
@@ -84,52 +84,52 @@ SoundChannelROM BootSoundChannel1 =
 
 SoundChannelConfigurationROM BootSoundChannel2Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x80,
 
-	/// SxEV1
+	// SxEV1
 	0x01,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SquareWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM BootSoundChannel2 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*)&BootSoundChannel2Configuration,
 
-	/// Length (PCM)
+	// Length (PCM)
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		(const uint8*)BootSoundTrack2
 	}
@@ -137,52 +137,52 @@ SoundChannelROM BootSoundChannel2 =
 
 SoundChannelConfigurationROM BootSoundChannel3Configuration =
 {
-	/// kMIDI, kPCM
+	// kMIDI, kPCM
 	kMIDI,
 
-	/// SxINT
+	// SxINT
 	0x9F,
 
-	/// Volume SxLRV
+	// Volume SxLRV
 	0xFF,
 
-	/// SxRAM (this is overrode by the SoundManager)
+	// SxRAM (this is overrode by the SoundManager)
 	0x00,
 
-	/// SxEV0
+	// SxEV0
 	0x80,
 
-	/// SxEV1
+	// SxEV1
 	0x01,
 
-	/// SxFQH
+	// SxFQH
 	0x00,
 
-	/// SxFQL
+	// SxFQL
 	0x00,
 
-	/// Ch. 5 only
+	// Ch. 5 only
 	0x00,
 
-	/// Waveform data pointer
+	// Waveform data pointer
 	SquareWaveForm,
 
-	/// kChannelNormal, kChannelModulation, kChannelNoise
+	// kChannelNormal, kChannelModulation, kChannelNoise
 	kChannelNormal,
 
-	/// Volume
+	// Volume
 	__SOUND_LR
 };
 
 SoundChannelROM BootSoundChannel3 =
 {
-	/// Configuration
+	// Configuration
 	(SoundChannelConfiguration*)&BootSoundChannel3Configuration,
 
-	/// Length (PCM)
+	// Length (PCM)
 	0,
 
-	/// Sound track
+	// Sound track
 	{
 		(const uint8*)BootSoundTrack3
 	}
@@ -198,15 +198,15 @@ SoundChannelROM* const BootSoundChannels[] =
 
 SoundROMSpec BootSoundSpec =
 {
-	/// Name
+	// Name
 	"Boot Sound",
 
-	/// Play in loop
+	// Play in loop
 	false,
 
-	/// Target timer resolution in us
+	// Target timer resolution in us
 	3340,
 
-	/// Tracks
+	// Tracks
 	(SoundChannel**)BootSoundChannels
 };

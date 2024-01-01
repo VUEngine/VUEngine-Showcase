@@ -72,32 +72,32 @@ const PixelVector PyramidMeshesSegments[][2]=
 	},
 };
 
-MeshROMSpec PyramidMeshSpec =
+MeshROMSpec PyramidWireframeSpec =
 {
 	{
-		/// class allocator
+		// class allocator
 		__TYPE(Mesh),
 
-		/// displacement
+		// displacement
 		{0, 0, 0},
 		
-		/// color
+		// color
 		__COLOR_BLACK,
 
-		/// transparent
+		// transparent
 		__TRANSPARENCY_NONE,
 
-		/// interlaced
-		false
+		// interlaced
+		false,
 	},
 
-	/// segments
+	// segments
 	(PixelVector(*)[2])PyramidMeshesSegments
 };
 
 WireframeROMSpec* const PyramidWireframeSpecs[] =
 {
-	(WireframeSpec*)&PyramidMeshSpec,
+	(WireframeSpec*)&PyramidWireframeSpec,
 	NULL
 };
 
@@ -152,10 +152,10 @@ EntityROMSpec PyramidEntitySpec =
 	// use z displacement in projection
 	false,
 
-	/// Wireframes
+	// Wireframes
 	(WireframeSpec**)PyramidWireframeSpecs,
 
-	/// collision shapes
+	// collision shapes
 	(ColliderSpec*)PyramidColliderSpecs,
 
 	// size

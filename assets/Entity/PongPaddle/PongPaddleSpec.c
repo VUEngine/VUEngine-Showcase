@@ -29,7 +29,7 @@
 //												DEFINITIONS
 //---------------------------------------------------------------------------------------------------------
 
-const PixelVector PongPaddleMeshSpecesSegments[][2]=
+const PixelVector PongPaddleWireframeSpecSegments[][2]=
 {
 	{
 		{0, -10, 0, 0}, 
@@ -43,32 +43,32 @@ const PixelVector PongPaddleMeshSpecesSegments[][2]=
 	},
 };
 
-MeshROMSpec PongPaddleMeshSpec =
+MeshROMSpec PongPaddleWireframeSpec =
 {
 	{
-		/// class allocator
+		// class allocator
 		__TYPE(Mesh),
 
-		/// displacement
+		// displacement
 		{0, 0, 0},
 		
-		/// color
+		// color
 		__COLOR_BLACK,
 
-		/// transparent
+		// transparent
 		__TRANSPARENCY_NONE,
 
-		/// interlaced
-		false
+		// interlaced
+		false,
 	},
 
-	/// segments
-	(PixelVector(*)[2])PongPaddleMeshSpecesSegments
+	// segments
+	(PixelVector(*)[2])PongPaddleWireframeSpecSegments
 };
 
 WireframeROMSpec* const PongPaddleWireframeSpecs[] =
 {
-	(WireframeSpec*)&PongPaddleMeshSpec,
+	(WireframeSpec*)&PongPaddleWireframeSpec,
 	NULL
 };
 

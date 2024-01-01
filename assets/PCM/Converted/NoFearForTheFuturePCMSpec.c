@@ -43237,7 +43237,7 @@ SoundChannelROM NoFearForTheFutureSoundChannel =
 	// Configuration
 	(SoundChannelConfiguration*) &NoFearForTheFutureSoundChannelConfiguration,
 
-	/// Total number of samples
+	// Total number of samples
 	NoFearForTheFutureSoundTrackLength,
 
 	// Sound track

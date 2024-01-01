@@ -260,29 +260,29 @@ SolidParticleROMSpec StarParticleSolidSpec =
 		__Y_AXIS,
 	},
 
-	/// ball's radius
+	// ball's radius
 	__PIXELS_TO_METERS(4),
 
-	/// friction for physics
+	// friction for physics
 	__F_TO_FIX10_6(0),
 
-	/// bounciness for physics
+	// bounciness for physics
 	__F_TO_FIX10_6(0.85f),
 
-	/// object's in-game type
+	// object's in-game type
 	kTypeParticle,
 
-	/// layers in which I live
+	// layers in which I live
 	kLayerParticles,
 
-	/// layers to ignore when checking for collisions
+	// layers to ignore when checking for collisions
 	(~kLayerSolid),
 
-	/// disable collision detection when the particle stops
+	// disable collision detection when the particle stops
 	true,
 
-	/// animation to play upon collision
-	"Vanish"
+	// animation to play upon collision
+	"Vanish",
 };
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =

@@ -24,7 +24,7 @@
 
 typedef struct CogWheelSpec
 {
-	/// Entity spec
+	// Entity spec
 	EntitySpec entitySpec;
 
 } CogWheelSpec;
