@@ -38,9 +38,6 @@ void PongPaddle::constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, c
 {
 	// construct base
 	Base::constructor((ActorSpec*)&pongPaddleSpec->actorSpec, internalId, name);
-
-	// save spec
-	this->pongPaddleSpec = pongPaddleSpec;
 }
 
 void PongPaddle::destructor()
@@ -74,8 +71,8 @@ void PongPaddle::moveTowards(NormalizedDirection direction)
 {
 	Vector3D force =
 	{
-		__FIX10_6_MULT(this->pongPaddleSpec->force.x, __I_TO_FIX10_6(direction.x)),
-		__FIX10_6_MULT(this->pongPaddleSpec->force.y, __I_TO_FIX10_6(direction.y)),
+		__FIX10_6_MULT(((PongPaddleSpec*)this->entitySpec)->force.x, __I_TO_FIX10_6(direction.x)),
+		__FIX10_6_MULT(((PongPaddleSpec*)this->entitySpec)->force.y, __I_TO_FIX10_6(direction.y)),
 		0
 	};
 

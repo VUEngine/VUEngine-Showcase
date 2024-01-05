@@ -18,7 +18,6 @@
 #include <Actor.h>
 
 #include <PongPaddle.h>
-#include <ParticleSystem.h>
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -51,9 +50,6 @@ typedef const PongBallSpec PongBallROMSpec;
 
 class PongBall : Actor
 {
-	/* spec pointer */
-	ParticleSystem particles;
-	PongBallSpec* pongBallSpec;
 	int paddleEnum;
 
 	void constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name);

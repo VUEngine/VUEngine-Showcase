@@ -55,9 +55,6 @@ enum PlayerPongPaddles
 
 class PongPaddle : Actor
 {
-	/* spec pointer */
-	PongPaddleSpec* pongPaddleSpec;
-
 	void constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
 	void moveTowards(NormalizedDirection direction);
 	override bool handlePropagatedMessage(int32 message);

@@ -71,10 +71,7 @@ void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const c
 	// construct base
 	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
 
-	// save spec
-	this->pongBallSpec = pongBallSpec;
 	this->paddleEnum = kNoPongPaddle;
-	this->particles = NULL;
 }
 
 void PongBall::destructor()
@@ -93,9 +90,6 @@ void PongBall::ready(bool recursive)
 {
 	// call base
 	Base::ready(this, recursive);
-
-//	this->particles = ParticleSystem::safeCast(Container::getChildByName(Container::safeCast(this), "Partcls", true));
-//	ParticleSystem::setLoop(this->particles, true);
 
 	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
 
@@ -178,7 +172,7 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
-	Body::setMaximumVelocity(this->body, this->pongBallSpec->maximumVelocity);
+	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
 	Vector3D localPosition = Vector3D::zero();
 	localPosition.z = __PIXELS_TO_METERS(128);
 	Entity::setLocalPosition(this, &localPosition);
@@ -206,8 +200,8 @@ void PongBall::startMovement()
 
 	Vector3D velocity =
 	{
-		__FIXED_MULT(this->pongBallSpec->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
-		__FIXED_MULT(this->pongBallSpec->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
+		__FIXED_MULT(((PongBallSpec*)this->entitySpec)->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
+		__FIXED_MULT(((PongBallSpec*)this->entitySpec)->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
 		0
 	};
 
