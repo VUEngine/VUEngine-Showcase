@@ -213,21 +213,7 @@ void PongBall::startMovement()
 	Body::moveUniformly(this->body, velocity);
 }
 
-fix10_6 PongBall::getFrictionOnCollision(SpatialObject collidingObject __attribute__ ((unused)), const Vector3D* collidingObjectNormal __attribute__ ((unused)))
-{
-	return 0;
-}
-
-fix10_6 PongBall::getSurroundingFrictionCoefficient()
-{
-	return 0;
-}
-
 int PongBall::getPaddleEnum()
 {
 	return this->paddleEnum;
-}
-
-void PongBall::syncRotationWithBody()
-{
 }
