@@ -57,14 +57,11 @@ class PongPaddle : Actor
 {
 	/* spec pointer */
 	PongPaddleSpec* pongPaddleSpec;
-	bool mustBounce;
 
 	void constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
 	void moveTowards(NormalizedDirection direction);
 	override bool handlePropagatedMessage(int32 message);
 	override bool mustBounce();
-	override bool enterCollision(const CollisionInformation* collisionInformation);
-	override void exitCollision(Collider collider, Collider shapeNotCollidingAnymore, bool isColliderImpenetrable);
 }
 
 

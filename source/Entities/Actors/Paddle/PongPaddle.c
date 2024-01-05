@@ -41,7 +41,6 @@ void PongPaddle::constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, c
 
 	// save spec
 	this->pongPaddleSpec = pongPaddleSpec;
-	this->mustBounce = false;
 }
 
 void PongPaddle::destructor()
@@ -85,45 +84,5 @@ void PongPaddle::moveTowards(NormalizedDirection direction)
 
 bool PongPaddle::mustBounce()
 {
-	return this->mustBounce;
-}
-
-bool PongPaddle::enterCollision(const CollisionInformation* collisionInformation)
-{
-	ASSERT(collisionInformation->otherCollider, "Hero::enterCollision: null collidingObjects");
-
-	Collider otherCollider = collisionInformation->otherCollider;
-	SpatialObject collidingObject = Collider::getOwner(otherCollider);
-
-	switch(SpatialObject::getInGameType(collidingObject))
-	{
-		case kTypePongWall:
-
-			Base::enterCollision(this, collisionInformation);
-			PongPaddle::stopMovement(this, __ALL_AXIS);
-			return true;
-			break;
-	}
-
-	return Base::enterCollision(this, collisionInformation);
-}
-
-void PongPaddle::exitCollision(Collider collider  __attribute__ ((unused)), Collider shapeNotCollidingAnymore, bool isColliderImpenetrable)
-{
-	if(!this->body)
-	{
-		return;
-	}
-
-	Body::setSurroundingFrictionCoefficient(this->body,  PongPaddle::getSurroundingFrictionCoefficient(this));
-
-	SpatialObject collidingObject = Collider::getOwner(shapeNotCollidingAnymore);
-
-	if(kTypePongWall != SpatialObject::getInGameType(collidingObject))
-	{
-		if(isColliderImpenetrable)
-		{
-			Body::clearNormal(this->body, ListenerObject::safeCast(shapeNotCollidingAnymore));
-		}
-	}
+	return false;
 }
