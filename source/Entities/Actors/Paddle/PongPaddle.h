@@ -65,7 +65,6 @@ class PongPaddle : Actor
 	override bool mustBounce();
 	override bool enterCollision(const CollisionInformation* collisionInformation);
 	override void exitCollision(Collider collider, Collider shapeNotCollidingAnymore, bool isColliderImpenetrable);
-	override bool isSubjectToGravity(Vector3D gravity);
 }
 
 

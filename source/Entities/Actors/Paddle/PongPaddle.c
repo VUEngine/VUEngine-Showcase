@@ -127,8 +127,3 @@ void PongPaddle::exitCollision(Collider collider  __attribute__ ((unused)), Coll
 		}
 	}
 }
-
-bool PongPaddle::isSubjectToGravity(Vector3D gravity __attribute__((unused)))
-{
-	return false;
-}
