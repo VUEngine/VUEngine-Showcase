@@ -173,9 +173,6 @@ void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
 	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
-	Vector3D localPosition = Vector3D::zero();
-	localPosition.z = __PIXELS_TO_METERS(128);
-	Entity::setLocalPosition(this, &localPosition);
 	PongBall::discardMessages(this, kMessagePongBallStartMoving);
 	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
 }
@@ -210,7 +207,7 @@ void PongBall::startMovement()
 		velocity.x = -velocity.x;
 	}
 
-	Body::moveUniformly(this->body, velocity);
+	PongBall::setVelocity(this, &velocity, false);
 }
 
 int PongBall::getPaddleEnum()
