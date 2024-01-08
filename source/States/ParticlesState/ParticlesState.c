@@ -204,7 +204,7 @@ void ParticlesState::loadParticles()
 		case kParticleSolid:
 
 			particleSystemEntitySpec = &StarsParticleSystemSolidSpec;
-			yPosition = 0;
+			yPosition = -4;
 			break;
 	}
 

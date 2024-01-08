@@ -121,7 +121,7 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 		
 	if(!isDeleted(animatedSprite))
 	{
-		Sprite::rotate(animatedSprite, &this->rotation);
+		Sprite::setRotation(animatedSprite, &this->rotation);
 	}
 
 	Base::processUserInput(this, userInput);
