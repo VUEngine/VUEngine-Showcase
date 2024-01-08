@@ -119,7 +119,7 @@ ColliderROMSpec PyramidColliderSpecs[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -155,7 +155,7 @@ EntityROMSpec PyramidEntitySpec =
 	// Wireframes
 	(WireframeSpec**)PyramidWireframeSpecs,
 
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)PyramidColliderSpecs,
 
 	// size

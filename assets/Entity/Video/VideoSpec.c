@@ -303,7 +303,7 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		// wireframes
 		NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)NULL,
 
 		// size

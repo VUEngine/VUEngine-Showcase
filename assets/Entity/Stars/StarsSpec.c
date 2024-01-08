@@ -309,7 +309,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// wireframes
 		(WireframeSpec**)NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)NULL,
 
 		// size
@@ -395,7 +395,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// wireframes
 		(WireframeSpec**)NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)NULL,
 
 		// size
@@ -481,7 +481,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// wireframes
 		(WireframeSpec**)NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)NULL,
 
 		// size

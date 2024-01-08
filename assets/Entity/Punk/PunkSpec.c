@@ -663,7 +663,7 @@ ColliderROMSpec PunkColliderSpecs[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		true,
 
 		// layers in which I live
@@ -700,7 +700,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// wireframes
 		NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)PunkColliderSpecs,
 
 		// size
@@ -765,7 +765,7 @@ PunkROMSpec PunkActorSpec =
 				// wireframes
 				NULL,
 
-				// collision shapes
+				// collision colliders
 				(ColliderSpec*)PunkColliderSpecs,
 
 				// size

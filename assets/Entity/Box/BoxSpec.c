@@ -134,7 +134,7 @@ ColliderROMSpec BoxColliderSpecs[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -170,7 +170,7 @@ EntityROMSpec BoxEntitySpec =
 	// meshes
 	(WireframeSpec**)NULL,
 	
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)BoxColliderSpecs,
 
 	// size

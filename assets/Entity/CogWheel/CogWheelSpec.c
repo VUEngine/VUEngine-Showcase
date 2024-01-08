@@ -325,7 +325,7 @@ ColliderROMSpec CogWheelColliderSpecs[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -362,7 +362,7 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// wireframes
 		(WireframeSpec**)NULL,
 
-		// collision shapes
+		// collision colliders
 		(ColliderSpec*)CogWheelColliderSpecs,
 
 		// size
