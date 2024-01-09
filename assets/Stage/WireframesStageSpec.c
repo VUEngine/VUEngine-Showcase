@@ -33,10 +33,10 @@ extern EntitySpec PyramidEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&PyramidEntitySpec, {0, 0, 500,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntitySpec, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntitySpec, {1000, 0, 550,0}, 0, NULL, NULL, NULL, true},
-	{&PyramidEntitySpec, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, true},
+	{&PyramidEntitySpec, {0, 0, 500,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {-1000, 0, 250,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {1000, 0, 550,0}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {-500, -200, 1000,0}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
