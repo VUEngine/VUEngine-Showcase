@@ -245,7 +245,7 @@ void SpritesState::createSprite()
 	if(!isDeleted(this->sprite))
 	{
 		PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
-		Sprite::setPosition(this->sprite, &spritePosition);
+		Sprite::setPixelPosition(this->sprite, &spritePosition);
 
 		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
 		Sprite::setScale(this->sprite, &scale);
@@ -289,7 +289,7 @@ void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((u
 		}
 
 		PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4, yPosition, 1, 2};
-		Sprite::setPosition(this->sprite, &spritePosition);
+		Sprite::setPixelPosition(this->sprite, &spritePosition);
 
 		if(this->showAdditionalDetails)
 		{
@@ -315,7 +315,7 @@ void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__(
 		}
 
 		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
-		Sprite::setPosition(this->sprite, &spritePosition);
+		Sprite::setPixelPosition(this->sprite, &spritePosition);
 
 		if(this->showAdditionalDetails)
 		{
@@ -341,7 +341,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		}
 
 		PixelVector spritePosition = {xPosition, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
-		Sprite::setPosition(this->sprite, &spritePosition);
+		Sprite::setPixelPosition(this->sprite, &spritePosition);
 
 		static fixed_t zAngle = 0;
 		zAngle += __I_TO_FIXED(delta * 2);
@@ -369,7 +369,7 @@ void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unuse
 		yPosition++;
 
 		PixelVector spritePosition = {xPosition, yPosition, 1, 2};
-		Sprite::setPosition(this->sprite, &spritePosition);
+		Sprite::setPixelPosition(this->sprite, &spritePosition);
 
 		if(this->showAdditionalDetails)
 		{

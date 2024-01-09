@@ -142,7 +142,7 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 			{
 				Vector3D velocity = *Body::getVelocity(this->body);
 
-				fixed_t yDisplacement = this->transformation.globalPosition.y - SpatialObject::getPosition(collidingObject)->y;
+				fixed_t yDisplacement = this->transformation.position.y - SpatialObject::getPosition(collidingObject)->y;
 
 //				velocity.x -= yDisplacement;
 				velocity.y += yDisplacement;
