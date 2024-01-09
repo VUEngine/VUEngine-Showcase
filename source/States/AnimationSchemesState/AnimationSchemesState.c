@@ -75,6 +75,19 @@ void AnimationSchemesState::destructor()
 	Base::destructor();
 }
 
+void AnimationSchemesState::execute(void* owner __attribute__((unused)))
+{
+	Base::execute(this, owner);
+
+
+	if(this->showAdditionalDetails)
+	{
+		AnimationSchemesState::showCharMemory(this);
+	}
+
+	AnimationSchemesState::showBgmapMemory(this);
+}
+
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
 	AnimationSchemesState::playSoundEffects(this, userInput, false);
@@ -286,20 +299,37 @@ void AnimationSchemesState::createSprites()
 	{
 		case kAnimationsNotSharedTexture:
 
+			/* When Sprites use non shared Textures they all have to
+			* update their graphics when animated. Each will reserve its
+			* own chunk of graphics memory and updating all of them
+			* will require more processing resources.	 
+			*/
 			spriteSpec = &PunkSpriteNotSharedSpec;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures);
+			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForNotSharedTextures);
 			break;
 
 		case kAnimationsSharedTexture:
 
+			/* When Sprites share a Texture (and the underlying CharSet)
+			* animating one of them will animate the others because the
+			* underlying graphics are shared by all of them.
+			* This saves on performance too because the graphics memory
+			* is only updated once.
+			*/
 			spriteSpec = &PunkSpriteSharedSpec;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithSharedTextures);
+			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForSharedTextures);
 			break;
 
 		case kAnimationsMultiframeTexture:
 
+			/* Multiframe Textures write all the frames of animation in graphics memory.
+			* They should always be shared, otherwise processing power would be wasted
+			* by writing multiple times the same spreadsheet.
+			* The animations of the Sprites that use these Textures are not constrained 
+			* to be in sync.
+			*/
 			spriteSpec = &PunkSpriteMultiframeSpec;
-			AnimationSchemesState::mutateMethod(execute, AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures);
+			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForMultiframeTextures);
 			break;
 	}
 
@@ -354,88 +384,12 @@ void AnimationSchemesState::destroySprites()
 }
 
 /*
- * The StateMachine calls State::execute when updated.
- * It is called once per game frame.
  * Virtual methods can be changed in runtime to alter a class' behavior in real time.
  * Mutating the methods affects all the instances of the class.
- * Runtime overrides for AnimationSchemesState::execute.
+ * Runtime overrides for AnimationSchemesState::showCharMemory.
  */
-void AnimationSchemesState::executeAnimateSpritesWithNotSharedTextures(void* owner __attribute__((unused)))
+void AnimationSchemesState::showCharMemory()
 {
-	Base::execute(this, owner);
-
-	/* When Sprites use non shared Textures they all have to
-	 * update their graphics when animated. Each will reserve its
-	 * own chunk of graphics memory and updating all of them
-	 * will require more processing resources.	 
-	 */
-	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
-	{
-		Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
-		
-		if(!isDeleted(animatedSprite))
-		{
-			Sprite::updateAnimation(animatedSprite);
-		}
-	}
-
-	if(this->showAdditionalDetails)
-	{
-		AnimationSchemesState::showCharMemoryForNotSharedTextures(this);
-	}
-	AnimationSchemesState::showBgmapMemory(this);
-}
-
-void AnimationSchemesState::executeAnimateSpritesWithSharedTextures(void* owner __attribute__((unused)))
-{
-	Base::execute(this, owner);
-
-	/* When Sprites share a Texture (and the underlying CharSet)
-	 * animating one of them will animate the others because the
-	 * underlying graphics are shared by all of them.
-	 * This saves on performance too because the graphics memory
-	 * is only updated once.
-	 */
-	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
-	
-	if(!isDeleted(animatedSprite))
-	{
-		Sprite::updateAnimation(animatedSprite);
-	}
-
-	if(this->showAdditionalDetails)
-	{
-		AnimationSchemesState::showCharMemoryForSharedTextures(this);
-	}
-	AnimationSchemesState::showBgmapMemory(this);
-}
-
-void AnimationSchemesState::executeAnimateSpritesWithMultiframeTextures(void* owner __attribute__((unused)))
-{
-	Base::execute(this, owner);
-
-	/* Multiframe Textures write all the frames of animation in graphics memory.
-	 * They should always be shared, otherwise processing power would be wasted
-	 * by writing multiple times the same spreadsheet.
-	 * The animations of the Sprites that use these Textures are not constrained 
-	 * to be in sync.
-	 */
-	for(VirtualNode node = VirtualList::begin(this->animatedSprites); NULL != node; node = VirtualNode::getNext(node))
-	{
-		Sprite animatedSprite = Sprite::safeCast(VirtualNode::getData(node));
-		
-		if(!isDeleted(animatedSprite))
-		{
-			Sprite::updateAnimation(animatedSprite);
-		}
-	}
-
-	if(this->showAdditionalDetails)
-	{
-		AnimationSchemesState::showCharMemoryForMultiframeTextures(this);
-	}
-
-	AnimationSchemesState::showBgmapMemory(this);
 }
 
 void AnimationSchemesState::showBgmapMemory()

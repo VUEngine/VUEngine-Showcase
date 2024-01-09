@@ -34,6 +34,9 @@ dynamic_singleton class AnimationSchemesState : ShowcaseState
 	void constructor();
 	void setupBrightness(bool dimm);
 
+	virtual void showCharMemory();
+
+	override void execute(void* owner);
 	override void processUserInput(const UserInput* userInput);
 	override void showControls();
 	override void showStuff();
