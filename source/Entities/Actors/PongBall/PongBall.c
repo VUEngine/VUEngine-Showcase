@@ -76,7 +76,7 @@ void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const c
 
 void PongBall::destructor()
 {
-	if(!this->inCameraRange)
+	if(!PongBall::isInCameraRange(this, 0, false))
 	{
 		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
 	}
