@@ -172,7 +172,12 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
+	Vector3D localPosition = Vector3D::zero();
+	localPosition.z = __PIXELS_TO_METERS(128);
+	PongBall::setLocalPosition(this, &localPosition);
+
 	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
+
 	PongBall::discardMessages(this, kMessagePongBallStartMoving);
 	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
 }
