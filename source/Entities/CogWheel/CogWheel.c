@@ -38,7 +38,7 @@ void CogWheel::destructor()
 
 void CogWheel::update()
 {
-	Rotation localRotation = this->transformation.localRotation;
+	Rotation localRotation = this->localTransformation.rotation;
 	localRotation.z += __I_TO_FIXED(1);
 
 	CogWheel::setLocalRotation(this, &localRotation);

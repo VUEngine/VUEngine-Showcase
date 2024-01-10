@@ -123,7 +123,7 @@ ColliderROMSpec BoxColliderSpecs[] =
 		__TYPE(Box),
 
 		// size (x, y, z)
-		{7 * 8, 6 * 8, 8 * 8},
+		{7 * 8, 6 * 8, 4 * 8},
 
 		// displacement (x, y, z, p)
 		{0, 0, 0, 0},
@@ -134,7 +134,7 @@ ColliderROMSpec BoxColliderSpecs[] =
 		// scale (x, y, z)
 		{0, 0, 0},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -170,7 +170,7 @@ EntityROMSpec BoxEntitySpec =
 	// meshes
 	(WireframeSpec**)NULL,
 	
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)BoxColliderSpecs,
 
 	// size

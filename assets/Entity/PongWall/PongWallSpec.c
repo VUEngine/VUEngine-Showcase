@@ -41,7 +41,7 @@ ColliderROMSpec PongWallsColliderSpecs[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -68,7 +68,7 @@ ColliderROMSpec PongWallsColliderSpecs[] =
 		// scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other shapes
+		// if true this collider checks for collisions against other colliders
 		false,
 
 		// layers in which I live
@@ -104,7 +104,7 @@ EntityROMSpec PongWallsEntitySpec =
 	// wireframes
 	(WireframeSpec**)NULL,
 
-	// collision shapes
+	// collision colliders
 	(ColliderSpec*)PongWallsColliderSpecs,
 
 	// size

@@ -76,7 +76,7 @@ void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const c
 
 void PongBall::destructor()
 {
-	if(!this->inCameraRange)
+	if(!PongBall::isInCameraRange(this, 0, false))
 	{
 		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
 	}
@@ -142,7 +142,7 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 			{
 				Vector3D velocity = *Body::getVelocity(this->body);
 
-				fixed_t yDisplacement = this->transformation.globalPosition.y - SpatialObject::getPosition(collidingObject)->y;
+				fixed_t yDisplacement = this->transformation.position.y - SpatialObject::getPosition(collidingObject)->y;
 
 //				velocity.x -= yDisplacement;
 				velocity.y += yDisplacement;
@@ -172,10 +172,12 @@ bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
-	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
 	Vector3D localPosition = Vector3D::zero();
 	localPosition.z = __PIXELS_TO_METERS(128);
-	Entity::setLocalPosition(this, &localPosition);
+	PongBall::setLocalPosition(this, &localPosition);
+
+	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
+
 	PongBall::discardMessages(this, kMessagePongBallStartMoving);
 	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
 }
@@ -210,7 +212,7 @@ void PongBall::startMovement()
 		velocity.x = -velocity.x;
 	}
 
-	Body::moveUniformly(this->body, velocity);
+	PongBall::setVelocity(this, &velocity, false);
 }
 
 int PongBall::getPaddleEnum()
