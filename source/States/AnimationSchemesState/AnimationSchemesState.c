@@ -346,7 +346,7 @@ void AnimationSchemesState::createSprites()
 			extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
 			
 			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
-			Sprite::setPixelPosition(animatedSprite, &spritePosition);
+			Sprite::setPosition(animatedSprite, &spritePosition);
 			
 			Sprite::play(animatedSprite, PunkAnimationSpecs, "Move", NULL);
 
