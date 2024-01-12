@@ -56,48 +56,32 @@
         "cleanUp": false,
         "pools": [
             {
-                "objects": 450,
+                "objects": 200,
                 "size": 16
             },
             {
-                "objects": 700,
+                "objects": 200,
                 "size": 20
             },
             {
-                "objects": 350,
+                "objects": 50,
                 "size": 28
             },
             {
-                "objects": 30,
-                "size": 40
-            },
-            {
-                "objects": 60,
-                "size": 68
-            },
-            {
-                "objects": 50,
-                "size": 80
+                "objects": 100,
+                "size": 64
             },
             {
                 "objects": 40,
-                "size": 108
+                "size": 100
             },
             {
-                "objects": 40,
-                "size": 116
-            },
-            {
-                "objects": 10,
+                "objects": 20,
                 "size": 140
             },
             {
                 "objects": 10,
                 "size": 152
-            },
-            {
-                "objects": 1,
-                "size": 164
             }
         ],
         "warningThreshold": 85
