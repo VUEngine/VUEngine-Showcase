@@ -1,50 +1,72 @@
-/**
- * VUEngine Showcase
- *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
- *
- * For the full copyright and license information, please view the LICENSE file
- * that was distributed with this source code.
- */
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #ifndef PLUGINS_CONFIG_H_
 #define PLUGINS_CONFIG_H_
 
 
 //---------------------------------------------------------------------------------------------------------
-//												PLUGINS
+//                                          CONFIGURATION MACROS                                           
 //---------------------------------------------------------------------------------------------------------
 
-#define __SAVE_DATA_MANAGER_SAVE_STAMP						"VUEngineShowcase"
-#define __SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH				16
+#define __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE (false)
+#define __PLUGIN_LOW_POWER_ENTITY_X_POSITION (180)
+#define __PLUGIN_LOW_POWER_ENTITY_Y_POSITION (-96)
+#define __PLUGIN_LOW_POWER_ENTITY_Z_POSITION (0)
+#define __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT (0)
 
-#define __ADJUSTMENT_SCREEN_USE_LOW_POWER_ENTITY			true
-#define __LANGUAGE_SELECTION_SCREEN_VARIANT					1
+#define __PLUGIN_AUTOMATIC_PAUSE_TITLE_TEXT_FONT ("AstonishExt")
+#define __PLUGIN_AUTOMATIC_PAUSE_BODY_TEXT_FONT ("Default")
+#define __PLUGIN_AUTOMATIC_PAUSE_USE_LOW_POWER_ENTITY (false)
 
-#define __AUTOMATIC_PAUSE_SCREEN_TITLE_TEXT_FONT			"AstonishExt"
-#define __AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT	"AstonishExt"
-#define __LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT 		"AstonishExt"
-#define __PRECAUTION_SCREEN_TEXT_FONT						"AstonishExt"
+#define __PLUGIN_SAVE_DATA_MANAGER_CRC_MASK (0xEDB88320)
+#define __PLUGIN_SAVE_DATA_MANAGER_CRC_CHECK_RANGE (512)
+#define __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP ("VUEngineShowcase")
+#define __PLUGIN_SAVE_DATA_MANAGER_SAVE_STAMP_LENGTH (16)
 
-#define __WOBBLE_STARTING_ROW								(82)
-#define __WOBBLE_ENDING_ROW									(__SCREEN_HEIGHT - 4)
+#define __PLUGIN_DWARF_PLANET_STARTING_ROW (82)
+#define __PLUGIN_DWARF_PLANET_ENDING_ROW (224)
+#define __PLUGIN_DWARF_PLANET_STARTING_COLUMN (22)
+#define __PLUGIN_DWARF_PLANET_ENDING_COLUMN (362)
 
-#define __TILT_STARTING_ROW									(82)
-#define __TILT_ENDING_ROW									(__SCREEN_HEIGHT)
+#define __PLUGIN_RAIN_X_POSITION (768)
+#define __PLUGIN_RAIN_Y_POSITION (576)
+#define __PLUGIN_RAIN_WIDTH (336)
+#define __PLUGIN_RAIN_HEIGHT (112)
+#define __PLUGIN_RAIN_Y_STEP_THROTTLE (0)
 
-#define __DWARF_PLANET_STARTING_ROW							(82)
-#define __DWARF_PLANET_ENDING_ROW							(__SCREEN_HEIGHT)
-#define __DWARF_PLANET_STARTING_COLUMN						(22)
-#define __DWARF_PLANET_ENDING_COLUMN						(362)
+#define __PLUGIN_TILT_STARTING_ROW (82)
+#define __PLUGIN_TILT_ENDING_ROW (224)
 
-#define __WATERFALL_X_POSITION								(__HALF_SCREEN_WIDTH_METERS)
-#define __WATERFALL_Y_POSITION								(__HALF_SCREEN_HEIGHT_METERS + __PIXELS_TO_METERS(32))
-#define __WATERFALL_WIDTH									(336)
-#define __WATERFALL_HEIGHT									(112)
+#define __PLUGIN_WOBBLE_STARTING_ROW (82)
+#define __PLUGIN_WOBBLE_ENDING_ROW (220)
 
-#define __LOW_POWER_ENTITY_X_POSITION						180
-#define __LOW_POWER_ENTITY_Y_POSITION						-96
-#define __LOW_POWER_ENTITY_Z_POSITION						0
-#define __LOW_POWER_ENTITY_Z_DISPLACEMENT					0
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_USE_LOW_POWER_ENTITY (true)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_X_POSITION (4)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_INDICATOR_Y_POSITION (1)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_X_POSITION (-152)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Y_POSITION (-100)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_POSITION (0)
+#define __PLUGIN_ADJUSTMENT_SCREEN_VUENGINE_LOW_POWER_ENTITY_Z_DISPLACEMENT (0)
+
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY (false)
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_GAP (3)
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_Y_POS (15)
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_TITLE_TEXT_FONT ("AstonishExt")
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_BODY_TEXT_FONT ("Default")
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT ("Default")
+#define __PLUGIN_AUTOMATIC_PAUSE_SELECTION_SCREEN_OPTIONS_TEXT_FONT ("Default")
+
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_USE_LOW_POWER_ENTITY (false)
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_VARIANT (1)
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_TITLE_TEXT_FONT ("AstonishExt")
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_LANGUAGE_NAME_FONT ("Default")
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_WIDTH (44)
+#define __PLUGIN_LANGUAGE_SELECTION_SCREEN_IMAGE_HEIGHT (32)
+
+#define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY (false)
+#define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT ("AstonishExt")
+
 
 #endif

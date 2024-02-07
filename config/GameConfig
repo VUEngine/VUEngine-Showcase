@@ -1,17 +1,50 @@
 {
-    "plugins": [
-        "vuengine//fonts/AstonishFont",
-        "vuengine//other/AutomaticPause",
-        "vuengine//other/I18n",
-        "vuengine//other/SaveDataManager",
-        "vuengine//postProcessing/DwarfPlanet",
-        "vuengine//postProcessing/Rain",
-        "vuengine//postProcessing/Tilt",
-        "vuengine//postProcessing/Wobble",
-        "vuengine//states/splash/AdjustmentScreenVUEngine",
-        "vuengine//states/splash/AutomaticPauseSelectionScreen",
-        "vuengine//states/splash/LanguageSelectionScreen",
-        "vuengine//states/splash/PrecautionScreen"
-    ],
+    "plugins": {
+        "vuengine//entities/LowPowerEntity": {
+            "xPosition": 180,
+            "yPosition": -96
+        },
+        "vuengine//fonts/AstonishFont": {},
+        "vuengine//other/AutomaticPause": {
+            "titleTextFont": "AstonishExt",
+            "bodyTextFont": "Default"
+        },
+        "vuengine//other/I18n": {},
+        "vuengine//other/SaveDataManager": {
+            "saveStampLength": 16,
+            "saveStamp": "VUEngineShowcase"
+        },
+        "vuengine//postProcessing/DwarfPlanet": {
+            "startingRow": 82,
+            "endingRow": 224,
+            "startingColumn": 22,
+            "endingColumn": 362
+        },
+        "vuengine//postProcessing/Rain": {
+            "height": 112,
+            "width": 336,
+            "yPosition": 576
+        },
+        "vuengine//postProcessing/Tilt": {
+            "startingRow": 82
+        },
+        "vuengine//postProcessing/Wobble": {
+            "startingRow": 82,
+            "endingRow": 220
+        },
+        "vuengine//states/splash/AdjustmentScreenVUEngine": {
+            "useLowPowerEntity": true
+        },
+        "vuengine//states/splash/AutomaticPauseSelectionScreen": {
+            "titleTextFont": "AstonishExt"
+        },
+        "vuengine//states/splash/LanguageSelectionScreen": {
+            "variant": 1,
+            "titleTextFont": "AstonishExt"
+        },
+        "vuengine//states/splash/PrecautionScreen": {
+            "textFont": "AstonishExt"
+        }
+    },
     "projectTitle": "VUEngine Showcase"
 }
