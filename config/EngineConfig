@@ -77,11 +77,11 @@
             },
             {
                 "objects": 20,
-                "size": 140
+                "size": 144
             },
             {
                 "objects": 10,
-                "size": 152
+                "size": 156
             }
         ],
         "warningThreshold": 85
