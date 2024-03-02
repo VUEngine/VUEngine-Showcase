@@ -460,7 +460,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 			continue;
 		}
 
-		Mem::addHWORD
+		Mem::addOffsetToHWORD
 		(
 			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]),
 			(HWORD*)charMemoryMap,
@@ -511,7 +511,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 	uint32 xOffset = leftBorder;
 
-	Mem::addHWORD
+	Mem::addOffsetToHWORD
 	(
 		(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((topBorder) << 6) + xOffset]),
 		(HWORD*)charMemoryMap,
@@ -571,7 +571,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 			break;
 		}
 
-		Mem::addHWORD
+		Mem::addOffsetToHWORD
 		(
 			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((yOffset) << 6) + xOffset]),
 			(HWORD*)charMemoryMap,
