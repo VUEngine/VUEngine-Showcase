@@ -1,0 +1,132 @@
+{
+    "_id": "UNBvfIrGoS8DoOAm",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "components": {
+        "animations": [],
+        "behaviors": [],
+        "children": [],
+        "colliders": [
+            {
+                "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "layers": [
+                    "Solid"
+                ],
+                "layersToCheck": [],
+                "name": "Collider",
+                "pixelSize": {
+                    "x": 56,
+                    "y": 48,
+                    "z": 32
+                },
+                "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "type": "Box"
+            }
+        ],
+        "scripts": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "_dupeIndex": 1,
+                    "maps": [
+                        {
+                            "data": "H4sIAAAAAAAAEyXNuxWCUABEwV5eTOCuihL6bYJj/22AzE1uOOs47Y3pv1jtbBe72mw3u9tiD3vay972se+x8MILL7zwwgsvvPDCCy+88MILL7zyyiuvvPLKK6+88rqM3wZOZcrBJwEAAA==",
+                            "height": "6",
+                            "name": "Box",
+                            "width": "7"
+                        }
+                    ],
+                    "tiles": {
+                        "count": 42,
+                        "data": "H4sIAAAAAAAAE32VTXLDMAiF75J1N15EHpYwgkt0ev9rlD9JSG7aVuOXZ4zMJ0i/XyLS3/rz+noRgsmuUgS6MJhEde2OuyIZqy4uSfZRZddLSv4UOwKwTSkoM6BBlbYOybiStSFBpX1MF4acsZZgPBb7Ykj/VXmpeUXABa1dMCRe4BsXaUiMUCDp83Ww658z6wDpGhJd5GUypWsXe7uDziqTSXjl9YiDziIpUpCgkzipTzrbEdpj4S6SugO0QEK0xWIgKRkCie9W8ZlMF6arSLot300luKTVXHqBlLVL9GI7GhIk1q7iaC5mJo7X4b1LyGOFdNljN2oZ+tGTWapgZoARLAOxaGYpUgaz2Fjw1q5rkqAkSaorsQUDI0fFDfS2Lm8uPZeHdCTQUpJK+igLkpSwu+Kz565WixxVuEQZ+FJa6Qn1xk62PMOUdrNRUidrbFxI3CUTkYzLCaGHTyT3mELC21yKI5qxIe1QaNCpAzmOO1ou2wgUyZseEofECTUnC6Iga57+hxvM6hSaiI2P2cwyN9eaEulw1/DusZZ3uu/2T95QJe8xvHvsWwGf7iJpY3fhmkJ8ug1sxasPJC7boFNkwVdnc6viARXX1/Yj9gHqn7yPWGdd5Nq4ne+wN1dKD4ATXyDxKuJ/QH7xK7N0B76fX0W1iTY5BwAA",
+                        "height": "344",
+                        "name": "Box",
+                        "width": "8"
+                    }
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
+                "manipulationFunction": "",
+                "name": "Box",
+                "section": "exp",
+                "texture": {
+                    "files": [
+                        "assets/Entity/Box/Box.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "horizontal": false,
+                        "vertical": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 0,
+                    "recycleable": false
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "customAllocator": "",
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "Solid Object",
+    "physics": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "sprites": {
+        "customClass": "",
+        "optimizedTiles": true,
+        "sharedTiles": true,
+        "type": "Bgmap",
+        "useZDisplacementInProjection": false
+    }
+}

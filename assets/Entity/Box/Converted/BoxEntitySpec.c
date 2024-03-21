@@ -1,0 +1,222 @@
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//---------------------------------------------------------------------------------------------------------
+//                                                INCLUDES                                                 
+//---------------------------------------------------------------------------------------------------------
+
+#include <BgmapSprite.h>
+#include <Box.h>
+#include <ColliderLayers.h>
+#include <Entity.h>
+#include <InGameTypes.h>
+#include <Texture.h>
+
+
+//---------------------------------------------------------------------------------------------------------
+//                                               IMAGE DATA                                                
+//---------------------------------------------------------------------------------------------------------
+
+const uint32 BoxEntityBoxTiles[] __attribute__((aligned(4))) =
+{
+	0x00000000,
+	0xFFFD5555,0xBA9D555D,0xFF9DFE9D,0xAA9DBA9D,0xFFFF5555,0xAA9A5555,0xAA9BAA9A,0xDA9AAA9A,
+	0xEFFF5555,0xAA9A5555,0xAA9AAA9A,0xA69AAA9A,0xFAFA5555,0xA69A5555,0xA69AA69A,0xA69AA69A,
+	0xAEAA5555,0xAA6A5555,0x9A6AAA6A,0xAA6A9A6A,0xAAAA5555,0x69AA5555,0xA9AAA9AA,0xA9A9A9A9,
+	0x1AAA1555,0x19661955,0x196A199A,0x196A199A,0xAA9DFF9D,0xFFFD5555,0xAAADAADD,0xAD995555,
+	0xDA9ADA9B,0xFAEB5555,0x5555AAAA,0xAA9A5555,0xA69AA69A,0xEBFE5555,0xAAA9A555,0xA69A5555,
+	0xAA9AAA9A,0xFFAA5555,0xAAAA6AAA,0xAA9A5555,0xAA6AAA6A,0xFFFF5555,0xAAAA556A,0xFA6A5555,
+	0x69A969A9,0xBBFF5555,0xAAAAA955,0xFFFF5555,0x196A19AA,0x1AAA1555,0x1AAA19AA,0x19AA1555,
+	0xAD9DAD9D,0xFA9DA99D,0xBA9DBA9D,0xBA99BA9D,0xAA9AAA9A,0xAA9AFFFF,0xEABEEFFE,0xEFFEEEBE,
+	0xFFFEA69A,0xA69AA69B,0xEAFBEAFF,0x7ABFFAFB,0xAAFFFF9A,0xFEBFEA9E,0xBEFABEFE,0xBEFABEFF,
+	0xAA6AAFFF,0xFA7AEA6F,0xFA6AFA6A,0xFA7AFAFF,0xE9EAE9AA,0x69FA69FA,0xA9FAA9FA,0xA9FAA9FA,
+	0x19AA196A,0x19AB196B,0x19AB196B,0x19AB196B,0xBA99BA9D,0xBA99BA99,0xBA99BA9D,0xFAA9BA99,
+	0xEAFAEEFE,0xEAFAEAFA,0xAA9AEAFA,0xFFFFAA9A,0x7ADB7ADB,0xFADB7ADB,0xAA9A6B9A,0xAABFFFDA,
+	0xBEFABEFA,0xABBEFAFA,0xFE9AAA9A,0xAAAAABFF,0xFA7AFA7A,0xAA6ABA7F,0xBFFFEA6A,0xAAAAAA6A,
+	0xBFFAB9FA,0xA9AAA9AA,0xA9AAFFFF,0xAAAAA9AA,0x199B195B,0x199B195B,0x199A195B,0x1AAA196A,
+	0x5555AAA9,0xAA99AFFD,0x5555AAA9,0xAA99AA99,0x5555AAAA,0xA5AAAFFF,0x5555AAAA,0xAA9AAA9A,
+	0x5555AAAA,0xAAA9AFAB,0x5555AAAA,0xA69AA69A,0x5555AAAA,0xAAAAAFFA,0x5555A56A,0xAA9AAA9A,
+	0x5555AAAA,0xA55AAAAB,0x5555AAA5,0xAA6AAA6A,0x5555AAAA,0xA555ABAA,0x5555AAAA,0xA9AAA9AA,
+	0x15551AAA,0x19AA1AAA,0x15551AAA,0x19691969,0xA699AA99,0xA699A699,0x5559A699,0x5555AAA9,
+	0xAA9AAA9A,0xAA9AAA9A,0x5555AA99,0x5555AAAA,0xAA9AA69A,0xAA9AAA9A,0x5555AA9A,0x5555AAAA,
+	0xAA9AAA9A,0xAA9AAA9A,0x5555AA9A,0x5555AAAA,0xAA69AA6A,0xAA69AA69,0x5555AA69,0x5555AAAA,
+	0xA9AAA9AA,0xA9AAA9AA,0x5555A9AA,0x5555AAAA,0x19691999,0x1966199A,0x19551999,0x15551AAA,
+};
+
+const uint16 BoxEntityBoxMap[] __attribute__((aligned(4))) =
+{
+	0x0000,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,
+	0x0008,0x0009,0x000A,0x000B,0x000C,0x000D,0x000E,0x000F,
+	0x0010,0x0011,0x0012,0x0013,0x0014,0x0015,0x0016,0x0017,
+	0x0018,0x0019,0x001A,0x001B,0x001C,0x001D,0x001E,0x001F,
+	0x0020,0x0021,0x0022,0x0023,0x0024,0x0025,0x0026,0x0027,
+	0x0028,0x0029,
+};
+
+
+//---------------------------------------------------------------------------------------------------------
+//                                                 SPRITES                                                 
+//---------------------------------------------------------------------------------------------------------
+
+
+CharSetROMSpec BoxSprite1CharsetSpec =
+{
+	// number of chars in function or the number of frames to load at the same time
+	42,
+
+	// whether it is shared or not
+	true,
+
+	// whether the tiles are optimized or not
+	true,
+
+	// char spec
+	(uint32*)BoxEntityBoxTiles,
+
+	// pointer to the frames offsets
+	NULL,
+};
+
+TextureROMSpec BoxSprite1TextureSpec =
+{
+	// charset spec
+	(CharSetSpec*)&BoxSprite1CharsetSpec,
+
+	// bgmap spec
+	(uint16*)BoxEntityBoxMap,
+
+	// cols (max 64)
+	7,
+
+	// rows (max 64)
+	6,
+
+	// padding for affine/hbias transformations
+	{ 0, 0 },
+
+	// number of frames
+	1,
+
+	// palette number (0-3)
+	0,
+
+	// recyclable
+	false,
+
+	// vertical flip
+	false,
+
+	// horizontal flip
+	false,
+};
+
+BgmapSpriteROMSpec BoxSprite1SpriteSpec =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapSprite),
+
+		// texture spec
+		(TextureSpec*)&BoxSprite1TextureSpec,
+
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{ 0, 0, 0, 0 },
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
+	__WORLD_BGMAP,
+	
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
+{
+	&BoxSprite1SpriteSpec,
+	NULL
+};
+
+//---------------------------------------------------------------------------------------------------------
+//                                                COLLIDERS                                                
+//---------------------------------------------------------------------------------------------------------
+
+ColliderROMSpec BoxColliderSpecs[] =
+{
+	{
+		// collider
+		__TYPE(Box),
+
+		// size (x, y, z)
+		{ 56, 48, 32 },
+
+		// displacement (x, y, z, p)
+		{ 0, 0, 0, 0 },
+
+		// rotation (x, y, z)
+		{ __F_TO_FIX7_9(0), __F_TO_FIX7_9(0), __F_TO_FIX7_9(0) },
+
+		// scale (x, y, z)
+		{ __F_TO_FIX7_9(1), __F_TO_FIX7_9(1), __F_TO_FIX7_9(1) },
+
+		// if true this collider checks for collisions against other colliders
+		false,
+
+		// layers in which I live
+		kLayerSolid,
+
+		// layers to ignore when checking for collisions
+		kLayerAll,
+	},
+	
+	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+};
+
+
+//---------------------------------------------------------------------------------------------------------
+//                                                 ENTITY                                                  
+//---------------------------------------------------------------------------------------------------------
+
+EntityROMSpec BoxEntitySpec =
+{
+			// class allocator
+			__TYPE(Entity),
+
+			// children
+			NULL,
+
+			// behaviors
+			NULL,
+
+			// extra
+			NULL,
+
+			// sprites
+			(SpriteSpec**)BoxSpriteSpecs,
+
+			// use z displacement in projection
+			false,
+
+			// wireframes
+			NULL,
+
+			// collider colliders
+			(ColliderSpec*)BoxColliderSpecs,
+
+			// size
+			// if 0, width and height will be inferred from the first sprite's texture's size
+			{ 0, 0, 0 },
+
+			// gameworld's character's type
+			kTypeSolidObject,
+
+			// physical specification
+			(PhysicalProperties*)NULL,
+};
