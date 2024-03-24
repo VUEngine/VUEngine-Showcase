@@ -1,13 +1,8 @@
-//---------------------------------------------------------------------------------------------------------
-//
-//	CogWheelBackground
-//	* 26 tiles, reduced by non-unique and flipped tiles, not compressed
-//	* 64x64 map, not compressed
-//	Size: 420 + 8192 = 8612
-//
-//---------------------------------------------------------------------------------------------------------
-
-const uint32 CogWheelBackgroundTiles[105] __attribute__((aligned(4))) =
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+//                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+const uint32 CogWheelBackgroundEntityCogWheelBackgroundTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0xC0000000,0xC000C000,0x7000C000,
@@ -25,7 +20,7 @@ const uint32 CogWheelBackgroundTiles[105] __attribute__((aligned(4))) =
 	0xAAAAAAAA,0x5555AAAA,0x0000FFFF,0x00000000,0x36AA36AA,0x355536AA,0x00003FFF,0x00000000,
 };
 
-const uint16 CogWheelBackgroundMap[4096] __attribute__((aligned(4))) =
+const uint16 CogWheelBackgroundEntityCogWheelBackgroundMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0000,0x0001,0x0002,0x0003,0x0003,0x0003,0x0004,
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,

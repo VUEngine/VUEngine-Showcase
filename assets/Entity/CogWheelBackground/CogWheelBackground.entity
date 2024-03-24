@@ -1,0 +1,113 @@
+{
+    "_id": "hWneCbzEH8mLqkIn",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "components": {
+        "animations": [],
+        "behaviors": [],
+        "children": [],
+        "colliders": [],
+        "scripts": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "dupeIndex": 1,
+                    "images": [
+                        {
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAE+2b3VLCMBCF38VrL9gsP3KJCC/h+P6voXJIQyeBlAo2Z7venEFssp9K0u43+XxZ/Hy9vF6EIAJCS7HsXfA/Ebpp85ICyg1d8bcGs863Ko2yRmwQb9PwvaUiQldSH3M1R74tYod4L/HtJyCq0O5LfO+IHWI7D76PElE/DohjC2BHxKFSdejArPPdAkMIZpABy+/T+U5FhFjSgOJnwifY0eX3lcY/fwTD1ioDtpfn860Qy4QpKDeg+BBRZsa3TqNoXEpk0wrYNcwN+I699/K93zCf4L5HtpNX/TD2bQ/MON+z51PMp5jvHGLn92mBT/F517gg3bmene+6JC4Xza1nZvkS2BJxfu+AV7hZKOy3gm9K3JJPF0jcrk+DNYE5Az7pgT3gfj5hTn8/b5/vtDJo/XlT8bwp9cdOif+tDTxPW+dLmHm/R9HvUfR7FP0e6WKHyPtZ0l4/yx6fot+q6Ldqqd+q9X6ylPrJgsHOQ8s0/WTrfLd8h8J3aN13CH5EuHyOdT73cRR87uOI+TJa93GMfO7j2Pncx5HzuY8j5ssw3ccx8lXYZ+Xj/peP01dViOh93HC+Renz3q6vSgw2fdxYPiJfZd3HjeK7FW35Kus+7k4+Ml9l3ceN4aPwVRmmMR83lq9/Xbu+yrqPexgfoa+y7uOG8y1a9lXWfZyf/yP2cX7+z4SPG8PH5aus+zg//3d/WODj8FXWfZyf/zPh4/z83wWYcb5nzzcvH8fJ5z6OlM99HD2f+zhqPvdxzHwJ030cFZ/7OG4+93F2+dzHUfC5jyPmy2jdxzHyuY9j53MfR87nPo6YL8N0H8fIV2GflY/z839/JqL3ccP5FqXPe7u+KjHY9HFj+Yh8lXUf5+f/7gxqPjJfZd3H+fk/Uh83lq9/Xbu+yrqP8/N/dn3cdb6vbx0fzAwBcAAA",
+                                    "height": "64",
+                                    "width": "64",
+                                    "name": "CogWheelBackground"
+                                }
+                            ],
+                            "tiles": {
+                                "count": 26,
+                                "data": "H4sIAAAAAAAAE5WTUQ6EIAxE77Lf+0FCpoRPguESm73/NXZqq6grrtvY8IKVDgO+HsHj8fwL6x6rYepYSkmahuiYNb9wjjsYohTNO6hyksnJlIVqyjjmZMix8NWwG7Br3CYZKwOs2o1qjAuRwIIa0Wp/uZ5aXfzdztbuOlqA761k8GmGPAvU7jou/MUqMkzCNIyiuc7OyHUYqd06t0k3D0VSISmK341D7ciHSa3qGsa72KCcalB0DfNiPju3OK6LjjSmqHzHKH7yshTU0GgIpEs/HKx+jS7nUoN/Fe9cjY2cn7jXAPbNpqGyb1rXjYf/YnDBzzWw1tHv9672/QHHVWXceQQAAA==",
+                                "height": "208",
+                                "name": "CogWheelBackground",
+                                "width": "8"
+                            }
+                        }
+                    ]
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
+                "manipulationFunction": "",
+                "name": "CogWheelBackground",
+                "section": "exp",
+                "texture": {
+                    "files": [
+                        "assets/Entity/CogWheelBackground/CogWheelBackground.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 0,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": true,
+                        "y": true
+                    }
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "customAllocator": "",
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "None",
+    "physics": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "sprites": {
+        "optimizedTiles": true,
+        "sharedTiles": true,
+        "type": "Bgmap",
+        "useZDisplacementInProjection": false
+    }
+}
