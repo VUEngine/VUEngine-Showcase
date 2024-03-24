@@ -45,15 +45,9 @@
         "sprites": [
             {
                 "_imageData": {
+                    "dupeIndex": 1,
                     "images": [
                         {
-                            "tiles": {
-                                "count": 42,
-                                "data": "H4sIAAAAAAAAE32VTXLDMAiF75J1N15EHpYwgkt0ev9rlD9JSG7aVuOXZ4zMJ0i/XyLS3/rz+noRgsmuUgS6MJhEde2OuyIZqy4uSfZRZddLSv4UOwKwTSkoM6BBlbYOybiStSFBpX1MF4acsZZgPBb7Ykj/VXmpeUXABa1dMCRe4BsXaUiMUCDp83Ww658z6wDpGhJd5GUypWsXe7uDziqTSXjl9YiDziIpUpCgkzipTzrbEdpj4S6SugO0QEK0xWIgKRkCie9W8ZlMF6arSLot300luKTVXHqBlLVL9GI7GhIk1q7iaC5mJo7X4b1LyGOFdNljN2oZ+tGTWapgZoARLAOxaGYpUgaz2Fjw1q5rkqAkSaorsQUDI0fFDfS2Lm8uPZeHdCTQUpJK+igLkpSwu+Kz565WixxVuEQZ+FJa6Qn1xk62PMOUdrNRUidrbFxI3CUTkYzLCaGHTyT3mELC21yKI5qxIe1QaNCpAzmOO1ou2wgUyZseEofECTUnC6Iga57+hxvM6hSaiI2P2cwyN9eaEulw1/DusZZ3uu/2T95QJe8xvHvsWwGf7iJpY3fhmkJ8ug1sxasPJC7boFNkwVdnc6viARXX1/Yj9gHqn7yPWGdd5Nq4ne+wN1dKD4ATXyDxKuJ/QH7xK7N0B76fX0W1iTY5BwAA",
-                                "height": "344",
-                                "width": "8",
-                                "name": "Box"
-                            },
                             "maps": [
                                 {
                                     "data": "H4sIAAAAAAAAEyXNuxWCUABEwV5eTOCuihL6bYJj/22AzE1uOOs47Y3pv1jtbBe72mw3u9tiD3vay972se+x8MILL7zwwgsvvPDCCy+88MILL7zyyiuvvPLKK6+88rqM3wZOZcrBJwEAAA==",
@@ -61,10 +55,16 @@
                                     "width": "7",
                                     "name": "Box"
                                 }
-                            ]
+                            ],
+                            "tiles": {
+                                "count": 42,
+                                "data": "H4sIAAAAAAAAE32VTXLDMAiF75J1N15EHpYwgkt0ev9rlD9JSG7aVuOXZ4zMJ0i/XyLS3/rz+noRgsmuUgS6MJhEde2OuyIZqy4uSfZRZddLSv4UOwKwTSkoM6BBlbYOybiStSFBpX1MF4acsZZgPBb7Ykj/VXmpeUXABa1dMCRe4BsXaUiMUCDp83Ww658z6wDpGhJd5GUypWsXe7uDziqTSXjl9YiDziIpUpCgkzipTzrbEdpj4S6SugO0QEK0xWIgKRkCie9W8ZlMF6arSLot300luKTVXHqBlLVL9GI7GhIk1q7iaC5mJo7X4b1LyGOFdNljN2oZ+tGTWapgZoARLAOxaGYpUgaz2Fjw1q5rkqAkSaorsQUDI0fFDfS2Lm8uPZeHdCTQUpJK+igLkpSwu+Kz565WixxVuEQZ+FJa6Qn1xk62PMOUdrNRUidrbFxI3CUTkYzLCaGHTyT3mELC21yKI5qxIe1QaNCpAzmOO1ou2wgUyZseEofECTUnC6Iga57+hxvM6hSaiI2P2cwyN9eaEulw1/DusZZ3uu/2T95QJe8xvHvsWwGf7iJpY3fhmkJ8ug1sxasPJC7boFNkwVdnc6viARXX1/Yj9gHqn7yPWGdd5Nq4ne+wN1dKD4ATXyDxKuJ/QH7xK7N0B76fX0W1iTY5BwAA",
+                                "height": "344",
+                                "name": "Box",
+                                "width": "8"
+                            }
                         }
-                    ],
-                    "dupeIndex": 1
+                    ]
                 },
                 "bgmapMode": "Bgmap",
                 "colorMode": 0,
@@ -79,7 +79,7 @@
                 "displays": "ON",
                 "manipulationFunction": "",
                 "name": "Box",
-                "section": "exp",
+                "section": "rom",
                 "texture": {
                     "files": [
                         "assets/Entity/Box/Box.png"
@@ -96,13 +96,13 @@
                     "palette": 0,
                     "recycleable": false,
                     "repeat": {
-						"mode": "1x1",
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
                         "x": false,
-                        "y": false,
-						"size": {
-							"x": 0,
-							"y": 0
-						}
+                        "y": false
                     }
                 },
                 "transparency": "None"
@@ -136,7 +136,6 @@
         "rotationAxes": []
     },
     "sprites": {
-        "customClass": "",
         "optimizedTiles": true,
         "sharedTiles": true,
         "type": "Bgmap",

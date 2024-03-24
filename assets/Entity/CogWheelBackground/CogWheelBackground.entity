@@ -48,7 +48,7 @@
                 "displays": "ON",
                 "manipulationFunction": "",
                 "name": "CogWheelBackground",
-                "section": "exp",
+                "section": "rom",
                 "texture": {
                     "files": [
                         "assets/Entity/CogWheelBackground/CogWheelBackground.png"

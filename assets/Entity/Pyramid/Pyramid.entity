@@ -201,7 +201,6 @@
         "rotationAxes": []
     },
     "sprites": {
-        "customClass": "",
         "optimizedTiles": true,
         "sharedTiles": true,
         "type": "Bgmap",
