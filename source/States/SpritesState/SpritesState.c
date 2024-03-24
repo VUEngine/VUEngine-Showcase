@@ -198,11 +198,11 @@ void SpritesState::createSprite()
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	SpritesState::restoreMethods();
 
-	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
-	extern SpriteSpec CogWheelObjectSpriteSpec;
-	extern SpriteSpec CogWheelBgmapSpriteNormalSpec;
-	extern SpriteSpec CogWheelBgmapSpriteAffineSpec;
-	extern SpriteSpec CogWheelBgmapSpriteHBiasSpec;
+	// Check these specifications in assets/Entity/CogWheel/Converted/CogWheel[...]EntitySpec.c		
+	extern SpriteSpec CogWheelObjectSprite1SpriteSpec;
+	extern SpriteSpec CogWheelBgmapNormalSprite1SpriteSpec;
+	extern SpriteSpec CogWheelBgmapAffineSprite1SpriteSpec;
+	extern SpriteSpec CogWheelBgmapHbiasSprite1SpriteSpec;
 	extern SpriteSpec CogWheelBackgroundSprite1SpriteSpec;
 
 	SpriteSpec* spriteSpec = NULL;
@@ -211,26 +211,26 @@ void SpritesState::createSprite()
 	{
 		case kSpriteObject:
 
-			spriteSpec = &CogWheelObjectSpriteSpec;
+			spriteSpec = &CogWheelObjectSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteHorizontalTranslation);
 			break;
 
 		case kSpriteBgmapNormal:
 
-			spriteSpec = &CogWheelBgmapSpriteNormalSpec;
+			spriteSpec = &CogWheelBgmapNormalSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteVerticalTranslation);
 			break;
 
 		case kSpriteBgmapAffine:
 
-			spriteSpec = &CogWheelBgmapSpriteAffineSpec;
+			spriteSpec = &CogWheelBgmapAffineSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteRotation);
 			break;
 
 		case kSpriteBgmapHBias:
 
 			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
-			spriteSpec = &CogWheelBgmapSpriteHBiasSpec;
+			spriteSpec = &CogWheelBgmapHbiasSprite1SpriteSpec;
 			break;
 
 		case kSpriteMBgmap:

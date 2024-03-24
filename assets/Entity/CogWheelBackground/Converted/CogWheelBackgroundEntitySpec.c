@@ -130,7 +130,7 @@ MBgmapSpriteROMSpec CogWheelBackgroundSprite1SpriteSpec =
 
 BgmapSpriteROMSpec* const CogWheelBackgroundSpriteSpecs[] =
 {
-	&CogWheelBackgroundSprite1SpriteSpec,
+	(BgmapSpriteSpec*)&CogWheelBackgroundSprite1SpriteSpec,
 	NULL
 };
 

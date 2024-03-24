@@ -1,0 +1,144 @@
+{
+    "_id": "f7Q0zwq3nUGmoIzE",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "components": {
+        "animations": [],
+        "behaviors": [],
+        "children": [],
+        "colliders": [
+            {
+                "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "layers": [
+                    "Dangers"
+                ],
+                "layersToCheck": [],
+                "name": "Collider",
+                "pixelSize": {
+                    "x": 128,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "type": "Ball"
+            }
+        ],
+        "scripts": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "dupeIndex": 1,
+                    "images": [
+                        {
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAE62VQZKCQAxF7+J6FnwCCksRvYTl/a8xU/UaMkgkWMrmFU13Pp3+Sd8P1d9z+NkJgdpRz4P7oyxhoAHt4tsRnBz1PFjx1oIGWC7UgR6cwQAukd4FDOAMetBtyI4LodPncNlxpWdkwuYdbQW7EuWazBTB9HwqS9yC5eKbsIYwygSBKtrfLVAQ2RUOURvpHTd+EKMo8lIJJtwzCW2kTrhHfa7HUZUF4WkWodd6YrlyPWOK5Xpim8amFeVTeT4tyqcRrIS2KZ//1ynyizCDsIYwis0QWPvFYr88dYasHkQhWF4P3i7W9SCKUt+sdyOYRfUumo5oQUXWC3YA635mDBpTSrtwoQ68bKMui3ve7NfepZpEaAfE1WNcRI537qPHL94bxYUBBwAA",
+                                    "height": "16",
+                                    "width": "16",
+                                    "name": "CogWheel"
+                                }
+                            ],
+                            "tiles": {
+                                "count": 26,
+                                "data": "H4sIAAAAAAAAE5WTQa7DIAxE79L1XyBZA2KJjLjEV+9/jY6JA7Rp2hQF5Qk59nhi/m/B1+3vJ2ytqWMpWQGoo+1DbBuxpTAWjrauVNPlVAdWaJDUMRYocvISoIb0KW/llo41kvAs/QIO6V+RGkPy5sk5uQ/QctDrX+Uream8ULkhqZBK96Fne41d/sXEjFbRug9bWRx9SM8d49feeDrb/NwQxXB1zMzryTrqljeNU4oKlvvcdb7ihuaMOWQlwDmJbklFaHB3hE89TIkEacfTt5dBdzRlcGUmMr/i18uwYk5tz7D5fx4bhPPAPvepFu9NwB3n2NdTZe8xTicXrHPODOuYM/ESjjKNktWz+wOdqYpjeQQAAA==",
+                                "height": "208",
+                                "name": "CogWheel",
+                                "width": "8"
+                            }
+                        }
+                    ]
+                },
+                "bgmapMode": "Affine",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 1
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
+                "manipulationFunction": "",
+                "name": "CogWheel",
+                "section": "rom",
+                "texture": {
+                    "files": [
+                        "assets/Entity/CogWheel/CogWheel.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 10,
+                        "y": 10
+                    },
+                    "palette": 0,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": false,
+                        "y": false
+                    }
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "customAllocator": "CogWheel",
+        "enabled": true,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "Cog Wheel",
+    "physics": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "sprites": {
+        "optimizedTiles": true,
+        "sharedTiles": true,
+        "type": "Bgmap",
+        "useZDisplacementInProjection": false
+    }
+}

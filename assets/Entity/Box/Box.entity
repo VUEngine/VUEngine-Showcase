@@ -86,15 +86,24 @@
                     ],
                     "files2": [],
                     "flip": {
-                        "horizontal": false,
-                        "vertical": false
+                        "x": false,
+                        "y": false
                     },
                     "padding": {
                         "x": 0,
                         "y": 0
                     },
                     "palette": 0,
-                    "recycleable": false
+                    "recycleable": false,
+                    "repeat": {
+						"mode": "1x1",
+                        "x": false,
+                        "y": false,
+						"size": {
+							"x": 0,
+							"y": 0
+						}
+                    }
                 },
                 "transparency": "None"
             }

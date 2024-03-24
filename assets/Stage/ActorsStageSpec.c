@@ -25,7 +25,7 @@
 //---------------------------------------------------------------------------------------------------------
 
 extern EntitySpec BoxEntitySpec;
-extern EntitySpec CogWheelEntitySpec;
+extern EntitySpec CogWheelBgmapNormalEntitySpec;
 extern EntitySpec PunkActorSpec;
 extern EntitySpec LowPowerIndicatorEntitySpec;
 
@@ -38,7 +38,7 @@ PositionedEntityROMSpec ActorsStageEntitySpecs[] =
 {
 	{&PunkActorSpec, {0, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{&BoxEntitySpec, {150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
-	{&CogWheelEntitySpec, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
+	{&CogWheelBgmapNormalEntitySpec, {-150, 64, 0, 0}, 0, NULL, NULL, NULL, false},
 	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
 };
 

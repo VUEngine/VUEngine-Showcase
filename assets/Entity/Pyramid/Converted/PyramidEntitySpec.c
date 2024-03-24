@@ -6,7 +6,6 @@
 //                                                INCLUDES                                                 
 //---------------------------------------------------------------------------------------------------------
 
-#include <BgmapSprite.h>
 #include <Entity.h>
 #include <Mesh.h>
 #include <Texture.h>
