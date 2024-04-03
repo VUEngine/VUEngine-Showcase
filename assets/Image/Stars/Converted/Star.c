@@ -4,11 +4,11 @@
 //	* 5 tiles, unreduced, not compressed
 //	* 1x1 map, not compressed
 //	* 5 animation frames, spritesheet
-//	Size: 84 + 2 = 86
+//	Size: 84 + 2 = 86 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 StarTiles[21] __attribute__((aligned(4))) =
+const uint32 StarTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00C00000,0x3FF003C0,0x03C00FFC,0x00000300,0x00000000,0x03F00300,0x00C00FC0,0x00000000,
@@ -16,7 +16,7 @@ const uint32 StarTiles[21] __attribute__((aligned(4))) =
 	0x00000000,0x00000000,0x00000000,0x00000000,
 };
 
-const uint16 StarMap[1] __attribute__((aligned(4))) =
+const uint16 StarMap[] __attribute__((aligned(4))) =
 {
 	0x0000,
 };

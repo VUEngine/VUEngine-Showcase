@@ -17,7 +17,6 @@
             "unique": false
         }
     },
-    "name": "Punk",
     "section": "rom",
     "tileset": {
         "compression": "none",

@@ -16,7 +16,6 @@
             "unique": false
         }
     },
-    "name": "Star",
     "section": "rom",
     "tileset": {
         "compression": "none",

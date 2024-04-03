@@ -17,7 +17,6 @@
             "unique": false
         }
     },
-    "name": "Punk Dying",
     "section": "rom",
     "tileset": {
         "compression": "none",

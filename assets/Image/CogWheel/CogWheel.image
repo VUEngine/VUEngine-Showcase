@@ -17,7 +17,6 @@
             "unique": true
         }
     },
-    "name": "Cog Wheel",
     "section": "rom",
     "tileset": {
         "compression": "none",

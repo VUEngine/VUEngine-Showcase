@@ -3,11 +3,11 @@
 //	Box
 //	* 42 tiles, reduced by non-unique and flipped tiles, not compressed
 //	* 7x6 map, not compressed
-//	Size: 676 + 84 = 760
+//	Size: 676 + 84 = 760 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 BoxTiles[169] __attribute__((aligned(4))) =
+const uint32 BoxTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0xFFFD5555,0xBA9D555D,0xFF9DFE9D,0xAA9DBA9D,0xFFFF5555,0xAA9A5555,0xAA9BAA9A,0xDA9AAA9A,
@@ -33,7 +33,7 @@ const uint32 BoxTiles[169] __attribute__((aligned(4))) =
 	0xA9AAA9AA,0xA9AAA9AA,0x5555A9AA,0x5555AAAA,0x19691999,0x1966199A,0x19551999,0x15551AAA,
 };
 
-const uint16 BoxMap[42] __attribute__((aligned(4))) =
+const uint16 BoxMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,
 	0x0008,0x0009,0x000A,0x000B,0x000C,0x000D,0x000E,0x000F,

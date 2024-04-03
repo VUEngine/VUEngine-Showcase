@@ -3,11 +3,11 @@
 //	CogWheel
 //	* 26 tiles, reduced by non-unique and flipped tiles, not compressed
 //	* 16x16 map, not compressed
-//	Size: 420 + 512 = 932
+//	Size: 420 + 512 = 932 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 CogWheelTiles[105] __attribute__((aligned(4))) =
+const uint32 CogWheelTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0xFFFC0000,0xAA9C555C,0xAA9CAA9C,
@@ -25,7 +25,7 @@ const uint32 CogWheelTiles[105] __attribute__((aligned(4))) =
 	0x6AAA6AAA,0x6AAA6AAA,0xDAAA5AAA,0xDAAADAAA,0x0003000D,0x00030003,0x00000003,0x00000000,
 };
 
-const uint16 CogWheelMap[256] __attribute__((aligned(4))) =
+const uint16 CogWheelMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0001,0x0002,
 	0x0002,0x2001,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
