@@ -4,11 +4,11 @@
 //	* 1152 tiles, unreduced, not compressed
 //	* 8x6 map, not compressed
 //	* 24 animation frames, spritesheet
-//	Size: 18436 + 96 = 18532
+//	Size: 18436 + 96 = 18532 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 PunkDyingTiles[4609] __attribute__((aligned(4))) =
+const uint32 PunkDyingTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,
@@ -589,7 +589,7 @@ const uint32 PunkDyingTiles[4609] __attribute__((aligned(4))) =
 	0x00000C0C,0x00000000,0x00000404,0x00000000,0x00000400,0x00000000,0x00000000,0x00000000,
 };
 
-const uint16 PunkDyingMap[48] __attribute__((aligned(4))) =
+const uint16 PunkDyingMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,
 	0x0008,0x0009,0x000A,0x000B,0x000C,0x000D,0x000E,0x000F,

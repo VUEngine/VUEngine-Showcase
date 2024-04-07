@@ -43258,7 +43258,7 @@ SoundChannelROM* const NoFearForTheFutureSoundChannels[] =
 SoundROMSpec NoFearForTheFutureSoundSpec =
 {
 	// Name
-	"No Fear For The Future",
+	"NoFearForTheFuture",
 
 	// Play in loop
 	false,

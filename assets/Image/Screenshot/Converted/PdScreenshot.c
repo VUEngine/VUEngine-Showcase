@@ -4,11 +4,11 @@
 //	* 460 tiles, reduced by non-unique and flipped tiles, not compressed
 //	* 44x16 map, not compressed
 //	* 44x16 map, not compressed
-//	Size: 7364 + 1408  + 1408 = 10180
+//	Size: 7364 + 1408  + 1408 = 10180 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 PdScreenshotTiles[1841] __attribute__((aligned(4))) =
+const uint32 PdScreenshotTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x00000000,0x3000F000,
@@ -243,7 +243,7 @@ const uint32 PdScreenshotTiles[1841] __attribute__((aligned(4))) =
 	0xAA3FAA8F,0xA3FFA8FF,0x3FFF0FFE,0xFFFBFFEF,0xFC0AF02A,0xFFC0FF02,0xBFFCFFF0,0xFBFFEFFF,
 };
 
-const uint16 PdScreenshotLMap[704] __attribute__((aligned(4))) =
+const uint16 PdScreenshotLMap[] __attribute__((aligned(4))) =
 {
 	0x0001,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
 	0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
@@ -335,7 +335,7 @@ const uint16 PdScreenshotLMap[704] __attribute__((aligned(4))) =
 	0x3002,0x3002,0x3002,0x3002,0x3002,0x3002,0x3002,0x3001,
 };
 
-const uint16 PdScreenshotRMap[704] __attribute__((aligned(4))) =
+const uint16 PdScreenshotRMap[] __attribute__((aligned(4))) =
 {
 	0x0001,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,
 	0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,0x0002,

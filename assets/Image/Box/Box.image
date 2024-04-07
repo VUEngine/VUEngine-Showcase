@@ -16,7 +16,6 @@
             "unique": true
         }
     },
-    "name": "Box",
     "section": "rom",
     "tileset": {
         "compression": "none",

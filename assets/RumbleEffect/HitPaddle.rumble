@@ -3,7 +3,6 @@
     "break": 255,
     "effect": 37,
     "frequency": 1,
-    "name": "Hit Paddle",
     "overdrive": 255,
     "stopBeforeStarting": true,
     "sustainNegative": 255,

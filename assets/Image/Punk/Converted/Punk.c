@@ -4,11 +4,11 @@
 //	* 288 tiles, unreduced, not compressed
 //	* 4x6 map, not compressed
 //	* 12 animation frames, spritesheet
-//	Size: 4612 + 48 = 4660
+//	Size: 4612 + 48 = 4660 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
-const uint32 PunkTiles[1153] __attribute__((aligned(4))) =
+const uint32 PunkTiles[] __attribute__((aligned(4))) =
 {
 	0x00000000,
 	0x00000000,0x00000000,0xFC000000,0xBCC00300,0x033C0000,0x0003FCF3,0x2A808FA3,0x0000150C,
@@ -157,7 +157,7 @@ const uint32 PunkTiles[1153] __attribute__((aligned(4))) =
 	0x055540A4,0xFC15C055,0x00FF0F00,0x00000000,0x000F000C,0x00000003,0x00000000,0x00000000,
 };
 
-const uint16 PunkMap[24] __attribute__((aligned(4))) =
+const uint16 PunkMap[] __attribute__((aligned(4))) =
 {
 	0x0000,0x0001,0x0002,0x0003,0x0004,0x0005,0x0006,0x0007,
 	0x0008,0x0009,0x000A,0x000B,0x000C,0x000D,0x000E,0x000F,

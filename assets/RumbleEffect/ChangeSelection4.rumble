@@ -3,7 +3,6 @@
     "break": 255,
     "effect": 8,
     "frequency": 0,
-    "name": "Change Selection 4",
     "overdrive": 255,
     "stopBeforeStarting": true,
     "sustainNegative": 255,
