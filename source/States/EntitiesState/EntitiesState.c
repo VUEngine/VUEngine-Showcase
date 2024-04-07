@@ -226,7 +226,7 @@ void EntitiesState::createLeaderPunk()
 		
 	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
 	extern EntitySpec PunkEntitySpec;
-	PositionedEntity positionedEntity = {&PunkEntitySpec, {0, 64, 16, 0}, {0, 0, 0}, {1, 1, 1}, 0, "Moe", NULL, NULL, false};
+	PositionedEntity positionedEntity = {&PunkEntitySpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false};
 
 	/*
 	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them

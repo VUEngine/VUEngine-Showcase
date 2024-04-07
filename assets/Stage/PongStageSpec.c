@@ -35,18 +35,18 @@ extern EntitySpec PongWallsEntitySpec;
 
 PositionedEntityROMSpec PongStageEntitySpecs[] =
 {
-	{&PongBallEntitySpec, 		{  0, 0, 128, 0}, {0, 0, 0}, {1, 1, 1}, 	0, PONG_BALL_NAME, NULL, NULL, false},
-	{&PongPaddleEntitySpec, 	{-96, 0, 128, 0}, {0, 0, 0}, {1, 1, 1}, 	0, PADDLE_LEFT_NAME, NULL, NULL, true},
-	{&PongPaddleEntitySpec,	 	{+96, 0, 128, 0}, {0, 0, 0}, {1, 1, 1}, 	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
-	{&PongWallsEntitySpec,		{ 0,  0, 128, 0}, {0, 0, 0}, {1, 1, 1},		0, NULL, NULL, NULL, true}, // bottom border
+	{&PongBallEntitySpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PONG_BALL_NAME, NULL, NULL, false},
+	{&PongPaddleEntitySpec, 	{-96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_LEFT_NAME, NULL, NULL, true},
+	{&PongPaddleEntitySpec,	 	{+96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
+	{&PongWallsEntitySpec,		{ 0,  0, 128}, {0, 0, 0}, {1, 1, 1}, 		0, NULL, NULL, NULL, true}, // bottom border
 
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec PongStageUiEntitySpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 

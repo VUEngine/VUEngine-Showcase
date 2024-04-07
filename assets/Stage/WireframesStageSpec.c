@@ -33,18 +33,18 @@ extern EntitySpec PyramidEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&PyramidEntitySpec, {0, 0, 500,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {-1000, 0, 250,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {1000, 0, 550,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {-500, -200, 1000,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {0, 0, 500}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {-1000, 0, 250}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {1000, 0, 550}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PyramidEntitySpec, {-500, -200, 1000}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec WireframesStageUiEntitySpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 
