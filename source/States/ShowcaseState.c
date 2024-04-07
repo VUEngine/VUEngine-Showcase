@@ -340,7 +340,8 @@ void ShowcaseState::showExplanation()
 }
 
 void ShowcaseState::showAdditionalDetails()
-{}
+{
+}
 
 void ShowcaseState::setupBrightness(bool dimm)
 {

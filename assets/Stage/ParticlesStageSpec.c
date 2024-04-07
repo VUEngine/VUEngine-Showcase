@@ -32,15 +32,15 @@ extern EntitySpec StarsParticleSystemNormalSpec;
 
 PositionedEntityROMSpec ParticlesStageEntitySpecs[] =
 {
-	{&StarsParticleSystemNormalSpec, {0, 0, 0, 0}, 0, "Stars", NULL, NULL, true},
-	{&BoxEntitySpec, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0, 0}, 0, NULL, NULL, NULL, false},
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{&StarsParticleSystemNormalSpec, {0, 0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, "Stars", NULL, NULL, true},
+	{&BoxEntitySpec, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec ParticlesStageUiEntitySpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, 0, NULL, NULL, NULL, false},
-	{NULL, {0,0,0,0}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_DISPLACEMENT}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{NULL, {0,0,0,0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 
