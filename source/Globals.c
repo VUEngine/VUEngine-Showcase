@@ -15,12 +15,15 @@
 #include <AnimationInspector.h>
 #include <Debug.h>
 #include <StageEditor.h>
+#include <Sounds.h>
 #include <VUEngine.h>
 
 
 //---------------------------------------------------------------------------------------------------------
 //												DECLARATIONS
 //---------------------------------------------------------------------------------------------------------
+
+extern AnimatedEntityROMSpec PunkEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -41,11 +44,16 @@ const UserObject _userObjects[] =
 
 const UserAnimatedEntity _userAnimatedEntities[] =
 {
+	{&PunkEntitySpec, "Punk"},
 	{NULL, ""},
 };
 
 const SoundROMSpec* _userSounds[] =
 {
+	&OracleOfSeasonsOverworldThemeSoundSpec,
+	&NoFearForTheFutureSoundSpec,
+	&ExplosionSoundSpec,
+	&EngineSoundSpec,
 	NULL
 };
 

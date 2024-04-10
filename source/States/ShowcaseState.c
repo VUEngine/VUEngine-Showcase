@@ -159,7 +159,7 @@ void ShowcaseState::resume(void* owner)
 	Base::resume(this, owner);
 
 	// show stuff
-	ShowcaseState::showStuff(this);
+	ShowcaseState::show(this, false);
 
 	if(!VUEngine::isExitingToolState(VUEngine::getInstance()))
 	{
