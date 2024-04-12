@@ -64,6 +64,10 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 			break;
 	}
 
+	/* Returning false allows any other entity interested in the message to process it,
+	 * returning true will make that the propagation stops here
+	 */ 
+
 	return false;
 }
 
