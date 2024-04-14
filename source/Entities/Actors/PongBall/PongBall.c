@@ -36,8 +36,8 @@
 //											CLASS'S MACROS
 //---------------------------------------------------------------------------------------------------------
 
-#define START_X_FORCE 									__I_TO_FIX10_6(Utilities::random(seed, 150))
-#define START_Y_FORCE 									__I_TO_FIX10_6(Utilities::random(seed, 150))
+#define START_X_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
+#define START_Y_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
 #define START_Z_FORCE										0
 
 #define MINIMUM_HORIZONTAL_SPEED						__F_TO_FIX10_6(7.5f)
@@ -196,7 +196,7 @@ void PongBall::startMovement()
 		_randomSeed ^= _randomSeed >> 17;
 		_randomSeed ^= _randomSeed << 5;
 
-		angle = Utilities::random(Utilities::randomSeed() + _randomSeed, 64) - 32;
+		angle = Math::random(Math::randomSeed() + _randomSeed, 64) - 32;
 	}
 
 	Vector3D velocity =
@@ -206,7 +206,7 @@ void PongBall::startMovement()
 		0
 	};
 
-	if(50 > Utilities::random(Utilities::randomSeed() + _randomSeed, 100))
+	if(50 > Math::random(Math::randomSeed() + _randomSeed, 100))
 	{
 		velocity.x = -velocity.x;
 	}

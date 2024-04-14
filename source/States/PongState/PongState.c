@@ -227,7 +227,7 @@ bool PongState::isVersusMode()
 void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
 {
 	// Reset random seed in multiplayer mode so both machines are completely in sync
-	Utilities::resetRandomSeed();
+	Math::resetRandomSeed();
 
 	// Must reset the physical world too
 	PhysicalWorld::reset(this->physicalWorld);
