@@ -13,7 +13,6 @@
 //---------------------------------------------------------------------------------------------------------
 
 #include <CommunicationManager.h>
-#include <DebugUtilities.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
 #include <Messages.h>

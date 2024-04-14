@@ -15,7 +15,6 @@
 #include <string.h>
 
 #include <AnimatedEntity.h>
-#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <KeypadManager.h>

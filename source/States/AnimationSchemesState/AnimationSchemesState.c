@@ -16,7 +16,6 @@
 
 #include <BgmapTextureManager.h>
 #include <CharSet.h>
-#include <DebugUtilities.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Mem.h>
