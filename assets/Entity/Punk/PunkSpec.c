@@ -194,7 +194,7 @@ TextureROMSpec PunkTextureSpec =
 	6,
 
 	// padding for affine/hbias transformations (cols, rows)
-	{0, 0},
+	{1, 1},
 
 	// number of frames
 	1,
@@ -322,7 +322,7 @@ TextureROMSpec PunkBlackTextureSpec =
 	6,
 
 	// padding for affine/hbias transformations (cols, rows)
-	{0, 0},
+	{1, 1},
 
 	// number of frames
 	1,
@@ -358,7 +358,7 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
-	__WORLD_BGMAP,
+	__WORLD_AFFINE,
 
 	// pointer to affine/hbias manipulation function
 	NULL,
@@ -466,7 +466,7 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
-	__WORLD_BGMAP,
+	__WORLD_AFFINE,
 
 	// pointer to affine/hbias manipulation function
 	NULL,

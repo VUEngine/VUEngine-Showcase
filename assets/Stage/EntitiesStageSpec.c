@@ -189,7 +189,7 @@ StageROMSpec EntitiesStageSpec =
 
 		// bgmap segments configuration
 		// number of segments reserved for the param table
-		1,
+		3,
 
 		// object segments sizes (up to 1024 in total)
 		// can impact performance, make sure to configure only as large as maximally needed

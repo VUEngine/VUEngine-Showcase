@@ -308,6 +308,8 @@ void EntitiesState::movePunks()
 			{
 				localRotation.y = __I_TO_FIX10_6(255);
 			}
+
+			translation.z++;
 		}
 		else
 		{
@@ -319,6 +321,8 @@ void EntitiesState::movePunks()
 			{
 				localRotation.y = __I_TO_FIX10_6(0);
 			}
+
+			translation.z--;
 		}
 
 		// Add a translation to the leader punk

@@ -348,7 +348,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		Rotation rotation = {0, 0, zAngle};
 		Sprite::setRotation(this->sprite, &rotation);
 
-		fix7_9 scaleMagnitude = __FIXED_TO_FIX7_9(__FIXED_DIV(__I_TO_FIXED(__SCREEN_WIDTH), __I_TO_FIXED(xPosition)));
+		fix7_9 scaleMagnitude = __FIXED_TO_FIX7_9(__FIXED_DIV(__I_TO_FIXED(__HALF_SCREEN_HEIGHT), __I_TO_FIXED(xPosition)));
 
 		Scale scale = {scaleMagnitude, scaleMagnitude, scaleMagnitude};
 		Sprite::setScale(this->sprite, &scale);
