@@ -358,6 +358,33 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
+	__WORLD_BGMAP,
+
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkAffineSpriteSpec =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapAnimatedSprite),
+
+		// texture spec
+		(TextureSpec*)&PunkTextureSpec,
+
+		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{0, 0, 2, 0},
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_AFFINE,
 
 	// pointer to affine/hbias manipulation function
@@ -466,6 +493,33 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 
 	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
+	__WORLD_BGMAP,
+
+	// pointer to affine/hbias manipulation function
+	NULL,
+
+	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
+{
+	{
+		// sprite's type
+		__TYPE(BgmapAnimatedSprite),
+
+		// texture spec
+		(TextureSpec*)&PunkBlackTextureSpec,
+
+		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// displacement
+		{0, 0, 3, 0},
+	},
+
+	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_AFFINE,
 
 	// pointer to affine/hbias manipulation function
@@ -479,6 +533,13 @@ BgmapSpriteROMSpec* const PunkSpriteSpecs[] =
 {
 	&PunkSpriteSpec,
 	&PunkBlackSpriteSpec,
+	NULL
+};
+
+BgmapSpriteROMSpec* const PunkAffineSpriteSpecs[] =
+{
+	&PunkAffineSpriteSpec,
+	&PunkAffineBlackSpriteSpec,
 	NULL
 };
 
@@ -692,7 +753,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		NULL,
 		
 		// sprites
-		(SpriteSpec**)PunkSpriteSpecs,
+		(SpriteSpec**)PunkAffineSpriteSpecs,
 
 		// use z displacement in projection
 		false,
