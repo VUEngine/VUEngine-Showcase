@@ -246,8 +246,8 @@ void SpritesState::createSprite()
 		PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4, __SCREEN_HEIGHT / 2 +__HALF_SCREEN_HEIGHT / 4, 1, 2};
 		Sprite::setPosition(this->sprite, &spritePosition);
 
-		Scale scale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
-		Sprite::setScale(this->sprite, &scale);
+		PixelScale spriteScale = {__F_TO_FIX7_9(0.5f), __F_TO_FIX7_9(0.5f)};
+		Sprite::setScale(this->sprite, &spriteScale);
 	}
 
 	SpritesState::showHeader(this);
@@ -350,8 +350,8 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 		fix7_9 scaleMagnitude = __FIXED_TO_FIX7_9(__FIXED_DIV(__I_TO_FIXED(__HALF_SCREEN_HEIGHT), __I_TO_FIXED(xPosition)));
 
-		Scale scale = {scaleMagnitude, scaleMagnitude, scaleMagnitude};
-		Sprite::setScale(this->sprite, &scale);
+		PixelScale spriteScale = {scaleMagnitude, scaleMagnitude};
+		Sprite::setScale(this->sprite, &spriteScale);
 
 		if(this->showAdditionalDetails)
 		{
