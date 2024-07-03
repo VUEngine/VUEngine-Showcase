@@ -63,9 +63,9 @@ bool Punk::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageActorsStateResucitate:
+		case kMessageActorsStateResuscitate:
 
-			Punk::resucitate(this);
+			Punk::resuscitate(this);
 			return true;
 			break;
 	}
@@ -165,7 +165,7 @@ void Punk::die()
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkDie::getInstance()));	
 }
 
-void Punk::resucitate()
+void Punk::resuscitate()
 {
 	Vector3D position = Vector3D::getFromPixelVector((PixelVector){0, 64, 0, 0});
 	Punk::setLocalPosition(this, &position);
@@ -185,5 +185,5 @@ void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unuse
 	/*
 	 * Restore myself after 1 second
 	 */
-	Punk::sendMessageToSelf(this, kMessageActorsStateResucitate, 1000, 0);
+	Punk::sendMessageToSelf(this, kMessageActorsStateResuscitate, 1000, 0);
 }

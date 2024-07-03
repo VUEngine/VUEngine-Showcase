@@ -25,7 +25,7 @@ enum Messages
 	kMessageActorsStatePrintActorStatus,
 	kMessageActorsStateReleasedLeft,
 	kMessageActorsStateReleasedRight,
-	kMessageActorsStateResucitate,
+	kMessageActorsStateResuscitate,
 	kMessagePongBallStartMoving,
 	kMessagePongDummy,
 	kMessagePongGoodBye,
