@@ -46,6 +46,12 @@
     "game": [
         {
             "key": "__soundTest"
+        },
+        {
+            "key": "reducePcmData"
+        },
+        {
+            "key": "reduceRomSize"
         }
     ],
     "math": {
