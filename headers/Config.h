@@ -20,7 +20,7 @@
 
 #define __SOUND_TEST 
 #define REDUCE_PCM_DATA 
-#define REDUCE_ROM_SIZE 
+#define REDUCE_ROM_SIZE_X 
 
 
 //---------------------------------------------------------------------------------------------------------
