@@ -364,15 +364,15 @@
 #define __PRINTING_PALETTE											0
 
 // default palette values, actual values are set in stage specs
-#define __BGMAP_PALETTE_0											0xE4
-#define __BGMAP_PALETTE_1											0xE0
-#define __BGMAP_PALETTE_2											0x90
-#define __BGMAP_PALETTE_3											0x50
+#define __BGMAP_PALETTE_0											0xE4 // 11100100
+#define __BGMAP_PALETTE_1											0xE0 // 11100000
+#define __BGMAP_PALETTE_2											0x90 // 10010000
+#define __BGMAP_PALETTE_3											0x50 // 01010000
 
-#define __OBJECT_PALETTE_0											0xE4
-#define __OBJECT_PALETTE_1											0xE0
-#define __OBJECT_PALETTE_2											0x90
-#define __OBJECT_PALETTE_3											0x50
+#define __OBJECT_PALETTE_0											0xE4 // 11100100
+#define __OBJECT_PALETTE_1											0xE0 // 11100000
+#define __OBJECT_PALETTE_2											0x90 // 10010000
+#define __OBJECT_PALETTE_3											0x50 // 01010000
 
 
 //---------------------------------------------------------------------------------------------------------
