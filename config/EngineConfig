@@ -51,7 +51,7 @@
             "key": "reducePcmData"
         },
         {
-            "key": "reduceRomSizeX"
+            "key": "reduceRomSize"
         }
     ],
     "math": {
