@@ -6,7 +6,7 @@ OUTPUT_FORMAT("elf32-v810", "elf32-v810", "elf32-v810")
 OUTPUT("a.elf") /* force elf format output */
 OUTPUT_ARCH(v810)
 TARGET(elf32-v810)
-ENTRY(_start)
+ENTRY(start)
 SEARCH_DIR(.);
 
 MEMORY
@@ -23,74 +23,74 @@ If not defined, define interrupt
 Handlers as system reset
 */
 
-__dramVma = ORIGIN(dram);
-__dataVma = ORIGIN(wram);
-__expVma = ORIGIN(exp);
-__sramVma = ORIGIN(sram);
-__textVma = ORIGIN(rom);
-__stack = ORIGIN(wram) + LENGTH(wram) - 64;
+_dramVma = ORIGIN(dram);
+_dataVma = ORIGIN(wram);
+_expVma = ORIGIN(exp);
+_sramVma = ORIGIN(sram);
+_textVma = ORIGIN(rom);
+_stack = ORIGIN(wram) + LENGTH(wram) - 64;
 
 SECTIONS
 {
 	/* Read-only sections, merged into text segment: */
-	.expdata __expVma (NOLOAD):
+	.expdata _expVma (NOLOAD):
 	{
-		PROVIDE (__expDataStart = .);
+		PROVIDE (_expDataStart = .);
 		*(.expdata*)
-		PROVIDE (__expDataEnd = .);
+		PROVIDE (_expDataEnd = .);
 	} >exp = 0xFF
 
-	.text __textVma :
+	.text _textVma :
 	{
-		PROVIDE (__textStart = .);
+		PROVIDE (_textStart = .);
 		*(.text*)
-		PROVIDE (__textEnd = .);
+		PROVIDE (_textEnd = .);
 	} >rom = 0xFF
 
 	.rodata :
 	{
-		PROVIDE (__stringsStart = .);
+		PROVIDE (_stringsStart = .);
 		*(.strings*)
-		PROVIDE (__stringsEnd = .);
+		PROVIDE (_stringsEnd = .);
 		*(.rodata*)
 	} >rom = 0xFF
 
 	v = . + 0x20;
 
 	/* Ram memory */
-	__dataLma = .;
-	.sdata __dataVma : AT(__dataLma)
+	_dataLma = .;
+	.sdata _dataVma : AT(_dataLma)
 	{
-		PROVIDE (__dataStart = .);
-		PROVIDE (__gp = . + 0x8000);
+		PROVIDE (_dataStart = .);
+		PROVIDE (_gp = . + 0x8000);
 		*(.sdata*)
 	} >wram = 0xFF
 
 	.data ALIGN(2):
 	{
 		*(.data*)
-		PROVIDE (__dataEnd = .);
+		PROVIDE (_dataEnd = .);
 	} >wram = 0xFF
 
-	.dram_data __dramVma : AT(v + SIZEOF(.data) + SIZEOF(.sdata))
+	.dramdata _dramVma : AT(v + SIZEOF(.data) + SIZEOF(.sdata))
 	{
-		PROVIDE (__dramDirtyStart = .);
-		*(.dram_dirty*)
-		PROVIDE (__dramDataStart = .);
-		*(.dram_data*)
-		PROVIDE (__dramDataEnd = .);
+		PROVIDE (_dramDirtyStart = .);
+		*(.dramdirty*)
+		PROVIDE (_dramDataStart = .);
+		*(.dramdata*)
+		PROVIDE (_dramDataEnd = .);
 	} >dram = 0xFF
 
-	.sram_data __sramVma : AT(v + SIZEOF(.data) + SIZEOF(.sdata) + SIZEOF(.dram_data)) SUBALIGN(2)
+	.sramdata _sramVma : AT(v + SIZEOF(.data) + SIZEOF(.sdata) + SIZEOF(.dramdata)) SUBALIGN(2)
 	{
-		PROVIDE (__sramDataStart = .);
-		*(.sram_data*)
-		PROVIDE (__sramDataEnd = .);
+		PROVIDE (_sramDataStart = .);
+		*(.sramdata*)
+		PROVIDE (_sramDataEnd = .);
 	} >sram = 0xFF
 
 	.sbss (NOLOAD):
 	{
-		PROVIDE (__bssStart = .);
+		PROVIDE (_bssStart = .);
 		*(.sbss*)
 		*(.scommon*)
 	} >wram = 0xFF
@@ -99,22 +99,22 @@ SECTIONS
 	{
 		*(.bss*)
 		*(COMMON)
-		PROVIDE (__bssEnd = .);
+		PROVIDE (_bssEnd = .);
 	} >wram = 0xFF
 
-	.dram_bss (NOLOAD): AT(__dramDataEnd)
+	.drambss (NOLOAD): AT(_dramDataEnd)
 	{
-		PROVIDE(__dramBssStart = .);
-		*(.dram_bss*)
-		PROVIDE(__dramBssEnd = .);
+		PROVIDE(_dramBssStart = .);
+		*(.drambss*)
+		PROVIDE(_dramBssEnd = .);
 	} >dram = 0xFF
 
 	/* SRAM Work RAM */
-	.sram_bss (NOLOAD): SUBALIGN(2)
+	.srambss (NOLOAD): SUBALIGN(2)
 	{
-		PROVIDE(__sramBssStart = .);
-		*(.sram_bss*)
-		PROVIDE(__sramBssEnd = .);
+		PROVIDE(_sramBssStart = .);
+		*(.srambss*)
+		PROVIDE(_sramBssEnd = .);
 	} >sram
 
 	/* Prevent overlaps with vbvectors */
@@ -132,17 +132,17 @@ SECTIONS
 	v7 = v6 | (v6 >> 8);
 	v8 = v7 | (v7 >> 16);
 
-	__vbvectors_vma = __textVma + v8 - 0x1FF;
-	__rominfo_vma = __vbvectors_vma - 0x20;
+	_vbvectorsvma = _textVma + v8 - 0x1FF;
+	_rominfovma = _vbvectorsvma - 0x20;
 
 	/* Place rom's info before the interrupt vectors */
-	.rominfo __rominfo_vma :
+	.rominfo _rominfovma :
 	{
 		KEEP (*(.rominfo))
 	} >rom = 0xFF
 
 	/* Place interrupt and reset vector at end of rom */
-	.vbvectors __vbvectors_vma :
+	.vbvectors _vbvectorsvma :
 	{
 		KEEP (*(.vbvectors))
 	} >rom = 0xFF
