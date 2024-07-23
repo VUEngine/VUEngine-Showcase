@@ -46,7 +46,11 @@
     "game": [
         {
             "key": "__soundTest"
-        }
+        },
+        {
+            "key": "reducePcmData"
+        },
+        {}
     ],
     "math": {
         "fixedPointPrecision": 6
