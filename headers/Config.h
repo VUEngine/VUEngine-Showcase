@@ -111,10 +111,14 @@
 
 // Sort the wireframes based on their distance to the camera to cull off those that are far off if necessary.
 #define __WIREFRAME_MANAGER_SORT_FOR_DRAWING
-
 // The distance to start interlacing wireframe graphics.
 #define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)  
 
+// Threshold before shriking lines
+#define __DIRECT_DRAW_LINE_SHRINKEN_PADDING							0 
+
+// Frustum extension power for line shriking checks
+#define __DIRECT_DRAW_FRUSTUM_EXTENSION_POWER						0 
 
 //---------------------------------------------------------------------------------------------------------
 //                                           OPTICS / PROJECTION                                           
@@ -257,6 +261,9 @@
 // total number of OBJECTS
 #define __TOTAL_OBJECTS												1024
 
+// sprites rotation in 3D
+#define __SPRITE_ROTATE_IN_3D
+
 // Account for VIP's design to draw 8 pixel when BGMAP WORLD's height is less than 8
 #define __HACK_BGMAP_SPRITE_HEIGHT
 
@@ -311,7 +318,7 @@
 #define __PHYSICS_TIME_ELAPSED_DIVISOR								2
 
 // define to use fix7.9 computation on Body's direction
-#undef 		__PHYSICS_HIGH_PRECISION
+#undef __PHYSICS_HIGH_PRECISION
 
 // thresholds to stop bodies
 #define __STOP_VELOCITY_THRESHOLD									__PIXELS_TO_METERS(8)
