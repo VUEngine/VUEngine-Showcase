@@ -115,7 +115,7 @@
 #define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)  
 
 // Threshold before shriking lines
-#define __DIRECT_DRAW_LINE_SHRINKEN_PADDING							0 
+#define __DIRECT_DRAW_LINE_SHRINKING_PADDING						0 
 
 // Frustum extension power for line shriking checks
 #define __DIRECT_DRAW_FRUSTUM_EXTENSION_POWER						0 
