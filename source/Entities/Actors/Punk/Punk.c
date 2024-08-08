@@ -140,7 +140,7 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 			* Disable collision checks so this doesn't fire multiple times. 
 			* They are enabled by the Actor when starting to move.
 			*/
-			Punk::activeCollisionChecks(this, false);
+			Punk::checkCollisions(this, false);
 
 			Punk::die(this);
 			return true;

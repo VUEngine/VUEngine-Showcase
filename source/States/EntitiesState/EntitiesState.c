@@ -274,7 +274,21 @@ void EntitiesState::createSlavePunk(uint16 input)
 		else
 		{
 			extern EntitySpec PunkEntitySpec;
-			AnimatedEntity::addChildEntity(this->leaderPunk, &PunkEntitySpec, 0, childPunkName, &childPunkPosition, NULL);
+
+			PositionedEntity positionedEntity = 
+			{
+					&PunkEntitySpec, 
+					{__METERS_TO_PIXELS(childPunkPosition.x), __METERS_TO_PIXELS(childPunkPosition.y), __METERS_TO_PIXELS(childPunkPosition.z)},
+					{0, 0, 0},
+					{1, 1, 1},
+					0,
+					childPunkName,
+					NULL,
+					NULL,
+					false
+			};
+
+			AnimatedEntity::addChildEntity(this->leaderPunk, &positionedEntity);
 		}
 	}
 }

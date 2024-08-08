@@ -137,6 +137,7 @@
     },
     "sprite": {
         "hackBgmapSpriteHeight": true,
+        "spritesRotateIn3D": true,
         "totalLayers": 32,
         "totalObjects": 1024
     },
@@ -156,7 +157,9 @@
         }
     },
     "wireframes": {
+        "frustumExtensionPower": 0,
         "interlacedThreshold": 2048,
+        "lineShrinkingPadding": 0,
         "sort": true
     }
 }
