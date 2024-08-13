@@ -180,10 +180,12 @@ void Punk::resuscitate()
  * This is an EventListener added by the engine because the PunkDieAnimation
  * defines it as the callback for when its playback finishes.
  */
-void Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
+bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
 {
 	/*
 	 * Restore myself after 1 second
 	 */
 	Punk::sendMessageToSelf(this, kMessageActorsStateResuscitate, 1000, 0);
+
+	return true;
 }

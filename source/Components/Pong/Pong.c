@@ -143,11 +143,13 @@ bool Pong::isVersusMode()
 	return this->isVersusMode;
 }
 
-void Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
+bool Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 
 	this->messageForRemote = kMessagePongSync;
+
+	return true;
 }
 
 // process user input
@@ -335,7 +337,7 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 	}
 }
 
-void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unused)))
+bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(!isDeleted(this->pongBall))
 	{
@@ -371,6 +373,8 @@ void Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 		NULL, 
 		NULL
 	);
+
+	return true;
 }
 
 int Pong::getPlayerNumber()

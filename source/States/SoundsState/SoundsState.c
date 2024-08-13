@@ -102,16 +102,18 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
 }
 
-void SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
+bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
 {
 	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
 	{
 		if(this->showAdditionalDetails)
 		{
-			TimerManager::printStatus(TimerManager::getInstance(), 1, 19);
+			TimerManager::printStatus(TimerManager::getInstance(), 1, 18);
 			TimerManager::nextSecondStarted(TimerManager::getInstance());
 		}
 	}
+
+	return true;
 }
 
 bool SoundsState::stream()
@@ -522,18 +524,22 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
-void SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
+bool SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
 {
 	SoundsState::showSoundMetadata(this);
+
+	return true;
 }
 
-void SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unused)))
+bool SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unused)))
 {
 	if(Sound::safeCast(eventFirer) == this->sound)
 	{
 		this->sound = NULL;
 		SoundsState::loadSound(this, true);
 	}
+
+	return true;
 }
 
 void SoundsState::showSoundMetadata()

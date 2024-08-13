@@ -360,7 +360,7 @@ void ShowcaseState::setupBrightness(bool dimm)
 	VIPManager::setupPalettes(VIPManager::getInstance(), &paletteConfig);
 }
 
-void ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
+bool ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
 {
 	this->playingSoundEffect = NULL;
 
@@ -373,6 +373,8 @@ void ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unu
 	 * Allow the player to interact again.
 	 */
 	VUEngine::enableKeypad(VUEngine::getInstance());
+
+	return true;
 }
 
 void ShowcaseState::goToNext()

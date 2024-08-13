@@ -199,13 +199,15 @@ void PongState::showConnectivityStatus()
 	}
 }
 
-void PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribute__((unused)))
+bool PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribute__((unused)))
 {	
 	PongState::setVersusMode(this, true);
 	Pong::getReady(Pong::getInstance(), this->stage, true);
 
 	this->showAdditionalDetails = true;
 	PongState::show(this, false);
+
+	return true;
 }
 
 void PongState::setVersusMode(bool value)
@@ -224,7 +226,7 @@ bool PongState::isVersusMode()
 	return PongState::getVersusMode(this);
 }
 
-void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
+bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
 {
 	// Reset random seed in multiplayer mode so both machines are completely in sync
 	Math::resetRandomSeed();
@@ -237,9 +239,11 @@ void PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	
 	// Reset the entities
 	PongState::propagateMessage(this, kMessagePongResetPositions);
+
+	return true;
 }
 
-void PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
+bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
@@ -249,4 +253,6 @@ void PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused
 	PongState::propagateMessage(this, kMessagePongResetPositions);
 
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
+
+	return true;
 }
