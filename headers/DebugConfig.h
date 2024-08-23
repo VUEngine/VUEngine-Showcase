@@ -10,8 +10,5 @@
 //                                              DEBUG MACROS                                               
 //---------------------------------------------------------------------------------------------------------
 
-#undef __PROFILE_WIREFRAMES
-#define __PROFILE_WIREFRAMES true
-
 
 #endif

@@ -1,9 +1,3 @@
 {
-	"macros": [
-		{
-			"define": true,
-			"name": "__profileWireframes",
-			"value": "true"
-		}
-	]
+    "macros": []
 }
