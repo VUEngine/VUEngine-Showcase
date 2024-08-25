@@ -3,5 +3,5 @@
     "loop": false,
     "range": 4,
     "section": "rom",
-    "sourceFile": "assets/PCM/NoFearForTheFuture.wav"
+    "sourceFile": "NoFearForTheFuture.wav"
 }

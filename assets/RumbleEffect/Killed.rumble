@@ -2,8 +2,8 @@
     "_id": "9liVCh8EFESnncqy",
     "break": 255,
     "effect": 10,
-    "frequency": 1,
-    "overdrive": 255,
+    "frequency": 240,
+    "overdrive": 126,
     "stopBeforeStarting": true,
     "sustainNegative": 255,
     "sustainPositive": 255

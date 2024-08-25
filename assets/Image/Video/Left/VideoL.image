@@ -5,7 +5,14 @@
         "individualFiles": true,
         "isAnimation": true
     },
+    "colorMode": 0,
     "files": [],
+    "imageProcessingSettings": {
+        "distanceCalculator": "euclidean",
+        "imageQuantizationAlgorithm": "nearest",
+        "minimumColorDistanceToDither": 0,
+        "serpentine": false
+    },
     "map": {
         "compression": "none",
         "generate": true,

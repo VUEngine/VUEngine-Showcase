@@ -5,10 +5,17 @@
         "individualFiles": false,
         "isAnimation": true
     },
+    "colorMode": 0,
     "files": [
-        "assets/Image/Punk/Punk.png",
-        "assets/Image/Punk/PunkBlack.png"
+        "Punk.png",
+        "PunkBlack.png"
     ],
+    "imageProcessingSettings": {
+        "distanceCalculator": "euclidean",
+        "imageQuantizationAlgorithm": "nearest",
+        "minimumColorDistanceToDither": 0,
+        "serpentine": false
+    },
     "map": {
         "compression": "none",
         "generate": true,

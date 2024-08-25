@@ -24,7 +24,7 @@ RumbleEffectROMSpec PointRumbleEffectSpec =
 	// Negative Sustain
 	255,
 	// Overdrive
-	255,
+	126,
 	// Break
 	255,
 	// Stop before starting

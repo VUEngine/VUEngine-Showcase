@@ -2,9 +2,9 @@
 //
 //	Star
 //	* 5 tiles, unreduced, not compressed
-//	* 1x1 map, not compressed
+//	* 1x5 map, not compressed
 //	* 5 animation frames, spritesheet
-//	Size: 84 + 2 = 86 byte
+//	Size: 84 + 10 = 94 byte
 //
 //---------------------------------------------------------------------------------------------------------
 

@@ -5,10 +5,17 @@
         "individualFiles": false,
         "isAnimation": true
     },
+    "colorMode": 0,
     "files": [
-        "assets/Image/Punk/PunkDying.png",
-        "assets/Image/Punk/PunkDyingBlack.png"
+        "PunkDying.png",
+        "PunkDyingBlack.png"
     ],
+    "imageProcessingSettings": {
+        "distanceCalculator": "euclidean",
+        "imageQuantizationAlgorithm": "nearest",
+        "minimumColorDistanceToDither": 0,
+        "serpentine": false
+    },
     "map": {
         "compression": "none",
         "generate": true,

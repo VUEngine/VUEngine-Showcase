@@ -120,6 +120,10 @@
 // Frustum extension power for line shriking checks
 #define __DIRECT_DRAW_FRUSTUM_EXTENSION_POWER						0 
 
+// Optimize the drawing of vertical lines
+#undef __DIRECT_DRAW_OPTIMIZED_VERTICAL_LINES
+
+
 //---------------------------------------------------------------------------------------------------------
 //                                           OPTICS / PROJECTION                                           
 //---------------------------------------------------------------------------------------------------------

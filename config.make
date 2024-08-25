@@ -17,11 +17,7 @@ PLUGINS							= vuengine//entities/LowPowerEntity \
 								  vuengine//states/splash/LanguageSelectionScreen \
 								  vuengine//states/splash/PrecautionScreen
 
-# Compiler's output
-COMPILER_OUTPUT					= c
-
 # Optimization level
-# Do not use O3 for multiplayer games, it causes unexpected out of sync behaviour when framerate drops
 OPTIMIZATION					= O2
 
 # Frame pointer's usage

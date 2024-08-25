@@ -2,9 +2,9 @@
 //
 //	PunkDyingBlack
 //	* 1152 tiles, unreduced, not compressed
-//	* 8x6 map, not compressed
+//	* 8x144 map, not compressed
 //	* 24 animation frames, spritesheet
-//	Size: 18436 + 96 = 18532 byte
+//	Size: 18436 + 2304 = 20740 byte
 //
 //---------------------------------------------------------------------------------------------------------
 
@@ -597,4 +597,5 @@ const uint16 PunkDyingBlackMap[] __attribute__((aligned(4))) =
 	0x0018,0x0019,0x001A,0x001B,0x001C,0x001D,0x001E,0x001F,
 	0x0020,0x0021,0x0022,0x0023,0x0024,0x0025,0x0026,0x0027,
 	0x0028,0x0029,0x002A,0x002B,0x002C,0x002D,0x002E,0x002F,
+	
 };
