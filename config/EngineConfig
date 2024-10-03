@@ -45,7 +45,9 @@
     },
     "game": [
         {
-            "key": "__soundTest"
+            "key": "__soundTest",
+            "type": "text",
+            "value": ""
         }
     ],
     "math": {
@@ -156,6 +158,7 @@
         "frustumExtensionPower": 0,
         "interlacedThreshold": 2048,
         "lineShrinkingPadding": 0,
-        "sort": true
+        "sort": true,
+        "verticalLineOptimization": false
     }
 }
