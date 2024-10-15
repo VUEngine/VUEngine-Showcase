@@ -129,7 +129,7 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 		this->rotation.y = 0;
 	}
 
-	Sprite animatedSprite = Sprite::safeCast(VirtualList::getObjectAtPosition(this->animatedSprites, 1));
+	Sprite animatedSprite = Sprite::safeCast(VirtualList::getDataAtIndex(this->animatedSprites, 1));
 		
 	if(!isDeleted(animatedSprite))
 	{

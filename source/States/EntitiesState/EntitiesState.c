@@ -157,7 +157,7 @@ void EntitiesState::showAdditionalDetails()
 	if(NULL != AnimatedEntity::getSprites(this->leaderPunk))
 	{
 		Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
+		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
@@ -168,7 +168,7 @@ void EntitiesState::showAdditionalDetails()
 	if(NULL != AnimatedEntity::getWireframes(this->leaderPunk))
 	{
 		Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
+		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
@@ -179,7 +179,7 @@ void EntitiesState::showAdditionalDetails()
 	if(NULL != AnimatedEntity::getColliders(this->leaderPunk))
 	{
 		Printing::text(this->printing, "Colliders:   ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getSize(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
+		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
 	}
 	else
 	{
