@@ -232,7 +232,7 @@ void EntitiesState::createLeaderPunk()
 	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
 	 * directly anymore. Now, the engine takes care of all that by reading the EntitySpec.
 	 */
-	this->leaderPunk = AnimatedEntity::safeCast(Stage::addChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
+	this->leaderPunk = AnimatedEntity::safeCast(Stage::spawnChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
 }
 
 void EntitiesState::createSlavePunk(uint16 input)
@@ -288,7 +288,7 @@ void EntitiesState::createSlavePunk(uint16 input)
 					false
 			};
 
-			AnimatedEntity::addChildEntity(this->leaderPunk, &positionedEntity);
+			AnimatedEntity::spawnChildEntity(this->leaderPunk, &positionedEntity);
 		}
 	}
 }
