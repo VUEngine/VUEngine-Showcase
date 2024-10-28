@@ -77,7 +77,7 @@ void PongState::enter(void* owner)
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// enable comms	
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 }
 
 void PongState::exit(void* owner)
@@ -252,7 +252,7 @@ bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused
 	PongState::show(this, false);
 	PongState::propagateMessage(this, kMessagePongResetPositions);
 
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this), 100);
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 
 	return true;
 }

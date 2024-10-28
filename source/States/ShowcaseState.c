@@ -214,8 +214,8 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		 */
 		TimerManager::enable(TimerManager::getInstance(), false);
 		TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
-		TimerManager::setTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-		TimerManager::setTimePerInterrupt(TimerManager::getInstance(), 500);
+		TimerManager::setTargetTimePerInterruptUnits(TimerManager::getInstance(), kUS);
+		TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), 500);
 		TimerManager::initialize(TimerManager::getInstance());
 
 		SoundManager::playSound
