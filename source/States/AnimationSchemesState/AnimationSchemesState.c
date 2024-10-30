@@ -379,7 +379,7 @@ void AnimationSchemesState::destroySprites()
 	 * defragmented and loading non shared textures would quickly deplete it.
 	 */ 
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
-	VIPManager::clearBgmapSegment(VIPManager::getInstance(), 0, 64 * 64);
+	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
 }
 
 /*

@@ -578,7 +578,5 @@ void SoundsState::setTimerSettings()
 
 void SoundsState::applyTimerSettings()
 {
-	TimerManager::enable(TimerManager::getInstance(), false);
-	TimerManager::initialize(TimerManager::getInstance());
-	TimerManager::enable(TimerManager::getInstance(), true);
+	TimerManager::applySettings(TimerManager::getInstance(), true);
 }

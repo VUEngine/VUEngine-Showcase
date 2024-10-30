@@ -212,11 +212,11 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		 * Make sure that the timer interrupts happen at a controlled frequency to
 		 * make sure that the sound effects sound the same in all stages
 		 */
-		TimerManager::enable(TimerManager::getInstance(), false);
+		TimerManager::disable(TimerManager::getInstance());
 		TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
 		TimerManager::setTargetTimePerInterruptUnits(TimerManager::getInstance(), kUS);
 		TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), 500);
-		TimerManager::initialize(TimerManager::getInstance());
+		TimerManager::applySettings(TimerManager::getInstance(), true);
 
 		SoundManager::playSound
 		(
