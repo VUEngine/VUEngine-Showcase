@@ -234,10 +234,10 @@ SolidParticleROMSpec StarParticleSolidSpec =
 			__TYPE(SolidParticle),
 
 			// particle's minimum life span in milliseconds
-			1000,
+			1500,
 
 			// particle's life span delta in milliseconds (maximum = minimum + delta)
-			200,
+			1000,
 
 			// function pointer to control particle's behavior
 			//(void (*)(Particle))&dustParticleBehavior,
