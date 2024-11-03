@@ -172,7 +172,7 @@ void ActorsState::showExplanation()
 	Printing::text(this->printing, "ActorsState", 26, y++, NULL);
 	Printing::text(this->printing, " propagateMessage", 26, y++, NULL);
 	Printing::text(this->printing, "Punk", 26, y++, NULL);
-	Printing::text(this->printing, " enterCollision", 26, y++, NULL);
+	Printing::text(this->printing, " collisionStarts", 26, y++, NULL);
 	Printing::text(this->printing, " handlePropagatedMe...", 26, y++, NULL);
 	y++;
 }

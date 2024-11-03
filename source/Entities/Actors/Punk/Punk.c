@@ -105,7 +105,7 @@ bool Punk::handlePropagatedMessage(int32 message)
 }
 
 // process collisions
-bool Punk::enterCollision(const CollisionInformation* collisionInformation)
+bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 {
 	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
 	{
@@ -131,7 +131,7 @@ bool Punk::enterCollision(const CollisionInformation* collisionInformation)
 			/*
 			 * The Actor class can resolve collisions against solid objects by itself
 			 */
-			return Base::enterCollision(this, collisionInformation);
+			return Base::collisionStarts(this, collisionInformation);
 			break;
 
 		case kTypeCogWheel:

@@ -46,7 +46,7 @@ class Punk : Actor
 	override void ready(bool recursive);
 	override bool handleMessage(Telegram telegram);
 	override bool handlePropagatedMessage(int32 message);
-	override bool enterCollision(const CollisionInformation* collisionInformation);
+	override bool collisionStarts(const CollisionInformation* collisionInformation);
 }
 
 

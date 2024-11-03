@@ -121,11 +121,11 @@ bool PongBall::handlePropagatedMessage(int32 message)
 	return false;
 }
 
-bool PongBall::enterCollision(const CollisionInformation* collisionInformation)
+bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->otherCollider, "Actor::enterCollision: otherColliders");
+	ASSERT(collisionInformation->otherCollider, "Actor::collisionStarts: otherColliders");
 
-	bool returnValue = Base::enterCollision(this, collisionInformation);
+	bool returnValue = Base::collisionStarts(this, collisionInformation);
 
 	if(NULL == collisionInformation->otherCollider)
 	{
