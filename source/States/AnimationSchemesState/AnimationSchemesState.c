@@ -335,7 +335,7 @@ void AnimationSchemesState::createSprites()
     for(int16 i = 0; i < 3; i++)
     {
 		// Don't create Sprites directly
-        Sprite animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
+        Sprite animatedSprite = SpriteManager::createSprite(SpriteManager::getInstance(), NULL, spriteSpec);
 
 		if(!isDeleted(animatedSprite))
 		{

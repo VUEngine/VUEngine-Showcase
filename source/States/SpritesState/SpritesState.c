@@ -239,7 +239,7 @@ void SpritesState::createSprite()
 	}
 
 	// Don't create Sprites directly
-	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), spriteSpec, NULL);
+	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), NULL, spriteSpec);
 
 	if(!isDeleted(this->sprite))
 	{
