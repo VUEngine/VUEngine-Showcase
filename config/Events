@@ -1,4 +1,5 @@
 {
+    "_version": "0.6.0",
     "events": [
         "Pong Ball Spawned",
         "Pong Ball Streamed Out",

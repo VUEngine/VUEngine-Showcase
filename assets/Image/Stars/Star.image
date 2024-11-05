@@ -1,5 +1,6 @@
 {
     "_id": "MAwaY5mMrt856l0q",
+    "_version": "0.6.0",
     "animation": {
         "frames": 5,
         "individualFiles": false,
