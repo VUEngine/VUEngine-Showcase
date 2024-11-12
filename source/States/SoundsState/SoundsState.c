@@ -517,8 +517,6 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		 * Listen for when the plaback finishes to update the UI. 
 		 */
 		Sound::addEventListener(this->sound, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundPlaybackFinish, kEventSoundFinished);
-		Sound::computeTimerResolutionFactor(this->sound);
-		SoundsState::applyTimerSettings(this);
 	}
 
 	VUEngine::enableKeypad(VUEngine::getInstance());
