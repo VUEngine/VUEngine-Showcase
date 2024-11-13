@@ -549,11 +549,11 @@ void SoundsState::showSoundMetadata()
 
 	if(this->showAdditionalDetails)		
 	{
-		Sound::printMetadata(this->sound, 1, 4, true);
+		Sound::print(this->sound, 1, 4);
 	}
 	else
 	{
-		Sound::printMetadata(this->sound, 3, 21, false);
+		Sound::print(this->sound, 3, 21);
 	}
 }
 
