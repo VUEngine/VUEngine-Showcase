@@ -365,10 +365,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	{__F_TO_FIXED(0), __F_TO_FIXED(0), 0},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
-	__NO_MOVEMENT,
-
-	// use particle system movement vector for the force to apply to the particles
-	false
+	__NO_MOVEMENT
 };
 
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
@@ -451,10 +448,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	{__F_TO_FIXED(2.5f), __F_TO_FIXED(-1.5f), __F_TO_FIXED(2)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
-	__ACCELERATED_MOVEMENT,
-
-	// use particle system movement vector for the force to apply to the particles
-	false
+	__ACCELERATED_MOVEMENT
 };
 
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
@@ -537,8 +531,5 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 	{__F_TO_FIXED(2), __F_TO_FIXED(-8), __F_TO_FIXED(-0.25f)},
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
-	__ACCELERATED_MOVEMENT,
-
-	// use particle system movement vector for the force to apply to the particles
-	false
+	__ACCELERATED_MOVEMENT
 };
