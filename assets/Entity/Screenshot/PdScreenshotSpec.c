@@ -124,7 +124,7 @@ BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PdScreenshotLTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -151,7 +151,7 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PdScreenshotRTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement

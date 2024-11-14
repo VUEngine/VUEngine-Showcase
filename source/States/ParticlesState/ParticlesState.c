@@ -214,7 +214,7 @@ void ParticlesState::loadParticles()
 
 	if(!isDeleted(this->particleSystem))
 	{
-		ParticleSystem::setParticleSystemSpec(this->particleSystem, particleSystemEntitySpec, true);
+		ParticleSystem::setSpec(this->particleSystem, particleSystemEntitySpec);
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){__HALF_SCREEN_WIDTH / 2, yPosition, 16, 0});
 		ParticleSystem::setLocalPosition(this->particleSystem, &position);

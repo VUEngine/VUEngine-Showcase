@@ -156,7 +156,7 @@ ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -180,7 +180,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -207,7 +207,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -234,7 +234,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -262,7 +262,7 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 			// texture spec
 			NULL,
 
-			// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+			// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 			__TRANSPARENCY_NONE,
 
 			// displacement

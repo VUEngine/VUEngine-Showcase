@@ -55,7 +55,7 @@ MeshROMSpec PongPaddleWireframeSpec =
 		// color
 		__COLOR_BLACK,
 
-		// transparent
+		// transparency
 		__TRANSPARENCY_NONE,
 
 		// interlaced

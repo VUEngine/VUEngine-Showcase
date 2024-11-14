@@ -349,7 +349,7 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -376,7 +376,7 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -403,7 +403,7 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 		// texture spec
 		(TextureSpec*)&PunkTextureNotSharedSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -430,7 +430,7 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 		// texture spec
 		(TextureSpec*)&PunkTextureSharedSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -457,7 +457,7 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 		// texture spec
 		(TextureSpec*)&PunkTextureMultiframeSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -484,7 +484,7 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkBlackTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -511,7 +511,7 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkBlackTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -652,7 +652,7 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkDyingTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
@@ -680,7 +680,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 		// texture spec
 		(TextureSpec*)&PunkDyingBlackTextureSpec,
 
-		// transparent (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// displacement
