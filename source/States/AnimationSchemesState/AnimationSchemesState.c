@@ -68,7 +68,7 @@ void AnimationSchemesState::constructor()
 // class's destructor
 void AnimationSchemesState::destructor()
 {
-	AnimationSchemesState::destroySprites(this);
+	AnimationSchemesState::removeSprites(this);
 
 	// destroy base
 	Base::destructor();
@@ -155,7 +155,7 @@ void AnimationSchemesState::showStuff()
 {
 	this->rotation = (Rotation){0, 0, 0};
 
-	AnimationSchemesState::destroySprites(this);
+	AnimationSchemesState::removeSprites(this);
 	AnimationSchemesState::createSprites(this);
 }
 
@@ -177,7 +177,7 @@ void AnimationSchemesState::showExplanation()
 	Printing::text(this->printing, "AnimationSchemesState", 2, y++, NULL);
 	Printing::text(this->printing, " execute*", 2, y++, NULL);
 	Printing::text(this->printing, " createSprites", 2, y++, NULL);
-	Printing::text(this->printing, " destroySprites", 2, y++, NULL);
+	Printing::text(this->printing, " removeSprites", 2, y++, NULL);
 	y++;
 
 	if(kAnimationsMultiframeTexture != this->animationScheme)
@@ -355,7 +355,7 @@ void AnimationSchemesState::createSprites()
 	}
 }
 
-void AnimationSchemesState::destroySprites()
+void AnimationSchemesState::removeSprites()
 {
 	if(!isDeleted(this->animatedSprites))
 	{
