@@ -152,7 +152,7 @@ void EntitiesState::showAdditionalDetails()
 	Printing::text(this->printing, "Name:          ", 2, ++y, NULL);
 	Printing::text(this->printing, AnimatedEntity::getName(this->leaderPunk), 15, y++, NULL);
 	Printing::text(this->printing, "Children:      ", 2, ++y, NULL);
-	Printing::int32(this->printing, AnimatedEntity::getChildCount(this->leaderPunk), 15, y++, NULL);
+	Printing::int32(this->printing, AnimatedEntity::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
 	if(NULL != AnimatedEntity::getSprites(this->leaderPunk))
 	{
