@@ -62,11 +62,11 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 	{
 		if(K_A & userInput->releasedKey)
 		{
-			AnimatedEntity::pauseAnimation(videoEntity, AnimatedEntity::isPlayingAnimation(videoEntity));
+			AnimatedEntity::pauseAnimation(videoEntity, AnimatedEntity::isPlaying(videoEntity));
 		}
 		else if((K_LL | K_LR) & userInput->releasedKey)
 		{
-			if(AnimatedEntity::isAnimationLoaded(videoEntity, "HiColor"))
+			if(AnimatedEntity::isPlayingAnimation(videoEntity, "HiColor"))
 			{					
 				AnimatedEntity::playAnimation(videoEntity, "4Color");
 			}

@@ -96,7 +96,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	// load stage
 	if(NULL != this->stageSpec)
 	{		
-		ShowcaseState::loadStage(this, this->stageSpec, NULL, true, false);
+		ShowcaseState::loadStage(this, this->stageSpec, NULL);
 	}
 
 	// show everything
@@ -357,7 +357,7 @@ void ShowcaseState::setupBrightness(bool dimm)
 		paletteConfig.object.jplt3 = 0x50;
 	}
 
-	VIPManager::setupPalettes(VIPManager::getInstance(), &paletteConfig);
+	VIPManager::configurePalettes(VIPManager::getInstance(), &paletteConfig);
 }
 
 bool ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
@@ -367,7 +367,7 @@ bool ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unu
 	/*
 	 * Restore timer settings
 	 */
-	Stage::setupTimer(this->stage);
+	Stage::configureTimer(this->stage);
 
 	/*
 	 * Allow the player to interact again.
