@@ -83,7 +83,7 @@ void PongPaddle::moveTowards(NormalizedDirection direction)
 	PongPaddle::applyForce(this, &force, true);
 }
 
-bool PongPaddle::mustBounce()
+bool PongPaddle::isBouncy()
 {
 	return false;
 }
