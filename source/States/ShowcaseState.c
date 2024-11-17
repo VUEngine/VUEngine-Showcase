@@ -96,7 +96,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	// load stage
 	if(NULL != this->stageSpec)
 	{		
-		ShowcaseState::loadStage(this, this->stageSpec, NULL);
+		ShowcaseState::configureStage(this, this->stageSpec, NULL);
 	}
 
 	// show everything

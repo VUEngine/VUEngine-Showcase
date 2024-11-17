@@ -36,7 +36,6 @@ dynamic_singleton class PongState : ShowcaseState
 	override void enter(void* owner);
 	override void exit(void* owner);
 	override void processUserInput(const UserInput* userInput);
-	override bool processUserInputRegardlessOfInput();
 	override void showControls();
 	override void showStuff();
 	override void showExplanation();
