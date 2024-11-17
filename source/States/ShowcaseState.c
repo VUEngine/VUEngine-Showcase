@@ -139,11 +139,7 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
  */
 void ShowcaseState::suspend(void* owner)
 {
-	if(!VUEngine::isEnteringToolState(VUEngine::getInstance()))
-	{
-		// do a fade out effect
-		Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-	}
+	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
 	// call base
 	Base::suspend(this, owner);
@@ -161,19 +157,16 @@ void ShowcaseState::resume(void* owner)
 	// show stuff
 	ShowcaseState::show(this, false);
 
-	if(!VUEngine::isExitingToolState(VUEngine::getInstance()))
-	{
-		// start a fade in effect
-		Camera::startEffect(Camera::getInstance(), kHide);
-		Camera::startEffect(Camera::getInstance(),
-			kFadeTo, // effect type
-			0, // initial delay (in ms)
-			NULL, // target brightness
-			__FADE_DELAY, // delay between fading steps (in ms)
-			NULL, // callback function
-			NULL // callback scope
-		);
-	}
+	// start a fade in effect
+	Camera::startEffect(Camera::getInstance(), kHide);
+	Camera::startEffect(Camera::getInstance(),
+		kFadeTo, // effect type
+		0, // initial delay (in ms)
+		NULL, // target brightness
+		__FADE_DELAY, // delay between fading steps (in ms)
+		NULL, // callback function
+		NULL // callback scope
+	);
 }
 
 void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
