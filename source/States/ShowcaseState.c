@@ -17,6 +17,7 @@
 #include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
+#include <FrameRate.h>
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
@@ -111,6 +112,9 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	// enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
+	// Printing the framerate
+	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
+
 	// start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
@@ -128,6 +132,8 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
  */
 void ShowcaseState::exit(void* owner __attribute__((unused)))
 {
+	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
+
 	Base::exit(this, owner);
 
 	// Since all instances are dynamic_singleton, I must delete myself upon exit
@@ -167,6 +173,13 @@ void ShowcaseState::resume(void* owner)
 		NULL, // callback function
 		NULL // callback scope
 	);
+}
+
+bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
+{
+	FrameRate::print(FrameRate::getInstance(), 14, 27);
+
+	return true;
 }
 
 void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)

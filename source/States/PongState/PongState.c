@@ -188,11 +188,11 @@ void PongState::showConnectivityStatus()
 {
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
-		Printing::text(this->printing, "CONNECTED", 19, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+		Printing::text(this->printing, "CONNECTED", 19, __SCREEN_HEIGHT_IN_CHARS - 2, "Debug");
 	}
 	else	
 	{
-		Printing::text(this->printing, " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 1, "Debug");
+		Printing::text(this->printing, " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 2, "Debug");
 	}
 }
 
