@@ -85,12 +85,12 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 	if(K_LU & userInput->holdKey)
 	{
-		translation.z = __PIXELS_TO_METERS(8);
+		translation.z = __PIXELS_TO_METERS(8 << 1);
 	}
 
 	if(K_LD & userInput->holdKey)
 	{
-		translation.z = -__PIXELS_TO_METERS(8);
+		translation.z = -__PIXELS_TO_METERS(8 << 1);
 	}
 
 	if(K_LL & userInput->holdKey)
@@ -105,12 +105,12 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 	if(K_RL & userInput->holdKey)
 	{
-		translation.x = -__PIXELS_TO_METERS(8);
+		translation.x = -__PIXELS_TO_METERS(8 << 1);
 	}
 
 	if(K_RR & userInput->holdKey)
 	{
-		translation.x = __PIXELS_TO_METERS(8);
+		translation.x = __PIXELS_TO_METERS(8 << 1);
 	}
 
 	translation = Vector3D::rotate(translation, *_cameraRotation);
