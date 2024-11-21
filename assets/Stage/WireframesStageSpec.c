@@ -1,7 +1,7 @@
 /**
  * VUEngine Showcase
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * Â© Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -25,6 +25,11 @@
 
 extern EntitySpec LowPowerIndicatorEntitySpec;
 extern EntitySpec PyramidEntitySpec;
+extern EntitySpec CubeEntitySpec;
+extern EntitySpec FenceEntitySpec;
+extern EntitySpec StreetEntitySpec;
+extern EntitySpec HouseEntitySpec;
+extern EntitySpec HouseBigEntitySpec;
 
 
 //---------------------------------------------------------------------------------------------------------
@@ -33,10 +38,10 @@ extern EntitySpec PyramidEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&PyramidEntitySpec, {0, 0, 500}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {-1000, 0, 250}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {1000, 0, 550}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PyramidEntitySpec, {-500, -200, 1000}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetEntitySpec, {-192, 64, 448}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, {-384, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, {-384, 0, 256}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseBigEntitySpec, {-384, 0, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
@@ -284,4 +289,3 @@ StageROMSpec WireframesStageSpec =
 	// post processing effects
 	(PostProcessingEffect*)NULL,
 };
-
