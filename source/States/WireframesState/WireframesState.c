@@ -116,9 +116,9 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	translation = Vector3D::rotate(translation, *_cameraRotation);
 
 	/*
-	 * The engine doesn't implement quaterions because of obvious performance reasons.
+	 * The engine doesn't implement quaternions due to obvious performance reasons.
 	 * So, moving the camera around the X axis will cause gimbal lock related issues
-	 * when rotations on the othe axis are applied too.
+	 * when rotations on the other axis are applied too.
 	 */
 	/*
 	if(K_RU & userInput->holdKey)
