@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,26 +11,40 @@
 #define VIDEO_PLAYER_STATE_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <ShowcaseState.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class VideoPlayerState
+///
+/// Inherits from ShowcaseState
+///
+/// Implements a game state to showcase video playback.
 dynamic_singleton class VideoPlayerState : ShowcaseState
 {
+	/// Method to retrieve the singleton instance
+	/// @return VideoPlayerState singleton
 	static VideoPlayerState getInstance();
 
-	void constructor();
-
+	/// Process the provided user input.
+	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput* userInput);
+
+	/// Show the state's controls.
 	override void showControls();
+
+	/// Show the state's explanation.
 	override void showExplanation();
+
+	/// Show the state's additional details.
 	override void showAdditionalDetails();
 }
 

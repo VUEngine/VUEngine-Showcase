@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -29,10 +29,9 @@
 #include "AnimationSchemesState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
 enum AnimationSchemes
 {
@@ -45,35 +44,11 @@ enum AnimationSchemes
 };
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void AnimationSchemesState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/AnimationSchemesStageSpec.c
-	 */
-	extern StageROMSpec AnimationSchemesStageSpec;
-	this->stageSpec = (StageSpec*)&AnimationSchemesStageSpec;
-	this->animatedSprites = new VirtualList();
-	this->animationScheme = kAnimationsNoneStart + 1;
-	this->rotation = (Rotation){0, 0, 0};
-	this->validSuboptionKeys = K_LL | K_LR | K_RU | K_RD | K_RL | K_RR;
-}
-
-// class's destructor
-void AnimationSchemesState::destructor()
-{
-	AnimationSchemesState::removeSprites(this);
-
-	// destroy base
-	Base::destructor();
-}
-
 void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -86,7 +61,7 @@ void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 
 	AnimationSchemesState::showBgmapMemory(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
 	AnimationSchemesState::playSoundEffects(this, userInput, false);
@@ -110,35 +85,35 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 		AnimationSchemesState::show(this, true);
 	}
 	/*
-		* Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->rotation.
+		* Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->spriteRotation.
 		*/
 	if(K_RU & userInput->releasedKey)
 	{
-		this->rotation.x = __I_TO_FIXED(255);
+		this->spriteRotation.x = __I_TO_FIXED(255);
 	}
 	else if(K_RD & userInput->releasedKey)
 	{
-		this->rotation.x = 0;
+		this->spriteRotation.x = 0;
 	}
 	else if(K_RL & userInput->releasedKey)
 	{
-		this->rotation.y = __I_TO_FIXED(255);
+		this->spriteRotation.y = __I_TO_FIXED(255);
 	}
 	else if(K_RR & userInput->releasedKey)
 	{
-		this->rotation.y = 0;
+		this->spriteRotation.y = 0;
 	}
 
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::getDataAtIndex(this->animatedSprites, 1));
 		
 	if(!isDeleted(animatedSprite))
 	{
-		Sprite::setRotation(animatedSprite, &this->rotation);
+		Sprite::setRotation(animatedSprite, &this->spriteRotation);
 	}
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
@@ -150,15 +125,15 @@ void AnimationSchemesState::showControls()
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showStuff()
 {
-	this->rotation = (Rotation){0, 0, 0};
+	this->spriteRotation = (Rotation){0, 0, 0};
 
 	AnimationSchemesState::removeSprites(this);
 	AnimationSchemesState::createSprites(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showExplanation()
 {
 	int16 y = 3;
@@ -209,14 +184,8 @@ void AnimationSchemesState::showExplanation()
 
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 }
-
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showAdditionalDetails()
-{
-	AnimationSchemesState::showAnimationDetails(this);
-}
-
-void AnimationSchemesState::showAnimationDetails()
 {
 	if(!isDeleted(this->animatedSprites))
 	{
@@ -281,7 +250,36 @@ void AnimationSchemesState::showAnimationDetails()
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void AnimationSchemesState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/AnimationSchemesStageSpec.c
+	 */
+	extern StageROMSpec AnimationSchemesStageSpec;
+	this->stageSpec = (StageSpec*)&AnimationSchemesStageSpec;
+	this->animatedSprites = new VirtualList();
+	this->animationScheme = kAnimationsNoneStart + 1;
+	this->spriteRotation = (Rotation){0, 0, 0};
+	this->validSuboptionKeys = K_LL | K_LR | K_RU | K_RD | K_RL | K_RR;
+}
+//---------------------------------------------------------------------------------------------------------
+void AnimationSchemesState::destructor()
+{
+	AnimationSchemesState::removeSprites(this);
+
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::createSprites()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
@@ -354,7 +352,7 @@ void AnimationSchemesState::createSprites()
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::removeSprites()
 {
 	if(!isDeleted(this->animatedSprites))
@@ -381,7 +379,7 @@ void AnimationSchemesState::removeSprites()
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  * Virtual methods can be changed in runtime to alter a class' behavior in real time.
  * Mutating the methods affects all the instances of the class.
@@ -390,7 +388,7 @@ void AnimationSchemesState::removeSprites()
 void AnimationSchemesState::showCharMemory()
 {
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showBgmapMemory()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -416,7 +414,7 @@ void AnimationSchemesState::showBgmapMemory()
 		);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -468,7 +466,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 		);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showCharMemoryForSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -518,7 +516,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 		CharSet::getOffset(charSet)
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -579,3 +577,4 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 		);
 	}
 }
+//---------------------------------------------------------------------------------------------------------

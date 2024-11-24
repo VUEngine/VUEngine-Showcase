@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Core
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <I18n.h>
 #include <Languages.h>
@@ -24,11 +24,11 @@
 #include "SoundsState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' ATTRIBUTES
+//=========================================================================================================
 
-const SoundROMSpec* soundSamples[] =
+static const SoundROMSpec* _soundSamples[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundSpec,
 	&NoFearForTheFutureSoundSpec,
@@ -37,57 +37,12 @@ const SoundROMSpec* soundSamples[] =
 	NULL
 };
 
+
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-/**
- * Get instance
- *
- * @fn			SoundsState::getInstance()
- * @memberof	SoundsState
- * @public
- * @return		SoundsState instance
- */
-
-
-/**
- * Class constructor
- *
- * @private
- */
-void SoundsState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/SoundsStageSpec.c
-	 */
-	extern StageROMSpec SoundsStageSpec;
-	this->stageSpec = (StageSpec*)&SoundsStageSpec;
-	this->sound = NULL;
-	this->selectedSound = 0;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-/**
- * Class destructor
- *
- * @private
- */
-void SoundsState::destructor()
-{
-	SoundsState::releaseSound(this);
-
-	// destroy base
-	Base::destructor();
-}
-
-/**
- * Method called when the Game's StateMachine enters to this state
- *
- * @param owner		StateMachine's owner
- */
 void SoundsState::enter(void* owner __attribute__ ((unused)))
 {
 	Base::enter(this, owner);
@@ -101,43 +56,14 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	 */
 	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
 }
-
-bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
-{
-	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
-	{
-		if(this->showAdditionalDetails)
-		{
-			TimerManager::print(TimerManager::getInstance(), 1, 18);
-			TimerManager::nextSecondStarted(TimerManager::getInstance());
-		}
-	}
-
-	return true;
-}
-
-bool SoundsState::stream()
-{
-	return false;
-}
-
-/**
- * Method called when by the StateMachine's update method
- *
- * @param owner		StateMachine's owner
- */
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::execute(void* owner __attribute__ ((unused)))
 {
 	Base::execute(this, owner);
 	
 	SoundsState::showSoundPlayback(this, !this->showAdditionalDetails);
 }
-
-/**
- * Method called when the Game's StateMachine exits from this state
- *
- * @param owner		StateMachine's owner
- */
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
 	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
@@ -146,12 +72,12 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
 
 	Base::exit(this, owner);
 }
-
-/**
- * Process user input
- *
- * @param userInput		User input
- */
+//---------------------------------------------------------------------------------------------------------
+bool SoundsState::stream()
+{
+	return false;
+}
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::processUserInput(const UserInput* userInput)
 {
 	if(!isDeleted(this->sound))
@@ -333,28 +259,39 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		}
 	}		
 }
-
-
-/**
- * Release sound
- */
-void SoundsState::releaseSound()
+//---------------------------------------------------------------------------------------------------------
+void SoundsState::showControls()
 {
-	if(!isDeleted(this->sound))
+	if(this->showAdditionalDetails)
 	{
-		
-		Sound::removeEventListenerScopes(this->sound, ListenerObject::safeCast(this), kEventSoundReleased);
-		Sound::release(this->sound);
+		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-		this->sound = NULL;
+		Printing::text(this->printing, __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+
+		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	}
+	else
+	{
+		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::showStuff()
 {
 	SoundsState::loadSound(this, true);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::showExplanation()
 {
 	int16 y = 3;
@@ -389,34 +326,7 @@ void SoundsState::showExplanation()
 	Printing::text(this->printing, " releaseSound", 26, y++, NULL);
 	y++;
 }
-
-void SoundsState::showControls()
-{
-	if(this->showAdditionalDetails)
-	{
-		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-
-		Printing::text(this->printing, __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-
-		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-
-		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	}
-	else
-	{
-		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printing::text(this->printing, __CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	}
-}
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::showAdditionalDetails()
 {
 	Printing printing = this->printing;
@@ -434,7 +344,36 @@ void SoundsState::showAdditionalDetails()
 
 	SoundsState::printTimer(this);
 }
+//---------------------------------------------------------------------------------------------------------
 
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void SoundsState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/SoundsStageSpec.c
+	 */
+	extern StageROMSpec SoundsStageSpec;
+	this->stageSpec = (StageSpec*)&SoundsStageSpec;
+	this->sound = NULL;
+	this->selectedSound = 0;
+	this->validSuboptionKeys = K_LL | K_LR;
+}
+//---------------------------------------------------------------------------------------------------------
+void SoundsState::destructor()
+{
+	SoundsState::releaseSound(this);
+
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::showSoundPlayback(bool showOnlyTime)
 {
 	if(!isDeleted(this->sound))
@@ -464,19 +403,19 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 uint16 SoundsState::getTotalSounds()
 {
 	uint16 totalSounds = 0;
 
-	for(; soundSamples[totalSounds]; totalSounds++);
+	for(; _soundSamples[totalSounds]; totalSounds++);
 
 	return totalSounds;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::loadSound(bool resetTimerSettings)
 {
-	if(NULL == soundSamples[this->selectedSound])
+	if(NULL == _soundSamples[this->selectedSound])
 	{
 		return;
 	}
@@ -507,7 +446,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * play in loop or when not explicitly told to not auto release by calling
 	 * Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 
@@ -521,14 +460,26 @@ void SoundsState::loadSound(bool resetTimerSettings)
 
 	VUEngine::enableKeypad(VUEngine::getInstance());
 }
+//---------------------------------------------------------------------------------------------------------
+void SoundsState::releaseSound()
+{
+	if(!isDeleted(this->sound))
+	{
+		
+		Sound::removeEventListenerScopes(this->sound, ListenerObject::safeCast(this), kEventSoundReleased);
+		Sound::release(this->sound);
 
+		this->sound = NULL;
+	}
+}
+//---------------------------------------------------------------------------------------------------------
 bool SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
 {
 	SoundsState::showSoundMetadata(this);
 
 	return true;
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unused)))
 {
 	if(Sound::safeCast(eventFirer) == this->sound)
@@ -539,7 +490,7 @@ bool SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unuse
 
 	return true;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::showSoundMetadata()
 {
 	if(isDeleted(this->sound))
@@ -556,25 +507,40 @@ void SoundsState::showSoundMetadata()
 		Sound::print(this->sound, 3, 21);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::printTimer()
 {
-	if(NULL == soundSamples[this->selectedSound])
+	if(NULL == _soundSamples[this->selectedSound])
 	{
 		return;
 	}
 
 	TimerManager::print(TimerManager::getInstance(), 1, 11);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::setTimerSettings()
 {
 	TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
 	TimerManager::setTargetTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-	TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), soundSamples[this->selectedSound]->targetTimerResolutionUS);
+	TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), _soundSamples[this->selectedSound]->targetTimerResolutionUS);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SoundsState::applyTimerSettings()
 {
 	TimerManager::applySettings(TimerManager::getInstance(), true);
 }
+//---------------------------------------------------------------------------------------------------------
+bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
+{
+	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
+	{
+		if(this->showAdditionalDetails)
+		{
+			TimerManager::print(TimerManager::getInstance(), 1, 18);
+			TimerManager::nextSecondStarted(TimerManager::getInstance());
+		}
+	}
+
+	return true;
+}
+//---------------------------------------------------------------------------------------------------------

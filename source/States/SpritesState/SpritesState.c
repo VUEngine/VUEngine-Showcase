@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -24,9 +24,9 @@
 #include "SpritesState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
 enum SpriteTypes
 {
@@ -41,34 +41,11 @@ enum SpriteTypes
 };
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void SpritesState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/SpritesStageSpec.c
-	 */
-	extern StageROMSpec SpritesStageSpec;
-	this->stageSpec = (StageSpec*)&SpritesStageSpec;
-	this->sprite = NULL;
-	this->spriteType = kSpriteNoTypeStart + 1;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-// class's destructor
-void SpritesState::destructor()
-{
-	SpritesState::destroySprite(this);
-
-	// destroy base
-	Base::destructor();
-}
-
 /*
  * The StateMachine calls State::execute when updated.
  * It is called once per game frame.
@@ -86,7 +63,7 @@ void SpritesState::execute(void* owner __attribute__((unused)))
 		SpritesState::showAdditionalDetails(this);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::processUserInput(const UserInput* userInput)
 {
 	SpritesState::playSoundEffects(this, userInput, false);
@@ -112,20 +89,20 @@ void SpritesState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::showStuff()
 {
 	SpritesState::destroySprite(this);
 	SpritesState::createSprite(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::showExplanation()
 {
 	if(!isDeleted(this->sprite))
@@ -178,20 +155,43 @@ void SpritesState::showExplanation()
 		}
 	}	
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::showAdditionalDetails()
-{
-	SpritesState::showSpriteDetails(this);
-}
-
-void SpritesState::showSpriteDetails()
 {
 	if(!isDeleted(this->sprite))
 	{
 		Sprite::print(this->sprite, 1, 3);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void SpritesState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/SpritesStageSpec.c
+	 */
+	extern StageROMSpec SpritesStageSpec;
+	this->stageSpec = (StageSpec*)&SpritesStageSpec;
+	this->sprite = NULL;
+	this->spriteType = kSpriteNoTypeStart + 1;
+	this->validSuboptionKeys = K_LL | K_LR;
+}
+//---------------------------------------------------------------------------------------------------------
+void SpritesState::destructor()
+{
+	SpritesState::destroySprite(this);
+
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::createSprite()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
@@ -252,7 +252,7 @@ void SpritesState::createSprite()
 
 	SpritesState::showHeader(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::destroySprite()
 {
 	if(!isDeleted(this->sprite))
@@ -263,7 +263,7 @@ void SpritesState::destroySprite()
 		this->sprite = NULL;
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  * The StateMachine calls State::execute when updated.
  * It is called once per game frame.
@@ -296,7 +296,7 @@ void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((u
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -322,7 +322,7 @@ void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__(
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -359,7 +359,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -381,4 +381,4 @@ void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unuse
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------

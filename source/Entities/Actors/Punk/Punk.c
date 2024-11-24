@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <ActorsState.h>
 #include <InGameTypes.h>
@@ -26,35 +26,24 @@
 #include "Punk.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void Punk::constructor(PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
 	// construct base
 	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Punk::destructor()
 {
 	// destroy the super object
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
-/*
- * This method is called when the entity has been fully initialized
- */
-void Punk::ready(bool recursive)
-{
-	Base::ready(this, recursive);
-
-	this->stateMachine = new StateMachine(this);
-
-	Punk::freeze(this);
-}
-
+//---------------------------------------------------------------------------------------------------------
 /*
  * Messaging serves the purpose of communicating classes decoupling their interfaces
  * (ie; not having to implement specific methods). These messages can be delayed too.
@@ -72,39 +61,7 @@ bool Punk::handleMessage(Telegram telegram)
 
 	return Base::handleMessage(this, telegram);	
 }
-
-/*
- * Returning true stops the propagation
- */
-bool Punk::handlePropagatedMessage(int32 message)
-{
-	switch(message)
-	{
-		case kMessageActorsStateHoldLeft:
-		case kMessageActorsStateHoldRight:
-		case kMessageActorsStateReleasedLeft:
-		case kMessageActorsStateReleasedRight:
-
-			/*
-			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
-			 * more elegant than calling directly a specific method in the current state, and this showcases
-			 * how to send messages to the current state in the state machine
-			 */ 
-			MessageDispatcher::dispatchMessage(0, ListenerObject::safeCast(this), ListenerObject::safeCast(this), message, NULL);
-			return true;
-			break;
-
-		case kMessageActorsStatePrintActorStatus:
-
-			Body::print(this->body, 1, 3);
-			return true;
-			break;
-	}
-
-	return false;
-}
-
-// process collisions
+//---------------------------------------------------------------------------------------------------------
 bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 {
 	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
@@ -149,22 +106,71 @@ bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 
 	return false;
 }
+//---------------------------------------------------------------------------------------------------------
+/*
+ * Returning true stops the propagation
+ */
+bool Punk::handlePropagatedMessage(int32 message)
+{
+	switch(message)
+	{
+		case kMessageActorsStateHoldLeft:
+		case kMessageActorsStateHoldRight:
+		case kMessageActorsStateReleasedLeft:
+		case kMessageActorsStateReleasedRight:
 
+			/*
+			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
+			 * more elegant than calling directly a specific method in the current state, and this showcases
+			 * how to send messages to the current state in the state machine
+			 */ 
+			MessageDispatcher::dispatchMessage(0, ListenerObject::safeCast(this), ListenerObject::safeCast(this), message, NULL);
+			return true;
+			break;
+
+		case kMessageActorsStatePrintActorStatus:
+
+			Body::print(this->body, 1, 3);
+			return true;
+			break;
+	}
+
+	return false;
+}
+//---------------------------------------------------------------------------------------------------------
+/*
+ * This method is called when the entity has been fully initialized
+ */
+void Punk::ready(bool recursive)
+{
+	Base::ready(this, recursive);
+
+	this->stateMachine = new StateMachine(this);
+
+	Punk::freeze(this);
+}
+//---------------------------------------------------------------------------------------------------------
 void Punk::freeze()
 {
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkFrozen::getInstance()));	
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Punk::walk()
 {
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkWalking::getInstance()));	
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void Punk::die()
 {
 	StateMachine::swapState(this->stateMachine, State::safeCast(PunkDie::getInstance()));	
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Punk::resuscitate()
 {
 	Vector3D position = Vector3D::getFromPixelVector((PixelVector){0, 64, 0, 0});
@@ -175,7 +181,7 @@ void Punk::resuscitate()
 
 	Punk::freeze(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  * This is an EventListener added by the engine because the PunkDieAnimation
  * defines it as the callback for when its playback finishes.
@@ -189,3 +195,4 @@ bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unuse
 
 	return true;
 }
+//---------------------------------------------------------------------------------------------------------

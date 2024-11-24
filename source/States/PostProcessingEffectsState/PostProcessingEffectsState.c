@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -26,14 +26,9 @@
 #include "PostProcessingEffectsState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S ATTRIBUTES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' ATTRIBUTES
+//=========================================================================================================
 
 /*
  * The effects are implemented as plugins.
@@ -47,38 +42,18 @@ static const PostProcessingEffect _postProcessingEffect[] =
 	PostProcessingRain::waterFall,
 };
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void PostProcessingEffectsState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/PostProcessingEffectsStageSpec.c
-	 */
-	extern StageROMSpec PostProcessingEffectsStageSpec;
-	this->stageSpec = (StageSpec*)&PostProcessingEffectsStageSpec;
-	this->selectedPostProcessingEffect = 0;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-// class's destructor
-void PostProcessingEffectsState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
 {
 	VIPManager::removePostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 	
 	Base::exit(this, owner);	
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 {
 	if(0 == (K_SEL & userInput->releasedKey))
@@ -115,18 +90,18 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::showControls()
 {
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::showStuff()
 {
 	VIPManager::pushBackPostProcessingEffect(VIPManager::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
@@ -163,3 +138,29 @@ void PostProcessingEffectsState::showExplanation()
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void PostProcessingEffectsState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/PostProcessingEffectsStageSpec.c
+	 */
+	extern StageROMSpec PostProcessingEffectsStageSpec;
+	this->stageSpec = (StageSpec*)&PostProcessingEffectsStageSpec;
+	this->selectedPostProcessingEffect = 0;
+	this->validSuboptionKeys = K_LL | K_LR;
+}
+//---------------------------------------------------------------------------------------------------------
+void PostProcessingEffectsState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------

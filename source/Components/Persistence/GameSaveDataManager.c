@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <stddef.h>
 
@@ -20,35 +20,23 @@
 #include "GameSaveDataManager.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
 
-// class's constructor
+//---------------------------------------------------------------------------------------------------------
 void GameSaveDataManager::constructor()
 {
 	// construct base object
 	Base::constructor();
 }
-
-// class's destructor
+//---------------------------------------------------------------------------------------------------------
 void GameSaveDataManager::destructor()
 {
 	// destroy base
 	Base::destructor();
 }
-
-uint8 GameSaveDataManager::getCustomValue()
-{
-	uint8 customValue = 0;
-	if(this->sramAvailable)
-	{
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
-	}
-
-	return customValue;
-}
-
+//---------------------------------------------------------------------------------------------------------
 void GameSaveDataManager::setCustomValue(uint8 customValue)
 {
 	if(this->sramAvailable)
@@ -60,3 +48,15 @@ void GameSaveDataManager::setCustomValue(uint8 customValue)
 		SaveDataManager::writeChecksum(this);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+uint8 GameSaveDataManager::getCustomValue()
+{
+	uint8 customValue = 0;
+	if(this->sramAvailable)
+	{
+		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
+	}
+
+	return customValue;
+}
+//---------------------------------------------------------------------------------------------------------

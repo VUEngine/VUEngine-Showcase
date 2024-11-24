@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -22,9 +22,9 @@
 #include "ParticlesState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
 enum ParticleTypes
 {
@@ -37,32 +37,11 @@ enum ParticleTypes
 };
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void ParticlesState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/ParticlesStageSpec.c
-	 */
-	extern StageROMSpec ParticlesStageSpec;
-	this->stageSpec = (StageSpec*)&ParticlesStageSpec;
-	this->particleSystem = NULL;
-	this->particlesType = kParticleNoTypeStart + 1;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-// class's destructor
-void ParticlesState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 /*
  * The StateMachine calls State::execute when updated.
  * It is called once per game frame.
@@ -77,7 +56,7 @@ void ParticlesState::execute(void* owner __attribute__((unused)))
 		ParticlesState::showAdditionalDetails(this);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::processUserInput(const UserInput* userInput)
 {
 	ParticlesState::playSoundEffects(this, userInput, false);
@@ -103,19 +82,19 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::showStuff()
 {
 	ParticlesState::loadParticles(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::showExplanation()
 {
 	if(!isDeleted(this->particleSystem))
@@ -162,20 +141,41 @@ void ParticlesState::showExplanation()
 		}
 	}	
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::showAdditionalDetails()
-{
-	ParticlesState::showParticleDetails(this);
-}
-
-void ParticlesState::showParticleDetails()
 {
 	if(!isDeleted(this->particleSystem))
 	{
 		ParticleSystem::print(this->particleSystem, 1, 3);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void ParticlesState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/ParticlesStageSpec.c
+	 */
+	extern StageROMSpec ParticlesStageSpec;
+	this->stageSpec = (StageSpec*)&ParticlesStageSpec;
+	this->particleSystem = NULL;
+	this->particlesType = kParticleNoTypeStart + 1;
+	this->validSuboptionKeys = K_LL | K_LR;
+}
+//---------------------------------------------------------------------------------------------------------
+void ParticlesState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void ParticlesState::loadParticles()
 {
 	// Check these specifications in assets/images/Stars/Spec/StarsSpec.c		
@@ -224,4 +224,4 @@ void ParticlesState::loadParticles()
 
 	ParticlesState::showHeader(this);
 }
-
+//---------------------------------------------------------------------------------------------------------

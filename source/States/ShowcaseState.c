@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -34,13 +34,9 @@
 #include "ShowcaseState.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-//---------------------------------------------------------------------------------------------------------
-// 												CLASS' ATTRIBUTES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' ATTRIBUTES
+//=========================================================================================================
 
 static int8 _currentShowcaseState = 0;
 
@@ -58,34 +54,23 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)PongState::getInstance,
 };
 
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' STATIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
 {
 	return _showcaseStates [0];
 }
+//---------------------------------------------------------------------------------------------------------
 
-// class's constructor
-void ShowcaseState::constructor()
-{
-	Base::constructor();
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
-	this->stageSpec = NULL;
-	this->showAdditionalDetails = false;
-	this->validSuboptionKeys = K_NON;
-	this->playingSoundEffect = NULL;
-	this->printing = Printing::getInstance();
-}
-
-// class's destructor
-void ShowcaseState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
+//---------------------------------------------------------------------------------------------------------
 /*
  *	The StateMachine calls State::enter when the State is put at the top of its stack.
  */
@@ -126,7 +111,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		NULL // callback scope
 	);
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  *	The StateMachine calls State::exit when popping the State from its stack.
  */
@@ -139,7 +124,7 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
 	// Since all instances are dynamic_singleton, I must delete myself upon exit
 	delete this;
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  *	The StateMachine calls State::suspend when a new State is put at the top of its stack.
  */
@@ -150,7 +135,7 @@ void ShowcaseState::suspend(void* owner)
 	// call base
 	Base::suspend(this, owner);
 }
-
+//---------------------------------------------------------------------------------------------------------
 /*
  *	The StateMachine calls State::resume when the State is again at the top of its stack
  *  after the previous State at the top has been popped.
@@ -174,14 +159,43 @@ void ShowcaseState::resume(void* owner)
 		NULL // callback scope
 	);
 }
-
-bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
+//---------------------------------------------------------------------------------------------------------
+/*
+ *	The engine calls State::processUserInput on the State top of its StateMachine's stack.
+ */
+void ShowcaseState::processUserInput(const UserInput* userInput)
 {
-	FrameRate::print(FrameRate::getInstance(), 14, 27);
+	// Check for UserInput and key definitions in KeypadManager.h
+	if(K_LT & userInput->releasedKey)
+	{
+		if(0 > --_currentShowcaseState)
+		{
+			_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
+		}
 
-	return true;
+		ShowcaseState::goToNext(this);
+	}
+	else if(K_RT & userInput->releasedKey)
+	{
+		if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
+		{
+			_currentShowcaseState = 0;
+		}
+
+		ShowcaseState::goToNext(this);
+	}
+	else if(K_SEL & userInput->releasedKey)
+	{
+		this->showAdditionalDetails = !this->showAdditionalDetails;
+
+		ShowcaseState::show(this, false);
+	}
+	else if(K_B & userInput->releasedKey)
+	{
+		// TODO
+	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 {
 	const RumbleEffectSpec* rumbleEffect = NULL;
@@ -231,14 +245,14 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 			kPlayAll, 
 			NULL, 
 			kSoundPlaybackNormal,
-			(EventListener)ShowcaseState::soundEffectDone, 
+			(EventListener)ShowcaseState::onSoundEffectDone, 
 			ListenerObject::safeCast(this)
 		);
 		
 		if(lock)
 		{
 			/*
-			 * Wait until ShowcaseState::soundEffectDone is called.
+			 * Wait until ShowcaseState::onSoundEffectDone is called.
 			 * The dummy is necessary to prevent that the compiler
 			 * optimizes away the while loop.
 			 */
@@ -247,43 +261,24 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		}
 	}
 }
-
-/*
- *	The engine calls State::processUserInput on the State top of its StateMachine's stack.
- */
-void ShowcaseState::processUserInput(const UserInput* userInput)
+//---------------------------------------------------------------------------------------------------------
+void ShowcaseState::configurePalettes(bool dimm)
 {
-	// Check for UserInput and key definitions in KeypadManager.h
-	if(K_LT & userInput->releasedKey)
-	{
-		if(0 > --_currentShowcaseState)
-		{
-			_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
-		}
+	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
 
-		ShowcaseState::goToNext(this);
-	}
-	else if(K_RT & userInput->releasedKey)
+	if(dimm)
 	{
-		if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
-		{
-			_currentShowcaseState = 0;
-		}
+		paletteConfig.bgmap.gplt1 = 0x50;
+		paletteConfig.bgmap.gplt2 = 0x50;
+		paletteConfig.bgmap.gplt3 = 0x50;
+		paletteConfig.object.jplt1 = 0x50;
+		paletteConfig.object.jplt2 = 0x50;
+		paletteConfig.object.jplt3 = 0x50;
+	}
 
-		ShowcaseState::goToNext(this);
-	}
-	else if(K_SEL & userInput->releasedKey)
-	{
-		this->showAdditionalDetails = !this->showAdditionalDetails;
-
-		ShowcaseState::show(this, false);
-	}
-	else if(K_B & userInput->releasedKey)
-	{
-		// TODO
-	}
+	VIPManager::configurePalettes(VIPManager::getInstance(), &paletteConfig);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::show(bool reloadStuff)
 {
 	Printing::clear(this->printing);
@@ -305,9 +300,9 @@ void ShowcaseState::show(bool reloadStuff)
 		ShowcaseState::showAdditionalDetails(this);
 	}
 
-	SpritesState::setupBrightness(this, this->showAdditionalDetails);
+	SpritesState::configurePalettes(this, this->showAdditionalDetails);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "(  /  ) ";
@@ -332,41 +327,50 @@ void ShowcaseState::showHeader()
 	Printing::text(this->printing, __CHAR_R_TRIGGER, 46, 0, NULL);
 	Printing::text(this->printing, __CHAR_SELECTOR, 47, 0, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showControls()
-{
-}
-
+{}
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showStuff()
-{
-}
-
+{}
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showExplanation()
-{
-}
-
+{}
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showAdditionalDetails()
+{}
+//---------------------------------------------------------------------------------------------------------
+
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void ShowcaseState::constructor()
 {
-}
+	Base::constructor();
 
-void ShowcaseState::setupBrightness(bool dimm)
+	this->stageSpec = NULL;
+	this->showAdditionalDetails = false;
+	this->validSuboptionKeys = K_NON;
+	this->printing = Printing::getInstance();
+}
+//---------------------------------------------------------------------------------------------------------
+void ShowcaseState::destructor()
 {
-	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
-
-	if(dimm)
-	{
-		paletteConfig.bgmap.gplt1 = 0x50;
-		paletteConfig.bgmap.gplt2 = 0x50;
-		paletteConfig.bgmap.gplt3 = 0x50;
-		paletteConfig.object.jplt1 = 0x50;
-		paletteConfig.object.jplt2 = 0x50;
-		paletteConfig.object.jplt3 = 0x50;
-	}
-
-	VIPManager::configurePalettes(VIPManager::getInstance(), &paletteConfig);
+	// destroy base
+	Base::destructor();
 }
+//---------------------------------------------------------------------------------------------------------
+bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
+{
+	FrameRate::print(FrameRate::getInstance(), 14, 27);
 
-bool ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unused)))
+	return true;
+}
+//---------------------------------------------------------------------------------------------------------
+bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((unused)))
 {
 	this->playingSoundEffect = NULL;
 
@@ -382,10 +386,11 @@ bool ShowcaseState::soundEffectDone(ListenerObject eventFirer __attribute__((unu
 
 	return true;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ShowcaseState::goToNext()
 {
 	VUEngine::disableKeypad(VUEngine::getInstance());
 
 	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }
+//---------------------------------------------------------------------------------------------------------

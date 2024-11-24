@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -25,36 +25,12 @@
 #include "WireframesState.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void WireframesState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/WireframesStageSpec.c
-	 */
-	extern StageROMSpec WireframesStageSpec;
-	this->stageSpec = (StageSpec*)&WireframesStageSpec;
-}
-
-// class's destructor
-void WireframesState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
-void WireframesState::enter(void* owner __attribute__((unused)))
-{
+void WireframesState::enter(void* owner __attribute__((unused))) {
 	Base::enter(this, owner);
 	
 	/*
@@ -65,7 +41,7 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void WireframesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -75,7 +51,7 @@ void WireframesState::execute(void* owner __attribute__((unused)))
 		WireframesState::showAdditionalDetails(this);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void WireframesState::processUserInput(const UserInput* userInput)
 {
 	WireframesState::playSoundEffects(this, userInput, false);
@@ -83,8 +59,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	Vector3D translation = {0, 0, 0};
 	Rotation rotation = Rotation::zero();
 
-	if(K_LU & userInput->holdKey)
-	{
+	if(K_LU & userInput->holdKey) {
 		translation.z = __PIXELS_TO_METERS(8 << 1);
 	}
 
@@ -138,7 +113,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void WireframesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
@@ -150,7 +125,7 @@ void WireframesState::showControls()
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
@@ -176,7 +151,7 @@ void WireframesState::showExplanation()
 	Printing::text(this->printing, "PyramidEntitySpec", 26, y++, NULL);
 	Printing::text(this->printing, "WireframesStageSpec", 26, y++, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void WireframesState::showAdditionalDetails()
 {
 
@@ -184,3 +159,27 @@ void WireframesState::showAdditionalDetails()
 	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
 	Camera::print(Camera::getInstance(), 31, 3, false);
 }
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void WireframesState::constructor(){
+	
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/WireframesStageSpec.c
+	 */
+	extern StageROMSpec WireframesStageSpec;
+	this->stageSpec = (StageSpec*)&WireframesStageSpec;
+}
+//---------------------------------------------------------------------------------------------------------
+void WireframesState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------

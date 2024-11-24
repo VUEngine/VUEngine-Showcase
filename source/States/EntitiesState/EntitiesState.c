@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -24,36 +24,11 @@
 #include "EntitiesState.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void EntitiesState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/EntitiesStageSpec.c"
-	 */
-	extern StageROMSpec EntitiesStageSpec;
-	this->stageSpec = (StageSpec*)&EntitiesStageSpec;
-	this->leaderPunk = NULL;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-// class's destructor
-void EntitiesState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void EntitiesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -70,7 +45,7 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 		EntitiesState::showAdditionalDetails(this);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::processUserInput(const UserInput* userInput)
 {
 	EntitiesState::playSoundEffects(this, userInput, false);
@@ -94,19 +69,19 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 	
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::showStuff()
 {
 	EntitiesState::createLeaderPunk(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::showExplanation()
 {
 	int16 y = 3;
@@ -136,7 +111,7 @@ void EntitiesState::showExplanation()
 	Printing::text(this->printing, " createSlavePunk", 26, y++, NULL);
 	y++;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::showAdditionalDetails()
 {
 	if(isDeleted(this->leaderPunk))
@@ -197,7 +172,32 @@ void EntitiesState::showAdditionalDetails()
 	Printing::text(this->printing, "Scale", 30, y++, NULL);
 	Scale::print(*AnimatedEntity::getScale(this->leaderPunk), 30, ++y);
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void EntitiesState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/EntitiesStageSpec.c"
+	 */
+	extern StageROMSpec EntitiesStageSpec;
+	this->stageSpec = (StageSpec*)&EntitiesStageSpec;
+	this->leaderPunk = NULL;
+	this->validSuboptionKeys = K_LL | K_LR;
+}
+//---------------------------------------------------------------------------------------------------------
+void EntitiesState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 {
 	if(isDeleted(punk))
@@ -216,7 +216,7 @@ void EntitiesState::printPunkName(AnimatedEntity punk, int16 row)
 
 	Printing::text(this->printing, punkName, col, row, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::createLeaderPunk()
 {
 	if(NULL != this->leaderPunk)
@@ -234,7 +234,7 @@ void EntitiesState::createLeaderPunk()
 	 */
 	this->leaderPunk = AnimatedEntity::safeCast(Stage::spawnChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::createSlavePunk(uint16 input)
 {
 	if(isDeleted(this->leaderPunk))
@@ -292,7 +292,7 @@ void EntitiesState::createSlavePunk(uint16 input)
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void EntitiesState::movePunks()
 {
 	if(!isDeleted(this->leaderPunk))
@@ -346,3 +346,4 @@ void EntitiesState::movePunks()
 		AnimatedEntity::setLocalRotation(this->leaderPunk, &localRotation);
 	}
 }
+//---------------------------------------------------------------------------------------------------------

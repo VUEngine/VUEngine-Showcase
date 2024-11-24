@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <CommunicationManager.h>
 #include <GameEvents.h>
@@ -30,9 +30,9 @@
 #include "Pong.h"
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S MACROS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' MACROS
+//=========================================================================================================
 
 #define SCORE_MULTIPLIER_THRESHOLD					5
 #define BONUS_INCREMENT_DELAY						100
@@ -44,44 +44,38 @@
 #define PONG_REMOTE_GO_AWAY							0x3C
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-void Pong::constructor()
+typedef struct CondensedUserInput
 {
-	Base::constructor();
+	// Currently pressed key(s)
+	uint16 pressedKey;
 
-	this->pongBall = NULL;
-	this->playerPaddles = new VirtualList();
-	this->opponentPaddles = new VirtualList();
+	// Released key(s)
+	uint16 releasedKey;
+	
+	// Hold key(s)
+	uint16 holdKey;
 
-	this->isVersusMode = false;
-	this->leftScore = 0;
-	this->rightScore = 0;
-	this->messageForRemote = kMessagePongSync;
-	this->allowPaddleMovement = false;
-	this->remoteHoldKey = 0;
+} CondensedUserInput;
 
-	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
-}
 
-void Pong::destructor()
+typedef struct RemotePlayerData
 {
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+	uint32 command;
 
-	this->pongBall = NULL;
-	delete this->playerPaddles;
-	this->playerPaddles = NULL;
-	delete this->opponentPaddles;
-	this->opponentPaddles = NULL;
+	CondensedUserInput condensedUserInput;
 
-	// allow a new construct
-	Base::destructor();
-}
+} RemotePlayerData;
 
+
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void Pong::getReady(Stage stage, bool isVersusMode)
 {
 	this->isVersusMode = isVersusMode;
@@ -137,22 +131,12 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 
 	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool Pong::isVersusMode()
 {
 	return this->isVersusMode;
 }
-
-bool Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
-{
-	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
-
-	this->messageForRemote = kMessagePongSync;
-
-	return true;
-}
-
-// process user input
+//---------------------------------------------------------------------------------------------------------
 void Pong::processUserInput(const UserInput* userInput)
 {
 	if((K_LT | K_RT) & userInput->releasedKey)
@@ -184,8 +168,72 @@ void Pong::processUserInput(const UserInput* userInput)
 		}
 	}
 }
+//---------------------------------------------------------------------------------------------------------
+int Pong::getPlayerNumber()
+{
+	return this->playerNumber;
+}
+//---------------------------------------------------------------------------------------------------------
+void Pong::printScore()
+{
+	int16 y = 26;
+	PRINT_TEXT("P1:	  ", 1, y);
+	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
 
-static uint32 Pong::getCommunicationCommand(uint32 message)
+	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
+	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
+}
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void Pong::constructor()
+{
+	Base::constructor();
+
+	this->pongBall = NULL;
+	this->playerPaddles = new VirtualList();
+	this->opponentPaddles = new VirtualList();
+
+	this->isVersusMode = false;
+	this->leftScore = 0;
+	this->rightScore = 0;
+	this->messageForRemote = kMessagePongSync;
+	this->allowPaddleMovement = false;
+	this->remoteHoldKey = 0;
+
+	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
+	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+}
+//---------------------------------------------------------------------------------------------------------
+void Pong::destructor()
+{
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+
+	this->pongBall = NULL;
+	delete this->playerPaddles;
+	this->playerPaddles = NULL;
+	delete this->opponentPaddles;
+	this->opponentPaddles = NULL;
+
+	// allow a new construct
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
+bool Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
+{
+	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
+
+	this->messageForRemote = kMessagePongSync;
+
+	return true;
+}
+//---------------------------------------------------------------------------------------------------------
+uint32 Pong::getCommunicationCommand(uint32 message)
 {
 	switch(message)
 	{
@@ -204,19 +252,19 @@ static uint32 Pong::getCommunicationCommand(uint32 message)
 
 	return PONG_NO_COMMAND;
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool Pong::isMessageValid(uint32 message, uint8 command)
 {
-	return Pong::getCommunicationCommand(message) == command;
+	return Pong::getCommunicationCommand(this, message) == command;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Pong::syncWithRemote(const UserInput* userInput)
 {
 	/*
 	 * A command is used to verify that the received message and the data
 	 * are valid.
 	 */
-	uint8 command = Pong::getCommunicationCommand(this->messageForRemote);
+	uint8 command = Pong::getCommunicationCommand(this, this->messageForRemote);
 
 	/*
 	 * This is the struct that we are going to send down the link port.
@@ -230,7 +278,7 @@ void Pong::syncWithRemote(const UserInput* userInput)
 
 	Pong::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 {
 	uint32 receivedMessage = kMessagePongDummy;
@@ -268,7 +316,7 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 
 	Pong::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
 {
 	/*
@@ -315,7 +363,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			break;
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 {
 	NormalizedDirection normalizedDirection =
@@ -336,7 +384,7 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 		PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	if(!isDeleted(this->pongBall))
@@ -376,19 +424,4 @@ bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	return true;
 }
-
-int Pong::getPlayerNumber()
-{
-	return this->playerNumber;
-}
-
-
-void Pong::printScore()
-{
-	int16 y = 26;
-	PRINT_TEXT("P1:	  ", 1, y);
-	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
-
-	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
-	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
-}
+//---------------------------------------------------------------------------------------------------------

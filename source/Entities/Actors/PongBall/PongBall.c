@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <CommunicationManager.h>
 #include <GameEvents.h>
@@ -31,10 +31,9 @@
 #include "PongBall.h"
 
 
-
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S MACROS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' MACROS
+//=========================================================================================================
 
 #define START_X_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
 #define START_Y_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
@@ -49,9 +48,9 @@
 #define SPEED_Y_MULTIPLIER								__I_TO_FIX10_6(2)
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S ATTRIBUTES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' ATTRIBUTES
+//=========================================================================================================
 
 /*
  * This is used to generate a new angle each time that the ball starts to move.
@@ -61,18 +60,17 @@
 static uint32 _randomSeed = 0;
 
 
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
 
+//---------------------------------------------------------------------------------------------------------
 void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
 {
 	// construct base
 	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
-
-	this->paddleEnum = kNoPongPaddle;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongBall::destructor()
 {
 	if(!PongBall::isInCameraRange(this, 0, false))
@@ -84,17 +82,7 @@ void PongBall::destructor()
 	// must always be called at the end of the destructor
 	Base::destructor();
 }
-
-void PongBall::ready(bool recursive)
-{
-	// call base
-	Base::ready(this, recursive);
-
-	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
-
-	PongBall::prepareToMove(this);
-}
-
+//---------------------------------------------------------------------------------------------------------
 bool PongBall::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
@@ -107,20 +95,7 @@ bool PongBall::handleMessage(Telegram telegram)
 
 	return Base::handleMessage(this, telegram);	
 }
-
-bool PongBall::handlePropagatedMessage(int32 message)
-{
-	switch(message)
-	{
-		case kMessagePongResetPositions:
-
-			PongBall::prepareToMove(this);
-			break;
-	}
-
-	return false;
-}
-
+//---------------------------------------------------------------------------------------------------------
 bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 {
 	ASSERT(collisionInformation->otherCollider, "Actor::collisionStarts: otherColliders");
@@ -166,8 +141,36 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 
 	return returnValue;
 }
+//---------------------------------------------------------------------------------------------------------
+bool PongBall::handlePropagatedMessage(int32 message)
+{
+	switch(message)
+	{
+		case kMessagePongResetPositions:
 
+			PongBall::prepareToMove(this);
+			break;
+	}
 
+	return false;
+}
+//---------------------------------------------------------------------------------------------------------
+void PongBall::ready(bool recursive)
+{
+	// call base
+	Base::ready(this, recursive);
+
+	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
+
+	PongBall::prepareToMove(this);
+}
+//---------------------------------------------------------------------------------------------------------
+
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
 void PongBall::prepareToMove()
 {
 	PongPaddle::stopMovement(this, __ALL_AXIS);
@@ -180,7 +183,7 @@ void PongBall::prepareToMove()
 	PongBall::discardMessages(this, kMessagePongBallStartMoving);
 	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongBall::startMovement()
 {
 	int16 angle = 0;
@@ -213,8 +216,4 @@ void PongBall::startMovement()
 
 	PongBall::setVelocity(this, &velocity, false);
 }
-
-int PongBall::getPaddleEnum()
-{
-	return this->paddleEnum;
-}
+//---------------------------------------------------------------------------------------------------------

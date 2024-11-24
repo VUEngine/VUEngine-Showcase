@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-//												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -32,33 +32,11 @@
 #include "PongState.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-//												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-//												CLASS'S METHODS
-//---------------------------------------------------------------------------------------------------------
-
-void PongState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/PongStageSpec.c
-	 */
-	extern StageROMSpec PongStageSpec;
-	this->stageSpec = (StageSpec*)&PongStageSpec;
-	this->isVersusMode = false;
-}
-
-void PongState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void PongState::enter(void* owner)
 {
 	Base::enter(this, owner);
@@ -81,7 +59,7 @@ void PongState::enter(void* owner)
 	// Make sure that the processing of user input is triggered regardless of real user input
 	KeypadManager::enableDummyKey(KeypadManager::getInstance());
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongState::exit(void* owner)
 {
 	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteInSync, kEventPongRemoteInSync);
@@ -94,7 +72,7 @@ void PongState::exit(void* owner)
 
 	Base::exit(this, owner);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongState::processUserInput(const UserInput* userInput)
 {
 	if(0 == (K_SEL & userInput->releasedKey))
@@ -114,7 +92,12 @@ void PongState::processUserInput(const UserInput* userInput)
 	
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
+bool PongState::isVersusMode()
+{
+	return this->isVersusMode;
+}
+//---------------------------------------------------------------------------------------------------------
 void PongState::showControls()
 {
 	Printing::clearRow(this->printing, __SCREEN_HEIGHT_IN_CHARS - 1);
@@ -139,11 +122,10 @@ void PongState::showControls()
 		}
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongState::showStuff()
-{
-}
-
+{}
+//---------------------------------------------------------------------------------------------------------
 void PongState::showExplanation()
 {
 	int16 y = 3;
@@ -177,13 +159,37 @@ void PongState::showExplanation()
 
 	PongState::showConnectivityStatus(this);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongState::showAdditionalDetails()
 {
 	Pong::printScore(Pong::getInstance());
 	PongState::showConnectivityStatus(this);
 }
+//---------------------------------------------------------------------------------------------------------
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void PongState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/PongStageSpec.c
+	 */
+	extern StageROMSpec PongStageSpec;
+	this->stageSpec = (StageSpec*)&PongStageSpec;
+	this->isVersusMode = false;
+}
+//---------------------------------------------------------------------------------------------------------
+void PongState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
 void PongState::showConnectivityStatus()
 {
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
@@ -195,7 +201,7 @@ void PongState::showConnectivityStatus()
 		Printing::text(this->printing, " NO LINK ", 20, __SCREEN_HEIGHT_IN_CHARS - 2, "Debug");
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribute__((unused)))
 {	
 	PongState::setVersusMode(this, true);
@@ -206,23 +212,13 @@ bool PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribut
 
 	return true;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void PongState::setVersusMode(bool value)
 {
 	this->isVersusMode = value;
 	this->showAdditionalDetails = value;
 }
-
-bool PongState::getVersusMode()
-{
-	return this->isVersusMode;
-}
-
-bool PongState::isVersusMode()
-{
-	return PongState::getVersusMode(this);
-}
-
+//---------------------------------------------------------------------------------------------------------
 bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
 {
 	// Reset random seed in multiplayer mode so both machines are completely in sync
@@ -239,7 +235,7 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 
 	return true;
 }
-
+//---------------------------------------------------------------------------------------------------------
 bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
@@ -253,3 +249,4 @@ bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused
 
 	return true;
 }
+//---------------------------------------------------------------------------------------------------------

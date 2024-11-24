@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -23,35 +23,11 @@
 #include "VideoPlayerState.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void VideoPlayerState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/VideoPlayerStageSpec.c
-	 */
-	extern StageROMSpec VideoPlayerStageSpec;
-	this->stageSpec = (StageSpec*)&VideoPlayerStageSpec;
-	this->validSuboptionKeys = K_LL | K_LR;
-}
-
-// class's destructor
-void VideoPlayerState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void VideoPlayerState::processUserInput(const UserInput* userInput)
 {
 	VideoPlayerState::playSoundEffects(this, userInput, false);
@@ -81,7 +57,7 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void VideoPlayerState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
@@ -90,7 +66,7 @@ void VideoPlayerState::showControls()
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void VideoPlayerState::showExplanation()
 {
 	int16 y = 3;
@@ -117,10 +93,10 @@ void VideoPlayerState::showExplanation()
 	Printing::text(this->printing, "VideoPlayerState", 26, y++, NULL);
 	Printing::text(this->printing, " processUserInput", 26, y++, NULL);
 
-	VideoPlayerState::showAnimationDetails(this);
+	VideoPlayerState::showAdditionalDetails(this);
 }
-
-void VideoPlayerState::showAnimationDetails()
+//---------------------------------------------------------------------------------------------------------
+void VideoPlayerState::showAdditionalDetails()
 {
 	int16 y = 25;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "Debug");
@@ -132,8 +108,28 @@ void VideoPlayerState::showAnimationDetails()
 		Printing::text(this->printing, AnimatedEntity::getPlayingAnimationName(videoEntity), 2, y++, NULL);
 	}
 }
+//---------------------------------------------------------------------------------------------------------
 
-void VideoPlayerState::showAdditionalDetails()
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void VideoPlayerState::constructor()
 {
-	VideoPlayerState::showAnimationDetails(this);
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/VideoPlayerStageSpec.c
+	 */
+	extern StageROMSpec VideoPlayerStageSpec;
+	this->stageSpec = (StageSpec*)&VideoPlayerStageSpec;
+	this->validSuboptionKeys = K_LL | K_LR;
 }
+//---------------------------------------------------------------------------------------------------------
+void VideoPlayerState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------

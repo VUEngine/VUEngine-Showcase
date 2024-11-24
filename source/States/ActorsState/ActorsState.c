@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -8,9 +8,9 @@
  */
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <string.h>
 
@@ -25,34 +25,11 @@
 #include "ActorsState.h"
 
 
+//=========================================================================================================
+// CLASS' PUBLIC METHODS
+//=========================================================================================================
+
 //---------------------------------------------------------------------------------------------------------
-// 												DECLARATIONS
-//---------------------------------------------------------------------------------------------------------
-
-
-//---------------------------------------------------------------------------------------------------------
-// 											CLASS'S DEFINITION
-//---------------------------------------------------------------------------------------------------------
-
-// class's constructor
-void ActorsState::constructor()
-{
-	Base::constructor();
-
-	/*
-	 * Check assets/stage/ActorsStageSpec.c"
-	 */
-	extern StageROMSpec ActorsStageSpec;
-	this->stageSpec = (StageSpec*)&ActorsStageSpec;
-}
-
-// class's destructor
-void ActorsState::destructor()
-{
-	// destroy base
-	Base::destructor();
-}
-
 void ActorsState::enter(void* owner __attribute__((unused)))
 {
 	Base::enter(this, owner);
@@ -72,7 +49,7 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 	 */
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -82,18 +59,17 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 		ActorsState::showAdditionalDetails(this);
 	}
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::exit(void* owner __attribute__((unused)))
 {
 	Printing::removeEventListener(this->printing, ListenerObject::safeCast(this), (EventListener)ActorsState::onFontCharSetRewritten, kEventFontRewritten);
 
 	Base::exit(this, owner);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::processUserInput(const UserInput* userInput)
 {
 	ActorsState::playSoundEffects(this, userInput, false);
-
 	int32 message = kMessageActorsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)
@@ -127,23 +103,17 @@ void ActorsState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-
-void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
-{
-	ActorsState::show(this, false);
-}
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::showStuff()
-{
-}
-
+{}
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
@@ -176,10 +146,38 @@ void ActorsState::showExplanation()
 	Printing::text(this->printing, " handlePropagatedMe...", 26, y++, NULL);
 	y++;
 }
-
+//---------------------------------------------------------------------------------------------------------
 void ActorsState::showAdditionalDetails()
 {
 	ActorsState::propagateMessage(this, kMessageActorsStatePrintActorStatus);
 }
+//---------------------------------------------------------------------------------------------------------
 
 
+//=========================================================================================================
+// CLASS' PRIVATE METHODS
+//=========================================================================================================
+
+//---------------------------------------------------------------------------------------------------------
+void ActorsState::constructor()
+{
+	Base::constructor();
+
+	/*
+	 * Check assets/stage/ActorsStageSpec.c"
+	 */
+	extern StageROMSpec ActorsStageSpec;
+	this->stageSpec = (StageSpec*)&ActorsStageSpec;
+}
+//---------------------------------------------------------------------------------------------------------
+void ActorsState::destructor()
+{
+	// destroy base
+	Base::destructor();
+}
+//---------------------------------------------------------------------------------------------------------
+void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+{
+	ActorsState::show(this, false);
+}
+//---------------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-/**
+/*
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -11,19 +11,17 @@
 #define GAME_SAVE_DATA_MANAGER_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-// 												INCLUDES
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <SaveDataManager.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-// 											TYPE DEFINITIONS
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DATA
+//=========================================================================================================
 
-// this struct is never instantiated, its sole purpose is to determine offsets of its members.
-// therefore it acts as kind of like a map of sram content.
 typedef struct GameSaveData
 {
 	// save data handled by base class
@@ -35,16 +33,29 @@ typedef struct GameSaveData
 } GameSaveData;
 
 
-//---------------------------------------------------------------------------------------------------------
-//											CLASS'S DECLARATION
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// CLASS' DECLARATION
+//=========================================================================================================
 
+///
+/// Class GameSaveDataManager
+///
+/// Inherits from SaveDataManager
+///
+/// Implements a custom save data manager.
 singleton class GameSaveDataManager : SaveDataManager
 {
+	/// Method to GameSaveDataManager the singleton instance
+	/// @return AnimationSchemesState singleton
 	static GameSaveDataManager getInstance();
-	uint8 getCustomValue();
-	void setCustomValue(uint8 customValue);
-}
 
+	/// Save a custom value to SRAM.
+	/// @param customValue: Value to save
+	void setCustomValue(uint8 customValue);
+
+	/// Retriev the custom value from SRAM.
+	/// @return Value from SRAM
+	uint8 getCustomValue();
+}
 
 #endif
