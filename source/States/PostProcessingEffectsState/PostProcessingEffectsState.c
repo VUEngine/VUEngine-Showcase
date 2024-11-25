@@ -39,7 +39,7 @@ static const PostProcessingEffect _postProcessingEffect[] =
 	PostProcessingWobble::wobble,
 	PostProcessingTilt::tiltScreen,
 	PostProcessingDwarfPlanet::dwarfPlanet,
-	PostProcessingRain::waterFall,
+	PostProcessingRain::thinRain,
 };
 
 //=========================================================================================================
@@ -133,7 +133,7 @@ void PostProcessingEffectsState::showExplanation()
 	{
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringDwarfPlanetLabel), 32, y, NULL);
 	}
-	else if(PostProcessingRain::waterFall == _postProcessingEffect[this->selectedPostProcessingEffect])
+	else if(PostProcessingRain::thinRain == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
 	}
