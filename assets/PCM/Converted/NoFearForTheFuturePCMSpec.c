@@ -43265,9 +43265,6 @@ SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 SoundTrackROMSpec* const NoFearForTheFutureSoundTracks[] =
 {
     &NoFearForTheFutureSoundTrack,
-    &NoFearForTheFutureSoundTrack,
-    &NoFearForTheFutureSoundTrack,
-    &NoFearForTheFutureSoundTrack,
     NULL
 };
 
