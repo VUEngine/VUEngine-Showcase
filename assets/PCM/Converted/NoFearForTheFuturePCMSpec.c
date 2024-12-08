@@ -6,7 +6,7 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <SoundTrack.h>
+#include <Sound.h>
 #include <WaveForms.h>
 
 
@@ -43229,7 +43229,7 @@ const SoundTrackKeyframe NoFearForTheFutureSoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},
 };
 
-SoundTrackROMSpec NoFearForTheFutureoundTrack =
+SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 {
 	/// kTrackNative, kTrackPCM
 	kTrackPCM,
@@ -43262,7 +43262,7 @@ SoundTrackROMSpec NoFearForTheFutureoundTrack =
 	(uint8*)NoFearForTheFutureSoundTrack1SxSWP
 };
 
-SoundChannelROM* const NoFearForTheFutureSoundTracks[] =
+SoundTrackROMSpec* const NoFearForTheFutureSoundTracks[] =
 {
     &NoFearForTheFutureSoundTrack,
     &NoFearForTheFutureSoundTrack,
