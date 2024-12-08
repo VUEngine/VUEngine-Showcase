@@ -58,7 +58,7 @@ const uint8 Killed1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Killed1SoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart | kSoundTrackEventSxTAP},
+	{100, kSoundTrackEventStart | kSoundTrackEventSxTAP},
 	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
 	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
 	{100, kSoundTrackEventEnd},

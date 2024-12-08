@@ -58,7 +58,7 @@ const uint8 Point1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Point1SoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxLRV},

@@ -65,7 +65,7 @@ const uint8 Engine1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},

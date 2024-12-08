@@ -58,7 +58,7 @@ const uint8 ChangeSelection2SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe ChangeSelection2SoundTrack1Keyframes[] =
 {
-	{0, kSoundTrackEventStart},
+	{80, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxLRV},
 	{80, kSoundTrackEventSxLRV},
