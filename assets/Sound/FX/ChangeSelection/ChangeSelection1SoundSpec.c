@@ -42,7 +42,7 @@ SoundROMSpec ChangeSelection1SoundSpec =
 	// Play in loop
 	false,
 
-	// Tick duraction in US
+	// Tick duration in US
 	500,
 
 	// Tracks

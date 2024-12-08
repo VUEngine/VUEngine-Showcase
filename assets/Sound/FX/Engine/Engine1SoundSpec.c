@@ -41,7 +41,7 @@ SoundROMSpec Engine1SoundSpec =
 	// Play in loop
 	true,
 
-	// Tick duraction in US
+	// Tick duration in US
 	1000,
 
 	// Tracks
