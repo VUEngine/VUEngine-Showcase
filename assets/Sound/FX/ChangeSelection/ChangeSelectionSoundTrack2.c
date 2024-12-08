@@ -33,7 +33,7 @@ const uint8 ChangeSelection2SoundTrack1SxLRV[] =
 
 const uint16 ChangeSelection2SoundTrack1SxFQ[] =
 {
-	E_3, E_4, F_3
+	CS4, E_4, E_4,
 };
 
 const uint8 ChangeSelection2SoundTrack1SxEV0[] =
@@ -60,7 +60,7 @@ const SoundTrackKeyframe ChangeSelection2SoundTrack1Keyframes[] =
 {
 	{0, kSoundTrackEventStart},
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
+	{80, kSoundTrackEventSxLRV},
 	{80, kSoundTrackEventSxLRV},
 	{80, kSoundTrackEventEnd},
 };
