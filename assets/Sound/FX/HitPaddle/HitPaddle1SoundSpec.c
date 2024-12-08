@@ -42,7 +42,7 @@ SoundROMSpec HitPaddle1SoundSpec =
 	// Play in loop
 	false,
 
-	// Target timer resolution in us
+	// Tick duraction in US
 	500,
 
 	// Tracks

@@ -46,7 +46,7 @@ SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 	// Play in loop
 	false,
 
-	// Target timer resolution in us
+	// Tick duraction in US
 	880,
 
 	// Tracks
