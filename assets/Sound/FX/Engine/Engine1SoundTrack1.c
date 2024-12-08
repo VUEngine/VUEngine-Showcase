@@ -80,7 +80,7 @@ const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxFQ},
-	{80, kSoundTrackEventEnd},
+	{0, kSoundTrackEventEnd},
 };
 
 SoundTrackROMSpec Engine1SoundTrack1 =

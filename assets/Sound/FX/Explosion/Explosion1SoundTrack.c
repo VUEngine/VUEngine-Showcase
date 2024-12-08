@@ -63,7 +63,7 @@ const SoundTrackKeyframe Explosion1SoundTrack1Keyframes[] =
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{500, kSoundTrackEventEnd},
+	{0, kSoundTrackEventEnd},
 };
 
 SoundTrackROMSpec Explosion1SoundTrack1 =

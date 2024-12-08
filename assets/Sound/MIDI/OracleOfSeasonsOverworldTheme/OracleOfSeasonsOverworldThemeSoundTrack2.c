@@ -905,7 +905,7 @@ const SoundTrackKeyframe OracleOfSeasonsOverworldThemeSoundTrack2Keyframes[] =
 	{20, kSoundTrackEventSxEV1},
 	{159, kSoundTrackEventSxFQ | kSoundTrackEventSxEV1},
 	{1, kSoundTrackEventSxEV1},
-	{1, kSoundTrackEventEnd},	
+	{0, kSoundTrackEventEnd},	
 };
 
 SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2 =

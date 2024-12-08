@@ -62,7 +62,7 @@ const SoundTrackKeyframe ChangeSelection4SoundTrack1Keyframes[] =
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
 	{80, kSoundTrackEventSxLRV},
-	{80, kSoundTrackEventEnd},
+	{0, kSoundTrackEventEnd},
 };
 
 SoundTrackROMSpec ChangeSelection4SoundTrack1 =

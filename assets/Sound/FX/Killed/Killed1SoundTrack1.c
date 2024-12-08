@@ -61,7 +61,7 @@ const SoundTrackKeyframe Killed1SoundTrack1Keyframes[] =
 	{100, kSoundTrackEventStart | kSoundTrackEventSxTAP},
 	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
 	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{100, kSoundTrackEventEnd},
+	{0, kSoundTrackEventEnd},
 };
 
 SoundTrackROMSpec Killed1SoundTrack1 =
