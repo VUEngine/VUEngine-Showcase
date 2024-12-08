@@ -242,7 +242,6 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		(
 			SoundManager::getInstance(), 
 			this->playingSoundEffect, 
-			kPlayAll, 
 			NULL, 
 			kSoundPlaybackNormal,
 			(EventListener)ShowcaseState::onSoundEffectDone, 

@@ -32,8 +32,8 @@ static const SoundROMSpec* _soundSamples[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundSpec,
 	&NoFearForTheFutureSoundSpec,
-	&ExplosionSoundSpec,
-	&EngineSoundSpec,
+	&Explosion1SoundSpec,
+	&Engine1SoundSpec,
 	NULL
 };
 
@@ -446,7 +446,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * play in loop or when not explicitly told to not auto release by calling
 	 * Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 

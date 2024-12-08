@@ -21,34 +21,29 @@
 // DECLARATIONS
 //=========================================================================================================
 
-extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1;
-extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2;
-extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3;
-
+extern SoundTrackROMSpec Engine1SoundTrack1;
 
 //=========================================================================================================
 // DEFINITIONS
 //=========================================================================================================
 
-SoundTrackROMSpec* const OracleOfSeasonsOverworldThemeSoundTracks[] =
+SoundTrackROMSpec* const Engine1SoundTracks[] =
 {
-	&OracleOfSeasonsOverworldThemeSoundTrack1,
-	&OracleOfSeasonsOverworldThemeSoundTrack2,
-	&OracleOfSeasonsOverworldThemeSoundTrack3,
+	&Engine1SoundTrack1,
 	NULL
 };
 
-SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
+SoundROMSpec Engine1SoundSpec =
 {
 	// Name
-	"Oracle of Seasons - Overworld",
+	"Engine 1",
 
 	// Play in loop
-	false,
+	true,
 
 	// Target timer resolution in us
-	880,
+	1000,
 
 	// Tracks
-	(SoundTrackSpec**)OracleOfSeasonsOverworldThemeSoundTracks
+	(SoundTrackSpec**)Engine1SoundTracks
 };

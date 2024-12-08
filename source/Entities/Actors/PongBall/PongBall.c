@@ -131,8 +131,7 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 	SoundManager::playSound
 	(
 		SoundManager::getInstance(), 
-		&HitPaddleSoundSpec, 
-		kPlayAll, 
+		&HitPaddle1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,
 		NULL, 

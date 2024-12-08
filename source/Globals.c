@@ -52,8 +52,8 @@ const SoundROMSpec* _userSounds[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundSpec,
 	&NoFearForTheFutureSoundSpec,
-	&ExplosionSoundSpec,
-	&EngineSoundSpec,
+	&Explosion1SoundSpec,
+	&Engine1SoundSpec,
 	NULL
 };
 
