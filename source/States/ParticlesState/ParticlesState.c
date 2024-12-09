@@ -100,27 +100,27 @@ void ParticlesState::showExplanation()
 	if(!isDeleted(this->particleSystem))
 	{
 		int16 y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "Particle", 2, y++, NULL);
 		Printing::text(this->printing, "ParticleSystem", 2, y++, NULL);
 		Printing::text(this->printing, "PhysicalParticle", 2, y++, NULL);
 		Printing::text(this->printing, "SolidParticle", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "ParticlesState", 2, y++, NULL);
-		Printing::text(this->printing, " loadParticles", 2, y++, NULL);
-		Printing::text(this->printing, " processUserInput", 2, y++, NULL);
+		Printing::text(this->printing, "::loadParticles", 2, y++, NULL);
+		Printing::text(this->printing, "::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "StarParticle*Spec", 2, y++, NULL);
 		Printing::text(this->printing, "StarsParticleSystem*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "DefaultBold");
 
 		switch(this->particlesType)
 		{

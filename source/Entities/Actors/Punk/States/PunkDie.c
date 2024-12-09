@@ -13,6 +13,8 @@
 //=========================================================================================================
 
 #include <ActorsState.h>
+#include <I18n.h>
+#include <Languages.h>
 #include <Printing.h>
 #include <Punk.h>
 #include <RumbleEffects.h>
@@ -80,7 +82,7 @@ void PunkDie::enter(void* owner)
 	 * or will become corrupt.
 	 */
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
-	Printing::text(Printing::getInstance(), "YOU DIED... AGAIN", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 //---------------------------------------------------------------------------------------------------------
 void PunkDie::exit(void* owner)
@@ -100,7 +102,7 @@ void PunkDie::exit(void* owner)
 
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 
-	Printing::text(Printing::getInstance(), "                  ", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), "                        ", 18, 19, NULL);
 }
 //---------------------------------------------------------------------------------------------------------
 
@@ -111,6 +113,6 @@ void PunkDie::exit(void* owner)
 //---------------------------------------------------------------------------------------------------------
 void PunkDie::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
 {
-	Printing::text(Printing::getInstance(), "YOU DIED... AGAIN", 18, 20, "Debug");
+	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 //---------------------------------------------------------------------------------------------------------

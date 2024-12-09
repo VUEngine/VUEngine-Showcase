@@ -73,6 +73,8 @@ const char* const EnglishLanguageStrings[] =
     "Communications",
     /* kStringConceptsSubtitle: */
     "CONCEPTS",
+    /* kStringConnected: */
+    "CONNECTED",
     /* kStringDwarfPlanetLabel: */
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
@@ -105,6 +107,8 @@ const char* const EnglishLanguageStrings[] =
     "Multiframe",
     /* kStringMultiframeTextureLabel: */
     "The sprites share the\ngraphics but each can\nshow a different frame\nfrom the same texture",
+    /* kStringNoLink: */
+    "NO LINK",
     /* kStringNotSharedLabel: */
     "Not shared",
     /* kStringNotSharedTextureLabel: */
@@ -161,6 +165,8 @@ const char* const EnglishLanguageStrings[] =
     "Wireframes",
     /* kStringWobbleLabel: */
     "Wobble",
+    /* kStringYouDiedAgain: */
+    "YOU DIED… AGAIN",
 };
 
 const LangROMSpec EnglishLanguageSpec =
@@ -213,6 +219,8 @@ const char* const GermanLanguageStrings[] =
     "Kommunikation",
     /* kStringConceptsSubtitle: */
     "KONZEPTE",
+    /* kStringConnected: */
+    "VERBUNDEN",
     /* kStringDwarfPlanetLabel: */
     "Zwergplanet",
     /* kStringEffectSubtitle: */
@@ -245,6 +253,8 @@ const char* const GermanLanguageStrings[] =
     "Multiframe",
     /* kStringMultiframeTextureLabel: */
     "Sprites teilen sich die\nGrafiken, aber jedes kann\neinen anderen Frame\nderselben Textur zeigen",
+    /* kStringNoLink: */
+    "NICHT VERBUNDEN",
     /* kStringNotSharedLabel: */
     "Nicht geteilt",
     /* kStringNotSharedTextureLabel: */
@@ -301,6 +311,8 @@ const char* const GermanLanguageStrings[] =
     "Wireframes",
     /* kStringWobbleLabel: */
     "Taumeln",
+    /* kStringYouDiedAgain: */
+    "DU BIST TOT… ERNEUT",
 };
 
 const LangROMSpec GermanLanguageSpec =
@@ -353,6 +365,8 @@ const char* const SpanishLanguageStrings[] =
     "Comunicaciones",
     /* kStringConceptsSubtitle: */
     "CONCEPTOS",
+    /* kStringConnected: */
+    "CONECTADO",
     /* kStringDwarfPlanetLabel: */
     "Planeta Enano",
     /* kStringEffectSubtitle: */
@@ -385,6 +399,8 @@ const char* const SpanishLanguageStrings[] =
     "Multi fotograma",
     /* kStringMultiframeTextureLabel: */
     "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos",
+    /* kStringNoLink: */
+    "NO CONECTADO",
     /* kStringNotSharedLabel: */
     "No compartida",
     /* kStringNotSharedTextureLabel: */
@@ -441,6 +457,8 @@ const char* const SpanishLanguageStrings[] =
     "Wireframes",
     /* kStringWobbleLabel: */
     "Ondulado",
+    /* kStringYouDiedAgain: */
+    "MORISTE… OTRA VEZ",
 };
 
 const LangROMSpec SpanishLanguageSpec =

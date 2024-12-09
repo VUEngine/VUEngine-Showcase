@@ -85,30 +85,30 @@ void EntitiesState::showStuff()
 void EntitiesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntitiesLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "AnimatedEntity", 2, y++, NULL);
 	Printing::text(this->printing, "Entity", 2, y++, NULL);
 	Printing::text(this->printing, "Stage", 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "PunkEntitySpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityCreationLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityDestructionLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "EntitiesState", 26, y++, NULL);
-	Printing::text(this->printing, " createLeaderPunk", 26, y++, NULL);
-	Printing::text(this->printing, " movePunks", 26, y++, NULL);
-	Printing::text(this->printing, " createSlavePunk", 26, y++, NULL);
+	Printing::text(this->printing, "::createLeaderPunk", 26, y++, NULL);
+	Printing::text(this->printing, "::movePunks", 26, y++, NULL);
+	Printing::text(this->printing, "::createSlavePunk", 26, y++, NULL);
 	y++;
 }
 //---------------------------------------------------------------------------------------------------------

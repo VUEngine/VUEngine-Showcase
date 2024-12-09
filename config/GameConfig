@@ -6,6 +6,7 @@
             "yPosition": -96
         },
         "vuengine//fonts/AstonishFont": {},
+        "vuengine//fonts/DefaultFontVariants": {},
         "vuengine//other/AutomaticPause": {
             "bodyTextFont": "Default",
             "titleTextFont": "AstonishExt"

@@ -37,6 +37,7 @@ enum LanguageStrings
     kStringCollisionsLabel,
     kStringCommunicationsLabel,
     kStringConceptsSubtitle,
+    kStringConnected,
     kStringDwarfPlanetLabel,
     kStringEffectSubtitle,
     kStringEntitiesLabel,
@@ -53,6 +54,7 @@ enum LanguageStrings
     kStringModeLabel,
     kStringMultiframeLabel,
     kStringMultiframeTextureLabel,
+    kStringNoLink,
     kStringNotSharedLabel,
     kStringNotSharedTextureLabel,
     kStringOptimizedBgmapsLabel,
@@ -81,6 +83,7 @@ enum LanguageStrings
     kStringUserInputLabel,
     kStringWireframesLabel,
     kStringWobbleLabel,
+    kStringYouDiedAgain,
 };
 
 

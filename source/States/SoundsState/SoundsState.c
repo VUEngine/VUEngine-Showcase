@@ -295,20 +295,20 @@ void SoundsState::showStuff()
 void SoundsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSoundPlaybackLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringTimerSettingsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "SoundManager", 2, y++, NULL);
 	Printing::text(this->printing, "Sound", 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
-	Printing::text(this->printing, " EngineSound", 2, y++, NULL);
-	Printing::text(this->printing, " ExplosionSound", 2, y++, NULL);
-	Printing::text(this->printing, " NoFearForTheFutureSound", 2, y++, NULL);
-	Printing::text(this->printing, " OracleOfSeasonsOverw...", 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(this->printing, "EngineSound", 2, y++, NULL);
+	Printing::text(this->printing, "ExplosionSound", 2, y++, NULL);
+	Printing::text(this->printing, "NoFearForTheFutureSound", 2, y++, NULL);
+	Printing::text(this->printing, "OracleOfSeasonsOverworld", 2, y++, NULL);
 
 	y++;
 	y++;
@@ -316,14 +316,14 @@ void SoundsState::showExplanation()
 	SoundsState::showSoundMetadata(this);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "Chiptunes", 26, y++, NULL);
 	Printing::text(this->printing, "PCM", 26, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "SoundsState", 26, y++, NULL);
-	Printing::text(this->printing, " loadSound", 26, y++, NULL);
-	Printing::text(this->printing, " releaseSound", 26, y++, NULL);
+	Printing::text(this->printing, "::loadSound", 26, y++, NULL);
+	Printing::text(this->printing, "::releaseSound", 26, y++, NULL);
 	y++;
 }
 //---------------------------------------------------------------------------------------------------------

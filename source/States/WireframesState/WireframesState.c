@@ -129,12 +129,12 @@ void WireframesState::showControls()
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "Camera", 2, y++, NULL);
 	Printing::text(this->printing, "DirectDraw", 2, y++, NULL);
 	Printing::text(this->printing, "Mesh", 2, y++, NULL);
@@ -142,12 +142,12 @@ void WireframesState::showExplanation()
 	Printing::text(this->printing, "WireframeManager", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "WireframesState", 26, y++, NULL);
-	Printing::text(this->printing, " processUserInput", 26, y++, NULL);
+	Printing::text(this->printing, "::processUserInput", 26, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "PyramidEntitySpec", 26, y++, NULL);
 	Printing::text(this->printing, "WireframesStageSpec", 26, y++, NULL);
 }

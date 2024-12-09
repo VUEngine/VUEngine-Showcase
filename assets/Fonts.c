@@ -18,10 +18,14 @@ FontSpec* const _fonts[] =
 	(FontSpec*)&DefaultFontSpec,
 	(FontSpec*)&ProfilerFontSpec,
 	(FontSpec*)&DebugFontSpec,
-	(FontSpec*)&AstonishFontSpec,
 	(FontSpec*)&AstonishExtFontSpec,
-	(FontSpec*)&AstonishSFontSpec,
+	(FontSpec*)&AstonishFontSpec,
 	(FontSpec*)&AstonishSExtFontSpec,
+	(FontSpec*)&AstonishSFontSpec,
+	(FontSpec*)&DefaultBoldExtFontSpec,
+	(FontSpec*)&DefaultBoldFontSpec,
+	(FontSpec*)&DefaultItalicExtFontSpec,
+	(FontSpec*)&DefaultItalicFontSpec,
 	
 	NULL
 };

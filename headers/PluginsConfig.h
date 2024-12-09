@@ -10,7 +10,6 @@
 //                                          CONFIGURATION MACROS                                           
 //---------------------------------------------------------------------------------------------------------
 
-#define __PLUGIN_LOW_POWER_ENTITY_USE_GUI_BGMAP_ANIMATED_SPRITE (false)
 #define __PLUGIN_LOW_POWER_ENTITY_X_POSITION (180)
 #define __PLUGIN_LOW_POWER_ENTITY_Y_POSITION (-96)
 #define __PLUGIN_LOW_POWER_ENTITY_Z_POSITION (0)

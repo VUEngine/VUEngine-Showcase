@@ -105,20 +105,20 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringFrameBuffersLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPostProcessingEffectsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "PostProcessingEffectsState", 2, y++, NULL);
-	Printing::text(this->printing, " processUserInput", 2, y++, NULL);
+	Printing::text(this->printing, "::processUserInput", 2, y++, NULL);
 	
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "DefaultBold");
 	Printing::text(this->printing, "VIPManager", 32, y++, NULL);
 	y++;
 
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "DefaultBold");
 	Printing::text(this->printing, "            ", 32, y, NULL);
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])

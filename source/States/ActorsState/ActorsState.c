@@ -117,33 +117,33 @@ void ActorsState::showStuff()
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStateMachinesLabel), 2, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "Actor", 2, y++, NULL);
 	Printing::text(this->printing, "MessageDispatcher*", 2, y++, NULL);
 	Printing::text(this->printing, "Punk", 2, y++, NULL);
 	Printing::text(this->printing, "PunkState*", 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "ActorsState", 26, y++, NULL);
-	Printing::text(this->printing, " propagateMessage", 26, y++, NULL);
+	Printing::text(this->printing, "::propagateMessage", 26, y++, NULL);
 	Printing::text(this->printing, "Punk", 26, y++, NULL);
-	Printing::text(this->printing, " collisionStarts", 26, y++, NULL);
-	Printing::text(this->printing, " handlePropagatedMe...", 26, y++, NULL);
+	Printing::text(this->printing, "::collisionStarts", 26, y++, NULL);
+	Printing::text(this->printing, "::handlePropagatedMes\x85", 26, y++, NULL);
 	y++;
 }
 //---------------------------------------------------------------------------------------------------------

@@ -81,6 +81,11 @@
             "en": "CONCEPTS",
             "es": "CONCEPTOS"
         },
+        "Connected": {
+            "de": "VERBUNDEN",
+            "en": "CONNECTED",
+            "es": "CONECTADO"
+        },
         "DwarfPlanetLabel": {
             "de": "Zwergplanet",
             "en": "Dwarf Planet",
@@ -155,6 +160,11 @@
             "de": "Sprites teilen sich die\nGrafiken, aber jedes kann\neinen anderen Frame\nderselben Textur zeigen",
             "en": "The sprites share the\ngraphics but each can\nshow a different frame\nfrom the same texture",
             "es": "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos"
+        },
+        "NoLink": {
+            "de": "NICHT VERBUNDEN",
+            "en": "NO LINK",
+            "es": "NO CONECTADO"
         },
         "NotSharedLabel": {
             "de": "Nicht geteilt",
@@ -290,6 +300,11 @@
             "de": "Taumeln",
             "en": "Wobble",
             "es": "Ondulado"
+        },
+        "YouDiedAgain": {
+            "de": "DU BIST TOT… ERNEUT",
+            "en": "YOU DIED… AGAIN",
+            "es": "MORISTE… OTRA VEZ"
         }
     }
 }

@@ -70,28 +70,28 @@ void VideoPlayerState::showControls()
 void VideoPlayerState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringHiColorLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "AnimatedEntity", 2, y++, NULL);
 	Printing::text(this->printing, "Sprite", 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(this->printing, "VideoEntitySpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOptimizedCharSetsLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOptimizedBgmapsLabel), 26, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text(this->printing, "VideoPlayerState", 26, y++, NULL);
-	Printing::text(this->printing, " processUserInput", 26, y++, NULL);
+	Printing::text(this->printing, "::processUserInput", 26, y++, NULL);
 
 	VideoPlayerState::showAdditionalDetails(this);
 }
@@ -99,7 +99,7 @@ void VideoPlayerState::showExplanation()
 void VideoPlayerState::showAdditionalDetails()
 {
 	int16 y = 25;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "Debug");
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "DefaultBold");
 
 	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 

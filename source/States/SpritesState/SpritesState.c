@@ -108,50 +108,52 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringGameStatesLabel), 2, y++, NULL);
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpritesLabel), 2, y++, NULL);
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsLabel), 2, y++, NULL);
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringUserInputLabel), 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "CharSet", 2, y++, NULL);
 		Printing::text(this->printing, "*Sprite      ", 2, y++, NULL);
 		Printing::text(this->printing, "Texture", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "SpritesState", 2, y++, NULL);
-		Printing::text(this->printing, " createSprite", 2, y++, NULL);
-		Printing::text(this->printing, " destroySprite", 2, y++, NULL);
-		Printing::text(this->printing, " processUserInput", 2, y++, NULL);
+		Printing::text(this->printing, "::createSprite", 2, y++, NULL);
+		Printing::text(this->printing, "::destroySprite", 2, y++, NULL);
+		Printing::text(this->printing, "::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 		Printing::text(this->printing, "CogWheel*Sprite*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "Debug");
+		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "DefaultBold");
 		Printing::text(this->printing, __GET_CLASS_NAME(this->sprite), 28, y++, NULL);
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringModeLabel), 28, y, NULL);
+		const char* strMode = I18n::getText(I18n::getInstance(), kStringModeLabel);
+		Printing::text(this->printing, strMode, 28, y, NULL);
+		FontSize strModeTextSize = Printing::getTextSize(Printing::getInstance(), strMode, NULL);
 
 		if(Sprite::isObject(this->sprite))
 		{
-			Printing::text(this->printing, "N/A", 33, y, NULL);
+			Printing::text(this->printing, "N/A", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isAffine(this->sprite))
 		{
-			Printing::text(this->printing, "Affine", 33, y, NULL);
+			Printing::text(this->printing, "Affine", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isHBias(this->sprite))
 		{
-			Printing::text(this->printing, "HBias", 33, y, NULL);
+			Printing::text(this->printing, "HBias", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isBgmap(this->sprite))
 		{
-			Printing::text(this->printing, "BGMAP", 33, y, NULL);
+			Printing::text(this->printing, "BGMAP", 28 + strModeTextSize.x, y, NULL);
 		}
 	}	
 }

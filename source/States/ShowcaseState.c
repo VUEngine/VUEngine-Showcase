@@ -322,7 +322,7 @@ void ShowcaseState::showHeader()
 	Printing::text(this->printing, currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
 	Printing::text(this->printing, Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
 	Printing::int32(this->printing, numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
-	Printing::text(this->printing, statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "Debug");
+	Printing::text(this->printing, statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
 	Printing::text(this->printing, className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
 	Printing::text(this->printing, __CHAR_R_TRIGGER, 46, 0, NULL);
 	Printing::text(this->printing, __CHAR_SELECTOR, 47, 0, NULL);
