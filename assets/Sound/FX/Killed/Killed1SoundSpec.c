@@ -1,7 +1,7 @@
 /*
- * VUEngine Showcase
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * (c) Christian Radke and Jorge Eremiev
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -12,52 +12,39 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <AnimationInspector.h>
-#include <Debug.h>
-#include <StageEditor.h>
-#include <Sounds.h>
-#include <VUEngine.h>
+#include <Sound.h>
+#include <SoundTrack.h>
+#include <WaveForms.h>
 
 
 //=========================================================================================================
-// GLOBALS' DECLARATIONS
+// DECLARATIONS
 //=========================================================================================================
 
-extern AnimatedEntityROMSpec PunkEntitySpec;
+extern SoundTrackROMSpec Killed1SoundTrack1;
 
 
 //=========================================================================================================
-// GLOBALS' DEFINITIONS
+// DEFINITIONS
 //=========================================================================================================
 
-#ifdef __DEBUG_TOOL
-const ClassSizeData _userClassesSizeData[] =
+SoundTrackROMSpec* const Killed1SoundTracks[] =
 {
-	{NULL, ""},
-};
-#endif
-
-const UserObject _userObjects[] =
-{
-	{NULL, ""},
-};
-
-const UserAnimatedEntity _userAnimatedEntities[] =
-{
-	{&PunkEntitySpec, "Punk"},
-	{NULL, ""},
-};
-
-const SoundROMSpec* _userSounds[] =
-{
-	&OracleOfSeasonsOverworldThemeSoundSpec,
-	&NoFearForTheFutureSoundSpec,
-	&Explosion1SoundSpec,
-	&Engine1SoundSpec,
+	&Killed1SoundTrack1,
 	NULL
 };
 
-const ToolState _userToolStates[] =
+SoundROMSpec Killed1SoundSpec =
 {
-	NULL
+	// Name
+	"Killed Sound 1",
+
+	// Play in loop
+	false,
+
+	// Tick duration in US
+	500,
+
+	// Tracks
+	(SoundTrackSpec**)Killed1SoundTracks
 };

@@ -1,7 +1,7 @@
 /*
- * VUEngine Showcase
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * (c) Christian Radke and Jorge Eremiev
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -12,52 +12,43 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <AnimationInspector.h>
-#include <Debug.h>
-#include <StageEditor.h>
-#include <Sounds.h>
-#include <VUEngine.h>
+#include <Sound.h>
+#include <SoundTrack.h>
+#include <WaveForms.h>
 
 
 //=========================================================================================================
-// GLOBALS' DECLARATIONS
+// DECLARATIONS
 //=========================================================================================================
 
-extern AnimatedEntityROMSpec PunkEntitySpec;
+extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1;
+extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2;
+extern SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3;
 
 
 //=========================================================================================================
-// GLOBALS' DEFINITIONS
+// DEFINITIONS
 //=========================================================================================================
 
-#ifdef __DEBUG_TOOL
-const ClassSizeData _userClassesSizeData[] =
+SoundTrackROMSpec* const OracleOfSeasonsOverworldThemeSoundTracks[] =
 {
-	{NULL, ""},
-};
-#endif
-
-const UserObject _userObjects[] =
-{
-	{NULL, ""},
-};
-
-const UserAnimatedEntity _userAnimatedEntities[] =
-{
-	{&PunkEntitySpec, "Punk"},
-	{NULL, ""},
-};
-
-const SoundROMSpec* _userSounds[] =
-{
-	&OracleOfSeasonsOverworldThemeSoundSpec,
-	&NoFearForTheFutureSoundSpec,
-	&Explosion1SoundSpec,
-	&Engine1SoundSpec,
+	&OracleOfSeasonsOverworldThemeSoundTrack1,
+	&OracleOfSeasonsOverworldThemeSoundTrack2,
+	&OracleOfSeasonsOverworldThemeSoundTrack3,
 	NULL
 };
 
-const ToolState _userToolStates[] =
+SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 {
-	NULL
+	// Name
+	"Oracle of Seasons - Overworld",
+
+	// Play in loop
+	false,
+
+	// Tick duration in US
+	880,
+
+	// Tracks
+	(SoundTrackSpec**)OracleOfSeasonsOverworldThemeSoundTracks
 };

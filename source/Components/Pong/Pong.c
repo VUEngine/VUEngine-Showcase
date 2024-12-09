@@ -414,8 +414,7 @@ bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 	SoundManager::playSound
 	(
 		SoundManager::getInstance(), 
-		&PointSoundSpec, 
-		kPlayAll, 
+		&Point1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,
 		NULL, 

@@ -30,7 +30,7 @@
 //---------------------------------------------------------------------------------------------------------
 int game(void)
 {
-	// initialize plugins
+	// Initialize plugins
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
 	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
 
@@ -54,7 +54,7 @@ int game(void)
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 
-	// start the game
+	// Start the game
 	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
 
 	// end program

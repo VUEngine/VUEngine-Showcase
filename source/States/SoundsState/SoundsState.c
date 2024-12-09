@@ -32,8 +32,8 @@ static const SoundROMSpec* _soundSamples[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundSpec,
 	&NoFearForTheFutureSoundSpec,
-	&ExplosionSoundSpec,
-	&EngineSoundSpec,
+	&Explosion1SoundSpec,
+	&Engine1SoundSpec,
 	NULL
 };
 
@@ -393,13 +393,6 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 				Sound::printPlaybackProgress(this->sound, 1, 6);
 				Sound::printPlaybackTime(this->sound, 24, 8);
 			}
-			else if(!showOnlyTime)
-			{
-				if(!Sound::hasPCMTracks(this->sound))
-				{
-					Sound::printVolume(this->sound, 1, 17, false);
-				}
-			}
 		}
 	}
 }
@@ -446,7 +439,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * play in loop or when not explicitly told to not auto release by calling
 	 * Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], kPlayAll, (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 
@@ -533,11 +526,10 @@ void SoundsState::applyTimerSettings()
 //---------------------------------------------------------------------------------------------------------
 bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
+	if(!isDeleted(this->sound))
 	{
 		if(this->showAdditionalDetails)
 		{
-			TimerManager::print(TimerManager::getInstance(), 1, 18);
 			TimerManager::nextSecondStarted(TimerManager::getInstance());
 		}
 	}

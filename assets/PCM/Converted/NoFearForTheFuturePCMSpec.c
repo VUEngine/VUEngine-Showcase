@@ -2,21 +2,31 @@
 //                              THIS FILE WAS AUTO-GENERATED - DO NOT EDIT                               //
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//---------------------------------------------------------------------------------------------------------
-//                                                INCLUDES                                                 
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
-#include <SoundManager.h>
+#include <Sound.h>
 #include <WaveForms.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//                                              DECLARATIONS                                               
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// DECLARATIONS
+//=========================================================================================================
 
 #define NoFearForTheFutureSoundTrackLength 690646
 
-const uint8 NoFearForTheFutureSoundTrack[] =
+
+//=========================================================================================================
+// DEFINITIONS
+//=========================================================================================================
+
+const uint8 NoFearForTheFutureSoundTrack1SxINT[] =
+{
+	0x9F,
+};
+
+const uint8 NoFearForTheFutureSoundTrack1SxLRV[] =
 {
 #ifndef REDUCE_PCM_DATA
     0x17,0x17,0x1B,0x17,0x29,0x20,0x02,0x00,0x1E,0x1E,0x1E,0x1E,0x1E,0x1E,0x1E,0x1D,
@@ -43188,70 +43198,76 @@ const uint8 NoFearForTheFutureSoundTrack[] =
 #endif
 };
 
-
-//---------------------------------------------------------------------------------------------------------
-//                                               DEFINITIONS                                               
-//---------------------------------------------------------------------------------------------------------
-
-SoundChannelConfigurationROM NoFearForTheFutureSoundChannelConfiguration =
+const uint16 NoFearForTheFutureSoundTrack1SxFQ[] =
 {
-	// Type (kMIDI or kPCM)
-	kPCM,
-
-	// SxINT
-	0x00,
-
-	// Volume SxLRV
-	0x00,
-
-	// SxRAM (this is overrode by the SoundManager)
-	0x00,
-
-	// SxEV0
-	0xF0,
-
-	// SxEV1
-	0x00,
-
-	// SxFQH
-	0x00,
-
-	// SxFQL
-	0x00,
-
-	// Ch. 5 only
-	0x00,
-
-	// Waveform data pointer
-	PCMWaveForm,
-
-	// kChannelNormal, kChannelModulation, kChannelNoise
-	kChannelNormal,
-
-	// Volume
-	__SOUND_LR
+	0x00
 };
 
-SoundChannelROM NoFearForTheFutureSoundChannel =
+const uint8 NoFearForTheFutureSoundTrack1SxEV0[] =
 {
-	// Configuration
-	(SoundChannelConfiguration*) &NoFearForTheFutureSoundChannelConfiguration,
+	0xF0,
+};
 
-	// Total number of samples
+const uint8 NoFearForTheFutureSoundTrack1SxEV1[] =
+{
+	0x00,
+};
+
+const int8* const NoFearForTheFutureSoundTrack1SxRAM[] =
+{
+	PCMWaveForm,
+};
+
+const uint8 NoFearForTheFutureSoundTrack1SxSWP[] =
+{
+	0x00,
+};
+
+const SoundTrackKeyframe NoFearForTheFutureSoundTrack1Keyframes[] =
+{
+	{0, kSoundTrackEventStart},
+	{0, kSoundTrackEventEnd},
+};
+
+SoundTrackROMSpec NoFearForTheFutureSoundTrack =
+{
+	/// kTrackNative, kTrackPCM
+	kTrackPCM,
+
+	/// Skip if no sound source available?
+	false,
+
+	/// Total number of samples (0 if not PCM)
 	NoFearForTheFutureSoundTrackLength,
 
-	// Sound track
-	{
-		NoFearForTheFutureSoundTrack
-	}
+	/// Keyframes that define the track
+	(SoundTrackKeyframe*)NoFearForTheFutureSoundTrack1Keyframes,
+
+	/// SxINT values
+	(uint8*)NoFearForTheFutureSoundTrack1SxINT,
+
+	/// SxLRV values
+	(uint8*)NoFearForTheFutureSoundTrack1SxLRV,
+
+	/// SxFQH and SxFQL values
+	(uint16*)NoFearForTheFutureSoundTrack1SxFQ,
+
+	/// SxEV0 values
+	(uint8*)NoFearForTheFutureSoundTrack1SxEV0,
+
+	/// SxEV1 values
+	(uint8*)NoFearForTheFutureSoundTrack1SxEV1,
+
+	/// SxRAM pointers
+	(int8**)NoFearForTheFutureSoundTrack1SxRAM,
+
+	/// S5SWP values
+	(uint8*)NoFearForTheFutureSoundTrack1SxSWP
 };
 
-SoundChannelROM* const NoFearForTheFutureSoundChannels[] =
+SoundTrackROMSpec* const NoFearForTheFutureSoundTracks[] =
 {
-    &NoFearForTheFutureSoundChannel,
-    &NoFearForTheFutureSoundChannel,
-    &NoFearForTheFutureSoundChannel,
-    &NoFearForTheFutureSoundChannel,
+    &NoFearForTheFutureSoundTrack,
     NULL
 };
 
@@ -43263,9 +43279,9 @@ SoundROMSpec NoFearForTheFutureSoundSpec =
 	// Play in loop
 	false,
 
-	// Target timer resolution in us
+	// Tick duration in US
 	100,
 
 	// Tracks
-	(SoundChannel**)NoFearForTheFutureSoundChannels
+	(SoundTrackSpec**)NoFearForTheFutureSoundTracks
 };
