@@ -912,6 +912,9 @@ SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2 =
 	/// kTrackNative, kTrackPCM
 	kTrackNative,
 
+	/// Skip if no sound source available?
+	false,
+
 	/// Total number of samples (0 if not PCM)
 	0,
 
