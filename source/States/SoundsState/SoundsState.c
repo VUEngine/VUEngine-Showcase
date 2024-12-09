@@ -393,13 +393,6 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 				Sound::printPlaybackProgress(this->sound, 1, 6);
 				Sound::printPlaybackTime(this->sound, 24, 8);
 			}
-			else if(!showOnlyTime)
-			{
-				if(!Sound::hasPCMTracks(this->sound))
-				{
-					Sound::printVolume(this->sound, 1, 17, false);
-				}
-			}
 		}
 	}
 }
@@ -533,11 +526,10 @@ void SoundsState::applyTimerSettings()
 //---------------------------------------------------------------------------------------------------------
 bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
 {
-	if(!isDeleted(this->sound) && Sound::hasPCMTracks(this->sound))
+	if(!isDeleted(this->sound))
 	{
 		if(this->showAdditionalDetails)
 		{
-			TimerManager::print(TimerManager::getInstance(), 1, 18);
 			TimerManager::nextSecondStarted(TimerManager::getInstance());
 		}
 	}
