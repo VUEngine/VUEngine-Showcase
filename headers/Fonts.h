@@ -6,29 +6,25 @@
 #define FONTS_H_
 
 
-//---------------------------------------------------------------------------------------------------------
-//                                                INCLUDES                                                 
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// INCLUDES
+//=========================================================================================================
 
 #include <Printing.h>
 #include <CharSet.h>
 
 
-//---------------------------------------------------------------------------------------------------------
-//                                              DECLARATIONS                                               
-//---------------------------------------------------------------------------------------------------------
+//=========================================================================================================
+// DECLARATIONS
+//=========================================================================================================
 
 extern FontSpec DefaultFontSpec;
 extern FontSpec ProfilerFontSpec;
 extern FontSpec DebugFontSpec;
-extern FontSpec AstonishExtFontSpec;
 extern FontSpec AstonishFontSpec;
-extern FontSpec AstonishSExtFontSpec;
+extern FontSpec AstonishExtFontSpec;
 extern FontSpec AstonishSFontSpec;
-extern FontSpec DefaultBoldExtFontSpec;
-extern FontSpec DefaultBoldFontSpec;
-extern FontSpec DefaultItalicExtFontSpec;
-extern FontSpec DefaultItalicFontSpec;
+extern FontSpec AstonishSExtFontSpec;
 
 
 #endif
