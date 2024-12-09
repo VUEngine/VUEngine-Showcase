@@ -43277,7 +43277,7 @@ SoundROMSpec NoFearForTheFutureSoundSpec =
 	false,
 
 	// Tick duration in US
-	0,
+	100,
 
 	// Tracks
 	(SoundTrackSpec**)NoFearForTheFutureSoundTracks
