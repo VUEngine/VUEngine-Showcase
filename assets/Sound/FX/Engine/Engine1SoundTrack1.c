@@ -89,7 +89,7 @@ SoundTrackROMSpec Engine1SoundTrack1 =
 	kTrackNative,
 
 	/// Skip if no sound source available?
-	false,
+	true,
 
 	/// Total number of samples (0 if not PCM)
 	0,
