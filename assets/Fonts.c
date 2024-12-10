@@ -22,6 +22,10 @@ FontSpec* const _fonts[] =
 	(FontSpec*)&AstonishExtFontSpec,
 	(FontSpec*)&AstonishSFontSpec,
 	(FontSpec*)&AstonishSExtFontSpec,
+	(FontSpec*)&DefaultBoldFontSpec,
+	(FontSpec*)&DefaultBoldExtFontSpec,
+	(FontSpec*)&DefaultItalicFontSpec,
+	(FontSpec*)&DefaultItalicExtFontSpec,
 	
 	NULL
 };
