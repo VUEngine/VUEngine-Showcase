@@ -90,12 +90,10 @@
     },
     "optics": {
         "baseFactor": 32,
-        "cameraMinimumDisplacementPixelsPower": 1,
         "cameraNearPlane": 96,
         "horizontalViewPointCenter": 192,
         "maximumXViewDistance": 4096,
         "maximumYViewDistance": 4096,
-        "parallaxCorrectionFactor": 4,
         "scalingModifierFactor": 1,
         "screenDepth": 2048,
         "screenHeight": 224,
@@ -116,7 +114,6 @@
     },
     "physics": {
         "angleToPreventColliderDisplacement": 10,
-        "bodiesToCheckForGravity": 10,
         "frictionForceFactorPower": 2,
         "gravity": 19.6,
         "highPrecision": false,
