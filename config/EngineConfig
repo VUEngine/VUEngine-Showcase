@@ -58,11 +58,11 @@
         "cleanUp": false,
         "pools": [
             {
-                "objects": 200,
+                "objects": 400,
                 "size": 16
             },
             {
-                "objects": 200,
+                "objects": 800,
                 "size": 20
             },
             {
@@ -90,7 +90,7 @@
     },
     "optics": {
         "baseFactor": 32,
-        "cameraNearPlane": 96,
+        "cameraNearPlane": 32,
         "horizontalViewPointCenter": 192,
         "maximumXViewDistance": 4096,
         "maximumYViewDistance": 4096,
@@ -154,7 +154,7 @@
     },
     "wireframes": {
         "frustumExtensionPower": 0,
-        "interlacedThreshold": 2048,
+        "interlacedThreshold": 1024,
         "lineShrinkingPadding": 0,
         "sort": true,
         "verticalLineOptimization": false

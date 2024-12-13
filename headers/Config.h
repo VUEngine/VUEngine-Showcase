@@ -112,7 +112,7 @@
 // Sort the wireframes based on their distance to the camera to cull off those that are far off if necessary.
 #define __WIREFRAME_MANAGER_SORT_FOR_DRAWING
 // The distance to start interlacing wireframe graphics.
-#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(2048)  
+#define __DIRECT_DRAW_INTERLACED_THRESHOLD							__PIXELS_TO_METERS(1024)  
 
 // Threshold before shriking lines
 #define __DIRECT_DRAW_LINE_SHRINKING_PADDING						0 
@@ -147,7 +147,7 @@
 #define __MAXIMUM_Y_VIEW_DISTANCE									4096
 
 // distance from player's eyes to the virtual screen
-#define __CAMERA_NEAR_PLANE											96
+#define __CAMERA_NEAR_PLANE											32
 
 // distance between eyes
 #define __BASE_FACTOR												32
@@ -215,8 +215,8 @@
 	__BLOCK_DEFINITION(100, 40) \
 	__BLOCK_DEFINITION(64, 100) \
 	__BLOCK_DEFINITION(28, 50) \
-	__BLOCK_DEFINITION(20, 200) \
-	__BLOCK_DEFINITION(16, 200) \
+	__BLOCK_DEFINITION(20, 800) \
+	__BLOCK_DEFINITION(16, 400) \
 
 #undef __SET_MEMORY_POOL_ARRAYS
 #define __SET_MEMORY_POOL_ARRAYS \
