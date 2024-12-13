@@ -6,6 +6,7 @@
 // 												INCLUDES
 //---------------------------------------------------------------------------------------------------------
 
+#include <ActorsState.h>
 #include <AnimationSchemesState.h>
 #include <EntitiesState.h>
 #include <ParticlesState.h>

@@ -14,7 +14,6 @@
 
 #include <string.h>
 
-#include <ActorsState.h>
 #include <Camera.h>
 #include <CameraEffectManager.h>
 #include <FrameRate.h>
@@ -299,7 +298,7 @@ void ShowcaseState::show(bool reloadStuff)
 		ShowcaseState::showAdditionalDetails(this);
 	}
 
-	SpritesState::configurePalettes(this, this->showAdditionalDetails);
+	ShowcaseState::configurePalettes(this, this->showAdditionalDetails);
 }
 //---------------------------------------------------------------------------------------------------------
 void ShowcaseState::showHeader()
