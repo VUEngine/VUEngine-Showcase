@@ -2,7 +2,7 @@
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
- * © 3D meshes by Julian Leucht (JnL)
+ * © 3D meshes by Julian Leucht (JnL) <j.leucht@gmx.net>
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
