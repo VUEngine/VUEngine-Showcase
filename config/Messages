@@ -1,18 +1,18 @@
 {
     "_version": "0.6.0",
-    "messages": [
-        "Actors State Hold Left",
-        "Actors State Hold Right",
-        "Actors State No Message",
-        "Actors State Print Actor Status",
-        "Actors State Released Left",
-        "Actors State Released Right",
-        "Actors State Resuscitate",
-        "Pong Ball Start Moving",
-        "Pong Dummy",
-        "Pong Good Bye",
-        "Pong Reset Positions",
-        "Pong Send Input",
-        "Pong Sync"
-    ]
+    "messages": {
+        "4gGsApAgfp1DZD5G": "Pong Ball Start Moving",
+        "bYWuHK2INEznnWYy": "Actors State Hold Left",
+        "FwBysXNzYpNREHVY": "Actors State Print Actor Status",
+        "Hc4iV23zaAHudEd3": "Pong Reset Positions",
+        "HdD3SGjpMc0x5qz0": "Actors State Resuscitate",
+        "M1LYtCKIYHCszlDv": "Actors State Hold Right",
+        "mud5KlhW6GBPxMuZ": "Actors State Released Right",
+        "mzfKm6QapnF2CUvy": "Pong Sync",
+        "sl8FwWs9fzPHnTN6": "Pong Dummy",
+        "sT6VG9CEg4GlXgaU": "Pong Send Input",
+        "ucCKUZk3hk2JKJpB": "Actors State Released Left",
+        "VKE46ZokECvpsaU1": "Actors State No Message",
+        "xzOOyHoYuw5DNVaL": "Pong Good Bye"
+    }
 }
