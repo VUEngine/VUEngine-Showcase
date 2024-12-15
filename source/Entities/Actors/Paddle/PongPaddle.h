@@ -65,7 +65,7 @@ enum PlayerPongPaddles
 /// Implements a Pong paddle.
 class PongPaddle : Actor
 {
-	/// @param actorSpec: Specification that determines how to configure the paddle
+	/// @param pongPaddleSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
