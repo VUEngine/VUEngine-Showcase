@@ -83,7 +83,7 @@ singleton class Pong : ListenerObject
 
 	/// Make the pong game ready to start.
 	/// @param stage: Current state on which the pong game is played
-	//// @param isVersusMode: If true, communications with another system are up
+	/// @param isVersusMode: If true, communications with another system are up
 	void getReady(Stage stage, bool isVersusMode);
 
 	/// Check if the game state is in versus mode.

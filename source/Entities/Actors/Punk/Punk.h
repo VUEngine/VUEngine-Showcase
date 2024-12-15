@@ -45,7 +45,7 @@ typedef const PunkSpec PunkROMSpec;
 /// Implements a controllable actor.
 class Punk : Actor
 {
-	/// @param actorSpec: Specification that determines how to configure the paddle
+	/// @param punkSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(PunkSpec* punkSpec, int16 internalId, const char* const name);

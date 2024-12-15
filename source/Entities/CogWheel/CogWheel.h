@@ -45,7 +45,7 @@ typedef const CogWheelSpec CogWheelROMSpec;
 /// Implements a simple rotating entity.
 class CogWheel : Entity
 {
-	/// @param actorSpec: Specification that determines how to configure the paddle
+	/// @param cogWheelSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name);

@@ -59,7 +59,7 @@ typedef const PongBallSpec PongBallROMSpec;
 /// Implements a Pong ball.
 class PongBall : Actor
 {
-	/// @param actorSpec: Specification that determines how to configure the paddle
+	/// @param pongBallSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
 	void constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name);
