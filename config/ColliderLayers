@@ -1,13 +1,13 @@
 {
     "_version": "0.6.0",
-    "layers": {
-        "8mqpu6KL9PPdifyY": "Pong Paddle",
-        "fhramFfkSsViBrIb": "Dangers",
-        "h3WfepFGGBebkIIi": "Punk",
-        "Kcw7MNbiPnV3qhmO": "Pong Ball",
-        "LmaH2bklOna0YVkI": "Pong Walls",
-        "S2Wf13hEW8bfv9nK": "Solid",
-        "sGdjEulpmVuseU66": "Particles",
-        "uB09UFK8cyBEZJdJ": "Pong Paddle Helper"
-    }
+    "layers": [
+        "Dangers",
+        "Particles",
+        "PongBall",
+        "PongPaddle",
+        "PongPaddleHelper",
+        "PongWalls",
+        "Punk",
+        "Solid"
+    ]
 }
