@@ -22,122 +22,101 @@
 // DEFINITIONS
 //=========================================================================================================
 
-const PixelVector HouseMeshesSegments[][2]=
+
+
+//---------------------------------------------------------------------------------------------------------
+//												DEFINITIONS
+//---------------------------------------------------------------------------------------------------------
+
+const PixelVector LampMeshesSegments[][2]=
 {
-	// base
+
+	// vertex lamp
 	{
-		{-64, 64, -64, 0}, 
-		{64, 64, -64, 0}
-	},
-	{
-		{-64, 64, 64, 0}, 
-		{64, 64, 64, 0}
-	},
-	{
-		{-64, 64, -64, 0}, 
-		{-64, 64, 64, 0}
-	},
-	{
-		{64, 64, -64, 0},
-		{64, 64, 64, 0}
-	},
-	{
-		{-64, -64, -64, 0}, 
-		{64, -64, -64, 0}
-	},
-	{
-		{-64, -64, 64, 0}, 
-		{64, -64, 64, 0}
-	},
-	{
-		{-64, -64, -64, 0}, 
-		{-64, -64, 64, 0}
-	},
-	{
-		{64, -64, -64, 0},
-		{64, -64, 64, 0}
+		{-56, -64, -72, 0},
+		{-56, 64, -72, 0}
 	},
 
-	// door
+	// lamp arch
 	{
-		{64, 12, -44, 0},
-		{64, 12, -20, 0}
+		{-56, -64, -72, 0},
+		{-72, -80, -72, 0}
 	},
 	{
-		{64, 64, -44, 0},
-		{64, 12, -44, 0}
+		{-72, -80, -72, 0},
+		{-88, -80, -72, 0}
 	},
 	{
-		{64, 64, -20, 0},
-		{64, 12, -20, 0}
-	},
-
-	// window
-	{
-		{64, 0, 8, 0},
-		{64, 32, 8, 0}
-	},
-	{
-		{64, 0, 40, 0},
-		{64, 32, 40, 0}
-	},
-	{
-		{64, 32, 8, 0},
-		{64, 32, 40, 0}
-	},
-	{
-		{64, 0, 8, 0},
-		{64, 0, 40, 0}
+		{-88, -80, -72, 0},
+		{-104, -64, -72, 0}
 	},
 
-	// base fence
+	// light bulb circle
 	{
-		{64, 64, 64, 0}, 
-		{64, 64, 192, 0}
+		{-108, -48, -80, 0},
+		{-100, -48, -80, 0}
 	},
 	{
-		{64, 32, 64, 0}, 
-		{64, 32, 192, 0}
+		{-108, -48, -80, 0},
+		{-112, -48, -76, 0}
+	},
+	{
+		{-112, -48, -76, 0},
+		{-112, -48, -68, 0}
+	},
+	{
+		{-112, -48, -68, 0},
+		{-108, -48, -64, 0}
+	},
+	{
+		{-108, -48, -64, 0},
+		{-100, -48, -64, 0}
+	},
+	{
+		{-100, -48, -64, 0},
+		{-96, -48, -68, 0}
+	},
+	{
+		{-96, -48, -68, 0},
+		{-96, -48, -76, 0}
+	},
+	{
+		{-96, -48, -76, 0},
+		{-100, -48, -80, 0}
 	},
 
-	// vertex
+	// light bulb vertex
 	{
-		{-64, -64, -64, 0},
-		{-64, 64, -64, 0}
+		{-96, -48, -76, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{-64, -64, 64, 0},
-		{-64, 64, 64, 0}
+		{-100, -48, -80, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{64, -64, -64, 0},
-		{64, 64, -64, 0} 
+		{-96, -48, -68, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{64, -64, 64, 0},
-		{64, 64, 64, 0}
-	},
-	// vertex pyramid
-	{
-		{0, -128, 0, 0},
-		{-64, -64, -64, 0}
+		{-100, -48, -64, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{0, -128, 0, 0},
-		{-64, -64, 64, 0}
+		{-108, -48, -64, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{0, -128, 0, 0},
-		{64, -64, -64, 0} 
+		{-112, -48, -68, 0},
+		{-104, -64, -72, 0}
 	},
 	{
-		{0, -128, 0, 0},
-		{64, -64, 64, 0}
+		{-112, -48, -76, 0},
+		{-104, -64, -72, 0}
 	},
-	//vertex fence
 	{
-		{64, 32, 192, 0},
-		{64, 64, 192, 0} 
+		{-108, -48, -80, 0},
+		{-104, -64, -72, 0}
 	},
 
 	// limiter
@@ -147,7 +126,7 @@ const PixelVector HouseMeshesSegments[][2]=
 	},
 };
 
-MeshROMSpec HouseWireframeSpec =
+MeshROMSpec LampWireframeSpec =
 {
 	{
 		// class allocator
@@ -167,16 +146,16 @@ MeshROMSpec HouseWireframeSpec =
 	},
 
 	// segments
-	(PixelVector(*)[2])HouseMeshesSegments
+	(PixelVector(*)[2])LampMeshesSegments
 };
 
-WireframeROMSpec* const HouseWireframeSpecs[] =
+WireframeROMSpec* const LampWireframeSpecs[] =
 {
-	(WireframeSpec*)&HouseWireframeSpec,
+	(WireframeSpec*)&LampWireframeSpec,
 	NULL
 };
 
-ColliderROMSpec HouseColliderSpecs[] =
+ColliderROMSpec LampColliderSpecs[] =
 {
 	{
 		// collider
@@ -207,7 +186,7 @@ ColliderROMSpec HouseColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec HouseEntitySpec =
+EntityROMSpec LampEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -228,10 +207,10 @@ EntityROMSpec HouseEntitySpec =
 	false,
 
 	// Wireframes
-	(WireframeSpec**)HouseWireframeSpecs,
+	(WireframeSpec**)LampWireframeSpecs,
 
 	// collision colliders
-	(ColliderSpec*)HouseColliderSpecs,
+	(ColliderSpec*)LampColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

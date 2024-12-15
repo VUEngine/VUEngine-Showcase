@@ -1,7 +1,8 @@
 /*
  * VUEngine Showcase
  *
- * Â© Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * © Stage by Julian Leucht (JnL)
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -25,11 +26,14 @@
 
 extern EntitySpec LowPowerIndicatorEntitySpec;
 extern EntitySpec PyramidEntitySpec;
-extern EntitySpec CubeEntitySpec;
-extern EntitySpec FenceEntitySpec;
 extern EntitySpec StreetEntitySpec;
 extern EntitySpec HouseEntitySpec;
 extern EntitySpec HouseBigEntitySpec;
+extern EntitySpec TunnelEntitySpec;
+extern EntitySpec BusStopEntitySpec;
+extern EntitySpec BillboardEntitySpec;
+extern EntitySpec LampEntitySpec;
+extern EntitySpec CurveLeftEntitySpec;
 
 
 //=========================================================================================================
@@ -38,17 +42,23 @@ extern EntitySpec HouseBigEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&StreetEntitySpec, {-192, 64, 448}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, {-384, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, {-384, 0, 256}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseBigEntitySpec, {-384, 0, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+
+	{&HouseBigEntitySpec, {-192, -8, 896}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TunnelEntitySpec, {0, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, {192,-8, 896}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetEntitySpec, {0, 56, 832}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, {-192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BusStopEntitySpec, {192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BillboardEntitySpec, {-160, -8, 450}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampEntitySpec, {192, -8, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampEntitySpec, {192, -8, 1152}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftEntitySpec, {0, 56, 2112}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
 PositionedEntityROMSpec WireframesStageUiEntitySpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -121,22 +131,22 @@ StageROMSpec WireframesStageSpec =
 			// y0
 			0,
 			// z0
-			-10,
+			0,
 			// x1
 			__SCREEN_WIDTH,
 			// y1
 			__SCREEN_HEIGHT,
 			// z1
-			8191 / 2,
+			2048,
 		}
 	},
 
 	// streaming
 	{
 		// load padding
-		192,
+		128,
 		// unload padding
-		256,
+		64,
 		// streaming amplitude
 		24,
 		// particle removal delay cycles

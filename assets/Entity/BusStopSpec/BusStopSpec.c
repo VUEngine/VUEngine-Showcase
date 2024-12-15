@@ -1,4 +1,4 @@
-/*
+/**
  * VUEngine Showcase
  *
  * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
@@ -22,122 +22,130 @@
 // DEFINITIONS
 //=========================================================================================================
 
-const PixelVector HouseMeshesSegments[][2]=
+const PixelVector BusStopMeshesSegments[][2]=
 {
-	// base
+	// base housing
 	{
 		{-64, 64, -64, 0}, 
-		{64, 64, -64, 0}
+		{0, 64, -64, 0}
 	},
 	{
 		{-64, 64, 64, 0}, 
-		{64, 64, 64, 0}
+		{0, 64, 64, 0}
 	},
 	{
 		{-64, 64, -64, 0}, 
 		{-64, 64, 64, 0}
 	},
 	{
-		{64, 64, -64, 0},
-		{64, 64, 64, 0}
+		{0, 64, -64, 0},
+		{0, 64, 64, 0}
 	},
 	{
-		{-64, -64, -64, 0}, 
-		{64, -64, -64, 0}
+		{-64, -32, -64, 0}, 
+		{0, -32, -64, 0}
 	},
 	{
-		{-64, -64, 64, 0}, 
-		{64, -64, 64, 0}
+		{-64, -32, 64, 0}, 
+		{0, -32, 64, 0}
 	},
 	{
-		{-64, -64, -64, 0}, 
-		{-64, -64, 64, 0}
+		{-64, -32, -64, 0}, 
+		{-64, -32, 64, 0}
 	},
 	{
-		{64, -64, -64, 0},
-		{64, -64, 64, 0}
-	},
-
-	// door
-	{
-		{64, 12, -44, 0},
-		{64, 12, -20, 0}
-	},
-	{
-		{64, 64, -44, 0},
-		{64, 12, -44, 0}
-	},
-	{
-		{64, 64, -20, 0},
-		{64, 12, -20, 0}
+		{0, -32, -64, 0},
+		{0, -32, 64, 0}
 	},
 
-	// window
+	// base seating
 	{
-		{64, 0, 8, 0},
-		{64, 32, 8, 0}
+		{-48, 40, -32, 0}, 
+		{-16, 40, -32, 0}
 	},
 	{
-		{64, 0, 40, 0},
-		{64, 32, 40, 0}
+		{-48, 40, 32, 0}, 
+		{-16, 40, 32, 0}
 	},
 	{
-		{64, 32, 8, 0},
-		{64, 32, 40, 0}
+		{-48, 40, -32, 0}, 
+		{-48, 40, 32, 0}
 	},
 	{
-		{64, 0, 8, 0},
-		{64, 0, 40, 0}
-	},
-
-	// base fence
-	{
-		{64, 64, 64, 0}, 
-		{64, 64, 192, 0}
-	},
-	{
-		{64, 32, 64, 0}, 
-		{64, 32, 192, 0}
+		{-16, 40, -32, 0},
+		{-16, 40, 32, 0}
 	},
 
-	// vertex
+	// vertex seating
 	{
-		{-64, -64, -64, 0},
+		{-32, 64, -32, 0}, 
+		{-32, 40, -32, 0}
+	},
+	{
+		{-32, 64, 32, 0}, 
+		{-32, 40, 32, 0}
+	},
+
+	// vertex sign
+	{
+		{-56, -16, -80, 0},
+		{-56, 64, -80, 0}
+	},
+
+	// sign
+	{
+		{-56, -16, -80, 0},
+		{-64, -16, -80, 0}
+	},
+	{
+		{-56, -16, -80, 0},
+		{-48, -16, -80, 0}
+	},
+	{
+		{-64, -16, -80, 0},
+		{-72, -24, -80, 0}
+	},
+	{
+		{-72, -24, -80, 0},
+		{-72, -32, -80, 0}
+	},
+	{
+		{-72, -32, -80, 0},
+		{-64, -40, -80, 0}
+	},
+	{
+		{-64, -40, -80, 0},
+		{-48, -40, -80, 0}
+	},
+	{
+		{-48, -40, -80, 0},
+		{-40, -32, -80, 0}
+	},
+	{
+		{-40, -32, -80, 0},
+		{-40, -24, -80, 0}
+	},
+	{
+		{-40, -24, -80, 0},
+		{-48, -16, -80, 0}
+	},
+
+	// vertex housing
+	{
+		{-64, -32, -64, 0},
 		{-64, 64, -64, 0}
 	},
 	{
-		{-64, -64, 64, 0},
+		{-64, -32, 64, 0},
 		{-64, 64, 64, 0}
 	},
 	{
-		{64, -64, -64, 0},
-		{64, 64, -64, 0} 
+		{0, -32, -64, 0},
+		{0, 64, -64, 0} 
 	},
 	{
-		{64, -64, 64, 0},
-		{64, 64, 64, 0}
-	},
-	// vertex pyramid
-	{
-		{0, -128, 0, 0},
-		{-64, -64, -64, 0}
-	},
-	{
-		{0, -128, 0, 0},
-		{-64, -64, 64, 0}
-	},
-	{
-		{0, -128, 0, 0},
-		{64, -64, -64, 0} 
-	},
-	{
-		{0, -128, 0, 0},
-		{64, -64, 64, 0}
-	},
-	//vertex fence
-	{
-		{64, 32, 192, 0},
-		{64, 64, 192, 0} 
+		{0, -32, 64, 0},
+		{0, 64, 64, 0}
 	},
 
 	// limiter
@@ -147,7 +155,7 @@ const PixelVector HouseMeshesSegments[][2]=
 	},
 };
 
-MeshROMSpec HouseWireframeSpec =
+MeshROMSpec BusStopWireframeSpec =
 {
 	{
 		// class allocator
@@ -167,16 +175,16 @@ MeshROMSpec HouseWireframeSpec =
 	},
 
 	// segments
-	(PixelVector(*)[2])HouseMeshesSegments
+	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-WireframeROMSpec* const HouseWireframeSpecs[] =
+WireframeROMSpec* const BusStopWireframeSpecs[] =
 {
-	(WireframeSpec*)&HouseWireframeSpec,
+	(WireframeSpec*)&BusStopWireframeSpec,
 	NULL
 };
 
-ColliderROMSpec HouseColliderSpecs[] =
+ColliderROMSpec BusStopColliderSpecs[] =
 {
 	{
 		// collider
@@ -207,7 +215,7 @@ ColliderROMSpec HouseColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-EntityROMSpec HouseEntitySpec =
+EntityROMSpec BusStopEntitySpec =
 {
 	// class allocator
 	__TYPE(Entity),
@@ -228,10 +236,10 @@ EntityROMSpec HouseEntitySpec =
 	false,
 
 	// Wireframes
-	(WireframeSpec**)HouseWireframeSpecs,
+	(WireframeSpec**)BusStopWireframeSpecs,
 
 	// collision colliders
-	(ColliderSpec*)HouseColliderSpecs,
+	(ColliderSpec*)BusStopColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
