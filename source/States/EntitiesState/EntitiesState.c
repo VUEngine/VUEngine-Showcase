@@ -33,12 +33,15 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
 
-	EntitiesState::movePunks(this);
+	if(!isDeleted(this->leaderPunk))
+	{
+		EntitiesState::movePunks(this);
 
-	Printing::text(this->printing, "                                                ", 0, 25, NULL);
-	EntitiesState::printPunkName(this, this->leaderPunk, 25);
-	EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 25);
-	EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 25);
+		Printing::text(this->printing, "                                                ", 0, 25, NULL);
+		EntitiesState::printPunkName(this, this->leaderPunk, 25);
+		EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Larry", false)), 25);
+		EntitiesState::printPunkName(this, AnimatedEntity::safeCast(AnimatedEntity::getChildByName(this->leaderPunk, "Curly", false)), 25);
+	}
 
 	if(this->showAdditionalDetails)
 	{
@@ -129,38 +132,14 @@ void EntitiesState::showAdditionalDetails()
 	Printing::text(this->printing, "Children:      ", 2, ++y, NULL);
 	Printing::int32(this->printing, AnimatedEntity::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
-	if(NULL != AnimatedEntity::getSprites(this->leaderPunk))
-	{
-		Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getSprites(this->leaderPunk)), 15, y++, NULL);
-	}
-	else
-	{
-		Printing::text(this->printing, "Sprites:       0", 2, ++y, NULL);
-		y++;
-	}
+	Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
+	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
-	if(NULL != AnimatedEntity::getWireframes(this->leaderPunk))
-	{
-		Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getWireframes(this->leaderPunk)), 15, y++, NULL);
-	}
-	else
-	{
-		Printing::text(this->printing, "Wireframes:  0", 2, ++y, NULL);
-		y++;
-	}
+	Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
+	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
-	if(NULL != AnimatedEntity::getColliders(this->leaderPunk))
-	{
-		Printing::text(this->printing, "Colliders:   ", 2, ++y, NULL);
-		Printing::int32(this->printing, VirtualList::getCount(AnimatedEntity::getColliders(this->leaderPunk)), 15, y++, NULL);
-	}
-	else
-	{
-		Printing::text(this->printing, "Colliders:      0", 2, ++y, NULL);
-		y++;
-	}
+	Printing::text(this->printing, "Colliders:  ", 2, ++y, NULL);
+	Printing::int32(this->printing, CollisionManager::getCount(VUEngine::getCollisionManager(VUEngine::getInstance()), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	y = 5;
 	Printing::text(this->printing, "Position", 22, y, NULL);
