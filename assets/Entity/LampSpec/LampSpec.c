@@ -165,8 +165,7 @@ WireframeROMSpec* const LampWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:LampColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec LampColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -198,11 +197,11 @@ WireframeROMSpec* const LampWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:LampColliderSpecs@
 
 ColliderROMSpec LampColliderSpecs[] =
 {
-	@COLLIDER_REFS:LampColliderSpecs@
+	(ComponentSpec*)&LampColliderSpecsCollider1,
+
 };
 
 ComponentSpec** LampEntitySpecComponentSpecs[] = 

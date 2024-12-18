@@ -297,8 +297,7 @@ WireframeROMSpec* const TunnelWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:TunnelColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec TunnelColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -330,11 +329,11 @@ WireframeROMSpec* const TunnelWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:TunnelColliderSpecs@
 
 ColliderROMSpec TunnelColliderSpecs[] =
 {
-	@COLLIDER_REFS:TunnelColliderSpecs@
+	(ComponentSpec*)&TunnelColliderSpecsCollider1,
+
 };
 
 ComponentSpec** TunnelEntitySpecComponentSpecs[] = 

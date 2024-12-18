@@ -22,9 +22,8 @@
 // DEFINITIONS
 //=========================================================================================================
 
-@COLLIDER_DEFS:PongWallsColliderSpecs@
 	// linefield
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec PongWallsColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -58,7 +57,7 @@
 	};
 
 	// linefield
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec PongWallsColliderSpecsCollider2 =
 	{
 		// Component
 		{
@@ -90,11 +89,12 @@
 		// layers to ignore when checking for collisions
 		kLayerAll,
 	};
-@COLLIDER_DEFS_END:PongWallsColliderSpecs@
 
 ColliderROMSpec PongWallsColliderSpecs[] =
 {
-	@COLLIDER_REFS:PongWallsColliderSpecs@
+	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
+	(ComponentSpec*)&PongWallsColliderSpecsCollider1,
+
 };
 
 ComponentSpec** PongWallsEntitySpecComponentSpecs[] = 

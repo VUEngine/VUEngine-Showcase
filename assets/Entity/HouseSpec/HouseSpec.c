@@ -186,8 +186,7 @@ WireframeROMSpec* const HouseWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:HouseColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec HouseColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -219,11 +218,11 @@ WireframeROMSpec* const HouseWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:HouseColliderSpecs@
 
 ColliderROMSpec HouseColliderSpecs[] =
 {
-	@COLLIDER_REFS:HouseColliderSpecs@
+	(ComponentSpec*)&HouseColliderSpecsCollider1,
+
 };
 
 ComponentSpec** HouseEntitySpecComponentSpecs[] = 

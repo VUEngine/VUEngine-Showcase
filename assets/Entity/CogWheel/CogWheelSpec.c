@@ -336,9 +336,8 @@ BgmapSpriteROMSpec* const CogWheelSpriteSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:CogWheelColliderSpecs@
 	// floor
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec CogWheelColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -370,11 +369,11 @@ BgmapSpriteROMSpec* const CogWheelSpriteSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone,
 	};
-@COLLIDER_DEFS_END:CogWheelColliderSpecs@
 
 ColliderROMSpec CogWheelColliderSpecs[] =
 {
-	@COLLIDER_REFS:CogWheelColliderSpecs@
+	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
+
 };
 
 ComponentSpec** CogWheelEntitySpecComponentSpecs[] = 

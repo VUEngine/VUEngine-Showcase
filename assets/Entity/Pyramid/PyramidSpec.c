@@ -105,8 +105,7 @@ WireframeROMSpec* const PyramidWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:PyramidColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec PyramidColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -138,11 +137,11 @@ WireframeROMSpec* const PyramidWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:PyramidColliderSpecs@
 
 ColliderROMSpec PyramidColliderSpecs[] =
 {
-	@COLLIDER_REFS:PyramidColliderSpecs@
+	(ComponentSpec*)&PyramidColliderSpecsCollider1,
+
 };
 
 ComponentSpec** PyramidEntitySpecComponentSpecs[] = 

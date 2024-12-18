@@ -120,8 +120,7 @@ WireframeROMSpec* const StreetWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:StreetColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec StreetColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -153,11 +152,11 @@ WireframeROMSpec* const StreetWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:StreetColliderSpecs@
 
 ColliderROMSpec StreetColliderSpecs[] =
 {
-	@COLLIDER_REFS:StreetColliderSpecs@
+	(ComponentSpec*)&StreetColliderSpecsCollider1,
+
 };
 
 ComponentSpec** StreetEntitySpecComponentSpecs[] = 

@@ -194,8 +194,7 @@ WireframeROMSpec* const BusStopWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:BusStopColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec BusStopColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -227,11 +226,11 @@ WireframeROMSpec* const BusStopWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:BusStopColliderSpecs@
 
 ColliderROMSpec BusStopColliderSpecs[] =
 {
-	@COLLIDER_REFS:BusStopColliderSpecs@
+	(ComponentSpec*)&BusStopColliderSpecsCollider1,
+
 };
 
 ComponentSpec** BusStopEntitySpecComponentSpecs[] = 

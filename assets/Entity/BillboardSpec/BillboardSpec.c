@@ -212,8 +212,7 @@ WireframeROMSpec* const BillboardWireframeSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:BillboardColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec BillboardColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -245,11 +244,11 @@ WireframeROMSpec* const BillboardWireframeSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone
 	};
-@COLLIDER_DEFS_END:BillboardColliderSpecs@
 
 ColliderROMSpec BillboardColliderSpecs[] =
 {
-	@COLLIDER_REFS:BillboardColliderSpecs@
+	(ComponentSpec*)&BillboardColliderSpecsCollider1,
+
 };
 
 ComponentSpec** BillboardEntitySpecComponentSpecs[] = 

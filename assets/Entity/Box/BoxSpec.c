@@ -121,9 +121,8 @@ BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
 	NULL
 };
 
-@COLLIDER_DEFS:BoxColliderSpecs@
 	// floor
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec BoxColliderSpecsCollider1 =
 	{
 		// Component
 		{
@@ -155,11 +154,11 @@ BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
 		// layers to ignore when checking for collisions
 		kLayerNone,
 	};
-@COLLIDER_DEFS_END:BoxColliderSpecs@
 
 ColliderROMSpec BoxColliderSpecs[] =
 {
-	@COLLIDER_REFS:BoxColliderSpecs@
+	(ComponentSpec*)&BoxColliderSpecsCollider1,
+
 };
 
 ComponentSpec** BoxEntitySpecComponentSpecs[] = 
