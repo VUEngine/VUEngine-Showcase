@@ -114,11 +114,10 @@ MeshROMSpec StreetWireframeSpec =
 	(PixelVector(*)[2])StreetMeshesSegments
 };
 
-WireframeROMSpec* const StreetWireframeSpecs[] =
-{
+@COMP_ARRAY_START:StreetWireframeSpecs
 	(WireframeSpec*)&StreetWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:StreetWireframeSpecs
 
 ColliderROMSpec StreetColliderSpecsCollider1 =
 	{
@@ -153,11 +152,11 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec StreetColliderSpecs[] =
-{
+@COMP_ARRAY_START:StreetColliderSpecs
 	(ComponentSpec*)&StreetColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:StreetColliderSpecs
 
 ComponentSpec** StreetEntitySpecComponentSpecs[] = 
 {

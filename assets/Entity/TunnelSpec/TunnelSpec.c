@@ -291,11 +291,10 @@ MeshROMSpec TunnelWireframeSpec =
 	(PixelVector(*)[2])TunnelMeshesSegments
 };
 
-WireframeROMSpec* const TunnelWireframeSpecs[] =
-{
+@COMP_ARRAY_START:TunnelWireframeSpecs
 	(WireframeSpec*)&TunnelWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:TunnelWireframeSpecs
 
 ColliderROMSpec TunnelColliderSpecsCollider1 =
 	{
@@ -330,11 +329,11 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec TunnelColliderSpecs[] =
-{
+@COMP_ARRAY_START:TunnelColliderSpecs
 	(ComponentSpec*)&TunnelColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:TunnelColliderSpecs
 
 ComponentSpec** TunnelEntitySpecComponentSpecs[] = 
 {

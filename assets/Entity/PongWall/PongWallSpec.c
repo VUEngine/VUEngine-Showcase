@@ -90,12 +90,12 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 		kLayerAll,
 	};
 
-ColliderROMSpec PongWallsColliderSpecs[] =
-{
+@COMP_ARRAY_START:PongWallsColliderSpecs
 	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
 	(ComponentSpec*)&PongWallsColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:PongWallsColliderSpecs
 
 ComponentSpec** PongWallsEntitySpecComponentSpecs[] = 
 {

@@ -59,11 +59,10 @@ SphereROMSpec PongBallWireframeSpec =
 	true,
 };
 
-WireframeROMSpec* const PongBallWireframeSpecs[] =
-{
+@COMP_ARRAY_START:PongBallWireframeSpecs
 	(WireframeSpec*)&PongBallWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PongBallWireframeSpecs
 
 ColliderROMSpec PongBallColliderSpecs[] =
 {

@@ -76,11 +76,10 @@ MeshROMSpec PongPaddleWireframeSpec =
 	(PixelVector(*)[2])PongPaddleWireframeSpecSegments
 };
 
-WireframeROMSpec* const PongPaddleWireframeSpecs[] =
-{
+@COMP_ARRAY_START:PongPaddleWireframeSpecs
 	(WireframeSpec*)&PongPaddleWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PongPaddleWireframeSpecs
 
 ColliderROMSpec PongPaddleColliderSpecs[] =
 {

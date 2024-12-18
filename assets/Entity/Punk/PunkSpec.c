@@ -571,19 +571,17 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const PunkSpriteSpecs[] =
-{
+@COMP_ARRAY_START:PunkSpriteSpecs
 	&PunkSpriteSpec,
 	&PunkBlackSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PunkSpriteSpecs
 
-BgmapSpriteROMSpec* const PunkAffineSpriteSpecs[] =
-{
+@COMP_ARRAY_START:PunkAffineSpriteSpecs
 	&PunkAffineSpriteSpec,
 	&PunkAffineBlackSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PunkAffineSpriteSpecs
 
 CharSetROMSpec PunkDyingCharsetSpec =
 {
@@ -752,12 +750,11 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const PunkDyingSpriteSpecs[] =
-{
+@COMP_ARRAY_START:PunkDyingSpriteSpecs
 	&PunkDyingSpriteSpec,
 	&PunkDyingBlackSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PunkDyingSpriteSpecs
 
 
 ColliderROMSpec PunkColliderSpecs[] =

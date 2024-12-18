@@ -115,11 +115,10 @@ BgmapSpriteROMSpec BoxSpriteSpec =
 	__WORLD_ON,
 };
 
-BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
-{
+@COMP_ARRAY_START:BoxSpriteSpecs
 	&BoxSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:BoxSpriteSpecs
 
 	// floor
 ColliderROMSpec BoxColliderSpecsCollider1 =
@@ -155,11 +154,11 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-ColliderROMSpec BoxColliderSpecs[] =
-{
+@COMP_ARRAY_START:BoxColliderSpecs
 	(ComponentSpec*)&BoxColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:BoxColliderSpecs
 
 ComponentSpec** BoxEntitySpecComponentSpecs[] = 
 {

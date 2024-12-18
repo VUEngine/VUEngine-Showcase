@@ -330,11 +330,10 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 };
 
 
-BgmapSpriteROMSpec* const CogWheelSpriteSpecs[] =
-{
+@COMP_ARRAY_START:CogWheelSpriteSpecs
 	&CogWheelBgmapSpriteAffineSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:CogWheelSpriteSpecs
 
 	// floor
 ColliderROMSpec CogWheelColliderSpecsCollider1 =
@@ -370,11 +369,11 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-ColliderROMSpec CogWheelColliderSpecs[] =
-{
+@COMP_ARRAY_START:CogWheelColliderSpecs
 	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:CogWheelColliderSpecs
 
 ComponentSpec** CogWheelEntitySpecComponentSpecs[] = 
 {

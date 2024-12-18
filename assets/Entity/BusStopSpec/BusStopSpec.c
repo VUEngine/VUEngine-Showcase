@@ -188,11 +188,10 @@ MeshROMSpec BusStopWireframeSpec =
 	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-WireframeROMSpec* const BusStopWireframeSpecs[] =
-{
+@COMP_ARRAY_START:BusStopWireframeSpecs
 	(WireframeSpec*)&BusStopWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:BusStopWireframeSpecs
 
 ColliderROMSpec BusStopColliderSpecsCollider1 =
 	{
@@ -227,11 +226,11 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec BusStopColliderSpecs[] =
-{
+@COMP_ARRAY_START:BusStopColliderSpecs
 	(ComponentSpec*)&BusStopColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:BusStopColliderSpecs
 
 ComponentSpec** BusStopEntitySpecComponentSpecs[] = 
 {

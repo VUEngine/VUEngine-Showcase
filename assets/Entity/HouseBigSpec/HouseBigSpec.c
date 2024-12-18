@@ -197,11 +197,10 @@ MeshROMSpec HouseBigWireframeSpec =
 	(PixelVector(*)[2])HouseBigMeshesSegments
 };
 
-WireframeROMSpec* const HouseBigWireframeSpecs[] =
-{
+@COMP_ARRAY_START:HouseBigWireframeSpecs
 	(WireframeSpec*)&HouseBigWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:HouseBigWireframeSpecs
 
 ColliderROMSpec HouseBigColliderSpecsCollider1 =
 	{
@@ -236,11 +235,11 @@ ColliderROMSpec HouseBigColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec HouseBigColliderSpecs[] =
-{
+@COMP_ARRAY_START:HouseBigColliderSpecs
 	(ComponentSpec*)&HouseBigColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:HouseBigColliderSpecs
 
 ComponentSpec** HouseBigEntitySpecComponentSpecs[] = 
 {

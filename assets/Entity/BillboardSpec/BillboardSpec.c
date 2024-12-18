@@ -206,11 +206,10 @@ MeshROMSpec BillboardWireframeSpec =
 	(PixelVector(*)[2])BillboardMeshesSegments
 };
 
-WireframeROMSpec* const BillboardWireframeSpecs[] =
-{
+@COMP_ARRAY_START:BillboardWireframeSpecs
 	(WireframeSpec*)&BillboardWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:BillboardWireframeSpecs
 
 ColliderROMSpec BillboardColliderSpecsCollider1 =
 	{
@@ -245,11 +244,11 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec BillboardColliderSpecs[] =
-{
+@COMP_ARRAY_START:BillboardColliderSpecs
 	(ComponentSpec*)&BillboardColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:BillboardColliderSpecs
 
 ComponentSpec** BillboardEntitySpecComponentSpecs[] = 
 {

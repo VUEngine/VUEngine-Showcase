@@ -159,11 +159,10 @@ MeshROMSpec LampWireframeSpec =
 	(PixelVector(*)[2])LampMeshesSegments
 };
 
-WireframeROMSpec* const LampWireframeSpecs[] =
-{
+@COMP_ARRAY_START:LampWireframeSpecs
 	(WireframeSpec*)&LampWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:LampWireframeSpecs
 
 ColliderROMSpec LampColliderSpecsCollider1 =
 	{
@@ -198,11 +197,11 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec LampColliderSpecs[] =
-{
+@COMP_ARRAY_START:LampColliderSpecs
 	(ComponentSpec*)&LampColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:LampColliderSpecs
 
 ComponentSpec** LampEntitySpecComponentSpecs[] = 
 {

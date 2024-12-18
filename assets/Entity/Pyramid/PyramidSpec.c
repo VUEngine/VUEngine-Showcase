@@ -99,11 +99,10 @@ MeshROMSpec PyramidWireframeSpec =
 	(PixelVector(*)[2])PyramidMeshesSegments
 };
 
-WireframeROMSpec* const PyramidWireframeSpecs[] =
-{
+@COMP_ARRAY_START:PyramidWireframeSpecs
 	(WireframeSpec*)&PyramidWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PyramidWireframeSpecs
 
 ColliderROMSpec PyramidColliderSpecsCollider1 =
 	{
@@ -138,11 +137,11 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec PyramidColliderSpecs[] =
-{
+@COMP_ARRAY_START:PyramidColliderSpecs
 	(ComponentSpec*)&PyramidColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:PyramidColliderSpecs
 
 ComponentSpec** PyramidEntitySpecComponentSpecs[] = 
 {

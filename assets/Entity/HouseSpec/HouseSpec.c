@@ -180,11 +180,10 @@ MeshROMSpec HouseWireframeSpec =
 	(PixelVector(*)[2])HouseMeshesSegments
 };
 
-WireframeROMSpec* const HouseWireframeSpecs[] =
-{
+@COMP_ARRAY_START:HouseWireframeSpecs
 	(WireframeSpec*)&HouseWireframeSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:HouseWireframeSpecs
 
 ColliderROMSpec HouseColliderSpecsCollider1 =
 	{
@@ -219,11 +218,11 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-ColliderROMSpec HouseColliderSpecs[] =
-{
+@COMP_ARRAY_START:HouseColliderSpecs
 	(ComponentSpec*)&HouseColliderSpecsCollider1,
 
-};
+
+@COMP_ARRAY_END:HouseColliderSpecs
 
 ComponentSpec** HouseEntitySpecComponentSpecs[] = 
 {

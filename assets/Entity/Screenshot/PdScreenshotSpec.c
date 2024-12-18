@@ -180,12 +180,11 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	__WORLD_RON,
 };
 
-BgmapSpriteROMSpec* const PdScreenshotSpriteSpecs[] =
-{
+@COMP_ARRAY_START:PdScreenshotSpriteSpecs
 	&PdScreenshotLSpriteSpec,
 	&PdScreenshotRSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:PdScreenshotSpriteSpecs
 
 ComponentSpec** PdScreenshotEntitySpecComponentSpecs[] = 
 {
