@@ -43,13 +43,23 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 	},
 };
 
+ComponentSpec** PongPaddleWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:PongPaddleWireframeSpec@
+};
+
 MeshROMSpec PongPaddleWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -75,9 +85,16 @@ WireframeROMSpec* const PongPaddleWireframeSpecs[] =
 ColliderROMSpec PongPaddleColliderSpecs[] =
 {
 	// wall collider
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{16, 20, 16},
@@ -99,12 +116,19 @@ ColliderROMSpec PongPaddleColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerAll & ~(kLayerPongWalls)
-	},
+	};
 
 	// collider
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Box),
+		// Component
+		{
+			// Allocator
+			__TYPE(Box),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{3, 20, 16},
@@ -126,13 +150,22 @@ ColliderROMSpec PongPaddleColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerAll
-	},
+	};
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-PhysicalPropertiesROMSpec PongPaddlePhysicalPropertiesSpec =
+BodyROMSpec PongPaddlePhysicalPropertiesSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
 	// mass
 	__F_TO_FIX10_6(0.55f),
 
@@ -149,6 +182,11 @@ PhysicalPropertiesROMSpec PongPaddlePhysicalPropertiesSpec =
 	__I_TO_FIX10_6(8)
 };
 
+ComponentSpec** PongPaddleEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PongPaddleEntitySpec@
+};
+
 PongPaddleROMSpec PongPaddleEntitySpec =
 {
 	{
@@ -160,23 +198,19 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				// children
 				NULL,
 
-				// behaviors
-				NULL,
+				@BEHAVIORS:NULL@,
 
 				// extra
 				NULL,
 
-				// sprites
-				(SpriteSpec**)NULL,
+				@SPRITES:(SpriteSpec**)NULL@,
 
 				// use z displacement in projection
 				false,
 			
-				// wireframes
-				(WireframeSpec**)PongPaddleWireframeSpecs,
+				@WIREFRAMES:(WireframeSpec**)PongPaddleWireframeSpecs@,
 
-				// collision colliders
-				(ColliderSpec*)PongPaddleColliderSpecs,
+				@COLLIDERS:(ColliderSpec*)PongPaddleColliderSpecs@,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -185,8 +219,7 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				// gameworld's character's type
 				kTypePongPaddle,
 
-				// physical specification
-				(PhysicalProperties*)&PongPaddlePhysicalPropertiesSpec,
+				@PHYSICS:(PhysicalProperties*)&PongPaddlePhysicalPropertiesSpec@,
 			},
 
 			// pointer to the animation spec for the item

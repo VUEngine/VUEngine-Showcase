@@ -173,13 +173,23 @@ const PixelVector BillboardMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** BillboardWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:BillboardWireframeSpec@
+};
+
 MeshROMSpec BillboardWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -202,11 +212,17 @@ WireframeROMSpec* const BillboardWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec BillboardColliderSpecs[] =
-{
+@COLLIDER_DEFS:BillboardColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -228,9 +244,17 @@ ColliderROMSpec BillboardColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:BillboardColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec BillboardColliderSpecs[] =
+{
+	@COLLIDER_REFS:BillboardColliderSpecs@
+};
+
+ComponentSpec** BillboardEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:BillboardEntitySpec@
 };
 
 EntityROMSpec BillboardEntitySpec =
@@ -241,23 +265,19 @@ EntityROMSpec BillboardEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)BillboardWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)BillboardWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)BillboardColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)BillboardColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -266,6 +286,5 @@ EntityROMSpec BillboardEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

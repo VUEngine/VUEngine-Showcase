@@ -81,13 +81,23 @@ const PixelVector StreetMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** StreetWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:StreetWireframeSpec@
+};
+
 MeshROMSpec StreetWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -110,11 +120,17 @@ WireframeROMSpec* const StreetWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec StreetColliderSpecs[] =
-{
+@COLLIDER_DEFS:StreetColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -136,9 +152,17 @@ ColliderROMSpec StreetColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:StreetColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec StreetColliderSpecs[] =
+{
+	@COLLIDER_REFS:StreetColliderSpecs@
+};
+
+ComponentSpec** StreetEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:StreetEntitySpec@
 };
 
 EntityROMSpec StreetEntitySpec =
@@ -149,23 +173,19 @@ EntityROMSpec StreetEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)StreetWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)StreetWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)StreetColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)StreetColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -174,6 +194,5 @@ EntityROMSpec StreetEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

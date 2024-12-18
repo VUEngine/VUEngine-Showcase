@@ -136,8 +136,14 @@ TextureROMSpec StarTextureSpec =
 ObjectSpriteROMSpec StarSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(ObjectAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(ObjectAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&StarTextureSpec,
@@ -285,6 +291,11 @@ SolidParticleROMSpec StarParticleSolidSpec =
 	"Vanish",
 };
 
+ComponentSpec** StarsParticleSystemNormalSpecComponentSpecs[] = 
+{
+	@COMPONENTS:StarsParticleSystemNormalSpec@
+};
+
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
 	{
@@ -294,23 +305,19 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// children
 		NULL,
 
-		// behaviors
-		NULL,
+		@BEHAVIORS:NULL@,
 
 		// extra
 		NULL,
 
-		// sprites
-		(SpriteSpec**)NULL,
+		@SPRITES:(SpriteSpec**)NULL@,
 
 		// use z displacement in projection
 		false,
 			
-		// wireframes
-		(WireframeSpec**)NULL,
+		@WIREFRAMES:(WireframeSpec**)NULL@,
 
-		// collision colliders
-		(ColliderSpec*)NULL,
+		@COLLIDERS:(ColliderSpec*)NULL@,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -319,8 +326,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
+		@PHYSICS:(PhysicalProperties*)NULL@,
 	},
 
 	// reuse expired particles?
@@ -368,6 +374,11 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
+ComponentSpec** StarsParticleSystemPhysicalSpecComponentSpecs[] = 
+{
+	@COMPONENTS:StarsParticleSystemPhysicalSpec@
+};
+
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
@@ -377,23 +388,19 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// children
 		NULL,
 
-		// behaviors
-		NULL,
+		@BEHAVIORS:NULL@,
 
 		// extra
 		NULL,
 
-		// sprites
-		(SpriteSpec**)NULL,
+		@SPRITES:(SpriteSpec**)NULL@,
 
 		// use z displacement in projection
 		false,
 			
-		// wireframes
-		(WireframeSpec**)NULL,
+		@WIREFRAMES:(WireframeSpec**)NULL@,
 
-		// collision colliders
-		(ColliderSpec*)NULL,
+		@COLLIDERS:(ColliderSpec*)NULL@,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -402,8 +409,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
+		@PHYSICS:(PhysicalProperties*)NULL@,
 	},
 
 	// reuse expired particles?
@@ -451,6 +457,11 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	__ACCELERATED_MOVEMENT
 };
 
+ComponentSpec** StarsParticleSystemSolidSpecComponentSpecs[] = 
+{
+	@COMPONENTS:StarsParticleSystemSolidSpec@
+};
+
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
 	{
@@ -460,23 +471,19 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// children
 		NULL,
 
-		// behaviors
-		NULL,
+		@BEHAVIORS:NULL@,
 
 		// extra
 		NULL,
 
-		// sprites
-		(SpriteSpec**)NULL,
+		@SPRITES:(SpriteSpec**)NULL@,
 
 		// use z displacement in projection
 		false,
 			
-		// wireframes
-		(WireframeSpec**)NULL,
+		@WIREFRAMES:(WireframeSpec**)NULL@,
 
-		// collision colliders
-		(ColliderSpec*)NULL,
+		@COLLIDERS:(ColliderSpec*)NULL@,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -485,8 +492,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
+		@PHYSICS:(PhysicalProperties*)NULL@,
 	},
 
 	// reuse expired particles?

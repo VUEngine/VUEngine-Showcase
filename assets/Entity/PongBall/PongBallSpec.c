@@ -23,13 +23,23 @@
 // DEFINITIONS
 //=========================================================================================================
 
+ComponentSpec** PongBallWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:PongBallWireframeSpec@
+};
+
 SphereROMSpec PongBallWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Sphere),
+		// Component
+		{
+			// Allocator
+			__TYPE(Sphere),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -58,9 +68,16 @@ WireframeROMSpec* const PongBallWireframeSpecs[] =
 ColliderROMSpec PongBallColliderSpecs[] =
 {
 	// ball
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{6, 6, 6},
@@ -82,13 +99,22 @@ ColliderROMSpec PongBallColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerAll & ~(kLayerPongWalls | kLayerPongPaddle)
-	},
+	};
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-PhysicalPropertiesROMSpec PongBallPhysicalPropertiesSpec =
+BodyROMSpec PongBallPhysicalPropertiesSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
 	// mass
 	__F_TO_FIX10_6(0.1f),
 
@@ -105,6 +131,11 @@ PhysicalPropertiesROMSpec PongBallPhysicalPropertiesSpec =
 	__I_TO_FIXED(2)
 };
 
+ComponentSpec** PongBallEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PongBallEntitySpec@
+};
+
 PongBallROMSpec PongBallEntitySpec =
 {
 	{
@@ -116,23 +147,19 @@ PongBallROMSpec PongBallEntitySpec =
 				// children
 				NULL,
 
-				// behaviors
-				NULL,
+				@BEHAVIORS:NULL@,
 
 				// extra
 				NULL,
 
-				// sprites
-				(SpriteSpec**)NULL,
+				@SPRITES:(SpriteSpec**)NULL@,
 
 				// use z displacement in projection
 				false,
 			
-				// wireframes
-				(WireframeSpec**)PongBallWireframeSpecs,
+				@WIREFRAMES:(WireframeSpec**)PongBallWireframeSpecs@,
 
-				// collision colliders
-				(ColliderSpec*)PongBallColliderSpecs,
+				@COLLIDERS:(ColliderSpec*)PongBallColliderSpecs@,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -141,8 +168,7 @@ PongBallROMSpec PongBallEntitySpec =
 				// gameworld's character's type
 				kTypePongBall,
 
-				// physical specification
-				(PhysicalProperties*)&PongBallPhysicalPropertiesSpec,
+				@PHYSICS:(PhysicalProperties*)&PongBallPhysicalPropertiesSpec@,
 			},
 
 			// pointer to the animation spec for the item

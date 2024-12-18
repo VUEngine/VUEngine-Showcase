@@ -85,8 +85,14 @@ TextureROMSpec BoxTextureSpec =
 BgmapSpriteROMSpec BoxSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&BoxTextureSpec,
@@ -115,12 +121,18 @@ BgmapSpriteROMSpec* const BoxSpriteSpecs[] =
 	NULL
 };
 
-ColliderROMSpec BoxColliderSpecs[] =
-{
+@COLLIDER_DEFS:BoxColliderSpecs@
 	// floor
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Box),
+		// Component
+		{
+			// Allocator
+			__TYPE(Box),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{7 * 8, 6 * 8, 4 * 8},
@@ -142,9 +154,17 @@ ColliderROMSpec BoxColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone,
-	},
+	};
+@COLLIDER_DEFS_END:BoxColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec BoxColliderSpecs[] =
+{
+	@COLLIDER_REFS:BoxColliderSpecs@
+};
+
+ComponentSpec** BoxEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:BoxEntitySpec@
 };
 
 EntityROMSpec BoxEntitySpec =
@@ -155,23 +175,19 @@ EntityROMSpec BoxEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)BoxSpriteSpecs,
+	@SPRITES:(SpriteSpec**)BoxSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// meshes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 	
-	// collision colliders
-	(ColliderSpec*)BoxColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)BoxColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -180,6 +196,5 @@ EntityROMSpec BoxEntitySpec =
 	// gameworld's character's type
 	kTypeSolidObject,
 
-	// physical specification
-	NULL,
+	@PHYSICS:NULL@,
 };

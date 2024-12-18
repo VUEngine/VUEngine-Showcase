@@ -22,12 +22,18 @@
 // DEFINITIONS
 //=========================================================================================================
 
-ColliderROMSpec PongWallsColliderSpecs[] =
-{
+@COLLIDER_DEFS:PongWallsColliderSpecs@
 	// linefield
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(LineField),
+		// Component
+		{
+			// Allocator
+			__TYPE(LineField),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{100 * 2, 0, 0},
@@ -49,12 +55,19 @@ ColliderROMSpec PongWallsColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerAll,
-	},
+	};
 
 	// linefield
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(LineField),
+		// Component
+		{
+			// Allocator
+			__TYPE(LineField),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{100 * 2, 0, 0},
@@ -76,9 +89,17 @@ ColliderROMSpec PongWallsColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerAll,
-	},
+	};
+@COLLIDER_DEFS_END:PongWallsColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec PongWallsColliderSpecs[] =
+{
+	@COLLIDER_REFS:PongWallsColliderSpecs@
+};
+
+ComponentSpec** PongWallsEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PongWallsEntitySpec@
 };
 
 EntityROMSpec PongWallsEntitySpec =
@@ -89,23 +110,19 @@ EntityROMSpec PongWallsEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)PongWallsColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)PongWallsColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -114,6 +131,5 @@ EntityROMSpec PongWallsEntitySpec =
 	// gameworld's character's type
 	kTypePongWall,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

@@ -150,8 +150,14 @@ TextureROMSpec* const CogWheelBackgroundTextureSpecs[] =
 ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(ObjectSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(ObjectSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -174,8 +180,14 @@ ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -201,8 +213,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -228,8 +246,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -256,8 +280,14 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 {
 	{
 		{
-			// sprite's type
-			__TYPE(MBgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(MBgmapSprite),
+
+				// Component type
+				kSpriteComponent
+			},
 
 			// texture spec
 			NULL,
@@ -306,12 +336,18 @@ BgmapSpriteROMSpec* const CogWheelSpriteSpecs[] =
 	NULL
 };
 
-ColliderROMSpec CogWheelColliderSpecs[] =
-{
+@COLLIDER_DEFS:CogWheelColliderSpecs@
 	// floor
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{64 * 2, 64 * 2, 32},
@@ -333,9 +369,17 @@ ColliderROMSpec CogWheelColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone,
-	},
+	};
+@COLLIDER_DEFS_END:CogWheelColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec CogWheelColliderSpecs[] =
+{
+	@COLLIDER_REFS:CogWheelColliderSpecs@
+};
+
+ComponentSpec** CogWheelEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:CogWheelEntitySpec@
 };
 
 CogWheelROMSpec CogWheelEntitySpec =
@@ -347,23 +391,19 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// children
 		NULL,
 
-		// behaviors
-		NULL,
+		@BEHAVIORS:NULL@,
 
 		// extra
 		NULL,
 
-		// sprites
-		(SpriteSpec**)CogWheelSpriteSpecs,
+		@SPRITES:(SpriteSpec**)CogWheelSpriteSpecs@,
 
 		// use z displacement in projection
 		false,
 				
-		// wireframes
-		(WireframeSpec**)NULL,
+		@WIREFRAMES:(WireframeSpec**)NULL@,
 
-		// collision colliders
-		(ColliderSpec*)CogWheelColliderSpecs,
+		@COLLIDERS:(ColliderSpec*)CogWheelColliderSpecs@,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -372,7 +412,6 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// gameworld's character's type
 		kTypeCogWheel,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
+		@PHYSICS:(PhysicalProperties*)NULL@,
 	}
 };

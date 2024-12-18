@@ -164,13 +164,23 @@ const PixelVector HouseBigMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** HouseBigWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:HouseBigWireframeSpec@
+};
+
 MeshROMSpec HouseBigWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -193,11 +203,17 @@ WireframeROMSpec* const HouseBigWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec HouseBigColliderSpecs[] =
-{
+@COLLIDER_DEFS:HouseBigColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -219,9 +235,17 @@ ColliderROMSpec HouseBigColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:HouseBigColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec HouseBigColliderSpecs[] =
+{
+	@COLLIDER_REFS:HouseBigColliderSpecs@
+};
+
+ComponentSpec** HouseBigEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:HouseBigEntitySpec@
 };
 
 EntityROMSpec HouseBigEntitySpec =
@@ -232,23 +256,19 @@ EntityROMSpec HouseBigEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)HouseBigWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)HouseBigWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)HouseBigColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)HouseBigColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -257,6 +277,5 @@ EntityROMSpec HouseBigEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

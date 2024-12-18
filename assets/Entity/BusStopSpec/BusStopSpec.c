@@ -155,13 +155,23 @@ const PixelVector BusStopMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** BusStopWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:BusStopWireframeSpec@
+};
+
 MeshROMSpec BusStopWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -184,11 +194,17 @@ WireframeROMSpec* const BusStopWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec BusStopColliderSpecs[] =
-{
+@COLLIDER_DEFS:BusStopColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -210,9 +226,17 @@ ColliderROMSpec BusStopColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:BusStopColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec BusStopColliderSpecs[] =
+{
+	@COLLIDER_REFS:BusStopColliderSpecs@
+};
+
+ComponentSpec** BusStopEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:BusStopEntitySpec@
 };
 
 EntityROMSpec BusStopEntitySpec =
@@ -223,23 +247,19 @@ EntityROMSpec BusStopEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)BusStopWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)BusStopWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)BusStopColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)BusStopColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -248,6 +268,5 @@ EntityROMSpec BusStopEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

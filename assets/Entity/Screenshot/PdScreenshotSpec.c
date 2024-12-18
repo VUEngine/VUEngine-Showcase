@@ -117,8 +117,14 @@ TextureROMSpec PdScreenshotRTextureSpec =
 BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PdScreenshotLTextureSpec,
@@ -144,8 +150,14 @@ BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PdScreenshotRTextureSpec,
@@ -175,6 +187,11 @@ BgmapSpriteROMSpec* const PdScreenshotSpriteSpecs[] =
 	NULL
 };
 
+ComponentSpec** PdScreenshotEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PdScreenshotEntitySpec@
+};
+
 EntityROMSpec PdScreenshotEntitySpec =
 {
 	// class allocator
@@ -183,23 +200,19 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	NULL,
+	@BEHAVIORS:NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)PdScreenshotSpriteSpecs,
+	@SPRITES:(SpriteSpec**)PdScreenshotSpriteSpecs@,
 
 	// use z displacement in projection
 	false,
 			
-	// wireframes
-	(WireframeSpec**)NULL,
+	@WIREFRAMES:(WireframeSpec**)NULL@,
 
-	// collision colliders
-	(ColliderSpec*)NULL,
+	@COLLIDERS:(ColliderSpec*)NULL@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -208,7 +221,6 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 
 };

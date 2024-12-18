@@ -126,13 +126,23 @@ const PixelVector LampMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** LampWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:LampWireframeSpec@
+};
+
 MeshROMSpec LampWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -155,11 +165,17 @@ WireframeROMSpec* const LampWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec LampColliderSpecs[] =
-{
+@COLLIDER_DEFS:LampColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -181,9 +197,17 @@ ColliderROMSpec LampColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:LampColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec LampColliderSpecs[] =
+{
+	@COLLIDER_REFS:LampColliderSpecs@
+};
+
+ComponentSpec** LampEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:LampEntitySpec@
 };
 
 EntityROMSpec LampEntitySpec =
@@ -194,23 +218,19 @@ EntityROMSpec LampEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)LampWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)LampWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)LampColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)LampColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -219,6 +239,5 @@ EntityROMSpec LampEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

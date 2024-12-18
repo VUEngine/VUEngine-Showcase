@@ -66,13 +66,23 @@ const PixelVector PyramidMeshesSegments[][2]=
 	},
 };
 
+ComponentSpec** PyramidWireframeSpecComponentSpecs[] = 
+{
+	@COMPONENTS:PyramidWireframeSpec@
+};
+
 MeshROMSpec PyramidWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
 
-		// displacement
+			// Component type
+			kWireframeComponent
+		},
+
 		{0, 0, 0},
 		
 		// color
@@ -95,11 +105,17 @@ WireframeROMSpec* const PyramidWireframeSpecs[] =
 	NULL
 };
 
-ColliderROMSpec PyramidColliderSpecs[] =
-{
+@COLLIDER_DEFS:PyramidColliderSpecs@
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Ball),
+		// Component
+		{
+			// Allocator
+			__TYPE(Ball),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{128, 128, 128},
@@ -121,9 +137,17 @@ ColliderROMSpec PyramidColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		kLayerNone
-	},
+	};
+@COLLIDER_DEFS_END:PyramidColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec PyramidColliderSpecs[] =
+{
+	@COLLIDER_REFS:PyramidColliderSpecs@
+};
+
+ComponentSpec** PyramidEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PyramidEntitySpec@
 };
 
 EntityROMSpec PyramidEntitySpec =
@@ -134,23 +158,19 @@ EntityROMSpec PyramidEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	@BEHAVIORS:(BehaviorSpec**)NULL@,
 
 	// extra
 	NULL,
 
-	// sprites
-	(SpriteSpec**)NULL,
+	@SPRITES:(SpriteSpec**)NULL@,
 
 	// use z displacement in projection
 	false,
 
-	// Wireframes
-	(WireframeSpec**)PyramidWireframeSpecs,
+	@WIREFRAMES:(WireframeSpec**)PyramidWireframeSpecs@,
 
-	// collision colliders
-	(ColliderSpec*)PyramidColliderSpecs,
+	@COLLIDERS:(ColliderSpec*)PyramidColliderSpecs@,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -159,6 +179,5 @@ EntityROMSpec PyramidEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	// physical specification
-	(PhysicalProperties*)NULL,
+	@PHYSICS:(PhysicalProperties*)NULL@,
 };

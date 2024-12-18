@@ -343,8 +343,14 @@ TextureROMSpec PunkBlackTextureSpec =
 BgmapSpriteROMSpec PunkSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkTextureSpec,
@@ -370,8 +376,14 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 BgmapSpriteROMSpec PunkAffineSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkTextureSpec,
@@ -397,8 +409,14 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkTextureNotSharedSpec,
@@ -424,8 +442,14 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 BgmapSpriteROMSpec PunkSpriteSharedSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkTextureSharedSpec,
@@ -451,8 +475,14 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkTextureMultiframeSpec,
@@ -478,8 +508,14 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 BgmapSpriteROMSpec PunkBlackSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -505,8 +541,14 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -646,8 +688,14 @@ TextureROMSpec PunkDyingBlackTextureSpec =
 BgmapSpriteROMSpec PunkDyingSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkDyingTextureSpec,
@@ -674,8 +722,14 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 {
 	{
-		// sprite's type
-		__TYPE(BgmapAnimatedSprite),
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
 
 		// texture spec
 		(TextureSpec*)&PunkDyingBlackTextureSpec,
@@ -708,9 +762,16 @@ BgmapSpriteROMSpec* const PunkDyingSpriteSpecs[] =
 
 ColliderROMSpec PunkColliderSpecs[] =
 {
+	ColliderROMSpec @COLLIDER_NAME@ =
 	{
-		// collider
-		__TYPE(Box),
+		// Component
+		{
+			// Allocator
+			__TYPE(Box),
+
+			// Component type
+			kColliderComponent
+		},
 
 		// size (x, y, z)
 		{16, 38, 24},
@@ -732,9 +793,14 @@ ColliderROMSpec PunkColliderSpecs[] =
 
 		// layers to ignore when checking for collisions
 		~(kLayerSolid | kLayerDangers),
-	},
+	};
 
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+};
+
+ComponentSpec** PunkEntitySpecComponentSpecs[] = 
+{
+	@COMPONENTS:PunkEntitySpec@
 };
 
 AnimatedEntityROMSpec PunkEntitySpec =
@@ -746,23 +812,19 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// children
 		NULL,
 
-		// behaviors
-		NULL,
+		@BEHAVIORS:NULL@,
 
 		// extra
 		NULL,
 		
-		// sprites
-		(SpriteSpec**)PunkAffineSpriteSpecs,
+		@SPRITES:(SpriteSpec**)PunkAffineSpriteSpecs@,
 
 		// use z displacement in projection
 		false,
 
-		// wireframes
-		NULL,
+		@WIREFRAMES:NULL@,
 
-		// collision colliders
-		(ColliderSpec*)PunkColliderSpecs,
+		@COLLIDERS:(ColliderSpec*)PunkColliderSpecs@,
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -771,8 +833,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		// physical specification
-		(PhysicalProperties*)NULL,
+		@PHYSICS:(PhysicalProperties*)NULL@,
 	},
 
 	// pointer to the animation spec for the character
@@ -782,8 +843,17 @@ AnimatedEntityROMSpec PunkEntitySpec =
 	"Move"
 };
 
-PhysicalPropertiesROMSpec PunkPhysicalPropertiesSpec =
+BodyROMSpec PunkPhysicalPropertiesSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
 	// mass
 	__F_TO_FIXED(0.5f),
 
@@ -800,6 +870,11 @@ PhysicalPropertiesROMSpec PunkPhysicalPropertiesSpec =
 	__F_TO_FIXED(3)
 };
 
+ComponentSpec** PunkActorSpecComponentSpecs[] = 
+{
+	@COMPONENTS:PunkActorSpec@
+};
+
 PunkROMSpec PunkActorSpec =
 {
 	{	
@@ -811,23 +886,19 @@ PunkROMSpec PunkActorSpec =
 				// children
 				NULL,
 
-				// behaviors
-				NULL,
+				@BEHAVIORS:NULL@,
 
 				// extra
 				NULL,
 				
-				// sprites
-				(SpriteSpec**)PunkSpriteSpecs,
+				@SPRITES:(SpriteSpec**)PunkSpriteSpecs@,
 
 				// use z displacement in projection
 				false,
 
-				// wireframes
-				NULL,
+				@WIREFRAMES:NULL@,
 
-				// collision colliders
-				(ColliderSpec*)PunkColliderSpecs,
+				@COLLIDERS:(ColliderSpec*)PunkColliderSpecs@,
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -836,8 +907,7 @@ PunkROMSpec PunkActorSpec =
 				// gameworld's character's type
 				kTypePunk,
 
-				// physical specification
-				(PhysicalProperties*)&PunkPhysicalPropertiesSpec,
+				@PHYSICS:(PhysicalProperties*)&PunkPhysicalPropertiesSpec@,
 			},
 
 			// pointer to the animation spec for the character
