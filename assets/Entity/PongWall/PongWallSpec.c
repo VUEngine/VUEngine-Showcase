@@ -23,7 +23,7 @@
 //=========================================================================================================
 
 	// linefield
-ColliderROMSpec PongWallsColliderSpecsCollider1 =
+ColliderROMSpec PongWallsColliderSpec1 =
 	{
 		// Component
 		{
@@ -57,7 +57,7 @@ ColliderROMSpec PongWallsColliderSpecsCollider1 =
 	};
 
 	// linefield
-ColliderROMSpec PongWallsColliderSpecsCollider2 =
+ColliderROMSpec PongWallsColliderSpec2 =
 	{
 		// Component
 		{
@@ -92,8 +92,8 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 
 const ComponentSpec* PongWallsEntityComponentSpecs[] = 
 {
-	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
-	(ComponentSpec*)&PongWallsColliderSpecsCollider1,
+	(ComponentSpec*)&PongWallsColliderSpec2,
+	(ComponentSpec*)&PongWallsColliderSpec1,
 	NULL
 };
 

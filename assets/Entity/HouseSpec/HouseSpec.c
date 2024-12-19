@@ -182,7 +182,7 @@ MeshROMSpec HouseWireframeSpec =
 
 
 
-ColliderROMSpec HouseColliderSpecsCollider1 =
+ColliderROMSpec HouseColliderSpec1 =
 	{
 		// Component
 		{
@@ -218,7 +218,7 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 const ComponentSpec* HouseEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseWireframeSpec,
-	(ComponentSpec*)&HouseColliderSpecsCollider1,
+	(ComponentSpec*)&HouseColliderSpec1,
 	NULL
 };
 

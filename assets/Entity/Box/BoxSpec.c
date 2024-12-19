@@ -118,7 +118,7 @@ BgmapSpriteROMSpec BoxSpriteSpec =
 
 
 	// floor
-ColliderROMSpec BoxColliderSpecsCollider1 =
+ColliderROMSpec BoxColliderSpec1 =
 	{
 		// Component
 		{
@@ -154,7 +154,7 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 const ComponentSpec* BoxEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BoxSpriteSpec,
-	(ComponentSpec*)&BoxColliderSpecsCollider1,
+	(ComponentSpec*)&BoxColliderSpec1,
 	NULL
 };
 

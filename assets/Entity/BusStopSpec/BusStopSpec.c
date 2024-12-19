@@ -190,7 +190,7 @@ MeshROMSpec BusStopWireframeSpec =
 
 
 
-ColliderROMSpec BusStopColliderSpecsCollider1 =
+ColliderROMSpec BusStopColliderSpec1 =
 	{
 		// Component
 		{
@@ -226,7 +226,7 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 const ComponentSpec* BusStopEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
-	(ComponentSpec*)&BusStopColliderSpecsCollider1,
+	(ComponentSpec*)&BusStopColliderSpec1,
 	NULL
 };
 

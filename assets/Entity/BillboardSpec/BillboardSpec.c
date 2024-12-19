@@ -208,7 +208,7 @@ MeshROMSpec BillboardWireframeSpec =
 
 
 
-ColliderROMSpec BillboardColliderSpecsCollider1 =
+ColliderROMSpec BillboardColliderSpec1 =
 	{
 		// Component
 		{
@@ -244,7 +244,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 const ComponentSpec* BillboardEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BillboardWireframeSpec,
-	(ComponentSpec*)&BillboardColliderSpecsCollider1,
+	(ComponentSpec*)&BillboardColliderSpec1,
 	NULL
 };
 

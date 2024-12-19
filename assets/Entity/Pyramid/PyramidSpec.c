@@ -101,7 +101,7 @@ MeshROMSpec PyramidWireframeSpec =
 
 
 
-ColliderROMSpec PyramidColliderSpecsCollider1 =
+ColliderROMSpec PyramidColliderSpec1 =
 	{
 		// Component
 		{
@@ -137,7 +137,7 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 const ComponentSpec* PyramidEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PyramidWireframeSpec,
-	(ComponentSpec*)&PyramidColliderSpecsCollider1,
+	(ComponentSpec*)&PyramidColliderSpec1,
 	NULL
 };
 

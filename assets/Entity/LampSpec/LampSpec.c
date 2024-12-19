@@ -161,7 +161,7 @@ MeshROMSpec LampWireframeSpec =
 
 
 
-ColliderROMSpec LampColliderSpecsCollider1 =
+ColliderROMSpec LampColliderSpec1 =
 	{
 		// Component
 		{
@@ -197,7 +197,7 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 const ComponentSpec* LampEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&LampWireframeSpec,
-	(ComponentSpec*)&LampColliderSpecsCollider1,
+	(ComponentSpec*)&LampColliderSpec1,
 	NULL
 };
 

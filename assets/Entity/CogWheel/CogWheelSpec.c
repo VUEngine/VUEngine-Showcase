@@ -333,7 +333,7 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 
 
 	// floor
-ColliderROMSpec CogWheelColliderSpecsCollider1 =
+ColliderROMSpec CogWheelColliderSpec1 =
 	{
 		// Component
 		{
@@ -369,7 +369,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 const ComponentSpec* CogWheelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
-	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
+	(ComponentSpec*)&CogWheelColliderSpec1,
 	NULL
 };
 

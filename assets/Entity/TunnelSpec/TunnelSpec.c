@@ -293,7 +293,7 @@ MeshROMSpec TunnelWireframeSpec =
 
 
 
-ColliderROMSpec TunnelColliderSpecsCollider1 =
+ColliderROMSpec TunnelColliderSpec1 =
 	{
 		// Component
 		{
@@ -329,7 +329,7 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 const ComponentSpec* TunnelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&TunnelWireframeSpec,
-	(ComponentSpec*)&TunnelColliderSpecsCollider1,
+	(ComponentSpec*)&TunnelColliderSpec1,
 	NULL
 };
 

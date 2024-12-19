@@ -116,7 +116,7 @@ MeshROMSpec StreetWireframeSpec =
 
 
 
-ColliderROMSpec StreetColliderSpecsCollider1 =
+ColliderROMSpec StreetColliderSpec1 =
 	{
 		// Component
 		{
@@ -152,7 +152,7 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 const ComponentSpec* StreetEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&StreetWireframeSpec,
-	(ComponentSpec*)&StreetColliderSpecsCollider1,
+	(ComponentSpec*)&StreetColliderSpec1,
 	NULL
 };
 
