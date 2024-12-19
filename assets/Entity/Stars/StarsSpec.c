@@ -168,11 +168,10 @@ ObjectSpriteROMSpec StarSpriteSpec =
 //---------------------------------------------------------------------------------------------------------
 
 
-SpriteSpec* const StarSpriteSpecs[] =
-{
+@COMP_ARRAY_START:StarSpriteSpecs
 	&StarSpriteSpec,
-	NULL
-};
+	
+@COMP_ARRAY_END:StarSpriteSpecs
 
 // particle's spec
 ParticleROMSpec StarParticleNormalSpec =
