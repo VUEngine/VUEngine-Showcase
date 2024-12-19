@@ -313,22 +313,12 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// Extra info
 		NULL,
 
-		
-
-		
-			
-		
-
-		
-
 		// Size
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
 		// In-game entity's type
-		kTypeNone,
-
-		
+		kTypeNone
 	},
 
 	// reuse expired particles?
