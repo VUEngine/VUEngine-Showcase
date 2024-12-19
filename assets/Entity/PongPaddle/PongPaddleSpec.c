@@ -43,7 +43,7 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 	},
 };
 
-const ComponentSpec* PongPaddleWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PongPaddleWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -169,7 +169,7 @@ BodyROMSpec PongPaddleBodySpecSpec =
 	__I_TO_FIX10_6(8)
 };
 
-const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
+const ComponentSpec* PongPaddleEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongPaddleBodySpecSpec,
 	(ComponentSpec*)&PongPaddleWireframeSpec,
@@ -187,12 +187,12 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				__TYPE(PongPaddle),
 
 				// Component specs
-				(ComponentSpec**)PongPaddleEntitySpecComponentSpecs,
+				(ComponentSpec**)PongPaddleEntityComponentSpecs,
 
 				// Children specs
 				NULL,
 
-				// Extra
+				// Extra info
 				NULL,
 
 				// Size

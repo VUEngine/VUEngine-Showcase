@@ -126,7 +126,7 @@ const PixelVector LampMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* LampWireframeSpecComponentSpecs[] = 
+const ComponentSpec* LampWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -194,7 +194,7 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* LampEntitySpecComponentSpecs[] = 
+const ComponentSpec* LampEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&LampWireframeSpec,
 	(ComponentSpec*)&LampColliderSpecsCollider1,
@@ -207,7 +207,7 @@ EntityROMSpec LampEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)LampEntitySpecComponentSpecs,
+	(ComponentSpec**)LampEntityComponentSpecs,
 
 	// Children specs
 	NULL,

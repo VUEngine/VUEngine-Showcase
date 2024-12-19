@@ -155,7 +155,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* BusStopWireframeSpecComponentSpecs[] = 
+const ComponentSpec* BusStopWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -223,7 +223,7 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* BusStopEntitySpecComponentSpecs[] = 
+const ComponentSpec* BusStopEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
 	(ComponentSpec*)&BusStopColliderSpecsCollider1,
@@ -236,7 +236,7 @@ EntityROMSpec BusStopEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)BusStopEntitySpecComponentSpecs,
+	(ComponentSpec**)BusStopEntityComponentSpecs,
 
 	// Children specs
 	NULL,

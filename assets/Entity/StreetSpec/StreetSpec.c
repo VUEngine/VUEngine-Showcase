@@ -81,7 +81,7 @@ const PixelVector StreetMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* StreetWireframeSpecComponentSpecs[] = 
+const ComponentSpec* StreetWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -149,7 +149,7 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* StreetEntitySpecComponentSpecs[] = 
+const ComponentSpec* StreetEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&StreetWireframeSpec,
 	(ComponentSpec*)&StreetColliderSpecsCollider1,
@@ -162,7 +162,7 @@ EntityROMSpec StreetEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)StreetEntitySpecComponentSpecs,
+	(ComponentSpec**)StreetEntityComponentSpecs,
 
 	// Children specs
 	NULL,

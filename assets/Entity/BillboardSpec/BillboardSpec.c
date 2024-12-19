@@ -173,7 +173,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* BillboardWireframeSpecComponentSpecs[] = 
+const ComponentSpec* BillboardWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -241,7 +241,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* BillboardEntitySpecComponentSpecs[] = 
+const ComponentSpec* BillboardEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BillboardWireframeSpec,
 	(ComponentSpec*)&BillboardColliderSpecsCollider1,
@@ -254,7 +254,7 @@ EntityROMSpec BillboardEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)BillboardEntitySpecComponentSpecs,
+	(ComponentSpec**)BillboardEntityComponentSpecs,
 
 	// Children specs
 	NULL,

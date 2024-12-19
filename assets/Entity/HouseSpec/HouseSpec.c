@@ -147,7 +147,7 @@ const PixelVector HouseMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* HouseWireframeSpecComponentSpecs[] = 
+const ComponentSpec* HouseWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -215,7 +215,7 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* HouseEntitySpecComponentSpecs[] = 
+const ComponentSpec* HouseEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseWireframeSpec,
 	(ComponentSpec*)&HouseColliderSpecsCollider1,
@@ -228,7 +228,7 @@ EntityROMSpec HouseEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)HouseEntitySpecComponentSpecs,
+	(ComponentSpec**)HouseEntityComponentSpecs,
 
 	// Children specs
 	NULL,

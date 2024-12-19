@@ -773,7 +773,7 @@ ColliderROMSpec PunkColliderSpec =
 	~(kLayerSolid | kLayerDangers),
 };
 
-const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
+const ComponentSpec* PunkEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkAffineSpriteSpec,
 	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
@@ -788,7 +788,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		__TYPE(AnimatedEntity),
 
 		// Component specs
-		(ComponentSpec**)PunkEntitySpecComponentSpecs,
+		(ComponentSpec**)PunkEntityComponentSpecs,
 
 		// Children specs
 		NULL,

@@ -293,7 +293,7 @@ SolidParticleROMSpec StarParticleSolidSpec =
 	"Vanish",
 };
 
-const ComponentSpec* StarsParticleSystemNormalSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemNormalComponentSpecs[] = 
 {
 	NULL
 };
@@ -305,7 +305,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemNormalSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemNormalComponentSpecs,
 
 		// Children specs
 		NULL,
@@ -376,7 +376,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
-const ComponentSpec* StarsParticleSystemPhysicalSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemPhysicalComponentSpecs[] = 
 {
 	NULL
 };
@@ -388,7 +388,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemPhysicalSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemPhysicalComponentSpecs,
 
 		// Children specs
 		NULL,
@@ -459,7 +459,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	__ACCELERATED_MOVEMENT
 };
 
-const ComponentSpec* StarsParticleSystemSolidSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemSolidComponentSpecs[] = 
 {
 	NULL
 };
@@ -471,7 +471,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemSolidSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemSolidComponentSpecs,
 
 		// Children specs
 		NULL,

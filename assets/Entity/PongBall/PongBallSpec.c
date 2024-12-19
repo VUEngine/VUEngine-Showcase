@@ -23,7 +23,7 @@
 // DEFINITIONS
 //=========================================================================================================
 
-const ComponentSpec* PongBallWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PongBallWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -119,7 +119,7 @@ BodyROMSpec PongBallBodySpec =
 	__I_TO_FIXED(2)
 };
 
-const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
+const ComponentSpec* PongBallEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongBallBodySpec,
 	(ComponentSpec*)&PongBallWireframeSpec,
@@ -136,7 +136,7 @@ PongBallROMSpec PongBallEntitySpec =
 				__TYPE(PongBall),
 
 				// Component specs
-				(ComponentSpec**)PongBallEntitySpecComponentSpecs,
+				(ComponentSpec**)PongBallEntityComponentSpecs,
 
 				// Children specs
 				NULL,

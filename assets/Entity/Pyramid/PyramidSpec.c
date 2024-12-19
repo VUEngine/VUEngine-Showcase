@@ -66,7 +66,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* PyramidWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PyramidWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -134,7 +134,7 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* PyramidEntitySpecComponentSpecs[] = 
+const ComponentSpec* PyramidEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PyramidWireframeSpec,
 	(ComponentSpec*)&PyramidColliderSpecsCollider1,
@@ -147,7 +147,7 @@ EntityROMSpec PyramidEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)PyramidEntitySpecComponentSpecs,
+	(ComponentSpec**)PyramidEntityComponentSpecs,
 
 	// Children specs
 	NULL,

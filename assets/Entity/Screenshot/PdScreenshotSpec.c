@@ -180,7 +180,7 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* PdScreenshotEntitySpecComponentSpecs[] = 
+const ComponentSpec* PdScreenshotEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PdScreenshotLSpriteSpec,
 	(ComponentSpec*)&PdScreenshotRSpriteSpec,
@@ -193,7 +193,7 @@ EntityROMSpec PdScreenshotEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)PdScreenshotEntitySpecComponentSpecs,
+	(ComponentSpec**)PdScreenshotEntityComponentSpecs,
 
 	// Children specs
 	NULL,

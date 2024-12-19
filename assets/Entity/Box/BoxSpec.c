@@ -151,7 +151,7 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-const ComponentSpec* BoxEntitySpecComponentSpecs[] = 
+const ComponentSpec* BoxEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BoxSpriteSpec,
 	(ComponentSpec*)&BoxColliderSpecsCollider1,
@@ -164,7 +164,7 @@ EntityROMSpec BoxEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)BoxEntitySpecComponentSpecs,
+	(ComponentSpec**)BoxEntityComponentSpecs,
 
 	// Children specs
 	NULL,

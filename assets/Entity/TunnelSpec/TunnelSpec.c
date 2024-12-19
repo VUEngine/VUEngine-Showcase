@@ -258,7 +258,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* TunnelWireframeSpecComponentSpecs[] = 
+const ComponentSpec* TunnelWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -326,7 +326,7 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-const ComponentSpec* TunnelEntitySpecComponentSpecs[] = 
+const ComponentSpec* TunnelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&TunnelWireframeSpec,
 	(ComponentSpec*)&TunnelColliderSpecsCollider1,
@@ -339,7 +339,7 @@ EntityROMSpec TunnelEntitySpec =
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)TunnelEntitySpecComponentSpecs,
+	(ComponentSpec**)TunnelEntityComponentSpecs,
 
 	// Children specs
 	NULL,

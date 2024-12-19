@@ -284,7 +284,7 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* VideoEntitySpecComponentSpecs[] = 
+const ComponentSpec* VideoEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&VideoLSpriteSpec,
 	(ComponentSpec*)&VideoRSpriteSpec,
@@ -298,7 +298,7 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		__TYPE(AnimatedEntity),
 
 		// Component specs
-		(ComponentSpec**)VideoEntitySpecComponentSpecs,
+		(ComponentSpec**)VideoEntityComponentSpecs,
 
 		// Children specs
 		NULL,

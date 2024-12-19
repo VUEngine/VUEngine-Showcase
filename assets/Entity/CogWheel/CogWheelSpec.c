@@ -366,7 +366,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-const ComponentSpec* CogWheelEntitySpecComponentSpecs[] = 
+const ComponentSpec* CogWheelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
 	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
@@ -380,7 +380,7 @@ CogWheelROMSpec CogWheelEntitySpec =
 		__TYPE(CogWheel),
 
 		// Component specs
-		(ComponentSpec**)CogWheelEntitySpecComponentSpecs,
+		(ComponentSpec**)CogWheelEntityComponentSpecs,
 
 		// Children specs
 		NULL,
