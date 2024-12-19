@@ -879,23 +879,13 @@ PunkROMSpec PunkActorSpec =
 
 				// Extra info
 				NULL,
-				
-				
-
-				
-
-				
-
-				
 
 				// Size
 				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
 				// In-game entity's type
-				kTypePunk,
-
-				
+				kTypePunk
 			},
 
 			// pointer to the animation spec for the character
