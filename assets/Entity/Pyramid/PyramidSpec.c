@@ -100,7 +100,7 @@ MeshROMSpec PyramidWireframeSpec =
 };
 
 @COMP_ARRAY_START:PyramidWireframeSpecs
-	(WireframeSpec*)&PyramidWireframeSpec,
+	&PyramidWireframeSpec,
 	
 @COMP_ARRAY_END:PyramidWireframeSpecs
 
@@ -138,7 +138,7 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:PyramidColliderSpecs
-	(ComponentSpec*)&PyramidColliderSpecsCollider1,
+	&PyramidColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:PyramidColliderSpecs

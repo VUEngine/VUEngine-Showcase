@@ -207,7 +207,7 @@ MeshROMSpec BillboardWireframeSpec =
 };
 
 @COMP_ARRAY_START:BillboardWireframeSpecs
-	(WireframeSpec*)&BillboardWireframeSpec,
+	&BillboardWireframeSpec,
 	
 @COMP_ARRAY_END:BillboardWireframeSpecs
 
@@ -245,7 +245,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:BillboardColliderSpecs
-	(ComponentSpec*)&BillboardColliderSpecsCollider1,
+	&BillboardColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:BillboardColliderSpecs

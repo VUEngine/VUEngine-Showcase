@@ -155,7 +155,7 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:BoxColliderSpecs
-	(ComponentSpec*)&BoxColliderSpecsCollider1,
+	&BoxColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:BoxColliderSpecs

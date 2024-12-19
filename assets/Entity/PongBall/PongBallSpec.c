@@ -60,7 +60,7 @@ SphereROMSpec PongBallWireframeSpec =
 };
 
 @COMP_ARRAY_START:PongBallWireframeSpecs
-	(WireframeSpec*)&PongBallWireframeSpec,
+	&PongBallWireframeSpec,
 	
 @COMP_ARRAY_END:PongBallWireframeSpecs
 

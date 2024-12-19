@@ -77,7 +77,7 @@ MeshROMSpec PongPaddleWireframeSpec =
 };
 
 @COMP_ARRAY_START:PongPaddleWireframeSpecs
-	(WireframeSpec*)&PongPaddleWireframeSpec,
+	&PongPaddleWireframeSpec,
 	
 @COMP_ARRAY_END:PongPaddleWireframeSpecs
 

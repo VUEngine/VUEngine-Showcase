@@ -91,8 +91,8 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 	};
 
 @COMP_ARRAY_START:PongWallsColliderSpecs
-	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
-	(ComponentSpec*)&PongWallsColliderSpecsCollider1,
+	&PongWallsColliderSpecsCollider2,
+	&PongWallsColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:PongWallsColliderSpecs

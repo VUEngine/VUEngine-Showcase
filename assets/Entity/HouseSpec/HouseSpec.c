@@ -181,7 +181,7 @@ MeshROMSpec HouseWireframeSpec =
 };
 
 @COMP_ARRAY_START:HouseWireframeSpecs
-	(WireframeSpec*)&HouseWireframeSpec,
+	&HouseWireframeSpec,
 	
 @COMP_ARRAY_END:HouseWireframeSpecs
 
@@ -219,7 +219,7 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:HouseColliderSpecs
-	(ComponentSpec*)&HouseColliderSpecsCollider1,
+	&HouseColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:HouseColliderSpecs

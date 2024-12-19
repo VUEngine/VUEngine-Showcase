@@ -115,7 +115,7 @@ MeshROMSpec StreetWireframeSpec =
 };
 
 @COMP_ARRAY_START:StreetWireframeSpecs
-	(WireframeSpec*)&StreetWireframeSpec,
+	&StreetWireframeSpec,
 	
 @COMP_ARRAY_END:StreetWireframeSpecs
 
@@ -153,7 +153,7 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:StreetColliderSpecs
-	(ComponentSpec*)&StreetColliderSpecsCollider1,
+	&StreetColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:StreetColliderSpecs

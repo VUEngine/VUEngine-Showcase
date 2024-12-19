@@ -370,7 +370,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:CogWheelColliderSpecs
-	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
+	&CogWheelColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:CogWheelColliderSpecs

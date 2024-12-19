@@ -189,7 +189,7 @@ MeshROMSpec BusStopWireframeSpec =
 };
 
 @COMP_ARRAY_START:BusStopWireframeSpecs
-	(WireframeSpec*)&BusStopWireframeSpec,
+	&BusStopWireframeSpec,
 	
 @COMP_ARRAY_END:BusStopWireframeSpecs
 
@@ -227,7 +227,7 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:BusStopColliderSpecs
-	(ComponentSpec*)&BusStopColliderSpecsCollider1,
+	&BusStopColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:BusStopColliderSpecs

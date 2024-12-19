@@ -292,7 +292,7 @@ MeshROMSpec TunnelWireframeSpec =
 };
 
 @COMP_ARRAY_START:TunnelWireframeSpecs
-	(WireframeSpec*)&TunnelWireframeSpec,
+	&TunnelWireframeSpec,
 	
 @COMP_ARRAY_END:TunnelWireframeSpecs
 
@@ -330,7 +330,7 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:TunnelColliderSpecs
-	(ComponentSpec*)&TunnelColliderSpecsCollider1,
+	&TunnelColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:TunnelColliderSpecs

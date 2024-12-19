@@ -170,7 +170,7 @@ ObjectSpriteROMSpec StarSpriteSpec =
 
 SpriteSpec* const StarSpriteSpecs[] =
 {
-	(SpriteSpec*)&StarSpriteSpec,
+	&StarSpriteSpec,
 	NULL
 };
 

@@ -160,7 +160,7 @@ MeshROMSpec LampWireframeSpec =
 };
 
 @COMP_ARRAY_START:LampWireframeSpecs
-	(WireframeSpec*)&LampWireframeSpec,
+	&LampWireframeSpec,
 	
 @COMP_ARRAY_END:LampWireframeSpecs
 
@@ -198,7 +198,7 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 	};
 
 @COMP_ARRAY_START:LampColliderSpecs
-	(ComponentSpec*)&LampColliderSpecsCollider1,
+	&LampColliderSpecsCollider1,
 
 
 @COMP_ARRAY_END:LampColliderSpecs
