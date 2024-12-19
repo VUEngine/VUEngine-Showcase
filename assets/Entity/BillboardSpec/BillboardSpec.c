@@ -173,7 +173,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** BillboardWireframeSpecComponentSpecs[] = 
+const ComponentSpec* BillboardWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:BillboardWireframeSpec@
 };
@@ -250,7 +250,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:BillboardColliderSpecs
 
-ComponentSpec** BillboardEntitySpecComponentSpecs[] = 
+const ComponentSpec* BillboardEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:BillboardEntitySpec@
 };

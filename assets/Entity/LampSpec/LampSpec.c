@@ -126,7 +126,7 @@ const PixelVector LampMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** LampWireframeSpecComponentSpecs[] = 
+const ComponentSpec* LampWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:LampWireframeSpec@
 };
@@ -203,7 +203,7 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:LampColliderSpecs
 
-ComponentSpec** LampEntitySpecComponentSpecs[] = 
+const ComponentSpec* LampEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:LampEntitySpec@
 };

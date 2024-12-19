@@ -43,7 +43,7 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 	},
 };
 
-ComponentSpec** PongPaddleWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PongPaddleWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:PongPaddleWireframeSpec@
 };
@@ -181,7 +181,7 @@ BodyROMSpec PongPaddlePhysicalPropertiesSpec =
 	__I_TO_FIX10_6(8)
 };
 
-ComponentSpec** PongPaddleEntitySpecComponentSpecs[] = 
+const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PongPaddleEntitySpec@
 };

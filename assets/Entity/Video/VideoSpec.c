@@ -290,7 +290,7 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	
 @COMP_ARRAY_END:VideoSpriteSpecs
 
-ComponentSpec** VideoEntitySpecComponentSpecs[] = 
+const ComponentSpec* VideoEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:VideoEntitySpec@
 };

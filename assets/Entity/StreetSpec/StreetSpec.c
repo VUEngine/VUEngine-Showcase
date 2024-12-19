@@ -81,7 +81,7 @@ const PixelVector StreetMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** StreetWireframeSpecComponentSpecs[] = 
+const ComponentSpec* StreetWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:StreetWireframeSpec@
 };
@@ -158,7 +158,7 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:StreetColliderSpecs
 
-ComponentSpec** StreetEntitySpecComponentSpecs[] = 
+const ComponentSpec* StreetEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:StreetEntitySpec@
 };

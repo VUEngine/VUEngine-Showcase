@@ -291,7 +291,7 @@ SolidParticleROMSpec StarParticleSolidSpec =
 	"Vanish",
 };
 
-ComponentSpec** StarsParticleSystemNormalSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemNormalSpecComponentSpecs[] = 
 {
 	@COMPONENTS:StarsParticleSystemNormalSpec@
 };
@@ -374,7 +374,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
-ComponentSpec** StarsParticleSystemPhysicalSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemPhysicalSpecComponentSpecs[] = 
 {
 	@COMPONENTS:StarsParticleSystemPhysicalSpec@
 };
@@ -457,7 +457,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	__ACCELERATED_MOVEMENT
 };
 
-ComponentSpec** StarsParticleSystemSolidSpecComponentSpecs[] = 
+const ComponentSpec* StarsParticleSystemSolidSpecComponentSpecs[] = 
 {
 	@COMPONENTS:StarsParticleSystemSolidSpec@
 };

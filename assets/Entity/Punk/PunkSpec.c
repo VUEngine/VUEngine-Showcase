@@ -795,7 +795,7 @@ ColliderROMSpec PunkColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-ComponentSpec** PunkEntitySpecComponentSpecs[] = 
+const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PunkEntitySpec@
 };
@@ -867,7 +867,7 @@ BodyROMSpec PunkPhysicalPropertiesSpec =
 	__F_TO_FIXED(3)
 };
 
-ComponentSpec** PunkActorSpecComponentSpecs[] = 
+const ComponentSpec* PunkActorSpecComponentSpecs[] = 
 {
 	@COMPONENTS:PunkActorSpec@
 };

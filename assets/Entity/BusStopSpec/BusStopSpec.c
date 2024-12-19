@@ -155,7 +155,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** BusStopWireframeSpecComponentSpecs[] = 
+const ComponentSpec* BusStopWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:BusStopWireframeSpec@
 };
@@ -232,7 +232,7 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:BusStopColliderSpecs
 
-ComponentSpec** BusStopEntitySpecComponentSpecs[] = 
+const ComponentSpec* BusStopEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:BusStopEntitySpec@
 };

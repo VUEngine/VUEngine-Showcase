@@ -66,7 +66,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** PyramidWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PyramidWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:PyramidWireframeSpec@
 };
@@ -143,7 +143,7 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:PyramidColliderSpecs
 
-ComponentSpec** PyramidEntitySpecComponentSpecs[] = 
+const ComponentSpec* PyramidEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PyramidEntitySpec@
 };

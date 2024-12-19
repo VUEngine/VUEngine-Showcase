@@ -147,7 +147,7 @@ const PixelVector HouseMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** HouseWireframeSpecComponentSpecs[] = 
+const ComponentSpec* HouseWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:HouseWireframeSpec@
 };
@@ -224,7 +224,7 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:HouseColliderSpecs
 
-ComponentSpec** HouseEntitySpecComponentSpecs[] = 
+const ComponentSpec* HouseEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:HouseEntitySpec@
 };

@@ -258,7 +258,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 	},
 };
 
-ComponentSpec** TunnelWireframeSpecComponentSpecs[] = 
+const ComponentSpec* TunnelWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:TunnelWireframeSpec@
 };
@@ -335,7 +335,7 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:TunnelColliderSpecs
 
-ComponentSpec** TunnelEntitySpecComponentSpecs[] = 
+const ComponentSpec* TunnelEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:TunnelEntitySpec@
 };

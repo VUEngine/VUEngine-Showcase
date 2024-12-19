@@ -375,7 +375,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:CogWheelColliderSpecs
 
-ComponentSpec** CogWheelEntitySpecComponentSpecs[] = 
+const ComponentSpec* CogWheelEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:CogWheelEntitySpec@
 };

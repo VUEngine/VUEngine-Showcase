@@ -186,7 +186,7 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	
 @COMP_ARRAY_END:PdScreenshotSpriteSpecs
 
-ComponentSpec** PdScreenshotEntitySpecComponentSpecs[] = 
+const ComponentSpec* PdScreenshotEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PdScreenshotEntitySpec@
 };

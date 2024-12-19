@@ -23,7 +23,7 @@
 // DEFINITIONS
 //=========================================================================================================
 
-ComponentSpec** PongBallWireframeSpecComponentSpecs[] = 
+const ComponentSpec* PongBallWireframeSpecComponentSpecs[] = 
 {
 	@COMPONENTS:PongBallWireframeSpec@
 };
@@ -130,7 +130,7 @@ BodyROMSpec PongBallPhysicalPropertiesSpec =
 	__I_TO_FIXED(2)
 };
 
-ComponentSpec** PongBallEntitySpecComponentSpecs[] = 
+const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PongBallEntitySpec@
 };

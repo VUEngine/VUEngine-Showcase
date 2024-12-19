@@ -97,7 +97,7 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 
 @COMP_ARRAY_END:PongWallsColliderSpecs
 
-ComponentSpec** PongWallsEntitySpecComponentSpecs[] = 
+const ComponentSpec* PongWallsEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:PongWallsEntitySpec@
 };

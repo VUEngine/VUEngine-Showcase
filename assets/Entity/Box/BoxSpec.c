@@ -160,7 +160,7 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 
 @COMP_ARRAY_END:BoxColliderSpecs
 
-ComponentSpec** BoxEntitySpecComponentSpecs[] = 
+const ComponentSpec* BoxEntitySpecComponentSpecs[] = 
 {
 	@COMPONENTS:BoxEntitySpec@
 };
