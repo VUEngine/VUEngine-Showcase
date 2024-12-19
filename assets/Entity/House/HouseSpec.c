@@ -22,7 +22,7 @@
 // DEFINITIONS
 //=========================================================================================================
 
-const PixelVector HouseBigMeshesSegments[][2]=
+const PixelVector HouseMeshesSegments[][2]=
 {
 	// base
 	{
@@ -57,64 +57,47 @@ const PixelVector HouseBigMeshesSegments[][2]=
 		{64, -64, -64, 0},
 		{64, -64, 64, 0}
 	},
-	// base fence
-	{
-		{64, 64, 64, 0}, 
-		{64, 64, 320, 0}
-	},
-	{
-		{64, 32, 64, 0}, 
-		{64, 32, 320, 0}
-	},
 
 	// door
 	{
-		{64, 12, -12, 0},
-		{64, 12, 12, 0}
+		{64, 12, -44, 0},
+		{64, 12, -20, 0}
 	},
 	{
-		{64, 64, -12, 0},
-		{64, 12, -12, 0}
+		{64, 64, -44, 0},
+		{64, 12, -44, 0}
 	},
 	{
-		{64, 64, 12, 0},
-		{64, 12, 12, 0}
-	},
-
-	// window 1
-	{
-		{64, 0, -48, 0},
-		{64, 24, -48, 0}
-	},
-	{
-		{64, 0, -24, 0},
-		{64, 24, -24, 0}
-	},
-	{
-		{64, 24, -48, 0},
-		{64, 24, -24, 0}
-	},
-	{
-		{64, 0, -48, 0},
-		{64, 0, -24, 0}
+		{64, 64, -20, 0},
+		{64, 12, -20, 0}
 	},
 
-	// window 2
+	// window
 	{
-		{64, 0, 48, 0},
-		{64, -24, 48, 0}
+		{64, 0, 8, 0},
+		{64, 32, 8, 0}
 	},
 	{
-		{64, 0, 24, 0},
-		{64, -24, 24, 0}
+		{64, 0, 40, 0},
+		{64, 32, 40, 0}
 	},
 	{
-		{64, -24, 48, 0},
-		{64, -24, 24, 0}
+		{64, 32, 8, 0},
+		{64, 32, 40, 0}
 	},
 	{
-		{64, 0, 48, 0},
-		{64, 0, 24, 0}
+		{64, 0, 8, 0},
+		{64, 0, 40, 0}
+	},
+
+	// base fence
+	{
+		{64, 64, 64, 0}, 
+		{64, 64, 192, 0}
+	},
+	{
+		{64, 32, 64, 0}, 
+		{64, 32, 192, 0}
 	},
 
 	// vertex
@@ -136,25 +119,25 @@ const PixelVector HouseBigMeshesSegments[][2]=
 	},
 	// vertex pyramid
 	{
-		{0, -192, 0, 0},
+		{0, -128, 0, 0},
 		{-64, -64, -64, 0}
 	},
 	{
-		{0, -192, 0, 0},
+		{0, -128, 0, 0},
 		{-64, -64, 64, 0}
 	},
 	{
-		{0, -192, 0, 0},
+		{0, -128, 0, 0},
 		{64, -64, -64, 0} 
 	},
 	{
-		{0, -192, 0, 0},
+		{0, -128, 0, 0},
 		{64, -64, 64, 0}
 	},
 	//vertex fence
 	{
-		{64, 32, 320, 0},
-		{64, 64, 320, 0} 
+		{64, 32, 192, 0},
+		{64, 64, 192, 0} 
 	},
 
 	// limiter
@@ -164,12 +147,12 @@ const PixelVector HouseBigMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* HouseBigWireframeComponentSpecs[] = 
+const ComponentSpec* HouseWireframeComponentSpecs[] = 
 {
 	NULL
 };
 
-MeshROMSpec HouseBigWireframeSpec =
+MeshROMSpec HouseWireframeSpec =
 {
 	{
 		// Component
@@ -181,6 +164,7 @@ MeshROMSpec HouseBigWireframeSpec =
 			kWireframeComponent
 		},
 
+		// displacement
 		{0, 0, 0},
 		
 		// color
@@ -194,58 +178,22 @@ MeshROMSpec HouseBigWireframeSpec =
 	},
 
 	// segments
-	(PixelVector(*)[2])HouseBigMeshesSegments
+	(PixelVector(*)[2])HouseMeshesSegments
 };
 
-
-
-ColliderROMSpec HouseBigColliderSpec1 =
-	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
-
-			// Component type
-			kColliderComponent
-		},
-
-		// Size (x, y, z)
-		{128, 128, 128},
-
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
-
-		// if true this collider checks for collisions against other colliders
-		false,
-
-		// layers in which I live
-		kLayerNone,
-
-		// layers to ignore when checking for collisions
-		kLayerNone
-	};
-
-const ComponentSpec* HouseBigEntityComponentSpecs[] = 
+const ComponentSpec* HouseEntityComponentSpecs[] = 
 {
-	(ComponentSpec*)&HouseBigWireframeSpec,
-	(ComponentSpec*)&HouseBigColliderSpec1,
+	(ComponentSpec*)&HouseWireframeSpec,
 	NULL
 };
 
-EntityROMSpec HouseBigEntitySpec =
+EntityROMSpec HouseEntitySpec =
 {
 	// Class allocator	
 	__TYPE(Entity),
 
 	// Component specs
-	(ComponentSpec**)HouseBigEntityComponentSpecs,
+	(ComponentSpec**)HouseEntityComponentSpecs,
 
 	// Children specs
 	NULL,

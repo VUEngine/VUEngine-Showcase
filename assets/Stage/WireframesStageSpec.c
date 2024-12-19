@@ -42,7 +42,6 @@ extern EntitySpec CurveLeftEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-
 	{&HouseBigEntitySpec, {-192, -8, 896}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&TunnelEntitySpec, {0, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&HouseEntitySpec, {192,-8, 896}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},

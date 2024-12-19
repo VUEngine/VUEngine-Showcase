@@ -214,8 +214,14 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 MeshROMSpec CurveLeftWireframeSpec =
 {
 	{
-		// class allocator
-		__TYPE(Mesh),
+		// Component
+		{
+			// Allocator
+			__TYPE(Mesh),
+
+			// Component type
+			kWireframeComponent
+		},
 
 		// displacement
 		{0, 0, 0},
@@ -234,63 +240,30 @@ MeshROMSpec CurveLeftWireframeSpec =
 	(PixelVector(*)[2])CurveLeftMeshesSegments
 };
 
-ColliderROMSpec CurveLeftColliderSpec =
-{
-	{
-		// Allocator
-		__TYPE(Ball),
-
-		// ComponentType
-		kColliderComponent
-	},
-
-	// size (x, y, z)
-	{128, 128, 128},
-
-	// displacement (x, y, z, p)
-	{0, 0, 0, 0},
-
-	// rotation (x, y, z)
-	{0, 0, 0},
-
-	// scale (x, y, z)
-	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
-
-	// if true this collider checks for collisions against other colliders
-	false,
-
-	// layers in which I live
-	kLayerNone,
-
-	// layers to ignore when checking for collisions
-	kLayerNone
-};
-
 ComponentSpec* const CurveLeftComponentSpecs[] =
 {
 	(ComponentSpec*)&CurveLeftWireframeSpec,
-	(ComponentSpec*)&CurveLeftColliderSpec,
 	NULL
 };
 
 EntityROMSpec CurveLeftEntitySpec =
 {
-	// class allocator
+	// Class allocator
 	__TYPE(Entity),
-
-	// children
-	NULL,
 
 	// Components
 	(ComponentSpec**)CurveLeftComponentSpecs,
 
-	// extra
+	// Children specs
 	NULL,
 
-	// size
-	// if 0, width and height will be inferred from the first sprite's texture's size
+	// Extra info
+	NULL,
+
+	// Size
+	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// gameworld's character's type
+	/// Entity's in-game type
 	kTypeNone
 };

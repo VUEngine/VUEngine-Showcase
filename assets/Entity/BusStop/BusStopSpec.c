@@ -172,6 +172,7 @@ MeshROMSpec BusStopWireframeSpec =
 			kWireframeComponent
 		},
 
+		// displacement
 		{0, 0, 0},
 		
 		// color
@@ -188,45 +189,9 @@ MeshROMSpec BusStopWireframeSpec =
 	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-
-
-ColliderROMSpec BusStopColliderSpec1 =
-	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
-
-			// Component type
-			kColliderComponent
-		},
-
-		// Size (x, y, z)
-		{128, 128, 128},
-
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
-
-		// if true this collider checks for collisions against other colliders
-		false,
-
-		// layers in which I live
-		kLayerNone,
-
-		// layers to ignore when checking for collisions
-		kLayerNone
-	};
-
 const ComponentSpec* BusStopEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
-	(ComponentSpec*)&BusStopColliderSpec1,
 	NULL
 };
 
