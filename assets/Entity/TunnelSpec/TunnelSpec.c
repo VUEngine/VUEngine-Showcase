@@ -329,7 +329,7 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 const ComponentSpec* TunnelEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&TunnelWireframeSpec,
-    (ComponentSpec*)&TunnelColliderSpecsCollider1,
+	(ComponentSpec*)&TunnelColliderSpecsCollider1,
 	NULL
 };
 

@@ -152,7 +152,7 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 const ComponentSpec* StreetEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&StreetWireframeSpec,
-    (ComponentSpec*)&StreetColliderSpecsCollider1,
+	(ComponentSpec*)&StreetColliderSpecsCollider1,
 	NULL
 };
 

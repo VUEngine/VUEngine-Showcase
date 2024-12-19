@@ -197,7 +197,7 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 const ComponentSpec* LampEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&LampWireframeSpec,
-    (ComponentSpec*)&LampColliderSpecsCollider1,
+	(ComponentSpec*)&LampColliderSpecsCollider1,
 	NULL
 };
 

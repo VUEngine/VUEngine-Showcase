@@ -93,7 +93,7 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 const ComponentSpec* PongWallsEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
-    (ComponentSpec*)&PongWallsColliderSpecsCollider1,
+	(ComponentSpec*)&PongWallsColliderSpecsCollider1,
 	NULL
 };
 

@@ -226,7 +226,7 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 const ComponentSpec* BusStopEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
-    (ComponentSpec*)&BusStopColliderSpecsCollider1,
+	(ComponentSpec*)&BusStopColliderSpecsCollider1,
 	NULL
 };
 

@@ -235,7 +235,7 @@ ColliderROMSpec HouseBigColliderSpecsCollider1 =
 const ComponentSpec* HouseBigEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseBigWireframeSpec,
-    (ComponentSpec*)&HouseBigColliderSpecsCollider1,
+	(ComponentSpec*)&HouseBigColliderSpecsCollider1,
 	NULL
 };
 

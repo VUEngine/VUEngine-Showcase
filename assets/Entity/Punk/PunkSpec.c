@@ -786,7 +786,7 @@ ColliderROMSpec PunkColliderSpecs[] =
 const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkAffineSpriteSpec,
-    (ComponentSpec*)&PunkAffineBlackSpriteSpec,
+	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
 /*
 * VUEngine Showcase
 *
@@ -867,9 +867,9 @@ BodyROMSpec PunkPhysicalPropertiesSpec =
 
 const ComponentSpec* PunkActorSpecComponentSpecs[] = 
 {
-	    (ComponentSpec*)&PunkPhysicalPropertiesSpec
-    (ComponentSpec*)&PunkSpriteSpec,
-    (ComponentSpec*)&PunkBlackSpriteSpec,
+		(ComponentSpec*)&PunkPhysicalPropertiesSpec
+	(ComponentSpec*)&PunkSpriteSpec,
+	(ComponentSpec*)&PunkBlackSpriteSpec,
 /*
 * VUEngine Showcase
 *

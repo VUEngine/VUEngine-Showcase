@@ -287,7 +287,7 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 const ComponentSpec* VideoEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&VideoLSpriteSpec,
-    (ComponentSpec*)&VideoRSpriteSpec,
+	(ComponentSpec*)&VideoRSpriteSpec,
 	NULL
 };
 

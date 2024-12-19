@@ -76,8 +76,8 @@ AnimationFunctionROMSpec StarVanishAnimationSpec =
 // an animation spec
 AnimationFunctionROMSpec* const StarAnimationSpecs[] =
 {
-    (AnimationFunction*)&StarDefaultAnimationSpec,
-    (AnimationFunction*)&StarVanishAnimationSpec,
+	(AnimationFunction*)&StarDefaultAnimationSpec,
+	(AnimationFunction*)&StarVanishAnimationSpec,
     NULL,
 };
 

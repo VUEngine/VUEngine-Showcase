@@ -137,7 +137,7 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 const ComponentSpec* PyramidEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&PyramidWireframeSpec,
-    (ComponentSpec*)&PyramidColliderSpecsCollider1,
+	(ComponentSpec*)&PyramidColliderSpecsCollider1,
 	NULL
 };
 

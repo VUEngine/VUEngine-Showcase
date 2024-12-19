@@ -183,7 +183,7 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 const ComponentSpec* PdScreenshotEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&PdScreenshotLSpriteSpec,
-    (ComponentSpec*)&PdScreenshotRSpriteSpec,
+	(ComponentSpec*)&PdScreenshotRSpriteSpec,
 	NULL
 };
 

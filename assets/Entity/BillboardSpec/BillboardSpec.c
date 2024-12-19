@@ -244,7 +244,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 const ComponentSpec* BillboardEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&BillboardWireframeSpec,
-    (ComponentSpec*)&BillboardColliderSpecsCollider1,
+	(ComponentSpec*)&BillboardColliderSpecsCollider1,
 	NULL
 };
 

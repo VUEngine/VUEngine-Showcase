@@ -155,7 +155,7 @@ StageROMSpec VideoPlayerStageSpec =
             },
 
             // brightness repeat
-            (BrightnessRepeatSpec*)NULL,
+        	(BrightnessRepeatSpec*)NULL,
         },
 
         // palettes' config
@@ -244,10 +244,10 @@ StageROMSpec VideoPlayerStageSpec =
     // assets
     {
         // fonts to preload
-        (FontSpec**)VideoPlayerStageFontSpecs,
+    	(FontSpec**)VideoPlayerStageFontSpecs,
 
         // char sets to preload
-        (CharSetSpec**)NULL,
+    	(CharSetSpec**)NULL,
 
         // textures to preload
 		(TextureSpec**)NULL,
@@ -265,7 +265,7 @@ StageROMSpec VideoPlayerStageSpec =
         },
 
         // children
-        (PositionedEntity*)VideoPlayerStageChildren,
+    	(PositionedEntity*)VideoPlayerStageChildren,
     },
 
 	// post processing effects

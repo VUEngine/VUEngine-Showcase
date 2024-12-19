@@ -154,7 +154,7 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 const ComponentSpec* BoxEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&BoxSpriteSpec,
-    (ComponentSpec*)&BoxColliderSpecsCollider1,
+	(ComponentSpec*)&BoxColliderSpecsCollider1,
 	NULL
 };
 

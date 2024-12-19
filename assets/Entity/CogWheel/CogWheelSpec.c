@@ -369,7 +369,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 const ComponentSpec* CogWheelEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
-    (ComponentSpec*)&CogWheelColliderSpecsCollider1,
+	(ComponentSpec*)&CogWheelColliderSpecsCollider1,
 	NULL
 };
 
