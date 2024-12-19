@@ -257,8 +257,11 @@ const ComponentSpec* BillboardEntitySpecComponentSpecs[] =
 
 EntityROMSpec BillboardEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)BillboardEntitySpecComponentSpecs,
 
 	// children
 	NULL,

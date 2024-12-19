@@ -805,8 +805,11 @@ const ComponentSpec* PunkEntitySpecComponentSpecs[] =
 AnimatedEntityROMSpec PunkEntitySpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(AnimatedEntity),
+
+		// Components
+		(ComponentSpecs**)PunkEntitySpecComponentSpecs,
 
 		// children
 		NULL,
@@ -879,8 +882,11 @@ PunkROMSpec PunkActorSpec =
 	{	
 		{
 			{
-				// class allocator
+				// class allocator				
 				__TYPE(Punk),
+
+				// Components
+				(ComponentSpecs**)PunkActorSpecComponentSpecs,
 
 				// children
 				NULL,

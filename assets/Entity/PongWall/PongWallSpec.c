@@ -104,8 +104,11 @@ const ComponentSpec* PongWallsEntitySpecComponentSpecs[] =
 
 EntityROMSpec PongWallsEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)PongWallsEntitySpecComponentSpecs,
 
 	// children
 	NULL,

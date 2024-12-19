@@ -248,8 +248,11 @@ const ComponentSpec* HouseBigEntitySpecComponentSpecs[] =
 
 EntityROMSpec HouseBigEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)HouseBigEntitySpecComponentSpecs,
 
 	// children
 	NULL,

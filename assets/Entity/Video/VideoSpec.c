@@ -298,8 +298,11 @@ const ComponentSpec* VideoEntitySpecComponentSpecs[] =
 AnimatedEntityROMSpec VideoEntitySpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(AnimatedEntity),
+
+		// Components
+		(ComponentSpecs**)VideoEntitySpecComponentSpecs,
 
 		// children
 		NULL,

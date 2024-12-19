@@ -239,8 +239,11 @@ const ComponentSpec* BusStopEntitySpecComponentSpecs[] =
 
 EntityROMSpec BusStopEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)BusStopEntitySpecComponentSpecs,
 
 	// children
 	NULL,

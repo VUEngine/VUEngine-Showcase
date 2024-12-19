@@ -167,8 +167,11 @@ const ComponentSpec* BoxEntitySpecComponentSpecs[] =
 
 EntityROMSpec BoxEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)BoxEntitySpecComponentSpecs,
 
 	// children
 	NULL,

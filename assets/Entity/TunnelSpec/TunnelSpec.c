@@ -342,8 +342,11 @@ const ComponentSpec* TunnelEntitySpecComponentSpecs[] =
 
 EntityROMSpec TunnelEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)TunnelEntitySpecComponentSpecs,
 
 	// children
 	NULL,

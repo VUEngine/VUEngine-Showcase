@@ -140,8 +140,11 @@ PongBallROMSpec PongBallEntitySpec =
 	{
 		{
 			{
-				// class allocator
+				// class allocator				
 				__TYPE(PongBall),
+
+				// Components
+				(ComponentSpecs**)PongBallEntitySpecComponentSpecs,
 
 				// children
 				NULL,

@@ -191,8 +191,11 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 	{
 		{
 			{
-				// class allocator
+				// class allocator				
 				__TYPE(PongPaddle),
+
+				// Components
+				(ComponentSpecs**)PongPaddleEntitySpecComponentSpecs,
 
 				// children
 				NULL,

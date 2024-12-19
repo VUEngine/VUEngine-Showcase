@@ -193,8 +193,11 @@ const ComponentSpec* PdScreenshotEntitySpecComponentSpecs[] =
 
 EntityROMSpec PdScreenshotEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)PdScreenshotEntitySpecComponentSpecs,
 
 	// children
 	NULL,

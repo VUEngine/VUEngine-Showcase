@@ -150,8 +150,11 @@ const ComponentSpec* PyramidEntitySpecComponentSpecs[] =
 
 EntityROMSpec PyramidEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)PyramidEntitySpecComponentSpecs,
 
 	// children
 	NULL,

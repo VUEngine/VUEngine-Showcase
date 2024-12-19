@@ -165,8 +165,11 @@ const ComponentSpec* StreetEntitySpecComponentSpecs[] =
 
 EntityROMSpec StreetEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)StreetEntitySpecComponentSpecs,
 
 	// children
 	NULL,

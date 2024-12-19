@@ -210,8 +210,11 @@ const ComponentSpec* LampEntitySpecComponentSpecs[] =
 
 EntityROMSpec LampEntitySpec =
 {
-	// class allocator
+	// class allocator	
 	__TYPE(Entity),
+
+	// Components
+	(ComponentSpecs**)LampEntitySpecComponentSpecs,
 
 	// children
 	NULL,

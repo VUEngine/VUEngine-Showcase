@@ -298,8 +298,11 @@ const ComponentSpec* StarsParticleSystemNormalSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(ParticleSystem),
+
+		// Components
+		(ComponentSpecs**)StarsParticleSystemNormalSpecComponentSpecs,
 
 		// children
 		NULL,
@@ -381,8 +384,11 @@ const ComponentSpec* StarsParticleSystemPhysicalSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(ParticleSystem),
+
+		// Components
+		(ComponentSpecs**)StarsParticleSystemPhysicalSpecComponentSpecs,
 
 		// children
 		NULL,
@@ -464,8 +470,11 @@ const ComponentSpec* StarsParticleSystemSolidSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(ParticleSystem),
+
+		// Components
+		(ComponentSpecs**)StarsParticleSystemSolidSpecComponentSpecs,
 
 		// children
 		NULL,

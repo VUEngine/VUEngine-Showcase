@@ -383,8 +383,11 @@ const ComponentSpec* CogWheelEntitySpecComponentSpecs[] =
 CogWheelROMSpec CogWheelEntitySpec =
 {
 	{
-		// class allocator
+		// class allocator		
 		__TYPE(CogWheel),
+
+		// Components
+		(ComponentSpecs**)CogWheelEntitySpecComponentSpecs,
 
 		// children
 		NULL,
