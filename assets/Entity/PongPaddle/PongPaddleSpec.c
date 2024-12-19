@@ -76,79 +76,70 @@ MeshROMSpec PongPaddleWireframeSpec =
 	(PixelVector(*)[2])PongPaddleWireframeSpecSegments
 };
 
-
-
-ColliderROMSpec PongPaddleColliderSpecs[] =
+ColliderROMSpec PongPaddleColliderSpec1 =
 {
-	// wall collider
-	ColliderROMSpec @COLLIDER_NAME@ =
+	// Component
 	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
+		// Allocator
+		__TYPE(Ball),
 
-			// Component type
-			kColliderComponent
-		},
+		// Component type
+		kColliderComponent
+	},
 
-		// size (x, y, z)
-		{16, 20, 16},
+	// size (x, y, z)
+	{16, 20, 16},
 
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
 
-		// rotation (x, y, z)
-		{0, 0, 0},
+	// rotation (x, y, z)
+	{0, 0, 0},
 
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
+	// scale (x, y, z)
+	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
-		true,
+	// if true this collider checks for collisions against other colliders
+	true,
 
-		// layers in which I live
-		kLayerPongPaddleHelper,
+	// layers in which I live
+	kLayerPongPaddleHelper,
 
-		// layers to ignore when checking for collisions
-		kLayerAll & ~(kLayerPongWalls)
-	};
+	// layers to ignore when checking for collisions
+	kLayerAll & ~(kLayerPongWalls)
+};
 
-	// collider
-	ColliderROMSpec @COLLIDER_NAME@ =
+ColliderROMSpec PongPaddleColliderSpec2 =
+{
+	// Component
 	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Box),
+		// Allocator
+		__TYPE(Box),
 
-			// Component type
-			kColliderComponent
-		},
+		// Component type
+		kColliderComponent
+	},
 
-		// size (x, y, z)
-		{3, 20, 16},
+	// size (x, y, z)
+	{3, 20, 16},
 
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
 
-		// rotation (x, y, z)
-		{0, 0, 0},
+	// rotation (x, y, z)
+	{0, 0, 0},
 
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
+	// scale (x, y, z)
+	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
-		false,
+	// if true this collider checks for collisions against other colliders
+	false,
 
-		// layers in which I live
-		kLayerPongPaddle,
+	// layers in which I live
+	kLayerPongPaddle,
 
-		// layers to ignore when checking for collisions
-		kLayerAll
-	};
-
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+	// layers to ignore when checking for collisions
+	kLayerAll
 };
 
 BodyROMSpec PongPaddleBodySpecSpec =
@@ -180,16 +171,10 @@ BodyROMSpec PongPaddleBodySpecSpec =
 
 const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
 {
-		(ComponentSpec*)&PongPaddleBodySpecSpec
+	(ComponentSpec*)&PongPaddleBodySpecSpec,
 	(ComponentSpec*)&PongPaddleWireframeSpec,
-/*
-* VUEngine Showcase
-*
-* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
-*
-* For the full copyright and license information, please view the LICENSE file
-* that was distributed with this source code.
-*/
+	(ComponentSpec*)&PongPaddleColliderSpec1,
+	(ComponentSpec*)&PongPaddleColliderSpec2,
 	NULL
 };
 

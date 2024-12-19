@@ -59,48 +59,40 @@ SphereROMSpec PongBallWireframeSpec =
 	true,
 };
 
-
-
-ColliderROMSpec PongBallColliderSpecs[] =
+ColliderROMSpec PongBallCollider =
 {
-	// ball
-	ColliderROMSpec @COLLIDER_NAME@ =
+	// Component
 	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
+		// Allocator
+		__TYPE(Ball),
 
-			// Component type
-			kColliderComponent
-		},
+		// Component type
+		kColliderComponent
+	},
 
-		// size (x, y, z)
-		{6, 6, 6},
+	// size (x, y, z)
+	{6, 6, 6},
 
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
 
-		// rotation (x, y, z)
-		{0, 0, 0},
+	// rotation (x, y, z)
+	{0, 0, 0},
 
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
+	// scale (x, y, z)
+	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
-		true,
+	// if true this collider checks for collisions against other colliders
+	true,
 
-		// layers in which I live
-		kLayerPongBall,
+	// layers in which I live
+	kLayerPongBall,
 
-		// layers to ignore when checking for collisions
-		kLayerAll & ~(kLayerPongWalls | kLayerPongPaddle)
-	};
-
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+	// layers to ignore when checking for collisions
+	kLayerAll & ~(kLayerPongWalls | kLayerPongPaddle)
 };
 
-BodyROMSpec PongBallBodySpecSpec =
+BodyROMSpec PongBallBodySpec =
 {
 	// Component
 	{
@@ -129,8 +121,9 @@ BodyROMSpec PongBallBodySpecSpec =
 
 const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)&PongBallBodySpecSpec,
+	(ComponentSpec*)&PongBallBodySpec,
 	(ComponentSpec*)&PongBallWireframeSpec,
+	(ComponentSpec*)&PongBallCollider,
 	NULL
 };
 

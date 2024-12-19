@@ -740,61 +740,44 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-
-
-
-@COLLIDER_DEFS:PunkColliderSpecs@
-	ColliderROMSpec @COLLIDER_NAME@ =
-	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Box),
-
-			// Component type
-			kColliderComponent
-		},
-
-		// size (x, y, z)
-		{16, 38, 24},
-
-		// displacement (x, y, z, p)
-		{0, 1, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{0, 0, 0},
-
-		// if true this collider checks for collisions against other colliders
-		true,
-
-		// layers in which I live
-		kLayerPunk,
-
-		// layers to ignore when checking for collisions
-		~(kLayerSolid | kLayerDangers),
-	};
-@COLLIDER_DEFS_END:PunkColliderSpecs@
-
-ColliderROMSpec PunkColliderSpecs[] =
+ColliderROMSpec PunkColliderSpec =
 {
-	@COLLIDER_REFS:PunkColliderSpecs@
+	// Component
+	{
+		// Allocator
+		__TYPE(Box),
+
+		// Component type
+		kColliderComponent
+	},
+
+	// size (x, y, z)
+	{16, 38, 24},
+
+	// displacement (x, y, z, p)
+	{0, 1, 0, 0},
+
+	// rotation (x, y, z)
+	{0, 0, 0},
+
+	// scale (x, y, z)
+	{0, 0, 0},
+
+	// if true this collider checks for collisions against other colliders
+	true,
+
+	// layers in which I live
+	kLayerPunk,
+
+	// layers to ignore when checking for collisions
+	~(kLayerSolid | kLayerDangers),
 };
 
 const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkAffineSpriteSpec,
 	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
-/*
-* VUEngine Showcase
-*
-* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
-*
-* For the full copyright and license information, please view the LICENSE file
-* that was distributed with this source code.
-*/
+	(ComponentSpec*)&PunkColliderSpec,
 	NULL
 };
 
@@ -838,7 +821,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 	"Move"
 };
 
-BodyROMSpec PunkBodySpecSpec =
+BodyROMSpec PunkBodySpec =
 {
 	// Component
 	{
@@ -865,19 +848,18 @@ BodyROMSpec PunkBodySpecSpec =
 	__F_TO_FIXED(3)
 };
 
-const ComponentSpec* PunkActorSpecComponentSpecs[] = 
+const ComponentSpec* PunkActorComponentSpecs[] = 
 {
-		(ComponentSpec*)&PunkBodySpecSpec
+	(ComponentSpec*)&PunkBodySpec,
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
-/*
-* VUEngine Showcase
-*
-* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
-*
-* For the full copyright and license information, please view the LICENSE file
-* that was distributed with this source code.
-*/
+	NULL
+};
+
+const ComponentSpec* PunkActorDyingComponentSpecs[] = 
+{
+	(ComponentSpec*)&PunkSpriteSpec,
+	(ComponentSpec*)&PunkBlackSpriteSpec,
 	NULL
 };
 
@@ -890,7 +872,7 @@ PunkROMSpec PunkActorSpec =
 				__TYPE(Punk),
 
 				// Components
-				(ComponentSpec**)PunkActorSpecComponentSpecs,
+				(ComponentSpec**)PunkActorComponentSpecs,
 
 				// children
 				NULL,

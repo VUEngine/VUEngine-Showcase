@@ -234,41 +234,43 @@ MeshROMSpec CurveLeftWireframeSpec =
 	(PixelVector(*)[2])CurveLeftMeshesSegments
 };
 
-WireframeROMSpec* const CurveLeftWireframeSpecs[] =
-{
-	(WireframeSpec*)&CurveLeftWireframeSpec,
-	NULL
-};
-
-ColliderROMSpec CurveLeftColliderSpecs[] =
+ColliderROMSpec CurveLeftColliderSpec =
 {
 	{
-		// collider
+		// Allocator
 		__TYPE(Ball),
 
-		// size (x, y, z)
-		{128, 128, 128},
-
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
-
-		// rotation (x, y, z)
-		{0, 0, 0},
-
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
-
-		// if true this collider checks for collisions against other colliders
-		false,
-
-		// layers in which I live
-		kLayerNone,
-
-		// layers to ignore when checking for collisions
-		kLayerNone
+		// ComponentType
+		kColliderComponent
 	},
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+	// size (x, y, z)
+	{128, 128, 128},
+
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
+
+	// rotation (x, y, z)
+	{0, 0, 0},
+
+	// scale (x, y, z)
+	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
+
+	// if true this collider checks for collisions against other colliders
+	false,
+
+	// layers in which I live
+	kLayerNone,
+
+	// layers to ignore when checking for collisions
+	kLayerNone
+};
+
+ComponentSpec* const CurveLeftComponentSpecs[] =
+{
+	(ComponentSpec*)&CurveLeftWireframeSpec,
+	(ComponentSpec*)&CurveLeftColliderSpec,
+	NULL
 };
 
 EntityROMSpec CurveLeftEntitySpec =
@@ -279,23 +281,11 @@ EntityROMSpec CurveLeftEntitySpec =
 	// children
 	NULL,
 
-	// behaviors
-	(BehaviorSpec**)NULL,
+	// Components
+	(ComponentSpec**)CurveLeftComponentSpecs,
 
 	// extra
 	NULL,
-
-	// sprites
-	(SpriteSpec**)NULL,
-
-	// use z displacement in projection
-	false,
-
-	// Wireframes
-	(WireframeSpec**)CurveLeftWireframeSpecs,
-
-	// collision colliders
-	(ColliderSpec*)CurveLeftColliderSpecs,
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
