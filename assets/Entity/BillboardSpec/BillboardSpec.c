@@ -175,7 +175,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 
 const ComponentSpec* BillboardWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:BillboardWireframeSpec@
+	NULL
 };
 
 MeshROMSpec BillboardWireframeSpec =
@@ -206,10 +206,7 @@ MeshROMSpec BillboardWireframeSpec =
 	(PixelVector(*)[2])BillboardMeshesSegments
 };
 
-@COMP_ARRAY_START:BillboardWireframeSpecs
-	&BillboardWireframeSpec,
-	
-@COMP_ARRAY_END:BillboardWireframeSpecs
+
 
 ColliderROMSpec BillboardColliderSpecsCollider1 =
 	{
@@ -244,15 +241,13 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:BillboardColliderSpecs
-	&BillboardColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:BillboardColliderSpecs
 
 const ComponentSpec* BillboardEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:BillboardEntitySpec@
+	(ComponentSpec*)BillboardWireframeSpec,
+    (ComponentSpec*)BillboardColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec BillboardEntitySpec =
@@ -266,19 +261,19 @@ EntityROMSpec BillboardEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)BillboardWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)BillboardColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -287,5 +282,5 @@ EntityROMSpec BillboardEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

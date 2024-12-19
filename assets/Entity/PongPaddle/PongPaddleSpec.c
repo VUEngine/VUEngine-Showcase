@@ -45,7 +45,7 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 
 const ComponentSpec* PongPaddleWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:PongPaddleWireframeSpec@
+	NULL
 };
 
 MeshROMSpec PongPaddleWireframeSpec =
@@ -76,10 +76,7 @@ MeshROMSpec PongPaddleWireframeSpec =
 	(PixelVector(*)[2])PongPaddleWireframeSpecSegments
 };
 
-@COMP_ARRAY_START:PongPaddleWireframeSpecs
-	&PongPaddleWireframeSpec,
-	
-@COMP_ARRAY_END:PongPaddleWireframeSpecs
+
 
 ColliderROMSpec PongPaddleColliderSpecs[] =
 {
@@ -183,7 +180,17 @@ BodyROMSpec PongPaddlePhysicalPropertiesSpec =
 
 const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PongPaddleEntitySpec@
+	    (ComponentSpec*)PongPaddlePhysicalPropertiesSpec
+    (ComponentSpec*)PongPaddleWireframeSpec,
+/*
+* VUEngine Showcase
+*
+* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+*
+* For the full copyright and license information, please view the LICENSE file
+* that was distributed with this source code.
+*/
+	NULL
 };
 
 PongPaddleROMSpec PongPaddleEntitySpec =
@@ -200,19 +207,19 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				// children
 				NULL,
 
-				@BEHAVIORS:NULL@,
+				
 
 				// extra
 				NULL,
 
-				@SPRITES:(SpriteSpec**)NULL@,
+				
 
 				// use z displacement in projection
 				false,
 			
-				@WIREFRAMES:(WireframeSpec**)PongPaddleWireframeSpecs@,
+				
 
-				@COLLIDERS:(ColliderSpec*)PongPaddleColliderSpecs@,
+				
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -221,7 +228,7 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				// gameworld's character's type
 				kTypePongPaddle,
 
-				@PHYSICS:(PhysicalProperties*)&PongPaddlePhysicalPropertiesSpec@,
+				
 			},
 
 			// pointer to the animation spec for the item

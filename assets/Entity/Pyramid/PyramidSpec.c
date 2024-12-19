@@ -68,7 +68,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 
 const ComponentSpec* PyramidWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:PyramidWireframeSpec@
+	NULL
 };
 
 MeshROMSpec PyramidWireframeSpec =
@@ -99,10 +99,7 @@ MeshROMSpec PyramidWireframeSpec =
 	(PixelVector(*)[2])PyramidMeshesSegments
 };
 
-@COMP_ARRAY_START:PyramidWireframeSpecs
-	&PyramidWireframeSpec,
-	
-@COMP_ARRAY_END:PyramidWireframeSpecs
+
 
 ColliderROMSpec PyramidColliderSpecsCollider1 =
 	{
@@ -137,15 +134,13 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:PyramidColliderSpecs
-	&PyramidColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:PyramidColliderSpecs
 
 const ComponentSpec* PyramidEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PyramidEntitySpec@
+	(ComponentSpec*)PyramidWireframeSpec,
+    (ComponentSpec*)PyramidColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec PyramidEntitySpec =
@@ -159,19 +154,19 @@ EntityROMSpec PyramidEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)PyramidWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)PyramidColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -180,5 +175,5 @@ EntityROMSpec PyramidEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

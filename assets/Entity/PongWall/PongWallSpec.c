@@ -90,16 +90,13 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 		kLayerAll,
 	};
 
-@COMP_ARRAY_START:PongWallsColliderSpecs
-	&PongWallsColliderSpecsCollider2,
-	&PongWallsColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:PongWallsColliderSpecs
 
 const ComponentSpec* PongWallsEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PongWallsEntitySpec@
+	(ComponentSpec*)PongWallsColliderSpecsCollider2,
+    (ComponentSpec*)PongWallsColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec PongWallsEntitySpec =
@@ -113,19 +110,19 @@ EntityROMSpec PongWallsEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)PongWallsColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -134,5 +131,5 @@ EntityROMSpec PongWallsEntitySpec =
 	// gameworld's character's type
 	kTypePongWall,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

@@ -157,7 +157,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 
 const ComponentSpec* BusStopWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:BusStopWireframeSpec@
+	NULL
 };
 
 MeshROMSpec BusStopWireframeSpec =
@@ -188,10 +188,7 @@ MeshROMSpec BusStopWireframeSpec =
 	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-@COMP_ARRAY_START:BusStopWireframeSpecs
-	&BusStopWireframeSpec,
-	
-@COMP_ARRAY_END:BusStopWireframeSpecs
+
 
 ColliderROMSpec BusStopColliderSpecsCollider1 =
 	{
@@ -226,15 +223,13 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:BusStopColliderSpecs
-	&BusStopColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:BusStopColliderSpecs
 
 const ComponentSpec* BusStopEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:BusStopEntitySpec@
+	(ComponentSpec*)BusStopWireframeSpec,
+    (ComponentSpec*)BusStopColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec BusStopEntitySpec =
@@ -248,19 +243,19 @@ EntityROMSpec BusStopEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)BusStopWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)BusStopColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -269,5 +264,5 @@ EntityROMSpec BusStopEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

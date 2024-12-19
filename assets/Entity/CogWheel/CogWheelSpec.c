@@ -330,10 +330,7 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 };
 
 
-@COMP_ARRAY_START:CogWheelSpriteSpecs
-	&CogWheelBgmapSpriteAffineSpec,
-	
-@COMP_ARRAY_END:CogWheelSpriteSpecs
+
 
 	// floor
 ColliderROMSpec CogWheelColliderSpecsCollider1 =
@@ -369,15 +366,13 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-@COMP_ARRAY_START:CogWheelColliderSpecs
-	&CogWheelColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:CogWheelColliderSpecs
 
 const ComponentSpec* CogWheelEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:CogWheelEntitySpec@
+	(ComponentSpec*)CogWheelBgmapSpriteAffineSpec,
+    (ComponentSpec*)CogWheelColliderSpecsCollider1,
+	NULL
 };
 
 CogWheelROMSpec CogWheelEntitySpec =
@@ -392,19 +387,19 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra
 		NULL,
 
-		@SPRITES:(SpriteSpec**)CogWheelSpriteSpecs@,
+		
 
 		// use z displacement in projection
 		false,
 				
-		@WIREFRAMES:(WireframeSpec**)NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)CogWheelColliderSpecs@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -413,6 +408,6 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// gameworld's character's type
 		kTypeCogWheel,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	}
 };

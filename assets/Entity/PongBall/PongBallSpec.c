@@ -25,7 +25,7 @@
 
 const ComponentSpec* PongBallWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:PongBallWireframeSpec@
+	NULL
 };
 
 SphereROMSpec PongBallWireframeSpec =
@@ -59,10 +59,7 @@ SphereROMSpec PongBallWireframeSpec =
 	true,
 };
 
-@COMP_ARRAY_START:PongBallWireframeSpecs
-	&PongBallWireframeSpec,
-	
-@COMP_ARRAY_END:PongBallWireframeSpecs
+
 
 ColliderROMSpec PongBallColliderSpecs[] =
 {
@@ -132,7 +129,9 @@ BodyROMSpec PongBallPhysicalPropertiesSpec =
 
 const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PongBallEntitySpec@
+	(ComponentSpec*)PongBallPhysicalPropertiesSpec,
+    (ComponentSpec*)PongBallWireframeSpec,
+	NULL
 };
 
 PongBallROMSpec PongBallEntitySpec =
@@ -149,19 +148,19 @@ PongBallROMSpec PongBallEntitySpec =
 				// children
 				NULL,
 
-				@BEHAVIORS:NULL@,
+				
 
 				// extra
 				NULL,
 
-				@SPRITES:(SpriteSpec**)NULL@,
+				
 
 				// use z displacement in projection
 				false,
 			
-				@WIREFRAMES:(WireframeSpec**)PongBallWireframeSpecs@,
+				
 
-				@COLLIDERS:(ColliderSpec*)PongBallColliderSpecs@,
+				
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -170,7 +169,7 @@ PongBallROMSpec PongBallEntitySpec =
 				// gameworld's character's type
 				kTypePongBall,
 
-				@PHYSICS:(PhysicalProperties*)&PongBallPhysicalPropertiesSpec@,
+				
 			},
 
 			// pointer to the animation spec for the item

@@ -284,15 +284,13 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	__WORLD_RON,
 };
 
-@COMP_ARRAY_START:VideoSpriteSpecs
-	&VideoLSpriteSpec,
-	&VideoRSpriteSpec,
-	
-@COMP_ARRAY_END:VideoSpriteSpecs
+
 
 const ComponentSpec* VideoEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:VideoEntitySpec@
+	(ComponentSpec*)VideoLSpriteSpec,
+    (ComponentSpec*)VideoRSpriteSpec,
+	NULL
 };
 
 AnimatedEntityROMSpec VideoEntitySpec =
@@ -307,19 +305,19 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra info
 		NULL,
 
-		@SPRITES:(SpriteSpec**)VideoSpriteSpecs@,
+		
 
 		// use z displacement in projection
 		false,
 
-		@WIREFRAMES:NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)NULL@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -328,7 +326,7 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		// gameworld's character's type
 		0,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	},
 
 	// pointer to the animation spec for the item

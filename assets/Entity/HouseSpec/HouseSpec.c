@@ -149,7 +149,7 @@ const PixelVector HouseMeshesSegments[][2]=
 
 const ComponentSpec* HouseWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:HouseWireframeSpec@
+	NULL
 };
 
 MeshROMSpec HouseWireframeSpec =
@@ -180,10 +180,7 @@ MeshROMSpec HouseWireframeSpec =
 	(PixelVector(*)[2])HouseMeshesSegments
 };
 
-@COMP_ARRAY_START:HouseWireframeSpecs
-	&HouseWireframeSpec,
-	
-@COMP_ARRAY_END:HouseWireframeSpecs
+
 
 ColliderROMSpec HouseColliderSpecsCollider1 =
 	{
@@ -218,15 +215,13 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:HouseColliderSpecs
-	&HouseColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:HouseColliderSpecs
 
 const ComponentSpec* HouseEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:HouseEntitySpec@
+	(ComponentSpec*)HouseWireframeSpec,
+    (ComponentSpec*)HouseColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec HouseEntitySpec =
@@ -240,19 +235,19 @@ EntityROMSpec HouseEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)HouseWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)HouseColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -261,5 +256,5 @@ EntityROMSpec HouseEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

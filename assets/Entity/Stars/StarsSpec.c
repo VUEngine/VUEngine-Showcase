@@ -168,10 +168,7 @@ ObjectSpriteROMSpec StarSpriteSpec =
 //---------------------------------------------------------------------------------------------------------
 
 
-@COMP_ARRAY_START:StarSpriteSpecs
-	&StarSpriteSpec,
-	
-@COMP_ARRAY_END:StarSpriteSpecs
+
 
 // particle's spec
 ParticleROMSpec StarParticleNormalSpec =
@@ -292,7 +289,7 @@ SolidParticleROMSpec StarParticleSolidSpec =
 
 const ComponentSpec* StarsParticleSystemNormalSpecComponentSpecs[] = 
 {
-	@COMPONENTS:StarsParticleSystemNormalSpec@
+	NULL
 };
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
@@ -307,19 +304,19 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra
 		NULL,
 
-		@SPRITES:(SpriteSpec**)NULL@,
+		
 
 		// use z displacement in projection
 		false,
 			
-		@WIREFRAMES:(WireframeSpec**)NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)NULL@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -328,7 +325,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	},
 
 	// reuse expired particles?
@@ -378,7 +375,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 
 const ComponentSpec* StarsParticleSystemPhysicalSpecComponentSpecs[] = 
 {
-	@COMPONENTS:StarsParticleSystemPhysicalSpec@
+	NULL
 };
 
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
@@ -393,19 +390,19 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra
 		NULL,
 
-		@SPRITES:(SpriteSpec**)NULL@,
+		
 
 		// use z displacement in projection
 		false,
 			
-		@WIREFRAMES:(WireframeSpec**)NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)NULL@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -414,7 +411,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	},
 
 	// reuse expired particles?
@@ -464,7 +461,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 
 const ComponentSpec* StarsParticleSystemSolidSpecComponentSpecs[] = 
 {
-	@COMPONENTS:StarsParticleSystemSolidSpec@
+	NULL
 };
 
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
@@ -479,19 +476,19 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra
 		NULL,
 
-		@SPRITES:(SpriteSpec**)NULL@,
+		
 
 		// use z displacement in projection
 		false,
 			
-		@WIREFRAMES:(WireframeSpec**)NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)NULL@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -500,7 +497,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	},
 
 	// reuse expired particles?

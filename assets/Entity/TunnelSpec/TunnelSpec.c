@@ -260,7 +260,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 
 const ComponentSpec* TunnelWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:TunnelWireframeSpec@
+	NULL
 };
 
 MeshROMSpec TunnelWireframeSpec =
@@ -291,10 +291,7 @@ MeshROMSpec TunnelWireframeSpec =
 	(PixelVector(*)[2])TunnelMeshesSegments
 };
 
-@COMP_ARRAY_START:TunnelWireframeSpecs
-	&TunnelWireframeSpec,
-	
-@COMP_ARRAY_END:TunnelWireframeSpecs
+
 
 ColliderROMSpec TunnelColliderSpecsCollider1 =
 	{
@@ -329,15 +326,13 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:TunnelColliderSpecs
-	&TunnelColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:TunnelColliderSpecs
 
 const ComponentSpec* TunnelEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:TunnelEntitySpec@
+	(ComponentSpec*)TunnelWireframeSpec,
+    (ComponentSpec*)TunnelColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec TunnelEntitySpec =
@@ -351,19 +346,19 @@ EntityROMSpec TunnelEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)TunnelWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)TunnelColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -372,5 +367,5 @@ EntityROMSpec TunnelEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

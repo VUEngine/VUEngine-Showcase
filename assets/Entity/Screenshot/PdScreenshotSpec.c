@@ -180,15 +180,13 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	__WORLD_RON,
 };
 
-@COMP_ARRAY_START:PdScreenshotSpriteSpecs
-	&PdScreenshotLSpriteSpec,
-	&PdScreenshotRSpriteSpec,
-	
-@COMP_ARRAY_END:PdScreenshotSpriteSpecs
+
 
 const ComponentSpec* PdScreenshotEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PdScreenshotEntitySpec@
+	(ComponentSpec*)PdScreenshotLSpriteSpec,
+    (ComponentSpec*)PdScreenshotRSpriteSpec,
+	NULL
 };
 
 EntityROMSpec PdScreenshotEntitySpec =
@@ -202,19 +200,19 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)PdScreenshotSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
+	
 
-	@COLLIDERS:(ColliderSpec*)NULL@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -223,6 +221,6 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 
 };

@@ -128,7 +128,7 @@ const PixelVector LampMeshesSegments[][2]=
 
 const ComponentSpec* LampWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:LampWireframeSpec@
+	NULL
 };
 
 MeshROMSpec LampWireframeSpec =
@@ -159,10 +159,7 @@ MeshROMSpec LampWireframeSpec =
 	(PixelVector(*)[2])LampMeshesSegments
 };
 
-@COMP_ARRAY_START:LampWireframeSpecs
-	&LampWireframeSpec,
-	
-@COMP_ARRAY_END:LampWireframeSpecs
+
 
 ColliderROMSpec LampColliderSpecsCollider1 =
 	{
@@ -197,15 +194,13 @@ ColliderROMSpec LampColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:LampColliderSpecs
-	&LampColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:LampColliderSpecs
 
 const ComponentSpec* LampEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:LampEntitySpec@
+	(ComponentSpec*)LampWireframeSpec,
+    (ComponentSpec*)LampColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec LampEntitySpec =
@@ -219,19 +214,19 @@ EntityROMSpec LampEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)LampWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)LampColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -240,5 +235,5 @@ EntityROMSpec LampEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

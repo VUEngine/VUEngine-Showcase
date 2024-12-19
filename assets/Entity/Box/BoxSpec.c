@@ -115,10 +115,7 @@ BgmapSpriteROMSpec BoxSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:BoxSpriteSpecs
-	&BoxSpriteSpec,
-	
-@COMP_ARRAY_END:BoxSpriteSpecs
+
 
 	// floor
 ColliderROMSpec BoxColliderSpecsCollider1 =
@@ -154,15 +151,13 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-@COMP_ARRAY_START:BoxColliderSpecs
-	&BoxColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:BoxColliderSpecs
 
 const ComponentSpec* BoxEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:BoxEntitySpec@
+	(ComponentSpec*)BoxSpriteSpec,
+    (ComponentSpec*)BoxColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec BoxEntitySpec =
@@ -176,19 +171,19 @@ EntityROMSpec BoxEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)BoxSpriteSpecs@,
+	
 
 	// use z displacement in projection
 	false,
 			
-	@WIREFRAMES:(WireframeSpec**)NULL@,
 	
-	@COLLIDERS:(ColliderSpec*)BoxColliderSpecs@,
+	
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -197,5 +192,5 @@ EntityROMSpec BoxEntitySpec =
 	// gameworld's character's type
 	kTypeSolidObject,
 
-	@PHYSICS:NULL@,
+	
 };

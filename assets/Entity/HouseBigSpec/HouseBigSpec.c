@@ -166,7 +166,7 @@ const PixelVector HouseBigMeshesSegments[][2]=
 
 const ComponentSpec* HouseBigWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:HouseBigWireframeSpec@
+	NULL
 };
 
 MeshROMSpec HouseBigWireframeSpec =
@@ -197,10 +197,7 @@ MeshROMSpec HouseBigWireframeSpec =
 	(PixelVector(*)[2])HouseBigMeshesSegments
 };
 
-@COMP_ARRAY_START:HouseBigWireframeSpecs
-	&HouseBigWireframeSpec,
-	
-@COMP_ARRAY_END:HouseBigWireframeSpecs
+
 
 ColliderROMSpec HouseBigColliderSpecsCollider1 =
 	{
@@ -235,15 +232,13 @@ ColliderROMSpec HouseBigColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:HouseBigColliderSpecs
-	&HouseBigColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:HouseBigColliderSpecs
 
 const ComponentSpec* HouseBigEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:HouseBigEntitySpec@
+	(ComponentSpec*)HouseBigWireframeSpec,
+    (ComponentSpec*)HouseBigColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec HouseBigEntitySpec =
@@ -257,19 +252,19 @@ EntityROMSpec HouseBigEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)HouseBigWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)HouseBigColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -278,5 +273,5 @@ EntityROMSpec HouseBigEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

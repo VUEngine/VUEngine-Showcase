@@ -83,7 +83,7 @@ const PixelVector StreetMeshesSegments[][2]=
 
 const ComponentSpec* StreetWireframeSpecComponentSpecs[] = 
 {
-	@COMPONENTS:StreetWireframeSpec@
+	NULL
 };
 
 MeshROMSpec StreetWireframeSpec =
@@ -114,10 +114,7 @@ MeshROMSpec StreetWireframeSpec =
 	(PixelVector(*)[2])StreetMeshesSegments
 };
 
-@COMP_ARRAY_START:StreetWireframeSpecs
-	&StreetWireframeSpec,
-	
-@COMP_ARRAY_END:StreetWireframeSpecs
+
 
 ColliderROMSpec StreetColliderSpecsCollider1 =
 	{
@@ -152,15 +149,13 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-@COMP_ARRAY_START:StreetColliderSpecs
-	&StreetColliderSpecsCollider1,
 
-
-@COMP_ARRAY_END:StreetColliderSpecs
 
 const ComponentSpec* StreetEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:StreetEntitySpec@
+	(ComponentSpec*)StreetWireframeSpec,
+    (ComponentSpec*)StreetColliderSpecsCollider1,
+	NULL
 };
 
 EntityROMSpec StreetEntitySpec =
@@ -174,19 +169,19 @@ EntityROMSpec StreetEntitySpec =
 	// children
 	NULL,
 
-	@BEHAVIORS:(BehaviorSpec**)NULL@,
+	
 
 	// extra
 	NULL,
 
-	@SPRITES:(SpriteSpec**)NULL@,
+	
 
 	// use z displacement in projection
 	false,
 
-	@WIREFRAMES:(WireframeSpec**)StreetWireframeSpecs@,
+	
 
-	@COLLIDERS:(ColliderSpec*)StreetColliderSpecs@,
+	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
@@ -195,5 +190,5 @@ EntityROMSpec StreetEntitySpec =
 	// gameworld's character's type
 	kTypeNone,
 
-	@PHYSICS:(PhysicalProperties*)NULL@,
+	
 };

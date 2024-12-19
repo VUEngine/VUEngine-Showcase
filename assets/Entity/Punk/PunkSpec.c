@@ -571,17 +571,7 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:PunkSpriteSpecs
-	&PunkSpriteSpec,
-	&PunkBlackSpriteSpec,
-	
-@COMP_ARRAY_END:PunkSpriteSpecs
 
-@COMP_ARRAY_START:PunkAffineSpriteSpecs
-	&PunkAffineSpriteSpec,
-	&PunkAffineBlackSpriteSpec,
-	
-@COMP_ARRAY_END:PunkAffineSpriteSpecs
 
 CharSetROMSpec PunkDyingCharsetSpec =
 {
@@ -750,11 +740,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-@COMP_ARRAY_START:PunkDyingSpriteSpecs
-	&PunkDyingSpriteSpec,
-	&PunkDyingBlackSpriteSpec,
-	
-@COMP_ARRAY_END:PunkDyingSpriteSpecs
+
 
 
 @COLLIDER_DEFS:PunkColliderSpecs@
@@ -799,7 +785,17 @@ ColliderROMSpec PunkColliderSpecs[] =
 
 const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
 {
-	@COMPONENTS:PunkEntitySpec@
+	(ComponentSpec*)PunkAffineSpriteSpec,
+    (ComponentSpec*)PunkAffineBlackSpriteSpec,
+/*
+* VUEngine Showcase
+*
+* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+*
+* For the full copyright and license information, please view the LICENSE file
+* that was distributed with this source code.
+*/
+	NULL
 };
 
 AnimatedEntityROMSpec PunkEntitySpec =
@@ -814,19 +810,19 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// children
 		NULL,
 
-		@BEHAVIORS:NULL@,
+		
 
 		// extra
 		NULL,
 		
-		@SPRITES:(SpriteSpec**)PunkAffineSpriteSpecs@,
+		
 
 		// use z displacement in projection
 		false,
 
-		@WIREFRAMES:NULL@,
+		
 
-		@COLLIDERS:(ColliderSpec*)PunkColliderSpecs@,
+		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size
@@ -835,7 +831,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// gameworld's character's type
 		kTypeNone,
 
-		@PHYSICS:(PhysicalProperties*)NULL@,
+		
 	},
 
 	// pointer to the animation spec for the character
@@ -874,7 +870,18 @@ BodyROMSpec PunkPhysicalPropertiesSpec =
 
 const ComponentSpec* PunkActorSpecComponentSpecs[] = 
 {
-	@COMPONENTS:PunkActorSpec@
+	    (ComponentSpec*)PunkPhysicalPropertiesSpec
+    (ComponentSpec*)PunkSpriteSpec,
+    (ComponentSpec*)PunkBlackSpriteSpec,
+/*
+* VUEngine Showcase
+*
+* © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+*
+* For the full copyright and license information, please view the LICENSE file
+* that was distributed with this source code.
+*/
+	NULL
 };
 
 PunkROMSpec PunkActorSpec =
@@ -891,19 +898,19 @@ PunkROMSpec PunkActorSpec =
 				// children
 				NULL,
 
-				@BEHAVIORS:NULL@,
+				
 
 				// extra
 				NULL,
 				
-				@SPRITES:(SpriteSpec**)PunkSpriteSpecs@,
+				
 
 				// use z displacement in projection
 				false,
 
-				@WIREFRAMES:NULL@,
+				
 
-				@COLLIDERS:(ColliderSpec*)PunkColliderSpecs@,
+				
 
 				// size
 				// if 0, width and height will be inferred from the first sprite's texture's size
@@ -912,7 +919,7 @@ PunkROMSpec PunkActorSpec =
 				// gameworld's character's type
 				kTypePunk,
 
-				@PHYSICS:(PhysicalProperties*)&PunkPhysicalPropertiesSpec@,
+				
 			},
 
 			// pointer to the animation spec for the character
