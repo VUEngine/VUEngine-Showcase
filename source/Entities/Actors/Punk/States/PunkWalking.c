@@ -55,7 +55,7 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 {
 	Punk punk = Punk::safeCast(owner);
 
-	if(isDeleted(punk))
+	if(isDeleted(punk) || isDeleted(Punk::getBody(punk)))
 	{
 		return false;
 	}

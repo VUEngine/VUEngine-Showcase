@@ -130,7 +130,10 @@ bool Punk::handlePropagatedMessage(int32 message)
 
 		case kMessageActorsStatePrintActorStatus:
 
-			Body::print(this->body, 1, 3);
+			if(!isDeleted(this->body))
+			{
+				Body::print(this->body, 1, 3);
+			}
 			return true;
 			break;
 	}

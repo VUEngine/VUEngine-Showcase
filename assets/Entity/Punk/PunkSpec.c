@@ -795,23 +795,13 @@ AnimatedEntityROMSpec PunkEntitySpec =
 
 		// Extra info
 		NULL,
-		
-		
-
-		
-
-		
-
-		
 
 		// Size
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
 		// In-game entity's type
-		kTypeNone,
-
-		
+		kTypeNone
 	},
 
 	// pointer to the animation spec for the character
@@ -850,9 +840,10 @@ BodyROMSpec PunkBodySpec =
 
 const ComponentSpec* PunkActorComponentSpecs[] = 
 {
-	(ComponentSpec*)&PunkBodySpec,
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
+	(ComponentSpec*)&PunkBodySpec,
+	(ComponentSpec*)&PunkColliderSpec,
 	NULL
 };
 

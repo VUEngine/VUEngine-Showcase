@@ -206,40 +206,38 @@ MeshROMSpec BillboardWireframeSpec =
 	(PixelVector(*)[2])BillboardMeshesSegments
 };
 
-
-
 ColliderROMSpec BillboardColliderSpec1 =
+{
+	// Component
 	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
+		// Allocator
+		__TYPE(Ball),
 
-			// Component type
-			kColliderComponent
-		},
+		// Component type
+		kColliderComponent
+	},
 
-		// Size (x, y, z)
-		{128, 128, 128},
+	// Size (x, y, z)
+	{128, 128, 128},
 
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
 
-		// rotation (x, y, z)
-		{0, 0, 0},
+	// rotation (x, y, z)
+	{0, 0, 0},
 
-		// scale (x, y, z)
-		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
+	// scale (x, y, z)
+	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
-		false,
+	// if true this collider checks for collisions against other colliders
+	false,
 
-		// layers in which I live
-		kLayerNone,
+	// layers in which I live
+	kLayerNone,
 
-		// layers to ignore when checking for collisions
-		kLayerNone
-	};
+	// layers to ignore when checking for collisions
+	kLayerNone
+};
 
 const ComponentSpec* BillboardEntityComponentSpecs[] = 
 {

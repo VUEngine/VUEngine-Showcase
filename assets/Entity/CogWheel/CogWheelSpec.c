@@ -329,42 +329,38 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 	0,
 };
 
-
-
-
-	// floor
 ColliderROMSpec CogWheelColliderSpec1 =
+{
+	// Component
 	{
-		// Component
-		{
-			// Allocator
-			__TYPE(Ball),
+		// Allocator
+		__TYPE(Ball),
 
-			// Component type
-			kColliderComponent
-		},
+		// Component type
+		kColliderComponent
+	},
 
-		// Size (x, y, z)
-		{64 * 2, 64 * 2, 32},
+	// Size (x, y, z)
+	{64 * 2, 64 * 2, 32},
 
-		// displacement (x, y, z, p)
-		{0, 0, 0, 0},
+	// displacement (x, y, z, p)
+	{0, 0, 0, 0},
 
-		// rotation (x, y, z)
-		{0, 0, 0},
+	// rotation (x, y, z)
+	{0, 0, 0},
 
-		// scale (x, y, z)
-		{0, 0, 0},
+	// scale (x, y, z)
+	{0, 0, 0},
 
-		// if true this collider checks for collisions against other colliders
-		false,
+	// if true this collider checks for collisions against other colliders
+	false,
 
-		// layers in which I live
-		kLayerDangers,
+	// layers in which I live
+	kLayerDangers,
 
-		// layers to ignore when checking for collisions
-		kLayerNone,
-	};
+	// layers to ignore when checking for collisions
+	kLayerNone,
+};
 
 const ComponentSpec* CogWheelEntityComponentSpecs[] = 
 {
