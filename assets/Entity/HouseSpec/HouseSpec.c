@@ -215,12 +215,10 @@ ColliderROMSpec HouseColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* HouseEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)HouseWireframeSpec,
-    (ComponentSpec*)HouseColliderSpecsCollider1,
+	(ComponentSpec*)&HouseWireframeSpec,
+    (ComponentSpec*)&HouseColliderSpecsCollider1,
 	NULL
 };
 

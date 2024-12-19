@@ -129,8 +129,8 @@ BodyROMSpec PongBallPhysicalPropertiesSpec =
 
 const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)PongBallPhysicalPropertiesSpec,
-    (ComponentSpec*)PongBallWireframeSpec,
+	(ComponentSpec*)&PongBallPhysicalPropertiesSpec,
+    (ComponentSpec*)&PongBallWireframeSpec,
 	NULL
 };
 

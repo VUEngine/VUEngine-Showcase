@@ -223,12 +223,10 @@ ColliderROMSpec BusStopColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* BusStopEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)BusStopWireframeSpec,
-    (ComponentSpec*)BusStopColliderSpecsCollider1,
+	(ComponentSpec*)&BusStopWireframeSpec,
+    (ComponentSpec*)&BusStopColliderSpecsCollider1,
 	NULL
 };
 

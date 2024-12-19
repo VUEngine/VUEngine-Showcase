@@ -232,12 +232,10 @@ ColliderROMSpec HouseBigColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* HouseBigEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)HouseBigWireframeSpec,
-    (ComponentSpec*)HouseBigColliderSpecsCollider1,
+	(ComponentSpec*)&HouseBigWireframeSpec,
+    (ComponentSpec*)&HouseBigColliderSpecsCollider1,
 	NULL
 };
 

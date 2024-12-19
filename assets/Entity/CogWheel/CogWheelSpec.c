@@ -366,12 +366,10 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-
-
 const ComponentSpec* CogWheelEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)CogWheelBgmapSpriteAffineSpec,
-    (ComponentSpec*)CogWheelColliderSpecsCollider1,
+	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
+    (ComponentSpec*)&CogWheelColliderSpecsCollider1,
 	NULL
 };
 

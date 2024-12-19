@@ -180,8 +180,8 @@ BodyROMSpec PongPaddlePhysicalPropertiesSpec =
 
 const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
 {
-	    (ComponentSpec*)PongPaddlePhysicalPropertiesSpec
-    (ComponentSpec*)PongPaddleWireframeSpec,
+	    (ComponentSpec*)&PongPaddlePhysicalPropertiesSpec
+    (ComponentSpec*)&PongPaddleWireframeSpec,
 /*
 * VUEngine Showcase
 *

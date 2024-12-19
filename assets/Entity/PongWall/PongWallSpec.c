@@ -90,12 +90,10 @@ ColliderROMSpec PongWallsColliderSpecsCollider2 =
 		kLayerAll,
 	};
 
-
-
 const ComponentSpec* PongWallsEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)PongWallsColliderSpecsCollider2,
-    (ComponentSpec*)PongWallsColliderSpecsCollider1,
+	(ComponentSpec*)&PongWallsColliderSpecsCollider2,
+    (ComponentSpec*)&PongWallsColliderSpecsCollider1,
 	NULL
 };
 

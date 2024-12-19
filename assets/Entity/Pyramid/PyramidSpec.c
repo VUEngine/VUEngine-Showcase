@@ -134,12 +134,10 @@ ColliderROMSpec PyramidColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* PyramidEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)PyramidWireframeSpec,
-    (ComponentSpec*)PyramidColliderSpecsCollider1,
+	(ComponentSpec*)&PyramidWireframeSpec,
+    (ComponentSpec*)&PyramidColliderSpecsCollider1,
 	NULL
 };
 

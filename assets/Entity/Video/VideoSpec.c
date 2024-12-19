@@ -284,12 +284,10 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	__WORLD_RON,
 };
 
-
-
 const ComponentSpec* VideoEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)VideoLSpriteSpec,
-    (ComponentSpec*)VideoRSpriteSpec,
+	(ComponentSpec*)&VideoLSpriteSpec,
+    (ComponentSpec*)&VideoRSpriteSpec,
 	NULL
 };
 

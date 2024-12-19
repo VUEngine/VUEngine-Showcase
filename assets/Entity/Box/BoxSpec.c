@@ -151,12 +151,10 @@ ColliderROMSpec BoxColliderSpecsCollider1 =
 		kLayerNone,
 	};
 
-
-
 const ComponentSpec* BoxEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)BoxSpriteSpec,
-    (ComponentSpec*)BoxColliderSpecsCollider1,
+	(ComponentSpec*)&BoxSpriteSpec,
+    (ComponentSpec*)&BoxColliderSpecsCollider1,
 	NULL
 };
 

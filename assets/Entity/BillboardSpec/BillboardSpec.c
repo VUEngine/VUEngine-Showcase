@@ -241,12 +241,10 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* BillboardEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)BillboardWireframeSpec,
-    (ComponentSpec*)BillboardColliderSpecsCollider1,
+	(ComponentSpec*)&BillboardWireframeSpec,
+    (ComponentSpec*)&BillboardColliderSpecsCollider1,
 	NULL
 };
 

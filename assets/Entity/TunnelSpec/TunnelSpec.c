@@ -326,12 +326,10 @@ ColliderROMSpec TunnelColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* TunnelEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)TunnelWireframeSpec,
-    (ComponentSpec*)TunnelColliderSpecsCollider1,
+	(ComponentSpec*)&TunnelWireframeSpec,
+    (ComponentSpec*)&TunnelColliderSpecsCollider1,
 	NULL
 };
 

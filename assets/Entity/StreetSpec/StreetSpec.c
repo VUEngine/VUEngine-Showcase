@@ -149,12 +149,10 @@ ColliderROMSpec StreetColliderSpecsCollider1 =
 		kLayerNone
 	};
 
-
-
 const ComponentSpec* StreetEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)StreetWireframeSpec,
-    (ComponentSpec*)StreetColliderSpecsCollider1,
+	(ComponentSpec*)&StreetWireframeSpec,
+    (ComponentSpec*)&StreetColliderSpecsCollider1,
 	NULL
 };
 
