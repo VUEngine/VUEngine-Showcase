@@ -757,8 +757,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 @COMP_ARRAY_END:PunkDyingSpriteSpecs
 
 
-ColliderROMSpec PunkColliderSpecs[] =
-{
+@COLLIDER_DEFS:PunkColliderSpecs@
 	ColliderROMSpec @COLLIDER_NAME@ =
 	{
 		// Component
@@ -791,8 +790,11 @@ ColliderROMSpec PunkColliderSpecs[] =
 		// layers to ignore when checking for collisions
 		~(kLayerSolid | kLayerDangers),
 	};
+@COLLIDER_DEFS_END:PunkColliderSpecs@
 
-	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
+ColliderROMSpec PunkColliderSpecs[] =
+{
+	@COLLIDER_REFS:PunkColliderSpecs@
 };
 
 const ComponentSpec* PunkEntitySpecComponentSpecs[] = 
