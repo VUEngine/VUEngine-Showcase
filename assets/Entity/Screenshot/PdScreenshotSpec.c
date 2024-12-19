@@ -195,24 +195,13 @@ EntityROMSpec PdScreenshotEntitySpec =
 	__TYPE(Entity),
 
 	// Components
-	(ComponentSpecs**)PdScreenshotEntitySpecComponentSpecs,
+	(ComponentSpec**)PdScreenshotEntitySpecComponentSpecs,
 
 	// children
 	NULL,
 
-	
-
 	// extra
 	NULL,
-
-	
-
-	// use z displacement in projection
-	false,
-			
-	
-
-	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size

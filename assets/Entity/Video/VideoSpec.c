@@ -300,24 +300,13 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		__TYPE(AnimatedEntity),
 
 		// Components
-		(ComponentSpecs**)VideoEntitySpecComponentSpecs,
+		(ComponentSpec**)VideoEntitySpecComponentSpecs,
 
 		// children
 		NULL,
 
-		
-
 		// extra info
 		NULL,
-
-		
-
-		// use z displacement in projection
-		false,
-
-		
-
-		
 
 		// size
 		// if 0, width and height will be inferred from the first sprite's texture's size

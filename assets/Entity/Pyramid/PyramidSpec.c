@@ -149,31 +149,18 @@ EntityROMSpec PyramidEntitySpec =
 	__TYPE(Entity),
 
 	// Components
-	(ComponentSpecs**)PyramidEntitySpecComponentSpecs,
+	(ComponentSpec**)PyramidEntitySpecComponentSpecs,
 
 	// children
 	NULL,
 
-	
-
 	// extra
 	NULL,
-
-	
-
-	// use z displacement in projection
-	false,
-
-	
-
-	
 
 	// size
 	// if 0, width and height will be inferred from the first sprite's texture's size
 	{0, 0, 0},
 
 	// gameworld's character's type
-	kTypeNone,
-
-	
+	kTypeNone
 };

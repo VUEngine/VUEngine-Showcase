@@ -299,20 +299,17 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		__TYPE(ParticleSystem),
 
 		// Components
-		(ComponentSpecs**)StarsParticleSystemNormalSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemNormalSpecComponentSpecs,
 
 		// children
 		NULL,
-
-		
 
 		// extra
 		NULL,
 
 		
 
-		// use z displacement in projection
-		false,
+		
 			
 		
 
@@ -385,20 +382,17 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		__TYPE(ParticleSystem),
 
 		// Components
-		(ComponentSpecs**)StarsParticleSystemPhysicalSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemPhysicalSpecComponentSpecs,
 
 		// children
 		NULL,
-
-		
 
 		// extra
 		NULL,
 
 		
 
-		// use z displacement in projection
-		false,
+		
 			
 		
 
@@ -471,20 +465,17 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		__TYPE(ParticleSystem),
 
 		// Components
-		(ComponentSpecs**)StarsParticleSystemSolidSpecComponentSpecs,
+		(ComponentSpec**)StarsParticleSystemSolidSpecComponentSpecs,
 
 		// children
 		NULL,
-
-		
 
 		// extra
 		NULL,
 
 		
 
-		// use z displacement in projection
-		false,
+		
 			
 		
 

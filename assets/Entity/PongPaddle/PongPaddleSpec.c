@@ -202,20 +202,17 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				__TYPE(PongPaddle),
 
 				// Components
-				(ComponentSpecs**)PongPaddleEntitySpecComponentSpecs,
+				(ComponentSpec**)PongPaddleEntitySpecComponentSpecs,
 
 				// children
 				NULL,
-
-				
 
 				// extra
 				NULL,
 
 				
 
-				// use z displacement in projection
-				false,
+				
 			
 				
 

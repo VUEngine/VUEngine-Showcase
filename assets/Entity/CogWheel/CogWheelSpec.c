@@ -382,20 +382,17 @@ CogWheelROMSpec CogWheelEntitySpec =
 		__TYPE(CogWheel),
 
 		// Components
-		(ComponentSpecs**)CogWheelEntitySpecComponentSpecs,
+		(ComponentSpec**)CogWheelEntitySpecComponentSpecs,
 
 		// children
 		NULL,
-
-		
 
 		// extra
 		NULL,
 
 		
 
-		// use z displacement in projection
-		false,
+		
 				
 		
 

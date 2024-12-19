@@ -166,20 +166,17 @@ EntityROMSpec BoxEntitySpec =
 	__TYPE(Entity),
 
 	// Components
-	(ComponentSpecs**)BoxEntitySpecComponentSpecs,
+	(ComponentSpec**)BoxEntitySpecComponentSpecs,
 
 	// children
 	NULL,
-
-	
 
 	// extra
 	NULL,
 
 	
 
-	// use z displacement in projection
-	false,
+	
 			
 	
 	
@@ -190,7 +187,5 @@ EntityROMSpec BoxEntitySpec =
 	{0, 0, 0},
 
 	// gameworld's character's type
-	kTypeSolidObject,
-
-	
+	kTypeSolidObject
 };

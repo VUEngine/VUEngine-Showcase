@@ -805,20 +805,17 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		__TYPE(AnimatedEntity),
 
 		// Components
-		(ComponentSpecs**)PunkEntitySpecComponentSpecs,
+		(ComponentSpec**)PunkEntitySpecComponentSpecs,
 
 		// children
 		NULL,
-
-		
 
 		// extra
 		NULL,
 		
 		
 
-		// use z displacement in projection
-		false,
+		
 
 		
 
@@ -893,20 +890,17 @@ PunkROMSpec PunkActorSpec =
 				__TYPE(Punk),
 
 				// Components
-				(ComponentSpecs**)PunkActorSpecComponentSpecs,
+				(ComponentSpec**)PunkActorSpecComponentSpecs,
 
 				// children
 				NULL,
-
-				
 
 				// extra
 				NULL,
 				
 				
 
-				// use z displacement in projection
-				false,
+				
 
 				
 

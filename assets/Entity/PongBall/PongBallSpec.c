@@ -143,20 +143,17 @@ PongBallROMSpec PongBallEntitySpec =
 				__TYPE(PongBall),
 
 				// Components
-				(ComponentSpecs**)PongBallEntitySpecComponentSpecs,
+				(ComponentSpec**)PongBallEntitySpecComponentSpecs,
 
 				// children
 				NULL,
-
-				
 
 				// extra
 				NULL,
 
 				
 
-				// use z displacement in projection
-				false,
+				
 			
 				
 
