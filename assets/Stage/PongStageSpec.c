@@ -94,7 +94,7 @@ StageROMSpec PongStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -283,7 +283,7 @@ StageROMSpec PongStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)PongStageEntitySpecs,
 	},
 

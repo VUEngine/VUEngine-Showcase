@@ -344,7 +344,7 @@ ColliderROMSpec CogWheelColliderSpecsCollider1 =
 			kColliderComponent
 		},
 
-		// size (x, y, z)
+		// Size (x, y, z)
 		{64 * 2, 64 * 2, 32},
 
 		// displacement (x, y, z, p)
@@ -376,16 +376,16 @@ const ComponentSpec* CogWheelEntitySpecComponentSpecs[] =
 CogWheelROMSpec CogWheelEntitySpec =
 {
 	{
-		// class allocator		
+		// Class allocator		
 		__TYPE(CogWheel),
 
-		// Components
+		// Component specs
 		(ComponentSpec**)CogWheelEntitySpecComponentSpecs,
 
-		// children
+		// Children specs
 		NULL,
 
-		// extra
+		// Extra info
 		NULL,
 
 		
@@ -396,11 +396,11 @@ CogWheelROMSpec CogWheelEntitySpec =
 
 		
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// In-game entity's type
 		kTypeCogWheel,
 
 		

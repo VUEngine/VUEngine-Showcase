@@ -81,7 +81,7 @@ StageROMSpec AnimationSchemesStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -271,7 +271,7 @@ StageROMSpec AnimationSchemesStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)NULL,
 	},
 

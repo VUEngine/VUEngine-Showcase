@@ -88,7 +88,7 @@ StageROMSpec ActorsStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			8191,
@@ -278,7 +278,7 @@ StageROMSpec ActorsStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)ActorsStageEntitySpecs,
 	},
 

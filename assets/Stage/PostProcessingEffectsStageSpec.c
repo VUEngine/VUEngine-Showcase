@@ -83,7 +83,7 @@ StageROMSpec PostProcessingEffectsStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -273,7 +273,7 @@ StageROMSpec PostProcessingEffectsStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)PostProcessingEffectsStageEntitySpecs,
 	},
 

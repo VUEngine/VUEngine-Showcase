@@ -81,7 +81,7 @@ StageROMSpec SoundsStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -271,7 +271,7 @@ StageROMSpec SoundsStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)NULL,
 	},
 

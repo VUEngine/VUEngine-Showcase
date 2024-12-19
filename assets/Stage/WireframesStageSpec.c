@@ -102,7 +102,7 @@ StageROMSpec WireframesStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			8191,
@@ -292,7 +292,7 @@ StageROMSpec WireframesStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)WireframesStageEntitySpecs,
 	},
 

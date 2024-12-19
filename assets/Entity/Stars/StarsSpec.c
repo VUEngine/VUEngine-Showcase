@@ -301,16 +301,16 @@ const ComponentSpec* StarsParticleSystemNormalSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
 	{
-		// class allocator		
+		// Class allocator		
 		__TYPE(ParticleSystem),
 
-		// Components
+		// Component specs
 		(ComponentSpec**)StarsParticleSystemNormalSpecComponentSpecs,
 
-		// children
+		// Children specs
 		NULL,
 
-		// extra
+		// Extra info
 		NULL,
 
 		
@@ -321,11 +321,11 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 
 		
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// In-game entity's type
 		kTypeNone,
 
 		
@@ -384,16 +384,16 @@ const ComponentSpec* StarsParticleSystemPhysicalSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
-		// class allocator		
+		// Class allocator		
 		__TYPE(ParticleSystem),
 
-		// Components
+		// Component specs
 		(ComponentSpec**)StarsParticleSystemPhysicalSpecComponentSpecs,
 
-		// children
+		// Children specs
 		NULL,
 
-		// extra
+		// Extra info
 		NULL,
 
 		
@@ -404,11 +404,11 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 
 		
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// In-game entity's type
 		kTypeNone,
 
 		
@@ -467,16 +467,16 @@ const ComponentSpec* StarsParticleSystemSolidSpecComponentSpecs[] =
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
 	{
-		// class allocator		
+		// Class allocator		
 		__TYPE(ParticleSystem),
 
-		// Components
+		// Component specs
 		(ComponentSpec**)StarsParticleSystemSolidSpecComponentSpecs,
 
-		// children
+		// Children specs
 		NULL,
 
-		// extra
+		// Extra info
 		NULL,
 
 		
@@ -487,11 +487,11 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 
 		
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// In-game entity's type
 		kTypeNone,
 
 		

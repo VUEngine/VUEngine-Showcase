@@ -219,7 +219,7 @@ ColliderROMSpec BillboardColliderSpecsCollider1 =
 			kColliderComponent
 		},
 
-		// size (x, y, z)
+		// Size (x, y, z)
 		{128, 128, 128},
 
 		// displacement (x, y, z, p)
@@ -250,22 +250,22 @@ const ComponentSpec* BillboardEntitySpecComponentSpecs[] =
 
 EntityROMSpec BillboardEntitySpec =
 {
-	// class allocator	
+	// Class allocator	
 	__TYPE(Entity),
 
-	// Components
+	// Component specs
 	(ComponentSpec**)BillboardEntitySpecComponentSpecs,
 
-	// children
+	// Children specs
 	NULL,
 
-	// extra
+	// Extra info
 	NULL,
 
-	// size
-	// if 0, width and height will be inferred from the first sprite's texture's size
+	// Size
+	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// gameworld's character's type
+	// In-game entity's type
 	kTypeNone
 };

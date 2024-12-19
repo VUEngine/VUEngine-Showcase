@@ -84,7 +84,7 @@ StageROMSpec ParticlesStageSpec =
 
 	// level
 	{
-		// size
+		// Size
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -274,7 +274,7 @@ StageROMSpec ParticlesStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// children
+		// Children specs
 		(PositionedEntity*)ParticlesStageEntitySpecs,
 	},
 

@@ -87,7 +87,7 @@ ColliderROMSpec PongPaddleColliderSpec1 =
 		kColliderComponent
 	},
 
-	// size (x, y, z)
+	// Size (x, y, z)
 	{16, 20, 16},
 
 	// displacement (x, y, z, p)
@@ -120,7 +120,7 @@ ColliderROMSpec PongPaddleColliderSpec2 =
 		kColliderComponent
 	},
 
-	// size (x, y, z)
+	// Size (x, y, z)
 	{3, 20, 16},
 
 	// displacement (x, y, z, p)
@@ -183,34 +183,24 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 	{
 		{
 			{
-				// class allocator				
+				// Class allocator				
 				__TYPE(PongPaddle),
 
-				// Components
+				// Component specs
 				(ComponentSpec**)PongPaddleEntitySpecComponentSpecs,
 
-				// children
+				// Children specs
 				NULL,
 
-				// extra
+				// Extra
 				NULL,
 
-				
-
-				
-			
-				
-
-				
-
-				// size
-				// if 0, width and height will be inferred from the first sprite's texture's size
+				// Size
+				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// gameworld's character's type
-				kTypePongPaddle,
-
-				
+				// In-game entity's type
+				kTypePongPaddle
 			},
 
 			// pointer to the animation spec for the item

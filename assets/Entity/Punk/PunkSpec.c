@@ -751,7 +751,7 @@ ColliderROMSpec PunkColliderSpec =
 		kColliderComponent
 	},
 
-	// size (x, y, z)
+	// Size (x, y, z)
 	{16, 38, 24},
 
 	// displacement (x, y, z, p)
@@ -784,16 +784,16 @@ const ComponentSpec* PunkEntitySpecComponentSpecs[] =
 AnimatedEntityROMSpec PunkEntitySpec =
 {
 	{
-		// class allocator		
+		// Class allocator		
 		__TYPE(AnimatedEntity),
 
-		// Components
+		// Component specs
 		(ComponentSpec**)PunkEntitySpecComponentSpecs,
 
-		// children
+		// Children specs
 		NULL,
 
-		// extra
+		// Extra info
 		NULL,
 		
 		
@@ -804,11 +804,11 @@ AnimatedEntityROMSpec PunkEntitySpec =
 
 		
 
-		// size
-		// if 0, width and height will be inferred from the first sprite's texture's size
+		// Size
+		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// gameworld's character's type
+		// In-game entity's type
 		kTypeNone,
 
 		
@@ -868,16 +868,16 @@ PunkROMSpec PunkActorSpec =
 	{	
 		{
 			{
-				// class allocator				
+				// Class allocator				
 				__TYPE(Punk),
 
-				// Components
+				// Component specs
 				(ComponentSpec**)PunkActorComponentSpecs,
 
-				// children
+				// Children specs
 				NULL,
 
-				// extra
+				// Extra info
 				NULL,
 				
 				
@@ -888,11 +888,11 @@ PunkROMSpec PunkActorSpec =
 
 				
 
-				// size
-				// if 0, width and height will be inferred from the first sprite's texture's size
+				// Size
+				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// gameworld's character's type
+				// In-game entity's type
 				kTypePunk,
 
 				

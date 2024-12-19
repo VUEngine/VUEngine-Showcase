@@ -70,7 +70,7 @@ ColliderROMSpec PongBallCollider =
 		kColliderComponent
 	},
 
-	// size (x, y, z)
+	// Size (x, y, z)
 	{6, 6, 6},
 
 	// displacement (x, y, z, p)
@@ -132,16 +132,16 @@ PongBallROMSpec PongBallEntitySpec =
 	{
 		{
 			{
-				// class allocator				
+				// Class allocator				
 				__TYPE(PongBall),
 
-				// Components
+				// Component specs
 				(ComponentSpec**)PongBallEntitySpecComponentSpecs,
 
-				// children
+				// Children specs
 				NULL,
 
-				// extra
+				// Extra info
 				NULL,
 
 				
@@ -152,11 +152,11 @@ PongBallROMSpec PongBallEntitySpec =
 
 				
 
-				// size
-				// if 0, width and height will be inferred from the first sprite's texture's size
+				// Size
+				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// gameworld's character's type
+				// In-game entity's type
 				kTypePongBall,
 
 				
