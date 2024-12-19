@@ -849,8 +849,8 @@ const ComponentSpec* PunkActorComponentSpecs[] =
 
 const ComponentSpec* PunkActorDyingComponentSpecs[] = 
 {
-	(ComponentSpec*)&PunkSpriteSpec,
-	(ComponentSpec*)&PunkBlackSpriteSpec,
+	(ComponentSpec*)&PunkDyingSpriteSpec,
+	(ComponentSpec*)&PunkDyingBlackSpriteSpec,
 	NULL
 };
 
