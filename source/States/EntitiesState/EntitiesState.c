@@ -139,7 +139,7 @@ void EntitiesState::showAdditionalDetails()
 	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	Printing::text(this->printing, "Colliders:  ", 2, ++y, NULL);
-	Printing::int32(this->printing, CollisionManager::getCount(VUEngine::getCollisionManager(VUEngine::getInstance()), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, ColliderManager::getCount(VUEngine::getColliderManager(VUEngine::getInstance()), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	y = 5;
 	Printing::text(this->printing, "Position", 22, y, NULL);

@@ -100,7 +100,7 @@ ColliderROMSpec PongBallColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-BodyROMSpec PongBallPhysicalPropertiesSpec =
+BodyROMSpec PongBallBodySpecSpec =
 {
 	// Component
 	{
@@ -129,7 +129,7 @@ BodyROMSpec PongBallPhysicalPropertiesSpec =
 
 const ComponentSpec* PongBallEntitySpecComponentSpecs[] = 
 {
-	(ComponentSpec*)&PongBallPhysicalPropertiesSpec,
+	(ComponentSpec*)&PongBallBodySpecSpec,
 	(ComponentSpec*)&PongBallWireframeSpec,
 	NULL
 };

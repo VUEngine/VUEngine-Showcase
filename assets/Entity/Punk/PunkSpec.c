@@ -838,7 +838,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 	"Move"
 };
 
-BodyROMSpec PunkPhysicalPropertiesSpec =
+BodyROMSpec PunkBodySpecSpec =
 {
 	// Component
 	{
@@ -867,7 +867,7 @@ BodyROMSpec PunkPhysicalPropertiesSpec =
 
 const ComponentSpec* PunkActorSpecComponentSpecs[] = 
 {
-		(ComponentSpec*)&PunkPhysicalPropertiesSpec
+		(ComponentSpec*)&PunkBodySpecSpec
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
 /*

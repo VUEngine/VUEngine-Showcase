@@ -24,7 +24,7 @@
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
-#include <PhysicalWorld.h>
+#include <BodyManager.h>
 #include <Printing.h>
 #include <Pong.h>
 #include <Utilities.h>
@@ -242,7 +242,7 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	Math::resetRandomSeed();
 
 	// Must reset the physical world too
-	PhysicalWorld::reset(this->physicalWorld);
+	BodyManager::reset(this->bodyManager);
 
 	// Must reset the clocks
 	PongState::startClocks(this);

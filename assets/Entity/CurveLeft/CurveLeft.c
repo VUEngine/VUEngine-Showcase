@@ -302,8 +302,5 @@ EntityROMSpec CurveLeftEntitySpec =
 	{0, 0, 0},
 
 	// gameworld's character's type
-	kTypeNone,
-
-	// physical specification
-	(PhysicalProperties*)NULL,
+	kTypeNone
 };

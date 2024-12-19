@@ -151,7 +151,7 @@ ColliderROMSpec PongPaddleColliderSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0}, {0, 0, 0}, false, kLayerNone, kLayerNone}
 };
 
-BodyROMSpec PongPaddlePhysicalPropertiesSpec =
+BodyROMSpec PongPaddleBodySpecSpec =
 {
 	// Component
 	{
@@ -180,7 +180,7 @@ BodyROMSpec PongPaddlePhysicalPropertiesSpec =
 
 const ComponentSpec* PongPaddleEntitySpecComponentSpecs[] = 
 {
-		(ComponentSpec*)&PongPaddlePhysicalPropertiesSpec
+		(ComponentSpec*)&PongPaddleBodySpecSpec
 	(ComponentSpec*)&PongPaddleWireframeSpec,
 /*
 * VUEngine Showcase
