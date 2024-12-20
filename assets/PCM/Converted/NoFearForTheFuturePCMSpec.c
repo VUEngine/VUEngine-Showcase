@@ -43264,8 +43264,8 @@ SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 	/// SxSWP values
 	(uint8*)NoFearForTheFutureSoundTrack1SxSWP,
 
-	/// SxMOD values
-	(uint8*)NULL
+	/// SxMOD pointers
+	(int8**)NULL
 };
 
 SoundTrackROMSpec* const NoFearForTheFutureSoundTracks[] =
