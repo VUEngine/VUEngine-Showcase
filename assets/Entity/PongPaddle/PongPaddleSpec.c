@@ -166,7 +166,10 @@ BodyROMSpec PongPaddleBodySpecSpec =
 	{0, 0, 0},
 
 	// maximum speed
-	__I_TO_FIX10_6(8)
+	__I_TO_FIX10_6(8),
+
+	// Axises on which the body is subject to gravity
+	__NO_AXIS
 };
 
 const ComponentSpec* PongPaddleEntityComponentSpecs[] = 
@@ -212,9 +215,6 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 
 		// true to create a body
 		true,
-
-		// axes subject to gravity
-		__NO_AXIS,
 
 		// axis around which to rotate the entity when syncronizing with body
 		__NO_AXIS

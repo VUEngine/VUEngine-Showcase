@@ -116,7 +116,10 @@ BodyROMSpec PongBallBodySpec =
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
 
 	// maximum speed
-	__I_TO_FIXED(2)
+	__I_TO_FIXED(2),
+
+	// Axises on which the body is subject to gravity
+	__NO_AXIS
 };
 
 const ComponentSpec* PongBallEntityComponentSpecs[] = 
@@ -171,9 +174,6 @@ PongBallROMSpec PongBallEntitySpec =
 
 		// true to create a body
 		true,
-
-		// axes subject to gravity
-		__NO_AXIS,
 
 		// axis around which to rotate the entity when syncronizing with body
 		__NO_AXIS

@@ -20,6 +20,7 @@
 #include <Languages.h>
 #include <Printing.h>
 #include <VirtualList.h>
+#include <VUEngine.h>
 
 #include "EntitiesState.h"
 

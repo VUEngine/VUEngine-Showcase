@@ -835,7 +835,10 @@ BodyROMSpec PunkBodySpec =
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
 
 	// maximum speed
-	__F_TO_FIXED(3)
+	__F_TO_FIXED(3),
+
+	// Axises on which the body is subject to gravity
+	__NO_AXIS
 };
 
 const ComponentSpec* PunkActorComponentSpecs[] = 
@@ -888,9 +891,6 @@ PunkROMSpec PunkActorSpec =
 
 		// true to create a body
 		true,
-
-		// axis subject to gravity
-		__NO_AXIS,
 
 		// axis around which to rotate the entity when syncronizing with body
 		__Y_AXIS,
