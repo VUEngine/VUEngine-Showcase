@@ -163,9 +163,9 @@ ObjectSpriteROMSpec StarSpriteSpec =
 	__WORLD_ON,
 };
 
-SpriteSpec* StarSpriteSpecs [] =
+ComponentSpec* StarSpriteSpecs [] =
 {
-	(SpriteSpec*)&StarSpriteSpec,
+	(ComponentSpec*)&StarSpriteSpec,
 	NULL
 };
 
@@ -336,11 +336,8 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	// maximum number of particles to spawn in each cycle
 	1,
 
-	// array of sprites
-	(const SpriteSpec**)StarSpriteSpecs,
-
-	// array of wireframes
-	(const WireframeSpec**)NULL,
+	// array of visual component specs
+	(const ComponentSpec**)StarSpriteSpecs,
 
 	// auto start
 	false,
@@ -420,10 +417,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	1,
 
 	// array of sprites
-	(const SpriteSpec**)StarSpriteSpecs,
-
-	// array of wireframes
-	(const WireframeSpec**)NULL,
+	(const ComponentSpec**)StarSpriteSpecs,
 
 	// auto start
 	false,
@@ -503,10 +497,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 	1,
 
 	// array of sprites
-	(const SpriteSpec**)StarSpriteSpecs,
-
-	// array of wireframes
-	(const WireframeSpec**)NULL,
+	(const ComponentSpec**)StarSpriteSpecs,
 
 	// auto start
 	false,
