@@ -97,6 +97,9 @@ SoundTrackROMSpec HitPaddle1SoundTrack1 =
 	/// SxRAM pointers
 	(int8**)HitPaddle1SoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)HitPaddle1SoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)HitPaddle1SoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

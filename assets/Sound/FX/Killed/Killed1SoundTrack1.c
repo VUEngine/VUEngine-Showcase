@@ -58,9 +58,9 @@ const uint8 Killed1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Killed1SoundTrack1Keyframes[] =
 {
-	{100, kSoundTrackEventStart | kSoundTrackEventSxTAP},
-	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
+	{100, kSoundTrackEventStart | kSoundTrackEventNoise},
+	{100, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
+	{100, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
 	{0, kSoundTrackEventEnd},
 };
 
@@ -96,6 +96,9 @@ SoundTrackROMSpec Killed1SoundTrack1 =
 	/// SxRAM pointers
 	(int8**)Killed1SoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)Killed1SoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)Killed1SoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

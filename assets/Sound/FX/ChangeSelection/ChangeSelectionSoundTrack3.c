@@ -97,6 +97,9 @@ SoundTrackROMSpec ChangeSelection3SoundTrack1 =
 	/// SxRAM pointers
 	(int8**)ChangeSelection3SoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)ChangeSelection3SoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)ChangeSelection3SoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

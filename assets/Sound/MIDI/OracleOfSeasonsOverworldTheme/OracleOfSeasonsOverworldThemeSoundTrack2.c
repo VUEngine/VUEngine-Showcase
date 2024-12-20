@@ -939,6 +939,9 @@ SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2 =
 	/// SxRAM pointers
 	(int8**)OracleOfSeasonsOverworldThemeSoundTrack2SxRAM,
 
-	/// S5SWP values
-	(uint8*)OracleOfSeasonsOverworldThemeSoundTrack2SxSWP
+	/// SxSWP values
+	(uint8*)OracleOfSeasonsOverworldThemeSoundTrack2SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

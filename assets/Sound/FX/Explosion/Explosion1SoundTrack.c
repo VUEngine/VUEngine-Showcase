@@ -58,11 +58,11 @@ const uint8 Explosion1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Explosion1SoundTrack1Keyframes[] =
 {
-	{500, kSoundTrackEventStart | kSoundTrackEventSxTAP},
-	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
-	{500, kSoundTrackEventSxLRV | kSoundTrackEventSxTAP},
+	{500, kSoundTrackEventStart | kSoundTrackEventNoise},
+	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
+	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
+	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
+	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
 	{0, kSoundTrackEventEnd},
 };
 
@@ -98,6 +98,9 @@ SoundTrackROMSpec Explosion1SoundTrack1 =
 	/// SxRAM pointers
 	(int8**)Explosion1SoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)Explosion1SoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)Explosion1SoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };

@@ -97,6 +97,9 @@ SoundTrackROMSpec Point1SoundTrack1 =
 	/// SxRAM pointers
 	(int8**)Point1SoundTrack1SxRAM,
 
-	/// S5SWP values
-	(uint8*)Point1SoundTrack1SxSWP
+	/// SxSWP values
+	(uint8*)Point1SoundTrack1SxSWP,
+
+	/// SxMOD values
+	(int8**)NULL
 };
