@@ -276,6 +276,12 @@ void AnimationSchemesState::destructor()
 {
 	AnimationSchemesState::removeSprites(this);
 
+	if(!isDeleted(this->animatedSprites))
+	{
+		delete this->animatedSprites;
+		this->animatedSprites = NULL;
+	}
+
 	// destroy base
 	Base::destructor();
 }
