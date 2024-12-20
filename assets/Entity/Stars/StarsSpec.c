@@ -293,7 +293,7 @@ SolidParticleROMSpec StarParticleSolidSpec =
 	"Vanish",
 };
 
-const ComponentSpec* StarsParticleSystemNormalComponentSpecs[] = 
+ComponentSpec* const StarsParticleSystemNormalComponentSpecs[] = 
 {
 	NULL
 };
@@ -317,7 +317,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		kTypeNone
 	},
 
@@ -366,7 +366,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
-const ComponentSpec* StarsParticleSystemPhysicalComponentSpecs[] = 
+ComponentSpec* const StarsParticleSystemPhysicalComponentSpecs[] = 
 {
 	NULL
 };
@@ -398,7 +398,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		kTypeNone,
 
 		
@@ -449,7 +449,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	__ACCELERATED_MOVEMENT
 };
 
-const ComponentSpec* StarsParticleSystemSolidComponentSpecs[] = 
+ComponentSpec* const StarsParticleSystemSolidComponentSpecs[] = 
 {
 	NULL
 };
@@ -481,7 +481,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		kTypeNone,
 
 		

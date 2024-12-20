@@ -362,7 +362,7 @@ ColliderROMSpec CogWheelColliderSpec1 =
 	kLayerNone,
 };
 
-const ComponentSpec* CogWheelEntityComponentSpecs[] = 
+ComponentSpec* const CogWheelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
 	(ComponentSpec*)&CogWheelColliderSpec1,
@@ -396,7 +396,7 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		kTypeCogWheel,
 
 		

@@ -773,7 +773,7 @@ ColliderROMSpec PunkColliderSpec =
 	~(kLayerSolid | kLayerDangers),
 };
 
-const ComponentSpec* PunkEntityComponentSpecs[] = 
+ComponentSpec* const PunkEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkAffineSpriteSpec,
 	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
@@ -800,7 +800,7 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		kTypeNone
 	},
 
@@ -841,7 +841,7 @@ BodyROMSpec PunkBodySpec =
 	__NO_AXIS
 };
 
-const ComponentSpec* PunkActorComponentSpecs[] = 
+ComponentSpec* const PunkActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
@@ -850,7 +850,7 @@ const ComponentSpec* PunkActorComponentSpecs[] =
 	NULL
 };
 
-const ComponentSpec* PunkActorDyingComponentSpecs[] = 
+ComponentSpec* const PunkActorDyingComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkDyingSpriteSpec,
 	(ComponentSpec*)&PunkDyingBlackSpriteSpec,
@@ -878,7 +878,7 @@ PunkROMSpec PunkActorSpec =
 				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// In-game entity's type
+				// Entity's in-game type
 				kTypePunk
 			},
 

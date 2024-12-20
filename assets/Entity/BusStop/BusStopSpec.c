@@ -155,7 +155,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* BusStopWireframeComponentSpecs[] = 
+ComponentSpec* const BusStopWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -189,7 +189,7 @@ MeshROMSpec BusStopWireframeSpec =
 	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-const ComponentSpec* BusStopEntityComponentSpecs[] = 
+ComponentSpec* const BusStopEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
 	NULL
@@ -213,6 +213,6 @@ EntityROMSpec BusStopEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

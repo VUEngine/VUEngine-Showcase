@@ -284,7 +284,7 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* VideoEntityComponentSpecs[] = 
+ComponentSpec* const VideoEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&VideoLSpriteSpec,
 	(ComponentSpec*)&VideoRSpriteSpec,
@@ -310,7 +310,7 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// In-game entity's type
+		// Entity's in-game type
 		0,
 
 		

@@ -23,7 +23,7 @@
 // DEFINITIONS
 //=========================================================================================================
 
-const ComponentSpec* PongBallWireframeComponentSpecs[] = 
+ComponentSpec* const PongBallWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -122,7 +122,7 @@ BodyROMSpec PongBallBodySpec =
 	__NO_AXIS
 };
 
-const ComponentSpec* PongBallEntityComponentSpecs[] = 
+ComponentSpec* const PongBallEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongBallBodySpec,
 	(ComponentSpec*)&PongBallWireframeSpec,
@@ -159,7 +159,7 @@ PongBallROMSpec PongBallEntitySpec =
 				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// In-game entity's type
+				// Entity's in-game type
 				kTypePongBall,
 
 				

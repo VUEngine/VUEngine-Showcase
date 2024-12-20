@@ -258,7 +258,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* TunnelWireframeComponentSpecs[] = 
+ComponentSpec* const TunnelWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -292,7 +292,7 @@ MeshROMSpec TunnelWireframeSpec =
 	(PixelVector(*)[2])TunnelMeshesSegments
 };
 
-const ComponentSpec* TunnelEntityComponentSpecs[] = 
+ComponentSpec* const TunnelEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&TunnelWireframeSpec,
 	NULL
@@ -316,6 +316,6 @@ EntityROMSpec TunnelEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

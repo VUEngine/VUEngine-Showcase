@@ -126,7 +126,7 @@ const PixelVector LampMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* LampWireframeComponentSpecs[] = 
+ComponentSpec* const LampWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -160,7 +160,7 @@ MeshROMSpec LampWireframeSpec =
 	(PixelVector(*)[2])LampMeshesSegments
 };
 
-const ComponentSpec* LampEntityComponentSpecs[] = 
+ComponentSpec* const LampEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&LampWireframeSpec,
 	NULL
@@ -184,6 +184,6 @@ EntityROMSpec LampEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

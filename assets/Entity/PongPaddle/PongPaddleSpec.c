@@ -43,7 +43,7 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 	},
 };
 
-const ComponentSpec* PongPaddleWireframeComponentSpecs[] = 
+ComponentSpec* const PongPaddleWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -172,7 +172,7 @@ BodyROMSpec PongPaddleBodySpecSpec =
 	__NO_AXIS
 };
 
-const ComponentSpec* PongPaddleEntityComponentSpecs[] = 
+ComponentSpec* const PongPaddleEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongPaddleBodySpecSpec,
 	(ComponentSpec*)&PongPaddleWireframeSpec,
@@ -202,7 +202,7 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				// If 0, it is computed from the visual components if any
 				{0, 0, 0},
 
-				// In-game entity's type
+				// Entity's in-game type
 				kTypePongPaddle
 			},
 

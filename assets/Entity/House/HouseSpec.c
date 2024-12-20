@@ -147,7 +147,7 @@ const PixelVector HouseMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* HouseWireframeComponentSpecs[] = 
+ComponentSpec* const HouseWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -181,7 +181,7 @@ MeshROMSpec HouseWireframeSpec =
 	(PixelVector(*)[2])HouseMeshesSegments
 };
 
-const ComponentSpec* HouseEntityComponentSpecs[] = 
+ComponentSpec* const HouseEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseWireframeSpec,
 	NULL
@@ -205,6 +205,6 @@ EntityROMSpec HouseEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

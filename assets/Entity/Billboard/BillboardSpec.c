@@ -173,7 +173,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* BillboardWireframeComponentSpecs[] = 
+ComponentSpec* const BillboardWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -207,7 +207,7 @@ MeshROMSpec BillboardWireframeSpec =
 	(PixelVector(*)[2])BillboardMeshesSegments
 };
 
-const ComponentSpec* BillboardEntityComponentSpecs[] = 
+ComponentSpec* const BillboardEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BillboardWireframeSpec,
 	NULL
@@ -231,6 +231,6 @@ EntityROMSpec BillboardEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

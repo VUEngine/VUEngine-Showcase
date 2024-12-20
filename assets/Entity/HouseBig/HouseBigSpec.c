@@ -164,7 +164,7 @@ const PixelVector HouseBigMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* HouseBigWireframeComponentSpecs[] = 
+ComponentSpec* const HouseBigWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -198,7 +198,7 @@ MeshROMSpec HouseBigWireframeSpec =
 	(PixelVector(*)[2])HouseBigMeshesSegments
 };
 
-const ComponentSpec* HouseBigEntityComponentSpecs[] = 
+ComponentSpec* const HouseBigEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseBigWireframeSpec,
 	NULL
@@ -222,6 +222,6 @@ EntityROMSpec HouseBigEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

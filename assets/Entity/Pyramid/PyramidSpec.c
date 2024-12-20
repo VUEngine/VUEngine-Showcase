@@ -66,7 +66,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* PyramidWireframeComponentSpecs[] = 
+ComponentSpec* const PyramidWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -134,7 +134,7 @@ ColliderROMSpec PyramidColliderSpec1 =
 		kLayerNone
 	};
 
-const ComponentSpec* PyramidEntityComponentSpecs[] = 
+ComponentSpec* const PyramidEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PyramidWireframeSpec,
 	(ComponentSpec*)&PyramidColliderSpec1,
@@ -159,6 +159,6 @@ EntityROMSpec PyramidEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

@@ -180,7 +180,7 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	__WORLD_RON,
 };
 
-const ComponentSpec* PdScreenshotEntityComponentSpecs[] = 
+ComponentSpec* const PdScreenshotEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PdScreenshotLSpriteSpec,
 	(ComponentSpec*)&PdScreenshotRSpriteSpec,
@@ -205,7 +205,7 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone,
 
 	

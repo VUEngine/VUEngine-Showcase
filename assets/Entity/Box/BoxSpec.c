@@ -148,7 +148,7 @@ ColliderROMSpec BoxColliderSpec1 =
 	kLayerNone,
 };
 
-const ComponentSpec* BoxEntityComponentSpecs[] = 
+ComponentSpec* const BoxEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&BoxSpriteSpec,
 	(ComponentSpec*)&BoxColliderSpec1,
@@ -181,6 +181,6 @@ EntityROMSpec BoxEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeSolidObject
 };

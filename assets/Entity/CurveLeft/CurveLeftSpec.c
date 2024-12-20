@@ -240,7 +240,7 @@ MeshROMSpec CurveLeftWireframeSpec =
 	(PixelVector(*)[2])CurveLeftMeshesSegments
 };
 
-ComponentSpec* const CurveLeftComponentSpecs[] =
+ComponentSpec* const  CurveLeftComponentSpecs[] =
 {
 	(ComponentSpec*)&CurveLeftWireframeSpec,
 	NULL

@@ -81,7 +81,7 @@ const PixelVector StreetMeshesSegments[][2]=
 	},
 };
 
-const ComponentSpec* StreetWireframeComponentSpecs[] = 
+ComponentSpec* const StreetWireframeComponentSpecs[] = 
 {
 	NULL
 };
@@ -115,7 +115,7 @@ MeshROMSpec StreetWireframeSpec =
 	(PixelVector(*)[2])StreetMeshesSegments
 };
 
-const ComponentSpec* StreetEntityComponentSpecs[] = 
+ComponentSpec* const StreetEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&StreetWireframeSpec,
 	NULL
@@ -139,6 +139,6 @@ EntityROMSpec StreetEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypeNone
 };

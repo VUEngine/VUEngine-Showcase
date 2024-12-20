@@ -90,7 +90,7 @@ ColliderROMSpec PongWallsColliderSpec2 =
 		kLayerAll,
 	};
 
-const ComponentSpec* PongWallsEntityComponentSpecs[] = 
+ComponentSpec* const PongWallsEntityComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongWallsColliderSpec2,
 	(ComponentSpec*)&PongWallsColliderSpec1,
@@ -115,6 +115,6 @@ EntityROMSpec PongWallsEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// In-game entity's type
+	// Entity's in-game type
 	kTypePongWall
 };
