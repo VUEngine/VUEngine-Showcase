@@ -59,7 +59,7 @@ void PunkDie::enter(void* owner)
 	 */
 	extern SpriteSpec* PunkActorDyingComponentSpecs[];
 	Punk::removeComponents(punk, kComponentTypes);
-	Punk::addComponents(punk, (ComponentSpec**)PunkActorDyingComponentSpecs);
+	Punk::addComponents(punk, (ComponentSpec**)PunkActorDyingComponentSpecs, kComponentTypes);
 
 	Punk::playAnimation(punk, "Die");
 
@@ -99,7 +99,7 @@ void PunkDie::exit(void* owner)
 	 */
 	extern ComponentSpec* PunkActorComponentSpecs[];
 	Punk::removeComponents(punk, kComponentTypes);
-	Punk::addComponents(punk, (ComponentSpec**)PunkActorComponentSpecs);
+	Punk::addComponents(punk, (ComponentSpec**)PunkActorComponentSpecs, kComponentTypes);
 
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 
