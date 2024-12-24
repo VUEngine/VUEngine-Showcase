@@ -165,7 +165,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			{
 				Sound::pause(this->sound);
 				Sound::rewind(this->sound);
-				Sound::setSpeed(this->sound, Sound::getSpeed(this->sound) +  __F_TO_FIX7_9(0.01f));
+				Sound::setSpeed(this->sound, Sound::getSpeed(this->sound) -  __F_TO_FIX7_9(0.01f));
 				SoundsState::showSoundMetadata(this);
 			}
 			else if(K_LU & userInput->releasedKey)
