@@ -10,28 +10,28 @@
 #ifndef PUNK_H_
 #define PUNK_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
 
 #include <Actor.h>
 
-
 //=========================================================================================================
 // CLASS' DATA
 //=========================================================================================================
 
 /// A Punk Spec
+/// @memberof Punk
 typedef struct PunkSpec
 {
+	/// Actor spec
 	ActorSpec actorSpec;
 
 } PunkSpec;
 
 /// A Punk spec that is stored in ROM
+/// @memberof Punk
 typedef const PunkSpec PunkROMSpec;
-
 
 //=========================================================================================================
 // CLASS' DECLARATION
@@ -56,8 +56,9 @@ class Punk : Actor
 	override bool handleMessage(Telegram telegram);
 
 	/// Process a newly detected collision by one of the component colliders.
-	/// @param collisionInformation: Information struct about the collision to resolve 
-	/// @return True if the collider must keep track of the collision to detect if it persists and when it ends; false otherwise
+	/// @param collisionInformation: Information struct about the collision to resolve
+	/// @return True if the collider must keep track of the collision to detect if it persists and when it
+	/// ends; false otherwise
 	override bool collisionStarts(const CollisionInformation* collisionInformation);
 
 	/// Default interger message handler for propagateMessage
@@ -76,9 +77,8 @@ class Punk : Actor
 	void walk();
 
 	/// Callback for die animation when completed.
-	/// @param eventFirer: Animation controller 
+	/// @param eventFirer: Animation controller
 	bool onDieAnimationComplete(ListenerObject eventFirer);
 }
-
 
 #endif
