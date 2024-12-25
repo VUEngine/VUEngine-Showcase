@@ -10,28 +10,28 @@
 #ifndef COG_WHEEL_H_
 #define COG_WHEEL_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
 
 #include <Entity.h>
 
-
 //=========================================================================================================
 // CLASS' DATA
 //=========================================================================================================
 
 /// A CogWheel Spec
+/// @memberof CogWheel
 typedef struct CogWheelSpec
 {
+	/// Entity spec
 	EntitySpec entitySpec;
 
 } CogWheelSpec;
 
 /// A PongBall spec that is stored in ROM
+/// @memberof CogWheel
 typedef const CogWheelSpec CogWheelROMSpec;
-
 
 //=========================================================================================================
 // CLASS' DECLARATION
@@ -53,6 +53,5 @@ class CogWheel : Entity
 	/// Update this instance's logic.
 	override void update();
 }
-
 
 #endif

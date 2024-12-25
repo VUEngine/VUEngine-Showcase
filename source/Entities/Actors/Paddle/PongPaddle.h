@@ -10,7 +10,6 @@
 #ifndef PONG_PADDLE_H_
 #define PONG_PADDLE_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
@@ -18,22 +17,22 @@
 #include <Actor.h>
 #include <Collider.h>
 
-
 //=========================================================================================================
 // CLASS' MACROS
 //=========================================================================================================
 
-#define PADDLE_LEFT_NAME			"LeftPD"
-#define PADDLE_RIGHT_NAME			"RightPD"
-
+#define PADDLE_LEFT_NAME  "LeftPD"
+#define PADDLE_RIGHT_NAME "RightPD"
 
 //=========================================================================================================
 // CLASS' DATA
 //=========================================================================================================
 
 /// A PongPaddle Spec
+/// @memberof PongPaddle
 typedef struct PongPaddleSpec
 {
+	/// Actor spec
 	ActorSpec actorSpec;
 
 	/// Force to apply to the paddle
@@ -42,16 +41,17 @@ typedef struct PongPaddleSpec
 } PongPaddleSpec;
 
 /// A PongPaddle spec that is stored in ROM
+/// @memberof PongPaddle
 typedef const PongPaddleSpec PongPaddleROMSpec;
 
-/// Enums to identify the paddles
+/// Enum to identify the paddles
+/// @memberof PongPaddle
 enum PlayerPongPaddles
 {
 	kLeftPongPaddle = 0,
 	kRightPongPaddle,
 	kNoPongPaddle
 };
-
 
 //=========================================================================================================
 // CLASS' DECLARATION
@@ -83,6 +83,5 @@ class PongPaddle : Actor
 	/// @param direction: Direction towards which to move the paddle
 	void moveTowards(NormalizedDirection direction);
 }
-
 
 #endif
