@@ -76,7 +76,7 @@ TextureSpec* const PongStageTextures[] =
 
 StageROMSpec PongStageSpec =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Stage),
 
 	// Timer config
@@ -92,9 +92,9 @@ StageROMSpec PongStageSpec =
 		0
 	},
 
-	// level
+	// General stage's attributes
 	{
-		// Size
+		// Stage's size in pixels
 		{
 			// x
 			__SCREEN_WIDTH,
@@ -104,7 +104,7 @@ StageROMSpec PongStageSpec =
 			__SCREEN_DEPTH,
 		},
 
-		// camera's initial position inside the game world
+		// Camera's initial position inside the stage
 		{
 			// x
 			0,
@@ -116,7 +116,7 @@ StageROMSpec PongStageSpec =
 			0
 		},
 
-		// camera's frustum
+		// Camera's frustum
 		{
 			// x0
 			0,
@@ -133,75 +133,75 @@ StageROMSpec PongStageSpec =
 		}
 	},
 
-	// streaming
+	// Streaming
 	{
-		// load padding
+		// Padding to be added to camera's frustum when checking if a entity spec
+		// describes an entity that is within the camera's range
 		0,
-		// unload padding
+		// Padding to be added to camera's frustum when checking if a entity is
+		// out of the camera's range
 		0,
-		// streaming amplitude
+		// Amount of entity descriptions to check for streaming in entities
 		10,
-		// particle removal delay cycles
-		0,
-		// deferred
+		// If true, entity instantiation is done over time
 		false,
 	},
 
-	// rendering
+	// Rendering
 	{
-		// maximum number of texture's rows to write each time the texture writing is active
+		// Maximum number of texture's rows to write each time the texture writing is active
 		64,
 
-		// maximum number of rows to compute on each call to the affine functions
+		// Maximum number of rows to compute on each call to the affine functions
 		64,
 
-		// colors config
+		// Color configuration
 		{
-			// background color
+			// Background color
 			__COLOR_BLACK,
 
-			// brightness
-			// these values times the repeat values specified in the column table (max. 16) make the final
+			// Brightness
+			// These values times the repeat values specified in the column table (max. 16) make the final
 			// brightness values on the respective regions of the screen. maximum brightness is 128.
 			{
-				// dark red
+				// Dark red
 				__BRIGHTNESS_DARK_RED,
-				// medium red
+				// Medium red
 				__BRIGHTNESS_MEDIUM_RED,
-				// bright red
+				// Bright red
 				__BRIGHTNESS_BRIGHT_RED,
 			},
 
-			// brightness repeat
+			// Brightness repeat
 			(BrightnessRepeatSpec*)NULL,
 		},
 
-		// palettes' config
+		// Palettes' configuration
 		{
 			{
-				// bgmap palette 0
+				// Bgmap palette 0
 				__BGMAP_PALETTE_0,
-				// bgmap palette 1
+				// Bgmap palette 1
 				__BGMAP_PALETTE_1,
-				// bgmap palette 2
+				// Bgmap palette 2
 				__BGMAP_PALETTE_2,
-				// bgmap palette 3
+				// Bgmap palette 3
 				__BGMAP_PALETTE_3,
 			},
 			{
-				// object palette 0
+				// Object palette 0
 				__OBJECT_PALETTE_0,
-				// object palette 1
+				// Object palette 1
 				__OBJECT_PALETTE_1,
-				// object palette 2
+				// Object palette 2
 				__OBJECT_PALETTE_2,
-				// object palette 3
+				// Object palette 3
 				__OBJECT_PALETTE_3,
 			},
 		},
 
-		// bgmap segments configuration
-		// number of segments reserved for the param table
+		// Bgmap segments configuration
+		// Number of BGMAP segments reserved for the param
 		2,
 
 		// obj segments sizes (must total 1024)
@@ -217,7 +217,7 @@ StageROMSpec PongStageSpec =
 		},
 
 		// OBJECT segments z coordinates
-		// note that each spt's z coordinate much be larger than or equal to the previous one's,
+		// Note that each spt's z coordinate much be larger than or equal to the previous one's,
 		// since the vip renders obj worlds in reverse order (__spt3 to __spt0)
 		{
 			// __spt0
@@ -230,63 +230,63 @@ StageROMSpec PongStageSpec =
 			0,
 		},
 
-		// optical configuration values
+		// Struct defining the optical settings for the stage
 		{
-			// maximum view distance's power into the horizon
+			// Maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_X_VIEW_DISTANCE,
-			// distance of the eyes to the screen
+			// Distance of the eyes to the screen
 			__CAMERA_NEAR_PLANE * 3,
-			// distance from left to right eye (depth sensation)
+			// Distance from left to right eye (depth sensation)
 			__BASE_FACTOR,
-			// horizontal view point center
+			// Horizontal view point center
 			__HORIZONTAL_VIEW_POINT_CENTER,
-			// vertical view point center
+			// Vertical view point center
 			__VERTICAL_VIEW_POINT_CENTER,
-			// scaling factor
+			// Scaling factor
 			__SCALING_MODIFIER_FACTOR,
 		},
 	},
 
-	// physics
+	// Physical world's properties
 	{
-		// gravity
+		// Gravity
 		{
 			__F_TO_FIX10_6(__GRAVITY),
 			__F_TO_FIX10_6(__GRAVITY),
 			__F_TO_FIX10_6(__GRAVITY)
 		},
 
-		// Friction
+		// Friction coefficient
 		__F_TO_FIX10_6(0.0f),
 	},
 
-	// assets
+	// Assets
 	{
-		// fonts to preload
+		// Fonts to preload
 		(FontSpec**)PongStageFontSpecs,
 
-		// char sets to preload
+		// CharSets to preload
 		(CharSetSpec**)PongStageCharsets,
 
-		// textures to preload
+		// Textures to preload
 		(TextureSpec**)PongStageTextures,
 
-		// background music
+		// Sounds to load
 		(SoundSpec**)NULL,
 	},
 
-	// entities
+	// Entities
 	{
-		// ui
+		// UI configuration
 		{
 			(PositionedEntity*)PongStageUiEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
-		// Children specs
+		// Stage's children entities
 		(PositionedEntity*)PongStageEntitySpecs,
 	},
 
-	// post processing effects
+	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
