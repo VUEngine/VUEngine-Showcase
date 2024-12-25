@@ -100,7 +100,7 @@ BgmapSpriteROMSpec BoxSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 0, 0},
 	},
 

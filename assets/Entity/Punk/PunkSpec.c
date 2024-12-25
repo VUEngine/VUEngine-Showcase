@@ -358,7 +358,7 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -391,7 +391,7 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -424,7 +424,7 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -457,7 +457,7 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -490,7 +490,7 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -523,7 +523,7 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 3, 0},
 	},
 
@@ -556,7 +556,7 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 3, 0},
 	},
 
@@ -691,7 +691,7 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 2, 0},
 	},
 
@@ -725,7 +725,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 3, 0},
 	},
 

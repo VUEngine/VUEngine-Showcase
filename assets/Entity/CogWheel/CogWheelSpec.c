@@ -165,7 +165,7 @@ ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 0, 0},
 	},
 
@@ -195,7 +195,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 0, 0},
 	},
 
@@ -228,7 +228,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 1, 0},
 	},
 
@@ -261,7 +261,7 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// Displacement
+		// Displacement added to the sprite's position
 		{0, 0, 0, 0},
 	},
 
@@ -295,7 +295,7 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 			// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 			__TRANSPARENCY_NONE,
 
-			// Displacement
+			// Displacement added to the sprite's position
 			{0, 0, 0, 0},
 		},
 
