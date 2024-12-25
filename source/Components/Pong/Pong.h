@@ -10,7 +10,6 @@
 #ifndef PONG_H_
 #define PONG_H_
 
-
 //=========================================================================================================
 // INCLUDES
 //=========================================================================================================
@@ -22,18 +21,18 @@
 #include <Stage.h>
 #include <VirtualList.h>
 
-
 //=========================================================================================================
 // CLASS' DATA
 //=========================================================================================================
 
+/// Possible number of players
+/// @memberof Pong
 enum PlayerNumbers
 {
 	kPlayerAlone = 0,
 	kPlayerOne,
 	kPlayerTwo
 };
-
 
 //=========================================================================================================
 // CLASS' DECLARATION
@@ -68,7 +67,7 @@ singleton class Pong : ListenerObject
 	/// Message to send to the other system
 	uint32 messageForRemote;
 
-	/// True if the state is in versus mode; false otherwise 
+	/// True if the state is in versus mode; false otherwise
 	bool isVersusMode;
 
 	/// Flag to allor/prevent the movement of the paddle
