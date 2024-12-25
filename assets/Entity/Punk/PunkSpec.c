@@ -41,45 +41,45 @@ extern uint16 PunkDyingBlackMap[];
 
 AnimationFunctionROMSpec PunkMoveAnimationSpec =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	12,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{9, 10, 11, 0, 1, 2, 3, 4, 5, 6, 7, 8},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	4,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	true,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"Move",
 };
 
 AnimationFunctionROMSpec PunkDieAnimationSpec =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	11,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	4,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	false,
 
-	// method to call on function completion
+	// Callback on animation completion
 	(EventListener)&Punk_onDieAnimationComplete,
 
-	// function's name
+	// Animation's name
 	"Die",
 };
 
@@ -92,91 +92,91 @@ AnimationFunctionROMSpec* PunkAnimationSpecs[] =
 
 CharSetROMSpec PunkCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
 CharSetROMSpec PunkCharsetNotSharedSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	false,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
 CharSetROMSpec PunkCharsetSharedSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
 CharSetROMSpec PunkCharsetMultiframeSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	4*6 * 12,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
 CharSetROMSpec PunkBlackCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	4*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	true,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkBlackTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
@@ -184,31 +184,31 @@ TextureROMSpec PunkTextureSpec =
 {
 	(CharSetSpec*)&PunkCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	4,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{1, 1},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -216,31 +216,31 @@ TextureROMSpec PunkTextureNotSharedSpec =
 {
 	(CharSetSpec*)&PunkCharsetNotSharedSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	4,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -248,31 +248,31 @@ TextureROMSpec PunkTextureSharedSpec =
 {
 	(CharSetSpec*)&PunkCharsetSharedSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	4,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -280,31 +280,31 @@ TextureROMSpec PunkTextureMultiframeSpec =
 {
 	(CharSetSpec*)&PunkCharsetMultiframeSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	4,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	12,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -312,31 +312,31 @@ TextureROMSpec PunkBlackTextureSpec =
 {
 	(CharSetSpec*)&PunkBlackCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkBlackMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	4,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{1, 1},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	1,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -352,24 +352,24 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -385,24 +385,24 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_AFFINE,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -418,24 +418,24 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureNotSharedSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -451,24 +451,24 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSharedSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -484,24 +484,24 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureMultiframeSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -517,24 +517,24 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 3, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -550,24 +550,24 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 3, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_AFFINE,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -575,37 +575,37 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 
 CharSetROMSpec PunkDyingCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	8*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	false,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkDyingTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
 CharSetROMSpec PunkDyingBlackCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	8*6,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	false,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	false,
 
-	// char spec
+	// Tiles array
 	PunkDyingBlackTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	NULL,
 };
 
@@ -613,31 +613,31 @@ TextureROMSpec PunkDyingTextureSpec =
 {
 	(CharSetSpec*)&PunkDyingCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkDyingMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	8,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -645,31 +645,31 @@ TextureROMSpec PunkDyingBlackTextureSpec =
 {
 	(CharSetSpec*)&PunkDyingBlackCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkDyingBlackMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	8,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	6,
 
-	// padding for affine/hbias transformations (cols, rows)
+	// Padding added to the size for affine/hbias transformations (cols, rows)
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	1,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false,
 };
 
@@ -685,24 +685,24 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 2, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -719,24 +719,24 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingBlackTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 3, 0},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
-	// pointer to affine/hbias manipulation function
+	// Pointer to affine/hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
 
@@ -754,22 +754,22 @@ ColliderROMSpec PunkColliderSpec =
 	// Size (x, y, z)
 	{16, 38, 24},
 
-	// displacement (x, y, z, p)
+	// Displacement (x, y, z, p)
 	{0, 1, 0, 0},
 
-	// rotation (x, y, z)
+	// Rotation (x, y, z)
 	{0, 0, 0},
 
-	// scale (x, y, z)
+	// Scale (x, y, z)
 	{0, 0, 0},
 
-	// if true this collider checks for collisions against other colliders
+	// If true this collider checks for collisions against other colliders
 	true,
 
-	// layers in which I live
+	// Layers in which I live
 	kLayerPunk,
 
-	// layers to ignore when checking for collisions
+	// Layers to ignore when checking for collisions
 	~(kLayerSolid | kLayerDangers),
 };
 
@@ -804,10 +804,10 @@ AnimatedEntityROMSpec PunkEntitySpec =
 		kTypeNone
 	},
 
-	// pointer to the animation spec for the character
+	// Pointer to animation functions array
 	(const AnimationFunction**)&PunkAnimationSpecs,
 
-	// initial animation
+	// Animation to play automatically
 	"Move"
 };
 
@@ -822,19 +822,22 @@ BodyROMSpec PunkBodySpec =
 		kPhysicsComponent
 	},
 
-	// mass
+	// Create body
+	true,
+
+	// Mass
 	__F_TO_FIXED(0.5f),
 
-	// friction
+	// Friction
 	__F_TO_FIXED(0.1f),
 
-	// bounciness
+	// Bounciness
 	__F_TO_FIXED(0),
 
-	// maximum velocity
+	// Maximum velocity
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
 
-	// maximum speed
+	// Maximum speed
 	__F_TO_FIXED(3),
 
 	// Axises on which the body is subject to gravity
@@ -882,17 +885,14 @@ PunkROMSpec PunkActorSpec =
 				kTypePunk
 			},
 
-			// pointer to the animation spec for the character
+			// Pointer to animation functions array
 			(const AnimationFunction**)&PunkAnimationSpecs,
 
-			// initial animation
+			// Animation to play automatically
 			"Move"
 		},
 
-		// true to create a body
-		true,
-
-		// axis around which to rotate the entity when syncronizing with body
+		// Axises around which to rotate the entity when syncronizing with bodyate the entity when syncronizing with body
 		__Y_AXIS,
 	}
 };

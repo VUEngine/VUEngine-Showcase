@@ -65,7 +65,7 @@ MeshROMSpec PongPaddleWireframeSpec =
 		// color
 		__COLOR_BLACK,
 
-		// transparency
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// interlaced
@@ -90,22 +90,22 @@ ColliderROMSpec PongPaddleColliderSpec1 =
 	// Size (x, y, z)
 	{16, 20, 16},
 
-	// displacement (x, y, z, p)
+	// Displacement (x, y, z, p)
 	{0, 0, 0, 0},
 
-	// rotation (x, y, z)
+	// Rotation (x, y, z)
 	{0, 0, 0},
 
-	// scale (x, y, z)
+	// Scale (x, y, z)
 	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-	// if true this collider checks for collisions against other colliders
+	// If true this collider checks for collisions against other colliders
 	true,
 
-	// layers in which I live
+	// Layers in which I live
 	kLayerPongPaddleHelper,
 
-	// layers to ignore when checking for collisions
+	// Layers to ignore when checking for collisions
 	kLayerAll & ~(kLayerPongWalls)
 };
 
@@ -123,22 +123,22 @@ ColliderROMSpec PongPaddleColliderSpec2 =
 	// Size (x, y, z)
 	{3, 20, 16},
 
-	// displacement (x, y, z, p)
+	// Displacement (x, y, z, p)
 	{0, 0, 0, 0},
 
-	// rotation (x, y, z)
+	// Rotation (x, y, z)
 	{0, 0, 0},
 
-	// scale (x, y, z)
+	// Scale (x, y, z)
 	{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-	// if true this collider checks for collisions against other colliders
+	// If true this collider checks for collisions against other colliders
 	false,
 
-	// layers in which I live
+	// Layers in which I live
 	kLayerPongPaddle,
 
-	// layers to ignore when checking for collisions
+	// Layers to ignore when checking for collisions
 	kLayerAll
 };
 
@@ -153,19 +153,22 @@ BodyROMSpec PongPaddleBodySpecSpec =
 		kPhysicsComponent
 	},
 
-	// mass
+	// Create body
+	true,
+
+	// Mass
 	__F_TO_FIX10_6(0.55f),
 
-	// friction
+	// Friction
 	__F_TO_FIX10_6(0.25f),
 
-	// bounciness
+	// Bounciness
 	__F_TO_FIX10_6(1.0f),
 
-	// maximum velocity
+	// Maximum velocity
 	{0, 0, 0},
 
-	// maximum speed
+	// Maximum speed
 	__I_TO_FIX10_6(8),
 
 	// Axises on which the body is subject to gravity
@@ -206,17 +209,14 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 				kTypePongPaddle
 			},
 
-			// pointer to the animation spec for the item
+			// Pointer to animation functions array
 			(const AnimationFunction**)NULL,
 
-			// initial animation
+			// Animation to play automatically
 			NULL,
 		},
 
-		// true to create a body
-		true,
-
-		// axis around which to rotate the entity when syncronizing with body
+		// Axises around which to rotate the entity when syncronizing with bodyate the entity when syncronizing with body
 		__NO_AXIS
 	},
 

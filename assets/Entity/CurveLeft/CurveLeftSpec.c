@@ -223,7 +223,7 @@ MeshROMSpec CurveLeftWireframeSpec =
 			kWireframeComponent
 		},
 
-		// displacement
+		// Displacement
 		{0, 0, 0},
 		
 		// color
@@ -264,6 +264,6 @@ EntityROMSpec CurveLeftEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	/// Entity's in-game type
+	// Entity's in-game type
 	kTypeNone
 };

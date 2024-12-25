@@ -37,22 +37,22 @@ ColliderROMSpec PongWallsColliderSpec1 =
 		// Size (x, y, z)
 		{100 * 2, 0, 0},
 
-		// displacement (x, y, z, p)
+		// Displacement (x, y, z, p)
 		{0, -68, 0, 0},
 
-		// rotation (x, y, z)
+		// Rotation (x, y, z)
 		{0, 0, 255},
 
-		// scale (x, y, z)
+		// Scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
+		// If true this collider checks for collisions against other colliders
 		false,
 
-		// layers in which I live
+		// Layers in which I live
 		kLayerPongWalls,
 
-		// layers to ignore when checking for collisions
+		// Layers to ignore when checking for collisions
 		kLayerAll,
 	};
 
@@ -71,22 +71,22 @@ ColliderROMSpec PongWallsColliderSpec2 =
 		// Size (x, y, z)
 		{100 * 2, 0, 0},
 
-		// displacement (x, y, z, p)
+		// Displacement (x, y, z, p)
 		{0, 64, 0, 0},
 
-		// rotation (x, y, z)
+		// Rotation (x, y, z)
 		{0, 0, 0},
 
-		// scale (x, y, z)
+		// Scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
+		// If true this collider checks for collisions against other colliders
 		false,
 
-		// layers in which I live
+		// Layers in which I live
 		kLayerPongWalls,
 
-		// layers to ignore when checking for collisions
+		// Layers to ignore when checking for collisions
 		kLayerAll,
 	};
 

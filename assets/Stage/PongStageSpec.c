@@ -256,7 +256,7 @@ StageROMSpec PongStageSpec =
 			__F_TO_FIX10_6(__GRAVITY)
 		},
 
-		// friction
+		// Friction
 		__F_TO_FIX10_6(0.0f),
 	},
 

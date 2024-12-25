@@ -88,7 +88,7 @@ MeshROMSpec PyramidWireframeSpec =
 		// color
 		__COLOR_BLACK,
 
-		// transparency
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
 		// interlaced
@@ -115,22 +115,22 @@ ColliderROMSpec PyramidColliderSpec1 =
 		// Size (x, y, z)
 		{128, 128, 128},
 
-		// displacement (x, y, z, p)
+		// Displacement (x, y, z, p)
 		{0, 0, 0, 0},
 
-		// rotation (x, y, z)
+		// Rotation (x, y, z)
 		{0, 0, 0},
 
-		// scale (x, y, z)
+		// Scale (x, y, z)
 		{__I_TO_FIX7_9(1), __I_TO_FIX7_9(1), __I_TO_FIX7_9(1)},
 
-		// if true this collider checks for collisions against other colliders
+		// If true this collider checks for collisions against other colliders
 		false,
 
-		// layers in which I live
+		// Layers in which I live
 		kLayerNone,
 
-		// layers to ignore when checking for collisions
+		// Layers to ignore when checking for collisions
 		kLayerNone
 	};
 

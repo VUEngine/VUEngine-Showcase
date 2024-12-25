@@ -190,7 +190,7 @@ MeshROMSpec BillboardWireframeSpec =
 			kWireframeComponent
 		},
 
-		// displacement
+		// Displacement
 		{0, 0, 0},
 		
 		// color

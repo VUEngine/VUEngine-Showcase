@@ -34,10 +34,10 @@ extern uint16 VideoRMap[];
 
 AnimationFunctionROMSpec VideoHiColorAnimationSpec =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	470,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29,
 		 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
@@ -57,25 +57,25 @@ AnimationFunctionROMSpec VideoHiColorAnimationSpec =
 		450,451,452,453,454,455,456,457,458,459,460,461,462,463,464,465,466,467,468,469,
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	1,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	true,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"HiColor",
 };
 
 AnimationFunctionROMSpec Video4ColorAnimationSpec =
 {
-	// number of frames of this animation function
+	// Number of frames that the texture supports of this animation function
 	470,
 
-	// frames to play in animation
+	// Frames to play in animation
 	{
 		  0,  0,  2,  2,  4,  4,  6,  6,  8,  8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20, 20, 22, 22, 24, 24, 26, 26, 28, 28,
 		 30, 30, 32, 32, 34, 34, 36, 36, 38, 38, 40, 40, 42, 42, 44, 44, 46, 46, 48, 48, 50, 50, 52, 52, 54, 54, 56, 56, 58, 58,
@@ -95,16 +95,16 @@ AnimationFunctionROMSpec Video4ColorAnimationSpec =
 		450,450,452,452,454,454,456,456,458,458,460,460,462,462,464,464,466,466,468,468,
 	},
 
-	// number of cycles a frame of animation is displayed
+	// Number of cycles a frame of animation is displayed
 	1,
 
-	// whether to play it in loop or not
+	// Whether to play it in loop or not
 	true,
 
-	// method to call on function completion
+	// Callback on animation completion
 	NULL,
 
-	// function's name
+	// Animation's name
 	"4Color",
 };
 
@@ -118,103 +118,103 @@ AnimationFunctionROMSpec* VideoAnimationSpecs[] =
 
 CharSetROMSpec VideoLCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	633,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	false,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	true,
 
-	// char spec
+	// Tiles array
 	VideoLTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	VideoLTilesFrameOffsets
 };
 
 CharSetROMSpec VideoRCharsetSpec =
 {
-	// number of chars in function of the number of frames to load at the same time
+	// Number of chars in function of the number of frames to load at the same time
 	647,
 
-	// whether it is shared or not
+	// Whether it is shared or not
 	false,
 	
-	// whether the tiles are optimized or not
+	// Whether the tiles are optimized or not
 	true,
 
-	// char spec
+	// Tiles array
 	VideoRTiles,
 
-	// pointer to the frames offsets
+	// Frame offsets array
 	VideoRTilesFrameOffsets
 };
 
 TextureROMSpec VideoLTextureSpec =
 {
-	// charset spec
+	// Pointer to the char spec that the texture uses
 	(CharSetSpec*)&VideoLCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	VideoLMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	48,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	28,
 
 	// padding for affine transformations
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false
 };
 
 TextureROMSpec VideoRTextureSpec =
 {
-	// charset spec
+	// Pointer to the char spec that the texture uses
 	(CharSetSpec*)&VideoRCharsetSpec,
 
-	// bgmap spec
+	// Pointer to the map array that defines how to use the tiles from the char set
 	VideoRMap,
 
-	// cols (max 64)
+	// Horizontal size in tiles of the texture (max. 64)
 	48,
 
-	// rows (max 64)
+	// Vertical size in tiles of the texture (max. 64)
 	28,
 
 	// padding for affine transformations
 	{0, 0},
 
-	// number of frames
+	// Number of frames that the texture supports
 	1,
 
-	// palette number (0-3)
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// recyclable
+	// Flag to recyble the texture with a different map
 	false,
 
-	// vertical flip
+	// Flag to vertically flip the image
 	false,
 
-	// horizontal flip
+	// Flag to horizontally flip the image
 	false
 };
 
@@ -230,24 +230,24 @@ BgmapSpriteROMSpec VideoLSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&VideoLTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 0, 4},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
 	__WORLD_BGMAP,
 
 	// pointer to affine / hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_LON,
 };
 
@@ -263,24 +263,24 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 			kSpriteComponent
 		},
 
-		// texture spec
+		// Spec for the texture to display
 		(TextureSpec*)&VideoRTextureSpec,
 
-		// transparency (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// displacement
+		// Displacement
 		{0, 0, 0, 4},
 	},
 
-	// bgmap mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
 	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
 	__WORLD_BGMAP,
 
 	// pointer to affine / hbias manipulation function
 	NULL,
 
-	// display mode (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_RON,
 };
 
@@ -316,9 +316,9 @@ AnimatedEntityROMSpec VideoEntitySpec =
 		
 	},
 
-	// pointer to the animation spec for the item
+	// Pointer to animation functions array
 	(const AnimationFunction**)&VideoAnimationSpecs,
 
-	// initial animation
+	// Animation to play automatically
 	"HiColor"
 };

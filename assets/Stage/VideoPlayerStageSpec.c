@@ -237,7 +237,7 @@ StageROMSpec VideoPlayerStageSpec =
     	    __F_TO_FIX10_6(0),
         },
 
-        // friction
+        // Friction
         __F_TO_FIX10_6(0),
     },
 
