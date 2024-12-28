@@ -174,6 +174,7 @@ void SpritesState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void SpritesState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -190,7 +191,7 @@ void SpritesState::destructor()
 {
 	SpritesState::destroySprite(this);
 
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

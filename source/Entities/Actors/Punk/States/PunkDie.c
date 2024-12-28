@@ -33,13 +33,13 @@
 //---------------------------------------------------------------------------------------------------------
 void PunkDie::constructor()
 {
-	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 }
 //---------------------------------------------------------------------------------------------------------
 void PunkDie::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

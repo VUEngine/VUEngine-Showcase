@@ -347,6 +347,7 @@ void ShowcaseState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void ShowcaseState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->stageSpec = NULL;
@@ -357,7 +358,7 @@ void ShowcaseState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void ShowcaseState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

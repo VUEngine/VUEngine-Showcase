@@ -259,6 +259,7 @@ void AnimationSchemesState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void AnimationSchemesState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -282,7 +283,7 @@ void AnimationSchemesState::destructor()
 		this->animatedSprites = NULL;
 	}
 
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

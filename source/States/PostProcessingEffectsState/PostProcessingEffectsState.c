@@ -147,6 +147,7 @@ void PostProcessingEffectsState::showExplanation()
 //---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -160,7 +161,7 @@ void PostProcessingEffectsState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void PostProcessingEffectsState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

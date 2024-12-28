@@ -117,6 +117,7 @@ void VideoPlayerState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void VideoPlayerState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -129,7 +130,7 @@ void VideoPlayerState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void VideoPlayerState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

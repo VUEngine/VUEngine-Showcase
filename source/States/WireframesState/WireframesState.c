@@ -168,6 +168,7 @@ void WireframesState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void WireframesState::constructor(){
 	
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -179,7 +180,7 @@ void WireframesState::constructor(){
 //---------------------------------------------------------------------------------------------------------
 void WireframesState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

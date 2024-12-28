@@ -67,7 +67,7 @@ static uint32 _randomSeed = 0;
 //---------------------------------------------------------------------------------------------------------
 void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
 {
-	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
 }
 //---------------------------------------------------------------------------------------------------------
@@ -78,8 +78,7 @@ void PongBall::destructor()
 		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
 	}
 
-	// delete the super object
-	// must always be called at the end of the destructor
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

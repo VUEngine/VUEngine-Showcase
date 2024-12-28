@@ -354,6 +354,7 @@ void SoundsState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void SoundsState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -370,7 +371,7 @@ void SoundsState::destructor()
 {
 	SoundsState::releaseSound(this);
 
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

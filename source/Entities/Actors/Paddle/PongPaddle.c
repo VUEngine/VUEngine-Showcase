@@ -37,14 +37,13 @@
 //---------------------------------------------------------------------------------------------------------
 void PongPaddle::constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name)
 {
-	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&pongPaddleSpec->actorSpec, internalId, name);
 }
 //---------------------------------------------------------------------------------------------------------
 void PongPaddle::destructor()
 {
-	// delete the super object
-	// must always be called at the end of the destructor
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

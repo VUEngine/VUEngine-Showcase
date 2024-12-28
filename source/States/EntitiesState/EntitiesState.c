@@ -161,6 +161,7 @@ void EntitiesState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void EntitiesState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -174,7 +175,7 @@ void EntitiesState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void EntitiesState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

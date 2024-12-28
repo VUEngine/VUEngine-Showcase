@@ -174,6 +174,7 @@ void PongState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void PongState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -186,7 +187,7 @@ void PongState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void PongState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

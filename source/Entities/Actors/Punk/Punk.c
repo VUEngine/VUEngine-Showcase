@@ -33,14 +33,13 @@
 //---------------------------------------------------------------------------------------------------------
 void Punk::constructor(PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
-	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
 }
 //---------------------------------------------------------------------------------------------------------
 void Punk::destructor()
 {
-	// destroy the super object
-	// must always be called at the end of the destructor
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

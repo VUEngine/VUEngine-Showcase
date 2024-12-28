@@ -27,13 +27,13 @@
 //---------------------------------------------------------------------------------------------------------
 void PunkFrozen::constructor()
 {
-	// construct base
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 }
 //---------------------------------------------------------------------------------------------------------
 void PunkFrozen::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

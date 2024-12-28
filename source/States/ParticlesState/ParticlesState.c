@@ -158,6 +158,7 @@ void ParticlesState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void ParticlesState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -172,7 +173,7 @@ void ParticlesState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void ParticlesState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

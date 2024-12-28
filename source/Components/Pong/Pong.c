@@ -192,6 +192,7 @@ void Pong::printScore()
 //---------------------------------------------------------------------------------------------------------
 void Pong::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	this->pongBall = NULL;
@@ -220,7 +221,7 @@ void Pong::destructor()
 	delete this->opponentPaddles;
 	this->opponentPaddles = NULL;
 
-	// allow a new construct
+	// allow a new construct	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

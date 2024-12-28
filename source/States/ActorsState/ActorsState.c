@@ -235,6 +235,7 @@ void ActorsState::showAdditionalDetails()
 //---------------------------------------------------------------------------------------------------------
 void ActorsState::constructor()
 {
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
@@ -246,7 +247,7 @@ void ActorsState::constructor()
 //---------------------------------------------------------------------------------------------------------
 void ActorsState::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------

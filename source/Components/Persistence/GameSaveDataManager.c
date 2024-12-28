@@ -27,13 +27,13 @@
 //---------------------------------------------------------------------------------------------------------
 void GameSaveDataManager::constructor()
 {
-	// construct base object
+	// Always explicitly call the base's constructor 
 	Base::constructor();
 }
 //---------------------------------------------------------------------------------------------------------
 void GameSaveDataManager::destructor()
 {
-	// destroy base
+	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 //---------------------------------------------------------------------------------------------------------
