@@ -383,22 +383,12 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		// Extra info
 		NULL,
 
-		
-
-		
-			
-		
-
-		
-
 		// Size
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
 		// Entity's in-game type
-		kTypeNone,
-
-		
+		kTypeNone
 	},
 
 	// reuse expired particles?
@@ -463,22 +453,12 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		// Extra info
 		NULL,
 
-		
-
-		
-			
-		
-
-		
-
 		// Size
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
 		// Entity's in-game type
-		kTypeNone,
-
-		
+		kTypeNone
 	},
 
 	// reuse expired particles?
