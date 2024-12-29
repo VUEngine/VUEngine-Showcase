@@ -13,6 +13,7 @@
 //=========================================================================================================
 
 #include <Ball.h>
+#include <Body.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
 #include <PongBall.h>

@@ -12,12 +12,13 @@
 // INCLUDES
 //=========================================================================================================
 
-#include <PongPaddle.h>
+#include <Body.h>
 #include <Box.h>
 #include <Ball.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
 #include <Mesh.h>
+#include <PongPaddle.h>
 
 
 //=========================================================================================================

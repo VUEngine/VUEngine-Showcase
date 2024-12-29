@@ -12,11 +12,12 @@
 // INCLUDES
 //=========================================================================================================
 
+#include <Body.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
 #include <ParticleSystem.h>
-#include <SolidParticle.h>
 #include <ObjectAnimatedSprite.h>
+#include <SolidParticle.h>
 
 
 //=========================================================================================================

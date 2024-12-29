@@ -14,6 +14,7 @@
 
 #include <AnimatedEntity.h>
 #include <BgmapAnimatedSprite.h>
+#include <Body.h>
 #include <Box.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>

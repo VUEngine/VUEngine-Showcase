@@ -12,6 +12,7 @@
 // INCLUDES
 //=========================================================================================================
 
+#include <Body.h>
 #include <CommunicationManager.h>
 #include <GameEvents.h>
 #include <InGameTypes.h>
