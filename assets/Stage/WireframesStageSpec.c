@@ -42,16 +42,16 @@ extern EntitySpec CurveLeftEntitySpec;
 
 PositionedEntityROMSpec WireframesStageEntitySpecs[] =
 {
-	{&HouseBigEntitySpec, {-192, -8, 896}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&TunnelEntitySpec, {0, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, {192,-8, 896}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetEntitySpec, {0, 56, 832}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, {-192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BusStopEntitySpec, {192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BillboardEntitySpec, {-160, -8, 450}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampEntitySpec, {192, -8, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampEntitySpec, {192, -8, 1152}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&CurveLeftEntitySpec, {0, 56, 2112}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseBigEntitySpec, 	{-192, -8, 896}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TunnelEntitySpec, 	{0, 56, 1728}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, 		{192,-8, 896}, 	 {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetEntitySpec, 	{0, 56, 832}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseEntitySpec, 		{-192, -8, 640}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BusStopEntitySpec, 	{192, -8, 640},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BillboardEntitySpec, 	{-160, -8, 450}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampEntitySpec, 		{192, -8, 512},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampEntitySpec, 		{192, -8, 1152}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftEntitySpec, 	{0, 56, 2112},   {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
