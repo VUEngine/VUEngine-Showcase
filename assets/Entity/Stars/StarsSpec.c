@@ -174,33 +174,29 @@ ComponentSpec* StarSpriteSpecs [] =
 //											OBJECT Star
 //---------------------------------------------------------------------------------------------------------
 
-
-
-
-// particle's spec
+// Particle's spec
 ParticleROMSpec StarParticleNormalSpec =
 {
-	// allocator
+	// Class allocator
 	__TYPE(Particle),
 
-	// particle's minimum life span in milliseconds
+	// Minimum life span in milliseconds
 	5 * 8 * 20,
 
-	// particle's life span delta in milliseconds (maximum = minimum + delta)
+	// Life span delta in milliseconds
 	100,
 
-	// function pointer to control particle's behavior
-	//(void (*)(Particle))&dustParticleBehavior,
+	// Function pointer to control particle's behavior
 	NULL,
 
-	// animation description (used only if sprite is animated)
+	// Array of available animations
 	(const AnimationFunction**)&StarAnimationSpecs,
 
-	// name of animation to play
+	// Animation to play automatically
 	"Vanish"
 };
 
-// particle's spec
+// Particle's spec
 PhysicalParticleROMSpec StarParticlePhysicalSpec =
 {
 	{
@@ -234,7 +230,7 @@ PhysicalParticleROMSpec StarParticlePhysicalSpec =
 	__NO_AXIS,
 };
 
-// particle's spec
+// Particle's spec
 SolidParticleROMSpec StarParticleSolidSpec =
 {
 	{
@@ -301,6 +297,7 @@ ComponentSpec* const StarsParticleSystemNormalComponentSpecs[] =
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
+	// Entity
 	{
 		// Class allocator		
 		__TYPE(ParticleSystem),
