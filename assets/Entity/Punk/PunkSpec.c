@@ -94,7 +94,7 @@ AnimationFunctionROMSpec* PunkAnimationSpecs[] =
 CharSetROMSpec PunkCharsetSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
-	4*6,
+	4 * 6,
 
 	// Whether it is shared or not
 	true,
@@ -112,7 +112,7 @@ CharSetROMSpec PunkCharsetSpec =
 CharSetROMSpec PunkCharsetNotSharedSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
-	4*6,
+	4 * 6,
 
 	// Whether it is shared or not
 	false,
@@ -130,7 +130,7 @@ CharSetROMSpec PunkCharsetNotSharedSpec =
 CharSetROMSpec PunkCharsetSharedSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
-	4*6,
+	4 * 6,
 
 	// Whether it is shared or not
 	true,
@@ -148,7 +148,7 @@ CharSetROMSpec PunkCharsetSharedSpec =
 CharSetROMSpec PunkCharsetMultiframeSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
-	4*6 * 12,
+	4 * 6 * 12,
 
 	// Whether it is shared or not
 	true,
@@ -166,7 +166,7 @@ CharSetROMSpec PunkCharsetMultiframeSpec =
 CharSetROMSpec PunkBlackCharsetSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
-	4*6,
+	4 * 6,
 
 	// Whether it is shared or not
 	true,
@@ -364,7 +364,6 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -397,8 +396,7 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
-	__WORLD_AFFINE,
+		__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
 	NULL,
@@ -430,7 +428,6 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -463,7 +460,6 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -496,7 +492,6 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -529,7 +524,6 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -562,7 +556,6 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
@@ -697,7 +690,6 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -731,7 +723,6 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or BgmapSprite)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
