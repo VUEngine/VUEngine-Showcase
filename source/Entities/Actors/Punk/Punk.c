@@ -13,6 +13,7 @@
 //=========================================================================================================
 
 #include <ActorsState.h>
+#include <Body.h>
 #include <InGameTypes.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
@@ -69,14 +70,14 @@ bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 	}
 
 	Collider otherCollider = collisionInformation->otherCollider;
-	SpatialObject collidingObject = Collider::getOwner(otherCollider);
+	GameObject collidingObject = Collider::getOwner(otherCollider);
 
 	if(isDeleted(collidingObject))
 	{
 		return false;
 	}
 
-	uint32 collidingObjectInGameType = SpatialObject::getInGameType(collidingObject);
+	uint32 collidingObjectInGameType = GameObject::getInGameType(collidingObject);
 
 	switch(collidingObjectInGameType)
 	{

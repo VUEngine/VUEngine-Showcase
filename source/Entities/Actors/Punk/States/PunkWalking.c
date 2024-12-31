@@ -13,6 +13,7 @@
 //=========================================================================================================
 
 #include <ActorsState.h>
+#include <Body.h>
 #include <Messages.h>
 #include <Punk.h>
 #include <Telegram.h>

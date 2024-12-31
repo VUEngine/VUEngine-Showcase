@@ -107,16 +107,16 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 		return returnValue;
 	}	
 
-	SpatialObject collidingObject = Collider::getOwner(collisionInformation->otherCollider);
+	GameObject collidingObject = Collider::getOwner(collisionInformation->otherCollider);
 
-	switch(SpatialObject::getInGameType(collidingObject))
+	switch(GameObject::getInGameType(collidingObject))
 	{
 		case kTypePongPaddle:
 
 			{
 				Vector3D velocity = *Body::getVelocity(this->body);
 
-				fixed_t yDisplacement = this->transformation.position.y - SpatialObject::getPosition(collidingObject)->y;
+				fixed_t yDisplacement = this->transformation.position.y - GameObject::getPosition(collidingObject)->y;
 
 //				velocity.x -= yDisplacement;
 				velocity.y += yDisplacement;

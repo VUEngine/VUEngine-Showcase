@@ -21,6 +21,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 #include <VUEngine.h>
+#include <WireframeManager.h>
 
 #include "EntitiesState.h"
 
@@ -134,13 +135,13 @@ void EntitiesState::showAdditionalDetails()
 	Printing::int32(this->printing, AnimatedEntity::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
 	Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
-	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
-	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	Printing::text(this->printing, "Colliders:  ", 2, ++y, NULL);
-	Printing::int32(this->printing, ColliderManager::getCount(VUEngine::getColliderManager(VUEngine::getInstance()), SpatialObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, ColliderManager::getCount(VUEngine::getColliderManager(VUEngine::getInstance()), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	y = 5;
 	Printing::text(this->printing, "Position", 22, y, NULL);
