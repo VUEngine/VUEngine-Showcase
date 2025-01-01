@@ -275,20 +275,20 @@ MeshROMSpec TunnelWireframeSpec =
 			kWireframeComponent
 		},
 
-		// Displacement
+		// Displacement relative to the owner's spatial position
 		{0, 0, 0},
 		
-		// color
+		// Wireframe's lines' color
 		__COLOR_BLACK,
 
 		// transparent
 		__TRANSPARENCY_NONE,
 
-		// interlaced
+		// Flag to render the wireframe in interlaced mode
 		false,
 	},
 
-	// segments
+	// Segments that compose the mesh
 	(PixelVector(*)[2])TunnelMeshesSegments
 };
 

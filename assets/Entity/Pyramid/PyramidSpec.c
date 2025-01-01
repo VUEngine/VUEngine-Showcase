@@ -85,17 +85,17 @@ MeshROMSpec PyramidWireframeSpec =
 
 		{0, 0, 0},
 		
-		// color
+		// Wireframe's lines' color
 		__COLOR_BLACK,
 
 		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 		__TRANSPARENCY_NONE,
 
-		// interlaced
+		// Flag to render the wireframe in interlaced mode
 		false,
 	},
 
-	// segments
+	// Segments that compose the mesh
 	(PixelVector(*)[2])PyramidMeshesSegments
 };
 
