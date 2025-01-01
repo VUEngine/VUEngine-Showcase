@@ -8,9 +8,9 @@
  */
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <string.h>
 
@@ -29,9 +29,9 @@
 #include "AnimationSchemesState.h"
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 enum AnimationSchemes
 {
@@ -44,11 +44,13 @@ enum AnimationSchemes
 };
 
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
@@ -61,7 +63,9 @@ void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 
 	AnimationSchemesState::showBgmapMemory(this);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
 	AnimationSchemesState::playSoundEffects(this, userInput, false);
@@ -113,7 +117,9 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 
 	Base::processUserInput(this, userInput);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
@@ -125,7 +131,9 @@ void AnimationSchemesState::showControls()
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showStuff()
 {
 	this->spriteRotation = (Rotation){0, 0, 0};
@@ -133,7 +141,9 @@ void AnimationSchemesState::showStuff()
 	AnimationSchemesState::removeSprites(this);
 	AnimationSchemesState::createSprites(this);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showExplanation()
 {
 	int16 y = 3;
@@ -184,7 +194,9 @@ void AnimationSchemesState::showExplanation()
 
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showAdditionalDetails()
 {
 	if(!isDeleted(this->animatedSprites))
@@ -250,13 +262,17 @@ void AnimationSchemesState::showAdditionalDetails()
 		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringBgmapMemoryLabel), 28, 18, NULL);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
 
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PRIVATE METHODS
-//=========================================================================================================
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::constructor()
 {
 	// Always explicitly call the base's constructor 
@@ -272,7 +288,9 @@ void AnimationSchemesState::constructor()
 	this->spriteRotation = (Rotation){0, 0, 0};
 	this->validSuboptionKeys = K_LL | K_LR | K_RU | K_RD | K_RL | K_RR;
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::destructor()
 {
 	AnimationSchemesState::removeSprites(this);
@@ -286,7 +304,9 @@ void AnimationSchemesState::destructor()
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::createSprites()
 {
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
@@ -359,7 +379,9 @@ void AnimationSchemesState::createSprites()
 		}
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::removeSprites()
 {
 	if(!isDeleted(this->animatedSprites))
@@ -386,7 +408,9 @@ void AnimationSchemesState::removeSprites()
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 /*
  * Virtual methods can be changed in runtime to alter a class' behavior in real time.
  * Mutating the methods affects all the instances of the class.
@@ -395,7 +419,9 @@ void AnimationSchemesState::removeSprites()
 void AnimationSchemesState::showCharMemory()
 {
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showBgmapMemory()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -421,7 +447,9 @@ void AnimationSchemesState::showBgmapMemory()
 		);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -473,7 +501,9 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 		);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showCharMemoryForSharedTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -523,7 +553,9 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 		CharSet::getOffset(charSet)
 	);
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 {
 	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
@@ -584,4 +616,6 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 		);
 	}
 }
-//---------------------------------------------------------------------------------------------------------
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
+
