@@ -200,23 +200,22 @@ ParticleROMSpec StarParticleNormalSpec =
 PhysicalParticleROMSpec StarParticlePhysicalSpec =
 {
 	{
-		// allocator
+		// Class allocator
 		__TYPE(PhysicalParticle),
 
-		// particle's minimum life span in milliseconds
+		// Minimum life span in milliseconds
 		500,
 
-		// particle's life span delta in milliseconds (maximum = minimum + delta)
+		// Life span delta in milliseconds
 		700,
 
-		// function pointer to control particle's behavior
-		//(void (*)(Particle))&dustParticleBehavior,
+		// Function pointer to control particle's behavior
 		NULL,
 
-		// animation description (used only if sprite is animated)
+		// Array of available animations
 		(const AnimationFunction**)&StarAnimationSpecs,
 
-		// name of animation to play
+		// Animation to play automatically
 		"Vanish"
 	},
 
@@ -235,23 +234,22 @@ SolidParticleROMSpec StarParticleSolidSpec =
 {
 	{
 		{
-			// allocator
+			// Class allocator
 			__TYPE(SolidParticle),
 
-			// particle's minimum life span in milliseconds
+			// Minimum life span in milliseconds
 			1500,
 
-			// particle's life span delta in milliseconds (maximum = minimum + delta)
+			// Life span delta in milliseconds
 			1000,
 
-			// function pointer to control particle's behavior
-			//(void (*)(Particle))&dustParticleBehavior,
+			// Function pointer to control particle's behavior
 			NULL,
 
-			// animation description (used only if sprite is animated)
+			// Array of available animations
 			(const AnimationFunction**)&StarAnimationSpecs,
 
-			// name of animation to play
+			// Animation to play automatically
 			"Default"
 		},
 
