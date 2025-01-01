@@ -12,10 +12,8 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//#include <Collision.h>
 #include <Fonts.h>
-#include <PongPaddle.h>
-#include <PongBall.h>
+#include <Pong.h>
 #include <Stage.h>
 
 
