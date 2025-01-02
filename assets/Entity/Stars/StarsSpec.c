@@ -12,6 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <Ball.h>
 #include <Body.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
@@ -164,9 +165,127 @@ ObjectSpriteROMSpec StarSpriteSpec =
 	__WORLD_ON,
 };
 
+BodyROMSpec StarsParticleSystemPhysicalBodySpec =
+{
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
+	// Create body
+	true,
+
+	// Mass
+	__F_TO_FIX10_6(0.05f),
+
+	// Friction
+	__F_TO_FIX10_6(0.0f),
+
+	// Bounciness
+	__F_TO_FIX10_6(0.85f),
+
+	// Maximum velocity
+	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
+
+	// Maximum speed
+	__I_TO_FIXED(2),
+
+	// Axises on which the body is subject to gravity
+	__NO_AXIS
+};
+
+BodyROMSpec StarsParticleSystemSolidBodySpec =
+{
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
+	// Create body
+	true,
+
+	// Mass
+	__F_TO_FIX10_6(0.05f),
+
+	// Friction
+	__F_TO_FIX10_6(0.0f),
+
+	// Bounciness
+	__F_TO_FIX10_6(0.85f),
+
+	// Maximum velocity
+	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
+
+	// Maximum speed
+	__I_TO_FIXED(0),
+
+	// Axises on which the body is subject to gravity
+	__Y_AXIS
+};
+
+
+ColliderROMSpec StarsParticleSystemSolidColliderSpec =
+{
+	// Component
+	{
+		// Allocator
+		__TYPE(Ball),
+
+		// Component type
+		kColliderComponent
+	},
+
+	// Size (x, y, z)
+	{__PIXELS_TO_METERS(4), __PIXELS_TO_METERS(4), __PIXELS_TO_METERS(4)},
+
+	// Displacement (x, y, z, p)
+	{0, 0, 0, 0},
+
+	// Rotation (x, y, z)
+	{0, 0, 0},
+
+	// Scale (x, y, z)
+	{1, 1, 1},
+
+	// check for collisions against other colliders
+	true,
+
+	// Layers in which I live
+	kLayerParticles,
+
+	// Layers to ignore when checking for collisions
+	(~kLayerSolid),
+};
+
 ComponentSpec* StarSpriteSpecs [] =
 {
 	(ComponentSpec*)&StarSpriteSpec,
+	NULL
+};
+
+ComponentSpec* StarsParticleSystemPhysicalPhysicsSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemPhysicalBodySpec,
+	NULL
+};
+
+ComponentSpec* StarsParticleSystemSolidPhysicsSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemSolidBodySpec,
+	NULL
+};
+
+ComponentSpec* StarsParticleSystemSolidColliderSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemSolidColliderSpec,
 	NULL
 };
 
@@ -220,15 +339,39 @@ PhysicalParticleROMSpec StarParticlePhysicalSpec =
 		// Animation to play automatically
 		"Vanish"
 	},
+};
 
-	// particle's minimum mass
+BodyROMSpec StarParticleSolidBodySpec =
+{
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
+
+		// Component type
+		kPhysicsComponent
+	},
+
+	// Create body
+	true,
+
+	// Mass
 	__F_TO_FIX10_6(0.05f),
 
-	// particle's mass delta (maximum = minimum + delta)
-	__F_TO_FIX10_6(0),
+	// Friction
+	__F_TO_FIX10_6(0.0f),
 
-	// axis subject to gravity (bitwise or of __X_AXIS, __Y_AXIS, __Z_AXIS, or false to disable)
-	__NO_AXIS,
+	// Bounciness
+	__F_TO_FIX10_6(0.85f),
+
+	// Maximum velocity
+	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
+
+	// Maximum speed
+	__I_TO_FIXED(0),
+
+	// Axises on which the body is subject to gravity
+	__Y_AXIS
 };
 
 // Particle's spec
@@ -254,45 +397,13 @@ SolidParticleROMSpec StarParticleSolidSpec =
 			// Animation to play automatically
 			"Default"
 		},
-
-		// particle's minimum mass
-		__F_TO_FIX10_6(0.05f),
-
-		// particle's mass delta (maximum = minimum + delta)
-		__F_TO_FIX10_6(0),
-
-		// axis subject to gravity (bitwise or of __X_AXIS, __Y_AXIS, __Z_AXIS, or false to disable)
-		__Y_AXIS,
 	},
-
-	// ball's radius
-	__PIXELS_TO_METERS(4),
-
-	// Friction for physics
-	__F_TO_FIX10_6(0),
-
-	// Bounciness for physics
-	__F_TO_FIX10_6(0.85f),
 
 	// object's in-game type
 	kTypeParticle,
 
-	// Layers in which I live
-	kLayerParticles,
-
-	// Layers to ignore when checking for collisions
-	(~kLayerSolid),
-
-	// disable collision detection when the particle stops
-	true,
-
 	// animation to play upon collision
 	"Vanish",
-};
-
-ComponentSpec* const StarsParticleSystemNormalComponentSpecs[] = 
-{
-	NULL
 };
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
@@ -303,7 +414,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemNormalComponentSpecs,
+		(ComponentSpec**)NULL,
 
 		// Children specs
 		NULL,
@@ -337,6 +448,12 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	// array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
 
+	// array of physics component specs
+	(const ComponentSpec**)NULL,
+
+	// array of collider component specs
+	(const ComponentSpec**)NULL,
+
 	// auto start
 	false,
 
@@ -361,11 +478,6 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
-ComponentSpec* const StarsParticleSystemPhysicalComponentSpecs[] = 
-{
-	NULL
-};
-
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
@@ -373,7 +485,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemPhysicalComponentSpecs,
+		(ComponentSpec**)NULL,
 
 		// Children specs
 		NULL,
@@ -404,8 +516,14 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	// maximum number of particles to spawn in each cycle
 	1,
 
-	// array of sprites
+	// array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
+
+	// array of physics component specs
+	(const ComponentSpec**)StarsParticleSystemPhysicalPhysicsSpecs,
+
+	// array of collider component specs
+	(const ComponentSpec**)NULL,
 
 	// auto start
 	false,
@@ -431,11 +549,6 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 	__ACCELERATED_MOVEMENT
 };
 
-ComponentSpec* const StarsParticleSystemSolidComponentSpecs[] = 
-{
-	NULL
-};
-
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
 	{
@@ -443,7 +556,7 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		__TYPE(ParticleSystem),
 
 		// Component specs
-		(ComponentSpec**)StarsParticleSystemSolidComponentSpecs,
+		(ComponentSpec**)NULL,
 
 		// Children specs
 		NULL,
@@ -474,8 +587,14 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 	// maximum number of particles to spawn in each cycle
 	1,
 
-	// array of sprites
+	// array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
+
+	// array of physics component specs
+	(const ComponentSpec**)StarsParticleSystemSolidPhysicsSpecs,
+
+	// array of collider component specs
+	(const ComponentSpec**)StarsParticleSystemSolidColliderSpecs,
 
 	// auto start
 	false,
