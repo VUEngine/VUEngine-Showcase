@@ -219,7 +219,7 @@ BodyROMSpec StarsParticleSystemSolidBodySpec =
 	__F_TO_FIX10_6(0.0f),
 
 	// Bounciness
-	__F_TO_FIX10_6(0.95f),
+	__F_TO_FIX10_6(0.85f),
 
 	// Maximum velocity
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
@@ -230,7 +230,6 @@ BodyROMSpec StarsParticleSystemSolidBodySpec =
 	// Axises on which the body is subject to gravity
 	__Y_AXIS
 };
-
 
 ColliderROMSpec StarsParticleSystemSolidColliderSpec =
 {
@@ -244,7 +243,7 @@ ColliderROMSpec StarsParticleSystemSolidColliderSpec =
 	},
 
 	// Size (x, y, z)
-	{__PIXELS_TO_METERS(4), __PIXELS_TO_METERS(4), __PIXELS_TO_METERS(4)},
+	{__PIXELS_TO_METERS(2), __PIXELS_TO_METERS(2), __PIXELS_TO_METERS(2)},
 
 	// Displacement (x, y, z, p)
 	{0, 0, 0, 0},
@@ -271,29 +270,10 @@ ComponentSpec* StarSpriteSpecs [] =
 	NULL
 };
 
-ComponentSpec* StarsParticleSystemPhysicalPhysicsSpecs [] =
-{
-	(ComponentSpec*)&StarsParticleSystemPhysicalBodySpec,
-	NULL
-};
-
-ComponentSpec* StarsParticleSystemSolidPhysicsSpecs [] =
-{
-	(ComponentSpec*)&StarsParticleSystemSolidBodySpec,
-	NULL
-};
-
-ComponentSpec* StarsParticleSystemSolidColliderSpecs [] =
-{
-	(ComponentSpec*)&StarsParticleSystemSolidColliderSpec,
-	NULL
-};
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // OBJECT Star
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 
 // Particle's spec
 ParticleROMSpec StarParticleNormalSpec =
@@ -372,44 +352,11 @@ ParticleROMSpec StarParticleSolidSpec =
 	// Animation to play automatically
 	"Default",
 
-	// animation to play upon collision
+	// Animation to play upon collision
 	"Vanish",
 
-	// object's in-game type
+	// Particles's in-game type
 	kTypeParticle,
-};
-
-BodyROMSpec StarParticleSolidBodySpec =
-{
-	// Component
-	{
-		// Allocator
-		__TYPE(Body),
-
-		// Component type
-		kPhysicsComponent
-	},
-
-	// Create body
-	true,
-
-	// Mass
-	__F_TO_FIX10_6(0.05f),
-
-	// Friction
-	__F_TO_FIX10_6(0.0f),
-
-	// Bounciness
-	__F_TO_FIX10_6(0.85f),
-
-	// Maximum velocity
-	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
-
-	// Maximum speed
-	__I_TO_FIXED(0),
-
-	// Axises on which the body is subject to gravity
-	__Y_AXIS
 };
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
@@ -484,6 +431,12 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 	__NO_MOVEMENT
 };
 
+ComponentSpec* StarsParticleSystemPhysicalPhysicsSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemPhysicalBodySpec,
+	NULL
+};
+
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
 	{
@@ -553,6 +506,18 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 
 	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT
+};
+
+ComponentSpec* StarsParticleSystemSolidPhysicsSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemSolidBodySpec,
+	NULL
+};
+
+ComponentSpec* StarsParticleSystemSolidColliderSpecs [] =
+{
+	(ComponentSpec*)&StarsParticleSystemSolidColliderSpec,
+	NULL
 };
 
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
