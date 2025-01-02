@@ -16,9 +16,9 @@
 #include <Body.h>
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
+#include <Particle.h>
 #include <ParticleSystem.h>
 #include <ObjectAnimatedSprite.h>
-#include <SolidParticle.h>
 
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -219,7 +219,7 @@ BodyROMSpec StarsParticleSystemSolidBodySpec =
 	__F_TO_FIX10_6(0.0f),
 
 	// Bounciness
-	__F_TO_FIX10_6(0.85f),
+	__F_TO_FIX10_6(0.95f),
 
 	// Maximum velocity
 	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
@@ -256,7 +256,7 @@ ColliderROMSpec StarsParticleSystemSolidColliderSpec =
 	{1, 1, 1},
 
 	// check for collisions against other colliders
-	true,
+	false,
 
 	// Layers in which I live
 	kLayerParticles,
@@ -314,31 +314,69 @@ ParticleROMSpec StarParticleNormalSpec =
 	(const AnimationFunction**)&StarAnimationSpecs,
 
 	// Animation to play automatically
-	"Vanish"
+	"Vanish",
+
+	// animation to play upon collision
+	NULL,
+
+	// object's in-game type
+	kTypeParticle,
 };
 
 // Particle's spec
-PhysicalParticleROMSpec StarParticlePhysicalSpec =
+ParticleROMSpec StarParticlePhysicalSpec =
 {
-	{
-		// Class allocator
-		__TYPE(PhysicalParticle),
+	// Class allocator
+	__TYPE(Particle),
 
-		// Minimum life span in milliseconds
-		500,
+	// Minimum life span in milliseconds
+	500,
 
-		// Life span delta in milliseconds
-		700,
+	// Life span delta in milliseconds
+	700,
 
-		// Function pointer to control particle's behavior
-		NULL,
+	// Function pointer to control particle's behavior
+	NULL,
 
-		// Array of available animations
-		(const AnimationFunction**)&StarAnimationSpecs,
+	// Array of available animations
+	(const AnimationFunction**)&StarAnimationSpecs,
 
-		// Animation to play automatically
-		"Vanish"
-	},
+	// Animation to play automatically
+	"Vanish",
+
+	// animation to play upon collision
+	NULL,
+
+	// object's in-game type
+	kTypeParticle,
+};
+
+// Particle's spec
+ParticleROMSpec StarParticleSolidSpec =
+{
+	// Class allocator
+	__TYPE(Particle),
+
+	// Minimum life span in milliseconds
+	1500,
+
+	// Life span delta in milliseconds
+	1000,
+
+	// Function pointer to control particle's behavior
+	NULL,
+
+	// Array of available animations
+	(const AnimationFunction**)&StarAnimationSpecs,
+
+	// Animation to play automatically
+	"Default",
+
+	// animation to play upon collision
+	"Vanish",
+
+	// object's in-game type
+	kTypeParticle,
 };
 
 BodyROMSpec StarParticleSolidBodySpec =
@@ -372,38 +410,6 @@ BodyROMSpec StarParticleSolidBodySpec =
 
 	// Axises on which the body is subject to gravity
 	__Y_AXIS
-};
-
-// Particle's spec
-SolidParticleROMSpec StarParticleSolidSpec =
-{
-	{
-		{
-			// Class allocator
-			__TYPE(SolidParticle),
-
-			// Minimum life span in milliseconds
-			1500,
-
-			// Life span delta in milliseconds
-			1000,
-
-			// Function pointer to control particle's behavior
-			NULL,
-
-			// Array of available animations
-			(const AnimationFunction**)&StarAnimationSpecs,
-
-			// Animation to play automatically
-			"Default"
-		},
-	},
-
-	// object's in-game type
-	kTypeParticle,
-
-	// animation to play upon collision
-	"Vanish",
 };
 
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
