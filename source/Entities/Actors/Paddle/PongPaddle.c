@@ -79,13 +79,6 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongPaddle::isBouncy()
-{
-	return false;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 void PongPaddle::moveTowards(NormalizedDirection direction)
 {
 	Vector3D force =

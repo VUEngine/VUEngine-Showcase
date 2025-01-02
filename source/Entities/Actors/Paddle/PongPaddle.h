@@ -69,10 +69,6 @@ class PongPaddle : Actor
 	/// @return True if the propagation must stop; false if the propagation must reach other containers
 	override bool handlePropagatedMessage(int32 message);
 
-	/// Check if the padle bounces when it collides with another object.
-	/// @return True if the paddle bounces when it collides with another object
-	override bool isBouncy();
-
 	/// Move the paddle towards the provided direction.
 	/// @param direction: Direction towards which to move the paddle
 	void moveTowards(NormalizedDirection direction);
