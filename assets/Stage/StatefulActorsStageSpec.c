@@ -32,7 +32,7 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 // ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec ActorsStStatefulActortitySpecs[] =
+PositionedActorROMSpec StatefulActorsStageActorsSpecs[] =
 {
 	{&PunkStatefulActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&BoxActorSpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
@@ -40,7 +40,7 @@ PositionedActorROMSpec ActorsStStatefulActortitySpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec ActorsStStatefulActorActorSpecs[] =
+PositionedActorROMSpec StatefulActorsStageUIActorsSpecs[] =
 {
 	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -50,12 +50,12 @@ PositionedActorROMSpec ActorsStStatefulActorActorSpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const ActorsStStatefulActorntSpecs [] =
+FontROMSpec* const StatefulActorsStageFondSpecs [] =
 {
 	NULL
 };
 
-SoundROMSpec* ActorsStStatefulActorundSpecs[] =
+SoundROMSpec* StatefulActorsStageSoundSpecs[] =
 {
 	NULL
 };
@@ -254,7 +254,7 @@ StageROMSpec StatefulActorsStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)ActorsStStatefulActorntSpecs ,
+		(FontSpec**)StatefulActorsStageFondSpecs ,
 
 		// CharSets to preload
 		(CharSetSpec**)NULL,
@@ -263,19 +263,19 @@ StageROMSpec StatefulActorsStageSpec =
 		(TextureSpec**)NULL,
 
 		// Sounds to load
-		(SoundSpec**)ActorsStStatefulActorundSpecs,
+		(SoundSpec**)StatefulActorsStageSoundSpecs,
 	},
 
 	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)ActorsStStatefulActorActorSpecs,
+			(PositionedActor*)StatefulActorsStageUIActorsSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children actors
-		(PositionedActor*)ActorsStStatefulActortitySpecs,
+		(PositionedActor*)StatefulActorsStageActorsSpecs,
 	},
 
 	// Post processing effects

@@ -41,9 +41,9 @@ extern ActorSpec CurveLeftActorSpec;
 PositionedActorROMSpec WireframesStageActorSpecs[] =
 {
 	{&HouseBigActorSpec, 	{-192, -8, 896}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&TunnelActorSpec, 	{0, 56, 1728}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TunnelActorSpec, 		{0, 56, 1728}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&HouseActorSpec, 		{192,-8, 896}, 	 {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetActorSpec, 	{0, 56, 832}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec, 		{0, 56, 832}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&HouseActorSpec, 		{-192, -8, 640}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&BusStopActorSpec, 	{192, -8, 640},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&BillboardActorSpec, 	{-160, -8, 450}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},

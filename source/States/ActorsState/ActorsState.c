@@ -225,7 +225,11 @@ void ActorsState::createLeaderPunk()
 		
 	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
 	extern ActorSpec PunkActorSpec;
-	PositionedActor positionedActor = {&PunkActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false};
+	
+	PositionedActor positionedActor = 
+	{
+		&PunkActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false
+	};
 
 	/*
 	 * This is how we add actors to the Stage. Notice that we don't creates Sprites nor animate them

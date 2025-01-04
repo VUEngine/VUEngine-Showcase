@@ -77,7 +77,6 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 {
 	Base::enter(this, owner);
 
-	// load stage
 	if(NULL != this->stageSpec)
 	{		
 		ShowcaseState::configureStage(this, this->stageSpec, NULL);
