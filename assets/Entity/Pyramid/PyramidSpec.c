@@ -7,7 +7,6 @@
  * that was distributed with this source code.
  */
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -15,7 +14,6 @@
 #include <Entity.h>
 #include <Ball.h>
 #include <Mesh.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
@@ -98,8 +96,6 @@ MeshROMSpec PyramidWireframeSpec =
 	// Segments that compose the mesh
 	(PixelVector(*)[2])PyramidMeshesSegments
 };
-
-
 
 ColliderROMSpec PyramidColliderSpec1 =
 	{

@@ -5,14 +5,12 @@
 #ifndef FONTS_H_
 #define FONTS_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Printing.h>
 #include <CharSet.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
@@ -29,6 +27,5 @@ extern FontSpec DefaultBoldFontSpec;
 extern FontSpec DefaultBoldExtFontSpec;
 extern FontSpec DefaultItalicFontSpec;
 extern FontSpec DefaultItalicExtFontSpec;
-
 
 #endif

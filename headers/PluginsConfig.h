@@ -5,7 +5,6 @@
 #ifndef PLUGINS_CONFIG_H_
 #define PLUGINS_CONFIG_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CONFIGURATION MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -63,6 +62,5 @@
 
 #define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ENTITY (false)
 #define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT "AstonishExt"
-
 
 #endif

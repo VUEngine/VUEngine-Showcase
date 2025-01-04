@@ -7,7 +7,6 @@
  * that was distributed with this source code.
  */
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -19,7 +18,6 @@
 #include <ColliderLayers.h>
 #include <InGameTypes.h>
 #include <Punk.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
@@ -34,7 +32,6 @@ extern uint32 PunkDyingTiles[];
 extern uint32 PunkDyingBlackTiles[];
 extern uint16 PunkDyingMap[];
 extern uint16 PunkDyingBlackMap[];
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
@@ -565,8 +562,6 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-
-
 CharSetROMSpec PunkDyingCharsetSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
@@ -698,7 +693,6 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };
-
 
 BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 {

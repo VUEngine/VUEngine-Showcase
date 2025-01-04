@@ -10,13 +10,11 @@
 #ifndef POST_PROCESSING_EFFECTS_STATE_H_
 #define POST_PROCESSING_EFFECTS_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ShowcaseState.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -54,6 +52,5 @@ dynamic_singleton class PostProcessingEffectsState : ShowcaseState
 	/// Show the state's explanation.
 	override void showExplanation();
 }
-
 
 #endif

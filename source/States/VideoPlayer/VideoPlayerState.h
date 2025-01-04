@@ -10,13 +10,11 @@
 #ifndef VIDEO_PLAYER_STATE_H_
 #define VIDEO_PLAYER_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ShowcaseState.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -47,6 +45,5 @@ dynamic_singleton class VideoPlayerState : ShowcaseState
 	/// Show the state's additional details.
 	override void showAdditionalDetails();
 }
-
 
 #endif

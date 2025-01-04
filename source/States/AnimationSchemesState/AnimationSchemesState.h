@@ -10,14 +10,12 @@
 #ifndef ANIMATION_SCHEMES_STATE_H_
 #define ANIMATION_SCHEMES_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ShowcaseState.h>
 #include <Sprite.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -67,6 +65,5 @@ dynamic_singleton class AnimationSchemesState : ShowcaseState
 	/// Show the CHAR memory's state.
 	virtual void showCharMemory();
 }
-
 
 #endif

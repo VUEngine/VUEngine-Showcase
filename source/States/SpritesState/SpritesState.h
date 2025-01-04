@@ -10,14 +10,12 @@
 #ifndef SPRITES_STATE_H_
 #define SPRITES_STATE_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ShowcaseState.h>
 #include <Sprite.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -61,6 +59,5 @@ dynamic_singleton class SpritesState : ShowcaseState
 	/// Show the state's additional details.
 	override void showAdditionalDetails();
 }
-
 
 #endif

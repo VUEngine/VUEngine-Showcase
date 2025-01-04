@@ -5,13 +5,11 @@
 #ifndef RUMBLE_EFFECTS_H_
 #define RUMBLE_EFFECTS_H_
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <RumbleManager.h>
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
@@ -23,6 +21,5 @@ extern RumbleEffectSpec ChangeSelection4RumbleEffectSpec;
 extern RumbleEffectSpec HitPaddleRumbleEffectSpec;
 extern RumbleEffectSpec KilledRumbleEffectSpec;
 extern RumbleEffectSpec PointRumbleEffectSpec;
-
 
 #endif
