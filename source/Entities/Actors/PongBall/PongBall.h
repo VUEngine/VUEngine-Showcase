@@ -44,7 +44,6 @@ typedef const PongBallSpec PongBallROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class PongBall
 ///
 /// Inherits from Actor

@@ -35,7 +35,6 @@ typedef ShowcaseState(*ShowcaseStateGetInstance)();
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class ShowcaseState
 ///
 /// Inherits from GameState

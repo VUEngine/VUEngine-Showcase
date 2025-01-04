@@ -35,7 +35,6 @@ typedef struct GameSaveData
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class GameSaveDataManager
 ///
 /// Inherits from SaveDataManager

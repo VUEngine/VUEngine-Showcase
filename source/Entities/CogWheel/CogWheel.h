@@ -37,7 +37,6 @@ typedef const CogWheelSpec CogWheelROMSpec;
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-///
 /// Class CogWheel
 ///
 /// Inherits from Entity
