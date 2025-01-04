@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef ENTITIES_STATE_H_
-#define ENTITIES_STATE_H_
+#ifndef ACTORS_STATE_H_
+#define ACTORS_STATE_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
