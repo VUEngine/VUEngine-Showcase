@@ -144,13 +144,13 @@ void ActorsState::showAdditionalDetails()
 	Printing::int32(this->printing, Actor::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
 	Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
-	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	Printing::text(this->printing, "Wireframes:  ", 2, ++y, NULL);
-	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, WireframeManager::getCount(WireframeManager::getInstance(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	Printing::text(this->printing, "Colliders:  ", 2, ++y, NULL);
-	Printing::int32(this->printing, ColliderManager::getCount(VUEngine::getColliderManager(VUEngine::getInstance()), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(this->printing, ColliderManager::getCount(VUEngine::getColliderManager(VUEngine::getInstance()), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
 
 	y = 5;
 	Printing::text(this->printing, "Position", 22, y, NULL);

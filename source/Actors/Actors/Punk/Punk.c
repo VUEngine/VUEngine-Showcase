@@ -75,14 +75,14 @@ bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 	}
 
 	Collider otherCollider = collisionInformation->otherCollider;
-	GameObject collidingObject = Collider::getOwner(otherCollider);
+	Entity collidingObject = Collider::getOwner(otherCollider);
 
 	if(isDeleted(collidingObject))
 	{
 		return false;
 	}
 
-	uint32 collidingObjectInGameType = GameObject::getInGameType(collidingObject);
+	uint32 collidingObjectInGameType = Entity::getInGameType(collidingObject);
 
 	switch(collidingObjectInGameType)
 	{
