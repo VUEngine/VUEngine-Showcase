@@ -25,7 +25,7 @@ extern ActorSpec PongPaddleActorSpec;
 extern ActorSpec PongWallsActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 PositionedActorROMSpec PongStageActorSpecs[] =
@@ -40,7 +40,7 @@ PositionedActorROMSpec PongStageActorSpecs[] =
 
 PositionedActorROMSpec PongStageUiActorSpecs[] =
 {
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -134,7 +134,7 @@ StageROMSpec PongStageSpec =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		0,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		10,
 		// If true, actor instantiation is done over time
 		false,
@@ -268,7 +268,7 @@ StageROMSpec PongStageSpec =
 		(SoundSpec**)NULL,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
@@ -276,7 +276,7 @@ StageROMSpec PongStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
+		// Stage's children actors
 		(PositionedActor*)PongStageActorSpecs,
 	},
 

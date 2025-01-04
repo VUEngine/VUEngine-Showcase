@@ -96,9 +96,9 @@
             "en": "EFFECT",
             "es": "EFECTO"
         },
-        "EntitiesLabel": {
+        "ActorsLabel": {
             "de": "Entitäten",
-            "en": "Entities",
+            "en": "Actors",
             "es": "Entidades"
         },
         "ActorCreationLabel": {

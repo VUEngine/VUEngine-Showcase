@@ -1,7 +1,7 @@
 {
     "_version": "1.0.0",
     "plugins": {
-        "vuengine//entities/LowPowerActor": {
+        "vuengine//actors/LowPowerActor": {
             "xPosition": 180,
             "yPosition": -96
         },

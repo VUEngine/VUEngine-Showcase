@@ -39,7 +39,7 @@ const UserObject _userObjects[] =
 	{NULL, ""},
 };
 
-const UserActor _userAnimatedEntities[] =
+const UserActor _userAnimatedActors[] =
 {
 	{&PunkActorSpec, "Punk"},
 	{NULL, ""},

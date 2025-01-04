@@ -7,7 +7,7 @@
 
 #include <StatefulActorsState.h>
 #include <AnimationSchemesState.h>
-#include <EntitiesState.h>
+#include <ActorsState.h>
 #include <ParticlesState.h>
 #include <PongState.h>
 #include <PostProcessingEffectsState.h>

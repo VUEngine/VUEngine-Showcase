@@ -35,7 +35,7 @@ extern ActorSpec LampActorSpec;
 extern ActorSpec CurveLeftActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 PositionedActorROMSpec WireframesStageActorSpecs[] =
@@ -144,7 +144,7 @@ StageROMSpec WireframesStageSpec =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		64,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -279,7 +279,7 @@ StageROMSpec WireframesStageSpec =
 		(SoundSpec**)WireframesStageSoundSpecs,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
@@ -287,7 +287,7 @@ StageROMSpec WireframesStageSpec =
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
+		// Stage's children actors
 		(PositionedActor*)WireframesStageActorSpecs,
 	},
 

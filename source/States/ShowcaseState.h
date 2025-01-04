@@ -93,7 +93,7 @@ abstract class ShowcaseState : GameState
 	/// @param dimm: If true, the brightness is dimmed
 	void configurePalettes(bool dimm);
 
-	/// Make visible all the relevant entities and information.
+	/// Make visible all the relevant actors and information.
 	/// @param reloadStuff: If true, ::showStuff is called
 	void show(bool reloadStuff);
 

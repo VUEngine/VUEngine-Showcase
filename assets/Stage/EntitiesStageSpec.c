@@ -25,17 +25,17 @@
 extern ActorSpec LowPowerIndicatorActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// ENTITY LISTS
+// ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec EntitiesStageActorSpecs[] =
+PositionedActorROMSpec ActorsStageActorSpecs[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec EntitiesStageUiActorSpecs[] =
+PositionedActorROMSpec ActorsStageUiActorSpecs[] =
 {
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -43,12 +43,12 @@ PositionedActorROMSpec EntitiesStageUiActorSpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const EntitiesStageFontSpecs[] =
+FontROMSpec* const ActorsStageFontSpecs[] =
 {
 	NULL
 };
 
-SoundROMSpec* EntitiesStageSoundSpecs[] =
+SoundROMSpec* ActorsStageSoundSpecs[] =
 {
 	NULL
 };
@@ -57,7 +57,7 @@ SoundROMSpec* EntitiesStageSoundSpecs[] =
 // STAGE DEFINITION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-StageROMSpec EntitiesStageSpec =
+StageROMSpec ActorsStageSpec =
 {
 	// Class allocator
 	__TYPE(Stage),
@@ -124,7 +124,7 @@ StageROMSpec EntitiesStageSpec =
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		256,
-		// Amount of actor descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in actors
 		24,
 		// If true, actor instantiation is done over time
 		false,
@@ -247,7 +247,7 @@ StageROMSpec EntitiesStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)EntitiesStageFontSpecs,
+		(FontSpec**)ActorsStageFontSpecs,
 
 		// CharSets to preload
 		(CharSetSpec**)NULL,
@@ -256,19 +256,19 @@ StageROMSpec EntitiesStageSpec =
 		(TextureSpec**)NULL,
 
 		// Sounds to load
-		(SoundSpec**)EntitiesStageSoundSpecs,
+		(SoundSpec**)ActorsStageSoundSpecs,
 	},
 
-	// Entities
+	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)EntitiesStageUiActorSpecs,
+			(PositionedActor*)ActorsStageUiActorSpecs,
 			__TYPE(UIContainer),
 		},
 
-		// Stage's children entities
-		(PositionedActor*)EntitiesStageActorSpecs,
+		// Stage's children actors
+		(PositionedActor*)ActorsStageActorSpecs,
 	},
 
 	// Post processing effects

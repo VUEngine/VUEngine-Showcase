@@ -273,7 +273,7 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	// Must reset the clocks
 	PongState::startClocks(this);
 	
-	// Reset the entities
+	// Reset the actors
 	PongState::propagateMessage(this, kMessagePongResetPositions);
 
 	return true;

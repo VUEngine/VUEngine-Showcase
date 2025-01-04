@@ -39,7 +39,7 @@ enum LanguageStrings
     kStringConnected,
     kStringDwarfPlanetLabel,
     kStringEffectSubtitle,
-    kStringEntitiesLabel,
+    kStringActorsLabel,
     kStringActorCreationLabel,
     kStringActorDestructionLabel,
     kStringEventsLabel,

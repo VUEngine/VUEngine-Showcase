@@ -22,7 +22,7 @@
 #include <VUEngine.h>
 #include <WireframeManager.h>
 
-#include "EntitiesState.h"
+#include "ActorsState.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -30,31 +30,31 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::execute(void* owner __attribute__((unused)))
+void ActorsState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
 
 	if(!isDeleted(this->leaderPunk))
 	{
-		EntitiesState::movePunks(this);
+		ActorsState::movePunks(this);
 
 		Printing::text(this->printing, "                                                ", 0, 25, NULL);
-		EntitiesState::printPunkName(this, this->leaderPunk, 25);
-		EntitiesState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Larry", false)), 25);
-		EntitiesState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Curly", false)), 25);
+		ActorsState::printPunkName(this, this->leaderPunk, 25);
+		ActorsState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Larry", false)), 25);
+		ActorsState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Curly", false)), 25);
 	}
 
 	if(this->showAdditionalDetails)
 	{
-		EntitiesState::showAdditionalDetails(this);
+		ActorsState::showAdditionalDetails(this);
 	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::processUserInput(const UserInput* userInput)
+void ActorsState::processUserInput(const UserInput* userInput)
 {
-	EntitiesState::playSoundEffects(this, userInput, false);
+	ActorsState::playSoundEffects(this, userInput, false);
 
 	if(!isDeleted(this->leaderPunk))
 	{
@@ -65,11 +65,11 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 		*/
 		if(K_LL & userInput->releasedKey)
 		{
-			EntitiesState::createSlavePunk(this, K_LL);
+			ActorsState::createSlavePunk(this, K_LL);
 		}
 		else if(K_LR & userInput->releasedKey)
 		{
-			EntitiesState::createSlavePunk(this, K_LR);
+			ActorsState::createSlavePunk(this, K_LR);
 		}
 	}
 	
@@ -78,7 +78,7 @@ void EntitiesState::processUserInput(const UserInput* userInput)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::showControls()
+void ActorsState::showControls()
 {
 	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
@@ -87,18 +87,18 @@ void EntitiesState::showControls()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::showStuff()
+void ActorsState::showStuff()
 {
-	EntitiesState::createLeaderPunk(this);
+	ActorsState::createLeaderPunk(this);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::showExplanation()
+void ActorsState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntitiesLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
@@ -117,7 +117,7 @@ void EntitiesState::showExplanation()
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, "EntitiesState", 26, y++, NULL);
+	Printing::text(this->printing, "ActorsState", 26, y++, NULL);
 	Printing::text(this->printing, "::createLeaderPunk", 26, y++, NULL);
 	Printing::text(this->printing, "::movePunks", 26, y++, NULL);
 	Printing::text(this->printing, "::createSlavePunk", 26, y++, NULL);
@@ -126,7 +126,7 @@ void EntitiesState::showExplanation()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::showAdditionalDetails()
+void ActorsState::showAdditionalDetails()
 {
 	if(isDeleted(this->leaderPunk))
 	{
@@ -171,23 +171,23 @@ void EntitiesState::showAdditionalDetails()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::constructor()
+void ActorsState::constructor()
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
-	 * Check assets/stage/EntitiesStageSpec.c"
+	 * Check assets/stage/ActorsStageSpec.c"
 	 */
-	extern StageROMSpec EntitiesStageSpec;
-	this->stageSpec = (StageSpec*)&EntitiesStageSpec;
+	extern StageROMSpec ActorsStageSpec;
+	this->stageSpec = (StageSpec*)&ActorsStageSpec;
 	this->leaderPunk = NULL;
 	this->validSuboptionKeys = K_LL | K_LR;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::destructor()
+void ActorsState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -195,7 +195,7 @@ void EntitiesState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::printPunkName(Actor punk, int16 row)
+void ActorsState::printPunkName(Actor punk, int16 row)
 {
 	if(isDeleted(punk))
 	{
@@ -216,7 +216,7 @@ void EntitiesState::printPunkName(Actor punk, int16 row)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::createLeaderPunk()
+void ActorsState::createLeaderPunk()
 {
 	if(NULL != this->leaderPunk)
 	{
@@ -228,7 +228,7 @@ void EntitiesState::createLeaderPunk()
 	PositionedActor positionedActor = {&PunkActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false};
 
 	/*
-	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
+	 * This is how we add actors to the Stage. Notice that we don't creates Sprites nor animate them
 	 * directly anymore. Now, the engine takes care of all that by reading the ActorSpec.
 	 */
 	this->leaderPunk = Actor::safeCast(Stage::spawnChildActor(this->stage, (const PositionedActor* const)&positionedActor, false));
@@ -236,7 +236,7 @@ void EntitiesState::createLeaderPunk()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::createSlavePunk(uint16 input)
+void ActorsState::createSlavePunk(uint16 input)
 {
 	if(isDeleted(this->leaderPunk))
 	{
@@ -296,7 +296,7 @@ void EntitiesState::createSlavePunk(uint16 input)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::movePunks()
+void ActorsState::movePunks()
 {
 	if(!isDeleted(this->leaderPunk))
 	{

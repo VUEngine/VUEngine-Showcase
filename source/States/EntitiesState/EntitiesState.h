@@ -20,19 +20,19 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class EntitiesState
+/// Class ActorsState
 ///
 /// Inherits from ShowcaseState
 ///
 /// Implements a game state to showcase how actor parenting works.
-dynamic_singleton class EntitiesState : ShowcaseState
+dynamic_singleton class ActorsState : ShowcaseState
 {
 	/// Main actor
 	Actor leaderPunk;
 	
 	/// Method to retrieve the singleton instance
-	/// @return EntitiesState singleton
-	static EntitiesState getInstance();
+	/// @return ActorsState singleton
+	static ActorsState getInstance();
 
 	/// Updates the object in this state.
 	/// @param owner: Object that is in this state

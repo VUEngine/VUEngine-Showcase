@@ -107,7 +107,7 @@ void StatefulActorsState::processUserInput(const UserInput* userInput)
 	if(kMessageStatefulActorsStateNoMessage != message)
 	{
 		/*
-		 * Passing input to entities in this way, while elegant,
+		 * Passing input to actors in this way, while elegant,
 		 * is not very performant. Most likely, a way to get a
 		 * pointer to the actor that the user controls and calling
 		 * an specific method that its class implements would be

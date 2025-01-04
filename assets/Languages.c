@@ -77,8 +77,8 @@ const char* const EnglishLanguageStrings[] =
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
     "EFFECT",
-    /* kStringEntitiesLabel: */
-    "Entities",
+    /* kStringActorsLabel: */
+    "Actors",
     /* kStringActorCreationLabel: */
     "Actor creation",
     /* kStringActorDestructionLabel: */
@@ -223,7 +223,7 @@ const char* const GermanLanguageStrings[] =
     "Zwergplanet",
     /* kStringEffectSubtitle: */
     "EFFECT",
-    /* kStringEntitiesLabel: */
+    /* kStringActorsLabel: */
     "Entit�ten",
     /* kStringActorCreationLabel: */
     "Entit�ts-Konstruktoren",
@@ -369,7 +369,7 @@ const char* const SpanishLanguageStrings[] =
     "Planeta Enano",
     /* kStringEffectSubtitle: */
     "EFECTO",
-    /* kStringEntitiesLabel: */
+    /* kStringActorsLabel: */
     "Entidades",
     /* kStringActorCreationLabel: */
     "Entidad: creaci�n",
