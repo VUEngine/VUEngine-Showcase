@@ -827,6 +827,9 @@ BodyROMSpec PunkBodySpec =
 	__F_TO_FIXED(3),
 
 	// Axises on which the body is subject to gravity
+	__NO_AXIS,
+
+	// Axises around which to rotate the owner when syncronizing with body
 	__NO_AXIS
 };
 
@@ -877,8 +880,5 @@ PunkROMSpec PunkActorSpec =
 			// Animation to play automatically
 			"Move"
 		},
-
-		// Axises around which to rotate the entity when syncronizing with bodyate the entity when syncronizing with body
-		__Y_AXIS,
 	}
 };

@@ -163,7 +163,6 @@ bool PongBall::handlePropagatedMessage(int32 message)
 
 void PongBall::ready(bool recursive)
 {
-	// call base
 	Base::ready(this, recursive);
 
 	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
@@ -228,4 +227,3 @@ void PongBall::startMovement()
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

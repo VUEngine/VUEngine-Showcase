@@ -192,6 +192,9 @@ BodyROMSpec StarsParticleSystemPhysicalBodySpec =
 	__I_TO_FIXED(2),
 
 	// Axises on which the body is subject to gravity
+	__NO_AXIS,
+
+	// Axises around which to rotate the owner when syncronizing with body
 	__NO_AXIS
 };
 
@@ -225,7 +228,10 @@ BodyROMSpec StarsParticleSystemSolidBodySpec =
 	__I_TO_FIXED(0),
 
 	// Axises on which the body is subject to gravity
-	__Y_AXIS
+	__Y_AXIS,
+
+	// Axises around which to rotate the owner when syncronizing with body
+	__NO_AXIS
 };
 
 ColliderROMSpec StarsParticleSystemSolidColliderSpec =

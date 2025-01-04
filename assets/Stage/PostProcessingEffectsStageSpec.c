@@ -277,4 +277,3 @@ StageROMSpec PostProcessingEffectsStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

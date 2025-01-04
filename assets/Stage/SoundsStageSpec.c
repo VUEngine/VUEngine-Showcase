@@ -275,4 +275,3 @@ StageROMSpec SoundsStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

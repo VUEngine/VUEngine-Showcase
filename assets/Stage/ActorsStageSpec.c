@@ -281,4 +281,3 @@ StageROMSpec ActorsStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

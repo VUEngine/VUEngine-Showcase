@@ -275,4 +275,3 @@ StageROMSpec AnimationSchemesStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

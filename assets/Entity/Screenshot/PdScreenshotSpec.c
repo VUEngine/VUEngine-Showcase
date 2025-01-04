@@ -205,6 +205,4 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// Entity's in-game type
 	kTypeNone,
 
-	
-
 };

@@ -121,6 +121,9 @@ BodyROMSpec PongBallBodySpec =
 	__I_TO_FIXED(2),
 
 	// Axises on which the body is subject to gravity
+	__NO_AXIS,
+
+	// Axises around which to rotate the owner when syncronizing with body
 	__NO_AXIS
 };
 
@@ -163,9 +166,6 @@ PongBallROMSpec PongBallEntitySpec =
 			// Animation to play automatically
 			NULL,
 		},
-
-		// Axises around which to rotate the entity when syncronizing with bodyate the entity when syncronizing with body
-		__NO_AXIS
 	},
 
 	// minimum velocity

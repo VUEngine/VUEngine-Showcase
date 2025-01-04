@@ -75,7 +75,6 @@ static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
  */
 void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 {
-	// call base
 	Base::enter(this, owner);
 
 	// load stage
@@ -136,7 +135,6 @@ void ShowcaseState::suspend(void* owner)
 {
 	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
-	// call base
 	Base::suspend(this, owner);
 }
 
@@ -148,7 +146,6 @@ void ShowcaseState::suspend(void* owner)
  */
 void ShowcaseState::resume(void* owner)
 {
-	// call base
 	Base::resume(this, owner);
 
 	// show stuff
@@ -428,4 +425,3 @@ void ShowcaseState::goToNext()
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

@@ -278,4 +278,3 @@ StageROMSpec ParticlesStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-

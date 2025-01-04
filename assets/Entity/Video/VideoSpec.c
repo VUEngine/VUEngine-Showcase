@@ -309,8 +309,6 @@ AnimatedEntityROMSpec VideoEntitySpec =
 
 		// Entity's in-game type
 		0,
-
-		
 	},
 
 	// Pointer to animation functions array

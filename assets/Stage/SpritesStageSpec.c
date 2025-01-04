@@ -275,4 +275,3 @@ StageROMSpec SpritesStageSpec =
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
 };
-
