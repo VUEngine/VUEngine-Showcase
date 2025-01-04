@@ -25,22 +25,22 @@
 
 extern EntitySpec BoxEntitySpec;
 extern EntitySpec CogWheelEntitySpec;
-extern EntitySpec PunkActorSpec;
+extern EntitySpec PunkActorSpeStatefulActor
 extern EntitySpec LowPowerIndicatorEntitySpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec ActorsStageEntitySpecs[] =
+PositionedEntityROMSpec ActorsStStatefulActortitySpecs[] =
 {
-	{&PunkActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&PunkActorSpeStatefulActor, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&BoxEntitySpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&CogWheelEntitySpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ActorsStageUiEntitySpecs[] =
+PositionedEntityROMSpec ActorsStStatefulActorEntitySpecs[] =
 {
 	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -50,12 +50,12 @@ PositionedEntityROMSpec ActorsStageUiEntitySpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const ActorsStageFontSpecs [] =
+FontROMSpec* const ActorsStStatefulActorntSpecs [] =
 {
 	NULL
 };
 
-SoundROMSpec* ActorsStageSoundSpecs[] =
+SoundROMSpec* ActorsStStatefulActorundSpecs[] =
 {
 	NULL
 };
@@ -64,7 +64,7 @@ SoundROMSpec* ActorsStageSoundSpecs[] =
 // STAGE DEFINITION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-StageROMSpec ActorsStageSpec =
+StageROMSpec ActorsStStatefulActorec =
 {
 	// Class allocator
 	__TYPE(Stage),
@@ -254,7 +254,7 @@ StageROMSpec ActorsStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)ActorsStageFontSpecs ,
+		(FontSpec**)ActorsStStatefulActorntSpecs ,
 
 		// CharSets to preload
 		(CharSetSpec**)NULL,
@@ -263,19 +263,19 @@ StageROMSpec ActorsStageSpec =
 		(TextureSpec**)NULL,
 
 		// Sounds to load
-		(SoundSpec**)ActorsStageSoundSpecs,
+		(SoundSpec**)ActorsStStatefulActorundSpecs,
 	},
 
 	// Entities
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)ActorsStageUiEntitySpecs,
+			(PositionedEntity*)ActorsStStatefulActorEntitySpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)ActorsStageEntitySpecs,
+		(PositionedEntity*)ActorsStStatefulActortitySpecs,
 	},
 
 	// Post processing effects

@@ -5,7 +5,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <ActorsState.h>
+#include <StatefulActorsState.h>
 #include <AnimationSchemesState.h>
 #include <EntitiesState.h>
 #include <ParticlesState.h>

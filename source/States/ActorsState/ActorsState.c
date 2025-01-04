@@ -13,7 +13,7 @@
 
 #include <string.h>
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
@@ -21,7 +21,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include "ActorsState.h"
+#include "StatefulActorsState.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -29,12 +29,12 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::enter(void* owner __attribute__((unused)))
+void StatefulActorsState::enter(void* owner __attribute__((unused)))
 {
 	Base::enter(this, owner);
 
 	// Start animations, physics and messaging clocks
-	ActorsState::startClocks(this);
+	StatefulActorsState::startClocks(this);
 
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
@@ -44,7 +44,7 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 	Printing::addEventListener(
 		this->printing,
 		ListenerObject::safeCast(this),
-		(EventListener)ActorsState::onFontCharSetRewritten,
+		(EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 
@@ -56,24 +56,24 @@ void ActorsState::enter(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::execute(void* owner __attribute__((unused)))
+void StatefulActorsState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
 
 	if(this->showAdditionalDetails)
 	{
-		ActorsState::showAdditionalDetails(this);
+		StatefulActorsState::showAdditionalDetails(this);
 	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::exit(void* owner __attribute__((unused)))
+void StatefulActorsState::exit(void* owner __attribute__((unused)))
 {
 	Printing::removeEventListener(
 		this->printing,
 		ListenerObject::safeCast(this),
-		(EventListener)ActorsState::onFontCharSetRewritten,
+		(EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 
@@ -82,29 +82,29 @@ void ActorsState::exit(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::processUserInput(const UserInput* userInput)
+void StatefulActorsState::processUserInput(const UserInput* userInput)
 {
-	ActorsState::playSoundEffects(this, userInput, false);
-	int32 message = kMessageActorsStateNoMessage;
+	StatefulActorsState::playSoundEffects(this, userInput, false);
+	int32 message = kMessageStatefulActorsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)
 	{
-		message = kMessageActorsStateHoldLeft;
+		message = kMessageStatefulActorsStateHoldLeft;
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
-		message = kMessageActorsStateReleasedLeft;
+		message = kMessageStatefulActorsStateReleasedLeft;
 	}
 	else if(K_LR & userInput->holdKey)
 	{
-		message = kMessageActorsStateHoldRight;
+		message = kMessageStatefulActorsStateHoldRight;
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		message = kMessageActorsStateReleasedRight;
+		message = kMessageStatefulActorsStateReleasedRight;
 	}
 
-	if(kMessageActorsStateNoMessage != message)
+	if(kMessageStatefulActorsStateNoMessage != message)
 	{
 		/*
 		 * Passing input to entities in this way, while elegant,
@@ -113,7 +113,7 @@ void ActorsState::processUserInput(const UserInput* userInput)
 		 * an specific method that its class implements would be
 		 * way faster.
 		 */
-		ActorsState::propagateMessage(this, message);
+		StatefulActorsState::propagateMessage(this, message);
 	}
 
 	Base::processUserInput(this, userInput);
@@ -121,7 +121,7 @@ void ActorsState::processUserInput(const UserInput* userInput)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::showControls()
+void StatefulActorsState::showControls()
 {
 	Printing::text(
 		this->printing,
@@ -148,13 +148,13 @@ void ActorsState::showControls()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::showStuff()
+void StatefulActorsState::showStuff()
 {
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::showExplanation()
+void StatefulActorsState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(
@@ -164,7 +164,7 @@ void ActorsState::showExplanation()
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStatefulActorsLabel), 2, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	Printing::text(
 		this->printing,
@@ -181,7 +181,7 @@ void ActorsState::showExplanation()
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "Actor", 2, y++, NULL);
+	Printing::text(this->printing, "StatefulActor", 2, y++, NULL);
 	Printing::text(this->printing, "MessageDispatcher*", 2, y++, NULL);
 	Printing::text(this->printing, "Punk", 2, y++, NULL);
 	Printing::text(this->printing, "PunkState*", 2, y++, NULL);
@@ -194,7 +194,7 @@ void ActorsState::showExplanation()
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "PunkActorSpec", 2, y++, NULL);
+	Printing::text(this->printing, "PunkStatefulActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(
@@ -227,7 +227,7 @@ void ActorsState::showExplanation()
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "ActorsState", 26, y++, NULL);
+	Printing::text(this->printing, "StatefulActorsState", 26, y++, NULL);
 	Printing::text(this->printing, "::propagateMessage", 26, y++, NULL);
 	Printing::text(this->printing, "Punk", 26, y++, NULL);
 	Printing::text(this->printing, "::collisionStarts", 26, y++, NULL);
@@ -237,9 +237,9 @@ void ActorsState::showExplanation()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::showAdditionalDetails()
+void StatefulActorsState::showAdditionalDetails()
 {
-	ActorsState::propagateMessage(this, kMessageActorsStatePrintActorStatus);
+	StatefulActorsState::propagateMessage(this, kMessageStatefulActorsStatePrintStatefulActorStatus);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -250,21 +250,21 @@ void ActorsState::showAdditionalDetails()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::constructor()
+void StatefulActorsState::constructor()
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
-	 * Check assets/stage/ActorsStageSpec.c
+	 * Check assets/stage/StatefulActorsStageSpec.c
 	 */
-	extern StageROMSpec ActorsStageSpec;
-	this->stageSpec = (StageSpec*)&ActorsStageSpec;
+	extern StageROMSpec StatefulActorsStageSpec;
+	this->stageSpec = (StageSpec*)&StatefulActorsStageSpec;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::destructor()
+void StatefulActorsState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -272,9 +272,9 @@ void ActorsState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+void StatefulActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
 {
-	ActorsState::show(this, false);
+	StatefulActorsState::show(this, false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -24,12 +24,12 @@
 ///
 /// Inherits from ShowcaseState
 ///
-/// Implements a game state to showcase how actor's body and state machine work.
-dynamic_singleton class ActorsState : ShowcaseState
+/// Implements a game state to showcase how statefulActor's body and state machine work.
+dynamic_singleton class StatefulActorsState : ShowcaseState
 {
 	/// Method to retrieve the singleton instance
 	/// @return AnimationSchemesState singleton
-	static ActorsState getInstance();
+	static StatefulActorsState getInstance();
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

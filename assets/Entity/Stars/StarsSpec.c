@@ -364,26 +364,24 @@ ParticleROMSpec StarParticleSolidSpec =
 ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 {
 	// Entity
-	{
-		// Class allocator		
-		__TYPE(ParticleSystem),
+	// Class allocator
+	__TYPE(ParticleSystem),
 
-		// Component specs
-		(ComponentSpec**)NULL,
+	// Component specs
+	(ComponentSpec**)NULL,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info
-		NULL,
+	// Extra info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		kTypeNone
-	},
+	// Entity's in-game type
+	kTypeNone,
 
 	// reuse expired particles?
 	true,
@@ -441,26 +439,24 @@ ComponentSpec* StarsParticleSystemPhysicalPhysicsSpecs [] =
 
 ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 {
-	{
-		// Class allocator		
-		__TYPE(ParticleSystem),
+	// Class allocator
+	__TYPE(ParticleSystem),
 
-		// Component specs
-		(ComponentSpec**)NULL,
+	// Component specs
+	(ComponentSpec**)NULL,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info
-		NULL,
+	// Extra info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		kTypeNone
-	},
+	// Entity's in-game type
+	kTypeNone,
 
 	// reuse expired particles?
 	true,
@@ -524,26 +520,24 @@ ComponentSpec* StarsParticleSystemSolidColliderSpecs [] =
 
 ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 {
-	{
-		// Class allocator		
-		__TYPE(ParticleSystem),
+	// Class allocator
+	__TYPE(ParticleSystem),
 
-		// Component specs
-		(ComponentSpec**)NULL,
+	// Component specs
+	(ComponentSpec**)NULL,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info
-		NULL,
+	// Extra info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		kTypeNone
-	},
+	// Entity's in-game type
+	kTypeNone,
 
 	// reuse expired particles?
 	true,

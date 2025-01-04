@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Actor.h>
+#include <StatefulActor.h>
 #include <PongPaddle.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -25,8 +25,8 @@
 /// @memberof PongBall
 typedef struct PongBallSpec
 {
-	/// Actor spec
-	ActorSpec actorSpec;
+	/// StatefulActor spec
+	StatefulActorSpec statefulActorSpec;
 
 	/// minimum velocity when moving
 	Vector3D minimumVelocity;
@@ -46,10 +46,10 @@ typedef const PongBallSpec PongBallROMSpec;
 
 /// Class PongBall
 ///
-/// Inherits from Actor
+/// Inherits from StatefulActor
 ///
 /// Implements a Pong ball.
-class PongBall : Actor
+class PongBall : StatefulActor
 {
 	/// @param pongBallSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance

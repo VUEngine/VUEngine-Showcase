@@ -97,7 +97,7 @@ ComponentSpec* const PongWallsEntityComponentSpecs[] =
 
 EntityROMSpec PongWallsEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -114,5 +114,12 @@ EntityROMSpec PongWallsEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypePongWall
+	kTypePongWall,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

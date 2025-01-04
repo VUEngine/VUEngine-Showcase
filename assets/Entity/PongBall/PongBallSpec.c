@@ -139,26 +139,31 @@ PongBallROMSpec PongBallEntitySpec =
 {
 	{
 		{
-			{
-				// Class allocator				
-				__TYPE(PongBall),
+			// Class allocator
+			__TYPE(PongBall),
 
-				// Component specs
-				(ComponentSpec**)PongBallEntityComponentSpecs,
+			// Component specs
+			(ComponentSpec**)PongBallEntityComponentSpecs,
 
-				// Children specs
-				NULL,
+			// Children specs
+			NULL,
 
-				// Extra info
-				NULL,
+			// Extra info
+			NULL,
 
-				// Size
-				// If 0, it is computed from the visual components if any
-				{0, 0, 0},
+			// Size
+			// If 0, it is computed from the visual components if any
+			{0, 0, 0},
 
-				// Entity's in-game type
-				kTypePongBall				
-			},
+			// Entity's in-game type
+			kTypePongBall				,
+
+			// Pointer to animation functions array
+			NULL,
+
+			// Animation to play automatically
+			NULL
+,
 
 			// Pointer to animation functions array
 			(const AnimationFunction**)NULL,

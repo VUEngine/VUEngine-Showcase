@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 #include <BgmapAnimatedSprite.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -288,11 +288,11 @@ ComponentSpec* const VideoEntityComponentSpecs[] =
 	NULL
 };
 
-AnimatedEntityROMSpec VideoEntitySpec =
+EntityROMSpec VideoEntitySpec =
 {
 	{
-		// Class allocator		
-		__TYPE(AnimatedEntity),
+		// Class allocator
+		__TYPE(Entity),
 
 		// Component specs
 		(ComponentSpec**)VideoEntityComponentSpecs,
@@ -309,7 +309,6 @@ AnimatedEntityROMSpec VideoEntitySpec =
 
 		// Entity's in-game type
 		0,
-	},
 
 	// Pointer to animation functions array
 	(const AnimationFunction**)&VideoAnimationSpecs,

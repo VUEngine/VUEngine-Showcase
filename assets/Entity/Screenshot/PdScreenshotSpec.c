@@ -186,7 +186,7 @@ ComponentSpec* const PdScreenshotEntityComponentSpecs[] =
 
 EntityROMSpec PdScreenshotEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -205,4 +205,9 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// Entity's in-game type
 	kTypeNone,
 
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };

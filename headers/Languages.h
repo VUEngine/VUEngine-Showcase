@@ -18,7 +18,7 @@ enum LanguageIdentifiers
 
 enum LanguageStrings
 {
-    kStringActorsLabel,
+    kStringStatefulActorsLabel,
     kStringAnimationsLabel,
     kStringAnimationSubtitle,
     kStringAutomaticPauseBody,

@@ -154,7 +154,7 @@ ComponentSpec* const BoxEntityComponentSpecs[] =
 
 EntityROMSpec BoxEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -171,5 +171,12 @@ EntityROMSpec BoxEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeSolidObject
+	kTypeSolidObject,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

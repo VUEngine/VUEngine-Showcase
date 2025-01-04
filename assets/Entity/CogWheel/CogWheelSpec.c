@@ -367,25 +367,29 @@ ComponentSpec* const CogWheelEntityComponentSpecs[] =
 
 CogWheelROMSpec CogWheelEntitySpec =
 {
-	{
-		// Class allocator		
-		__TYPE(CogWheel),
+	// Class allocator
+	__TYPE(CogWheel),
 
-		// Component specs
-		(ComponentSpec**)CogWheelEntityComponentSpecs,
+	// Component specs
+	(ComponentSpec**)CogWheelEntityComponentSpecs,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info
-		NULL,
+	// Extra info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		kTypeCogWheel,
+	// Entity's in-game type
+	kTypeCogWheel,
 
-	}
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
+}
 };

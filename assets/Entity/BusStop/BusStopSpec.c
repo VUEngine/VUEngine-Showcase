@@ -195,7 +195,7 @@ ComponentSpec* const BusStopEntityComponentSpecs[] =
 
 EntityROMSpec BusStopEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -212,5 +212,12 @@ EntityROMSpec BusStopEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

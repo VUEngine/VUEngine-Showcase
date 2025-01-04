@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <ActorsState.h>
+#include <StatefulActorsState.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
@@ -60,9 +60,9 @@ void PunkDie::enter(void* owner)
 	/*
 	 * Replace the sprites for the dying sprites
 	 */
-	extern SpriteSpec* PunkActorDyingComponentSpecs[];
+	extern SpriteSpec* PunkStatefulActorDyingComponentSpecs[];
 	Punk::removeComponents(punk, kSpriteComponent);
-	Punk::addComponents(punk, (ComponentSpec**)PunkActorDyingComponentSpecs, kSpriteComponent);
+	Punk::addComponents(punk, (ComponentSpec**)PunkStatefulActorDyingComponentSpecs, kSpriteComponent);
 
 	Punk::playAnimation(punk, "Die");
 
@@ -102,9 +102,9 @@ void PunkDie::exit(void* owner)
 	/*
 	 * Restore the normal sprites
 	 */
-	extern ComponentSpec* PunkActorComponentSpecs[];
+	extern ComponentSpec* PunkStatefulActorComponentSpecs[];
 	Punk::removeComponents(punk, kSpriteComponent);
-	Punk::addComponents(punk, (ComponentSpec**)PunkActorComponentSpecs, kSpriteComponent);
+	Punk::addComponents(punk, (ComponentSpec**)PunkStatefulActorComponentSpecs, kSpriteComponent);
 
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 

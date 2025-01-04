@@ -13,7 +13,7 @@
 
 #include <string.h>
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 #include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
@@ -31,23 +31,23 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 {
 	VideoPlayerState::playSoundEffects(this, userInput, false);
 
-	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
+	Entity videoEntity = Entity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 
 	if(!isDeleted(videoEntity))
 	{
 		if(K_A & userInput->releasedKey)
 		{
-			AnimatedEntity::pauseAnimation(videoEntity, AnimatedEntity::isPlaying(videoEntity));
+			Entity::pauseAnimation(videoEntity, Entity::isPlaying(videoEntity));
 		}
 		else if((K_LL | K_LR) & userInput->releasedKey)
 		{
-			if(AnimatedEntity::isPlayingAnimation(videoEntity, "HiColor"))
+			if(Entity::isPlayingAnimation(videoEntity, "HiColor"))
 			{					
-				AnimatedEntity::playAnimation(videoEntity, "4Color");
+				Entity::playAnimation(videoEntity, "4Color");
 			}
 			else
 			{					
-				AnimatedEntity::playAnimation(videoEntity, "HiColor");
+				Entity::playAnimation(videoEntity, "HiColor");
 			}
 
 			VideoPlayerState::show(this, false);
@@ -79,7 +79,7 @@ void VideoPlayerState::showExplanation()
 
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "AnimatedEntity", 2, y++, NULL);
+	Printing::text(this->printing, "Entity", 2, y++, NULL);
 	Printing::text(this->printing, "Sprite", 2, y++, NULL);
 
 	y++;
@@ -106,11 +106,11 @@ void VideoPlayerState::showAdditionalDetails()
 	int16 y = 25;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "DefaultBold");
 
-	AnimatedEntity videoEntity = AnimatedEntity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
+	Entity videoEntity = Entity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
 
 	if(!isDeleted(videoEntity))
 	{
-		Printing::text(this->printing, AnimatedEntity::getPlayingAnimationName(videoEntity), 2, y++, NULL);
+		Printing::text(this->printing, Entity::getPlayingAnimationName(videoEntity), 2, y++, NULL);
 	}
 }
 

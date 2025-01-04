@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <ActorsState.h>
+#include <StatefulActorsState.h>
 #include <Body.h>
 #include <InGameTypes.h>
 #include <MessageDispatcher.h>
@@ -34,7 +34,7 @@
 void Punk::constructor(PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
+	Base::constructor((StatefulActorSpec*)&punkSpec->statefulActorSpec, internalId, name);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -55,7 +55,7 @@ bool Punk::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageActorsStateResuscitate:
+		case kMessageStatefulActorsStateResuscitate:
 
 			Punk::resuscitate(this);
 			return true;
@@ -91,7 +91,7 @@ bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 			Punk::freeze(this);
 
 			/*
-			 * The Actor class can resolve collisions against solid objects by itself
+			 * The StatefulActor class can resolve collisions against solid objects by itself
 			 */
 			return Base::collisionStarts(this, collisionInformation);
 			break;
@@ -100,7 +100,7 @@ bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
 
 			/*
 			* Disable collision checks so this doesn't fire multiple times. 
-			* They are enabled by the Actor when starting to move.
+			* They are enabled by the StatefulActor when starting to move.
 			*/
 			Punk::checkCollisions(this, false);
 
@@ -121,10 +121,10 @@ bool Punk::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kMessageActorsStateHoldLeft:
-		case kMessageActorsStateHoldRight:
-		case kMessageActorsStateReleasedLeft:
-		case kMessageActorsStateReleasedRight:
+		case kMessageStatefulActorsStateHoldLeft:
+		case kMessageStatefulActorsStateHoldRight:
+		case kMessageStatefulActorsStateReleasedLeft:
+		case kMessageStatefulActorsStateReleasedRight:
 
 			/*
 			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
@@ -135,7 +135,7 @@ bool Punk::handlePropagatedMessage(int32 message)
 			return true;
 			break;
 
-		case kMessageActorsStatePrintActorStatus:
+		case kMessageStatefulActorsStatePrintStatefulActorStatus:
 
 			if(!isDeleted(this->body))
 			{
@@ -213,7 +213,7 @@ bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unuse
 	/*
 	 * Restore myself after 1 second
 	 */
-	Punk::sendMessageToSelf(this, kMessageActorsStateResuscitate, 1000, 0);
+	Punk::sendMessageToSelf(this, kMessageStatefulActorsStateResuscitate, 1000, 0);
 
 	return true;
 }

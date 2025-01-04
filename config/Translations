@@ -21,10 +21,10 @@
         }
     ],
     "translations": {
-        "ActorsLabel": {
+        "StatefulActorsLabel": {
             "de": "Akteure",
-            "en": "Actors",
-            "es": "Actores"
+            "en": "StatefulActors",
+            "es": "StatefulActores"
         },
         "AnimationsLabel": {
             "de": "Animationen",

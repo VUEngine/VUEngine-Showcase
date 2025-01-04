@@ -35,8 +35,8 @@ LangROMSpec* const _languages[] =
 
 const char* const EnglishLanguageStrings[] =
 {
-    /* kStringActorsLabel: */
-    "Actors",
+    /* kStringStatefulActorsLabel: */
+    "StatefulActors",
     /* kStringAnimationsLabel: */
     "Animations",
     /* kStringAnimationSubtitle: */
@@ -181,7 +181,7 @@ const LangROMSpec EnglishLanguageSpec =
 
 const char* const GermanLanguageStrings[] =
 {
-    /* kStringActorsLabel: */
+    /* kStringStatefulActorsLabel: */
     "Akteure",
     /* kStringAnimationsLabel: */
     "Animationen",
@@ -327,8 +327,8 @@ const LangROMSpec GermanLanguageSpec =
 
 const char* const SpanishLanguageStrings[] =
 {
-    /* kStringActorsLabel: */
-    "Actores",
+    /* kStringStatefulActorsLabel: */
+    "StatefulActores",
     /* kStringAnimationsLabel: */
     "Animaciones",
     /* kStringAnimationSubtitle: */

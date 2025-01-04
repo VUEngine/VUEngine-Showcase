@@ -28,7 +28,7 @@
 dynamic_singleton class EntitiesState : ShowcaseState
 {
 	/// Main entity
-	AnimatedEntity leaderPunk;
+	Entity leaderPunk;
 	
 	/// Method to retrieve the singleton instance
 	/// @return EntitiesState singleton

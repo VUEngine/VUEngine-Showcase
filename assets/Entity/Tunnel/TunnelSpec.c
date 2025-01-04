@@ -298,7 +298,7 @@ ComponentSpec* const TunnelEntityComponentSpecs[] =
 
 EntityROMSpec TunnelEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -315,5 +315,12 @@ EntityROMSpec TunnelEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Actor.h>
+#include <StatefulActor.h>
 #include <Collider.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -25,8 +25,8 @@
 /// @memberof PongPaddle
 typedef struct PongPaddleSpec
 {
-	/// Actor spec
-	ActorSpec actorSpec;
+	/// StatefulActor spec
+	StatefulActorSpec statefulActorSpec;
 
 	/// Force to apply to the paddle
 	Vector3D force;
@@ -52,10 +52,10 @@ enum PlayerPongPaddles
 
 /// Class PongPaddle
 ///
-/// Inherits from Actor
+/// Inherits from StatefulActor
 ///
 /// Implements a Pong paddle.
-class PongPaddle : Actor
+class PongPaddle : StatefulActor
 {
 	/// @param pongPaddleSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance

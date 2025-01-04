@@ -21,7 +21,7 @@
 // GLOBALS' DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern AnimatedEntityROMSpec PunkEntitySpec;
+extern EntityROMSpec PunkEntitySpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // GLOBALS' DEFINITIONS
@@ -39,7 +39,7 @@ const UserObject _userObjects[] =
 	{NULL, ""},
 };
 
-const UserAnimatedEntity _userAnimatedEntities[] =
+const UserEntity _userAnimatedEntities[] =
 {
 	{&PunkEntitySpec, "Punk"},
 	{NULL, ""},

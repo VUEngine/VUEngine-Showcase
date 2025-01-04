@@ -187,7 +187,7 @@ ComponentSpec* const HouseEntityComponentSpecs[] =
 
 EntityROMSpec HouseEntitySpec =
 {
-	// Class allocator	
+	// Class allocator
 	__TYPE(Entity),
 
 	// Component specs
@@ -204,5 +204,12 @@ EntityROMSpec HouseEntitySpec =
 	{0, 0, 0},
 
 	// Entity's in-game type
-	kTypeNone
+	kTypeNone,
+
+	// Pointer to animation functions array
+	NULL,
+
+	// Animation to play automatically
+	NULL
 };
+

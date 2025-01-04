@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <AnimatedEntity.h>
+#include <Entity.h>
 #include <BgmapAnimatedSprite.h>
 #include <Body.h>
 #include <Box.h>
@@ -767,28 +767,26 @@ ComponentSpec* const PunkEntityComponentSpecs[] =
 	NULL
 };
 
-AnimatedEntityROMSpec PunkEntitySpec =
+EntityROMSpec PunkEntitySpec =
 {
-	{
-		// Class allocator		
-		__TYPE(AnimatedEntity),
+	// Class allocator
+	__TYPE(Entity),
 
-		// Component specs
-		(ComponentSpec**)PunkEntityComponentSpecs,
+	// Component specs
+	(ComponentSpec**)PunkEntityComponentSpecs,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info
-		NULL,
+	// Extra info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		kTypeNone
-	},
+	// Entity's in-game type
+	kTypeNone,
 
 	// Pointer to animation functions array
 	(const AnimationFunction**)&PunkAnimationSpecs,
@@ -833,7 +831,7 @@ BodyROMSpec PunkBodySpec =
 	__NO_AXIS
 };
 
-ComponentSpec* const PunkActorComponentSpecs[] = 
+ComponentSpec* const PunkStatefulActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
@@ -842,37 +840,35 @@ ComponentSpec* const PunkActorComponentSpecs[] =
 	NULL
 };
 
-ComponentSpec* const PunkActorDyingComponentSpecs[] = 
+ComponentSpec* const PunkStatefulActorDyingComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkDyingSpriteSpec,
 	(ComponentSpec*)&PunkDyingBlackSpriteSpec,
 	NULL
 };
 
-PunkROMSpec PunkActorSpec =
+PunkROMSpec PunkStatefulActorSpec =
 {
 	{	
 		{
-			{
-				// Class allocator				
-				__TYPE(Punk),
+			// Class allocator
+			__TYPE(Punk),
 
-				// Component specs
-				(ComponentSpec**)PunkActorComponentSpecs,
+			// Component specs
+			(ComponentSpec**)PunkStatefulActorComponentSpecs,
 
-				// Children specs
-				NULL,
+			// Children specs
+			NULL,
 
-				// Extra info
-				NULL,
+			// Extra info
+			NULL,
 
-				// Size
-				// If 0, it is computed from the visual components if any
-				{0, 0, 0},
+			// Size
+			// If 0, it is computed from the visual components if any
+			{0, 0, 0},
 
-				// Entity's in-game type
-				kTypePunk
-			},
+			// Entity's in-game type
+			kTypePunk,
 
 			// Pointer to animation functions array
 			(const AnimationFunction**)&PunkAnimationSpecs,

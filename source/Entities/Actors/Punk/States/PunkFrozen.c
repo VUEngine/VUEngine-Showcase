@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <ActorsState.h>
+#include <StatefulActorsState.h>
 #include <Messages.h>
 #include <Punk.h>
 #include <Telegram.h>
@@ -66,8 +66,8 @@ bool PunkFrozen::processMessage(void* owner, Telegram telegram)
 
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageActorsStateHoldLeft:
-		case kMessageActorsStateHoldRight:
+		case kMessageStatefulActorsStateHoldLeft:
+		case kMessageStatefulActorsStateHoldRight:
 
 			Punk::walk(punk);
 			return true;

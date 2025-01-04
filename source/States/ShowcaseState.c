@@ -42,7 +42,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)SpritesState::getInstance,
 	(ShowcaseStateGetInstance)AnimationSchemesState::getInstance,
 	(ShowcaseStateGetInstance)EntitiesState::getInstance,
-	(ShowcaseStateGetInstance)ActorsState::getInstance,
+	(ShowcaseStateGetInstance)StatefulActorsState::getInstance,
 	(ShowcaseStateGetInstance)ParticlesState::getInstance,
 	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance,
 	(ShowcaseStateGetInstance)WireframesState::getInstance,
