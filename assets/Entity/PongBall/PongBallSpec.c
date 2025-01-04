@@ -159,13 +159,6 @@ PongBallROMSpec PongBallEntitySpec =
 			kTypePongBall				,
 
 			// Pointer to animation functions array
-			NULL,
-
-			// Animation to play automatically
-			NULL
-,
-
-			// Pointer to animation functions array
 			(const AnimationFunction**)NULL,
 
 			// Animation to play automatically

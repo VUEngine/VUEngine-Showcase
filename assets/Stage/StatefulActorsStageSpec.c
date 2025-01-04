@@ -25,7 +25,7 @@
 
 extern EntitySpec BoxEntitySpec;
 extern EntitySpec CogWheelEntitySpec;
-extern EntitySpec PunkActorSpeStatefulActor
+extern EntitySpec PunkStatefulActorSpec;
 extern EntitySpec LowPowerIndicatorEntitySpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -34,7 +34,7 @@ extern EntitySpec LowPowerIndicatorEntitySpec;
 
 PositionedEntityROMSpec ActorsStStatefulActortitySpecs[] =
 {
-	{&PunkActorSpeStatefulActor, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&PunkStatefulActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&BoxEntitySpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&CogWheelEntitySpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -64,7 +64,7 @@ SoundROMSpec* ActorsStStatefulActorundSpecs[] =
 // STAGE DEFINITION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-StageROMSpec ActorsStStatefulActorec =
+StageROMSpec StatefulActorsStageSpec =
 {
 	// Class allocator
 	__TYPE(Stage),

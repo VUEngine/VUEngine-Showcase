@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef ACTORS_STATE_H_
-#define ACTORS_STATE_H_
+#ifndef STATEFUL_ACTORS_STATE_H_
+#define STATEFUL_ACTORS_STATE_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES

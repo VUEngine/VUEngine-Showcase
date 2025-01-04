@@ -290,25 +290,24 @@ ComponentSpec* const VideoEntityComponentSpecs[] =
 
 EntityROMSpec VideoEntitySpec =
 {
-	{
-		// Class allocator
-		__TYPE(Entity),
+	// Class allocator
+	__TYPE(Entity),
 
-		// Component specs
-		(ComponentSpec**)VideoEntityComponentSpecs,
+	// Component specs
+	(ComponentSpec**)VideoEntityComponentSpecs,
 
-		// Children specs
-		NULL,
+	// Children specs
+	NULL,
 
-		// Extra info info
-		NULL,
+	// Extra info info
+	NULL,
 
-		// Size
-		// If 0, it is computed from the visual components if any
-		{0, 0, 0},
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-		// Entity's in-game type
-		0,
+	// Entity's in-game type
+	0,
 
 	// Pointer to animation functions array
 	(const AnimationFunction**)&VideoAnimationSpecs,
