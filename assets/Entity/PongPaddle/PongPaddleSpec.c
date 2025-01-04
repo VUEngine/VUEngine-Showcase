@@ -176,7 +176,7 @@ BodyROMSpec PongPaddleBodySpecSpec =
 	__NO_AXIS
 };
 
-ComponentSpec* const PongPaddleEntityComponentSpecs[] = 
+ComponentSpec* const PongPaddleActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongPaddleBodySpecSpec,
 	(ComponentSpec*)&PongPaddleWireframeSpec,
@@ -185,7 +185,7 @@ ComponentSpec* const PongPaddleEntityComponentSpecs[] =
 	NULL
 };
 
-PongPaddleROMSpec PongPaddleEntitySpec =
+PongPaddleROMSpec PongPaddleActorSpec =
 {
 	{
 		{
@@ -193,7 +193,7 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 			__TYPE(PongPaddle),
 
 			// Component specs
-			(ComponentSpec**)PongPaddleEntityComponentSpecs,
+			(ComponentSpec**)PongPaddleActorComponentSpecs,
 
 			// Children specs
 			NULL,
@@ -205,7 +205,7 @@ PongPaddleROMSpec PongPaddleEntitySpec =
 			// If 0, it is computed from the visual components if any
 			{0, 0, 0},
 
-			// Entity's in-game type
+			// Actor's in-game type
 			kTypePongPaddle,
 
 			// Pointer to animation functions array

@@ -20,24 +20,24 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec BoxEntitySpec;
-extern EntitySpec LowPowerIndicatorEntitySpec;
-extern EntitySpec StarsParticleSystemNormalSpec;
+extern ActorSpec BoxActorSpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
+extern ActorSpec StarsParticleSystemNormalSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec ParticlesStageEntitySpecs[] =
+PositionedActorROMSpec ParticlesStageActorSpecs[] =
 {
 	{&StarsParticleSystemNormalSpec, {0, 0, 0}, {0, 0, 0}, {1, 1, 1},  0, "Stars", NULL, NULL, true},
-	{&BoxEntitySpec, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&BoxActorSpec, {__HALF_SCREEN_WIDTH / 2 - 4, 24, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ParticlesStageUiEntitySpecs[] =
+PositionedActorROMSpec ParticlesStageUiActorSpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -122,15 +122,15 @@ StageROMSpec ParticlesStageSpec =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		40,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		16,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -267,12 +267,12 @@ StageROMSpec ParticlesStageSpec =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)ParticlesStageUiEntitySpecs,
+			(PositionedActor*)ParticlesStageUiActorSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)ParticlesStageEntitySpecs,
+		(PositionedActor*)ParticlesStageActorSpecs,
 	},
 
 	// Post processing effects

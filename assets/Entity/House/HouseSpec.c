@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -179,19 +179,19 @@ MeshROMSpec HouseWireframeSpec =
 	(PixelVector(*)[2])HouseMeshesSegments
 };
 
-ComponentSpec* const HouseEntityComponentSpecs[] = 
+ComponentSpec* const HouseActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&HouseWireframeSpec,
 	NULL
 };
 
-EntityROMSpec HouseEntitySpec =
+ActorROMSpec HouseActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)HouseEntityComponentSpecs,
+	(ComponentSpec**)HouseActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -203,7 +203,7 @@ EntityROMSpec HouseEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

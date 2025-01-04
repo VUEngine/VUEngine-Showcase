@@ -1,7 +1,7 @@
 {
     "_version": "1.0.0",
     "plugins": {
-        "vuengine//entities/LowPowerEntity": {
+        "vuengine//entities/LowPowerActor": {
             "xPosition": 180,
             "yPosition": -96
         },
@@ -35,7 +35,7 @@
             "startingRow": 82
         },
         "vuengine//states/splash/AdjustmentScreenVUEngine": {
-            "useLowPowerEntity": true
+            "useLowPowerActor": true
         },
         "vuengine//states/splash/AutomaticPauseSelectionScreen": {
             "titleTextFont": "AstonishExt"

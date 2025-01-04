@@ -19,23 +19,23 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec LowPowerIndicatorEntitySpec;
-extern EntitySpec VideoEntitySpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
+extern ActorSpec VideoActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ASSETS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec VideoPlayerStageChildren[] =
+PositionedActorROMSpec VideoPlayerStageChildren[] =
 {
-	{&VideoEntitySpec,			{0, 0, 1}, {0, 0, 0}, {1, 1, 1},  1, "Video", NULL, NULL, true},
+	{&VideoActorSpec,			{0, 0, 1}, {0, 0, 0}, {1, 1, 1},  1, "Video", NULL, NULL, true},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec VideoPlayerStageUiEntitySpecs[] =
+PositionedActorROMSpec VideoPlayerStageUiActorSpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -113,15 +113,15 @@ StageROMSpec VideoPlayerStageSpec =
 
     // Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		0,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		0,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -256,12 +256,12 @@ StageROMSpec VideoPlayerStageSpec =
     {
         // UI configuration
         {
-			(PositionedEntity*)VideoPlayerStageUiEntitySpecs,
+			(PositionedActor*)VideoPlayerStageUiActorSpecs,
 			__TYPE(UIContainer),
         },
 
         // Stage's children entities
-    	(PositionedEntity*)VideoPlayerStageChildren,
+    	(PositionedActor*)VideoPlayerStageChildren,
     },
 
 	// Post processing effects

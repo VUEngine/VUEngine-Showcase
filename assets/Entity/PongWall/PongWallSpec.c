@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <ColliderLayers.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <InGameTypes.h>
 #include <LineField.h>
 
@@ -88,20 +88,20 @@ ColliderROMSpec PongWallsColliderSpec2 =
 		kLayerAll,
 	};
 
-ComponentSpec* const PongWallsEntityComponentSpecs[] = 
+ComponentSpec* const PongWallsActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PongWallsColliderSpec2,
 	(ComponentSpec*)&PongWallsColliderSpec1,
 	NULL
 };
 
-EntityROMSpec PongWallsEntitySpec =
+ActorROMSpec PongWallsActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)PongWallsEntityComponentSpecs,
+	(ComponentSpec**)PongWallsActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -113,7 +113,7 @@ EntityROMSpec PongWallsEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypePongWall,
 
 	// Pointer to animation functions array

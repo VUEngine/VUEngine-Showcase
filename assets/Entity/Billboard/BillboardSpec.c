@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -205,19 +205,19 @@ MeshROMSpec BillboardWireframeSpec =
 	(PixelVector(*)[2])BillboardMeshesSegments
 };
 
-ComponentSpec* const BillboardEntityComponentSpecs[] = 
+ComponentSpec* const BillboardActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&BillboardWireframeSpec,
 	NULL
 };
 
-EntityROMSpec BillboardEntitySpec =
+ActorROMSpec BillboardActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)BillboardEntityComponentSpecs,
+	(ComponentSpec**)BillboardActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -229,7 +229,7 @@ EntityROMSpec BillboardEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

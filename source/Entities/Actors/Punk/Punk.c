@@ -151,7 +151,7 @@ bool Punk::handlePropagatedMessage(int32 message)
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * This method is called when the entity has been fully initialized
+ * This method is called when the actor has been fully initialized
  */
 void Punk::ready(bool recursive)
 {

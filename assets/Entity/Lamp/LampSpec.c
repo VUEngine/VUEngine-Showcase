@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -152,19 +152,19 @@ MeshROMSpec LampWireframeSpec =
 	(PixelVector(*)[2])LampMeshesSegments
 };
 
-ComponentSpec* const LampEntityComponentSpecs[] = 
+ComponentSpec* const LampActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&LampWireframeSpec,
 	NULL
 };
 
-EntityROMSpec LampEntitySpec =
+ActorROMSpec LampActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)LampEntityComponentSpecs,
+	(ComponentSpec**)LampActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -176,7 +176,7 @@ EntityROMSpec LampEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

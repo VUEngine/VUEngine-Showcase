@@ -22,7 +22,7 @@
 void CogWheel::constructor(CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((EntitySpec*)&cogWheelSpec->entitySpec, internalId, name);
+	Base::constructor((ActorSpec*)&cogWheelSpec->actorSpec, internalId, name);
 
 	this->update = true;
 }

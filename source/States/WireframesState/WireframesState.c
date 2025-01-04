@@ -156,7 +156,7 @@ void WireframesState::showExplanation()
 
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, "PyramidEntitySpec", 26, y++, NULL);
+	Printing::text(this->printing, "PyramidActorSpec", 26, y++, NULL);
 	Printing::text(this->printing, "WireframesStageSpec", 26, y++, NULL);
 }
 

@@ -14,11 +14,11 @@
 //����������������������������������������������������������������������������������������������������������
 
 extern LangROMSpec EnglishLanguageSpec;
-extern EntitySpec FlagUnitedKingdomEntitySpec;
+extern ActorSpec FlagUnitedKingdomActorSpec;
 extern LangROMSpec GermanLanguageSpec;
-extern EntitySpec FlagGermanyEntitySpec;
+extern ActorSpec FlagGermanyActorSpec;
 extern LangROMSpec SpanishLanguageSpec;
-extern EntitySpec FlagSpainEntitySpec;
+extern ActorSpec FlagSpainActorSpec;
 
 //����������������������������������������������������������������������������������������������������������
 // DEFINITIONS
@@ -79,10 +79,10 @@ const char* const EnglishLanguageStrings[] =
     "EFFECT",
     /* kStringEntitiesLabel: */
     "Entities",
-    /* kStringEntityCreationLabel: */
-    "Entity creation",
-    /* kStringEntityDestructionLabel: */
-    "Entity destruction",
+    /* kStringActorCreationLabel: */
+    "Actor creation",
+    /* kStringActorDestructionLabel: */
+    "Actor destruction",
     /* kStringEventsLabel: */
     "Events",
     /* kStringFrameBuffersLabel: */
@@ -172,8 +172,8 @@ const LangROMSpec EnglishLanguageSpec =
 	// language name
 	"English",
 
-	// flag entity
-	&FlagUnitedKingdomEntitySpec,
+	// flag actor
+	&FlagUnitedKingdomActorSpec,
 	
 	// strings
 	(const char**)EnglishLanguageStrings
@@ -225,9 +225,9 @@ const char* const GermanLanguageStrings[] =
     "EFFECT",
     /* kStringEntitiesLabel: */
     "Entit�ten",
-    /* kStringEntityCreationLabel: */
+    /* kStringActorCreationLabel: */
     "Entit�ts-Konstruktoren",
-    /* kStringEntityDestructionLabel: */
+    /* kStringActorDestructionLabel: */
     "Entit�ts-Destruktoren",
     /* kStringEventsLabel: */
     "Ereignisse",
@@ -318,8 +318,8 @@ const LangROMSpec GermanLanguageSpec =
 	// language name
 	"Deutsch",
 
-	// flag entity
-	&FlagGermanyEntitySpec,
+	// flag actor
+	&FlagGermanyActorSpec,
 	
 	// strings
 	(const char**)GermanLanguageStrings
@@ -371,9 +371,9 @@ const char* const SpanishLanguageStrings[] =
     "EFECTO",
     /* kStringEntitiesLabel: */
     "Entidades",
-    /* kStringEntityCreationLabel: */
+    /* kStringActorCreationLabel: */
     "Entidad: creaci�n",
-    /* kStringEntityDestructionLabel: */
+    /* kStringActorDestructionLabel: */
     "Entidad: destrucci�n ",
     /* kStringEventsLabel: */
     "Eventos",
@@ -464,8 +464,8 @@ const LangROMSpec SpanishLanguageSpec =
 	// language name
 	"Espa�ol",
 
-	// flag entity
-	&FlagSpainEntitySpec,
+	// flag actor
+	&FlagSpainActorSpec,
 	
 	// strings
 	(const char**)SpanishLanguageStrings

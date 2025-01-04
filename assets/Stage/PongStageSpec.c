@@ -19,28 +19,28 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec LowPowerIndicatorEntitySpec;
-extern EntitySpec PongBallEntitySpec;
-extern EntitySpec PongPaddleEntitySpec;
-extern EntitySpec PongWallsEntitySpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
+extern ActorSpec PongBallActorSpec;
+extern ActorSpec PongPaddleActorSpec;
+extern ActorSpec PongWallsActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec PongStageEntitySpecs[] =
+PositionedActorROMSpec PongStageActorSpecs[] =
 {
-	{&PongBallEntitySpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PONG_BALL_NAME, NULL, NULL, false},
-	{&PongPaddleEntitySpec, 	{-96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_LEFT_NAME, NULL, NULL, true},
-	{&PongPaddleEntitySpec,	 	{+96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
-	{&PongWallsEntitySpec,		{ 0,  0, 128}, {0, 0, 0}, {1, 1, 1}, 		0, NULL, NULL, NULL, true}, // bottom border
+	{&PongBallActorSpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PONG_BALL_NAME, NULL, NULL, false},
+	{&PongPaddleActorSpec, 	{-96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_LEFT_NAME, NULL, NULL, true},
+	{&PongPaddleActorSpec,	 	{+96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
+	{&PongWallsActorSpec,		{ 0,  0, 128}, {0, 0, 0}, {1, 1, 1}, 		0, NULL, NULL, NULL, true}, // bottom border
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec PongStageUiEntitySpecs[] =
+PositionedActorROMSpec PongStageUiActorSpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -128,15 +128,15 @@ StageROMSpec PongStageSpec =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		0,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		0,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		10,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -272,12 +272,12 @@ StageROMSpec PongStageSpec =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)PongStageUiEntitySpecs,
+			(PositionedActor*)PongStageUiActorSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)PongStageEntitySpecs,
+		(PositionedActor*)PongStageActorSpecs,
 	},
 
 	// Post processing effects

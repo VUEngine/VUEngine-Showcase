@@ -13,7 +13,7 @@
 
 #include <string.h>
 
-#include <Entity.h>
+#include <Actor.h>
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
@@ -109,7 +109,7 @@ void StatefulActorsState::processUserInput(const UserInput* userInput)
 		/*
 		 * Passing input to entities in this way, while elegant,
 		 * is not very performant. Most likely, a way to get a
-		 * pointer to the entity that the user controls and calling
+		 * pointer to the actor that the user controls and calling
 		 * an specific method that its class implements would be
 		 * way faster.
 		 */

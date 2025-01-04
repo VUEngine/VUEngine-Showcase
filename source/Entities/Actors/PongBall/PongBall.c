@@ -185,7 +185,7 @@ void PongBall::prepareToMove()
 	localPosition.z = __PIXELS_TO_METERS(128);
 	PongBall::setLocalPosition(this, &localPosition);
 
-	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->entitySpec)->maximumVelocity);
+	Body::setMaximumVelocity(this->body, ((PongBallSpec*)this->actorSpec)->maximumVelocity);
 
 	PongBall::discardMessages(this, kMessagePongBallStartMoving);
 	PongBall::sendMessageToSelf(this, kMessagePongBallStartMoving, 1500, 0);
@@ -213,8 +213,8 @@ void PongBall::startMovement()
 
 	Vector3D velocity =
 	{
-		__FIXED_MULT(((PongBallSpec*)this->entitySpec)->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
-		__FIXED_MULT(((PongBallSpec*)this->entitySpec)->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
+		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
+		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
 		0
 	};
 

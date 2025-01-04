@@ -14,7 +14,7 @@
 #include <BgmapSprite.h>
 #include <Box.h>
 #include <ColliderLayers.h>
-#include <Entity.h>
+#include <Actor.h>
 #include <InGameTypes.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -145,20 +145,20 @@ ColliderROMSpec BoxColliderSpec1 =
 	kLayerNone,
 };
 
-ComponentSpec* const BoxEntityComponentSpecs[] = 
+ComponentSpec* const BoxActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&BoxSpriteSpec,
 	(ComponentSpec*)&BoxColliderSpec1,
 	NULL
 };
 
-EntityROMSpec BoxEntitySpec =
+ActorROMSpec BoxActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)BoxEntityComponentSpecs,
+	(ComponentSpec**)BoxActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -170,7 +170,7 @@ EntityROMSpec BoxEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeSolidObject,
 
 	// Pointer to animation functions array

@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <BgmapAnimatedSprite.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -281,20 +281,20 @@ BgmapSpriteROMSpec VideoRSpriteSpec =
 	__WORLD_RON,
 };
 
-ComponentSpec* const VideoEntityComponentSpecs[] = 
+ComponentSpec* const VideoActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&VideoLSpriteSpec,
 	(ComponentSpec*)&VideoRSpriteSpec,
 	NULL
 };
 
-EntityROMSpec VideoEntitySpec =
+ActorROMSpec VideoActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)VideoEntityComponentSpecs,
+	(ComponentSpec**)VideoActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -306,7 +306,7 @@ EntityROMSpec VideoEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	0,
 
 	// Pointer to animation functions array

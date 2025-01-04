@@ -24,11 +24,11 @@
 ///
 /// Inherits from ShowcaseState
 ///
-/// Implements a game state to showcase how entity parenting works.
+/// Implements a game state to showcase how actor parenting works.
 dynamic_singleton class EntitiesState : ShowcaseState
 {
-	/// Main entity
-	Entity leaderPunk;
+	/// Main actor
+	Actor leaderPunk;
 	
 	/// Method to retrieve the singleton instance
 	/// @return EntitiesState singleton

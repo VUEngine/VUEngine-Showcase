@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <BgmapSprite.h>
 #include <Texture.h>
 
@@ -177,20 +177,20 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 	__WORLD_RON,
 };
 
-ComponentSpec* const PdScreenshotEntityComponentSpecs[] = 
+ComponentSpec* const PdScreenshotActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PdScreenshotLSpriteSpec,
 	(ComponentSpec*)&PdScreenshotRSpriteSpec,
 	NULL
 };
 
-EntityROMSpec PdScreenshotEntitySpec =
+ActorROMSpec PdScreenshotActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)PdScreenshotEntityComponentSpecs,
+	(ComponentSpec**)PdScreenshotActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -202,7 +202,7 @@ EntityROMSpec PdScreenshotEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

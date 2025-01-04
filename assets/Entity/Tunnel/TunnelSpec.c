@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -290,19 +290,19 @@ MeshROMSpec TunnelWireframeSpec =
 	(PixelVector(*)[2])TunnelMeshesSegments
 };
 
-ComponentSpec* const TunnelEntityComponentSpecs[] = 
+ComponentSpec* const TunnelActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&TunnelWireframeSpec,
 	NULL
 };
 
-EntityROMSpec TunnelEntitySpec =
+ActorROMSpec TunnelActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)TunnelEntityComponentSpecs,
+	(ComponentSpec**)TunnelActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -314,7 +314,7 @@ EntityROMSpec TunnelEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

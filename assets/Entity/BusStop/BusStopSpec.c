@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -187,19 +187,19 @@ MeshROMSpec BusStopWireframeSpec =
 	(PixelVector(*)[2])BusStopMeshesSegments
 };
 
-ComponentSpec* const BusStopEntityComponentSpecs[] = 
+ComponentSpec* const BusStopActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&BusStopWireframeSpec,
 	NULL
 };
 
-EntityROMSpec BusStopEntitySpec =
+ActorROMSpec BusStopActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)BusStopEntityComponentSpecs,
+	(ComponentSpec**)BusStopActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -211,7 +211,7 @@ EntityROMSpec BusStopEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

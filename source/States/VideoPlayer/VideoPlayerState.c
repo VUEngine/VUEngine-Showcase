@@ -13,7 +13,7 @@
 
 #include <string.h>
 
-#include <Entity.h>
+#include <Actor.h>
 #include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
@@ -31,23 +31,23 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 {
 	VideoPlayerState::playSoundEffects(this, userInput, false);
 
-	Entity videoEntity = Entity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
+	Actor videoActor = Actor::safeCast(VideoPlayerState::getActorByName(this, "Video"));
 
-	if(!isDeleted(videoEntity))
+	if(!isDeleted(videoActor))
 	{
 		if(K_A & userInput->releasedKey)
 		{
-			Entity::pauseAnimation(videoEntity, Entity::isPlaying(videoEntity));
+			Actor::pauseAnimation(videoActor, Actor::isPlaying(videoActor));
 		}
 		else if((K_LL | K_LR) & userInput->releasedKey)
 		{
-			if(Entity::isPlayingAnimation(videoEntity, "HiColor"))
+			if(Actor::isPlayingAnimation(videoActor, "HiColor"))
 			{					
-				Entity::playAnimation(videoEntity, "4Color");
+				Actor::playAnimation(videoActor, "4Color");
 			}
 			else
 			{					
-				Entity::playAnimation(videoEntity, "HiColor");
+				Actor::playAnimation(videoActor, "HiColor");
 			}
 
 			VideoPlayerState::show(this, false);
@@ -79,12 +79,12 @@ void VideoPlayerState::showExplanation()
 
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "Entity", 2, y++, NULL);
+	Printing::text(this->printing, "Actor", 2, y++, NULL);
 	Printing::text(this->printing, "Sprite", 2, y++, NULL);
 
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "VideoEntitySpec", 2, y++, NULL);
+	Printing::text(this->printing, "VideoActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
@@ -106,11 +106,11 @@ void VideoPlayerState::showAdditionalDetails()
 	int16 y = 25;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "DefaultBold");
 
-	Entity videoEntity = Entity::safeCast(VideoPlayerState::getEntityByName(this, "Video"));
+	Actor videoActor = Actor::safeCast(VideoPlayerState::getActorByName(this, "Video"));
 
-	if(!isDeleted(videoEntity))
+	if(!isDeleted(videoActor))
 	{
-		Printing::text(this->printing, Entity::getPlayingAnimationName(videoEntity), 2, y++, NULL);
+		Printing::text(this->printing, Actor::getPlayingAnimationName(videoActor), 2, y++, NULL);
 	}
 }
 

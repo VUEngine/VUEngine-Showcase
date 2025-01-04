@@ -52,7 +52,7 @@ dynamic_singleton class SoundsState : ShowcaseState
 	override void exit(void* owner);
 
 	/// Stream in or out the stage entities within or outside the camera's range.
-	/// @return True if at least some entity was streamed in or out
+	/// @return True if at least some actor was streamed in or out
 	override bool stream();
 
 	/// Process the provided user input.

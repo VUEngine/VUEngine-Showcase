@@ -3,19 +3,19 @@
     "languages": [
         {
             "code": "en",
-            "flag": "FlagUnitedKingdomEntitySpec",
+            "flag": "FlagUnitedKingdomActorSpec",
             "localizedName": "English",
             "name": "English"
         },
         {
             "code": "de",
-            "flag": "FlagGermanyEntitySpec",
+            "flag": "FlagGermanyActorSpec",
             "localizedName": "Deutsch",
             "name": "German"
         },
         {
             "code": "es",
-            "flag": "FlagSpainEntitySpec",
+            "flag": "FlagSpainActorSpec",
             "localizedName": "Español",
             "name": "Spanish"
         }
@@ -101,14 +101,14 @@
             "en": "Entities",
             "es": "Entidades"
         },
-        "EntityCreationLabel": {
+        "ActorCreationLabel": {
             "de": "Entitäts-Konstruktoren",
-            "en": "Entity creation",
+            "en": "Actor creation",
             "es": "Entidad: creación"
         },
-        "EntityDestructionLabel": {
+        "ActorDestructionLabel": {
             "de": "Entitäts-Destruktoren",
-            "en": "Entity destruction",
+            "en": "Actor destruction",
             "es": "Entidad: destrucción "
         },
         "EventsLabel": {

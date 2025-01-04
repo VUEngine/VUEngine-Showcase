@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -244,10 +244,10 @@ ComponentSpec* const  CurveLeftComponentSpecs[] =
 	NULL
 };
 
-EntityROMSpec CurveLeftEntitySpec =
+ActorROMSpec CurveLeftActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Components
 	(ComponentSpec**)CurveLeftComponentSpecs,
@@ -262,7 +262,7 @@ EntityROMSpec CurveLeftEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

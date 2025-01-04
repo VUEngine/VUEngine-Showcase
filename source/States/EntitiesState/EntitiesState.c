@@ -13,7 +13,7 @@
 
 #include <string.h>
 
-#include <Entity.h>
+#include <Actor.h>
 #include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
@@ -40,8 +40,8 @@ void EntitiesState::execute(void* owner __attribute__((unused)))
 
 		Printing::text(this->printing, "                                                ", 0, 25, NULL);
 		EntitiesState::printPunkName(this, this->leaderPunk, 25);
-		EntitiesState::printPunkName(this, Entity::safeCast(Entity::getChildByName(this->leaderPunk, "Larry", false)), 25);
-		EntitiesState::printPunkName(this, Entity::safeCast(Entity::getChildByName(this->leaderPunk, "Curly", false)), 25);
+		EntitiesState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Larry", false)), 25);
+		EntitiesState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Curly", false)), 25);
 	}
 
 	if(this->showAdditionalDetails)
@@ -102,18 +102,18 @@ void EntitiesState::showExplanation()
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "Entity", 2, y++, NULL);
-	Printing::text(this->printing, "Entity", 2, y++, NULL);
+	Printing::text(this->printing, "Actor", 2, y++, NULL);
+	Printing::text(this->printing, "Actor", 2, y++, NULL);
 	Printing::text(this->printing, "Stage", 2, y++, NULL);
 
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "PunkEntitySpec", 2, y++, NULL);
+	Printing::text(this->printing, "PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityCreationLabel), 26, y++, NULL);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEntityDestructionLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorCreationLabel), 26, y++, NULL);
+	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringActorDestructionLabel), 26, y++, NULL);
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
 	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
@@ -137,11 +137,11 @@ void EntitiesState::showAdditionalDetails()
 	Printing::text(this->printing, __GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
 
 	Printing::text(this->printing, "Internal ID:   ", 2, ++y, NULL);
-	Printing::int32(this->printing, Entity::getInternalId(this->leaderPunk), 15, y++, NULL);
+	Printing::int32(this->printing, Actor::getInternalId(this->leaderPunk), 15, y++, NULL);
 	Printing::text(this->printing, "Name:          ", 2, ++y, NULL);
-	Printing::text(this->printing, Entity::getName(this->leaderPunk), 15, y++, NULL);
+	Printing::text(this->printing, Actor::getName(this->leaderPunk), 15, y++, NULL);
 	Printing::text(this->printing, "Children:      ", 2, ++y, NULL);
-	Printing::int32(this->printing, Entity::getChildrenCount(this->leaderPunk), 15, y++, NULL);
+	Printing::int32(this->printing, Actor::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
 	Printing::text(this->printing, "Sprites:       ", 2, ++y, NULL);
 	Printing::int32(this->printing, SpriteManager::getCount(SpriteManager::getInstance(), GameObject::safeCast(this->leaderPunk)), 15, y++, NULL);
@@ -155,12 +155,12 @@ void EntitiesState::showAdditionalDetails()
 	y = 5;
 	Printing::text(this->printing, "Position", 22, y, NULL);
 	Printing::text(this->printing, "Rotation", 37, y++, NULL);
-	Vector3D::print(*Entity::getPosition(this->leaderPunk), 22, ++y);
-	Rotation::print(*Entity::getRotation(this->leaderPunk), 37, y);
+	Vector3D::print(*Actor::getPosition(this->leaderPunk), 22, ++y);
+	Rotation::print(*Actor::getRotation(this->leaderPunk), 37, y);
 
 	y = 11;
 	Printing::text(this->printing, "Scale", 30, y++, NULL);
-	Scale::print(*Entity::getScale(this->leaderPunk), 30, ++y);
+	Scale::print(*Actor::getScale(this->leaderPunk), 30, ++y);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -195,15 +195,15 @@ void EntitiesState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void EntitiesState::printPunkName(Entity punk, int16 row)
+void EntitiesState::printPunkName(Actor punk, int16 row)
 {
 	if(isDeleted(punk))
 	{
 		return;
 	}
 
-	Vector3D position = *Entity::getPosition(punk);
-	const char* punkName = Entity::getName(punk);
+	Vector3D position = *Actor::getPosition(punk);
+	const char* punkName = Actor::getName(punk);
 	int16 col = __METERS_TO_PIXELS(position.x) / 8 + __HALF_SCREEN_WIDTH_IN_CHARS - strlen(punkName) / 2;
 
 	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
@@ -224,14 +224,14 @@ void EntitiesState::createLeaderPunk()
 	}
 		
 	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
-	extern EntitySpec PunkEntitySpec;
-	PositionedEntity positionedEntity = {&PunkEntitySpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false};
+	extern ActorSpec PunkActorSpec;
+	PositionedActor positionedActor = {&PunkActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false};
 
 	/*
 	 * This is how we add entities to the Stage. Notice that we don't creates Sprites nor animate them
-	 * directly anymore. Now, the engine takes care of all that by reading the EntitySpec.
+	 * directly anymore. Now, the engine takes care of all that by reading the ActorSpec.
 	 */
-	this->leaderPunk = Entity::safeCast(Stage::spawnChildEntity(this->stage, (const PositionedEntity* const)&positionedEntity, false));
+	this->leaderPunk = Actor::safeCast(Stage::spawnChildActor(this->stage, (const PositionedActor* const)&positionedActor, false));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -245,7 +245,7 @@ void EntitiesState::createSlavePunk(uint16 input)
 
 	char* childPunkName = NULL;
 	Vector3D childPunkPosition = Vector3D::zero();
-	Rotation rotation = *Entity::getRotation(this->leaderPunk);
+	Rotation rotation = *Actor::getRotation(this->leaderPunk);
 
 	bool movingRight = 0 == rotation.y;
 
@@ -266,19 +266,19 @@ void EntitiesState::createSlavePunk(uint16 input)
 		 * Let's see if the punk already has a child with the selected name.
 		 * If not, then create and add it as a child.
 		 */
-		Entity childPunk = Entity::safeCast(Entity::getChildByName(this->leaderPunk, childPunkName, false));
+		Actor childPunk = Actor::safeCast(Actor::getChildByName(this->leaderPunk, childPunkName, false));
 
 		if(NULL != childPunk)
 		{
-			Entity::deleteMyself(childPunk);
+			Actor::deleteMyself(childPunk);
 		}
 		else
 		{
-			extern EntitySpec PunkEntitySpec;
+			extern ActorSpec PunkActorSpec;
 
-			PositionedEntity positionedEntity = 
+			PositionedActor positionedActor = 
 			{
-					&PunkEntitySpec, 
+					&PunkActorSpec, 
 					{__METERS_TO_PIXELS(childPunkPosition.x), __METERS_TO_PIXELS(childPunkPosition.y), __METERS_TO_PIXELS(childPunkPosition.z)},
 					{0, 0, 0},
 					{1, 1, 1},
@@ -289,7 +289,7 @@ void EntitiesState::createSlavePunk(uint16 input)
 					false
 			};
 
-			Entity::spawnChildEntity(this->leaderPunk, &positionedEntity);
+			Actor::spawnChildActor(this->leaderPunk, &positionedActor);
 		}
 	}
 }
@@ -309,8 +309,8 @@ void EntitiesState::movePunks()
 		 * half way around the Y axis (512 = 360 degrees), then the order becomes 
 		 * Curly, Moe, Larry. Another way: Curly is always in front of the others.
 		 */
-		Vector3D localPosition = *Entity::getLocalPosition(this->leaderPunk);
-		Rotation localRotation = *Entity::getLocalRotation(this->leaderPunk);
+		Vector3D localPosition = *Actor::getLocalPosition(this->leaderPunk);
+		Rotation localRotation = *Actor::getLocalRotation(this->leaderPunk);
 		Vector3D translation = Vector3D::zero();
 
 		bool movingRight = 0 == localRotation.y;
@@ -343,10 +343,10 @@ void EntitiesState::movePunks()
 		}
 
 		// Add a translation to the leader punk
-		Entity::translate(this->leaderPunk, &translation);
+		Actor::translate(this->leaderPunk, &translation);
 
 		// Make it to face left or right by rotating it around its Y axis
-		Entity::setLocalRotation(this->leaderPunk, &localRotation);
+		Actor::setLocalRotation(this->leaderPunk, &localRotation);
 	}
 }
 

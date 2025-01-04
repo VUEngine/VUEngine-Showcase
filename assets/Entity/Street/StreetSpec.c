@@ -12,7 +12,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -113,19 +113,19 @@ MeshROMSpec StreetWireframeSpec =
 	(PixelVector(*)[2])StreetMeshesSegments
 };
 
-ComponentSpec* const StreetEntityComponentSpecs[] = 
+ComponentSpec* const StreetActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&StreetWireframeSpec,
 	NULL
 };
 
-EntityROMSpec StreetEntitySpec =
+ActorROMSpec StreetActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)StreetEntityComponentSpecs,
+	(ComponentSpec**)StreetActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -137,7 +137,7 @@ EntityROMSpec StreetEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

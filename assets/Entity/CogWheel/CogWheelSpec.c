@@ -358,21 +358,21 @@ ColliderROMSpec CogWheelColliderSpec1 =
 	kLayerNone,
 };
 
-ComponentSpec* const CogWheelEntityComponentSpecs[] = 
+ComponentSpec* const CogWheelActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&CogWheelBgmapSpriteAffineSpec,
 	(ComponentSpec*)&CogWheelColliderSpec1,
 	NULL
 };
 
-CogWheelROMSpec CogWheelEntitySpec =
+CogWheelROMSpec CogWheelActorSpec =
 {
 	{
 		// Class allocator
 		__TYPE(CogWheel),
 
 		// Component specs
-		(ComponentSpec**)CogWheelEntityComponentSpecs,
+		(ComponentSpec**)CogWheelActorComponentSpecs,
 
 		// Children specs
 		NULL,
@@ -384,7 +384,7 @@ CogWheelROMSpec CogWheelEntitySpec =
 		// If 0, it is computed from the visual components if any
 		{0, 0, 0},
 
-		// Entity's in-game type
+		// Actor's in-game type
 		kTypeCogWheel,
 
 		// Pointer to animation functions array

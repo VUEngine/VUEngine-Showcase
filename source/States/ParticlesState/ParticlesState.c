@@ -198,26 +198,26 @@ void ParticlesState::loadParticles()
 	extern ParticleSystemSpec StarsParticleSystemPhysicalSpec;
 	extern ParticleSystemSpec StarsParticleSystemSolidSpec;
 
-	ParticleSystemSpec* particleSystemEntitySpec = NULL;
+	ParticleSystemSpec* particleSystemActorSpec = NULL;
 	int16 yPosition = 0;
 
 	switch(this->particlesType)
 	{
 		case kParticleNormal:
 
-			particleSystemEntitySpec = &StarsParticleSystemNormalSpec;
+			particleSystemActorSpec = &StarsParticleSystemNormalSpec;
 			yPosition = -16;
 			break;
 
 		case kParticlePhysical:
 
-			particleSystemEntitySpec = &StarsParticleSystemPhysicalSpec;
+			particleSystemActorSpec = &StarsParticleSystemPhysicalSpec;
 			yPosition = 0;
 			break;
 
 		case kParticleSolid:
 
-			particleSystemEntitySpec = &StarsParticleSystemSolidSpec;
+			particleSystemActorSpec = &StarsParticleSystemSolidSpec;
 			yPosition = -4;
 			break;
 	}
@@ -229,7 +229,7 @@ void ParticlesState::loadParticles()
 
 	if(!isDeleted(this->particleSystem))
 	{
-		ParticleSystem::setSpec(this->particleSystem, particleSystemEntitySpec);
+		ParticleSystem::setSpec(this->particleSystem, particleSystemActorSpec);
 
 		Vector3D position = Vector3D::getFromPixelVector((PixelVector){__HALF_SCREEN_WIDTH / 2, yPosition, 16, 0});
 		ParticleSystem::setLocalPosition(this->particleSystem, &position);

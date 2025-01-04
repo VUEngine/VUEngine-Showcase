@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -24,8 +24,8 @@
 /// @memberof CogWheel
 typedef struct CogWheelSpec
 {
-	/// Entity spec
-	EntitySpec entitySpec;
+	/// Actor spec
+	ActorSpec actorSpec;
 
 } CogWheelSpec;
 
@@ -39,10 +39,10 @@ typedef const CogWheelSpec CogWheelROMSpec;
 
 /// Class CogWheel
 ///
-/// Inherits from Entity
+/// Inherits from Actor
 ///
-/// Implements a simple rotating entity.
-class CogWheel : Entity
+/// Implements a simple rotating actor.
+class CogWheel : Actor
 {
 	/// @param cogWheelSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance

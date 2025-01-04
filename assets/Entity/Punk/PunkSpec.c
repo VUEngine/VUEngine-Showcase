@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <BgmapAnimatedSprite.h>
 #include <Body.h>
 #include <Box.h>
@@ -759,7 +759,7 @@ ColliderROMSpec PunkColliderSpec =
 	~(kLayerSolid | kLayerDangers),
 };
 
-ComponentSpec* const PunkEntityComponentSpecs[] = 
+ComponentSpec* const PunkActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkAffineSpriteSpec,
 	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
@@ -767,13 +767,13 @@ ComponentSpec* const PunkEntityComponentSpecs[] =
 	NULL
 };
 
-EntityROMSpec PunkEntitySpec =
+ActorROMSpec PunkActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)PunkEntityComponentSpecs,
+	(ComponentSpec**)PunkActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -785,7 +785,7 @@ EntityROMSpec PunkEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array
@@ -867,7 +867,7 @@ PunkROMSpec PunkStatefulActorSpec =
 			// If 0, it is computed from the visual components if any
 			{0, 0, 0},
 
-			// Entity's in-game type
+			// Actor's in-game type
 			kTypePunk,
 
 			// Pointer to animation functions array

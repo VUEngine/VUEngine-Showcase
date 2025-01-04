@@ -72,7 +72,7 @@ class PongBall : StatefulActor
 	/// @return True if the propagation must stop; false if the propagation must reach other containers
 	override bool handlePropagatedMessage(int32 message);
 
-	/// Make the animated entity ready to starts operating once it has been completely intialized.
+	/// Make the animated actor ready to starts operating once it has been completely intialized.
 	/// @param recursive: If true, the ready call is propagated to its children, grand children, etc.
 	override void ready(bool recursive);
 }

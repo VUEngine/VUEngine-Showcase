@@ -23,38 +23,38 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec LowPowerIndicatorEntitySpec;
-extern EntitySpec PyramidEntitySpec;
-extern EntitySpec StreetEntitySpec;
-extern EntitySpec HouseEntitySpec;
-extern EntitySpec HouseBigEntitySpec;
-extern EntitySpec TunnelEntitySpec;
-extern EntitySpec BusStopEntitySpec;
-extern EntitySpec BillboardEntitySpec;
-extern EntitySpec LampEntitySpec;
-extern EntitySpec CurveLeftEntitySpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
+extern ActorSpec PyramidActorSpec;
+extern ActorSpec StreetActorSpec;
+extern ActorSpec HouseActorSpec;
+extern ActorSpec HouseBigActorSpec;
+extern ActorSpec TunnelActorSpec;
+extern ActorSpec BusStopActorSpec;
+extern ActorSpec BillboardActorSpec;
+extern ActorSpec LampActorSpec;
+extern ActorSpec CurveLeftActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec WireframesStageEntitySpecs[] =
+PositionedActorROMSpec WireframesStageActorSpecs[] =
 {
-	{&HouseBigEntitySpec, 	{-192, -8, 896}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&TunnelEntitySpec, 	{0, 56, 1728}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, 		{192,-8, 896}, 	 {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetEntitySpec, 	{0, 56, 832}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseEntitySpec, 		{-192, -8, 640}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BusStopEntitySpec, 	{192, -8, 640},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BillboardEntitySpec, 	{-160, -8, 450}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampEntitySpec, 		{192, -8, 512},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampEntitySpec, 		{192, -8, 1152}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&CurveLeftEntitySpec, 	{0, 56, 2112},   {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseBigActorSpec, 	{-192, -8, 896}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TunnelActorSpec, 	{0, 56, 1728}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseActorSpec, 		{192,-8, 896}, 	 {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec, 	{0, 56, 832}, 	 {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseActorSpec, 		{-192, -8, 640}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BusStopActorSpec, 	{192, -8, 640},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BillboardActorSpec, 	{-160, -8, 450}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampActorSpec, 		{192, -8, 512},  {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampActorSpec, 		{192, -8, 1152}, {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftActorSpec, 	{0, 56, 2112},   {0, 0, 0},   {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec WireframesStageUiEntitySpecs[] =
+PositionedActorROMSpec WireframesStageUiActorSpecs[] =
 {
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
@@ -138,15 +138,15 @@ StageROMSpec WireframesStageSpec =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		128,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		64,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -283,12 +283,12 @@ StageROMSpec WireframesStageSpec =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)WireframesStageUiEntitySpecs,
+			(PositionedActor*)WireframesStageUiActorSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)WireframesStageEntitySpecs,
+		(PositionedActor*)WireframesStageActorSpecs,
 	},
 
 	// Post processing effects

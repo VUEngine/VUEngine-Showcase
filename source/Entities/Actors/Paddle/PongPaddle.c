@@ -66,7 +66,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 			break;
 	}
 
-	/* Returning false allows any other entity interested in the message to process it,
+	/* Returning false allows any other actor interested in the message to process it,
 	 * returning true will make that the propagation stops here
 	 */ 
 
@@ -79,8 +79,8 @@ void PongPaddle::moveTowards(NormalizedDirection direction)
 {
 	Vector3D force =
 	{
-		__FIX10_6_MULT(((PongPaddleSpec*)this->entitySpec)->force.x, __I_TO_FIX10_6(direction.x)),
-		__FIX10_6_MULT(((PongPaddleSpec*)this->entitySpec)->force.y, __I_TO_FIX10_6(direction.y)),
+		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.x, __I_TO_FIX10_6(direction.x)),
+		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.y, __I_TO_FIX10_6(direction.y)),
 		0
 	};
 

@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Entity.h>
+#include <Actor.h>
 #include <Ball.h>
 #include <Mesh.h>
 
@@ -130,20 +130,20 @@ ColliderROMSpec PyramidColliderSpec1 =
 		kLayerNone
 	};
 
-ComponentSpec* const PyramidEntityComponentSpecs[] = 
+ComponentSpec* const PyramidActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PyramidWireframeSpec,
 	(ComponentSpec*)&PyramidColliderSpec1,
 	NULL
 };
 
-EntityROMSpec PyramidEntitySpec =
+ActorROMSpec PyramidActorSpec =
 {
 	// Class allocator
-	__TYPE(Entity),
+	__TYPE(Actor),
 
 	// Component specs
-	(ComponentSpec**)PyramidEntityComponentSpecs,
+	(ComponentSpec**)PyramidActorComponentSpecs,
 
 	// Children specs
 	NULL,
@@ -155,7 +155,7 @@ EntityROMSpec PyramidEntitySpec =
 	// If 0, it is computed from the visual components if any
 	{0, 0, 0},
 
-	// Entity's in-game type
+	// Actor's in-game type
 	kTypeNone,
 
 	// Pointer to animation functions array

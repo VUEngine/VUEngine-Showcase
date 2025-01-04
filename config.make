@@ -3,7 +3,7 @@
 ############################################################################################################
 
 # VUEngine plugins which the project uses
-PLUGINS							= vuengine//entities/LowPowerEntity \
+PLUGINS							= vuengine//entities/LowPowerActor \
 								  vuengine//fonts/AstonishFont \
 								  vuengine//fonts/DefaultFontVariants \
 								  vuengine//other/AutomaticPause \

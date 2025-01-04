@@ -23,26 +23,26 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern EntitySpec BoxEntitySpec;
-extern EntitySpec CogWheelEntitySpec;
-extern EntitySpec PunkStatefulActorSpec;
-extern EntitySpec LowPowerIndicatorEntitySpec;
+extern ActorSpec BoxActorSpec;
+extern ActorSpec CogWheelActorSpec;
+extern ActorSpec PunkStatefulActorSpec;
+extern ActorSpec LowPowerIndicatorActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ENTITY LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedEntityROMSpec ActorsStStatefulActortitySpecs[] =
+PositionedActorROMSpec ActorsStStatefulActortitySpecs[] =
 {
 	{&PunkStatefulActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&BoxEntitySpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&CogWheelEntitySpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&BoxActorSpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&CogWheelActorSpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedEntityROMSpec ActorsStStatefulActorEntitySpecs[] =
+PositionedActorROMSpec ActorsStStatefulActorActorSpecs[] =
 {
-	{&LowPowerIndicatorEntitySpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ENTITY_X_POSITION, __PLUGIN_LOW_POWER_ENTITY_Y_POSITION, __PLUGIN_LOW_POWER_ENTITY_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
@@ -125,15 +125,15 @@ StageROMSpec StatefulActorsStageSpec =
 
 	// Streaming
 	{
-		// Padding to be added to camera's frustum when checking if a entity spec
-		// describes an entity that is within the camera's range
+		// Padding to be added to camera's frustum when checking if a actor spec
+		// describes an actor that is within the camera's range
 		192,
-		// Padding to be added to camera's frustum when checking if a entity is
+		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		256,
-		// Amount of entity descriptions to check for streaming in entities
+		// Amount of actor descriptions to check for streaming in entities
 		24,
-		// If true, entity instantiation is done over time
+		// If true, actor instantiation is done over time
 		false,
 	},
 
@@ -270,12 +270,12 @@ StageROMSpec StatefulActorsStageSpec =
 	{
 		// UI configuration
 		{
-			(PositionedEntity*)ActorsStStatefulActorEntitySpecs,
+			(PositionedActor*)ActorsStStatefulActorActorSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children entities
-		(PositionedEntity*)ActorsStStatefulActortitySpecs,
+		(PositionedActor*)ActorsStStatefulActortitySpecs,
 	},
 
 	// Post processing effects
