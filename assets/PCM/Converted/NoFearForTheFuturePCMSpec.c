@@ -43234,7 +43234,7 @@ const SoundTrackKeyframe NoFearForTheFutureSoundTrack1Keyframes[] =
 
 SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 {
-	// kTrackNative, kTrackPCM
+	// KTrackNative, kTrackPCM
 	kTrackPCM,
 
 	// Skip if no sound source available?

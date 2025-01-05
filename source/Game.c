@@ -56,7 +56,7 @@ int game(void)
 	// Start the game
 	VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
 
-	// end program
+	// End program
 	return true;
 }
 

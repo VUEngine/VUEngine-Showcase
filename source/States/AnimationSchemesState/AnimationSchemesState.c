@@ -592,7 +592,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 	int32 xOffset = leftBorder;
 	int16 yOffset = topBorder;
 
-	// put the map into memory calculating the number of char for each reference
+	// Put the map into memory calculating the number of char for each reference
 	for(uint16 frame = 0; frame <= Texture::getNumberOfFrames(texture); frame++, yOffset += 1)
 	{
 		if(18 <= yOffset)

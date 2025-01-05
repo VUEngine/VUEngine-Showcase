@@ -21,7 +21,7 @@
 
 const PixelVector PyramidMeshesSegments[][2]=
 {
-	// base
+	// Base
 	{
 		{-64, 64, -64, 0}, 
 		{64, 64, -64, 0}
@@ -39,7 +39,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 		{64, 64, 64, 0}
 	},
 
-	// vertex
+	// Vertex
 	{
 		{0, -64, 0, 0},
 		{-64, 64, -64, 0}
@@ -57,7 +57,7 @@ const PixelVector PyramidMeshesSegments[][2]=
 		{64, 64, 64, 0},
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}

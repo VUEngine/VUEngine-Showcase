@@ -257,7 +257,7 @@ ColliderROMSpec StarsParticleSystemSolidColliderSpec =
 	// Scale (x, y, z)
 	{1, 1, 1},
 
-	// check for collisions against other colliders
+	// Check for collisions against other colliders
 	false,
 
 	// Layers in which I live
@@ -298,10 +298,10 @@ ParticleROMSpec StarParticleNormalSpec =
 	// Animation to play automatically
 	"Vanish",
 
-	// animation to play upon collision
+	// Animation to play upon collision
 	NULL,
 
-	// object's in-game type
+	// Object's in-game type
 	kTypeParticle,
 };
 
@@ -326,10 +326,10 @@ ParticleROMSpec StarParticlePhysicalSpec =
 	// Animation to play automatically
 	"Vanish",
 
-	// animation to play upon collision
+	// Animation to play upon collision
 	NULL,
 
-	// object's in-game type
+	// Object's in-game type
 	kTypeParticle,
 };
 
@@ -390,51 +390,51 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 		NULL
 	},
 
-	// reuse expired particles?
+	// Reuse expired particles?
 	true,
 
-	// minimum generation delay in milliseconds
+	// Minimum generation delay in milliseconds
 	5 * 8 * 20 / 8,
 
-	// maximum generation delay in milliseconds
+	// Maximum generation delay in milliseconds
 	5 * 8 * 20 / 6,
 
-	// maximum number of alive particles
+	// Maximum number of alive particles
 	12,
 
-	// maximum number of particles to spawn in each cycle
+	// Maximum number of particles to spawn in each cycle
 	1,
 
-	// array of visual component specs
+	// Array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
 
-	// array of physics component specs
+	// Array of physics component specs
 	(const ComponentSpec**)NULL,
 
-	// array of collider component specs
+	// Array of collider component specs
 	(const ComponentSpec**)NULL,
 
-	// auto start
+	// Auto start
 	false,
 
-	// particle spec
+	// Particle spec
 	(ParticleSpec*)&StarParticleNormalSpec,
 
-	// minimum relative spawn position (x, y, z)
+	// Minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(-20), __PIXELS_TO_METERS(-16), __PIXELS_TO_METERS(0)},
 
-	// maximum relative spawn position (x, y, z)
+	// Maximum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(20), __PIXELS_TO_METERS(16), __PIXELS_TO_METERS(16)},
 
-	// minimum force to apply (x, y, z)
+	// Minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(0), __F_TO_FIXED(0), 0},
 
-	// maximum force to apply (x, y, z)
+	// Maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(0), __F_TO_FIXED(0), 0},
 
-	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
+	// Movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__NO_MOVEMENT
 };
 
@@ -473,51 +473,51 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 		NULL
 	},
 
-	// reuse expired particles?
+	// Reuse expired particles?
 	true,
 
-	// minimum generation delay in milliseconds
+	// Minimum generation delay in milliseconds
 	5 * 8 * 20 / 16,
 
-	// maximum generation delay in milliseconds
+	// Maximum generation delay in milliseconds
 	5 * 8 * 20 / 12,
 
-	// maximum number of alive particles
+	// Maximum number of alive particles
 	12,
 
-	// maximum number of particles to spawn in each cycle
+	// Maximum number of particles to spawn in each cycle
 	1,
 
-	// array of visual component specs
+	// Array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
 
-	// array of physics component specs
+	// Array of physics component specs
 	(const ComponentSpec**)StarsParticleSystemPhysicalPhysicsSpecs,
 
-	// array of collider component specs
+	// Array of collider component specs
 	(const ComponentSpec**)NULL,
 
-	// auto start
+	// Auto start
 	false,
 
-	// particle spec
+	// Particle spec
 	(ParticleSpec*)&StarParticlePhysicalSpec,
 
-	// minimum relative spawn position (x, y, z)
+	// Minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
-	// maximum relative spawn position (x, y, z)
+	// Maximum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
-	// minimum force to apply (x, y, z)
+	// Minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(-2.5f), __F_TO_FIXED(-5), __F_TO_FIXED(-2)},
 
-	// maximum force to apply (x, y, z)
+	// Maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(2.5f), __F_TO_FIXED(-1.5f), __F_TO_FIXED(2)},
 
-	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
+	// Movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT
 };
 
@@ -562,50 +562,50 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 		NULL
 	},
 
-	// reuse expired particles?
+	// Reuse expired particles?
 	true,
 
-	// minimum generation delay in milliseconds
+	// Minimum generation delay in milliseconds
 	5 * 8 * 20 / 16,
 
-	// maximum generation delay in milliseconds
+	// Maximum generation delay in milliseconds
 	5 * 8 * 20 / 12,
 
-	// maximum number of alive particles
+	// Maximum number of alive particles
 	12,
 
-	// maximum number of particles to spawn in each cycle
+	// Maximum number of particles to spawn in each cycle
 	1,
 
-	// array of visual component specs
+	// Array of visual component specs
 	(const ComponentSpec**)StarSpriteSpecs,
 
-	// array of physics component specs
+	// Array of physics component specs
 	(const ComponentSpec**)StarsParticleSystemSolidPhysicsSpecs,
 
-	// array of collider component specs
+	// Array of collider component specs
 	(const ComponentSpec**)StarsParticleSystemSolidColliderSpecs,
 
-	// auto start
+	// Auto start
 	false,
 
-	// particle spec
+	// Particle spec
 	(ParticleSpec*)&StarParticleSolidSpec,
 
-	// minimum relative spawn position (x, y, z)
+	// Minimum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
-	// maximum relative spawn position (x, y, z)
+	// Maximum relative spawn position (x, y, z)
 	{__PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0), __PIXELS_TO_METERS(0)},
 
-	// minimum force to apply (x, y, z)
+	// Minimum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(-2), __F_TO_FIXED(-13), __F_TO_FIXED(-0.5f)},
 
-	// maximum force to apply (x, y, z)
+	// Maximum force to apply (x, y, z)
 	// (use int values in the spec to avoid overflow)
 	{__F_TO_FIXED(2), __F_TO_FIXED(-8), __F_TO_FIXED(-0.25f)},
 
-	// movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
+	// Movement type (__UNIFORM_MOVEMENT or __ACCELERATED_MOVEMENT)
 	__ACCELERATED_MOVEMENT
 };

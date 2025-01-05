@@ -22,7 +22,7 @@
 
 const PixelVector BusStopMeshesSegments[][2]=
 {
-	// base housing
+	// Base housing
 	{
 		{-64, 64, -64, 0}, 
 		{0, 64, -64, 0}
@@ -56,7 +56,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 		{0, -32, 64, 0}
 	},
 
-	// base seating
+	// Base seating
 	{
 		{-48, 40, -32, 0}, 
 		{-16, 40, -32, 0}
@@ -74,7 +74,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 		{-16, 40, 32, 0}
 	},
 
-	// vertex seating
+	// Vertex seating
 	{
 		{-32, 64, -32, 0}, 
 		{-32, 40, -32, 0}
@@ -84,13 +84,13 @@ const PixelVector BusStopMeshesSegments[][2]=
 		{-32, 40, 32, 0}
 	},
 
-	// vertex sign
+	// Vertex sign
 	{
 		{-56, -16, -80, 0},
 		{-56, 64, -80, 0}
 	},
 
-	// sign
+	// Sign
 	{
 		{-56, -16, -80, 0},
 		{-64, -16, -80, 0}
@@ -128,7 +128,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 		{-48, -16, -80, 0}
 	},
 
-	// vertex housing
+	// Vertex housing
 	{
 		{-64, -32, -64, 0},
 		{-64, 64, -64, 0}
@@ -146,7 +146,7 @@ const PixelVector BusStopMeshesSegments[][2]=
 		{0, 64, 64, 0}
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -176,7 +176,7 @@ MeshROMSpec BusStopWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

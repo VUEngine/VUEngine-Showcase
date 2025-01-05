@@ -23,13 +23,13 @@
 const PixelVector LampMeshesSegments[][2]=
 {
 
-	// vertex lamp
+	// Vertex lamp
 	{
 		{-56, -64, -72, 0},
 		{-56, 64, -72, 0}
 	},
 
-	// lamp arch
+	// Lamp arch
 	{
 		{-56, -64, -72, 0},
 		{-72, -80, -72, 0}
@@ -43,7 +43,7 @@ const PixelVector LampMeshesSegments[][2]=
 		{-104, -64, -72, 0}
 	},
 
-	// light bulb circle
+	// Light bulb circle
 	{
 		{-108, -48, -80, 0},
 		{-100, -48, -80, 0}
@@ -77,7 +77,7 @@ const PixelVector LampMeshesSegments[][2]=
 		{-100, -48, -80, 0}
 	},
 
-	// light bulb vertex
+	// Light bulb vertex
 	{
 		{-96, -48, -76, 0},
 		{-104, -64, -72, 0}
@@ -111,7 +111,7 @@ const PixelVector LampMeshesSegments[][2]=
 		{-104, -64, -72, 0}
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -141,7 +141,7 @@ MeshROMSpec LampWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

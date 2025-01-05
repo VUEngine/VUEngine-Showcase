@@ -34,7 +34,7 @@ const PixelVector PongPaddleWireframeSpecSegments[][2]=
 		{0, 10, 0, 0}, 
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -216,7 +216,7 @@ PongPaddleROMSpec PongPaddleActorSpec =
 		},
 	},
 
-	// force
+	// Force
 	{
 		0,
 		__I_TO_FIX10_6(3),

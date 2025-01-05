@@ -54,7 +54,7 @@ static const int8 waveLutHBias[] =
 
 static int16 BgmapSprite::applyHBias(BgmapSprite bgmapSprite, int16 waveHBiasThrottle)
 {
-	// look up table offset
+	// Look up table offset
 	static uint8 step = 0;
 	step = (step < ((HBIAS_WAVE_LUT_ENTRIES << waveHBiasThrottle) - 1)) ? step + 1 : 0;
 

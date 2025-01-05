@@ -22,7 +22,7 @@
 
 const PixelVector TunnelMeshesSegments[][2]=
 {
-	// base
+	// Base
 	/* {
 		{-128, 0, -512, 0}, 
 		{128, 0, -512, 0}
@@ -32,7 +32,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{128, 0, 384, 0}
 	},*/
 
-	// vertex z-axis base
+	// Vertex z-axis base
 	{
 		{-128, 0, 384, 0},
 		{-128, 0, -512, 0}
@@ -42,7 +42,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{128, 0, -512, 0} 
 	},
 
-	// vertex y-axis entrance with arc
+	// Vertex y-axis entrance with arc
 	{
 		{-128, -128, -512, 0},
 		{-128, 0, -512, 0}
@@ -77,7 +77,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{0, -240, -512, 0}
 	},
 
-	// vertex y-axis exit with arc
+	// Vertex y-axis exit with arc
 	{
 		{-128, -128, 384, 0},
 		{-128, 0, 384, 0}
@@ -111,7 +111,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{0, -240, 384, 0}
 	},
 
-	// vertex z-axis of arc
+	// Vertex z-axis of arc
 	{
 		{-128, -128, -512, 0},
 		{-128, -128, 384, 0} 
@@ -137,7 +137,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{32, -240, 384, 0}
 	},
 
-	// vertex lanes on bottom
+	// Vertex lanes on bottom
 	{
 		{0, 0, -384, 0},
 		{0, 0, -448, 0}
@@ -167,7 +167,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{0, 0, 320, 0} 
 	},
 
-	// lights corps
+	// Lights corps
 	{
 		{0, -224, 256, 0},
 		{0, -224, 128, 0} 
@@ -219,7 +219,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{0, -224, -416, 0} 
 	},
 
-	// emergency exit
+	// Emergency exit
 	{
 		{-128, 0, 0, 0}, 
 		{-128, -64, 0, 0}
@@ -249,7 +249,7 @@ const PixelVector TunnelMeshesSegments[][2]=
 		{-128, -64, 36, 0}
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -279,7 +279,7 @@ MeshROMSpec TunnelWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

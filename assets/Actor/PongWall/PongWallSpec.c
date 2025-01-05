@@ -20,7 +20,7 @@
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-	// linefield
+	// Linefield
 ColliderROMSpec PongWallsColliderSpec1 =
 	{
 		// Component
@@ -54,7 +54,7 @@ ColliderROMSpec PongWallsColliderSpec1 =
 		kLayerAll,
 	};
 
-	// linefield
+	// Linefield
 ColliderROMSpec PongWallsColliderSpec2 =
 	{
 		// Component

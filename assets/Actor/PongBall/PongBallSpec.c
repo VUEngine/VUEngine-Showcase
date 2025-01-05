@@ -51,10 +51,10 @@ SphereROMSpec PongBallWireframeSpec =
 		false
 	},
 
-	// radius
+	// Radius
 	__PIXELS_TO_METERS(4),
 
-	// draw center
+	// Draw center
 	true,
 };
 
@@ -166,7 +166,7 @@ PongBallROMSpec PongBallActorSpec =
 		},
 	},
 
-	// minimum velocity
+	// Minimum velocity
 	{0, 0, 0},
 	
 	// Maximum velocity

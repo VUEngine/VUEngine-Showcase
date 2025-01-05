@@ -22,7 +22,7 @@
 
 const PixelVector StreetMeshesSegments[][2]=
 {
-	// base
+	// Base
 	{
 		{-128, 0, -512, 0}, 
 		{128, 0, -512, 0}
@@ -32,7 +32,7 @@ const PixelVector StreetMeshesSegments[][2]=
 		{128, 0, 384, 0}
 	},*/
 
-	// vertex
+	// Vertex
 	{
 		{-128, 0, 384, 0},
 		{-128, 0, -512, 0}
@@ -72,7 +72,7 @@ const PixelVector StreetMeshesSegments[][2]=
 		{0, 0, 320, 0} 
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -102,7 +102,7 @@ MeshROMSpec StreetWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

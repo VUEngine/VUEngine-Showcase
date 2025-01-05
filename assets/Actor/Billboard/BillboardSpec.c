@@ -22,7 +22,7 @@
 
 const PixelVector BillboardMeshesSegments[][2]=
 {
-	// vertex billboard
+	// Vertex billboard
 	{
 		{-64, 16, -64, 0},
 		{-64, 64, -64, 0}
@@ -32,7 +32,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{0, 64, -64, 0} 
 	},
 
-	// billboard
+	// Billboard
 	{
 		{-96, 16, -64, 0},
 		{32, 16, -64, 0}
@@ -50,7 +50,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{32, -64, -64, 0}
 	},
 
-	// writing W
+	// Writing W
 	{
 		{-82, -8, -64, 0},
 		{-88, -40, -64, 0}
@@ -68,7 +68,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{-72, -40, -64, 0}
 	},
 
-	// writing E
+	// Writing E
 	{
 		{-68, -8, -64, 0},
 		{-68, -40, -64, 0}
@@ -86,7 +86,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{-60, -24, -64, 0}
 	},
 
-	// writing L
+	// Writing L
 	{
 		{-52, -40, -64, 0},
 		{-52, -8, -64, 0}
@@ -110,7 +110,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{-28, -40, -64, 0}
 	},
 
-	// writing O
+	// Writing O
 	{
 		{-20, -40, -64, 0},
 		{-20, -8, -64, 0}
@@ -128,7 +128,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{-12, -8, -64, 0}
 	},
 
-	// writing M
+	// Writing M
 	{
 		{-4, -40, -64, 0},
 		{-4, -8, -64, 0}
@@ -146,7 +146,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{4, -8, -64, 0}
 	},
 
-	// writing E
+	// Writing E
 	{
 		{12, -8, -64, 0},
 		{12, -40, -64, 0}
@@ -164,7 +164,7 @@ const PixelVector BillboardMeshesSegments[][2]=
 		{20, -24, -64, 0}
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -194,7 +194,7 @@ MeshROMSpec BillboardWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

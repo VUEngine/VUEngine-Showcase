@@ -229,7 +229,7 @@ void Pong::destructor()
 	delete this->opponentPaddles;
 	this->opponentPaddles = NULL;
 
-	// allow a new construct	// Always explicitly call the base's destructor 
+	// Allow a new construct	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 

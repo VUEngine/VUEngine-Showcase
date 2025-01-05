@@ -22,7 +22,7 @@
 
 const PixelVector HouseMeshesSegments[][2]=
 {
-	// base
+	// Base
 	{
 		{-64, 64, -64, 0}, 
 		{64, 64, -64, 0}
@@ -56,7 +56,7 @@ const PixelVector HouseMeshesSegments[][2]=
 		{64, -64, 64, 0}
 	},
 
-	// door
+	// Door
 	{
 		{64, 12, -44, 0},
 		{64, 12, -20, 0}
@@ -70,7 +70,7 @@ const PixelVector HouseMeshesSegments[][2]=
 		{64, 12, -20, 0}
 	},
 
-	// window
+	// Window
 	{
 		{64, 0, 8, 0},
 		{64, 32, 8, 0}
@@ -88,7 +88,7 @@ const PixelVector HouseMeshesSegments[][2]=
 		{64, 0, 40, 0}
 	},
 
-	// base fence
+	// Base fence
 	{
 		{64, 64, 64, 0}, 
 		{64, 64, 192, 0}
@@ -98,7 +98,7 @@ const PixelVector HouseMeshesSegments[][2]=
 		{64, 32, 192, 0}
 	},
 
-	// vertex
+	// Vertex
 	{
 		{-64, -64, -64, 0},
 		{-64, 64, -64, 0}
@@ -138,7 +138,7 @@ const PixelVector HouseMeshesSegments[][2]=
 		{64, 64, 192, 0} 
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -168,7 +168,7 @@ MeshROMSpec HouseWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

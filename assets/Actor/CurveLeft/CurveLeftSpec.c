@@ -22,13 +22,13 @@
 
 const PixelVector CurveLeftMeshesSegments[][2]=
 {
-	// base in
+	// Base in
 	/* {
 		{-128, 0, 0, 0}, 
 		{128, 0, 0, 0}
 	},*/
 
-	// inner arc
+	// Inner arc
 	{
 		{-128, 0, 0, 0}, 
 		{-136.72, 0, 66.26, 0}
@@ -54,7 +54,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-384, 0, 256, 0}
 	},
 
-	// inner guard
+	// Inner guard
 	{
 		{-128, 0, 0, 0}, 
 		{-136.72,-24, 66.26, 0}
@@ -80,7 +80,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-384, 0, 256, 0}
 	},
 
-	// inner guard vertex
+	// Inner guard vertex
 	{
 		{-136.72, 0, 66.26, 0}, 
 		{-136.72,-24, 66.26, 0}
@@ -102,7 +102,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-317.74, -24, 247.28, 0}
 	},
 
-	// outer arc
+	// Outer arc
 	{
 		{128, 0, 0, 0}, 
 		{110.55, 0, 132.52, 0}
@@ -128,7 +128,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-384, 0, 512, 0}
 	},
 
-	// outer guard
+	// Outer guard
 	{
 		{128, 0, 0, 0}, 
 		{110.55, -24, 132.52, 0}
@@ -176,7 +176,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-251.48, -24, 494.55, 0}
 	},
 
-	// lanes
+	// Lanes
 	/*{
 		{0, 0, 0, 0}, 
 		{-13.08, 0, 99.38, 0}
@@ -202,7 +202,7 @@ const PixelVector CurveLeftMeshesSegments[][2]=
 		{-384, 0, 384, 0}
 	},
 
-	// limiter
+	// Limiter
 	{
 		{0, 0, 0, 0}, 
 		{0, 0, 0, 0}
@@ -227,7 +227,7 @@ MeshROMSpec CurveLeftWireframeSpec =
 		// Wireframe's lines' color
 		__COLOR_BLACK,
 
-		// transparent
+		// Transparent
 		__TRANSPARENCY_NONE,
 
 		// Flag to render the wireframe in interlaced mode

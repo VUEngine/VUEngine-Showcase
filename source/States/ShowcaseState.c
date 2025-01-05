@@ -82,7 +82,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		ShowcaseState::configureStage(this, this->stageSpec, NULL);
 	}
 
-	// show everything
+	// Show everything
 	ShowcaseState::show(this, true);
 	
 	// This starts animations, physics and messaging
@@ -91,14 +91,14 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	// Only register when a button is released
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
 
-	// enable user input
+	// Enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
 
 	// Printing the framerate
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), 
 		(EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
 
-	// start fade in effect
+	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
@@ -147,10 +147,10 @@ void ShowcaseState::resume(void* owner)
 {
 	Base::resume(this, owner);
 
-	// show stuff
+	// Show stuff
 	ShowcaseState::show(this, false);
 
-	// start a fade in effect
+	// Start a fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect(Camera::getInstance(),
 		kFadeTo, // effect type
