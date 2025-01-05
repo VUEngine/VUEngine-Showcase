@@ -5,9 +5,9 @@
 #ifndef LANGUAGES_H_
 #define LANGUAGES_H_
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 enum LanguageIdentifiers
 {
@@ -18,7 +18,9 @@ enum LanguageIdentifiers
 
 enum LanguageStrings
 {
-    kStringStatefulActorsLabel,
+    kStringActorCreationLabel,
+    kStringActorDestructionLabel,
+    kStringActorsLabel,
     kStringAnimationsLabel,
     kStringAnimationSubtitle,
     kStringAutomaticPauseBody,
@@ -39,9 +41,6 @@ enum LanguageStrings
     kStringConnected,
     kStringDwarfPlanetLabel,
     kStringEffectSubtitle,
-    kStringActorsLabel,
-    kStringActorCreationLabel,
-    kStringActorDestructionLabel,
     kStringEventsLabel,
     kStringFrameBuffersLabel,
     kStringGameStatesLabel,
@@ -63,6 +62,7 @@ enum LanguageStrings
     kStringParticlesSubtitle,
     kStringParticleSystemsLabel,
     kStringParticleTypesLabel,
+    kStringPauseTitle,
     kStringPhysicsLabel,
     kStringPostProcessingEffectsLabel,
     kStringPrecautionScreenBody,
@@ -75,6 +75,7 @@ enum LanguageStrings
     kStringSpritesLabel,
     kStringSpriteSubtitle,
     kStringStagesLabel,
+    kStringStatefulActorsLabel,
     kStringStateMachinesLabel,
     kStringStateTitle,
     kStringTiltELabel,
@@ -84,5 +85,6 @@ enum LanguageStrings
     kStringWobbleLabel,
     kStringYouDiedAgain,
 };
+
 
 #endif

@@ -2,16 +2,16 @@
 ///////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <I18n.h>
 #include <Languages.h>
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 extern LangROMSpec EnglishLanguageSpec;
 extern ActorSpec FlagUnitedKingdomActorSpec;
@@ -20,9 +20,10 @@ extern ActorSpec FlagGermanyActorSpec;
 extern LangROMSpec SpanishLanguageSpec;
 extern ActorSpec FlagSpainActorSpec;
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 LangROMSpec* const _languages[] =
 {
@@ -35,8 +36,12 @@ LangROMSpec* const _languages[] =
 
 const char* const EnglishLanguageStrings[] =
 {
-    /* kStringStatefulActorsLabel: */
-    "StatefulActors",
+    /* kStringActorCreationLabel: */
+    "Actor creation",
+    /* kStringActorDestructionLabel: */
+    "Actor destruction",
+    /* kStringActorsLabel: */
+    "Actors",
     /* kStringAnimationsLabel: */
     "Animations",
     /* kStringAnimationSubtitle: */
@@ -77,12 +82,6 @@ const char* const EnglishLanguageStrings[] =
     "Dwarf Planet",
     /* kStringEffectSubtitle: */
     "EFFECT",
-    /* kStringActorsLabel: */
-    "Actors",
-    /* kStringActorCreationLabel: */
-    "Actor creation",
-    /* kStringActorDestructionLabel: */
-    "Actor destruction",
     /* kStringEventsLabel: */
     "Events",
     /* kStringFrameBuffersLabel: */
@@ -125,6 +124,8 @@ const char* const EnglishLanguageStrings[] =
     "Particle systems",
     /* kStringParticleTypesLabel: */
     "Particle types",
+    /* kStringPauseTitle: */
+    "PAUSE",
     /* kStringPhysicsLabel: */
     "Physics",
     /* kStringPostProcessingEffectsLabel: */
@@ -149,6 +150,8 @@ const char* const EnglishLanguageStrings[] =
     "SPRITE",
     /* kStringStagesLabel: */
     "Stages",
+    /* kStringStatefulActorsLabel: */
+    "StatefulActors",
     /* kStringStateMachinesLabel: */
     "State machines",
     /* kStringStateTitle: */
@@ -164,25 +167,29 @@ const char* const EnglishLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Wobble",
     /* kStringYouDiedAgain: */
-    "YOU DIEDï¿½ AGAIN",
+    "YOU DIED… AGAIN",
 };
 
 const LangROMSpec EnglishLanguageSpec =
 {
-	// Language name
+	// language name
 	"English",
 
-	// Flag actor
+	// flag actor
 	&FlagUnitedKingdomActorSpec,
 	
-	// Strings
+	// strings
 	(const char**)EnglishLanguageStrings
 };
 
 const char* const GermanLanguageStrings[] =
 {
-    /* kStringStatefulActorsLabel: */
-    "Akteure",
+    /* kStringActorCreationLabel: */
+    "Entitäts-Konstruktoren",
+    /* kStringActorDestructionLabel: */
+    "Entitäts-Destruktoren",
+    /* kStringActorsLabel: */
+    "Entitäten",
     /* kStringAnimationsLabel: */
     "Animationen",
     /* kStringAnimationSubtitle: */
@@ -223,18 +230,12 @@ const char* const GermanLanguageStrings[] =
     "Zwergplanet",
     /* kStringEffectSubtitle: */
     "EFFECT",
-    /* kStringActorsLabel: */
-    "Entitï¿½ten",
-    /* kStringActorCreationLabel: */
-    "Entitï¿½ts-Konstruktoren",
-    /* kStringActorDestructionLabel: */
-    "Entitï¿½ts-Destruktoren",
     /* kStringEventsLabel: */
     "Ereignisse",
     /* kStringFrameBuffersLabel: */
     "Framebuffer",
     /* kStringGameStatesLabel: */
-    "Spielzustï¿½nde",
+    "Spielzustände",
     /* kStringHiColorLabel: */
     "HiColor",
     /* kStringLanguageSelectTitle: */
@@ -271,6 +272,8 @@ const char* const GermanLanguageStrings[] =
     "Partikelsysteme",
     /* kStringParticleTypesLabel: */
     "Partikel-Typen",
+    /* kStringPauseTitle: */
+    "PAUSE",
     /* kStringPhysicsLabel: */
     "Physik",
     /* kStringPostProcessingEffectsLabel: */
@@ -295,6 +298,8 @@ const char* const GermanLanguageStrings[] =
     "SPRITE",
     /* kStringStagesLabel: */
     "Stages",
+    /* kStringStatefulActorsLabel: */
+    "Akteure",
     /* kStringStateMachinesLabel: */
     "Zustandsautomaten",
     /* kStringStateTitle: */
@@ -310,45 +315,49 @@ const char* const GermanLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Taumeln",
     /* kStringYouDiedAgain: */
-    "DU BIST TOTï¿½ ERNEUT",
+    "DU BIST TOT… ERNEUT",
 };
 
 const LangROMSpec GermanLanguageSpec =
 {
-	// Language name
+	// language name
 	"Deutsch",
 
-	// Flag actor
+	// flag actor
 	&FlagGermanyActorSpec,
 	
-	// Strings
+	// strings
 	(const char**)GermanLanguageStrings
 };
 
 const char* const SpanishLanguageStrings[] =
 {
-    /* kStringStatefulActorsLabel: */
-    "StatefulActores",
+    /* kStringActorCreationLabel: */
+    "Entidad: creación",
+    /* kStringActorDestructionLabel: */
+    "Entidad: destrucción ",
+    /* kStringActorsLabel: */
+    "Entidades",
     /* kStringAnimationsLabel: */
     "Animaciones",
     /* kStringAnimationSubtitle: */
     "ANIMACION",
     /* kStringAutomaticPauseBody: */
-    "ï¿½Por favor, tï¿½mese un descanso!",
+    "¡Por favor, tómese un descanso!",
     /* kStringAutomaticPauseSelectionBody: */
-    " La funciï¿½n automï¿½tica de pausa te\nrecordarï¿½ que debes tomar un descanso\n  approximadamente cada 30 minutos",
+    " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos",
     /* kStringAutomaticPauseSelectionOff: */
     "Apagado",
     /* kStringAutomaticPauseSelectionOn: */
     "Encendido",
     /* kStringAutomaticPauseSelectionTitle: */
-    "PAUSA AUTOMï¿½TICA",
+    "PAUSA AUTOMÁTICA",
     /* kStringAutomaticPauseTitle: */
-    "PAUSA AUTOMï¿½TICA",
+    "PAUSA AUTOMÁTICA",
     /* kStringBgmapMemoryLabel: */
     "Memoria BGMAP:",
     /* kStringCameraControlLabel: */
-    "Control de cï¿½mara",
+    "Control de cámara",
     /* kStringCharMemoryLabel: */
     "Memoria CHAR:",
     /* kStringClassesSubtitle: */
@@ -356,7 +365,7 @@ const char* const SpanishLanguageStrings[] =
     /* kStringClassExtensionLabel: */
     "Extensiones de clase",
     /* kStringClassMutationLabel: */
-    "Mutaciï¿½n de clases",
+    "Mutación de clases",
     /* kStringCollisionsLabel: */
     "Colisiones",
     /* kStringCommunicationsLabel: */
@@ -369,16 +378,10 @@ const char* const SpanishLanguageStrings[] =
     "Planeta Enano",
     /* kStringEffectSubtitle: */
     "EFECTO",
-    /* kStringActorsLabel: */
-    "Entidades",
-    /* kStringActorCreationLabel: */
-    "Entidad: creaciï¿½n",
-    /* kStringActorDestructionLabel: */
-    "Entidad: destrucciï¿½n ",
     /* kStringEventsLabel: */
     "Eventos",
     /* kStringFrameBuffersLabel: */
-    "Bï¿½fer de video",
+    "Búfer de video",
     /* kStringGameStatesLabel: */
     "Estados de juego",
     /* kStringHiColorLabel: */
@@ -396,7 +399,7 @@ const char* const SpanishLanguageStrings[] =
     /* kStringMultiframeLabel: */
     "Multi fotograma",
     /* kStringMultiframeTextureLabel: */
-    "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSï¿½lo uno de ellos",
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos",
     /* kStringNoLink: */
     "NO CONECTADO",
     /* kStringNotSharedLabel: */
@@ -414,13 +417,15 @@ const char* const SpanishLanguageStrings[] =
     /* kStringParticlesSubtitle: */
     "TIPO DE PARTICULAS",
     /* kStringParticleSystemsLabel: */
-    "Sistemas de partï¿½culas",
+    "Sistemas de partículas",
     /* kStringParticleTypesLabel: */
-    "Tipos de partï¿½culas",
+    "Tipos de partículas",
+    /* kStringPauseTitle: */
+    "PAUSA",
     /* kStringPhysicsLabel: */
-    "Fï¿½sica",
+    "Física",
     /* kStringPostProcessingEffectsLabel: */
-    "Efectos grï¿½ficos",
+    "Efectos gráficos",
     /* kStringPrecautionScreenBody: */
     "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
     /* kStringRainLabel: */
@@ -428,9 +433,9 @@ const char* const SpanishLanguageStrings[] =
     /* kStringSharedLabel: */
     "Compartida",
     /* kStringSharedTextureLabel: */
-    "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSï¿½lo uno de ellos\nnecesita ser animado",
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSólo uno de ellos\nnecesita ser animado",
     /* kStringSoundPlaybackLabel: */
-    "Reproducciï¿½n de sonido",
+    "Reproducción de sonido",
     /* kStringSpecsLabel: */
     "Especificaciones",
     /* kStringSpecsSubtitle: */
@@ -441,14 +446,16 @@ const char* const SpanishLanguageStrings[] =
     "SPRITE",
     /* kStringStagesLabel: */
     "Escenas",
+    /* kStringStatefulActorsLabel: */
+    "StatefulActores",
     /* kStringStateMachinesLabel: */
-    "Mï¿½quinas de estado",
+    "Máquinas de estado",
     /* kStringStateTitle: */
     "ESTADO:",
     /* kStringTiltELabel: */
     "Inclinado",
     /* kStringTimerSettingsLabel: */
-    "Configuraciï¿½n de reloj",
+    "Configuración de reloj",
     /* kStringUserInputLabel: */
     "Entrada de usuario",
     /* kStringWireframesLabel: */
@@ -456,17 +463,17 @@ const char* const SpanishLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Ondulado",
     /* kStringYouDiedAgain: */
-    "MORISTEï¿½ OTRA VEZ",
+    "MORISTE… OTRA VEZ",
 };
 
 const LangROMSpec SpanishLanguageSpec =
 {
-	// Language name
-	"Espaï¿½ol",
+	// language name
+	"Español",
 
-	// Flag actor
+	// flag actor
 	&FlagSpainActorSpec,
 	
-	// Strings
+	// strings
 	(const char**)SpanishLanguageStrings
 };

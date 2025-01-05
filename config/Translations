@@ -21,10 +21,20 @@
         }
     ],
     "translations": {
-        "StatefulActorsLabel": {
-            "de": "Akteure",
-            "en": "StatefulActors",
-            "es": "StatefulActores"
+        "ActorCreationLabel": {
+            "de": "Entitäts-Konstruktoren",
+            "en": "Actor creation",
+            "es": "Entidad: creación"
+        },
+        "ActorDestructionLabel": {
+            "de": "Entitäts-Destruktoren",
+            "en": "Actor destruction",
+            "es": "Entidad: destrucción "
+        },
+        "ActorsLabel": {
+            "de": "Entitäten",
+            "en": "Actors",
+            "es": "Entidades"
         },
         "AnimationsLabel": {
             "de": "Animationen",
@@ -95,21 +105,6 @@
             "de": "EFFECT",
             "en": "EFFECT",
             "es": "EFECTO"
-        },
-        "ActorsLabel": {
-            "de": "Entitäten",
-            "en": "Actors",
-            "es": "Entidades"
-        },
-        "ActorCreationLabel": {
-            "de": "Entitäts-Konstruktoren",
-            "en": "Actor creation",
-            "es": "Entidad: creación"
-        },
-        "ActorDestructionLabel": {
-            "de": "Entitäts-Destruktoren",
-            "en": "Actor destruction",
-            "es": "Entidad: destrucción "
         },
         "EventsLabel": {
             "de": "Ereignisse",
@@ -266,6 +261,11 @@
             "en": "Stages",
             "es": "Escenas"
         },
+        "StatefulActorsLabel": {
+            "de": "Akteure",
+            "en": "StatefulActors",
+            "es": "StatefulActores"
+        },
         "StateMachinesLabel": {
             "de": "Zustandsautomaten",
             "en": "State machines",
@@ -305,6 +305,11 @@
             "de": "DU BIST TOT… ERNEUT",
             "en": "YOU DIED… AGAIN",
             "es": "MORISTE… OTRA VEZ"
+        },
+        "PauseTitle": {
+            "en": "PAUSE",
+            "de": "PAUSE",
+            "es": "PAUSA"
         }
     }
 }

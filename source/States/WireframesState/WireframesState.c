@@ -56,6 +56,16 @@ void WireframesState::execute(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+void WireframesState::resume(void* owner)
+{
+	Base::resume(this, owner);
+
+	// Drawing wireframes is heavy, let's make it easier on the poor VB
+	WireframesState::changeFramerate(this, 25, -1);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void WireframesState::processUserInput(const UserInput* userInput)
 {
 	WireframesState::playSoundEffects(this, userInput, false);

@@ -20,6 +20,7 @@
 #include <KeypadManager.h>
 #include <Languages.h>
 #include <Printing.h>
+#include <PauseScreenState.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
 #include <Showcases.h>
@@ -148,7 +149,7 @@ void ShowcaseState::resume(void* owner)
 	Base::resume(this, owner);
 
 	// Show stuff
-	ShowcaseState::show(this, false);
+	ShowcaseState::show(this, true);
 
 	// Start a fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -160,6 +161,11 @@ void ShowcaseState::resume(void* owner)
 		NULL, // callback function
 		NULL // callback scope
 	);
+
+	/*
+	 * Allow the player to interact again.
+	 */
+	VUEngine::enableKeypad(VUEngine::getInstance());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -170,7 +176,11 @@ void ShowcaseState::resume(void* owner)
 void ShowcaseState::processUserInput(const UserInput* userInput)
 {
 	// Check for UserInput and key definitions in KeypadManager.h
-	if(K_LT & userInput->releasedKey)
+	if(K_STA & userInput->releasedKey)
+	{
+		VUEngine::pause(VUEngine::getInstance(), GameState::safeCast(PauseScreenState::getInstance()));
+	}
+	else if(K_LT & userInput->releasedKey)
 	{
 		if(0 > --_currentShowcaseState)
 		{
