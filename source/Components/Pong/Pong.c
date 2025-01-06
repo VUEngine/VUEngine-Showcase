@@ -94,7 +94,7 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 
 	if(isVersusMode)
 	{
-		if(CommunicationManager::isMaster(CommunicationManager::getInstance()))
+		if(CommunicationManager::isMaster())
 		{
 			this->playerNumber = kPlayerOne;
 		}
@@ -302,7 +302,6 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 {
 	uint32 receivedMessage = kMessagePongDummy;
 	const RemotePlayerData* remotePlayerData = NULL;
-	CommunicationManager communicationManager = CommunicationManager::getInstance();
 
 	/*
 	 * Data will be send sychroniously. This means that if the cable is disconnect during
@@ -313,20 +312,20 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 		/*
 		 * Data transmission can fail if there was already a request to send data.
 		 */
-		if(!CommunicationManager::sendAndReceiveData(communicationManager, messageForRemote, data, dataBytes))
+		if(!CommunicationManager::sendAndReceiveData(messageForRemote, data, dataBytes))
 		{
 			/*
 			 * In this case, simply cancel all communications and try again. This supposes
 			 * that there are no other calls that could cause a race condition.
 			 */
-			CommunicationManager::cancelCommunications(communicationManager);
+			CommunicationManager::cancelCommunications();
 		}
 
 		/*
 		 * Every transmission sends a control message and then the data itself.
 		 */
-		receivedMessage = CommunicationManager::getReceivedMessage(communicationManager);
-		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData(communicationManager);
+		receivedMessage = CommunicationManager::getReceivedMessage();
+		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData();
 	}
 	/*
 	 * The validity of the message is based on the command that was received
@@ -438,7 +437,7 @@ bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	SoundManager::playSound
 	(
-		SoundManager::getInstance(), 
+		
 		&Point1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,

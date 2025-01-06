@@ -184,7 +184,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			// Timer controls
 			else if(K_RU & userInput->releasedKey)
 			{
-				uint16 timerResolution = TimerManager::getResolution(TimerManager::getInstance());
+				uint16 timerResolution = TimerManager::getResolution();
 
 				switch(timerResolution)
 				{
@@ -204,13 +204,13 @@ void SoundsState::processUserInput(const UserInput* userInput)
 						break;
 				}
 
-				TimerManager::setResolution(TimerManager::getInstance(), timerResolution);
+				TimerManager::setResolution(timerResolution);
 				timerChanged = true;
 			}
 			else if(K_RD & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupttUnits = TimerManager::getTargetTimePerInterruptUnits(TimerManager::getInstance());
-				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt(TimerManager::getInstance());
+				uint16 targetTimePerInterrupttUnits = TimerManager::getTargetTimePerInterruptUnits();
+				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt();
 
 				switch(targetTimePerInterrupttUnits)
 				{
@@ -232,26 +232,26 @@ void SoundsState::processUserInput(const UserInput* userInput)
 						break;
 				}
 
-				TimerManager::setTargetTimePerInterruptUnits(TimerManager::getInstance(), targetTimePerInterrupttUnits);
-				TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), targetTimePerInterrupt);
+				TimerManager::setTargetTimePerInterruptUnits(targetTimePerInterrupttUnits);
+				TimerManager::setTargetTimePerInterrupt(targetTimePerInterrupt);
 				timerChanged = true;
 			}
 			else if(K_RL & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt(TimerManager::getInstance());
+				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt();
 
-				targetTimePerInterrupt -= TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+				targetTimePerInterrupt -= TimerManager::getMinimumTimePerInterruptStep();
 
-				TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), targetTimePerInterrupt);
+				TimerManager::setTargetTimePerInterrupt(targetTimePerInterrupt);
 				timerChanged = true;
 			}
 			else if(K_RR & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt(TimerManager::getInstance());
+				uint16 targetTimePerInterrupt = TimerManager::getTargetTimePerInterrupt();
 
-				targetTimePerInterrupt += TimerManager::getMinimumTimePerInterruptStep(TimerManager::getInstance());
+				targetTimePerInterrupt += TimerManager::getMinimumTimePerInterruptStep();
 
-				TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), targetTimePerInterrupt);
+				TimerManager::setTargetTimePerInterrupt(targetTimePerInterrupt);
 				timerChanged = true;
 			}
 
@@ -443,7 +443,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * Since PCM playback is too heavy on the CPU, it makes sense to set it per stage.
 	 * So, we set globally the target playback framerate (Hz) before creating any sound. 
 .	 */
-	SoundManager::setPCMTargetPlaybackRefreshRate(SoundManager::getInstance(), this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
+	SoundManager::setPCMTargetPlaybackRefreshRate(this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
 
 	/*
 	 * We configure the timer manager to match the sound's timing. This is done here as 
@@ -461,7 +461,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * play in loop or when not explicitly told to not auto release by calling
 	 * Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound(SoundManager::getInstance(), (SoundSpec*)_soundSamples[this->selectedSound], (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound((SoundSpec*)_soundSamples[this->selectedSound], (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 
@@ -541,23 +541,23 @@ void SoundsState::printTimer()
 		return;
 	}
 
-	TimerManager::print(TimerManager::getInstance(), 1, 11);
+	TimerManager::print(1, 11);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void SoundsState::setTimerSettings()
 {
-	TimerManager::setResolution(TimerManager::getInstance(), __TIMER_20US);
-	TimerManager::setTargetTimePerInterruptUnits(TimerManager::getInstance(), kUS);
-	TimerManager::setTargetTimePerInterrupt(TimerManager::getInstance(), _soundSamples[this->selectedSound]->targetTimerResolutionUS);
+	TimerManager::setResolution(__TIMER_20US);
+	TimerManager::setTargetTimePerInterruptUnits(kUS);
+	TimerManager::setTargetTimePerInterrupt(_soundSamples[this->selectedSound]->targetTimerResolutionUS);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void SoundsState::applyTimerSettings()
 {
-	TimerManager::applySettings(TimerManager::getInstance(), true);
+	TimerManager::applySettings(true);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -568,7 +568,7 @@ bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((u
 	{
 		if(this->showAdditionalDetails)
 		{
-			TimerManager::nextSecondStarted(TimerManager::getInstance());
+			TimerManager::nextSecondStarted();
 		}
 	}
 

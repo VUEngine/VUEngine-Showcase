@@ -70,7 +70,7 @@ void PunkDie::enter(void* owner)
 
 	SoundManager::playSound
 	(
-		SoundManager::getInstance(), 
+		
 		&Killed1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,
