@@ -94,9 +94,9 @@ void SpritesState::processUserInput(const UserInput* userInput)
 
 void SpritesState::showControls()
 {
-	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -114,52 +114,52 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringGameStatesLabel), 2, y++, NULL);
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpritesLabel), 2, y++, NULL);
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsLabel), 2, y++, NULL);
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringUserInputLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringGameStatesLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpritesLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringUserInputLabel), 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-		Printing::text(this->printing, "CharSet", 2, y++, NULL);
-		Printing::text(this->printing, "*Sprite      ", 2, y++, NULL);
-		Printing::text(this->printing, "Texture", 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+		Printing::text("CharSet", 2, y++, NULL);
+		Printing::text("*Sprite      ", 2, y++, NULL);
+		Printing::text("Texture", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(this->printing, "SpritesState", 2, y++, NULL);
-		Printing::text(this->printing, "::createSprite", 2, y++, NULL);
-		Printing::text(this->printing, "::destroySprite", 2, y++, NULL);
-		Printing::text(this->printing, "::processUserInput", 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+		Printing::text("SpritesState", 2, y++, NULL);
+		Printing::text("::createSprite", 2, y++, NULL);
+		Printing::text("::destroySprite", 2, y++, NULL);
+		Printing::text("::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(this->printing, "CogWheel*Sprite*Spec", 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+		Printing::text("CogWheel*Sprite*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "DefaultBold");
-		Printing::text(this->printing, __GET_CLASS_NAME(this->sprite), 28, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "DefaultBold");
+		Printing::text(__GET_CLASS_NAME(this->sprite), 28, y++, NULL);
 		const char* strMode = I18n::getText(I18n::getInstance(), kStringModeLabel);
-		Printing::text(this->printing, strMode, 28, y, NULL);
-		FontSize strModeTextSize = Printing::getTextSize(Printing::getInstance(), strMode, NULL);
+		Printing::text(strMode, 28, y, NULL);
+		FontSize strModeTextSize = Printing::getTextSize(strMode, NULL);
 
 		if(Sprite::isObject(this->sprite))
 		{
-			Printing::text(this->printing, "N/A", 28 + strModeTextSize.x, y, NULL);
+			Printing::text("N/A", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isAffine(this->sprite))
 		{
-			Printing::text(this->printing, "Affine", 28 + strModeTextSize.x, y, NULL);
+			Printing::text("Affine", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isHBias(this->sprite))
 		{
-			Printing::text(this->printing, "HBias", 28 + strModeTextSize.x, y, NULL);
+			Printing::text("HBias", 28 + strModeTextSize.x, y, NULL);
 		}
 		else if(Sprite::isBgmap(this->sprite))
 		{
-			Printing::text(this->printing, "BGMAP", 28 + strModeTextSize.x, y, NULL);
+			Printing::text("BGMAP", 28 + strModeTextSize.x, y, NULL);
 		}
 	}	
 }
@@ -256,7 +256,7 @@ void SpritesState::createSprite()
 	}
 
 	// Don't create Sprites directly
-	this->sprite = SpriteManager::createSprite(SpriteManager::getInstance(), NULL, spriteSpec);
+	this->sprite = SpriteManager::createSprite(NULL, spriteSpec);
 
 	if(!isDeleted(this->sprite))
 	{
@@ -277,7 +277,7 @@ void SpritesState::destroySprite()
 	if(!isDeleted(this->sprite))
 	{
 		// Don't destroy the sprite directly		
-		SpriteManager::destroySprite(SpriteManager::getInstance(), this->sprite);
+		SpriteManager::destroySprite(this->sprite);
 
 		this->sprite = NULL;
 	}

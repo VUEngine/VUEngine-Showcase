@@ -90,7 +90,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	ShowcaseState::startClocks(this);
 
 	// Only register when a button is released
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
+	KeypadManager::registerInput(__KEY_RELEASED);
 
 	// Enable user input
 	VUEngine::enableKeypad(VUEngine::getInstance());
@@ -100,8 +100,8 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		(EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
 
 	// Start fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect(Camera::getInstance(),
+	Camera::startEffect(kHide);
+	Camera::startEffect(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -133,7 +133,7 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
  */
 void ShowcaseState::suspend(void* owner)
 {
-	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
+	Camera::startEffect(kFadeOut, __FADE_DELAY);
 
 	Base::suspend(this, owner);
 }
@@ -152,8 +152,8 @@ void ShowcaseState::resume(void* owner)
 	ShowcaseState::show(this, true);
 
 	// Start a fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect(Camera::getInstance(),
+	Camera::startEffect(kHide);
+	Camera::startEffect(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -300,7 +300,7 @@ void ShowcaseState::configurePalettes(bool dimm)
 
 void ShowcaseState::show(bool reloadStuff)
 {
-	Printing::clear(this->printing);
+	Printing::clear();
 	
 	ShowcaseState::showHeader(this);
 	ShowcaseState::showControls(this);
@@ -327,26 +327,26 @@ void ShowcaseState::show(bool reloadStuff)
 void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "(  /  ) ";
-	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(this->printing, currentShowCaseNumberPrefix, NULL);
+	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
 	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
-	FontSize statePrefixTextSize = Printing::getTextSize(this->printing, statePrefix, NULL);
+	FontSize statePrefixTextSize = Printing::getTextSize(statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);
-	FontSize classNameTextSize = Printing::getTextSize(this->printing, className, NULL);
+	FontSize classNameTextSize = Printing::getTextSize(className, NULL);
 
 	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
-	Printing::text(this->printing, __CHAR_SELECTOR_LEFT, 0, 0, NULL);
-	Printing::text(this->printing, __CHAR_L_TRIGGER, 1, 0, NULL);
-	Printing::text(this->printing, currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
-	Printing::text(this->printing, Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
-	Printing::int32(this->printing, numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
-	Printing::text(this->printing, statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
-	Printing::text(this->printing, className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
-	Printing::text(this->printing, __CHAR_R_TRIGGER, 46, 0, NULL);
-	Printing::text(this->printing, __CHAR_SELECTOR, 47, 0, NULL);
+	Printing::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
+	Printing::text(__CHAR_L_TRIGGER, 1, 0, NULL);
+	Printing::text(currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
+	Printing::text(Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
+	Printing::int32(numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
+	Printing::text(statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
+	Printing::text(className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
+	Printing::text(__CHAR_R_TRIGGER, 46, 0, NULL);
+	Printing::text(__CHAR_SELECTOR, 47, 0, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -385,8 +385,7 @@ void ShowcaseState::constructor()
 	this->stageSpec = NULL;
 	this->showAdditionalDetails = false;
 	this->validSuboptionKeys = K_NON;
-	this->printing = Printing::getInstance();
-}
+	}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -400,7 +399,7 @@ void ShowcaseState::destructor()
 
 bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
 {
-	FrameRate::print(FrameRate::getInstance(), 14, 27);
+	FrameRate::print(14, 27);
 
 	return true;
 }

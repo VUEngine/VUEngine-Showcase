@@ -36,7 +36,7 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
 
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
@@ -106,7 +106,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 	/*
 	 * The engine doesn't implement quaternions due to obvious performance reasons.
-	 * So, moving the camera around the X axis will cause gimbal lock related issues
+	 * So, moving the Camera around the X axis will cause gimbal lock related issues
 	 * when rotations on the other axis are applied too.
 	 */
 	/*
@@ -121,9 +121,8 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	}
 	*/
 
-	Camera camera = Camera::getInstance();
-	Camera::translate(camera, translation, false);
-	Camera::rotate(camera, rotation);
+	Camera::translate(translation, false);
+	Camera::rotate(rotation);
 
 	Base::processUserInput(this, userInput);
 }
@@ -132,14 +131,14 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 void WireframesState::showControls()
 {
-	Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-	Printing::text(this->printing, __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 9, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(this->printing, __CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 9, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -147,27 +146,27 @@ void WireframesState::showControls()
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "Camera", 2, y++, NULL);
-	Printing::text(this->printing, "DirectDraw", 2, y++, NULL);
-	Printing::text(this->printing, "Mesh", 2, y++, NULL);
-	Printing::text(this->printing, "Wireframe", 2, y++, NULL);
-	Printing::text(this->printing, "WireframeManager", 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text("Camera", 2, y++, NULL);
+	Printing::text("DirectDraw", 2, y++, NULL);
+	Printing::text("Mesh", 2, y++, NULL);
+	Printing::text("Wireframe", 2, y++, NULL);
+	Printing::text("WireframeManager", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, "WireframesState", 26, y++, NULL);
-	Printing::text(this->printing, "::processUserInput", 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printing::text("WireframesState", 26, y++, NULL);
+	Printing::text("::processUserInput", 26, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, "PyramidActorSpec", 26, y++, NULL);
-	Printing::text(this->printing, "WireframesStageSpec", 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
+	Printing::text("PyramidActorSpec", 26, y++, NULL);
+	Printing::text("WireframesStageSpec", 26, y++, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -177,7 +176,7 @@ void WireframesState::showAdditionalDetails()
 
 	WireframeManager::print(WireframeManager::getInstance(), 1, 3);
 	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
-	Camera::print(Camera::getInstance(), 31, 3, false);
+	Camera::print(31, 3, false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

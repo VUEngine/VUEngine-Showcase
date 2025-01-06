@@ -41,8 +41,9 @@ void StatefulActorsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten.
 	 */
-	Printing::addEventListener(
-		this->printing,
+	Printing::addEventListener
+	(
+		Printing::getInstance(),
 		ListenerObject::safeCast(this),
 		(EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
@@ -51,7 +52,7 @@ void StatefulActorsState::enter(void* owner __attribute__((unused)))
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -70,8 +71,9 @@ void StatefulActorsState::execute(void* owner __attribute__((unused)))
 
 void StatefulActorsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::removeEventListener(
-		this->printing,
+	Printing::removeEventListener
+	(
+		Printing::getInstance(),
 		ListenerObject::safeCast(this),
 		(EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
@@ -124,21 +126,21 @@ void StatefulActorsState::processUserInput(const UserInput* userInput)
 void StatefulActorsState::showControls()
 {
 	Printing::text(
-		this->printing,
+		
 		__CHAR_SELECT_BUTTON,
 		__SCREEN_WIDTH_IN_CHARS - 1,
 		__SCREEN_HEIGHT_IN_CHARS - 1,
 		NULL
 	);
 	Printing::text(
-		this->printing,
+		
 		__CHAR_L_D_PAD_RIGHT,
 		__SCREEN_WIDTH_IN_CHARS - 4,
 		__SCREEN_HEIGHT_IN_CHARS - 1,
 		NULL
 	);
 	Printing::text(
-		this->printing,
+		
 		__CHAR_L_D_PAD_LEFT,
 		__SCREEN_WIDTH_IN_CHARS - 5,
 		__SCREEN_HEIGHT_IN_CHARS - 1,
@@ -158,16 +160,16 @@ void StatefulActorsState::showExplanation()
 {
 	int16 y = 3;
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringConceptsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringStatefulActorsLabel), 2, y++, NULL);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringStatefulActorsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringStateMachinesLabel),
 		2,
 		y++,
@@ -175,45 +177,45 @@ void StatefulActorsState::showExplanation()
 	);
 	y++;
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringClassesSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "StatefulActor", 2, y++, NULL);
-	Printing::text(this->printing, "MessageDispatcher*", 2, y++, NULL);
-	Printing::text(this->printing, "Punk", 2, y++, NULL);
-	Printing::text(this->printing, "PunkState*", 2, y++, NULL);
+	Printing::text("StatefulActor", 2, y++, NULL);
+	Printing::text("MessageDispatcher*", 2, y++, NULL);
+	Printing::text("Punk", 2, y++, NULL);
+	Printing::text("PunkState*", 2, y++, NULL);
 
 	y++;
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringSpecsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "PunkStatefulActorSpec", 2, y++, NULL);
+	Printing::text("PunkStatefulActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle),
 		26,
 		y++,
 		"DefaultBold"
 	);
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringCollisionsLabel),
 		26,
 		y++,
 		NULL
 	);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringMessagingLabel),
 		26,
 		y++,
@@ -221,17 +223,17 @@ void StatefulActorsState::showExplanation()
 	);
 	y++;
 	Printing::text(
-		this->printing,
+		
 		I18n::getText(I18n::getInstance(), kStringMethodsSubtitle),
 		26,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(this->printing, "StatefulActorsState", 26, y++, NULL);
-	Printing::text(this->printing, "::propagateMessage", 26, y++, NULL);
-	Printing::text(this->printing, "Punk", 26, y++, NULL);
-	Printing::text(this->printing, "::collisionStarts", 26, y++, NULL);
-	Printing::text(this->printing, "::handlePropagatedMes\x85", 26, y++, NULL);
+	Printing::text("StatefulActorsState", 26, y++, NULL);
+	Printing::text("::propagateMessage", 26, y++, NULL);
+	Printing::text("Punk", 26, y++, NULL);
+	Printing::text("::collisionStarts", 26, y++, NULL);
+	Printing::text("::handlePropagatedMes\x85", 26, y++, NULL);
 	y++;
 }
 

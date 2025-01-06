@@ -50,13 +50,13 @@ void PongState::enter(void* owner)
 	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
 
 	// Set input to be notified about
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// Enable comms	
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 
 	// Make sure that the processing of user input is triggered regardless of real user input
-	KeypadManager::enableDummyKey(KeypadManager::getInstance());
+	KeypadManager::enableDummyKey();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -107,24 +107,24 @@ bool PongState::isVersusMode()
 
 void PongState::showControls()
 {
-	Printing::clearRow(this->printing, __SCREEN_HEIGHT_IN_CHARS - 1);
+	Printing::clearRow(__SCREEN_HEIGHT_IN_CHARS - 1);
 
 	if(this->isVersusMode)
 	{
-		Printing::text(this->printing, __CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
 		switch(Pong::getPlayerNumber(Pong::getInstance()))
 		{
 			case kPlayerOne:
 
-				Printing::text(this->printing, __CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printing::text(this->printing, __CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(__CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(__CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 				break;
 
 			case kPlayerTwo:
 
-				Printing::text(this->printing, __CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printing::text(this->printing, __CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+				Printing::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 				break;
 		}
 	}
@@ -140,32 +140,32 @@ void PongState::showStuff()
 void PongState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCommunicationsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringCommunicationsLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "CommunicationManager", 2, y++, NULL);
-	Printing::text(this->printing, "Pong*", 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text("CommunicationManager", 2, y++, NULL);
+	Printing::text("Pong*", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringCollisionsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMessagingLabel), 26, y++, NULL);
 
 	y = 19;
 
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(this->printing, "PongBallActorSpec", 26, y++, NULL);
-	Printing::text(this->printing, "PongPaddleActorSpec", 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
+	Printing::text("PongBallActorSpec", 26, y++, NULL);
+	Printing::text("PongPaddleActorSpec", 26, y++, NULL);
 
 	y = 19;
-	Printing::text(this->printing, I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(this->printing, "Pong", 2, y++, NULL);
-	Printing::text(this->printing, "::syncWithRemote", 2, y++, NULL);
-	Printing::text(this->printing, "::transmitData", 2, y++, NULL);
-	Printing::text(this->printing, "::processReceivedMessage", 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+	Printing::text("Pong", 2, y++, NULL);
+	Printing::text("::syncWithRemote", 2, y++, NULL);
+	Printing::text("::transmitData", 2, y++, NULL);
+	Printing::text("::processReceivedMessage", 2, y++, NULL);
 	y++;
 
 	PongState::showConnectivityStatus(this);
@@ -212,13 +212,13 @@ void PongState::destructor()
 
 void PongState::showConnectivityStatus()
 {
-	Printing::text(this->printing, "                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
+	Printing::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
 		const char* strConnected = I18n::getText(I18n::getInstance(), kStringConnected);
-		FontSize strConnectedTextSize = Printing::getTextSize(Printing::getInstance(), strConnected, "DefaultBold");
+		FontSize strConnectedTextSize = Printing::getTextSize(strConnected, "DefaultBold");
 		Printing::text(
-			this->printing, 
+			
 			strConnected, 
 			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strConnectedTextSize.x >> 1), 
 			__SCREEN_HEIGHT_IN_CHARS - 3, 
@@ -228,9 +228,9 @@ void PongState::showConnectivityStatus()
 	else	
 	{
 		const char* strNoLink = I18n::getText(I18n::getInstance(), kStringNoLink);
-		FontSize strNoLinkTextSize = Printing::getTextSize(Printing::getInstance(), strNoLink, "DefaultBold");
+		FontSize strNoLinkTextSize = Printing::getTextSize(strNoLink, "DefaultBold");
 		Printing::text(
-			this->printing, 
+			
 			strNoLink, 
 			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strNoLinkTextSize.x >> 1), 
 			__SCREEN_HEIGHT_IN_CHARS - 3, 

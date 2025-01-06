@@ -85,7 +85,7 @@ void PunkDie::enter(void* owner)
 	 * or will become corrupt.
 	 */
 	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -108,7 +108,7 @@ void PunkDie::exit(void* owner)
 
 	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 
-	Printing::text(Printing::getInstance(), "                        ", 18, 19, NULL);
+	Printing::text("                        ", 18, 19, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -121,7 +121,7 @@ void PunkDie::exit(void* owner)
 
 void PunkDie::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
 {
-	Printing::text(Printing::getInstance(), I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

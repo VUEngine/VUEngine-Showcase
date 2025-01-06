@@ -47,7 +47,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	FontSize strPauseSize = Printing::getTextSize
 	(
-		Printing::getInstance(),
+		
 		strTitle,
 		"Default"
 	);
@@ -56,7 +56,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	
 	Printing::text
 	(
-		Printing::getInstance(),
+		
 		strTitle,
 		strHeaderXPos,
 		12,
@@ -70,9 +70,9 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	GameState::startClocks(this);
 
 	// Fade in screen
-	Camera::startEffect(Camera::getInstance(), kHide);
+	Camera::startEffect(kHide);
 	
-	Camera::startEffect(Camera::getInstance(),
+	Camera::startEffect(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -100,7 +100,7 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 
 		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
-		Camera::startEffect(Camera::getInstance(),
+		Camera::startEffect(
 			kFadeTo, // effect type
 			0, // initial delay (in ms)
 			&brightness, // target brightness
