@@ -174,8 +174,8 @@ void WireframesState::showExplanation()
 void WireframesState::showAdditionalDetails()
 {
 
-	WireframeManager::print(WireframeManager::getInstance(), 1, 3);
-	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
+	WireframeManager::print(1, 3);
+	DirectDraw::print(1, 9);
 	Camera::print(31, 3, false);
 }
 

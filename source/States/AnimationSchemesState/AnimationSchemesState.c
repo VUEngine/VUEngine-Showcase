@@ -398,8 +398,8 @@ void AnimationSchemesState::removeSprites()
 	 * care of this when swapping states. We do it here becuase BGMAP memory cannot be 
 	 * defragmented and loading non shared textures would quickly deplete it.
 	 */ 
-	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
-	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
+	BgmapTextureManager::reset();
+	BgmapTextureManager::clearBgmapSegment(0);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -417,7 +417,7 @@ void AnimationSchemesState::showCharMemory()
 
 void AnimationSchemesState::showBgmapMemory()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment();
 	int32 topBorder = 20;
 	int32 bottomBorder = 1;
 	int32 leftBorder = kAnimationsMultiframeTexture != this->animationScheme ? 28 : 1;
@@ -445,7 +445,7 @@ void AnimationSchemesState::showBgmapMemory()
 
 void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment();
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
@@ -499,7 +499,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 
 void AnimationSchemesState::showCharMemoryForSharedTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment();
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
@@ -551,7 +551,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
+	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment();
 	int32 topBorder = 11;
 	int32 leftBorder = 1;
 
