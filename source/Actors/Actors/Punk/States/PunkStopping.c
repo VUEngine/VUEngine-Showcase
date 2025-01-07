@@ -78,7 +78,6 @@ bool PunkStopping::handleMessage(Telegram telegram)
 	switch(Telegram::getMessage(telegram))
 	{
 		case kMessageCollisionsStateHoldLeft:
-			
 		case kMessageCollisionsStateHoldRight:
 
 			PunkStopping::walk(this);
