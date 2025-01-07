@@ -150,7 +150,7 @@ void ActorsState::showAdditionalDetails()
 	Printing::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kWireframeComponent), 15, y++, NULL);
 
 	Printing::text("Colliders:  ", 2, ++y, NULL);
-	Printing::int32(ColliderManager::getCount(VUEngine::getColliderManager(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(ComponentManager::getCount(Entity::safeCast(this->leaderPunk), kColliderComponent), 15, y++, NULL);
 
 	y = 5;
 	Printing::text("Position", 22, y, NULL);
