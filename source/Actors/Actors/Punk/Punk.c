@@ -105,7 +105,7 @@ void Punk::ready(bool recursive)
 
 void Punk::freeze()
 {
-	Punk::pauseAnimation(this, true);
+	Punk::stopAnimation(this);
 	Punk::setActualFrame(this, 0);
 
 	Punk::mutateTo(this, PunkFrozen::getClass());
