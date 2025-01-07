@@ -361,7 +361,39 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	__WORLD_AFFINE,
+	__WORLD_BGMAP,
+
+	// Pointer to affine/hbias manipulation function
+	NULL,
+
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkAffineSpriteSpec =
+{
+	{
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
+
+		// Spec for the texture to display
+		(TextureSpec*)&PunkTextureSpec,
+
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// Displacement added to the sprite's position
+		{0, 0, 2, 0},
+	},
+
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+		__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
 	NULL,
@@ -467,6 +499,38 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 };
 
 BgmapSpriteROMSpec PunkBlackSpriteSpec =
+{
+	{
+		// Component
+		{
+			// Allocator
+			__TYPE(BgmapAnimatedSprite),
+
+			// Component type
+			kSpriteComponent
+		},
+
+		// Spec for the texture to display
+		(TextureSpec*)&PunkBlackTextureSpec,
+
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// Displacement added to the sprite's position
+		{0, 0, 3, 0},
+	},
+
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	__WORLD_BGMAP,
+
+	// Pointer to affine/hbias manipulation function
+	NULL,
+
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+};
+
+BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 {
 	{
 		// Component
@@ -662,7 +726,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 	__WORLD_ON,
 };
 
-ColliderROMSpec PunkColliderSpec =
+ColliderROMSpec PunkControllablelActorColliderSpec =
 {
 	// Component
 	{
@@ -695,7 +759,42 @@ ColliderROMSpec PunkColliderSpec =
 	~(kLayerSolid | kLayerDangers),
 };
 
-BodyROMSpec PunkBodySpec =
+ComponentSpec* const PunkActorComponentSpecs[] = 
+{
+	(ComponentSpec*)&PunkAffineSpriteSpec,
+	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
+	NULL
+};
+
+ActorROMSpec PunkActorSpec =
+{
+	// Class allocator
+	__TYPE(Actor),
+
+	// Component specs
+	(ComponentSpec**)PunkActorComponentSpecs,
+
+	// Children specs
+	NULL,
+
+	// Extra info
+	NULL,
+
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
+
+	// Actor's in-game type
+	kTypeNone,
+
+	// Pointer to animation functions array
+	(const AnimationFunction**)&PunkAnimationSpecs,
+
+	// Animation to play automatically
+	"Move"
+};
+
+BodyROMSpec PunkControllablelActorBodySpec =
 {
 	// Component
 	{
@@ -731,30 +830,30 @@ BodyROMSpec PunkBodySpec =
 	__NO_AXIS
 };
 
-ComponentSpec* const PunkActorComponentSpecs[] = 
+ComponentSpec* const PunkControllablelActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
-	(ComponentSpec*)&PunkBodySpec,
-	(ComponentSpec*)&PunkColliderSpec,
+	(ComponentSpec*)&PunkControllablelActorBodySpec,
+	(ComponentSpec*)&PunkControllablelActorColliderSpec,
 	NULL
 };
 
-ComponentSpec* const PunkActorDyingComponentSpecs[] = 
+ComponentSpec* const PunkControllablelActorDyingComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkDyingSpriteSpec,
 	(ComponentSpec*)&PunkDyingBlackSpriteSpec,
 	NULL
 };
 
-PunkROMSpec PunkActorSpec =
+PunkROMSpec PunkControllablelActorSpec =
 {
 	{
 		// Class allocator
 		__TYPE(Punk),
 
 		// Component specs
-		(ComponentSpec**)PunkActorComponentSpecs,
+		(ComponentSpec**)PunkControllablelActorComponentSpecs,
 
 		// Children specs
 		NULL,
@@ -773,6 +872,6 @@ PunkROMSpec PunkActorSpec =
 		(const AnimationFunction**)&PunkAnimationSpecs,
 
 		// Animation to play automatically
-		"Move"
+		NULL
 	}
 };

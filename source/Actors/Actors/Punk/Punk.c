@@ -140,9 +140,9 @@ void Punk::die()
 	/*
 	 * Replace the sprites for the dying sprites
 	 */
-	extern SpriteSpec* PunkActorDyingComponentSpecs[];
+	extern SpriteSpec* PunkControllablelActorDyingComponentSpecs[];
 	Punk::removeComponents(this, kSpriteComponent);
-	Punk::addComponents(this, (ComponentSpec**)PunkActorDyingComponentSpecs, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkControllablelActorDyingComponentSpecs, kSpriteComponent);
 
 	Punk::playAnimation(this, "Die");
 
@@ -177,9 +177,9 @@ void Punk::resuscitate()
 	/*
 	 * Restore the normal sprites
 	 */
-	extern ComponentSpec* PunkActorComponentSpecs[];
+	extern ComponentSpec* PunkControllablelActorComponentSpecs[];
 	Punk::removeComponents(this, kSpriteComponent);
-	Punk::addComponents(this, (ComponentSpec**)PunkActorComponentSpecs, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkControllablelActorComponentSpecs, kSpriteComponent);
 
 	Printing::unregisterEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
 

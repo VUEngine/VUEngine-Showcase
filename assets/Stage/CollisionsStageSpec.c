@@ -25,7 +25,7 @@
 
 extern ActorSpec BoxActorSpec;
 extern ActorSpec CogWheelActorSpec;
-extern ActorSpec PunkActorSpec;
+extern ActorSpec PunkControllablelActorSpec;
 extern ActorSpec LowPowerIndicatorActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -34,8 +34,8 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 
 PositionedActorROMSpec CollisionsStageActorsSpecs[] =
 {
-	{&PunkActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&BoxActorSpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&PunkControllablelActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&BoxActorSpec, {150, 67, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&CogWheelActorSpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
