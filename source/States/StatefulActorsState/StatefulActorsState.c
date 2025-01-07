@@ -41,9 +41,8 @@ void StatefulActorsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten.
 	 */
-	Printing::addEventListener
+	Printing::registerEventListener
 	(
-		Printing::getInstance(),
 		ListenerObject::safeCast(this),
 		(EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
@@ -71,11 +70,9 @@ void StatefulActorsState::execute(void* owner __attribute__((unused)))
 
 void StatefulActorsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::removeEventListener
+	Printing::unregisterEventListener
 	(
-		Printing::getInstance(),
-		ListenerObject::safeCast(this),
-		(EventListener)StatefulActorsState::onFontCharSetRewritten,
+		ListenerObject::safeCast(this), (EventListener)StatefulActorsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 

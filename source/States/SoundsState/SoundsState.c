@@ -52,10 +52,9 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	/*
 	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	 */
-	VUEngine::addEventListener
+	VUEngine::registerEventListener
 	(
-		VUEngine::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
+		ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
 	);
 }
 
@@ -72,10 +71,9 @@ void SoundsState::execute(void* owner __attribute__ ((unused)))
 
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
-	VUEngine::removeEventListener
+	VUEngine::unregisterEventListener
 	(
-		VUEngine::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
+		ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
 	);
 
 	SoundsState::releaseSound(this);

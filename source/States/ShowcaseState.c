@@ -96,8 +96,10 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	VUEngine::enableKeypad();
 
 	// Printing the framerate
-	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), 
-		(EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
+	FrameRate::registerEventListener
+	(
+		ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
+	);
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
@@ -118,7 +120,10 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
  */
 void ShowcaseState::exit(void* owner __attribute__((unused)))
 {
-	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady);
+	FrameRate::unregisterEventListener
+	(
+		ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
+	);
 
 	Base::exit(this, owner);
 

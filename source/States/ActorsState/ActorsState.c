@@ -14,13 +14,13 @@
 #include <string.h>
 
 #include <Actor.h>
+#include <ComponentManager.h>
 #include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
 #include <VirtualList.h>
 #include <VUEngine.h>
-#include <WireframeManager.h>
 
 #include "ActorsState.h"
 
@@ -144,10 +144,10 @@ void ActorsState::showAdditionalDetails()
 	Printing::int32(Actor::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
 	Printing::text("Sprites:       ", 2, ++y, NULL);
-	Printing::int32(SpriteManager::getCount(SpriteManager::getInstance(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kSpriteComponent), 15, y++, NULL);
 
 	Printing::text("Wireframes:  ", 2, ++y, NULL);
-	Printing::int32(WireframeManager::getCount(WireframeManager::getInstance(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);
+	Printing::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kWireframeComponent), 15, y++, NULL);
 
 	Printing::text("Colliders:  ", 2, ++y, NULL);
 	Printing::int32(ColliderManager::getCount(VUEngine::getColliderManager(), Entity::safeCast(this->leaderPunk)), 15, y++, NULL);

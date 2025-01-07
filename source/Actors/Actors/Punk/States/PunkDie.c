@@ -84,7 +84,7 @@ void PunkDie::enter(void* owner)
 	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::registerEventListener(ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 
@@ -106,7 +106,7 @@ void PunkDie::exit(void* owner)
 	Punk::removeComponents(punk, kSpriteComponent);
 	Punk::addComponents(punk, (ComponentSpec**)PunkStatefulActorComponentSpecs, kSpriteComponent);
 
-	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::unregisterEventListener(ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
 
 	Printing::text("                        ", 18, 19, NULL);
 }
