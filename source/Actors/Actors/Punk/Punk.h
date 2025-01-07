@@ -49,17 +49,6 @@ class Punk : StatefulActor
 	/// @param name: Name to assign to the new instance
 	void constructor(PunkSpec* punkSpec, int16 internalId, const char* const name);
 
-	/// Process a Telegram.
-	/// @param telegram: Telegram to process
-	/// @return True if the Telegram was processed
-	override bool handleMessage(Telegram telegram);
-
-	/// Process a newly detected collision by one of the component colliders.
-	/// @param collisionInformation: Information struct about the collision to resolve
-	/// @return True if the collider must keep track of the collision to detect if it persists and when it
-	/// ends; false otherwise
-	override bool collisionStarts(const CollisionInformation* collisionInformation);
-
 	/// Default interger message handler for propagateMessage
 	/// @param message: Propagated integer message
 	/// @return True if the propagation must stop; false if the propagation must reach other containers
@@ -74,6 +63,15 @@ class Punk : StatefulActor
 
 	/// Make the punk walk.
 	void walk();
+
+	/// Make the punk stop.
+	void stop();
+
+	/// Make the punk to die.
+	void die();
+
+	/// Resucitate the punk.
+	void resuscitate();
 
 	/// Callback for die animation when completed.
 	/// @param eventFirer: Animation controller

@@ -11,11 +11,12 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <StatefulActorsState.h>
 #include <Body.h>
+#include <InGameTypes.h>
 #include <Messages.h>
-#include <Punk.h>
+#include <Printing.h>
 #include <Telegram.h>
+#include <CollisionsState.h>
 
 #include "PunkWalking.h"
 
@@ -25,69 +26,77 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkWalking::constructor()
+bool PunkWalking::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	// Always explicitly call the base's constructor 
-	Base::constructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PunkWalking::destructor()
-{
-	// Always explicitly call the base's destructor 
-	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PunkWalking::enter(void* owner)
-{
-	PunkWalking::restoreMethods();
-
-	Punk punk = Punk::safeCast(owner);
-
-	if(isDeleted(punk))
-	{
-		return;
-	}
-
-	Punk::playAnimation(punk, "Move");
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool PunkWalking::processMessage(void* owner, Telegram telegram)
-{
-	Punk punk = Punk::safeCast(owner);
-
-	if(isDeleted(punk) || isDeleted(Punk::getBody(punk)))
+	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
 	{
 		return false;
 	}
-	
+
+	Collider otherCollider = collisionInformation->otherCollider;
+	Entity collidingEntity = Collider::getOwner(otherCollider);
+
+	if(isDeleted(collidingEntity))
+	{
+		return false;
+	}
+
+	uint32 collidingEntityInGameType = Entity::getInGameType(collidingEntity);
+
+	switch(collidingEntityInGameType)
+	{
+		case kTypeSolidObject:
+
+			PunkWalking::freeze(this);
+
+			/*
+			 * The StatefulActor class can resolve collisions against solid objects by itself
+			 */
+			return Base::collisionStarts(this, collisionInformation);
+			break;
+
+		case kTypeCogWheel:
+
+			/*
+			* Disable collision checks so this doesn't fire multiple times. 
+			* They are enabled by the StatefulActor when starting to move.
+			*/
+			PunkWalking::checkCollisions(this, false);
+
+			PunkWalking::die(this);
+			return true;
+			break;
+	}
+
+	return false;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+bool PunkWalking::handleMessage(Telegram telegram)
+{
 	Vector3D force = Vector3D::zero();
 
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageStatefulActorsStateReleasedLeft:
-		case kMessageStatefulActorsStateReleasedRight:
+		case kMessageCollisionsStateReleasedLeft:
+		case kMessageCollisionsStateReleasedRight:
 
 			/*
 			 * Start to check if the punk stopped only when there is no input.
 			 */
-			PunkWalking::mutateMethod(execute, PunkWalking::executeCheckIfMoving);
+			PunkWalking::stop(this);
 			return true;
 			break;
 
-		case kMessageStatefulActorsStateHoldLeft:
+		case kMessageCollisionsStateHoldLeft:
 			
-			force.x = -(Body::getMass(Punk::getBody(punk)) << 1);
+			force.x = -(Body::getMass(PunkWalking::getBody(this)) << 1);
 			break;
 
-		case kMessageStatefulActorsStateHoldRight:
+		case kMessageCollisionsStateHoldRight:
 
-			force.x = Body::getMass(Punk::getBody(punk)) << 1;
+			force.x = Body::getMass(PunkWalking::getBody(this)) << 1;
 			break;
 	}
 
@@ -96,14 +105,9 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 		return false;
 	}
 
-	Punk::applyForce(punk, &force, true);
+	PunkWalking::applyForce(this, &force, true);
 
-	/*
-	 * Don't check if not moving while there is a force applied to the punk.
-	 */
-	PunkWalking::restoreMethods();
-
-	return true;
+	return Base::handleMessage(this, telegram);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -114,19 +118,10 @@ bool PunkWalking::processMessage(void* owner, Telegram telegram)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkWalking::executeCheckIfMoving(void* owner __attribute__ ((unused)))
+void PunkWalking::destructor()
 {
-	Punk punk = Punk::safeCast(owner);
-
-	if(isDeleted(punk))
-	{
-		return;
-	}
-
-	if(!Punk::isMoving(punk))
-	{
-		Punk::freeze(punk);
-	}
+	// Always explicitly call the base's destructor 
+	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

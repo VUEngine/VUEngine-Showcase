@@ -21,7 +21,7 @@
 #include <Printing.h>
 #include <VirtualList.h>
 
-#include "StatefulActorsState.h"
+#include "CollisionsState.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -29,12 +29,12 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::enter(void* owner __attribute__((unused)))
+void CollisionsState::enter(void* owner __attribute__((unused)))
 {
 	Base::enter(this, owner);
 
 	// Start animations, physics and messaging clocks
-	StatefulActorsState::startClocks(this);
+	CollisionsState::startClocks(this);
 
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
@@ -44,7 +44,7 @@ void StatefulActorsState::enter(void* owner __attribute__((unused)))
 	Printing::registerEventListener
 	(
 		ListenerObject::safeCast(this),
-		(EventListener)StatefulActorsState::onFontCharSetRewritten,
+		(EventListener)CollisionsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 
@@ -56,23 +56,23 @@ void StatefulActorsState::enter(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::execute(void* owner __attribute__((unused)))
+void CollisionsState::execute(void* owner __attribute__((unused)))
 {
 	Base::execute(this, owner);
 
 	if(this->showAdditionalDetails)
 	{
-		StatefulActorsState::showAdditionalDetails(this);
+		CollisionsState::showAdditionalDetails(this);
 	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::exit(void* owner __attribute__((unused)))
+void CollisionsState::exit(void* owner __attribute__((unused)))
 {
 	Printing::unregisterEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)StatefulActorsState::onFontCharSetRewritten,
+		ListenerObject::safeCast(this), (EventListener)CollisionsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 
@@ -81,29 +81,29 @@ void StatefulActorsState::exit(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::processUserInput(const UserInput* userInput)
+void CollisionsState::processUserInput(const UserInput* userInput)
 {
-	StatefulActorsState::playSoundEffects(this, userInput, false);
-	int32 message = kMessageStatefulActorsStateNoMessage;
+	CollisionsState::playSoundEffects(this, userInput, false);
+	int32 message = kMessageCollisionsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)
 	{
-		message = kMessageStatefulActorsStateHoldLeft;
+		message = kMessageCollisionsStateHoldLeft;
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
-		message = kMessageStatefulActorsStateReleasedLeft;
+		message = kMessageCollisionsStateReleasedLeft;
 	}
 	else if(K_LR & userInput->holdKey)
 	{
-		message = kMessageStatefulActorsStateHoldRight;
+		message = kMessageCollisionsStateHoldRight;
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		message = kMessageStatefulActorsStateReleasedRight;
+		message = kMessageCollisionsStateReleasedRight;
 	}
 
-	if(kMessageStatefulActorsStateNoMessage != message)
+	if(kMessageCollisionsStateNoMessage != message)
 	{
 		/*
 		 * Passing input to actors in this way, while elegant,
@@ -112,7 +112,7 @@ void StatefulActorsState::processUserInput(const UserInput* userInput)
 		 * an specific method that its class implements would be
 		 * way faster.
 		 */
-		StatefulActorsState::propagateMessage(this, message);
+		CollisionsState::propagateMessage(this, message);
 	}
 
 	Base::processUserInput(this, userInput);
@@ -120,7 +120,7 @@ void StatefulActorsState::processUserInput(const UserInput* userInput)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::showControls()
+void CollisionsState::showControls()
 {
 	Printing::text(
 		
@@ -147,98 +147,114 @@ void StatefulActorsState::showControls()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::showStuff()
+void CollisionsState::showStuff()
 {
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::showExplanation()
+void CollisionsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(
-		
+
+	Printing::text
+	(
 		I18n::getText(I18n::getInstance(), kStringConceptsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
+	
 	Printing::text(I18n::getText(I18n::getInstance(), kStringStatefulActorsLabel), 2, y++, NULL);
 	Printing::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
-	Printing::text(
-		
+	
+	Printing::text
+	(	
 		I18n::getText(I18n::getInstance(), kStringStateMachinesLabel),
 		2,
 		y++,
 		NULL
 	);
+	
 	y++;
-	Printing::text(
-		
+	
+	Printing::text
+	(
 		I18n::getText(I18n::getInstance(), kStringClassesSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
+
 	Printing::text("StatefulActor", 2, y++, NULL);
 	Printing::text("MessageDispatcher*", 2, y++, NULL);
 	Printing::text("Punk", 2, y++, NULL);
 	Printing::text("PunkState*", 2, y++, NULL);
 
 	y++;
-	Printing::text(
-		
+	
+	Printing::text
+	(
 		I18n::getText(I18n::getInstance(), kStringSpecsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
+
 	Printing::text("PunkStatefulActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(
-		
+
+	Printing::text
+	(	
 		I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle),
 		26,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text(
-		
+	
+	Printing::text
+	(	
 		I18n::getText(I18n::getInstance(), kStringCollisionsLabel),
 		26,
 		y++,
 		NULL
 	);
+	
 	Printing::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
-	Printing::text(
-		
+	
+	Printing::text
+	(	
 		I18n::getText(I18n::getInstance(), kStringMessagingLabel),
 		26,
 		y++,
 		NULL
 	);
+
 	y++;
-	Printing::text(
-		
+
+	Printing::text
+	(	
 		I18n::getText(I18n::getInstance(), kStringMethodsSubtitle),
 		26,
 		y++,
 		"DefaultBold"
 	);
-	Printing::text("StatefulActorsState", 26, y++, NULL);
+	
+	Printing::text("CollisionsState", 26, y++, NULL);
 	Printing::text("::propagateMessage", 26, y++, NULL);
 	Printing::text("Punk", 26, y++, NULL);
 	Printing::text("::collisionStarts", 26, y++, NULL);
 	Printing::text("::handlePropagatedMes\x85", 26, y++, NULL);
+	
 	y++;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::showAdditionalDetails()
+void CollisionsState::showAdditionalDetails()
 {
-	StatefulActorsState::propagateMessage(this, kMessageStatefulActorsStatePrintStatefulActorStatus);
+	CollisionsState::propagateMessage(this, kMessageCollisionsStatePrintStatefulActorStatus);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -249,7 +265,7 @@ void StatefulActorsState::showAdditionalDetails()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::constructor()
+void CollisionsState::constructor()
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor();
@@ -263,7 +279,7 @@ void StatefulActorsState::constructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::destructor()
+void CollisionsState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -271,9 +287,9 @@ void StatefulActorsState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void StatefulActorsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+void CollisionsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
 {
-	StatefulActorsState::show(this, false);
+	CollisionsState::show(this, false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

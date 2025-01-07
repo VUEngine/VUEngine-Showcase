@@ -11,17 +11,23 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <StatefulActorsState.h>
+#include <CollisionsState.h>
 #include <Body.h>
+#include <I18n.h>
 #include <InGameTypes.h>
+#include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
-#include <PunkDie.h>
+#include <PunkDeath.h>
 #include <PunkFrozen.h>
+#include <PunkStopping.h>
 #include <PunkWalking.h>
-#include <Telegram.h>
+#include <RumbleEffects.h>
+#include <RumbleManager.h>
 #include <ShowcaseState.h>
+#include <Sounds.h>
 #include <StateMachine.h>
+#include <Telegram.h>
 
 #include "Punk.h"
 
@@ -48,94 +54,27 @@ void Punk::destructor()
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Messaging serves the purpose of communicating classes decoupling their interfaces
- * (ie; not having to implement specific methods). These messages can be delayed too.
-*/
-bool Punk::handleMessage(Telegram telegram)
-{
-	switch(Telegram::getMessage(telegram))
-	{
-		case kMessageStatefulActorsStateResuscitate:
-
-			Punk::resuscitate(this);
-			return true;
-			break;
-	}
-
-	return Base::handleMessage(this, telegram);	
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool Punk::collisionStarts(const CollisionInformation* collisionInformation)
-{
-	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
-	{
-		return false;
-	}
-
-	Collider otherCollider = collisionInformation->otherCollider;
-	Entity collidingEntity = Collider::getOwner(otherCollider);
-
-	if(isDeleted(collidingEntity))
-	{
-		return false;
-	}
-
-	uint32 collidingEntityInGameType = Entity::getInGameType(collidingEntity);
-
-	switch(collidingEntityInGameType)
-	{
-		case kTypeSolidObject:
-
-			Punk::freeze(this);
-
-			/*
-			 * The StatefulActor class can resolve collisions against solid objects by itself
-			 */
-			return Base::collisionStarts(this, collisionInformation);
-			break;
-
-		case kTypeCogWheel:
-
-			/*
-			* Disable collision checks so this doesn't fire multiple times. 
-			* They are enabled by the StatefulActor when starting to move.
-			*/
-			Punk::checkCollisions(this, false);
-
-			Punk::die(this);
-			return true;
-			break;
-	}
-
-	return false;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-/*
  * Returning true stops the propagation
  */
 bool Punk::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kMessageStatefulActorsStateHoldLeft:
-		case kMessageStatefulActorsStateHoldRight:
-		case kMessageStatefulActorsStateReleasedLeft:
-		case kMessageStatefulActorsStateReleasedRight:
+		case kMessageCollisionsStateHoldLeft:
+		case kMessageCollisionsStateHoldRight:
+		case kMessageCollisionsStateReleasedLeft:
+		case kMessageCollisionsStateReleasedRight:
 
 			/*
 			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
 			 * more elegant than calling directly a specific method in the current state, and this showcases
 			 * how to send messages to the current state in the state machine
 			 */ 
-			MessageDispatcher::dispatchMessage(0, ListenerObject::safeCast(this), ListenerObject::safeCast(this), message, NULL);
+			Punk::sendMessageToSelf(this, message, 0, 0);
 			return true;
 			break;
 
-		case kMessageStatefulActorsStatePrintStatefulActorStatus:
+		case kMessageCollisionsStatePrintStatefulActorStatus:
 
 			if(!isDeleted(this->body))
 			{
@@ -157,8 +96,6 @@ void Punk::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
-	this->stateMachine = new StateMachine(this);
-
 	Punk::freeze(this);
 }
 
@@ -166,33 +103,92 @@ void Punk::ready(bool recursive)
 
 void Punk::freeze()
 {
-	StateMachine::swapState(this->stateMachine, State::safeCast(PunkFrozen::getInstance()));	
+	Punk::pauseAnimation(this, true);
+	Punk::setActualFrame(this, 0);
+
+	Punk::mutateTo(this, Punk::getClass());
+	Punk::mutateTo(this, PunkFrozen::getClass());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void Punk::walk()
 {
-	StateMachine::swapState(this->stateMachine, State::safeCast(PunkWalking::getInstance()));	
+	Punk::playAnimation(this, "Move");
+
+	/*
+	* Disable collision checks so this doesn't fire multiple times. 
+	* They are enabled by the StatefulActor when starting to move.
+	*/
+	PunkWalking::checkCollisions(this, true);
+
+	Punk::mutateTo(this, Punk::getClass());
+	Punk::mutateTo(this, PunkWalking::getClass());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+void Punk::stop()
+{
+	Punk::mutateTo(this, Punk::getClass());
+	Punk::mutateTo(this, PunkStopping::getClass());
+}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void Punk::die()
 {
-	StateMachine::swapState(this->stateMachine, State::safeCast(PunkDie::getInstance()));	
+	Punk::stopAllMovement(this);
+
+	/*
+	 * Replace the sprites for the dying sprites
+	 */
+	extern SpriteSpec* PunkStatefulActorDyingComponentSpecs[];
+	Punk::removeComponents(this, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkStatefulActorDyingComponentSpecs, kSpriteComponent);
+
+	Punk::playAnimation(this, "Die");
+
+	RumbleManager::startEffect(&KilledRumbleEffectSpec);
+
+	SoundManager::playSound
+	(
+		
+		&Killed1SoundSpec, 
+		NULL, 
+		kSoundPlaybackNormal,
+		NULL, 
+		NULL
+	);
+
+	/*
+	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
+	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
+	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
+	 * or will become corrupt.
+	 */
+	Printing::registerEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+
+	Punk::mutateTo(this, Punk::getClass());
+	Punk::mutateTo(this, PunkDeath::getClass());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void Punk::resuscitate()
 {
+	/*
+	 * Restore the normal sprites
+	 */
+	extern ComponentSpec* PunkStatefulActorComponentSpecs[];
+	Punk::removeComponents(this, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkStatefulActorComponentSpecs, kSpriteComponent);
+
+	Printing::unregisterEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
+
+	Printing::text("                        ", 18, 19, NULL);
+
 	Vector3D position = Vector3D::getFromPixelVector((PixelVector){0, 64, 0, 0});
 	Punk::setLocalPosition(this, &position);
 
@@ -204,8 +200,21 @@ void Punk::resuscitate()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' PRIVATE METHODS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void Punk::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+{
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 /*
- * This is an EventListener added by the engine because the PunkDieAnimation
+ * This is an EventListener added by the engine because the PunkDeathAnimation
  * defines it as the callback for when its playback finishes.
  */
 bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
@@ -213,7 +222,7 @@ bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unuse
 	/*
 	 * Restore myself after 1 second
 	 */
-	Punk::sendMessageToSelf(this, kMessageStatefulActorsStateResuscitate, 1000, 0);
+	Punk::sendMessageToSelf(this, kMessageCollisionsStateResuscitate, 1000, 0);
 
 	return true;
 }

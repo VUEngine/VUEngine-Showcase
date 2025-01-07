@@ -5,25 +5,25 @@
 #ifndef MESSAGES_H_
 #define MESSAGES_H_
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Constants.h>
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 enum Messages
 {
-	kMessageStatefulActorsStateHoldLeft = kMessageLastEngine + 1,
-	kMessageStatefulActorsStateHoldRight,
-	kMessageStatefulActorsStateNoMessage,
-	kMessageStatefulActorsStatePrintStatefulActorStatus,
-	kMessageStatefulActorsStateReleasedLeft,
-	kMessageStatefulActorsStateReleasedRight,
-	kMessageStatefulActorsStateResuscitate,
+	kMessageCollisionsStateHoldLeft = kMessageLastEngine + 1,
+	kMessageCollisionsStateHoldRight,
+	kMessageCollisionsStateNoMessage,
+	kMessageCollisionsStatePrintStatefulActorStatus,
+	kMessageCollisionsStateReleasedLeft,
+	kMessageCollisionsStateReleasedRight,
+	kMessageCollisionsStateResuscitate,
 	kMessagePongBallStartMoving,
 	kMessagePongDummy,
 	kMessagePongGoodBye,

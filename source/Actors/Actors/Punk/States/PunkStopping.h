@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef PUNK_WALKING_H_
-#define PUNK_WALKING_H_
+#ifndef PUNK_STOPPING_H_
+#define PUNK_STOPPING_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
@@ -25,7 +25,7 @@
 /// Inherits from Punk
 ///
 /// Controls the logic for the Punk when it walks.
-abstract class PunkWalking : Punk
+abstract class PunkStopping : Punk
 {
 	/// Process a newly detected collision by one of the component colliders.
 	/// @param collisionInformation: Information struct about the collision to resolve
@@ -37,6 +37,9 @@ abstract class PunkWalking : Punk
 	/// @param telegram: Received telegram to process
 	/// @return True if the telegram was processed
 	override bool handleMessage(Telegram telegram);
+
+	/// Update this instance's logic.
+	override void update();
 }
 
 #endif

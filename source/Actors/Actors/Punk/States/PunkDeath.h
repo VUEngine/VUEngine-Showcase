@@ -7,57 +7,30 @@
  * that was distributed with this source code.
  */
 
-#ifndef STATEFUL_ACTORS_STATE_H_
-#define STATEFUL_ACTORS_STATE_H_
+#ifndef PUNK_DIE_H_
+#define PUNK_DIE_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <ShowcaseState.h>
+#include <Punk.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class AnimationSchemesState
+/// Class PunkDeath
 ///
-/// Inherits from ShowcaseState
+/// Inherits from Punk
 ///
-/// Implements a game state to showcase how statefulActor's body and state machine work.
-dynamic_singleton class StatefulActorsState : ShowcaseState
+/// Controls the logic for the Punk when it dies.
+abstract class PunkDeath : Punk
 {
-	/// Method to retrieve the singleton instance
-	/// @return AnimationSchemesState singleton
-	static StatefulActorsState getInstance();
-
-	/// Prepares the object to enter this state.
-	/// @param owner: Object that is entering in this state
-	override void enter(void* owner);
-
-	/// Updates the object in this state.
-	/// @param owner: Object that is in this state
-	override void execute(void* owner);
-
-	/// Prepares the object to exit this state.
-	/// @param owner: Object that is exiting this state
-	override void exit(void* owner);
-
-	/// Process the provided user input.
-	/// @param userInput: Struct with the current user input information
-	override void processUserInput(const UserInput* userInput);
-
-	/// Show the state's controls.
-	override void showControls();
-
-	/// Show the state's revelant stuff.
-	override void showStuff();
-
-	/// Show the state's explanation.
-	override void showExplanation();
-
-	/// Show the state's additional details.
-	override void showAdditionalDetails();
+	/// Receive and process a Telegram.
+	/// @param telegram: Received telegram to process
+	/// @return True if the telegram was processed
+	override bool handleMessage(Telegram telegram);
 }
 
 #endif

@@ -58,7 +58,7 @@ AnimationFunctionROMSpec PunkMoveAnimationSpec =
 	"Move",
 };
 
-AnimationFunctionROMSpec PunkDieAnimationSpec =
+AnimationFunctionROMSpec PunkDeathAnimationSpec =
 {
 	// Number of frames that the texture supports of this animation function
 	11,
@@ -84,7 +84,7 @@ AnimationFunctionROMSpec PunkDieAnimationSpec =
 AnimationFunctionROMSpec* PunkAnimationSpecs[] =
 {
 	(AnimationFunctionROMSpec*)&PunkMoveAnimationSpec,
-	(AnimationFunctionROMSpec*)&PunkDieAnimationSpec,
+	(AnimationFunctionROMSpec*)&PunkDeathAnimationSpec,
 	NULL,
 };
 

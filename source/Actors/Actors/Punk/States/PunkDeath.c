@@ -11,11 +11,10 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <CollisionsState.h>
 #include <Messages.h>
 #include <Telegram.h>
 
-#include "PunkFrozen.h"
+#include "PunkDeath.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -23,18 +22,18 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PunkFrozen::handleMessage(Telegram telegram)
+bool PunkDeath::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageCollisionsStateHoldLeft:
-		case kMessageCollisionsStateHoldRight:
+		case kMessageCollisionsStateResuscitate:
 
-			PunkFrozen::walk(this);
+			Punk::resuscitate(this);
 			return true;
+			break;
 	}
 
-	return true;
+	return Base::handleMessage(this, telegram);	
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -45,11 +44,10 @@ bool PunkFrozen::handleMessage(Telegram telegram)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkFrozen::destructor()
+void PunkDeath::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-

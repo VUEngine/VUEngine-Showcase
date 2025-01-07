@@ -11,18 +11,14 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <StatefulActorsState.h>
-#include <I18n.h>
-#include <Languages.h>
+#include <Body.h>
+#include <InGameTypes.h>
+#include <Messages.h>
 #include <Printing.h>
-#include <Punk.h>
-#include <RumbleEffects.h>
-#include <RumbleManager.h>
-#include <Sounds.h>
-#include <Sprite.h>
-#include <SoundManager.h>
+#include <Telegram.h>
+#include <CollisionsState.h>
 
-#include "PunkDie.h"
+#include "PunkStopping.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -30,85 +26,77 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkDie::constructor()
+bool PunkStopping::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	// Always explicitly call the base's constructor 
-	Base::constructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PunkDie::destructor()
-{
-	// Always explicitly call the base's destructor 
-	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PunkDie::enter(void* owner)
-{
-	Punk punk = Punk::safeCast(owner);
-
-	if(isDeleted(punk))
+	if(NULL == collisionInformation || isDeleted(collisionInformation->otherCollider))
 	{
-		return;
+		return false;
 	}
 
-	Punk::stopAllMovement(punk);
+	Collider otherCollider = collisionInformation->otherCollider;
+	Entity collidingEntity = Collider::getOwner(otherCollider);
 
-	/*
-	 * Replace the sprites for the dying sprites
-	 */
-	extern SpriteSpec* PunkStatefulActorDyingComponentSpecs[];
-	Punk::removeComponents(punk, kSpriteComponent);
-	Punk::addComponents(punk, (ComponentSpec**)PunkStatefulActorDyingComponentSpecs, kSpriteComponent);
+	if(isDeleted(collidingEntity))
+	{
+		return false;
+	}
 
-	Punk::playAnimation(punk, "Die");
+	uint32 collidingEntityInGameType = Entity::getInGameType(collidingEntity);
 
-	RumbleManager::startEffect(&KilledRumbleEffectSpec);
+	switch(collidingEntityInGameType)
+	{
+		case kTypeSolidObject:
 
-	SoundManager::playSound
-	(
-		
-		&Killed1SoundSpec, 
-		NULL, 
-		kSoundPlaybackNormal,
-		NULL, 
-		NULL
-	);
+			PunkStopping::freeze(this);
 
-	/*
-	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
-	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
-	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
-	 * or will become corrupt.
-	 */
-	Printing::registerEventListener(ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+			/*
+			 * The StatefulActor class can resolve collisions against solid objects by itself
+			 */
+			return Base::collisionStarts(this, collisionInformation);
+			break;
+
+		case kTypeCogWheel:
+
+			/*
+			* Disable collision checks so this doesn't fire multiple times. 
+			* They are enabled by the StatefulActor when starting to move.
+			*/
+			PunkStopping::checkCollisions(this, false);
+
+			PunkStopping::die(this);
+			return true;
+			break;
+	}
+
+	return false;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkDie::exit(void* owner)
+bool PunkStopping::handleMessage(Telegram telegram)
 {
-	Punk punk = Punk::safeCast(owner);
-
-	if(isDeleted(punk))
+	switch(Telegram::getMessage(telegram))
 	{
-		return;
+		case kMessageCollisionsStateHoldLeft:
+			
+		case kMessageCollisionsStateHoldRight:
+
+			PunkStopping::walk(this);
+			return true;
+			break;
 	}
 
-	/*
-	 * Restore the normal sprites
-	 */
-	extern ComponentSpec* PunkStatefulActorComponentSpecs[];
-	Punk::removeComponents(punk, kSpriteComponent);
-	Punk::addComponents(punk, (ComponentSpec**)PunkStatefulActorComponentSpecs, kSpriteComponent);
+	return Base::handleMessage(this, telegram);
+}
 
-	Printing::unregisterEventListener(ListenerObject::safeCast(this), (EventListener)PunkDie::onFontCharSetRewritten, kEventFontRewritten);
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-	Printing::text("                        ", 18, 19, NULL);
+void PunkStopping::update()
+{
+	if(!PunkStopping::isMoving(this))
+	{
+		PunkStopping::freeze(this);
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -119,9 +107,10 @@ void PunkDie::exit(void* owner)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PunkDie::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+void PunkStopping::destructor()
 {
-	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+	// Always explicitly call the base's destructor 
+	Base::destructor();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

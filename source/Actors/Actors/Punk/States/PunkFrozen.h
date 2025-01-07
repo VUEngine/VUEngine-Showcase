@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <State.h>
+#include <Punk.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DECLARATION
@@ -22,26 +22,15 @@
 
 /// Class PunkWalking
 ///
-/// Inherits from State
+/// Inherits from Punk
 ///
 /// Controls the logic for the Punk when it doesn't move.
-singleton class PunkFrozen : State
+abstract class PunkFrozen : Punk
 {
-	/// Method to retrieve the singleton instance
-	/// @return PunkFrozen singleton
-	static PunkFrozen getInstance();
-
-	/// Class' constructor
-	void constructor();
-
-	/// Prepares the object to enter this state.
-	/// @param owner: Object that is entering in this state
-	override void enter(void* owner);
-
-	/// Process a Telegram sent to an object that is in this state.
-	/// @param owner: Object that is in this state
-	/// @param telegram: Telegram to process
-	override bool processMessage(void* owner, Telegram telegram);
+	/// Receive and process a Telegram.
+	/// @param telegram: Received telegram to process
+	/// @return True if the telegram was processed
+	override bool handleMessage(Telegram telegram);
 }
 
 #endif
