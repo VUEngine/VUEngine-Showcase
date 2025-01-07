@@ -43,6 +43,10 @@ dynamic_singleton class CollisionsState : ShowcaseState
 	/// @param owner: Object that is exiting this state
 	override void exit(void* owner);
 
+	/// Prepares the object to become active in this state.
+	/// @param owner: Object that is in this state
+	override void resume(void* owner);
+
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput* userInput);

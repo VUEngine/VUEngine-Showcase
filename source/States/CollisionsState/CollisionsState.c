@@ -81,6 +81,24 @@ void CollisionsState::exit(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+/*
+ *	The StateMachine calls State::resume when the State is again at the top of its stack
+ *  after the previous State at the top has been popped.
+ */
+void CollisionsState::resume(void* owner)
+{
+	Base::resume(this, owner);
+
+	Printing::registerEventListener
+	(
+		ListenerObject::safeCast(this),
+		(EventListener)CollisionsState::onFontCharSetRewritten,
+		kEventFontRewritten
+	);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void CollisionsState::processUserInput(const UserInput* userInput)
 {
 	CollisionsState::playSoundEffects(this, userInput, false);
