@@ -106,7 +106,6 @@ void Punk::freeze()
 	Punk::pauseAnimation(this, true);
 	Punk::setActualFrame(this, 0);
 
-	Punk::mutateTo(this, Punk::getClass());
 	Punk::mutateTo(this, PunkFrozen::getClass());
 }
 
@@ -122,7 +121,6 @@ void Punk::walk()
 	*/
 	PunkWalking::checkCollisions(this, true);
 
-	Punk::mutateTo(this, Punk::getClass());
 	Punk::mutateTo(this, PunkWalking::getClass());
 }
 
@@ -130,7 +128,6 @@ void Punk::walk()
 
 void Punk::stop()
 {
-	Punk::mutateTo(this, Punk::getClass());
 	Punk::mutateTo(this, PunkStopping::getClass());
 }
 
@@ -170,7 +167,6 @@ void Punk::die()
 	Printing::registerEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
 	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 
-	Punk::mutateTo(this, Punk::getClass());
 	Punk::mutateTo(this, PunkDeath::getClass());
 }
 
