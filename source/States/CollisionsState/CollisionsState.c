@@ -219,7 +219,7 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 
-	Printing::text("PunkStatefulActorSpec", 2, y++, NULL);
+	Printing::text("PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
 

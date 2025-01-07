@@ -759,42 +759,6 @@ ColliderROMSpec PunkColliderSpec =
 	~(kLayerSolid | kLayerDangers),
 };
 
-ComponentSpec* const PunkActorComponentSpecs[] = 
-{
-	(ComponentSpec*)&PunkAffineSpriteSpec,
-	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
-	(ComponentSpec*)&PunkColliderSpec,
-	NULL
-};
-
-ActorROMSpec PunkActorSpec =
-{
-	// Class allocator
-	__TYPE(Actor),
-
-	// Component specs
-	(ComponentSpec**)PunkActorComponentSpecs,
-
-	// Children specs
-	NULL,
-
-	// Extra info
-	NULL,
-
-	// Size
-	// If 0, it is computed from the visual components if any
-	{0, 0, 0},
-
-	// Actor's in-game type
-	kTypeNone,
-
-	// Pointer to animation functions array
-	(const AnimationFunction**)&PunkAnimationSpecs,
-
-	// Animation to play automatically
-	"Move"
-};
-
 BodyROMSpec PunkBodySpec =
 {
 	// Component
@@ -831,7 +795,7 @@ BodyROMSpec PunkBodySpec =
 	__NO_AXIS
 };
 
-ComponentSpec* const PunkStatefulActorComponentSpecs[] = 
+ComponentSpec* const PunkActorComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkSpriteSpec,
 	(ComponentSpec*)&PunkBlackSpriteSpec,
@@ -840,41 +804,39 @@ ComponentSpec* const PunkStatefulActorComponentSpecs[] =
 	NULL
 };
 
-ComponentSpec* const PunkStatefulActorDyingComponentSpecs[] = 
+ComponentSpec* const PunkActorDyingComponentSpecs[] = 
 {
 	(ComponentSpec*)&PunkDyingSpriteSpec,
 	(ComponentSpec*)&PunkDyingBlackSpriteSpec,
 	NULL
 };
 
-PunkROMSpec PunkStatefulActorSpec =
+PunkROMSpec PunkActorSpec =
 {
-	{	
-		{
-			// Class allocator
-			__TYPE(Punk),
+	{
+		// Class allocator
+		__TYPE(Punk),
 
-			// Component specs
-			(ComponentSpec**)PunkStatefulActorComponentSpecs,
+		// Component specs
+		(ComponentSpec**)PunkActorComponentSpecs,
 
-			// Children specs
-			NULL,
+		// Children specs
+		NULL,
 
-			// Extra info
-			NULL,
+		// Extra info
+		NULL,
 
-			// Size
-			// If 0, it is computed from the visual components if any
-			{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-			// Actor's in-game type
-			kTypePunk,
+		// Actor's in-game type
+		kTypePunk,
 
-			// Pointer to animation functions array
-			(const AnimationFunction**)&PunkAnimationSpecs,
+		// Pointer to animation functions array
+		(const AnimationFunction**)&PunkAnimationSpecs,
 
-			// Animation to play automatically
-			"Move"
-		},
+		// Animation to play automatically
+		"Move"
 	}
 };

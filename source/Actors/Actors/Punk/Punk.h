@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <StatefulActor.h>
+#include <Actor.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -24,8 +24,8 @@
 /// @memberof Punk
 typedef struct PunkSpec
 {
-	/// StatefulActor spec
-	StatefulActorSpec statefulActorSpec;
+	/// Actor spec
+	ActorSpec actorSpec;
 
 } PunkSpec;
 
@@ -39,10 +39,10 @@ typedef const PunkSpec PunkROMSpec;
 
 /// Class Punk
 ///
-/// Inherits from StatefulActor
+/// Inherits from Actor
 ///
 /// Implements a controllable statefulActor.
-class Punk : StatefulActor
+class Punk : Actor
 {
 	/// @param punkSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance

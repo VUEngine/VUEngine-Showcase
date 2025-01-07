@@ -40,7 +40,7 @@
 void Punk::constructor(PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((StatefulActorSpec*)&punkSpec->statefulActorSpec, internalId, name);
+	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -140,9 +140,9 @@ void Punk::die()
 	/*
 	 * Replace the sprites for the dying sprites
 	 */
-	extern SpriteSpec* PunkStatefulActorDyingComponentSpecs[];
+	extern SpriteSpec* PunkActorDyingComponentSpecs[];
 	Punk::removeComponents(this, kSpriteComponent);
-	Punk::addComponents(this, (ComponentSpec**)PunkStatefulActorDyingComponentSpecs, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkActorDyingComponentSpecs, kSpriteComponent);
 
 	Punk::playAnimation(this, "Die");
 
@@ -177,9 +177,9 @@ void Punk::resuscitate()
 	/*
 	 * Restore the normal sprites
 	 */
-	extern ComponentSpec* PunkStatefulActorComponentSpecs[];
+	extern ComponentSpec* PunkActorComponentSpecs[];
 	Punk::removeComponents(this, kSpriteComponent);
-	Punk::addComponents(this, (ComponentSpec**)PunkStatefulActorComponentSpecs, kSpriteComponent);
+	Punk::addComponents(this, (ComponentSpec**)PunkActorComponentSpecs, kSpriteComponent);
 
 	Printing::unregisterEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
 
