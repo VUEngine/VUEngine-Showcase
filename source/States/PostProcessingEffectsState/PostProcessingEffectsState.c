@@ -48,7 +48,7 @@ static const PostProcessingEffect _postProcessingEffect[] =
 
 void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
 {
-	VUEngine::removePostProcessingEffect(VUEngine::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+	VUEngine::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 	
 	Base::exit(this, owner);	
 }
@@ -64,7 +64,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 	if(K_LL & userInput->releasedKey)
 	{
-		VUEngine::removePostProcessingEffect(VUEngine::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+		VUEngine::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 
 		if(0 > --this->selectedPostProcessingEffect)
 		{
@@ -75,7 +75,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		VUEngine::removePostProcessingEffect(VUEngine::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+		VUEngine::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 
 		if((signed)(sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1) < ++this->selectedPostProcessingEffect)
 		{
@@ -104,7 +104,7 @@ void PostProcessingEffectsState::showControls()
 
 void PostProcessingEffectsState::showStuff()
 {
-	VUEngine::pushBackPostProcessingEffect(VUEngine::getInstance(), _postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+	VUEngine::pushBackPostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

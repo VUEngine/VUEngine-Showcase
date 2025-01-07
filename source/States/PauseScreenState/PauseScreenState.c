@@ -64,7 +64,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	);
 
 	// Disable user input
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
 	// Start clocks to start animations
 	GameState::startClocks(this);
@@ -96,7 +96,7 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 	if(K_STA & userInput->pressedKey)
 	{
 		// Disable user input
-		VUEngine::disableKeypad(VUEngine::getInstance());
+		VUEngine::disableKeypad();
 
 		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
@@ -138,7 +138,7 @@ void PauseScreenState::destructor()
 bool PauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// Re-enable user input
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 
 	return false;
 }
@@ -148,10 +148,10 @@ bool PauseScreenState::onFadeInComplete(ListenerObject eventFirer __attribute__ 
 bool PauseScreenState::onFadeOutComplete(ListenerObject eventFirer __attribute__ ((unused)))
 {
 	// Re-enable user input
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 
 	// Resume game
-	VUEngine::unpause(VUEngine::getInstance(), GameState::safeCast(this));
+	VUEngine::unpause(GameState::safeCast(this));
 
 	return false;
 }

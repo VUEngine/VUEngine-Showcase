@@ -93,7 +93,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	KeypadManager::registerInput(__KEY_RELEASED);
 
 	// Enable user input
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 
 	// Printing the framerate
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), 
@@ -165,7 +165,7 @@ void ShowcaseState::resume(void* owner)
 	/*
 	 * Allow the player to interact again.
 	 */
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -178,7 +178,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(K_STA & userInput->releasedKey)
 	{
-		VUEngine::pause(VUEngine::getInstance(), GameState::safeCast(PauseScreenState::getInstance()));
+		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance()));
 	}
 	else if(K_LT & userInput->releasedKey)
 	{
@@ -242,7 +242,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		 * Prevent the user to mess up the playback by pressig the keypad's buttons
 		 * like a maniac.
 		 */
-		VUEngine::disableKeypad(VUEngine::getInstance());
+		VUEngine::disableKeypad();
 
 		/*
 		 * Make sure that the timer interrupts happen at a controlled frequency to
@@ -418,7 +418,7 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 	/*
 	 * Allow the player to interact again.
 	 */
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 
 	return true;
 }
@@ -427,9 +427,9 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 
 void ShowcaseState::goToNext()
 {
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
-	VUEngine::changeState(VUEngine::getInstance(), GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
+	VUEngine::changeState(GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

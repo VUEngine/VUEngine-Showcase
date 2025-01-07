@@ -52,7 +52,11 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	/*
 	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	 */
-	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
+	VUEngine::addEventListener
+	(
+		VUEngine::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
+	);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -68,7 +72,11 @@ void SoundsState::execute(void* owner __attribute__ ((unused)))
 
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
-	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted);
+	VUEngine::removeEventListener
+	(
+		VUEngine::getInstance(), ListenerObject::safeCast(this), 
+		(EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
+	);
 
 	SoundsState::releaseSound(this);
 
@@ -435,7 +443,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		return;
 	}
 
-	VUEngine::disableKeypad(VUEngine::getInstance());
+	VUEngine::disableKeypad();
 
 	SoundsState::releaseSound(this);
 
@@ -474,7 +482,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		SoundsState::applyTimerSettings(this);
 	}
 
-	VUEngine::enableKeypad(VUEngine::getInstance());
+	VUEngine::enableKeypad();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
