@@ -32,7 +32,7 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 // ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec StatefulActorsStageActorsSpecs[] =
+PositionedActorROMSpec CollisionsStageActorsSpecs[] =
 {
 	{&PunkStatefulActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&BoxActorSpec, {150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
@@ -40,7 +40,7 @@ PositionedActorROMSpec StatefulActorsStageActorsSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec StatefulActorsStageUIActorsSpecs[] =
+PositionedActorROMSpec CollisionsStageUIActorsSpecs[] =
 {
 	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -50,12 +50,12 @@ PositionedActorROMSpec StatefulActorsStageUIActorsSpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const StatefulActorsStageFondSpecs [] =
+FontROMSpec* const CollisionsStageFondSpecs [] =
 {
 	NULL
 };
 
-SoundROMSpec* StatefulActorsStageSoundSpecs[] =
+SoundROMSpec* CollisionsStageSoundSpecs[] =
 {
 	NULL
 };
@@ -64,7 +64,7 @@ SoundROMSpec* StatefulActorsStageSoundSpecs[] =
 // STAGE DEFINITION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-StageROMSpec StatefulActorsStageSpec =
+StageROMSpec CollisionsStageSpec =
 {
 	// Class allocator
 	__TYPE(Stage),
@@ -254,7 +254,7 @@ StageROMSpec StatefulActorsStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)StatefulActorsStageFondSpecs ,
+		(FontSpec**)CollisionsStageFondSpecs ,
 
 		// CharSets to preload
 		(CharSetSpec**)NULL,
@@ -263,19 +263,19 @@ StageROMSpec StatefulActorsStageSpec =
 		(TextureSpec**)NULL,
 
 		// Sounds to load
-		(SoundSpec**)StatefulActorsStageSoundSpecs,
+		(SoundSpec**)CollisionsStageSoundSpecs,
 	},
 
 	// Actors
 	{
 		// UI configuration
 		{
-			(PositionedActor*)StatefulActorsStageUIActorsSpecs,
+			(PositionedActor*)CollisionsStageUIActorsSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children actors
-		(PositionedActor*)StatefulActorsStageActorsSpecs,
+		(PositionedActor*)CollisionsStageActorsSpecs,
 	},
 
 	// Post processing effects

@@ -271,10 +271,10 @@ void CollisionsState::constructor()
 	Base::constructor();
 
 	/*
-	 * Check assets/stage/StatefulActorsStageSpec.c
+	 * Check assets/stage/CollisionsStageSpec.c
 	 */
-	extern StageROMSpec StatefulActorsStageSpec;
-	this->stageSpec = (StageSpec*)&StatefulActorsStageSpec;
+	extern StageROMSpec CollisionsStageSpec;
+	this->stageSpec = (StageSpec*)&CollisionsStageSpec;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
