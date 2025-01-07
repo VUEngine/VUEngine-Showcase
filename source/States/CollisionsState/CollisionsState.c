@@ -287,9 +287,11 @@ void CollisionsState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void CollisionsState::onFontCharSetRewritten(EventListener eventFirer __attribute__((unused)))
+bool CollisionsState::onFontCharSetRewritten(ListenerObject eventFirer __attribute__((unused)))
 {
 	CollisionsState::show(this, false);
+
+	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
