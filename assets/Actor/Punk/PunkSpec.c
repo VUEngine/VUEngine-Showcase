@@ -361,39 +361,7 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 	},
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	__WORLD_BGMAP,
-
-	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
-};
-
-BgmapSpriteROMSpec PunkAffineSpriteSpec =
-{
-	{
-		// Component
-		{
-			// Allocator
-			__TYPE(BgmapAnimatedSprite),
-
-			// Component type
-			kSpriteComponent
-		},
-
-		// Spec for the texture to display
-		(TextureSpec*)&PunkTextureSpec,
-
-		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
-		__TRANSPARENCY_NONE,
-
-		// Displacement added to the sprite's position
-		{0, 0, 2, 0},
-	},
-
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-		__WORLD_AFFINE,
+	__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
 	NULL,
@@ -499,38 +467,6 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 };
 
 BgmapSpriteROMSpec PunkBlackSpriteSpec =
-{
-	{
-		// Component
-		{
-			// Allocator
-			__TYPE(BgmapAnimatedSprite),
-
-			// Component type
-			kSpriteComponent
-		},
-
-		// Spec for the texture to display
-		(TextureSpec*)&PunkBlackTextureSpec,
-
-		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
-		__TRANSPARENCY_NONE,
-
-		// Displacement added to the sprite's position
-		{0, 0, 3, 0},
-	},
-
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	__WORLD_BGMAP,
-
-	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
-};
-
-BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 {
 	{
 		// Component
