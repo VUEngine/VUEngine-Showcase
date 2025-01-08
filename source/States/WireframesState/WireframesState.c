@@ -19,6 +19,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <Printing.h>
+#include <VIPManager.h>
 #include <WireframeManager.h>
 
 #include "WireframesState.h"
@@ -62,6 +63,9 @@ void WireframesState::resume(void* owner)
 
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
+
+	// Make sure that no interrupts take place during rendering or drawing
+	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -145,6 +149,7 @@ void WireframesState::showControls()
 
 void WireframesState::showExplanation()
 {
+	return;
 	int16 y = 3;
 	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);

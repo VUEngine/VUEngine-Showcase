@@ -158,7 +158,7 @@ StageROMSpec WireframesStageSpec =
 			// y1
 			__SCREEN_HEIGHT,
 			// z1
-			2048,
+			1024 + 512,
 		}
 	},
 
