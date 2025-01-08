@@ -149,7 +149,6 @@ void WireframesState::showControls()
 
 void WireframesState::showExplanation()
 {
-	return;
 	int16 y = 3;
 	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printing::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
