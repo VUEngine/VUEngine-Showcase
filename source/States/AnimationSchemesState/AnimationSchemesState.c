@@ -353,7 +353,7 @@ void AnimationSchemesState::createSprites()
     for(int16 i = 0; i < 3; i++)
     {
 		// Don't create Sprites directly
-        Sprite animatedSprite = SpriteManager::createSprite(NULL, spriteSpec);
+        Sprite animatedSprite = Sprite::safeCast(ComponentManager::createComponent(NULL, (ComponentSpec*)spriteSpec));
 
 		if(!isDeleted(animatedSprite))
 		{
@@ -386,7 +386,7 @@ void AnimationSchemesState::removeSprites()
 			if(!isDeleted(animatedSprite))
 			{
 				// Don't destroy the sprite directly		
-				SpriteManager::destroySprite(animatedSprite);				
+				ComponentManager::destroyComponent(NULL, Component::safeCast(animatedSprite));				
 			}
 		}
 

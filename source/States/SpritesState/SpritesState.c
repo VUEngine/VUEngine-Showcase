@@ -256,7 +256,7 @@ void SpritesState::createSprite()
 	}
 
 	// Don't create Sprites directly
-	this->sprite = SpriteManager::createSprite(NULL, spriteSpec);
+	this->sprite = Sprite::safeCast(ComponentManager::createComponent(NULL, (ComponentSpec*)&spriteSpec));
 
 	if(!isDeleted(this->sprite))
 	{
@@ -277,7 +277,7 @@ void SpritesState::destroySprite()
 	if(!isDeleted(this->sprite))
 	{
 		// Don't destroy the sprite directly		
-		SpriteManager::destroySprite(this->sprite);
+		ComponentManager::destroyComponent(NULL, Component::safeCast(this->sprite));
 
 		this->sprite = NULL;
 	}
