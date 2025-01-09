@@ -24,7 +24,7 @@
 ///
 /// Inherits from ShowcaseState
 ///
-/// Implements a game state to showcase how statefulActor's body and state machine work.
+/// Implements a game state to showcase how actor's body and state machine work.
 dynamic_singleton class CollisionsState : ShowcaseState
 {
 	/// Method to retrieve the singleton instance

@@ -138,32 +138,30 @@ ComponentSpec* const PongBallActorComponentSpecs[] =
 PongBallROMSpec PongBallActorSpec =
 {
 	{
-		{
-			// Class allocator
-			__TYPE(PongBall),
+		// Class allocator
+		__TYPE(PongBall),
 
-			// Component specs
-			(ComponentSpec**)PongBallActorComponentSpecs,
+		// Component specs
+		(ComponentSpec**)PongBallActorComponentSpecs,
 
-			// Children specs
-			NULL,
+		// Children specs
+		NULL,
 
-			// Extra info
-			NULL,
+		// Extra info
+		NULL,
 
-			// Size
-			// If 0, it is computed from the visual components if any
-			{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-			// Actor's in-game type
-			kTypePongBall				,
+		// Actor's in-game type
+		kTypePongBall				,
 
-			// Pointer to animation functions array
-			(const AnimationFunction**)NULL,
+		// Pointer to animation functions array
+		(const AnimationFunction**)NULL,
 
-			// Animation to play automatically
-			NULL,
-		},
+		// Animation to play automatically
+		NULL
 	},
 
 	// Minimum velocity

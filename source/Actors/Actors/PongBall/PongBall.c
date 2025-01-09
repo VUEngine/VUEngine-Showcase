@@ -66,7 +66,7 @@ static uint32 _randomSeed = 0;
 void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
-	Base::constructor((StatefulActorSpec*)&pongBallSpec->statefulActorSpec, internalId, name);
+	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -101,7 +101,7 @@ bool PongBall::handleMessage(Telegram telegram)
 
 bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 {
-	ASSERT(collisionInformation->otherCollider, "StatefulActor::collisionStarts: otherColliders");
+	ASSERT(collisionInformation->otherCollider, "Actor::collisionStarts: otherColliders");
 
 	bool returnValue = Base::collisionStarts(this, collisionInformation);
 

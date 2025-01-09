@@ -50,7 +50,7 @@ bool PunkStopping::collisionStarts(const CollisionInformation* collisionInformat
 			PunkStopping::freeze(this);
 
 			/*
-			 * The StatefulActor class can resolve collisions against solid objects by itself
+			 * The Actor class can resolve collisions against solid objects by itself
 			 */
 			return Base::collisionStarts(this, collisionInformation);
 			break;
@@ -59,7 +59,7 @@ bool PunkStopping::collisionStarts(const CollisionInformation* collisionInformat
 
 			/*
 			* Disable collision checks so this doesn't fire multiple times. 
-			* They are enabled by the StatefulActor when starting to move.
+			* They are enabled by the Actor when starting to move.
 			*/
 			PunkStopping::checkCollisions(this, false);
 

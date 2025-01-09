@@ -22,19 +22,19 @@
     ],
     "translations": {
         "ActorCreationLabel": {
-            "de": "Entitäts-Konstruktoren",
+            "de": "Schauspieler-Konstruktoren",
             "en": "Actor creation",
-            "es": "Entidad: creación"
+            "es": "Actor: creación"
         },
         "ActorDestructionLabel": {
-            "de": "Entitäts-Destruktoren",
+            "de": "Schauspieler-Destruktoren",
             "en": "Actor destruction",
-            "es": "Entidad: destrucción "
+            "es": "Actor: destrucción "
         },
         "ActorsLabel": {
-            "de": "Entitäten",
+            "de": "Scahuspieler",
             "en": "Actors",
-            "es": "Entidades"
+            "es": "Actores"
         },
         "AnimationsLabel": {
             "de": "Animationen",
@@ -206,6 +206,11 @@
             "en": "Particle types",
             "es": "Tipos de partículas"
         },
+        "PauseTitle": {
+            "de": "PAUSE",
+            "en": "PAUSE",
+            "es": "PAUSA"
+        },
         "PhysicsLabel": {
             "de": "Physik",
             "en": "Physics",
@@ -305,11 +310,6 @@
             "de": "DU BIST TOT… ERNEUT",
             "en": "YOU DIED… AGAIN",
             "es": "MORISTE… OTRA VEZ"
-        },
-        "PauseTitle": {
-            "en": "PAUSE",
-            "de": "PAUSE",
-            "es": "PAUSA"
         }
     }
 }

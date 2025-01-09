@@ -41,7 +41,7 @@ typedef const PunkSpec PunkROMSpec;
 ///
 /// Inherits from Actor
 ///
-/// Implements a controllable statefulActor.
+/// Implements a controllable actor.
 class Punk : Actor
 {
 	/// @param punkSpec: Specification that determines how to configure the paddle

@@ -188,32 +188,30 @@ ComponentSpec* const PongPaddleActorComponentSpecs[] =
 PongPaddleROMSpec PongPaddleActorSpec =
 {
 	{
-		{
-			// Class allocator
-			__TYPE(PongPaddle),
+		// Class allocator
+		__TYPE(PongPaddle),
 
-			// Component specs
-			(ComponentSpec**)PongPaddleActorComponentSpecs,
+		// Component specs
+		(ComponentSpec**)PongPaddleActorComponentSpecs,
 
-			// Children specs
-			NULL,
+		// Children specs
+		NULL,
 
-			// Extra info
-			NULL,
+		// Extra info
+		NULL,
 
-			// Size
-			// If 0, it is computed from the visual components if any
-			{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-			// Actor's in-game type
-			kTypePongPaddle,
+		// Actor's in-game type
+		kTypePongPaddle,
 
-			// Pointer to animation functions array
-			(const AnimationFunction**)NULL,
+		// Pointer to animation functions array
+		(const AnimationFunction**)NULL,
 
-			// Animation to play automatically
-			NULL,
-		},
+		// Animation to play automatically
+		NULL
 	},
 
 	// Force

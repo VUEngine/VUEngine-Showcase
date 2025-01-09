@@ -183,7 +183,7 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 	
-	Printing::text(I18n::getText(I18n::getInstance(), kStringStatefulActorsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
 	Printing::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	
 	Printing::text
@@ -204,7 +204,7 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 
-	Printing::text("StatefulActor", 2, y++, NULL);
+	Printing::text("Actor", 2, y++, NULL);
 	Printing::text("MessageDispatcher*", 2, y++, NULL);
 	Printing::text("Punk", 2, y++, NULL);
 	Printing::text("PunkState*", 2, y++, NULL);
@@ -272,7 +272,7 @@ void CollisionsState::showExplanation()
 
 void CollisionsState::showAdditionalDetails()
 {
-	CollisionsState::propagateMessage(this, kMessageCollisionsStatePrintStatefulActorStatus);
+	CollisionsState::propagateMessage(this, kMessageCollisionsStatePrintActorStatus);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

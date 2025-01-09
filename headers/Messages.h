@@ -20,7 +20,7 @@ enum Messages
 	kMessageCollisionsStateHoldLeft = kMessageLastEngine + 1,
 	kMessageCollisionsStateHoldRight,
 	kMessageCollisionsStateNoMessage,
-	kMessageCollisionsStatePrintStatefulActorStatus,
+	kMessageCollisionsStatePrintActorStatus,
 	kMessageCollisionsStateReleasedLeft,
 	kMessageCollisionsStateReleasedRight,
 	kMessageCollisionsStateResuscitate,

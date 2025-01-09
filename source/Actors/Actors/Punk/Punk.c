@@ -76,7 +76,7 @@ bool Punk::handlePropagatedMessage(int32 message)
 			return true;
 			break;
 
-		case kMessageCollisionsStatePrintStatefulActorStatus:
+		case kMessageCollisionsStatePrintActorStatus:
 
 			if(!isDeleted(this->body))
 			{
@@ -119,7 +119,7 @@ void Punk::walk()
 
 	/*
 	* Disable collision checks so this doesn't fire multiple times. 
-	* They are enabled by the StatefulActor when starting to move.
+	* They are enabled by the Actor when starting to move.
 	*/
 	PunkWalking::checkCollisions(this, true);
 
