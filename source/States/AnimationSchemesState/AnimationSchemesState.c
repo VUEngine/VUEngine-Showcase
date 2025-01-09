@@ -350,10 +350,10 @@ void AnimationSchemesState::createSprites()
 			break;
 	}
 
-    for(int16 i = 0; i < 3; i++)
-    {
+	for(int16 i = 0; i < 3; i++)
+	{
 		// Don't create Sprites directly
-        Sprite animatedSprite = Sprite::safeCast(ComponentManager::createComponent(NULL, (ComponentSpec*)spriteSpec));
+		Sprite animatedSprite = Sprite::safeCast(ComponentManager::createComponent(NULL, (ComponentSpec*)spriteSpec));
 
 		if(!isDeleted(animatedSprite))
 		{
