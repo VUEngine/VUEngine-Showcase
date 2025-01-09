@@ -133,14 +133,14 @@ BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_LON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_LON,
+	NULL
 };
 
 BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
@@ -165,14 +165,14 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_RON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_RON,
+	NULL
 };
 
 ComponentSpec* const PdScreenshotActorComponentSpecs[] = 

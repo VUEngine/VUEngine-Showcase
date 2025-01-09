@@ -191,14 +191,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 		{0, 0, 0, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
@@ -223,14 +223,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 		{0, 0, 1, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
@@ -255,14 +255,14 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 		{0, 0, 0, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_HBIAS,
 
 	// Pointer to affine/hbias manipulation function
-	BgmapSprite_waveEffect,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	BgmapSprite_waveEffect
 };
 
 MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
@@ -288,14 +288,14 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 			{0, 0, 0, 0},
 		},
 
+		// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+		__WORLD_ON,
+
 		// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 		__WORLD_BGMAP,
 
 		// Pointer to affine/hbias manipulation function
-		NULL,
-
-		// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-		__WORLD_ON,
+		NULL
 	},
 
 	// Texture to use with the sprite

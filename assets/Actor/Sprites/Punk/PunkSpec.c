@@ -360,14 +360,14 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkAffineSpriteSpec =
@@ -392,14 +392,14 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 		__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
@@ -424,14 +424,14 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkSpriteSharedSpec =
@@ -456,14 +456,14 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
@@ -488,14 +488,14 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkBlackSpriteSpec =
@@ -520,14 +520,14 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
@@ -552,14 +552,14 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 CharSetROMSpec PunkDyingCharsetSpec =
@@ -684,14 +684,14 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
@@ -716,14 +716,14 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
-	NULL,
-
-	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
-	__WORLD_ON,
+	NULL
 };
 
 ColliderROMSpec PunkControllablelActorColliderSpec =
