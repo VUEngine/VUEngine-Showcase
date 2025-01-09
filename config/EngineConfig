@@ -58,7 +58,7 @@
         "cleanUp": false,
         "pools": [
             {
-                "objects": 599,
+                "objects": 600,
                 "size": 16
             },
             {

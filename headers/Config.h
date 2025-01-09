@@ -18,6 +18,7 @@
 
 #define __SOUND_TEST ""
 
+
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
 // GAME ENTRY POINT
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -204,7 +205,7 @@
 	__BLOCK_DEFINITION(64, 100) \
 	__BLOCK_DEFINITION(28, 50) \
 	__BLOCK_DEFINITION(20, 1600) \
-	__BLOCK_DEFINITION(16, 599) \
+	__BLOCK_DEFINITION(16, 600) \
 
 #undef __SET_MEMORY_POOL_ARRAYS
 #define __SET_MEMORY_POOL_ARRAYS \
