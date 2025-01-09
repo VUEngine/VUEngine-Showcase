@@ -49,6 +49,16 @@
             "key": "__soundTest",
             "type": "text",
             "value": ""
+        },
+        {
+            "key": "reduceRomSizeX",
+            "type": "text",
+            "value": ""
+        },
+        {
+            "key": "reducePcmDataX",
+            "type": "text",
+            "value": ""
         }
     ],
     "math": {
