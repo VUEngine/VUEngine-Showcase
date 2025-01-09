@@ -57,45 +57,45 @@ StageROMSpec VideoPlayerStageSpec =
 	// Class allocator
 	__TYPE(Stage),
 
-    // Timer config
-    {
+	// Timer config
+	{
 		// Timer's resolution (__TIMER_100US or __TIMER_20US)
-        __TIMER_100US,
+		__TIMER_100US,
 		// Target elapsed time between timer interrupts
-        20,
+		20,
 		// Timer interrupt's target time units
-        kMS,
-    },
+		kMS,
+	},
 
-    // Sound config
-    {
+	// Sound config
+	{
 		// Target refresh rate for PCM playback
 		__DEFAULT_PCM_HZ
-    },
+	},
 
 	// General stage's attributes
 	{
-        // Stage's size in pixels
-        {
-            // x
-            __SCREEN_WIDTH,
-            // y
-            __SCREEN_HEIGHT,
-            // z
-            __SCREEN_DEPTH,
-        },
+		// Stage's size in pixels
+		{
+			// x
+			__SCREEN_WIDTH,
+			// y
+			__SCREEN_HEIGHT,
+			// z
+			__SCREEN_DEPTH,
+		},
 
 		// Camera's initial position inside the stage
-        {
-            // x
-            0,
-            // y
-            0,
-            // z
-            0,
+		{
+			// x
+			0,
+			// y
+			0,
+			// z
+			0,
 			// p
 			0,
-        },
+		},
 
 		// Camera's frustum
 		{
@@ -114,7 +114,7 @@ StageROMSpec VideoPlayerStageSpec =
 		}
 	},
 
-    // Streaming
+	// Streaming
 	{
 		// Padding to be added to camera's frustum when checking if a actor spec
 		// describes an actor that is within the camera's range
@@ -136,81 +136,81 @@ StageROMSpec VideoPlayerStageSpec =
 		// Maximum number of rows to compute on each call to the affine functions
 		16,
 
-        // Color configuration
-        {
-            // Background color
-            __COLOR_BLACK,
+		// Color configuration
+		{
+			// Background color
+			__COLOR_BLACK,
 
-            // Brightness
-            // These values times the repeat values specified in the column table (max. 16) make the final
-            // brightness values on the respective regions of the screen. maximum brightness is 128.
-            {
-                // Dark red
-                __BRIGHTNESS_DARK_RED,
-                // Medium red
-                __BRIGHTNESS_MEDIUM_RED,
-                // Bright red
-                __BRIGHTNESS_BRIGHT_RED,
-            },
+			// Brightness
+			// These values times the repeat values specified in the column table (max. 16) make the final
+			// brightness values on the respective regions of the screen. maximum brightness is 128.
+			{
+				// Dark red
+				__BRIGHTNESS_DARK_RED,
+				// Medium red
+				__BRIGHTNESS_MEDIUM_RED,
+				// Bright red
+				__BRIGHTNESS_BRIGHT_RED,
+			},
 
-            // Brightness repeat
-        	(BrightnessRepeatSpec*)NULL,
-        },
+			// Brightness repeat
+			(BrightnessRepeatSpec*)NULL,
+		},
 
-        // Palettes' configuration
-        {
-        	{
-        	    // Bgmap palette 0
-                __BGMAP_PALETTE_0,
-        	    // Bgmap palette 1
-                __BGMAP_PALETTE_1,
-                // Bgmap palette 2
-                __BGMAP_PALETTE_2,
-        	    // Bgmap palette 3
-                __BGMAP_PALETTE_3,
-        	},
-        	{
-        	    // Object palette 0
-                __OBJECT_PALETTE_0,
-        	    // Object palette 1
-                __OBJECT_PALETTE_1,
-        	    // Object palette 2
-                __OBJECT_PALETTE_2,
-        	    // Object palette 3
-                __OBJECT_PALETTE_3,
-        	},
-        },
+		// Palettes' configuration
+		{
+			{
+				// Bgmap palette 0
+				__BGMAP_PALETTE_0,
+				// Bgmap palette 1
+				__BGMAP_PALETTE_1,
+				// Bgmap palette 2
+				__BGMAP_PALETTE_2,
+				// Bgmap palette 3
+				__BGMAP_PALETTE_3,
+			},
+			{
+				// Object palette 0
+				__OBJECT_PALETTE_0,
+				// Object palette 1
+				__OBJECT_PALETTE_1,
+				// Object palette 2
+				__OBJECT_PALETTE_2,
+				// Object palette 3
+				__OBJECT_PALETTE_3,
+			},
+		},
 
-        // Bgmap segments configuration
-        // Number of BGMAP segments reserved for the param
-        0,
+		// Bgmap segments configuration
+		// Number of BGMAP segments reserved for the param
+		0,
 
 		// Object segments' sizes (__spt0 to __spt3, up to 1024 in total)
-        // Can impact performance, make sure to configure only as large as maximally needed
-        {
-            // __spt0
-        	0,
-            // __spt1
-        	0,
-            // __spt2
-        	0,
-            // __spt3
-        	0,
-        },
+		// Can impact performance, make sure to configure only as large as maximally needed
+		{
+			// __spt0
+			0,
+			// __spt1
+			0,
+			// __spt2
+			0,
+			// __spt3
+			0,
+		},
 
-        // Object segments' z coordinates (__spt0 to __spt3)
-        // Note that each SPT's z coordinate much be larger than or equal to the previous one's,
-        // since the VIP renders OBJ Worlds in reverse order (__SPT3 to __SPT0)
-        {
-            // __spt0
-        	__F_TO_FIX10_6(0),
-    		__F_TO_FIX10_6(0),
-    		__F_TO_FIX10_6(0),
-    		__F_TO_FIX10_6(0),
-        },
+		// Object segments' z coordinates (__spt0 to __spt3)
+		// Note that each SPT's z coordinate much be larger than or equal to the previous one's,
+		// since the VIP renders OBJ Worlds in reverse order (__SPT3 to __SPT0)
+		{
+			// __spt0
+			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(0),
+		},
 
-        // Struct defining the optical settings for the stage
-        {
+		// Struct defining the optical settings for the stage
+		{
 			// Maximum view distance's power into the horizon
 			__MAXIMUM_X_VIEW_DISTANCE, __MAXIMUM_Y_VIEW_DISTANCE,
 			// Distance of the eyes to the screen
@@ -224,48 +224,48 @@ StageROMSpec VideoPlayerStageSpec =
 			// Scaling factor
 			__SCALING_MODIFIER_FACTOR,
 
-        },
+		},
 	},
 
-    // Physical world's properties
-    {
-        // Gravity
-        {
-    	    __F_TO_FIX10_6(0),
-    	    __F_TO_FIX10_6(0),
-    	    __F_TO_FIX10_6(0),
-        },
+	// Physical world's properties
+	{
+		// Gravity
+		{
+			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(0),
+			__F_TO_FIX10_6(0),
+		},
 
-        // Friction coefficient
-        __F_TO_FIX10_6(0),
-    },
+		// Friction coefficient
+		__F_TO_FIX10_6(0),
+	},
 
-    // Assets
-    {
-        // Fonts to preload
-    	(FontSpec**)VideoPlayerStageFontSpecs,
+	// Assets
+	{
+		// Fonts to preload
+		(FontSpec**)VideoPlayerStageFontSpecs,
 
-        // CharSets to preload
-    	(CharSetSpec**)NULL,
+		// CharSets to preload
+		(CharSetSpec**)NULL,
 
-        // Textures to preload
+		// Textures to preload
 		(TextureSpec**)NULL,
 
-        // Sounds to load
-        NULL,
-    },
+		// Sounds to load
+		NULL,
+	},
 
-    // Actors
-    {
-        // UI configuration
-        {
+	// Actors
+	{
+		// UI configuration
+		{
 			(PositionedActor*)VideoPlayerStageUiActorSpecs,
 			__TYPE(UIContainer),
-        },
+		},
 
-        // Stage's children actors
-    	(PositionedActor*)VideoPlayerStageChildren,
-    },
+		// Stage's children actors
+		(PositionedActor*)VideoPlayerStageChildren,
+	},
 
 	// Post processing effects
 	(PostProcessingEffect*)NULL,
