@@ -713,7 +713,6 @@ const PixelVector TreeMeshesSegments[][2]=
 		{0, -104, 0, 0}
 	},
 
-
 	// limiter
 	{
 		{0, 0, 0, 0}, 
@@ -788,4 +787,3 @@ ActorROMSpec TreeActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

@@ -360,7 +360,7 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -392,7 +392,7 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 		__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
@@ -424,7 +424,7 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -456,7 +456,7 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -488,7 +488,7 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -520,7 +520,7 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -552,7 +552,7 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_AFFINE,
 
 	// Pointer to affine/hbias manipulation function
@@ -684,7 +684,7 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 		{0, 0, 2, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function
@@ -716,7 +716,7 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 		{0, 0, 3, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 
 	// Pointer to affine/hbias manipulation function

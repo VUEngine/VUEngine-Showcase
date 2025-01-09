@@ -164,4 +164,3 @@ ActorROMSpec PyramidActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

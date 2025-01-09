@@ -807,4 +807,3 @@ ActorROMSpec ChurchActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

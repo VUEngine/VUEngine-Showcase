@@ -122,4 +122,3 @@ ActorROMSpec PongWallsActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

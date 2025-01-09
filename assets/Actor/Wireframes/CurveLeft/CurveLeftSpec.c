@@ -271,4 +271,3 @@ ActorROMSpec CurveLeftActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

@@ -321,4 +321,3 @@ ActorROMSpec PowerPoleActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

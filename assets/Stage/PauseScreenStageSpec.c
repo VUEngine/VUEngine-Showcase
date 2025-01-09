@@ -17,7 +17,6 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-
 #if __PLUGIN__PAUSE_USE_LOW_POWER_ENTITY
 extern ActorSpec LowPowerIndicatorActorSpec;
 #endif

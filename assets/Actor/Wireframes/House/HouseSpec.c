@@ -212,4 +212,3 @@ ActorROMSpec HouseActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

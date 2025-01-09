@@ -146,4 +146,3 @@ ActorROMSpec StreetActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

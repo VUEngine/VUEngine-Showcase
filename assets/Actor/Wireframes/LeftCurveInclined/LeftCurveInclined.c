@@ -278,4 +278,3 @@ ActorROMSpec LeftCurveInclinedActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

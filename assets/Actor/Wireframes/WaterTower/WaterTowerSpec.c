@@ -739,4 +739,3 @@ ActorROMSpec WaterTowerActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

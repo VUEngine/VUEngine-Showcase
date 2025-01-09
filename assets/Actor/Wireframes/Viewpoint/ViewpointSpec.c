@@ -306,4 +306,3 @@ ActorROMSpec ViewpointActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

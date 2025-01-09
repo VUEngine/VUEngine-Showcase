@@ -220,4 +220,3 @@ ActorROMSpec BusStopActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

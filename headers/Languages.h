@@ -86,5 +86,4 @@ enum LanguageStrings
     kStringYouDiedAgain,
 };
 
-
 #endif

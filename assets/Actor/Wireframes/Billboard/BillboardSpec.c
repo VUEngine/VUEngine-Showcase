@@ -238,4 +238,3 @@ ActorROMSpec BillboardActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

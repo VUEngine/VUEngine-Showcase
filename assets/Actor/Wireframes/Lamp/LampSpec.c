@@ -185,4 +185,3 @@ ActorROMSpec LampActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

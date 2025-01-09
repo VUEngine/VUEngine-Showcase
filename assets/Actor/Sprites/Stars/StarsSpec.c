@@ -154,10 +154,6 @@ ObjectSpriteROMSpec StarSpriteSpec =
 		{0, 0, 0, 0},
 	},
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
-	__WORLD_OBJECT,
-
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 };

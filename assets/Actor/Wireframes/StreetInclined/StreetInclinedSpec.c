@@ -107,7 +107,6 @@ const PixelVector StreetInclinedMeshesSegments[][2]=
 		{-128, -86.79, 26.35, 0} 
 	},
 
-
 	// limiter
 	{
 		{0, 0, 0, 0}, 
@@ -182,4 +181,3 @@ ActorROMSpec StreetInclinedActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

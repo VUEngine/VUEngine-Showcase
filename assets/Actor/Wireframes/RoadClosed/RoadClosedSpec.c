@@ -351,4 +351,3 @@ ActorROMSpec RoadClosedActorSpec =
 	// Animation to play automatically
 	NULL
 };
-

@@ -227,4 +227,3 @@ ActorROMSpec PowerCableActorSpec =
 	// Animation to play automatically
 	NULL
 };
-
