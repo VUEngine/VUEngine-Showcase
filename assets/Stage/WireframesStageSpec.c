@@ -166,7 +166,7 @@ StageROMSpec WireframesStageSpec =
 	{
 		// Padding to be added to camera's frustum when checking if a actor spec
 		// describes an actor that is within the camera's range
-		128,
+		160,
 		// Padding to be added to camera's frustum when checking if a actor is
 		// out of the camera's range
 		64,
