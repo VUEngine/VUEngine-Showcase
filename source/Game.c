@@ -33,22 +33,26 @@ int game(void)
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
 	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
 
-	SplashScreenState::setNextState(
+	SplashScreenState::setNextState
+	(
 		SplashScreenState::safeCast(PrecautionScreenState::getInstance()),
 		GameState::safeCast(AdjustmentScreenState::getInstance())
 	);
 
-	SplashScreenState::setNextState(
+	SplashScreenState::setNextState
+	(
 		SplashScreenState::safeCast(AdjustmentScreenState::getInstance()),
 		GameState::safeCast(LanguageSelectionScreenState::getInstance())
 	);
 
-	SplashScreenState::setNextState(
+	SplashScreenState::setNextState
+	(
 		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
 		GameState::safeCast(AutomaticPauseSelectionScreenState::getInstance())
 	);
 
-	SplashScreenState::setNextState(
+	SplashScreenState::setNextState
+	(
 		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);

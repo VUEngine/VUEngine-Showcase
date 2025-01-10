@@ -72,7 +72,8 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	// Fade in screen
 	Camera::startEffect(kHide);
 	
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -100,7 +101,8 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 
 		// Fade out screen
 		Brightness brightness = (Brightness){0, 0, 0};
-		Camera::startEffect(
+		Camera::startEffect
+		(
 			kFadeTo, // effect type
 			0, // initial delay (in ms)
 			&brightness, // target brightness

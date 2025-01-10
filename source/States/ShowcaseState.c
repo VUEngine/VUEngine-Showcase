@@ -103,7 +103,8 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 
 	// Start fade in effect
 	Camera::startEffect(kHide);
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -158,7 +159,8 @@ void ShowcaseState::resume(void* owner)
 
 	// Start a fade in effect
 	Camera::startEffect(kHide);
-	Camera::startEffect(
+	Camera::startEffect
+	(
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness

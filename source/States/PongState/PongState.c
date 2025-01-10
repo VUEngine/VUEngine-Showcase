@@ -217,7 +217,8 @@ void PongState::showConnectivityStatus()
 	{
 		const char* strConnected = I18n::getText(I18n::getInstance(), kStringConnected);
 		FontSize strConnectedTextSize = Printing::getTextSize(strConnected, "DefaultBold");
-		Printing::text(
+		Printing::text
+		(
 			
 			strConnected, 
 			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strConnectedTextSize.x >> 1), 
@@ -229,7 +230,8 @@ void PongState::showConnectivityStatus()
 	{
 		const char* strNoLink = I18n::getText(I18n::getInstance(), kStringNoLink);
 		FontSize strNoLinkTextSize = Printing::getTextSize(strNoLink, "DefaultBold");
-		Printing::text(
+		Printing::text
+		(
 			
 			strNoLink, 
 			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strNoLinkTextSize.x >> 1), 
