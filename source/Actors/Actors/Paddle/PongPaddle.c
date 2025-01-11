@@ -33,7 +33,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongPaddle::constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name)
+void PongPaddle::constructor(const PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&pongPaddleSpec->actorSpec, internalId, name);

@@ -47,7 +47,7 @@ class CogWheel : Actor
 	/// @param cogWheelSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name);
+	void constructor(const CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name);
 
 	/// Update this instance's logic.
 	override void update();

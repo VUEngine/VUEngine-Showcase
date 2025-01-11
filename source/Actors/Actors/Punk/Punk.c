@@ -37,7 +37,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Punk::constructor(PunkSpec* punkSpec, int16 internalId, const char* const name)
+void Punk::constructor(const PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);

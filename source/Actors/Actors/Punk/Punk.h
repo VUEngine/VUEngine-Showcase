@@ -47,7 +47,7 @@ class Punk : Actor
 	/// @param punkSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(PunkSpec* punkSpec, int16 internalId, const char* const name);
+	void constructor(const PunkSpec* punkSpec, int16 internalId, const char* const name);
 
 	/// Default interger message handler for propagateMessage
 	/// @param message: Propagated integer message

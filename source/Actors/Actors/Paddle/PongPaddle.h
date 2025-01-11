@@ -60,7 +60,7 @@ class PongPaddle : Actor
 	/// @param pongPaddleSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
-	void constructor(PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
+	void constructor(const PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name);
 
 	/// Default interger message handler for propagateMessage
 	/// @param message: Propagated integer message

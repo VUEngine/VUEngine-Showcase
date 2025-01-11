@@ -63,7 +63,7 @@ static uint32 _randomSeed = 0;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongBall::constructor(PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
+void PongBall::constructor(const PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
