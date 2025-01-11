@@ -93,7 +93,7 @@ static int16 BgmapSprite::applyHBias(BgmapSprite bgmapSprite, int16 waveHBiasThr
 	return 0;
 }
 
-static int16 BgmapSprite::waveEffect(BgmapSprite bgmapSprite)
+static int16 BgmapSprite::waveEffect(BgmapSprite bgmapSprite, int32 maximumParamTableRowsToComputePerCall __attribute__((unused)))
 {
 	return BgmapSprite::applyHBias(bgmapSprite, 2);
 }
