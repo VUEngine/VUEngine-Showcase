@@ -29,7 +29,7 @@ dynamic_singleton class VideoPlayerState : ShowcaseState
 {
 	/// Method to retrieve the singleton instance
 	/// @return VideoPlayerState singleton
-	static VideoPlayerState getInstance();
+	static VideoPlayerState getInstance(ClassPointer requesterClass);
 
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information

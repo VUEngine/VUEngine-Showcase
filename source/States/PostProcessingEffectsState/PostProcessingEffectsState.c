@@ -112,37 +112,37 @@ void PostProcessingEffectsState::showStuff()
 void PostProcessingEffectsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(), kStringFrameBuffersLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringPostProcessingEffectsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringFrameBuffersLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringPostProcessingEffectsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 	Printing::text("PostProcessingEffectsState", 2, y++, NULL);
 	Printing::text("::processUserInput", 2, y++, NULL);
 	
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 32, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 32, y++, "DefaultBold");
 	Printing::text("VUEngine", 32, y++, NULL);
 	y++;
 
-	Printing::text(I18n::getText(I18n::getInstance(), kStringEffectSubtitle), 32, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringEffectSubtitle), 32, y++, "DefaultBold");
 	Printing::text("            ", 32, y, NULL);
 
 	if(PostProcessingWobble::wobble == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(I18n::getText(I18n::getInstance(), kStringWobbleLabel), 32, y, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringWobbleLabel), 32, y, NULL);
 	}
 	else if(PostProcessingTilt::tiltScreen == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(I18n::getText(I18n::getInstance(), kStringTiltELabel), 32, y, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringTiltELabel), 32, y, NULL);
 	}
 	else if(PostProcessingDwarfPlanet::dwarfPlanet == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(I18n::getText(I18n::getInstance(), kStringDwarfPlanetLabel), 32, y, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringDwarfPlanetLabel), 32, y, NULL);
 	}
 	else if(PostProcessingRain::thinRain == _postProcessingEffect[this->selectedPostProcessingEffect])
 	{
-		Printing::text(I18n::getText(I18n::getInstance(), kStringRainLabel), 32, y, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringRainLabel), 32, y, NULL);
 	}
 }
 

@@ -185,7 +185,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(K_STA & userInput->releasedKey)
 	{
-		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance()));
+		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance(NULL)));
 	}
 	else if(K_LT & userInput->releasedKey)
 	{
@@ -337,7 +337,7 @@ void ShowcaseState::showHeader()
 	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
-	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
+	const char* statePrefix = I18n::getText(I18n::getInstance(NULL), kStringStateTitle);
 	FontSize statePrefixTextSize = Printing::getTextSize(statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);

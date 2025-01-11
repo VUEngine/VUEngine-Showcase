@@ -106,27 +106,27 @@ void ParticlesState::showExplanation()
 	if(!isDeleted(this->particleSystem))
 	{
 		int16 y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringParticleSystemsLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringParticleTypesLabel), 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printing::text("Particle", 2, y++, NULL);
 		Printing::text("ParticleSystem", 2, y++, NULL);
 		Printing::text("PhysicalParticle", 2, y++, NULL);
 		Printing::text("SolidParticle", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 		Printing::text("ParticlesState", 2, y++, NULL);
 		Printing::text("::loadParticles", 2, y++, NULL);
 		Printing::text("::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 		Printing::text("StarParticle*Spec", 2, y++, NULL);
 		Printing::text("StarsParticleSystem*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringParticlesSubtitle), 28, y++, "DefaultBold");
 
 		switch(this->particlesType)
 		{

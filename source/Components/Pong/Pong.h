@@ -85,7 +85,7 @@ singleton class Pong : ListenerObject
 
 	/// Method to retrieve the singleton instance
 	/// @return Pong singleton
-	static Pong getInstance();
+	static Pong getInstance(ClassPointer requesterClass);
 
 	/// Make the pong game ready to start.
 	/// @param stage: Current state on which the pong game is played

@@ -55,7 +55,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 	{
 		case kMessagePongResetPositions:
 
-			if(!Pong::isVersusMode(Pong::getInstance()))
+			if(!Pong::isVersusMode(Pong::getInstance(NULL)))
 			{
 				PongPaddle::stopMovement(this, __ALL_AXIS);
 				Vector3D localPosition = this->localTransformation.position;

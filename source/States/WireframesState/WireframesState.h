@@ -29,7 +29,7 @@ dynamic_singleton class WireframesState : ShowcaseState
 {
 	/// Method to retrieve the singleton instance
 	/// @return AnimationSchemesState singleton
-	static WireframesState getInstance();
+	static WireframesState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

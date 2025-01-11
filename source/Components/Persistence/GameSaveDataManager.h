@@ -44,7 +44,7 @@ singleton class GameSaveDataManager : SaveDataManager
 {
 	/// Method to GameSaveDataManager the singleton instance
 	/// @return AnimationSchemesState singleton
-	static GameSaveDataManager getInstance();
+	static GameSaveDataManager getInstance(ClassPointer requesterClass);
 
 	/// Save a custom value to SRAM.
 	/// @param customValue: Value to save

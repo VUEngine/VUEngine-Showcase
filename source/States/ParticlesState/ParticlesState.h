@@ -36,7 +36,7 @@ dynamic_singleton class ParticlesState : ShowcaseState
 
 	/// Method to retrieve the singleton instance
 	/// @return AnimationSchemesState singleton
-	static ParticlesState getInstance();
+	static ParticlesState getInstance(ClassPointer requesterClass);
 
 	/// Updates the object in this state.
 	/// @param owner: Object that is in this state

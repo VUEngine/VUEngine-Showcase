@@ -32,7 +32,7 @@ dynamic_singleton class PostProcessingEffectsState : ShowcaseState
 
 	/// Method to retrieve the singleton instance
 	/// @return PostProcessingEffectsState singleton
-	static PostProcessingEffectsState getInstance();
+	static PostProcessingEffectsState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to exit this state.
 	/// @param owner: Object that is exiting this state

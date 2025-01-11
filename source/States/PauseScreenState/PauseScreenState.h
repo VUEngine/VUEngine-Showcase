@@ -31,7 +31,7 @@ singleton class PauseScreenState : GameState
 
 	/// Method to retrieve the singleton instance
 	/// @return PauseScreenState singleton
-	static PauseScreenState getInstance();
+	static PauseScreenState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

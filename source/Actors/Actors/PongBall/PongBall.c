@@ -75,7 +75,7 @@ void PongBall::destructor()
 {
 	if(!PongBall::isInCameraRange(this, 0, false))
 	{
-		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
+		Pong::fireEvent(Pong::getInstance(NULL), kEventPongBallStreamedOut);
 	}
 
 	// Always explicitly call the base's destructor 
@@ -165,7 +165,7 @@ void PongBall::ready(bool recursive)
 {
 	Base::ready(this, recursive);
 
-	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
+	Pong::fireEvent(Pong::getInstance(NULL), kEventPongBallSpawned);
 
 	PongBall::prepareToMove(this);
 }
@@ -197,7 +197,7 @@ void PongBall::startMovement()
 {
 	int16 angle = 0;
 
-	if(Pong::isVersusMode(Pong::getInstance()))
+	if(Pong::isVersusMode(Pong::getInstance(NULL)))
 	{
 		if(0 == _randomSeed)
 		{
