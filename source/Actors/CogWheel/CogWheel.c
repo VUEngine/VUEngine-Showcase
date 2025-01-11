@@ -19,7 +19,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void CogWheel::constructor(CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name)
+void CogWheel::constructor(const CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name)
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor((ActorSpec*)&cogWheelSpec->actorSpec, internalId, name);
