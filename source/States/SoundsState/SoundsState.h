@@ -35,9 +35,6 @@ dynamic_singleton class SoundsState : ShowcaseState
 	/// Index of the sound spec to use to configure the sound
 	uint16 selectedSound;
 	
-	/// Method to retrieve the singleton instance
-	/// @return SoundsState singleton
-	static SoundsState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

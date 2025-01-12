@@ -63,5 +63,4 @@
 #define __PLUGIN_PRECAUTION_SCREEN_USE_LOW_POWER_ACTOR (false)
 #define __PLUGIN_PRECAUTION_SCREEN_TEXT_FONT "AstonishExt"
 
-
 #endif

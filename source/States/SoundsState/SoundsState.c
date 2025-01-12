@@ -313,16 +313,16 @@ void SoundsState::showStuff()
 void SoundsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSoundPlaybackLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringTimerSettingsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSoundPlaybackLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringTimerSettingsLabel), 2, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text("SoundManager", 2, y++, NULL);
 	Printing::text("Sound", 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text("EngineSound", 2, y++, NULL);
 	Printing::text("ExplosionSound", 2, y++, NULL);
 	Printing::text("NoFearForTheFutureSound", 2, y++, NULL);
@@ -334,11 +334,11 @@ void SoundsState::showExplanation()
 	SoundsState::showSoundMetadata(this);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("Chiptunes", 26, y++, NULL);
 	Printing::text("PCM", 26, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("SoundsState", 26, y++, NULL);
 	Printing::text("::loadSound", 26, y++, NULL);
 	Printing::text("::releaseSound", 26, y++, NULL);

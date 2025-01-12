@@ -34,10 +34,6 @@ dynamic_singleton class ParticlesState : ShowcaseState
 	/// Index of the particle type to showcase
 	uint32 particlesType;
 
-	/// Method to retrieve the singleton instance
-	/// @return AnimationSchemesState singleton
-	static ParticlesState getInstance(ClassPointer requesterClass);
-
 	/// Updates the object in this state.
 	/// @param owner: Object that is in this state
 	override void execute(void* owner);

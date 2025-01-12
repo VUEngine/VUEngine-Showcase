@@ -37,10 +37,6 @@ dynamic_singleton class AnimationSchemesState : ShowcaseState
 	/// Type of animation scheme to showcase
 	uint32 animationScheme;
 
-	/// Method to retrieve the singleton instance
-	/// @return AnimationSchemesState singleton
-	static AnimationSchemesState getInstance(ClassPointer requesterClass);
-
 	/// Updates the object in this state.
 	/// @param owner: Object that is in this state
 	override void execute(void* owner);

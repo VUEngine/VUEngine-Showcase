@@ -27,9 +27,6 @@
 /// Implements a game state to showcase how actor's body and state machine work.
 dynamic_singleton class CollisionsState : ShowcaseState
 {
-	/// Method to retrieve the singleton instance
-	/// @return AnimationSchemesState singleton
-	static CollisionsState getInstance(ClassPointer requesterClass);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state

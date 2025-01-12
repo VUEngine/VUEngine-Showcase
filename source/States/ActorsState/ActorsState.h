@@ -30,9 +30,6 @@ dynamic_singleton class ActorsState : ShowcaseState
 	/// Main actor
 	Actor leaderPunk;
 	
-	/// Method to retrieve the singleton instance
-	/// @return ActorsState singleton
-	static ActorsState getInstance(ClassPointer requesterClass);
 
 	/// Updates the object in this state.
 	/// @param owner: Object that is in this state

@@ -22,5 +22,4 @@ extern RumbleEffectSpec HitPaddleRumbleEffectSpec;
 extern RumbleEffectSpec KilledRumbleEffectSpec;
 extern RumbleEffectSpec PointRumbleEffectSpec;
 
-
 #endif

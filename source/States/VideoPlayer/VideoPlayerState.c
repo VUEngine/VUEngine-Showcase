@@ -73,26 +73,26 @@ void VideoPlayerState::showControls()
 void VideoPlayerState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringAnimationsLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringHiColorLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringHiColorLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text("Actor", 2, y++, NULL);
 	Printing::text("Sprite", 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text("VideoActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOptimizedCharSetsLabel), 26, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOptimizedBgmapsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOptimizedCharSetsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOptimizedBgmapsLabel), 26, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("VideoPlayerState", 26, y++, NULL);
 	Printing::text("::processUserInput", 26, y++, NULL);
 
@@ -104,7 +104,7 @@ void VideoPlayerState::showExplanation()
 void VideoPlayerState::showAdditionalDetails()
 {
 	int16 y = 25;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringAnimationSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "DefaultBold");
 
 	Actor videoActor = Actor::safeCast(VideoPlayerState::getActorByName(this, "Video"));
 

@@ -134,8 +134,8 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	}
 	*/
 
-	Camera::translate(translation, false);
-	Camera::rotate(rotation);
+	Camera::translate(Camera::getInstance(), translation, false);
+	Camera::rotate(Camera::getInstance(), rotation);
 
 	Base::processUserInput(this, userInput);
 }
@@ -159,12 +159,12 @@ void WireframesState::showControls()
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringCameraControlLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringWireframesLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text("Camera", 2, y++, NULL);
 	Printing::text("DirectDraw", 2, y++, NULL);
 	Printing::text("Mesh", 2, y++, NULL);
@@ -172,12 +172,12 @@ void WireframesState::showExplanation()
 	Printing::text("WireframeManager", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("WireframesState", 26, y++, NULL);
 	Printing::text("::processUserInput", 26, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("PyramidActorSpec", 26, y++, NULL);
 	Printing::text("WireframesStageSpec", 26, y++, NULL);
 }
@@ -189,7 +189,7 @@ void WireframesState::showAdditionalDetails()
 
 	WireframeManager::print(1, 3);
 	DirectDraw::print(1, 9);
-	Camera::print(31, 3, false);
+	Camera::print(Camera::getInstance(), 31, 3, false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

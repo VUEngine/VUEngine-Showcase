@@ -167,7 +167,7 @@ void Punk::die()
 	 * or will become corrupt.
 	 */
 	Printing::registerEventListener(ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringYouDiedAgain), 18, 19, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 
 	Punk::mutateTo(this, PunkDeath::getClass());
 }
@@ -206,7 +206,7 @@ void Punk::resuscitate()
 
 void Punk::onFontCharSetRewritten(ListenerObject eventFirer __attribute__((unused)))
 {
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringYouDiedAgain), 18, 19, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

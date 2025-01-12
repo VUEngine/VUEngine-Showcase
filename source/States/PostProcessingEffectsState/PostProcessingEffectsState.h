@@ -30,10 +30,6 @@ dynamic_singleton class PostProcessingEffectsState : ShowcaseState
 	/// Index of the post processing effect to show
 	int8 selectedPostProcessingEffect;
 
-	/// Method to retrieve the singleton instance
-	/// @return PostProcessingEffectsState singleton
-	static PostProcessingEffectsState getInstance(ClassPointer requesterClass);
-
 	/// Prepares the object to exit this state.
 	/// @param owner: Object that is exiting this state
 	override void exit(void* owner);

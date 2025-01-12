@@ -96,15 +96,16 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	VUEngine::enableKeypad();
 
 	// Printing the framerate
-	FrameRate::registerEventListener
+	FrameRate::addEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
+		FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
 	);
 
 	// Start fade in effect
-	Camera::startEffect(kHide);
+	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -121,9 +122,9 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
  */
 void ShowcaseState::exit(void* owner __attribute__((unused)))
 {
-	FrameRate::unregisterEventListener
+	FrameRate::removeEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
+		FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
 	);
 
 	Base::exit(this, owner);
@@ -139,7 +140,7 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
  */
 void ShowcaseState::suspend(void* owner)
 {
-	Camera::startEffect(kFadeOut, __FADE_DELAY);
+	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
 
 	Base::suspend(this, owner);
 }
@@ -158,9 +159,10 @@ void ShowcaseState::resume(void* owner)
 	ShowcaseState::show(this, true);
 
 	// Start a fade in effect
-	Camera::startEffect(kHide);
+	Camera::startEffect(Camera::getInstance(), kHide);
 	Camera::startEffect
 	(
+		Camera::getInstance(),
 		kFadeTo, // effect type
 		0, // initial delay (in ms)
 		NULL, // target brightness
@@ -185,7 +187,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	// Check for UserInput and key definitions in KeypadManager.h
 	if(K_STA & userInput->releasedKey)
 	{
-		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance(NULL)));
+		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance()));
 	}
 	else if(K_LT & userInput->releasedKey)
 	{
@@ -337,7 +339,7 @@ void ShowcaseState::showHeader()
 	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
-	const char* statePrefix = I18n::getText(I18n::getInstance(NULL), kStringStateTitle);
+	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
 	FontSize statePrefixTextSize = Printing::getTextSize(statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);
@@ -406,7 +408,7 @@ void ShowcaseState::destructor()
 
 bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
 {
-	FrameRate::print(14, 27);
+	FrameRate::print(FrameRate::getInstance(), 14, 27);
 
 	return true;
 }

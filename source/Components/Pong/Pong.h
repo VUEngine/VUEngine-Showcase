@@ -83,10 +83,6 @@ singleton class Pong : ListenerObject
 	/// Keypad combiation hold by the remote player
 	uint16 remoteHoldKey;
 
-	/// Method to retrieve the singleton instance
-	/// @return Pong singleton
-	static Pong getInstance(ClassPointer requesterClass);
-
 	/// Make the pong game ready to start.
 	/// @param stage: Current state on which the pong game is played
 	/// @param isVersusMode: If true, communications with another system are up

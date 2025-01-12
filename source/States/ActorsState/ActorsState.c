@@ -97,26 +97,26 @@ void ActorsState::showStuff()
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringActorsLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringParentingLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printing::text("Actor", 2, y++, NULL);
 	Printing::text("Actor", 2, y++, NULL);
 	Printing::text("Stage", 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printing::text("PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringActorCreationLabel), 26, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringActorDestructionLabel), 26, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringStagesLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringActorCreationLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringActorDestructionLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printing::text("ActorsState", 26, y++, NULL);
 	Printing::text("::createLeaderPunk", 26, y++, NULL);
 	Printing::text("::movePunks", 26, y++, NULL);

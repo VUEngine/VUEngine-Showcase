@@ -30,10 +30,6 @@ dynamic_singleton class PongState : ShowcaseState
 	/// If true, a connection has been detected
 	bool isVersusMode;
 
-	/// Method to retrieve the singleton instance
-	/// @return PongState singleton
-	static PongState getInstance(ClassPointer requesterClass);
-
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state
 	override void enter(void* owner);

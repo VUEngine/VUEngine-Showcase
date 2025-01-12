@@ -30,35 +30,35 @@
 int game(void)
 {
 	// Initialize plugins
-	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(NULL), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance(NULL)));
-	I18n::setActiveLanguage(I18n::getInstance(NULL), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance(NULL)));
+	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
+	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
 
 	SplashScreenState::setNextState
 	(
-		SplashScreenState::safeCast(PrecautionScreenState::getInstance(NULL)),
-		GameState::safeCast(AdjustmentScreenState::getInstance(NULL))
+		SplashScreenState::safeCast(PrecautionScreenState::getInstance()),
+		GameState::safeCast(AdjustmentScreenState::getInstance())
 	);
 
 	SplashScreenState::setNextState
 	(
-		SplashScreenState::safeCast(AdjustmentScreenState::getInstance(NULL)),
-		GameState::safeCast(LanguageSelectionScreenState::getInstance(NULL))
+		SplashScreenState::safeCast(AdjustmentScreenState::getInstance()),
+		GameState::safeCast(LanguageSelectionScreenState::getInstance())
 	);
 
 	SplashScreenState::setNextState
 	(
-		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance(NULL)),
-		GameState::safeCast(AutomaticPauseSelectionScreenState::getInstance(NULL))
+		SplashScreenState::safeCast(LanguageSelectionScreenState::getInstance()),
+		GameState::safeCast(AutomaticPauseSelectionScreenState::getInstance())
 	);
 
 	SplashScreenState::setNextState
 	(
-		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance(NULL)),
+		SplashScreenState::safeCast(AutomaticPauseSelectionScreenState::getInstance()),
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 
 	// Start the game
-	return VUEngine::start(GameState::safeCast(PrecautionScreenState::getInstance(NULL)));
+	return VUEngine::start(GameState::safeCast(PrecautionScreenState::getInstance()));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

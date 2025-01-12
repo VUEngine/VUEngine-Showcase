@@ -180,18 +180,18 @@ void CollisionsState::showExplanation()
 
 	Printing::text
 	(
-		I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle),
+		I18n::getText(I18n::getInstance(), kStringConceptsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
 	);
 	
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringActorsLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringPhysicsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	
 	Printing::text
 	(	
-		I18n::getText(I18n::getInstance(NULL), kStringStateMachinesLabel),
+		I18n::getText(I18n::getInstance(), kStringStateMachinesLabel),
 		2,
 		y++,
 		NULL
@@ -201,7 +201,7 @@ void CollisionsState::showExplanation()
 	
 	Printing::text
 	(
-		I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle),
+		I18n::getText(I18n::getInstance(), kStringClassesSubtitle),
 		2,
 		y++,
 		"DefaultBold"
@@ -216,7 +216,7 @@ void CollisionsState::showExplanation()
 	
 	Printing::text
 	(
-		I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle),
+		I18n::getText(I18n::getInstance(), kStringSpecsSubtitle),
 		2,
 		y++,
 		"DefaultBold"
@@ -228,7 +228,7 @@ void CollisionsState::showExplanation()
 
 	Printing::text
 	(	
-		I18n::getText(I18n::getInstance(NULL), kStringOtherConceptsSubtitle),
+		I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle),
 		26,
 		y++,
 		"DefaultBold"
@@ -236,17 +236,17 @@ void CollisionsState::showExplanation()
 	
 	Printing::text
 	(	
-		I18n::getText(I18n::getInstance(NULL), kStringCollisionsLabel),
+		I18n::getText(I18n::getInstance(), kStringCollisionsLabel),
 		26,
 		y++,
 		NULL
 	);
 	
-	Printing::text(I18n::getText(I18n::getInstance(NULL), kStringEventsLabel), 26, y++, NULL);
+	Printing::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
 	
 	Printing::text
 	(	
-		I18n::getText(I18n::getInstance(NULL), kStringMessagingLabel),
+		I18n::getText(I18n::getInstance(), kStringMessagingLabel),
 		26,
 		y++,
 		NULL
@@ -256,7 +256,7 @@ void CollisionsState::showExplanation()
 
 	Printing::text
 	(	
-		I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle),
+		I18n::getText(I18n::getInstance(), kStringMethodsSubtitle),
 		26,
 		y++,
 		"DefaultBold"

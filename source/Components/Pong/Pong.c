@@ -125,7 +125,7 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 		NM_ASSERT(1 == VirtualList::getCount(this->opponentPaddles), "Pong::getReady: didn't find left paddle");
 	}
 
-	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance(NULL)), (char*)PONG_BALL_NAME, false));
+	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -237,7 +237,7 @@ void Pong::destructor()
 
 bool Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
 {
-	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance(NULL)), (char*)PONG_BALL_NAME, false));
+	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 
 	this->messageForRemote = kMessagePongSync;
 

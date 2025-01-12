@@ -114,34 +114,34 @@ void SpritesState::showExplanation()
 	if(!isDeleted(this->sprite))
 	{
 		int16 y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringGameStatesLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpritesLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringUserInputLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringGameStatesLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpritesLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringUserInputLabel), 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassExtensionLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassMutationLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringClassesSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printing::text("CharSet", 2, y++, NULL);
 		Printing::text("*Sprite      ", 2, y++, NULL);
 		Printing::text("Texture", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
 		Printing::text("SpritesState", 2, y++, NULL);
 		Printing::text("::createSprite", 2, y++, NULL);
 		Printing::text("::destroySprite", 2, y++, NULL);
 		Printing::text("::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 		Printing::text("CogWheel*Sprite*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(NULL), kStringSpriteSubtitle), 28, y++, "DefaultBold");
+		Printing::text(I18n::getText(I18n::getInstance(), kStringSpriteSubtitle), 28, y++, "DefaultBold");
 		Printing::text(__GET_CLASS_NAME(this->sprite), 28, y++, NULL);
-		const char* strMode = I18n::getText(I18n::getInstance(NULL), kStringModeLabel);
+		const char* strMode = I18n::getText(I18n::getInstance(), kStringModeLabel);
 		Printing::text(strMode, 28, y, NULL);
 		FontSize strModeTextSize = Printing::getTextSize(strMode, NULL);
 
