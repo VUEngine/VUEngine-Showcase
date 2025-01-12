@@ -93,7 +93,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
 
 	// Enable user input
-	VUEngine::enableKeypad();
+	KeypadManager::enable(KeypadManager::getInstance());
 
 	// Printing the framerate
 	FrameRate::addEventListener
@@ -174,7 +174,7 @@ void ShowcaseState::resume(void* owner)
 	/*
 	 * Allow the player to interact again.
 	 */
-	VUEngine::enableKeypad();
+	KeypadManager::enable(KeypadManager::getInstance());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -251,7 +251,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		 * Prevent the user to mess up the playback by pressig the keypad's buttons
 		 * like a maniac.
 		 */
-		VUEngine::disableKeypad();
+		KeypadManager::disable(KeypadManager::getInstance());
 
 		/*
 		 * Make sure that the timer interrupts happen at a controlled frequency to
@@ -427,7 +427,7 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 	/*
 	 * Allow the player to interact again.
 	 */
-	VUEngine::enableKeypad();
+	KeypadManager::enable(KeypadManager::getInstance());
 
 	return true;
 }
@@ -436,7 +436,7 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 
 void ShowcaseState::goToNext()
 {
-	VUEngine::disableKeypad();
+	KeypadManager::disable(KeypadManager::getInstance());
 
 	VUEngine::changeState(GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }

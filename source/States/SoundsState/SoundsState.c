@@ -441,7 +441,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		return;
 	}
 
-	VUEngine::disableKeypad();
+	KeypadManager::disable(KeypadManager::getInstance());
 
 	SoundsState::releaseSound(this);
 
@@ -480,7 +480,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		SoundsState::applyTimerSettings(this);
 	}
 
-	VUEngine::enableKeypad();
+	KeypadManager::enable(KeypadManager::getInstance());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
