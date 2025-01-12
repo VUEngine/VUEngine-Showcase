@@ -449,7 +449,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * Since PCM playback is too heavy on the CPU, it makes sense to set it per stage.
 	 * So, we set globally the target playback framerate (Hz) before creating any sound. 
 .	 */
-	SoundManager::setPCMTargetPlaybackRefreshRate(this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
+	SoundManager::setPCMTargetPlaybackRefreshRate(SoundManager::getInstance(), this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
 
 	/*
 	 * We configure the timer manager to match the sound's timing. This is done here as 
