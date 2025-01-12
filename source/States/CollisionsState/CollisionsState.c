@@ -41,8 +41,9 @@ void CollisionsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten.
 	 */
-	Printing::registerEventListener
+	Printing::addEventListener
 	(
+		Printing::getInstance(),
 		ListenerObject::safeCast(this),
 		(EventListener)CollisionsState::onFontCharSetRewritten,
 		kEventFontRewritten
@@ -70,9 +71,9 @@ void CollisionsState::execute(void* owner __attribute__((unused)))
 
 void CollisionsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::unregisterEventListener
+	Printing::removeEventListener
 	(
-		ListenerObject::safeCast(this), (EventListener)CollisionsState::onFontCharSetRewritten,
+		Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)CollisionsState::onFontCharSetRewritten,
 		kEventFontRewritten
 	);
 
@@ -89,8 +90,9 @@ void CollisionsState::resume(void* owner)
 {
 	Base::resume(this, owner);
 
-	Printing::registerEventListener
+	Printing::addEventListener
 	(
+		Printing::getInstance(), 
 		ListenerObject::safeCast(this),
 		(EventListener)CollisionsState::onFontCharSetRewritten,
 		kEventFontRewritten
