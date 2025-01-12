@@ -51,7 +51,7 @@ void CollisionsState::enter(void* owner __attribute__((unused)))
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

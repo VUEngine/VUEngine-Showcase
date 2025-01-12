@@ -37,7 +37,7 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED | __KEY_HOLD);
 
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
@@ -137,7 +137,10 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	Camera::translate(Camera::getInstance(), translation, false);
 	Camera::rotate(Camera::getInstance(), rotation);
 
-	Base::processUserInput(this, userInput);
+	if(0 == (K_STA & userInput->releasedKey))
+	{
+		Base::processUserInput(this, userInput);
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

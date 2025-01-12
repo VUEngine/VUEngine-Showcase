@@ -90,7 +90,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	ShowcaseState::startClocks(this);
 
 	// Only register when a button is released
-	KeypadManager::registerInput(__KEY_RELEASED);
+	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
 
 	// Enable user input
 	VUEngine::enableKeypad();
