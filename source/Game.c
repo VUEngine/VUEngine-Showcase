@@ -58,7 +58,7 @@ int game(void)
 	);
 
 	// Start the game
-	return VUEngine::start(GameState::safeCast(PrecautionScreenState::getInstance()));
+	return VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
