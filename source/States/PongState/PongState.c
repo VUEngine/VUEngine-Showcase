@@ -53,7 +53,7 @@ void PongState::enter(void* owner)
 	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// Enable comms	
-	CommunicationManager::enableCommunications((EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 
 	// Make sure that the processing of user input is triggered regardless of real user input
 	KeypadManager::enableDummyKey();
@@ -67,7 +67,7 @@ void PongState::exit(void* owner)
 	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
 
 	PongState::setVersusMode(this, false);
-	CommunicationManager::disableCommunications();
+	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
 
@@ -213,7 +213,7 @@ void PongState::destructor()
 void PongState::showConnectivityStatus()
 {
 	Printing::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
-	if(CommunicationManager::isConnected())
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
 		const char* strConnected = I18n::getText(I18n::getInstance(), kStringConnected);
 		FontSize strConnectedTextSize = Printing::getTextSize(strConnected, "DefaultBold");
@@ -285,14 +285,14 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 
 bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
 {
-	CommunicationManager::disableCommunications();
+	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
 	PongState::setVersusMode(this, false);
 	Pong::getReady(Pong::getInstance(), this->stage, false);
 	PongState::show(this, false);
 	PongState::propagateMessage(this, kMessagePongResetPositions);
 
-	CommunicationManager::enableCommunications((EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 
 	return true;
 }

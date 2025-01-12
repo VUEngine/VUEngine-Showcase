@@ -94,7 +94,7 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 
 	if(isVersusMode)
 	{
-		if(CommunicationManager::isMaster())
+		if(CommunicationManager::isMaster(CommunicationManager::getInstance()))
 		{
 			this->playerNumber = kPlayerOne;
 		}
@@ -312,20 +312,20 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 		/*
 		 * Data transmission can fail if there was already a request to send data.
 		 */
-		if(!CommunicationManager::sendAndReceiveData(messageForRemote, data, dataBytes))
+		if(!CommunicationManager::sendAndReceiveData(CommunicationManager::getInstance(), messageForRemote, data, dataBytes))
 		{
 			/*
 			 * In this case, simply cancel all communications and try again. This supposes
 			 * that there are no other calls that could cause a race condition.
 			 */
-			CommunicationManager::cancelCommunications();
+			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
 		}
 
 		/*
 		 * Every transmission sends a control message and then the data itself.
 		 */
-		receivedMessage = CommunicationManager::getReceivedMessage();
-		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData();
+		receivedMessage = CommunicationManager::getReceivedMessage(CommunicationManager::getInstance());
+		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData(CommunicationManager::getInstance());
 	}
 	/*
 	 * The validity of the message is based on the command that was received
