@@ -245,7 +245,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 	if(NULL != this->playingSoundEffect)
 	{
-		RumbleManager::startEffect(rumbleEffect);
+		RumbleManager::startEffect(RumbleManager::getInstance(), rumbleEffect);
 
 		/*
 		 * Prevent the user to mess up the playback by pressig the keypad's buttons
