@@ -46,7 +46,7 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 	VIPManager::setDrawingStrategy(VIPManager::getInstance(), kVIPManagerFavorStability);
 
 	// Make sure that no interrupts take place during rendering or drawing
-	VIPManager::enableMultiplexedInterrupts(VIPManager::getInstance(), kVIPNoMultiplexedInterrupts);
+	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -74,7 +74,7 @@ void WireframesState::resume(void* owner)
 	VIPManager::setDrawingStrategy(VIPManager::getInstance(), kVIPManagerFavorStability);
 
 	// Make sure that no interrupts take place during rendering or drawing
-	VIPManager::enableMultiplexedInterrupts(VIPManager::getInstance(), kVIPNoMultiplexedInterrupts);
+	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
