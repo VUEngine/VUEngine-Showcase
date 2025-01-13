@@ -50,13 +50,13 @@ void PongState::enter(void* owner)
 	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
 
 	// Set input to be notified about
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
+	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// Enable comms	
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
 
 	// Make sure that the processing of user input is triggered regardless of real user input
-	KeypadManager::enableDummyKey(KeypadManager::getInstance());
+	KeypadManager::enableDummyKey();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

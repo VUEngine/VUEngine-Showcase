@@ -441,7 +441,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		return;
 	}
 
-	KeypadManager::disable(KeypadManager::getInstance());
+	KeypadManager::disable();
 
 	SoundsState::releaseSound(this);
 
@@ -480,7 +480,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		SoundsState::applyTimerSettings(this);
 	}
 
-	KeypadManager::enable(KeypadManager::getInstance());
+	KeypadManager::enable();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

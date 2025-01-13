@@ -90,10 +90,10 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	ShowcaseState::startClocks(this);
 
 	// Only register when a button is released
-	KeypadManager::registerInput(KeypadManager::getInstance(), __KEY_RELEASED);
+	KeypadManager::registerInput(__KEY_RELEASED);
 
 	// Enable user input
-	KeypadManager::enable(KeypadManager::getInstance());
+	KeypadManager::enable();
 
 	// Printing the framerate
 	FrameRate::addEventListener
@@ -174,7 +174,7 @@ void ShowcaseState::resume(void* owner)
 	/*
 	 * Allow the player to interact again.
 	 */
-	KeypadManager::enable(KeypadManager::getInstance());
+	KeypadManager::enable();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -245,13 +245,13 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 	if(NULL != this->playingSoundEffect)
 	{
-		RumbleManager::startEffect(RumbleManager::getInstance(), rumbleEffect);
+		RumbleManager::startEffect(rumbleEffect);
 
 		/*
 		 * Prevent the user to mess up the playback by pressig the keypad's buttons
 		 * like a maniac.
 		 */
-		KeypadManager::disable(KeypadManager::getInstance());
+		KeypadManager::disable();
 
 		/*
 		 * Make sure that the timer interrupts happen at a controlled frequency to
@@ -427,7 +427,7 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 	/*
 	 * Allow the player to interact again.
 	 */
-	KeypadManager::enable(KeypadManager::getInstance());
+	KeypadManager::enable();
 
 	return true;
 }
@@ -436,7 +436,7 @@ bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((u
 
 void ShowcaseState::goToNext()
 {
-	KeypadManager::disable(KeypadManager::getInstance());
+	KeypadManager::disable();
 
 	VUEngine::changeState(GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }

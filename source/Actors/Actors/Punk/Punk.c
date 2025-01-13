@@ -148,7 +148,7 @@ void Punk::die()
 
 	Punk::playAnimation(this, "Die");
 
-	RumbleManager::startEffect(RumbleManager::getInstance(), &KilledRumbleEffectSpec);
+	RumbleManager::startEffect(&KilledRumbleEffectSpec);
 
 	SoundManager::playSound
 	(

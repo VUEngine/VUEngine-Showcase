@@ -433,7 +433,7 @@ bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	Pong::printScore(this);
 
-	RumbleManager::startEffect(RumbleManager::getInstance(), &PointRumbleEffectSpec);
+	RumbleManager::startEffect(&PointRumbleEffectSpec);
 
 	SoundManager::playSound
 	(
