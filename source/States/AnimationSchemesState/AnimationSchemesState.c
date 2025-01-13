@@ -398,7 +398,8 @@ void AnimationSchemesState::removeSprites()
 	 * care of this when swapping states. We do it here becuase BGMAP memory cannot be 
 	 * defragmented and loading non shared textures would quickly deplete it.
 	 *
-	 * This call will trigger an exception in non release build modes!!!
+	 * BgmapTextureManager::reset should not be called but by the engine's code so,
+	 * this call will trigger an exception in non release build modes!!!
 	 */ 
 	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
@@ -412,8 +413,7 @@ void AnimationSchemesState::removeSprites()
  * Runtime overrides for AnimationSchemesState::showCharMemory.
  */
 void AnimationSchemesState::showCharMemory()
-{
-}
+{}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
