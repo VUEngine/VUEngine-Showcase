@@ -45,7 +45,7 @@ void GameSaveDataManager::setCustomValue(uint8 customValue)
 	if(this->sramAvailable)
 	{
 		// Write language
-		SRAMManager::save(SRAMManager::getInstance(), (BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
+		SRAMManager::save((BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
 
 		// Write checksum
 		SaveDataManager::writeChecksum(this);
@@ -59,7 +59,7 @@ uint8 GameSaveDataManager::getCustomValue()
 	uint8 customValue = 0;
 	if(this->sramAvailable)
 	{
-		SRAMManager::read(SRAMManager::getInstance(), (BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
+		SRAMManager::read((BYTE*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
 	}
 
 	return customValue;
