@@ -49,6 +49,9 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	this->updatePhysics = false;
 	this->processCollisions = false;
 
+	// PCM playback hits hard on the CPU, let's make it easier on the poor VB
+	SoundsState::changeFramerate(this, 25, -1);
+
 	/*
 	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	 */
@@ -574,7 +577,7 @@ bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((u
 	{
 		if(this->showAdditionalDetails)
 		{
-			TimerManager::nextSecondStarted(TimerManager::getInstance());
+			TimerManager::printInterruptStats(1, 18);
 		}
 	}
 
