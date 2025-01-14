@@ -20,7 +20,7 @@
 
 const uint8 OracleOfSeasonsOverworldThemeSoundTrack2SxINT[] =
 {
-	0x1F,
+	0x9F,
 };
 
 const uint8 OracleOfSeasonsOverworldThemeSoundTrack2SxLRV[] =

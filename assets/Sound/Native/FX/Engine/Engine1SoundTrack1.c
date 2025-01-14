@@ -27,7 +27,7 @@
 
 const uint8 Engine1SoundTrack1SxINT[] =
 {
-	0x9F,
+	0x1F,
 };
 
 const uint8 Engine1SoundTrack1SxLRV[] =

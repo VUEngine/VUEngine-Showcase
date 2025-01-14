@@ -21,7 +21,7 @@
 
 const uint8 Explosion1SoundTrack1SxINT[] =
 {
-	0x9F,
+	0x1F,
 };
 
 const uint8 Explosion1SoundTrack1SxLRV[] =
