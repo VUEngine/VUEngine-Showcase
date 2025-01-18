@@ -286,8 +286,6 @@ void AnimationSchemesState::constructor()
 
 void AnimationSchemesState::destructor()
 {
-	AnimationSchemesState::removeSprites(this);
-
 	if(!isDeleted(this->animatedSprites))
 	{
 		delete this->animatedSprites;
