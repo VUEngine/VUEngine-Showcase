@@ -270,7 +270,7 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	Math::resetRandomSeed();
 
 	// Must reset the physical world too
-	BodyManager::reset(this->bodyManager);
+	BodyManager::reset(this->componentManagers[kPhysicsComponent]);
 
 	// Must reset the clocks
 	PongState::startClocks(this);
