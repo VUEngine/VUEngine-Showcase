@@ -137,7 +137,7 @@ void WireframesState::processUserInput(const UserInput* userInput)
 	Camera::translate(Camera::getInstance(), translation, false);
 	Camera::rotate(Camera::getInstance(), rotation);
 
-	if(0 == (K_STA & userInput->releasedKey))
+	if(0 != (K_STA & userInput->releasedKey))
 	{
 		Base::processUserInput(this, userInput);
 	}
