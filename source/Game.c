@@ -30,8 +30,16 @@
 int game(void)
 {
 	// Initialize plugins
-	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
-	I18n::setActiveLanguage(I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance()));
+	AutomaticPauseManager::setActive
+	(
+		AutomaticPauseManager::getInstance(), 
+		GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
+	);
+
+	I18n::setActiveLanguage
+	(
+		I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance())
+	);
 
 	SplashScreenState::setNextState
 	(

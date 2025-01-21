@@ -71,6 +71,41 @@ static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventFramerateReady:
+		{
+			FrameRate::print(FrameRate::getInstance(), 14, 27);
+
+			return true;
+		}
+
+		case kEventSoundReleased:
+		case kEventSoundFinished:
+		{
+			this->playingSoundEffect = NULL;
+
+			/*
+			* Restore timer settings
+			*/
+			Stage::configureTimer(this->stage);
+
+			/*
+			* Allow the player to interact again.
+			*/
+			KeypadManager::enable();
+
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 /*
  *	The StateMachine calls State::enter when the State is put at the top of its stack.
  */
@@ -96,10 +131,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	KeypadManager::enable();
 
 	// Printing the framerate
-	FrameRate::addEventListener
-	(
-		FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
-	);
+	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
 	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -110,7 +142,6 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		NULL, // callback function
 		NULL // callback scope
 	);
 }
@@ -122,10 +153,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
  */
 void ShowcaseState::exit(void* owner __attribute__((unused)))
 {
-	FrameRate::removeEventListener
-	(
-		FrameRate::getInstance(), ListenerObject::safeCast(this), (EventListener)ShowcaseState::onFramerateReady, kEventFramerateReady
-	);
+	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
 	Base::exit(this, owner);
 
@@ -167,7 +195,6 @@ void ShowcaseState::resume(void* owner)
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		NULL, // callback function
 		NULL // callback scope
 	);
 
@@ -269,14 +296,13 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 			this->playingSoundEffect, 
 			NULL, 
 			kSoundPlaybackNormal,
-			(EventListener)ShowcaseState::onSoundEffectDone, 
 			ListenerObject::safeCast(this)
 		);
 		
 		if(lock)
 		{
 			/*
-			 * Wait until ShowcaseState::onSoundEffectDone is called.
+			 * Wait until kEventSoundFinished is called.
 			 * The dummy is necessary to prevent that the compiler
 			 * optimizes away the while loop.
 			 */
@@ -402,34 +428,6 @@ void ShowcaseState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool ShowcaseState::onFramerateReady(ListenerObject eventFirer __attribute__((unused)))
-{
-	FrameRate::print(FrameRate::getInstance(), 14, 27);
-
-	return true;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool ShowcaseState::onSoundEffectDone(ListenerObject eventFirer __attribute__((unused)))
-{
-	this->playingSoundEffect = NULL;
-
-	/*
-	 * Restore timer settings
-	 */
-	Stage::configureTimer(this->stage);
-
-	/*
-	 * Allow the player to interact again.
-	 */
-	KeypadManager::enable();
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

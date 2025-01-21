@@ -83,6 +83,12 @@ singleton class Pong : ListenerObject
 	/// Keypad combiation hold by the remote player
 	uint16 remoteHoldKey;
 
+	/// Process an event that the instance is listen for.
+	/// @param eventFirer: ListenerObject that signals the event
+	/// @param eventCode: Code of the firing event
+	/// @return False if the listener has to be removed; true to keep it
+	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
+
 	/// Make the pong game ready to start.
 	/// @param stage: Current state on which the pong game is played
 	/// @param isVersusMode: If true, communications with another system are up

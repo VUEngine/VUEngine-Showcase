@@ -72,6 +72,28 @@ typedef struct RemotePlayerData
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventPongBallStreamedOut:
+		{
+			Pong::pongBallOutOfBounds(this);
+			return true;
+		}
+
+		case kEventPongBallSpawned:
+		{
+			Pong::pongBallSpawned(this);
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void Pong::getReady(Stage stage, bool isVersusMode)
 {
 	this->isVersusMode = isVersusMode;
@@ -212,16 +234,16 @@ void Pong::constructor()
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
 
-	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	Pong::addEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+	Pong::addEventListener(this, ListenerObject::safeCast(this), kEventPongBallStreamedOut);
+	Pong::addEventListener(this, ListenerObject::safeCast(this), kEventPongBallSpawned);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void Pong::destructor()
 {
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallOutOfBounds, kEventPongBallStreamedOut);
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), (EventListener)Pong::onPongBallSpawned, kEventPongBallSpawned);
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), kEventPongBallStreamedOut);
+	Pong::removeEventListener(this, ListenerObject::safeCast(this), kEventPongBallSpawned);
 
 	this->pongBall = NULL;
 	delete this->playerPaddles;
@@ -235,13 +257,11 @@ void Pong::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Pong::onPongBallSpawned(ListenerObject eventFirer __attribute__ ((unused)))
+void Pong::pongBallSpawned()
 {
 	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
 
 	this->messageForRemote = kMessagePongSync;
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -409,7 +429,7 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unused)))
+void Pong::pongBallOutOfBounds()
 {
 	if(!isDeleted(this->pongBall))
 	{
@@ -437,15 +457,11 @@ bool Pong::onPongBallOutOfBounds(ListenerObject eventFirer __attribute__ ((unuse
 
 	SoundManager::playSound
 	(
-		
 		&Point1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,
-		NULL, 
 		NULL
 	);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

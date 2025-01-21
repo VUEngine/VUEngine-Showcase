@@ -29,6 +29,23 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool CollisionsState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventFontRewritten:
+		{
+			CollisionsState::show(this, false);
+
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void CollisionsState::enter(void* owner __attribute__((unused)))
 {
 	Base::enter(this, owner);
@@ -41,13 +58,7 @@ void CollisionsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten.
 	 */
-	Printing::addEventListener
-	(
-		Printing::getInstance(),
-		ListenerObject::safeCast(this),
-		(EventListener)CollisionsState::onFontCharSetRewritten,
-		kEventFontRewritten
-	);
+	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
 	/*
 	 * I need to register both released and hold buttons
@@ -71,11 +82,7 @@ void CollisionsState::execute(void* owner __attribute__((unused)))
 
 void CollisionsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::removeEventListener
-	(
-		Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)CollisionsState::onFontCharSetRewritten,
-		kEventFontRewritten
-	);
+	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
 	Base::exit(this, owner);
 }
@@ -90,13 +97,7 @@ void CollisionsState::resume(void* owner)
 {
 	Base::resume(this, owner);
 
-	Printing::addEventListener
-	(
-		Printing::getInstance(), 
-		ListenerObject::safeCast(this),
-		(EventListener)CollisionsState::onFontCharSetRewritten,
-		kEventFontRewritten
-	);
+	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -306,15 +307,6 @@ void CollisionsState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool CollisionsState::onFontCharSetRewritten(ListenerObject eventFirer __attribute__((unused)))
-{
-	CollisionsState::show(this, false);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

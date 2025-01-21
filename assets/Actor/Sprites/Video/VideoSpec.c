@@ -60,9 +60,6 @@ AnimationFunctionROMSpec VideoHiColorAnimationSpec =
 	// Whether to play it in loop or not
 	true,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"HiColor",
 };
@@ -97,9 +94,6 @@ AnimationFunctionROMSpec Video4ColorAnimationSpec =
 
 	// Whether to play it in loop or not
 	true,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"4Color",

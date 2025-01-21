@@ -55,6 +55,38 @@ void Punk::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool Punk::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventAnimationCompleted:
+		{
+			if(Punk::isPlayingAnimation(this, "Die"))
+			{
+				/*
+				* Restore myself after 1 second
+				*/
+				Punk::sendMessageToSelf(this, kMessageCollisionsStateResuscitate, 1000, 0);
+
+				return false;
+			}
+			
+			break;
+		}
+		
+		case kEventFontRewritten:
+		{
+			Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+
+			break;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 /*
  * Returning true stops the propagation
  */
@@ -151,12 +183,10 @@ void Punk::die()
 	RumbleManager::startEffect(&KilledRumbleEffectSpec);
 
 	SoundManager::playSound
-	(
-		
+	(	
 		&Killed1SoundSpec, 
 		NULL, 
 		kSoundPlaybackNormal,
-		NULL, 
 		NULL
 	);
 
@@ -166,7 +196,7 @@ void Punk::die()
 	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 
 	Punk::mutateTo(this, PunkDeath::getClass());
@@ -183,7 +213,7 @@ void Punk::resuscitate()
 	Punk::removeComponents(this, kSpriteComponent);
 	Punk::addComponents(this, (ComponentSpec**)PunkControllablelActorComponentSpecs, kSpriteComponent);
 
-	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), (EventListener)Punk::onFontCharSetRewritten, kEventFontRewritten);
+	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
 	Printing::text("                        ", 18, 19, NULL);
 
@@ -194,35 +224,6 @@ void Punk::resuscitate()
 	Punk::setLocalRotation(this, &rotation);
 
 	Punk::freeze(this);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void Punk::onFontCharSetRewritten(ListenerObject eventFirer __attribute__((unused)))
-{
-	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-/*
- * This is an EventListener added by the engine because the PunkDeathAnimation
- * defines it as the callback for when its playback finishes.
- */
-bool Punk::onDieAnimationComplete(ListenerObject eventFirer __attribute__((unused)))
-{
-	/*
-	 * Restore myself after 1 second
-	 */
-	Punk::sendMessageToSelf(this, kMessageCollisionsStateResuscitate, 1000, 0);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

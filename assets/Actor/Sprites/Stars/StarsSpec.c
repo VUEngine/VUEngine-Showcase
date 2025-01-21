@@ -44,9 +44,6 @@ AnimationFunctionROMSpec StarDefaultAnimationSpec =
 	// Whether to play it in loop or not
 	false,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"Default",
 };
@@ -64,9 +61,6 @@ AnimationFunctionROMSpec StarVanishAnimationSpec =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	NULL,
 
 	// Animation's name
 	"Vanish",

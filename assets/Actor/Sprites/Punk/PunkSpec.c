@@ -51,9 +51,6 @@ AnimationFunctionROMSpec PunkMoveAnimationSpec =
 	// Whether to play it in loop or not
 	true,
 
-	// Callback on animation completion
-	NULL,
-
 	// Animation's name
 	"Move",
 };
@@ -73,9 +70,6 @@ AnimationFunctionROMSpec PunkDeathAnimationSpec =
 
 	// Whether to play it in loop or not
 	false,
-
-	// Callback on animation completion
-	(EventListener)&Punk_onDieAnimationComplete,
 
 	// Animation's name
 	"Die",

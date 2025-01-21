@@ -41,6 +41,36 @@ static const SoundROMSpec* _soundSamples[] =
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool SoundsState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventVUEngineNextSecondStarted:
+		{
+			if(!isDeleted(this->sound))
+			{
+				if(this->showAdditionalDetails)
+				{
+					TimerManager::printInterruptStats(1, 18);
+				}
+			}
+
+			return true;
+		}
+
+		case kEventSoundFinished:
+		{
+			SoundsState::showSoundMetadata(this);
+
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void SoundsState::enter(void* owner __attribute__ ((unused)))
 {
 	Base::enter(this, owner);
@@ -55,10 +85,7 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	/*
 	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	 */
-	VUEngine::addEventListener
-	(
-		VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
-	);
+	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -74,10 +101,7 @@ void SoundsState::execute(void* owner __attribute__ ((unused)))
 
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
-	VUEngine::removeEventListener
-	(
-		VUEngine::getInstance(), ListenerObject::safeCast(this), (EventListener)SoundsState::onNextSecondStarted, kEventVUEngineNextSecondStarted
-	);
+	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
 
 	SoundsState::releaseSound(this);
 
@@ -474,7 +498,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * play in loop or when not explicitly told to not auto release by calling
 	 * Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound((SoundSpec*)_soundSamples[this->selectedSound], (EventListener)SoundsState::onSoundReleased, ListenerObject::safeCast(this));
+	this->sound = SoundManager::getSound((SoundSpec*)_soundSamples[this->selectedSound], ListenerObject::safeCast(this));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 
@@ -483,7 +507,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 		/*
 		 * Listen for when the plaback finishes to update the UI. 
 		 */
-		Sound::addEventListener(this->sound, ListenerObject::safeCast(this), (EventListener)SoundsState::onSoundPlaybackFinish, kEventSoundFinished);
+		Sound::addEventListener(this->sound, ListenerObject::safeCast(this), kEventSoundFinished);
 		SoundsState::applyTimerSettings(this);
 	}
 
@@ -496,21 +520,10 @@ void SoundsState::releaseSound()
 {
 	if(!isDeleted(this->sound))
 	{
-		
-		Sound::removeEventListenerScopes(this->sound, ListenerObject::safeCast(this), kEventSoundReleased);
 		Sound::release(this->sound);
 
 		this->sound = NULL;
 	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool SoundsState::onSoundPlaybackFinish(ListenerObject eventFirer __attribute__((unused)))
-{
-	SoundsState::showSoundMetadata(this);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

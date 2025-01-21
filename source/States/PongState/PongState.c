@@ -36,6 +36,34 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+bool PongState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+{
+	switch(eventCode)
+	{
+		case kEventCommunicationsConnected:
+		{
+			PongState::communicationsEstablished(this);
+			return true;
+		}
+
+		case kEventPongRemoteInSync:
+		{
+			PongState::remoteInSync(this);
+			return true;
+		}
+
+		case kEventPongRemoteWentAway:
+		{
+			PongState::remoteGoneAway(this);
+			return true;
+		}
+	}
+
+	return Base::onEvent(this, eventFirer, eventCode);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 void PongState::enter(void* owner)
 {
 	Base::enter(this, owner);
@@ -46,14 +74,14 @@ void PongState::enter(void* owner)
 	// Get the game ready
 	Pong::getReady(Pong::getInstance(), this->stage, false);
 
-	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteInSync, kEventPongRemoteInSync);
-	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
+	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteInSync);
+	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
 	// Set input to be notified about
 	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// Enable comms	
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 
 	// Make sure that the processing of user input is triggered regardless of real user input
 	KeypadManager::enableDummyKey();
@@ -63,8 +91,8 @@ void PongState::enter(void* owner)
 
 void PongState::exit(void* owner)
 {
-	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteInSync, kEventPongRemoteInSync);
-	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), (EventListener)PongState::onRemoteGoneAway, kEventPongRemoteWentAway);
+	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteInSync);
+	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
 	PongState::setVersusMode(this, false);
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
@@ -243,19 +271,6 @@ void PongState::showConnectivityStatus()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongState::onCommunicationsEstablished(ListenerObject eventFirer __attribute__((unused)))
-{	
-	PongState::setVersusMode(this, true);
-	Pong::getReady(Pong::getInstance(), this->stage, true);
-
-	this->showAdditionalDetails = true;
-	PongState::show(this, false);
-
-	return true;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 void PongState::setVersusMode(bool value)
 {
 	this->isVersusMode = value;
@@ -264,7 +279,18 @@ void PongState::setVersusMode(bool value)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused)))
+void PongState::communicationsEstablished()
+{	
+	PongState::setVersusMode(this, true);
+	Pong::getReady(Pong::getInstance(), this->stage, true);
+
+	this->showAdditionalDetails = true;
+	PongState::show(this, false);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongState::remoteInSync()
 {
 	// Reset random seed in multiplayer mode so both machines are completely in sync
 	Math::resetRandomSeed();
@@ -277,13 +303,11 @@ bool PongState::onRemoteInSync(ListenerObject eventFirer __attribute__((unused))
 	
 	// Reset the actors
 	PongState::propagateMessage(this, kMessagePongResetPositions);
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused)))
+void PongState::remoteGoneAway()
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
@@ -292,9 +316,7 @@ bool PongState::onRemoteGoneAway(ListenerObject eventFirer __attribute__((unused
 	PongState::show(this, false);
 	PongState::propagateMessage(this, kMessagePongResetPositions);
 
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), (EventListener)PongState::onCommunicationsEstablished, ListenerObject::safeCast(this));
-
-	return true;
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

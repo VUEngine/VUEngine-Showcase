@@ -49,6 +49,12 @@ class Punk : Actor
 	/// @param name: Name to assign to the new instance
 	void constructor(const PunkSpec* punkSpec, int16 internalId, const char* const name);
 
+	/// Process an event that the instance is listen for.
+	/// @param eventFirer: ListenerObject that signals the event
+	/// @param eventCode: Code of the firing event
+	/// @return False if the listener has to be removed; true to keep it
+	override bool onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode);
+
 	/// Default interger message handler for propagateMessage
 	/// @param message: Propagated integer message
 	/// @return True if the propagation must stop; false if the propagation must reach other containers
