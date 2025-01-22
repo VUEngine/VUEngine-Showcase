@@ -53,7 +53,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' STATIC METHODS
+// CLASS' PUBLIC STATIC METHODS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -71,7 +71,7 @@ static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint32 eventCode)
+bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
 {
 	switch(eventCode)
 	{
