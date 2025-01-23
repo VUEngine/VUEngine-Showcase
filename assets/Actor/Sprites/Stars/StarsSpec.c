@@ -279,9 +279,6 @@ ParticleROMSpec StarParticleNormalSpec =
 	// Life span delta in milliseconds
 	100,
 
-	// Function pointer to control particle's behavior
-	NULL,
-
 	// Array of available animations
 	(const AnimationFunction**)&StarAnimationSpecs,
 
@@ -307,9 +304,6 @@ ParticleROMSpec StarParticlePhysicalSpec =
 	// Life span delta in milliseconds
 	700,
 
-	// Function pointer to control particle's behavior
-	NULL,
-
 	// Array of available animations
 	(const AnimationFunction**)&StarAnimationSpecs,
 
@@ -334,9 +328,6 @@ ParticleROMSpec StarParticleSolidSpec =
 
 	// Life span delta in milliseconds
 	1000,
-
-	// Function pointer to control particle's behavior
-	NULL,
 
 	// Array of available animations
 	(const AnimationFunction**)&StarAnimationSpecs,
