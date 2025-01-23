@@ -30,10 +30,10 @@ extern ActorSpec PongWallsActorSpec;
 
 PositionedActorROMSpec PongStageActorSpecs[] =
 {
-	{&PongBallActorSpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PONG_BALL_NAME, NULL, NULL, false},
-	{&PongPaddleActorSpec, 	{-96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_LEFT_NAME, NULL, NULL, true},
-	{&PongPaddleActorSpec,	 	{+96, 0, 128}, {0, 0, 0}, {1, 1, 1},  	0, PADDLE_RIGHT_NAME, NULL, NULL, true},
-	{&PongWallsActorSpec,		{ 0,  0, 128}, {0, 0, 0}, {1, 1, 1}, 		0, NULL, NULL, NULL, true}, // bottom border
+	{&PongBallActorSpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1}, 0, PONG_BALL_NAME, NULL, NULL, false},
+	{&PongPaddleActorSpec, 		{-96, 0, 128}, {0, 0, 0}, {1, 1, 1}, 0, PADDLE_LEFT_NAME, NULL, NULL, true},
+	{&PongPaddleActorSpec,	 	{+96, 0, 128}, {0, 0, 0}, {1, 1, 1}, 0, PADDLE_RIGHT_NAME, NULL, NULL, true},
+	{&PongWallsActorSpec,		{ 0,  0, 128}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, true}, // bottom border
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
