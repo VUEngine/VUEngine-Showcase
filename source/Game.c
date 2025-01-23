@@ -19,7 +19,6 @@
 #include <LanguageSelectionScreenState.h>
 #include <PrecautionScreenState.h>
 #include <ShowcaseState.h>
-#include <VUEngine.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // GAME'S ENTRY POINT
@@ -27,7 +26,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-int game(void)
+GameState game(void)
 {
 	// Initialize plugins
 	AutomaticPauseManager::setActive
@@ -65,8 +64,8 @@ int game(void)
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 
-	// Start the game
-	return VUEngine::start(VUEngine::getInstance(), GameState::safeCast(PrecautionScreenState::getInstance()));
+	// Return the first GameState
+	return GameState::safeCast(PrecautionScreenState::getInstance());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
