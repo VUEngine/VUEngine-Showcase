@@ -124,7 +124,6 @@ void AnimationSchemesState::showControls()
 	Printing::text(__CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-
 	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
@@ -402,8 +401,9 @@ void AnimationSchemesState::removeSprites()
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Virtual methods can be changed at runtime to alter a class' behavior. Mutating the methods affects all the instances of the class.
- * At runtime, we override AnimationSchemesState::showCharMemory, look for mutateMethod calls below.
+ * Virtual methods can be changed at runtime to alter a class' behavior. Mutating the methods affects 
+ * all the instances of the class. At runtime, we override AnimationSchemesState::showCharMemory, 
+ * look for mutateMethod calls below.
  */
 void AnimationSchemesState::showCharMemory()
 {}
@@ -429,7 +429,10 @@ void AnimationSchemesState::showBgmapMemory()
 	{
 		Mem::copyHWORD
 		(
-			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]),
+			(HWORD*)
+			(
+				&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]
+			),
 			(const HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (0)) + ((row + myDisplacement) << 6) + mxDisplacement]), 
 			numberOfHWORDS
 		);
@@ -482,7 +485,10 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 
 		Mem::addOffsetToHWORD
 		(
-			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]),
+			(HWORD*)
+			(
+				&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]
+			),
 			(HWORD*)charMemoryMap,
 			CharSet::getNumberOfChars(charSet),
 			CharSet::getOffset(charSet)
