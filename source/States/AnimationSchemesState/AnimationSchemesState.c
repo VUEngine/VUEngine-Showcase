@@ -83,9 +83,11 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 
 		AnimationSchemesState::show(this, true);
 	}
+	
 	/*
-		* Non affine sprites cannot be rotated, but can be mirrored vertically and horizontally through a this->spriteRotation.
-		*/
+	 * Non affine sprites cannot be rotated, but can be mirrored vertically 
+	 * and horizontally through this->spriteRotation.
+	 */
 	if(K_RU & userInput->releasedKey)
 	{
 		this->spriteRotation.x = __I_TO_FIXED(255);
@@ -314,10 +316,8 @@ void AnimationSchemesState::createSprites()
 	{
 		case kAnimationsNotSharedTexture:
 
-			/* When Sprites use non shared Textures they all have to
-			* update their graphics when animated. Each will reserve its
-			* own chunk of graphics memory and updating all of them
-			* will require more processing resources.	 
+			/* When Sprites use non shared Textures they all have to update their graphics when animated. Each will reserve its
+			* own chunk of graphics memory and updating all of them will require more processing resources.	 
 			*/
 			spriteSpec = &PunkSpriteNotSharedSpec;
 			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForNotSharedTextures);
@@ -325,10 +325,8 @@ void AnimationSchemesState::createSprites()
 
 		case kAnimationsSharedTexture:
 
-			/* When Sprites share a Texture (and the underlying CharSet)
-			* animating one of them will animate the others because the
-			* underlying graphics are shared by all of them.
-			* This saves on performance too because the graphics memory
+			/* When Sprites share a Texture (and the underlying CharSet) animating one of them will animate the others because the
+			* underlying graphics are shared by all of them. This saves on performance too because the graphics memory
 			* is only updated once.
 			*/
 			spriteSpec = &PunkSpriteSharedSpec;
@@ -338,10 +336,8 @@ void AnimationSchemesState::createSprites()
 		case kAnimationsMultiframeTexture:
 
 			/* Multiframe Textures write all the frames of animation in graphics memory.
-			* They should always be shared, otherwise processing power would be wasted
-			* by writing multiple times the same spreadsheet.
-			* The animations of the Sprites that use these Textures are not constrained 
-			* to be in sync.
+			* They should always be shared, otherwise processing power would be wasted by writing multiple times the same spreadsheet.
+			* The animations of the Sprites that use these Textures are not constrained to be in sync.
 			*/
 			spriteSpec = &PunkSpriteMultiframeSpec;
 			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForMultiframeTextures);
@@ -392,9 +388,9 @@ void AnimationSchemesState::removeSprites()
 	}
 
 	/*
-	 * Cleaning graphics memory explicitly should not be done in general, the engine takes 
-	 * care of that when swapping states. We do it here becuase BGMAP memory cannot be 
-	 * defragmented and loading non shared textures would quickly deplete it.
+	 * Cleaning graphics memory explicitly should not be done in general, the engine takes care of that 
+	 * when swapping states. We do it here becuase BGMAP memory cannot be defragmented and loading non 
+	 * shared textures would quickly deplete it.
 	 *
 	 * BgmapTextureManager::reset call is restricted so, this call will trigger an exception 
 	 * in non release build modes!!!
@@ -406,9 +402,8 @@ void AnimationSchemesState::removeSprites()
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * Virtual methods can be changed in runtime to alter a class' behavior in real time.
- * Mutating the methods affects all the instances of the class.
- * Runtime overrides for AnimationSchemesState::showCharMemory.
+ * Virtual methods can be changed at runtime to alter a class' behavior. Mutating the methods affects all the instances of the class.
+ * At runtime, we override AnimationSchemesState::showCharMemory, look for mutateMethod calls below.
  */
 void AnimationSchemesState::showCharMemory()
 {}
@@ -592,7 +587,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 	int32 xOffset = leftBorder;
 	int16 yOffset = topBorder;
 
-	// Put the map into memory calculating the number of char for each reference
+	// Copy the map into BGMAP memory calculating the number of char for each reference
 	for(uint16 frame = 0; frame <= Texture::getNumberOfFrames(texture); frame++, yOffset += 1)
 	{
 		if(18 <= yOffset)

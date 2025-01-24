@@ -82,9 +82,7 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	// PCM playback hits hard on the CPU, let's make it easier on the poor VB
 	SoundsState::changeFramerate(this, 25, -1);
 
-	/*
-	 * We want to know when FRAMESTART happens to tell the TimeManager to print is status
-	 */
+	// We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
 }
 
@@ -150,8 +148,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		Sound::pause(this->sound);
 	}
 
-	// Must release the sound before playig the UI's sound effects because of
-	// the PCM sound track
+	// Must release the sound before playig the UI's sound effects because of the PCM sound track
 	SoundsState::releaseSound(this);
 
 	SoundsState::playSoundEffects(this, userInput, true);
@@ -483,9 +480,8 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	SoundManager::setPCMTargetPlaybackRefreshRate(SoundManager::getInstance(), this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
 
 	/*
-	 * We configure the timer manager to match the sound's timing. This is done here as 
-	 * and example and shouldn't be used during gameplay, when it makes no sense to 
-	 * modify on the fly the timer interrupts' targets. 
+	 * We configure the timer manager to match the sound's timing. This is done here as and example and shouldn't 
+	 * be used during gameplay, when it makes no sense to modify on the fly the timer interrupts' targets. 
  	 */
 	if(resetTimerSettings)
 	{
@@ -493,10 +489,9 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	}
 
 	/*
-	 * We ask for a Sound to the SoundManager and specify a callback for when the 
-	 * Sound is released, which happens automatically with any sound that doesn't
-	 * play in loop or when not explicitly told to not auto release by calling
-	 * Sound::autoReleaseOnFinish.
+	 * We ask for a Sound to the SoundManager and specify a callback for when the Sound is released, which happens
+	 * automatically with any sound that doesn't play in loop or when not explicitly told to not auto release by 
+	 * calling Sound::autoReleaseOnFinish.
 	 */
 	this->sound = SoundManager::getSound((SoundSpec*)_soundSamples[this->selectedSound], ListenerObject::safeCast(this));
 
@@ -504,9 +499,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 
 	if(!isDeleted(this->sound))
 	{
-		/*
-		 * Listen for when the plaback finishes to update the UI. 
-		 */
+		// Listen for when the plaback finishes to update the UI. 
 		Sound::addEventListener(this->sound, ListenerObject::safeCast(this), kEventSoundFinished);
 		SoundsState::applyTimerSettings(this);
 	}

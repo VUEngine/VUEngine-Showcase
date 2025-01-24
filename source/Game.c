@@ -35,11 +35,13 @@ GameState game(void)
 		GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
 	);
 
+	// Now setup the language based on the user's saved preferences
 	I18n::setActiveLanguage
 	(
 		I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance())
 	);
 
+	// Setup the next screen for each SplashScreen
 	SplashScreenState::setNextState
 	(
 		SplashScreenState::safeCast(PrecautionScreenState::getInstance()),
@@ -64,7 +66,7 @@ GameState game(void)
 		GameState::safeCast(ShowcaseState::getFirstShowcase()())
 	);
 
-	// Return the first GameState
+	// And return the first GameState that the game must enter into
 	return GameState::safeCast(PrecautionScreenState::getInstance());
 }
 

@@ -87,14 +87,10 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), u
 		{
 			this->playingSoundEffect = NULL;
 
-			/*
-			* Restore timer settings
-			*/
+			// Restore timer settings
 			Stage::configureTimer(this->stage);
 
-			/*
-			* Allow the player to interact again.
-			*/
+			// Allow the player to interact again.
 			KeypadManager::enable();
 
 			return true;
@@ -155,6 +151,7 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
 {
 	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
+	// Always call the base implementation!
 	Base::exit(this, owner);
 
 	// Since all instances are dynamic_singleton, I must delete myself upon exit
@@ -191,16 +188,14 @@ void ShowcaseState::resume(void* owner)
 	Camera::startEffect
 	(
 		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		NULL, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		NULL // callback scope
+		kFadeTo, 				// effect type
+		0, 						// initial delay (in ms)
+		NULL, 					// target brightness
+		__FADE_DELAY, 			// delay between fading steps (in ms)
+		NULL 					// callback scope
 	);
 
-	/*
-	 * Allow the player to interact again.
-	 */
+	// Allow the player to interact again.
 	KeypadManager::enable();
 }
 
@@ -274,15 +269,12 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 	{
 		RumbleManager::startEffect(rumbleEffect);
 
-		/*
-		 * Prevent the user to mess up the playback by pressig the keypad's buttons
-		 * like a maniac.
-		 */
+		// Prevent the user to mess up the playback by pressig the keypad's buttons like a maniac.
 		KeypadManager::disable();
 
 		/*
-		 * Make sure that the timer interrupts happen at a controlled frequency to
-		 * make sure that the sound effects sound the same in all stages
+		 * Make sure that the timer interrupts happen at a controlled frequency to make sure that 
+		 * the sound effects sound the same in all stages
 		 */
 		TimerManager::disable();
 		TimerManager::setResolution(__TIMER_20US);
@@ -302,8 +294,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		if(lock)
 		{
 			/*
-			 * Wait until kEventSoundFinished is called.
-			 * The dummy is necessary to prevent that the compiler
+			 * Wait until kEventSoundFinished is called. The dummy is necessary to prevent that the compiler
 			 * optimizes away the while loop.
 			 */
 			volatile bool dummy = true;
@@ -371,7 +362,9 @@ void ShowcaseState::showHeader()
 	const char* className = __GET_CLASS_NAME(this);
 	FontSize classNameTextSize = Printing::getTextSize(className, NULL);
 
-	uint8 textStartXPosition = (__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - (statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
+	uint8 textStartXPosition = 
+		(__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - 
+		(statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
 	Printing::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
 	Printing::text(__CHAR_L_TRIGGER, 1, 0, NULL);

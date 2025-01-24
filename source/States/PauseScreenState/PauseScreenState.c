@@ -134,11 +134,11 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 		Camera::startEffect
 		(
 			Camera::getInstance(),
-			kFadeTo, // effect type
-			0, // initial delay (in ms)
-			&brightness, // target brightness
-			__FADE_DELAY, // delay between fading steps (in ms)
-			ListenerObject::safeCast(this) // callback scope
+			kFadeTo, 							// effect type
+			0,									// initial delay (in ms)
+			&brightness, 						// target brightness
+			__FADE_DELAY, 						// delay between fading steps (in ms)
+			ListenerObject::safeCast(this) 		// callback scope
 		);
 	}
 }

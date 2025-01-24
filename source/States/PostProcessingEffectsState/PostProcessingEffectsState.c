@@ -29,8 +29,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * The effects are implemented as plugins.
- * Check source/pluginsConfigh.h for configuration of each effect.
+ * The effects are implemented as plugins. Check source/pluginsConfigh.h for configuration of each effect.
  */
 static const PostProcessingEffect _postProcessingEffect[] =
 {
@@ -159,9 +158,7 @@ void PostProcessingEffectsState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	/*
-	 * Check assets/stage/PostProcessingEffectsStageSpec.c
-	 */
+	// Check assets/stage/PostProcessingEffectsStageSpec.c
 	extern StageROMSpec PostProcessingEffectsStageSpec;
 	this->stageSpec = (StageSpec*)&PostProcessingEffectsStageSpec;
 	this->selectedPostProcessingEffect = 0;

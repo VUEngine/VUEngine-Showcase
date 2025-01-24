@@ -127,10 +127,8 @@ void CollisionsState::processUserInput(const UserInput* userInput)
 	if(kMessageCollisionsStateNoMessage != message)
 	{
 		/*
-		 * Passing input to actors in this way, while elegant,
-		 * is not very performant. Most likely, a way to get a
-		 * pointer to the actor that the user controls and calling
-		 * an specific method that its class implements would be
+		 * Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
+		 * pointer to the actor that the user controls and calling an specific method that its class implements would be
 		 * way faster.
 		 */
 		CollisionsState::propagateMessage(this, message);
@@ -294,9 +292,7 @@ void CollisionsState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	/*
-	 * Check assets/stage/CollisionsStageSpec.c
-	 */
+	// Check assets/stage/CollisionsStageSpec.c
 	extern StageROMSpec CollisionsStageSpec;
 	this->stageSpec = (StageSpec*)&CollisionsStageSpec;
 }

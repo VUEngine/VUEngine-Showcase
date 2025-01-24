@@ -45,8 +45,7 @@ enum SpriteTypes
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- * The StateMachine calls State::execute when updated.
- * It is called once per game frame.
+ * The StateMachine calls State::execute when updated. It is called once per game frame.
  * Virtual methods can be changed in runtime to alter a class' behavior in real time.
  * Mutating the methods affects all the instances of the class.
  * Look for SpritesState::mutateMethod below in SpritesState::createSprite.
@@ -290,7 +289,7 @@ void SpritesState::destroySprite()
  * It is called once per game frame.
  * Virtual methods can be changed in runtime to alter a class' behavior in real time.
  * Mutating the methods affects all the instances of the class.
- * Runtime overrides for SpritesState::execute.
+ * At runtime we override SpritesState::execute.
  */
 void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
 {

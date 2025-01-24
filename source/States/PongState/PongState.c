@@ -97,7 +97,10 @@ void PongState::exit(void* owner)
 	PongState::setVersusMode(this, false);
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
-	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance()));
+	AutomaticPauseManager::setActive
+	(
+		AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
+	);
 
 	Base::exit(this, owner);
 }
