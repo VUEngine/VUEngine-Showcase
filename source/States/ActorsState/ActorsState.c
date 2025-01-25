@@ -18,7 +18,7 @@
 #include <DebugConfig.h>
 #include <I18n.h>
 #include <Languages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <VirtualList.h>
 #include <VUEngine.h>
 
@@ -38,7 +38,7 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 	{
 		ActorsState::movePunks(this);
 
-		Printing::text("                                                ", 0, 25, NULL);
+		Printer::text("                                                ", 0, 25, NULL);
 		ActorsState::printPunkName(this, this->leaderPunk, 25);
 		ActorsState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Larry", false)), 25);
 		ActorsState::printPunkName(this, Actor::safeCast(Actor::getChildByName(this->leaderPunk, "Curly", false)), 25);
@@ -80,9 +80,9 @@ void ActorsState::processUserInput(const UserInput* userInput)
 
 void ActorsState::showControls()
 {
-	Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -97,30 +97,30 @@ void ActorsState::showStuff()
 void ActorsState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printer::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringParentingLabel), 2, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text("Actor", 2, y++, NULL);
-	Printing::text("Actor", 2, y++, NULL);
-	Printing::text("Stage", 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printer::text("Actor", 2, y++, NULL);
+	Printer::text("Actor", 2, y++, NULL);
+	Printer::text("Stage", 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-	Printing::text("PunkActorSpec", 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+	Printer::text("PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(), kStringActorCreationLabel), 26, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringActorDestructionLabel), 26, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
+	Printer::text(I18n::getText(I18n::getInstance(), kStringActorCreationLabel), 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringActorDestructionLabel), 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringStagesLabel), 26, y++, NULL);
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
-	Printing::text("ActorsState", 26, y++, NULL);
-	Printing::text("::createLeaderPunk", 26, y++, NULL);
-	Printing::text("::movePunks", 26, y++, NULL);
-	Printing::text("::createSlavePunk", 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printer::text("ActorsState", 26, y++, NULL);
+	Printer::text("::createLeaderPunk", 26, y++, NULL);
+	Printer::text("::movePunks", 26, y++, NULL);
+	Printer::text("::createSlavePunk", 26, y++, NULL);
 	y++;
 }
 
@@ -134,32 +134,32 @@ void ActorsState::showAdditionalDetails()
 	}
 
 	int16 y = 3;
-	Printing::text(__GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
+	Printer::text(__GET_CLASS_NAME(this->leaderPunk), 2, y++, NULL);
 
-	Printing::text("Internal ID:   ", 2, ++y, NULL);
-	Printing::int32(Actor::getInternalId(this->leaderPunk), 15, y++, NULL);
-	Printing::text("Name:          ", 2, ++y, NULL);
-	Printing::text(Actor::getName(this->leaderPunk), 15, y++, NULL);
-	Printing::text("Children:      ", 2, ++y, NULL);
-	Printing::int32(Actor::getChildrenCount(this->leaderPunk), 15, y++, NULL);
+	Printer::text("Internal ID:   ", 2, ++y, NULL);
+	Printer::int32(Actor::getInternalId(this->leaderPunk), 15, y++, NULL);
+	Printer::text("Name:          ", 2, ++y, NULL);
+	Printer::text(Actor::getName(this->leaderPunk), 15, y++, NULL);
+	Printer::text("Children:      ", 2, ++y, NULL);
+	Printer::int32(Actor::getChildrenCount(this->leaderPunk), 15, y++, NULL);
 
-	Printing::text("Sprites:       ", 2, ++y, NULL);
-	Printing::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kSpriteComponent), 15, y++, NULL);
+	Printer::text("Sprites:       ", 2, ++y, NULL);
+	Printer::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kSpriteComponent), 15, y++, NULL);
 
-	Printing::text("Wireframes:  ", 2, ++y, NULL);
-	Printing::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kWireframeComponent), 15, y++, NULL);
+	Printer::text("Wireframes:  ", 2, ++y, NULL);
+	Printer::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kWireframeComponent), 15, y++, NULL);
 
-	Printing::text("Colliders:  ", 2, ++y, NULL);
-	Printing::int32(ComponentManager::getCount(Entity::safeCast(this->leaderPunk), kColliderComponent), 15, y++, NULL);
+	Printer::text("Colliders:  ", 2, ++y, NULL);
+	Printer::int32(ComponentManager::getCount(Entity::safeCast(this->leaderPunk), kColliderComponent), 15, y++, NULL);
 
 	y = 5;
-	Printing::text("Position", 22, y, NULL);
-	Printing::text("Rotation", 37, y++, NULL);
+	Printer::text("Position", 22, y, NULL);
+	Printer::text("Rotation", 37, y++, NULL);
 	Vector3D::print(*Actor::getPosition(this->leaderPunk), 22, ++y);
 	Rotation::print(*Actor::getRotation(this->leaderPunk), 37, y);
 
 	y = 11;
-	Printing::text("Scale", 30, y++, NULL);
+	Printer::text("Scale", 30, y++, NULL);
 	Scale::print(*Actor::getScale(this->leaderPunk), 30, ++y);
 }
 
@@ -211,7 +211,7 @@ void ActorsState::printPunkName(Actor punk, int16 row)
 		return;
 	}
 
-	Printing::text(punkName, col, row, NULL);
+	Printer::text(punkName, col, row, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

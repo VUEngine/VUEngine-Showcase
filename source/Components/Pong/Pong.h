@@ -106,7 +106,7 @@ singleton class Pong : ListenerObject
 	/// @return The player number of this game instance
 	int getPlayerNumber();
 
-	/// Printing the current score.
+	/// Printer the current score.
 	void printScore();
 }
 

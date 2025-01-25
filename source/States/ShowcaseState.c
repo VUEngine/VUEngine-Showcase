@@ -19,7 +19,7 @@
 #include <I18n.h>
 #include <KeypadManager.h>
 #include <Languages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <PauseScreenState.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
@@ -126,7 +126,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	// Enable user input
 	KeypadManager::enable();
 
-	// Printing the framerate
+	// Printer the framerate
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
 	// Start fade in effect
@@ -326,7 +326,7 @@ void ShowcaseState::configurePalettes(bool dimm)
 
 void ShowcaseState::show(bool reloadStuff)
 {
-	Printing::clear();
+	Printer::clear();
 	
 	ShowcaseState::showHeader(this);
 	ShowcaseState::showControls(this);
@@ -353,28 +353,28 @@ void ShowcaseState::show(bool reloadStuff)
 void ShowcaseState::showHeader()
 {
 	const char* currentShowCaseNumberPrefix = "(  /  ) ";
-	FontSize currentShowCaseNumberPrefixTextSize = Printing::getTextSize(currentShowCaseNumberPrefix, NULL);
+	FontSize currentShowCaseNumberPrefixTextSize = Printer::getTextSize(currentShowCaseNumberPrefix, NULL);
 	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
 
 	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
-	FontSize statePrefixTextSize = Printing::getTextSize(statePrefix, NULL);
+	FontSize statePrefixTextSize = Printer::getTextSize(statePrefix, NULL);
 
 	const char* className = __GET_CLASS_NAME(this);
-	FontSize classNameTextSize = Printing::getTextSize(className, NULL);
+	FontSize classNameTextSize = Printer::getTextSize(className, NULL);
 
 	uint8 textStartXPosition = 
 		(__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - 
 		(statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
-	Printing::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
-	Printing::text(__CHAR_L_TRIGGER, 1, 0, NULL);
-	Printing::text(currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
-	Printing::text(Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
-	Printing::int32(numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
-	Printing::text(statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
-	Printing::text(className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
-	Printing::text(__CHAR_R_TRIGGER, 46, 0, NULL);
-	Printing::text(__CHAR_SELECTOR, 47, 0, NULL);
+	Printer::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
+	Printer::text(__CHAR_L_TRIGGER, 1, 0, NULL);
+	Printer::text(currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
+	Printer::text(Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
+	Printer::int32(numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
+	Printer::text(statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
+	Printer::text(className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
+	Printer::text(__CHAR_R_TRIGGER, 46, 0, NULL);
+	Printer::text(__CHAR_SELECTOR, 47, 0, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

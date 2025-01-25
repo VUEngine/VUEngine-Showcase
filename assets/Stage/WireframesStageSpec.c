@@ -13,7 +13,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Stage.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <CharSet.h>
 #include <Fonts.h>
 #include <Sound.h>

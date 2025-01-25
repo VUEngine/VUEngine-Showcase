@@ -15,7 +15,7 @@
 
 #include <I18n.h>
 #include <Languages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <Stage.h>
 
 #include "ParticlesState.h"
@@ -86,9 +86,9 @@ void ParticlesState::processUserInput(const UserInput* userInput)
 
 void ParticlesState::showControls()
 {
-	Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -105,43 +105,43 @@ void ParticlesState::showExplanation()
 	if(!isDeleted(this->particleSystem))
 	{
 		int16 y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+		Printer::text(I18n::getText(I18n::getInstance(), kStringParticleSystemsLabel), 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringParticleTypesLabel), 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-		Printing::text("Particle", 2, y++, NULL);
-		Printing::text("ParticleSystem", 2, y++, NULL);
-		Printing::text("PhysicalParticle", 2, y++, NULL);
-		Printing::text("SolidParticle", 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+		Printer::text("Particle", 2, y++, NULL);
+		Printer::text("ParticleSystem", 2, y++, NULL);
+		Printer::text("PhysicalParticle", 2, y++, NULL);
+		Printer::text("SolidParticle", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
-		Printing::text("ParticlesState", 2, y++, NULL);
-		Printing::text("::loadParticles", 2, y++, NULL);
-		Printing::text("::processUserInput", 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 2, y++, "DefaultBold");
+		Printer::text("ParticlesState", 2, y++, NULL);
+		Printer::text("::loadParticles", 2, y++, NULL);
+		Printer::text("::processUserInput", 2, y++, NULL);
 		y++;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-		Printing::text("StarParticle*Spec", 2, y++, NULL);
-		Printing::text("StarsParticleSystem*Spec", 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
+		Printer::text("StarParticle*Spec", 2, y++, NULL);
+		Printer::text("StarsParticleSystem*Spec", 2, y++, NULL);
 
 		y = 3;
-		Printing::text(I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "DefaultBold");
+		Printer::text(I18n::getText(I18n::getInstance(), kStringParticlesSubtitle), 28, y++, "DefaultBold");
 
 		switch(this->particlesType)
 		{
 			case kParticleNormal:
 
-				Printing::text("Particle", 28, y, NULL);
+				Printer::text("Particle", 28, y, NULL);
 				break;
 
 			case kParticlePhysical:
 
-				Printing::text("PhysicalParticle", 28, y, NULL);
+				Printer::text("PhysicalParticle", 28, y, NULL);
 				break;
 
 			case kParticleSolid:
 
-				Printing::text("SolidParticle", 28, y, NULL);
+				Printer::text("SolidParticle", 28, y, NULL);
 				break;
 		}
 	}	

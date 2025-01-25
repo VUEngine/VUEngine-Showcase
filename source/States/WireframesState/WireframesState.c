@@ -15,10 +15,10 @@
 
 #include <Camera.h>
 #include <DebugConfig.h>
-#include <DirectDraw.h>
+#include <FrameBufferManager.h>
 #include <I18n.h>
 #include <Languages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <VIPManager.h>
 #include <WireframeManager.h>
 
@@ -144,14 +144,14 @@ void WireframesState::processUserInput(const UserInput* userInput)
 
 void WireframesState::showControls()
 {
-	Printing::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-	Printing::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 9, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printing::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 9, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -159,27 +159,27 @@ void WireframesState::showControls()
 void WireframesState::showExplanation()
 {
 	int16 y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
-	Printing::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
+	Printer::text(I18n::getText(I18n::getInstance(), kStringCameraControlLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringWireframesLabel), 2, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text("Camera", 2, y++, NULL);
-	Printing::text("DirectDraw", 2, y++, NULL);
-	Printing::text("Mesh", 2, y++, NULL);
-	Printing::text("Wireframe", 2, y++, NULL);
-	Printing::text("WireframeManager", 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
+	Printer::text("Camera", 2, y++, NULL);
+	Printer::text("FrameBufferManager", 2, y++, NULL);
+	Printer::text("Mesh", 2, y++, NULL);
+	Printer::text("Wireframe", 2, y++, NULL);
+	Printer::text("WireframeManager", 2, y++, NULL);
 
 	y = 3;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
-	Printing::text("WireframesState", 26, y++, NULL);
-	Printing::text("::processUserInput", 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
+	Printer::text("WireframesState", 26, y++, NULL);
+	Printer::text("::processUserInput", 26, y++, NULL);
 
 	y++;
-	Printing::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
-	Printing::text("PyramidActorSpec", 26, y++, NULL);
-	Printing::text("WireframesStageSpec", 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 26, y++, "DefaultBold");
+	Printer::text("PyramidActorSpec", 26, y++, NULL);
+	Printer::text("WireframesStageSpec", 26, y++, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -187,7 +187,7 @@ void WireframesState::showExplanation()
 void WireframesState::showAdditionalDetails()
 {
 	WireframeManager::print(this->componentManagers[kWireframeComponent], 1, 3);
-	DirectDraw::print(DirectDraw::getInstance(), 1, 9);
+	FrameBufferManager::print(FrameBufferManager::getInstance(), 1, 9);
 	Camera::print(Camera::getInstance(), 31, 3, false);
 }
 

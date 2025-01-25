@@ -14,7 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Printing.h>
+#include <Printer.h>
 #include <Sound.h>
 
 #include <GameState.h>
@@ -46,7 +46,7 @@ abstract class ShowcaseState : GameState
 	StageSpec* stageSpec;
 
 	/// Pointer to the printing manager to reduce the calls to ::getInstance
-	Printing printing;
+	Printer printing;
 
 	/// Sound spec for the playing sound
 	SoundSpec* playingSoundEffect;

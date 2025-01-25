@@ -18,7 +18,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <VUEngine.h>
 
 #include "PauseScreenState.h"
@@ -74,7 +74,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	// Print text
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringPauseTitle);
 
-	FontSize strPauseSize = Printing::getTextSize
+	FontSize strPauseSize = Printer::getTextSize
 	(
 		
 		strTitle,
@@ -83,7 +83,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 
 	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strPauseSize.x >> 1));
 	
-	Printing::text
+	Printer::text
 	(
 		
 		strTitle,

@@ -18,7 +18,7 @@
 #include <KeypadManager.h>
 #include <Languages.h>
 #include <Messages.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <VirtualList.h>
 
 #include "CollisionsState.h"
@@ -58,7 +58,7 @@ void CollisionsState::enter(void* owner __attribute__((unused)))
 	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten.
 	 */
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
+	Printer::addEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
 	/*
 	 * I need to register both released and hold buttons
@@ -82,7 +82,7 @@ void CollisionsState::execute(void* owner __attribute__((unused)))
 
 void CollisionsState::exit(void* owner __attribute__((unused)))
 {
-	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
+	Printer::removeEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
 	Base::exit(this, owner);
 }
@@ -97,7 +97,7 @@ void CollisionsState::resume(void* owner)
 {
 	Base::resume(this, owner);
 
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
+	Printer::addEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -141,7 +141,7 @@ void CollisionsState::processUserInput(const UserInput* userInput)
 
 void CollisionsState::showControls()
 {
-	Printing::text
+	Printer::text
 	(
 		
 		__CHAR_SELECT_BUTTON,
@@ -149,7 +149,7 @@ void CollisionsState::showControls()
 		__SCREEN_HEIGHT_IN_CHARS - 1,
 		NULL
 	);
-	Printing::text
+	Printer::text
 	(
 		
 		__CHAR_L_D_PAD_RIGHT,
@@ -157,7 +157,7 @@ void CollisionsState::showControls()
 		__SCREEN_HEIGHT_IN_CHARS - 1,
 		NULL
 	);
-	Printing::text
+	Printer::text
 	(
 		
 		__CHAR_L_D_PAD_LEFT,
@@ -179,7 +179,7 @@ void CollisionsState::showExplanation()
 {
 	int16 y = 3;
 
-	Printing::text
+	Printer::text
 	(
 		I18n::getText(I18n::getInstance(), kStringConceptsSubtitle),
 		2,
@@ -187,10 +187,10 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 	
-	Printing::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringActorsLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringPhysicsLabel), 2, y++, NULL);
 	
-	Printing::text
+	Printer::text
 	(	
 		I18n::getText(I18n::getInstance(), kStringStateMachinesLabel),
 		2,
@@ -200,7 +200,7 @@ void CollisionsState::showExplanation()
 	
 	y++;
 	
-	Printing::text
+	Printer::text
 	(
 		I18n::getText(I18n::getInstance(), kStringClassesSubtitle),
 		2,
@@ -208,14 +208,14 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 
-	Printing::text("Actor", 2, y++, NULL);
-	Printing::text("MessageDispatcher*", 2, y++, NULL);
-	Printing::text("Punk", 2, y++, NULL);
-	Printing::text("PunkState*", 2, y++, NULL);
+	Printer::text("Actor", 2, y++, NULL);
+	Printer::text("MessageDispatcher*", 2, y++, NULL);
+	Printer::text("Punk", 2, y++, NULL);
+	Printer::text("PunkState*", 2, y++, NULL);
 
 	y++;
 	
-	Printing::text
+	Printer::text
 	(
 		I18n::getText(I18n::getInstance(), kStringSpecsSubtitle),
 		2,
@@ -223,11 +223,11 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 
-	Printing::text("PunkActorSpec", 2, y++, NULL);
+	Printer::text("PunkActorSpec", 2, y++, NULL);
 
 	y = 3;
 
-	Printing::text
+	Printer::text
 	(	
 		I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle),
 		26,
@@ -235,7 +235,7 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 	
-	Printing::text
+	Printer::text
 	(	
 		I18n::getText(I18n::getInstance(), kStringCollisionsLabel),
 		26,
@@ -243,9 +243,9 @@ void CollisionsState::showExplanation()
 		NULL
 	);
 	
-	Printing::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringEventsLabel), 26, y++, NULL);
 	
-	Printing::text
+	Printer::text
 	(	
 		I18n::getText(I18n::getInstance(), kStringMessagingLabel),
 		26,
@@ -255,7 +255,7 @@ void CollisionsState::showExplanation()
 
 	y++;
 
-	Printing::text
+	Printer::text
 	(	
 		I18n::getText(I18n::getInstance(), kStringMethodsSubtitle),
 		26,
@@ -263,11 +263,11 @@ void CollisionsState::showExplanation()
 		"DefaultBold"
 	);
 	
-	Printing::text("CollisionsState", 26, y++, NULL);
-	Printing::text("::propagateMessage", 26, y++, NULL);
-	Printing::text("Punk", 26, y++, NULL);
-	Printing::text("::collisionStarts", 26, y++, NULL);
-	Printing::text("::handlePropagatedMes\x85", 26, y++, NULL);
+	Printer::text("CollisionsState", 26, y++, NULL);
+	Printer::text("::propagateMessage", 26, y++, NULL);
+	Printer::text("Punk", 26, y++, NULL);
+	Printer::text("::collisionStarts", 26, y++, NULL);
+	Printer::text("::handlePropagatedMes\x85", 26, y++, NULL);
 	
 	y++;
 }

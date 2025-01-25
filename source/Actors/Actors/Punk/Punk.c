@@ -76,7 +76,7 @@ bool Punk::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 		
 		case kEventFontRewritten:
 		{
-			Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+			Printer::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 
 			break;
 		}
@@ -196,8 +196,8 @@ void Punk::die()
 	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */
-	Printing::addEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
-	Printing::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
+	Printer::addEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
 
 	Punk::mutateTo(this, PunkDeath::getClass());
 }
@@ -213,9 +213,9 @@ void Punk::resuscitate()
 	Punk::removeComponents(this, kSpriteComponent);
 	Punk::addComponents(this, (ComponentSpec**)PunkControllablelActorComponentSpecs, kSpriteComponent);
 
-	Printing::removeEventListener(Printing::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
+	Printer::removeEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
-	Printing::text("                        ", 18, 19, NULL);
+	Printer::text("                        ", 18, 19, NULL);
 
 	Vector3D position = Vector3D::getFromPixelVector((PixelVector){0, 64, 0, 0});
 	Punk::setLocalPosition(this, &position);

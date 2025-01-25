@@ -13,7 +13,7 @@
 
 #include <CharSet.h>
 #include <Fonts.h>
-#include <Printing.h>
+#include <Printer.h>
 #include <Stage.h>
 #include <Sound.h>
 
