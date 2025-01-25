@@ -14,6 +14,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <SoundManager.h>
 #include <Sounds.h>
 #include <TimerManager.h>

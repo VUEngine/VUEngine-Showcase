@@ -19,6 +19,7 @@
 #include <Languages.h>
 #include <Mem.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <SpriteManager.h>
 #include <Texture.h>
 #include <VIPManager.h>

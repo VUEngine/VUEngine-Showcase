@@ -19,6 +19,7 @@
 #include <Languages.h>
 #include <Messages.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <VirtualList.h>
 
 #include "CollisionsState.h"

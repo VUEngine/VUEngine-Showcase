@@ -20,6 +20,7 @@
 #include <PostProcessingTilt.h>
 #include <PostProcessingWobble.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <VUEngine.h>
 
 #include "PostProcessingEffectsState.h"

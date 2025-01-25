@@ -18,6 +18,7 @@
 #include <I18n.h>
 #include <Languages.h>
 #include <Printer.h>
+#include <Singleton.h>
 
 #include "VideoPlayerState.h"
 

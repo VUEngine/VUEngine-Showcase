@@ -20,6 +20,7 @@
 #include <PongState.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
+#include <Singleton.h>
 #include <Sounds.h>
 #include <SoundManager.h>
 #include <Utilities.h>

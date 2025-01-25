@@ -14,6 +14,7 @@
 #include <string.h>
 
 #include <AutomaticPauseManager.h>
+#include <BodyManager.h>
 #include <CommunicationManager.h>
 #include <Camera.h>
 #include <GameEvents.h>
@@ -23,9 +24,9 @@
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
-#include <BodyManager.h>
 #include <Printer.h>
 #include <Pong.h>
+#include <Singleton.h>
 #include <Utilities.h>
 
 #include "PongState.h"

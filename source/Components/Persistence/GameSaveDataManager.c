@@ -13,6 +13,7 @@
 
 #include <stddef.h>
 
+#include <Singleton.h>
 #include <SRAMManager.h>
 #include <VirtualList.h>
 

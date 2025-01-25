@@ -19,6 +19,7 @@
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Printer.h>
+#include <Singleton.h>
 #include <VUEngine.h>
 
 #include "PauseScreenState.h"
