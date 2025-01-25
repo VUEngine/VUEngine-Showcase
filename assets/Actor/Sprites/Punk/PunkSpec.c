@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Actor.h>
-#include <BgmapAnimatedSprite.h>
+#include <BgmapSprite.h>
 #include <Body.h>
 #include <Box.h>
 #include <ColliderLayers.h>
@@ -338,11 +338,14 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
@@ -370,11 +373,14 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
@@ -402,11 +408,14 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureNotSharedSpec,
@@ -434,11 +443,14 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSharedSpec,
@@ -466,11 +478,14 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureMultiframeSpec,
@@ -498,11 +513,14 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -530,11 +548,14 @@ BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -662,11 +683,14 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingTextureSpec,
@@ -694,11 +718,14 @@ BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(BgmapAnimatedSprite),
+			__TYPE(BgmapSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingBlackTextureSpec,

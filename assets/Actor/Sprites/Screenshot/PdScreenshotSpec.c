@@ -123,6 +123,9 @@ BgmapSpriteROMSpec PdScreenshotLSpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&PdScreenshotLTextureSpec,
 
@@ -154,6 +157,9 @@ BgmapSpriteROMSpec PdScreenshotRSpriteSpec =
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PdScreenshotRTextureSpec,

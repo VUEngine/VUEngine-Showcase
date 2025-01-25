@@ -17,7 +17,7 @@
 #include <InGameTypes.h>
 #include <Particle.h>
 #include <ParticleSystem.h>
-#include <ObjectAnimatedSprite.h>
+#include <ObjectSprite.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
@@ -132,11 +132,14 @@ ObjectSpriteROMSpec StarSpriteSpec =
 		// Component
 		{
 			// Allocator
-			__TYPE(ObjectAnimatedSprite),
+			__TYPE(ObjectSprite),
 
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&StarTextureSpec,

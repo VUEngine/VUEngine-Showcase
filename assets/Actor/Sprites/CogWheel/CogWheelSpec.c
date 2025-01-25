@@ -155,6 +155,9 @@ ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
 
@@ -180,6 +183,9 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -213,6 +219,9 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 			kSpriteComponent
 		},
 
+		// Is animated?
+		false,
+
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
 
@@ -244,6 +253,9 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 			// Component type
 			kSpriteComponent
 		},
+
+		// Is animated?
+		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -278,8 +290,11 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 				kSpriteComponent
 			},
 
+			// Is animated?
+			false,
+
 			// Spec for the texture to display
-			NULL,
+			(TextureSpec*)NULL,
 
 			// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
 			__TRANSPARENCY_NONE,

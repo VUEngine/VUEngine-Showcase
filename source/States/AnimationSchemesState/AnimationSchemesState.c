@@ -150,7 +150,7 @@ void AnimationSchemesState::showExplanation()
 	Printing::text(I18n::getText(I18n::getInstance(), kStringLinkedListsLabel), 2, y++, NULL);
 	y++;
 	Printing::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printing::text("*AnimatedSprite", 2, y++, NULL);
+	Printing::text("*Sprite", 2, y++, NULL);
 	Printing::text("VirtualList", 2, y++, NULL);
 	Printing::text("VirtualNode", 2, y++, NULL);
 	y++;
