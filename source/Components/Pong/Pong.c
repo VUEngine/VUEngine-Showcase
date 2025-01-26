@@ -77,15 +77,21 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 {
 	switch(eventCode)
 	{
-		case kEventPongBallStreamedOut:
+		case kEventActorDeleted:
 		{
-			Pong::pongBallOutOfBounds(this);
+			Pong::pongBallDeleted(this);
 			return true;
 		}
 
-		case kEventPongBallSpawned:
+		case kEventActorCreated:
 		{
-			Pong::pongBallSpawned(this);
+			if(__GET_CAST(PongBall, eventFirer))
+			{
+				this->pongBall = PongBall::safeCast(eventFirer);
+				
+				this->messageForRemote = kMessagePongSync;
+			}
+
 			return true;
 		}
 	}
@@ -148,7 +154,16 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 		NM_ASSERT(1 == VirtualList::getCount(this->opponentPaddles), "Pong::getReady: didn't find left paddle");
 	}
 
-	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
+	if(!isDeleted(stage))
+	{
+		this->pongBall = PongBall::safeCast(Stage::getChildByName(stage, (char*)PONG_BALL_NAME, false));
+
+		if(!isDeleted(this->pongBall))
+		{
+			PongBall::addEventListener(this->pongBall, ListenerObject::safeCast(this), kEventActorDeleted);
+			Stage::addActorLoadingListener(stage, ListenerObject::safeCast(this));
+		}
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -234,18 +249,12 @@ void Pong::constructor()
 	this->messageForRemote = kMessagePongSync;
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
-
-	Pong::addEventListener(this, ListenerObject::safeCast(this), kEventPongBallStreamedOut);
-	Pong::addEventListener(this, ListenerObject::safeCast(this), kEventPongBallSpawned);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void Pong::destructor()
 {
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), kEventPongBallStreamedOut);
-	Pong::removeEventListener(this, ListenerObject::safeCast(this), kEventPongBallSpawned);
-
 	this->pongBall = NULL;
 	delete this->playerPaddles;
 	this->playerPaddles = NULL;
@@ -254,15 +263,6 @@ void Pong::destructor()
 
 	// Allow a new construct	// Always explicitly call the base's destructor 
 	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void Pong::pongBallSpawned()
-{
-	this->pongBall = PongBall::safeCast(Stage::getChildByName(PongState::getStage(PongState::getInstance()), (char*)PONG_BALL_NAME, false));
-
-	this->messageForRemote = kMessagePongSync;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -430,7 +430,7 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::pongBallOutOfBounds()
+void Pong::pongBallDeleted()
 {
 	if(!isDeleted(this->pongBall))
 	{

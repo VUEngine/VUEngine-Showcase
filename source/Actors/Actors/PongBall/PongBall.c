@@ -73,11 +73,6 @@ void PongBall::constructor(const PongBallSpec* pongBallSpec, int16 internalId, c
 
 void PongBall::destructor()
 {
-	if(!PongBall::isInCameraRange(this, 0, false))
-	{
-		Pong::fireEvent(Pong::getInstance(), kEventPongBallStreamedOut);
-	}
-
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
@@ -162,8 +157,6 @@ bool PongBall::handlePropagatedMessage(int32 message)
 void PongBall::ready(bool recursive)
 {
 	Base::ready(this, recursive);
-
-	Pong::fireEvent(Pong::getInstance(), kEventPongBallSpawned);
 
 	PongBall::prepareToMove(this);
 }

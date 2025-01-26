@@ -17,9 +17,7 @@
 
 enum GameEvents
 {
-	kEventPongBallSpawned = kEventGameFirst + 1,
-	kEventPongBallStreamedOut,
-	kEventPongRemoteInSync,
+	kEventPongRemoteInSync = kEventGameFirst + 1,
 	kEventPongRemoteWentAway,
 	kEventUserInput,
 };
