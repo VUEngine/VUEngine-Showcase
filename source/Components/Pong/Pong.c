@@ -38,7 +38,8 @@
 #define SCORE_MULTIPLIER_TO_ENABLE_BONUS			10
 
 #define PONG_NO_COMMAND								0x00
-#define PONG_SYNC_WITH_REMOTE						0x78
+#define PONG_REGISTER_POINT							0x78
+#define PONG_SYNC_WITH_REMOTE						0x3D
 #define PONG_SEND_USER_INPUT						0xAB
 #define PONG_REMOTE_GO_AWAY							0x3C
 
@@ -79,7 +80,23 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 	{
 		case kEventActorDeleted:
 		{
-			Pong::pongBallDeleted(this);
+			if(!isDeleted(eventFirer))
+			{
+				if(0 < PongBall::getPosition(eventFirer)->x)
+				{
+					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongMyPoint : kMessagePongYourPoint;
+				}
+				else
+				{ 
+					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongYourPoint : kMessagePongMyPoint;
+				}
+
+				if(ListenerObject::safeCast(this->pongBall) == eventFirer)
+				{
+					this->pongBall = NULL;
+				}
+			}	
+
 			return true;
 		}
 
@@ -88,8 +105,7 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 			if(__GET_CAST(PongBall, eventFirer))
 			{
 				this->pongBall = PongBall::safeCast(eventFirer);
-				
-				this->messageForRemote = kMessagePongSync;
+				PongBall::addEventListener(this->pongBall, ListenerObject::safeCast(this), kEventActorDeleted);
 			}
 
 			return true;
@@ -275,6 +291,11 @@ uint32 Pong::getCommunicationCommand(uint32 message)
 
 			return PONG_SYNC_WITH_REMOTE;
 
+		case kMessagePongMyPoint:
+		case kMessagePongYourPoint:
+
+			return PONG_REGISTER_POINT;
+
 		case kMessagePongSendInput:
 
 			return PONG_SEND_USER_INPUT;
@@ -382,6 +403,36 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 			break;
 
+		case kMessagePongMyPoint:
+
+			if(kMessagePongYourPoint == messageForRemote)
+			{
+				Pong::registerPoint(this, kMessagePongYourPoint);
+		
+				this->messageForRemote = kMessagePongSync;
+			}
+			else
+			{
+				this->messageForRemote = kMessagePongYourPoint;
+			}
+
+			break;
+
+		case kMessagePongYourPoint:
+
+			if(kMessagePongMyPoint == messageForRemote)
+			{
+				Pong::registerPoint(this, kMessagePongMyPoint);
+		
+				this->messageForRemote = kMessagePongSync;
+			}
+			else
+			{
+				this->messageForRemote = kMessagePongMyPoint;
+			}
+
+			break;
+
 		case kMessagePongSendInput:
 
 			if(kMessagePongSendInput == messageForRemote)
@@ -430,27 +481,38 @@ void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::pongBallDeleted()
+void Pong::registerPoint(uint32 message)
 {
-	if(!isDeleted(this->pongBall))
+	switch(message)
 	{
-		if(0 < PongBall::getPosition(this->pongBall)->x)
+		case kMessagePongMyPoint:
 		{
-			if(99 > this->leftScore)
+			if(kPlayerOne == this->playerNumber)
 			{
 				this->leftScore++;			
 			}
-		}
-		else
-		{
-			if(99 > this->rightScore)
+			else
 			{
-				this->rightScore++;			
+				this->rightScore++;
 			}
+
+			break;
 		}
 
-		this->pongBall = NULL;
-	}	
+		case kMessagePongYourPoint:
+		{
+			if(kPlayerOne == this->playerNumber)
+			{
+				this->rightScore++;
+			}
+			else
+			{
+				this->leftScore++;			
+			}
+
+			break;
+		}
+	}
 
 	Pong::printScore(this);
 

@@ -30,6 +30,8 @@ enum Messages
 	kMessagePongResetPositions,
 	kMessagePongSendInput,
 	kMessagePongSync,
+	kMessagePongMyPoint,
+	kMessagePongYourPoint,
 };
 
 #endif

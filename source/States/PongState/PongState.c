@@ -115,17 +115,24 @@ void PongState::processUserInput(const UserInput* userInput)
 		PongState::playSoundEffects(this, userInput, true);
 	}
 
-	if(PongState::isVersusMode(this))
-	{
-		Pong::processUserInput(Pong::getInstance(), userInput);
-	}
-
 	if(K_SEL & userInput->releasedKey)
 	{
 		return;
 	}
-	
-	Base::processUserInput(this, userInput);
+
+	if(PongState::isVersusMode(this))
+	{
+		Pong::processUserInput(Pong::getInstance(), userInput);
+
+		if(0 == (K_STA & userInput->releasedKey))
+		{
+			Base::processUserInput(this, userInput);
+		}
+	}
+	else
+	{
+		Base::processUserInput(this, userInput);
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -285,6 +292,9 @@ void PongState::setVersusMode(bool value)
 
 void PongState::communicationsEstablished()
 {	
+	// Reset random seed in multiplayer mode so both machines are completely in sync
+	Math::resetRandomSeed();
+
 	PongState::setVersusMode(this, true);
 	Pong::getReady(Pong::getInstance(), this->stage, true);
 
@@ -296,9 +306,6 @@ void PongState::communicationsEstablished()
 
 void PongState::remoteInSync()
 {
-	// Reset random seed in multiplayer mode so both machines are completely in sync
-	Math::resetRandomSeed();
-
 	// Must reset the physical world too
 	BodyManager::reset(this->componentManagers[kPhysicsComponent]);
 
