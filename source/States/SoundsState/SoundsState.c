@@ -109,13 +109,6 @@ void SoundsState::exit(void* owner __attribute__ ((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool SoundsState::stream()
-{
-	return false;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 void SoundsState::processUserInput(const UserInput* userInput)
 {
 	if(!isDeleted(this->sound))
