@@ -12,19 +12,19 @@
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontSpec* const _fonts[] =
+FontData const _fontData[] =
 {
-	(FontSpec*)&DefaultFontSpec,
-	(FontSpec*)&ProfilerFontSpec,
-	(FontSpec*)&DebugFontSpec,
-	(FontSpec*)&AstonishFontSpec,
-	(FontSpec*)&AstonishExtFontSpec,
-	(FontSpec*)&AstonishSFontSpec,
-	(FontSpec*)&AstonishSExtFontSpec,
-	(FontSpec*)&DefaultBoldFontSpec,
-	(FontSpec*)&DefaultBoldExtFontSpec,
-	(FontSpec*)&DefaultItalicFontSpec,
-	(FontSpec*)&DefaultItalicExtFontSpec,
+	{(FontSpec*)&DefaultFontSpec, NULL},
+	{(FontSpec*)&ProfilerFontSpec, NULL},
+	{(FontSpec*)&DebugFontSpec, NULL},
+	{(FontSpec*)&AstonishFontSpec, NULL},
+	{(FontSpec*)&AstonishExtFontSpec, NULL},
+	{(FontSpec*)&AstonishSFontSpec, NULL},
+	{(FontSpec*)&AstonishSExtFontSpec, NULL},
+	{(FontSpec*)&DefaultBoldFontSpec, NULL},
+	{(FontSpec*)&DefaultBoldExtFontSpec, NULL},
+	{(FontSpec*)&DefaultItalicFontSpec, NULL},
+	{(FontSpec*)&DefaultItalicExtFontSpec, NULL},
 	
-	NULL
+	{NULL, NULL}
 };
