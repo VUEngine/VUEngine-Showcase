@@ -88,7 +88,13 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), u
 			this->playingSoundEffect = NULL;
 
 			// Restore timer settings
-			Stage::configureTimer(this->stage);
+			const StageSpec* stageSpec = Stage::getSpec(this->stage);
+
+			TimerManager::configure
+			(
+				stageSpec->timer.resolution, stageSpec->timer.targetTimePerInterrupt, 
+				stageSpec->timer.targetTimePerInterrupttUnits
+			);
 
 			// Allow the player to interact again.
 			KeypadManager::enable();
