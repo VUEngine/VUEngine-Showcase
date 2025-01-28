@@ -22,17 +22,17 @@
     ],
     "translations": {
         "ActorCreationLabel": {
-            "de": "Schauspieler-Konstruktoren",
+            "de": "Actor-Konstruktoren",
             "en": "Actor creation",
             "es": "Actor: creación"
         },
         "ActorDestructionLabel": {
-            "de": "Schauspieler-Destruktoren",
+            "de": "Actor-Destruktoren",
             "en": "Actor destruction",
             "es": "Actor: destrucción "
         },
         "ActorsLabel": {
-            "de": "Scahuspieler",
+            "de": "Actors",
             "en": "Actors",
             "es": "Actores"
         },

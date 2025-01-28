@@ -20,7 +20,6 @@ extern ActorSpec FlagGermanyActorSpec;
 extern LangROMSpec SpanishLanguageSpec;
 extern ActorSpec FlagSpainActorSpec;
 
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -185,11 +184,11 @@ const LangROMSpec EnglishLanguageSpec =
 const char* const GermanLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
-    "Schauspieler-Konstruktoren",
+    "Actor-Konstruktoren",
     /* kStringActorDestructionLabel: */
-    "Schauspieler-Destruktoren",
+    "Actor-Destruktoren",
     /* kStringActorsLabel: */
-    "Scahuspieler",
+    "Actors",
     /* kStringAnimationsLabel: */
     "Animationen",
     /* kStringAnimationSubtitle: */
