@@ -12,11 +12,11 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Body.h>
+#include <CollisionsState.h>
 #include <InGameTypes.h>
 #include <Messages.h>
 #include <Printer.h>
 #include <Telegram.h>
-#include <CollisionsState.h>
 
 #include "PunkWalking.h"
 
@@ -58,9 +58,9 @@ bool PunkWalking::collisionStarts(const CollisionInformation* collisionInformati
 		case kTypeCogWheel:
 
 			/*
-			* Disable collision checks so this doesn't fire multiple times. 
-			* They are enabled by the Actor when starting to move.
-			*/
+			 * Disable collision checks so this doesn't fire multiple times.
+			 * They are enabled by the Actor when starting to move.
+			 */
 			PunkWalking::checkCollisions(this, false);
 
 			PunkWalking::die(this);
@@ -90,7 +90,7 @@ bool PunkWalking::handleMessage(Telegram telegram)
 			break;
 
 		case kMessageCollisionsStateHoldLeft:
-			
+
 			force.x = -(Body::getMass(PunkWalking::getBody(this)) << 1);
 			break;
 
@@ -120,7 +120,7 @@ bool PunkWalking::handleMessage(Telegram telegram)
 
 void PunkWalking::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

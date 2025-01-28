@@ -18,8 +18,8 @@
 #include <MessageDispatcher.h>
 #include <Messages.h>
 #include <Optics.h>
-#include <Pong.h>
 #include <ParticleSystem.h>
+#include <Pong.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
 #include <SoundManager.h>
@@ -34,17 +34,17 @@
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define START_X_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
-#define START_Y_FORCE 									__I_TO_FIX10_6(Math::random(seed, 150))
-#define START_Z_FORCE										0
+#define START_X_FORCE							   __I_TO_FIX10_6(Math::random(seed, 150))
+#define START_Y_FORCE							   __I_TO_FIX10_6(Math::random(seed, 150))
+#define START_Z_FORCE							   0
 
-#define MINIMUM_HORIZONTAL_SPEED						__F_TO_FIX10_6(7.5f)
-#define MINIMUM_VERTICAL_SPEED							__F_TO_FIX10_6(4.0f)
-#define MINIMUM_DEPTH_SPEED								__I_TO_FIX10_6(9)
-#define FORCE_TO_APPLY_WHEN_VERTICAL_SPEED_IS_ZERO		__I_TO_FIX10_6(-60)
-#define FORCE_DECREASE_PER_CYCLE						__I_TO_FIX10_6(1)
-#define SPEED_X_MULTIPLIER								__I_TO_FIX10_6(2)
-#define SPEED_Y_MULTIPLIER								__I_TO_FIX10_6(2)
+#define MINIMUM_HORIZONTAL_SPEED				   __F_TO_FIX10_6(7.5f)
+#define MINIMUM_VERTICAL_SPEED					   __F_TO_FIX10_6(4.0f)
+#define MINIMUM_DEPTH_SPEED						   __I_TO_FIX10_6(9)
+#define FORCE_TO_APPLY_WHEN_VERTICAL_SPEED_IS_ZERO __I_TO_FIX10_6(-60)
+#define FORCE_DECREASE_PER_CYCLE				   __I_TO_FIX10_6(1)
+#define SPEED_X_MULTIPLIER						   __I_TO_FIX10_6(2)
+#define SPEED_Y_MULTIPLIER						   __I_TO_FIX10_6(2)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' ATTRIBUTES
@@ -65,7 +65,7 @@ static uint32 _randomSeed = 0;
 
 void PongBall::constructor(const PongBallSpec* pongBallSpec, int16 internalId, const char* const name)
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&pongBallSpec->actorSpec, internalId, name);
 }
 
@@ -73,7 +73,7 @@ void PongBall::constructor(const PongBallSpec* pongBallSpec, int16 internalId, c
 
 void PongBall::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 
@@ -86,10 +86,10 @@ bool PongBall::handleMessage(Telegram telegram)
 		case kMessagePongBallStartMoving:
 
 			PongBall::startMovement(this);
-			return true;		
+			return true;
 	}
 
-	return Base::handleMessage(this, telegram);	
+	return Base::handleMessage(this, telegram);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -103,7 +103,7 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 	if(NULL == collisionInformation->otherCollider)
 	{
 		return returnValue;
-	}	
+	}
 
 	Entity collidingEntity = Collider::getOwner(collisionInformation->otherCollider);
 
@@ -111,28 +111,22 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 	{
 		case kTypePongPaddle:
 
-			{
-				Vector3D velocity = *Body::getVelocity(this->body);
+		{
+			Vector3D velocity = *Body::getVelocity(this->body);
 
-				fixed_t yDisplacement = this->transformation.position.y - Entity::getPosition(collidingEntity)->y;
+			fixed_t yDisplacement = this->transformation.position.y - Entity::getPosition(collidingEntity)->y;
 
-//				velocity.x -= yDisplacement;
-				velocity.y += yDisplacement;
+			//				velocity.x -= yDisplacement;
+			velocity.y += yDisplacement;
 
-				Body::setVelocity(this->body, &velocity);
-			}
-			break;
+			Body::setVelocity(this->body, &velocity);
+		}
+		break;
 	}
 
 	RumbleManager::startEffect(&HitPaddleRumbleEffectSpec);
 
-	SoundManager::playSound
-	(
-		&HitPaddle1SoundSpec, 
-		NULL, 
-		kSoundPlaybackNormal,
-		NULL
-	);
+	SoundManager::playSound(&HitPaddle1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 	return returnValue;
 }
@@ -202,8 +196,7 @@ void PongBall::startMovement()
 		angle = Math::random(Math::randomSeed() + _randomSeed, 64) - 32;
 	}
 
-	Vector3D velocity =
-	{
+	Vector3D velocity = {
 		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
 		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
 		0

@@ -21,7 +21,7 @@
 
 void CogWheel::constructor(const CogWheelSpec* cogWheelSpec, int16 internalId, const char* const name)
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&cogWheelSpec->actorSpec, internalId, name);
 
 	this->update = true;
@@ -31,7 +31,7 @@ void CogWheel::constructor(const CogWheelSpec* cogWheelSpec, int16 internalId, c
 
 void CogWheel::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

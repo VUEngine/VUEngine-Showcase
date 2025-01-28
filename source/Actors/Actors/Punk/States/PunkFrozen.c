@@ -47,7 +47,7 @@ bool PunkFrozen::handleMessage(Telegram telegram)
 
 void PunkFrozen::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

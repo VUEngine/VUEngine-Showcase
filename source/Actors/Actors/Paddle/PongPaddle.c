@@ -24,8 +24,8 @@
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define HORIZONTAL_FORCE		80
-#define VERTICAL_FORCE			80
+#define HORIZONTAL_FORCE 80
+#define VERTICAL_FORCE	 80
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -35,7 +35,7 @@
 
 void PongPaddle::constructor(const PongPaddleSpec* pongPaddleSpec, int16 internalId, const char* const name)
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&pongPaddleSpec->actorSpec, internalId, name);
 }
 
@@ -43,7 +43,7 @@ void PongPaddle::constructor(const PongPaddleSpec* pongPaddleSpec, int16 interna
 
 void PongPaddle::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 
@@ -68,7 +68,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 
 	/* Returning false allows any other actor interested in the message to process it,
 	 * returning true will make that the propagation stops here
-	 */ 
+	 */
 
 	return false;
 }
@@ -77,8 +77,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 
 void PongPaddle::moveTowards(NormalizedDirection direction)
 {
-	Vector3D force =
-	{
+	Vector3D force = {
 		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.x, __I_TO_FIX10_6(direction.x)),
 		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.y, __I_TO_FIX10_6(direction.y)),
 		0

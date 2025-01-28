@@ -13,8 +13,8 @@
 
 #include <stddef.h>
 
-#include <Singleton.h>
 #include <SRAMManager.h>
+#include <Singleton.h>
 #include <VirtualList.h>
 
 #include "GameSaveDataManager.h"
@@ -27,7 +27,7 @@
 
 void GameSaveDataManager::constructor()
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor();
 }
 
@@ -35,7 +35,7 @@ void GameSaveDataManager::constructor()
 
 void GameSaveDataManager::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

@@ -11,8 +11,8 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <CollisionsState.h>
 #include <Body.h>
+#include <CollisionsState.h>
 #include <I18n.h>
 #include <InGameTypes.h>
 #include <Languages.h>
@@ -39,7 +39,7 @@
 
 void Punk::constructor(const PunkSpec* punkSpec, int16 internalId, const char* const name)
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
 
 	this->update = true;
@@ -49,7 +49,7 @@ void Punk::constructor(const PunkSpec* punkSpec, int16 internalId, const char* c
 
 void Punk::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 
@@ -64,16 +64,16 @@ bool Punk::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 			if(Punk::isPlayingAnimation(this, "Die"))
 			{
 				/*
-				* Restore myself after 1 second
-				*/
+				 * Restore myself after 1 second
+				 */
 				Punk::sendMessageToSelf(this, kMessageCollisionsStateResuscitate, 1000, 0);
 
 				return false;
 			}
-			
+
 			break;
 		}
-		
+
 		case kEventFontRewritten:
 		{
 			Printer::text(I18n::getText(I18n::getInstance(), kStringYouDiedAgain), 18, 19, NULL);
@@ -100,10 +100,10 @@ bool Punk::handlePropagatedMessage(int32 message)
 		case kMessageCollisionsStateReleasedRight:
 
 			/*
-			 * My state machine will process this Telegram. This is not very performant, but it is certainly, 
+			 * My state machine will process this Telegram. This is not very performant, but it is certainly,
 			 * more elegant than calling directly a specific method in the current state, and this showcases
 			 * how to send messages to the current state in the state machine
-			 */ 
+			 */
 			Punk::sendMessageToSelf(this, message, 0, 0);
 			return true;
 			break;
@@ -150,9 +150,9 @@ void Punk::walk()
 	Punk::playAnimation(this, "Move");
 
 	/*
-	* Disable collision checks so this doesn't fire multiple times. 
-	* They are enabled by the Actor when starting to move.
-	*/
+	 * Disable collision checks so this doesn't fire multiple times.
+	 * They are enabled by the Actor when starting to move.
+	 */
 	PunkWalking::checkCollisions(this, true);
 
 	Punk::mutateTo(this, PunkWalking::getClass());
@@ -182,17 +182,11 @@ void Punk::die()
 
 	RumbleManager::startEffect(&KilledRumbleEffectSpec);
 
-	SoundManager::playSound
-	(	
-		&Killed1SoundSpec, 
-		NULL, 
-		kSoundPlaybackNormal,
-		NULL
-	);
+	SoundManager::playSound(&Killed1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
-	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when 
+	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
 	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */

@@ -33,7 +33,7 @@ bool PunkDeath::handleMessage(Telegram telegram)
 			break;
 	}
 
-	return Base::handleMessage(this, telegram);	
+	return Base::handleMessage(this, telegram);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -46,7 +46,7 @@ bool PunkDeath::handleMessage(Telegram telegram)
 
 void PunkDeath::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

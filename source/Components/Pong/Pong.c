@@ -14,18 +14,18 @@
 #include <CommunicationManager.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
-#include <Messages.h>
 #include <MessageDispatcher.h>
+#include <Messages.h>
 #include <PongPaddle.h>
 #include <PongState.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
 #include <Singleton.h>
-#include <Sounds.h>
 #include <SoundManager.h>
+#include <Sounds.h>
 #include <Utilities.h>
-#include <VirtualList.h>
 #include <VUEngine.h>
+#include <VirtualList.h>
 
 #include "Pong.h"
 
@@ -33,15 +33,15 @@
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define SCORE_MULTIPLIER_THRESHOLD					5
-#define BONUS_INCREMENT_DELAY						100
-#define SCORE_MULTIPLIER_TO_ENABLE_BONUS			10
+#define SCORE_MULTIPLIER_THRESHOLD		 5
+#define BONUS_INCREMENT_DELAY			 100
+#define SCORE_MULTIPLIER_TO_ENABLE_BONUS 10
 
-#define PONG_NO_COMMAND								0x00
-#define PONG_REGISTER_POINT							0x78
-#define PONG_SYNC_WITH_REMOTE						0x3D
-#define PONG_SEND_USER_INPUT						0xAB
-#define PONG_REMOTE_GO_AWAY							0x3C
+#define PONG_NO_COMMAND					 0x00
+#define PONG_REGISTER_POINT				 0x78
+#define PONG_SYNC_WITH_REMOTE			 0x3D
+#define PONG_SEND_USER_INPUT			 0xAB
+#define PONG_REMOTE_GO_AWAY				 0x3C
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
@@ -54,7 +54,7 @@ typedef struct CondensedUserInput
 
 	// Released key(s)
 	uint16 releasedKey;
-	
+
 	// Hold key(s)
 	uint16 holdKey;
 
@@ -87,7 +87,7 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongMyPoint : kMessagePongYourPoint;
 				}
 				else
-				{ 
+				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongYourPoint : kMessagePongMyPoint;
 				}
 
@@ -95,7 +95,7 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 				{
 					this->pongBall = NULL;
 				}
-			}	
+			}
 
 			return true;
 		}
@@ -129,10 +129,10 @@ void Pong::getReady(Stage stage, bool isVersusMode)
 	this->messageForRemote = kMessagePongSync;
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
-	
+
 	if(isDeleted(stage))
 	{
-		return;	
+		return;
 	}
 
 	this->playerNumber = kPlayerAlone;
@@ -195,7 +195,7 @@ void Pong::processUserInput(const UserInput* userInput)
 {
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		this->messageForRemote = kMessagePongGoodBye;			
+		this->messageForRemote = kMessagePongGoodBye;
 	}
 
 	this->allowPaddleMovement = false;
@@ -252,7 +252,7 @@ void Pong::printScore()
 
 void Pong::constructor()
 {
-	// Always explicitly call the base's constructor 
+	// Always explicitly call the base's constructor
 	Base::constructor();
 
 	this->pongBall = NULL;
@@ -277,7 +277,7 @@ void Pong::destructor()
 	delete this->opponentPaddles;
 	this->opponentPaddles = NULL;
 
-	// Allow a new construct	// Always explicitly call the base's destructor 
+	// Allow a new construct	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 
@@ -383,7 +383,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 {
 	/*
 	 * When both systems send the same message, they are in sync. If the received
-	 * message differs from what I've sent, then update appropriately the message 
+	 * message differs from what I've sent, then update appropriately the message
 	 * that I will send in the next cycle.
 	 */
 	switch(receivedMessage)
@@ -393,7 +393,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			if(kMessagePongSync == messageForRemote)
 			{
 				Pong::fireEvent(this, kEventPongRemoteInSync);
-		
+
 				this->messageForRemote = kMessagePongSendInput;
 			}
 			else
@@ -408,7 +408,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			if(kMessagePongYourPoint == messageForRemote)
 			{
 				Pong::registerPoint(this, kMessagePongYourPoint);
-		
+
 				this->messageForRemote = kMessagePongSync;
 			}
 			else
@@ -423,7 +423,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 			if(kMessagePongMyPoint == messageForRemote)
 			{
 				Pong::registerPoint(this, kMessagePongMyPoint);
-		
+
 				this->messageForRemote = kMessagePongSync;
 			}
 			else
@@ -450,7 +450,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 		case kMessagePongGoodBye:
 
 			Pong::fireEvent(this, kEventPongRemoteWentAway);
-			
+
 			this->messageForRemote = kMessagePongSync;
 			break;
 	}
@@ -460,12 +460,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
 {
-	NormalizedDirection normalizedDirection =
-	{
-		0,
-		0,
-		0
-	};
+	NormalizedDirection normalizedDirection = {0, 0, 0};
 
 	if((K_LU | K_RU) & holdKey)
 	{
@@ -489,7 +484,7 @@ void Pong::registerPoint(uint32 message)
 		{
 			if(kPlayerOne == this->playerNumber)
 			{
-				this->leftScore++;			
+				this->leftScore++;
 			}
 			else
 			{
@@ -507,7 +502,7 @@ void Pong::registerPoint(uint32 message)
 			}
 			else
 			{
-				this->leftScore++;			
+				this->leftScore++;
 			}
 
 			break;
@@ -518,13 +513,7 @@ void Pong::registerPoint(uint32 message)
 
 	RumbleManager::startEffect(&PointRumbleEffectSpec);
 
-	SoundManager::playSound
-	(
-		&Point1SoundSpec, 
-		NULL, 
-		kSoundPlaybackNormal,
-		NULL
-	);
+	SoundManager::playSound(&Point1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -46,7 +46,7 @@ static const int8 waveLutHBias[] =
 	-2, -2, -2, -2,
 };
 
-#define HBIAS_WAVE_LUT_ENTRIES 	(sizeof(waveLutHBias) / sizeof(int8))
+#define HBIAS_WAVE_LUT_ENTRIES (sizeof(waveLutHBias) / sizeof(int8))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS'S METHODS

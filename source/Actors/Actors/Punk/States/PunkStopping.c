@@ -12,11 +12,11 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Body.h>
+#include <CollisionsState.h>
 #include <InGameTypes.h>
 #include <Messages.h>
 #include <Printer.h>
 #include <Telegram.h>
-#include <CollisionsState.h>
 
 #include "PunkStopping.h"
 
@@ -58,9 +58,9 @@ bool PunkStopping::collisionStarts(const CollisionInformation* collisionInformat
 		case kTypeCogWheel:
 
 			/*
-			* Disable collision checks so this doesn't fire multiple times. 
-			* They are enabled by the Actor when starting to move.
-			*/
+			 * Disable collision checks so this doesn't fire multiple times.
+			 * They are enabled by the Actor when starting to move.
+			 */
 			PunkStopping::checkCollisions(this, false);
 
 			PunkStopping::die(this);
@@ -108,7 +108,7 @@ void PunkStopping::update()
 
 void PunkStopping::destructor()
 {
-	// Always explicitly call the base's destructor 
+	// Always explicitly call the base's destructor
 	Base::destructor();
 }
 

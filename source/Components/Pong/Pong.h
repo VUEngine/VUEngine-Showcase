@@ -25,7 +25,7 @@
 // CLASS' MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define PONG_BALL_NAME "PongBL"
+#define PONG_BALL_NAME	  "PongBL"
 #define PADDLE_LEFT_NAME  "LeftPD"
 #define PADDLE_RIGHT_NAME "RightPD"
 
