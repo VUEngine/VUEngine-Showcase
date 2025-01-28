@@ -27,10 +27,10 @@ enum Messages
 	kMessagePongBallStartMoving,
 	kMessagePongDummy,
 	kMessagePongGoodBye,
+	kMessagePongMyPoint,
 	kMessagePongResetPositions,
 	kMessagePongSendInput,
 	kMessagePongSync,
-	kMessagePongMyPoint,
 	kMessagePongYourPoint,
 };
 
