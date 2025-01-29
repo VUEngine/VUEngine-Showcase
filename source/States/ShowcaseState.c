@@ -85,21 +85,8 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), u
 		case kEventSoundReleased:
 		case kEventSoundFinished:
 		{
-			this->playingSoundEffect = NULL;
-
-			// Restore timer settings
-			const StageSpec* stageSpec = Stage::getSpec(this->stage);
-
-			TimerManager::configure
-			(
-				stageSpec->timer.resolution, stageSpec->timer.targetTimePerInterrupt, 
-				stageSpec->timer.targetTimePerInterrupttUnits
-			);
-
-			// Allow the player to interact again.
-			KeypadManager::enable();
-
-			return true;
+			ShowcaseState::acceptUserInput(this);
+			return false;
 		}
 	}
 
@@ -252,26 +239,26 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 {
 	const RumbleEffectSpec* rumbleEffect = NULL;
-	this->playingSoundEffect = NULL;
+	SoundSpec* soundEffectSpec = NULL;
 
 	if((this->validSuboptionKeys) & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection3SoundSpec;
+		soundEffectSpec = &ChangeSelection3SoundSpec;
 		rumbleEffect = &ChangeSelection3RumbleEffectSpec;
 	}
 	else if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection1SoundSpec;
+		soundEffectSpec = &ChangeSelection1SoundSpec;
 		rumbleEffect = &ChangeSelection1RumbleEffectSpec;
 		lock = true;
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{
-		this->playingSoundEffect = &ChangeSelection4SoundSpec;
+		soundEffectSpec = &ChangeSelection4SoundSpec;
 		rumbleEffect = &ChangeSelection4RumbleEffectSpec;
 	}
 
-	if(NULL != this->playingSoundEffect)
+	if(NULL != soundEffectSpec)
 	{
 		RumbleManager::startEffect(rumbleEffect);
 
@@ -288,25 +275,43 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 		TimerManager::setTargetTimePerInterrupt(500);
 		TimerManager::applySettings(true);
 
-		SoundManager::playSound
-		(
-			
-			this->playingSoundEffect, 
-			NULL, 
-			kSoundPlaybackNormal,
-			ListenerObject::safeCast(this)
-		);
-		
-		if(lock)
+		Sound soundEffect = SoundManager::getSound(soundEffectSpec, ListenerObject::safeCast(this));
+
+		if(NULL != soundEffect)
 		{
-			/*
-			 * Wait until kEventSoundFinished is called. The dummy is necessary to prevent that the compiler
-			 * optimizes away the while loop.
-			 */
-			volatile bool dummy = true;
-			while(dummy && NULL != this->playingSoundEffect);
+			Sound::play(soundEffect, NULL, kSoundPlaybackNormal);
+			
+			// Wait until the sound playback is done.
+			while(lock && Sound::isPlaying(soundEffect));
+
+			// Manually release the sound effect
+			Sound::release(soundEffect);
+
+			// The same could have been achieved by the following call
+			// Sound::autoReleaseOnFinish(soundEffect, true);
+		}
+		else
+		{
+			ShowcaseState::acceptUserInput(this);
 		}
 	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void ShowcaseState::acceptUserInput()
+{
+	// Restore timer settings
+	const StageSpec* stageSpec = Stage::getSpec(this->stage);
+
+	TimerManager::configure
+	(
+		stageSpec->timer.resolution, stageSpec->timer.targetTimePerInterrupt, 
+		stageSpec->timer.targetTimePerInterrupttUnits
+	);
+
+	// Allow the player to interact again.
+	KeypadManager::enable();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -48,9 +48,6 @@ abstract class ShowcaseState : GameState
 	/// Pointer to the printing manager to reduce the calls to ::getInstance
 	Printer printing;
 
-	/// Sound spec for the playing sound
-	SoundSpec* playingSoundEffect;
-
 	/// Flag to enable/prevent the printing of additional details
 	bool showAdditionalDetails;
 
