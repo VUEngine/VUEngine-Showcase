@@ -151,7 +151,7 @@ void ActorsState::showAdditionalDetails()
 	Printer::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kWireframeComponent), 15, y++, NULL);
 
 	Printer::text("Colliders:  ", 2, ++y, NULL);
-	Printer::int32(ComponentManager::getCount(Entity::safeCast(this->leaderPunk), kColliderComponent), 15, y++, NULL);
+	Printer::int32(ComponentManager::getComponentsCount(Entity::safeCast(this->leaderPunk), kColliderComponent), 15, y++, NULL);
 
 	y = 5;
 	Printer::text("Position", 22, y, NULL);
