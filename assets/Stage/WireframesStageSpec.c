@@ -59,7 +59,7 @@ PositionedActorROMSpec WireframesStageActorSpecs[] =
 	{&BillboardActorSpec,			{-160, -8, 450}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&LampActorSpec,				{192, -8, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&LampActorSpec,				{192, -8, 1152}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&WaterTowerActorSpec,			{400, -192, 2776}, {0, 64, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	//{&WaterTowerActorSpec,			{400, -192, 2776}, {0, 64, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&CurveLeftActorSpec,			{0, 56, 2112}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&StreetActorSpec,				{-896, 56, 2496}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&StreetActorSpec,				{-1792, 56, 2496}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
