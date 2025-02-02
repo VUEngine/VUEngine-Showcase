@@ -72,13 +72,18 @@ ComponentSpec* const PyramidWireframeComponentSpecs[] =
 MeshROMSpec PyramidWireframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(Mesh),
+			// Component
+			{
+				// Allocator
+				__TYPE(Mesh),
 
-			// Component type
-			kWireframeComponent
+				// Component type
+				kWireframeComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
 
 		{0, 0, 0},
@@ -157,9 +162,6 @@ ActorROMSpec PyramidActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

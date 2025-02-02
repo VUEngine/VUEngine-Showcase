@@ -601,7 +601,6 @@ const PixelVector ChurchMeshesSegments[][2]=
 		{0, 0-146.14, 16+56, 0}
 	},
 
-	
 	// Spitzbogen schmal 1, Breite 16, Gesamthöhe 48+13.86=61.86, bis 60°, (0,0,0) ist Anfang Spitzbogen unten rechts
 	// rechte Hälfte Spitzbogen schmal 2
 	{
@@ -748,13 +747,18 @@ ComponentSpec* const ChurchWireframeComponentSpecs[] =
 MeshROMSpec ChurchWireframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(Mesh),
+			// Component
+			{
+				// Allocator
+				__TYPE(Mesh),
 
-			// Component type
-			kWireframeComponent
+				// Component type
+				kWireframeComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
 
 		// Displacement relative to the owner's spatial position
@@ -800,9 +804,6 @@ ActorROMSpec ChurchActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

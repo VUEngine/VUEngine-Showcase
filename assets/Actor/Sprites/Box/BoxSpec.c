@@ -82,17 +82,19 @@ TextureROMSpec BoxTextureSpec =
 BgmapSpriteROMSpec BoxSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&BoxTextureSpec,
@@ -174,9 +176,6 @@ ActorROMSpec BoxActorSpec =
 
 	// Actor's in-game type
 	kTypeSolidObject,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

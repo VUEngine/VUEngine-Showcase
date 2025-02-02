@@ -335,17 +335,19 @@ TextureROMSpec PunkBlackTextureSpec =
 BgmapSpriteROMSpec PunkSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
@@ -370,17 +372,19 @@ BgmapSpriteROMSpec PunkSpriteSpec =
 BgmapSpriteROMSpec PunkAffineSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSpec,
@@ -405,17 +409,19 @@ BgmapSpriteROMSpec PunkAffineSpriteSpec =
 BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureNotSharedSpec,
@@ -440,17 +446,19 @@ BgmapSpriteROMSpec PunkSpriteNotSharedSpec =
 BgmapSpriteROMSpec PunkSpriteSharedSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureSharedSpec,
@@ -475,17 +483,19 @@ BgmapSpriteROMSpec PunkSpriteSharedSpec =
 BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkTextureMultiframeSpec,
@@ -510,17 +520,19 @@ BgmapSpriteROMSpec PunkSpriteMultiframeSpec =
 BgmapSpriteROMSpec PunkBlackSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -545,17 +557,19 @@ BgmapSpriteROMSpec PunkBlackSpriteSpec =
 BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkBlackTextureSpec,
@@ -680,17 +694,19 @@ TextureROMSpec PunkDyingBlackTextureSpec =
 BgmapSpriteROMSpec PunkDyingSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingTextureSpec,
@@ -715,17 +731,19 @@ BgmapSpriteROMSpec PunkDyingSpriteSpec =
 BgmapSpriteROMSpec PunkDyingBlackSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&PunkDyingBlackTextureSpec,
@@ -807,10 +825,7 @@ ActorROMSpec PunkActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	(const AnimationFunction**)&PunkAnimationSpecs,
-
+	
 	// Animation to play automatically
 	"Move"
 };
@@ -888,9 +903,6 @@ PunkROMSpec PunkControllablelActorSpec =
 
 		// Actor's in-game type
 		kTypePunk,
-
-		// Pointer to animation functions array
-		(const AnimationFunction**)&PunkAnimationSpecs,
 
 		// Animation to play automatically
 		NULL

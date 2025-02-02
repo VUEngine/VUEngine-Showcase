@@ -116,9 +116,6 @@ ActorROMSpec PongWallsActorSpec =
 	// Actor's in-game type
 	kTypePongWall,
 
-	// Pointer to animation functions array
-	NULL,
-
 	// Animation to play automatically
 	NULL
 };

@@ -30,13 +30,18 @@ ComponentSpec* const PongBallWireframeComponentSpecs[] =
 SphereROMSpec PongBallWireframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(Sphere),
+			// Component
+			{
+				// Allocator
+				__TYPE(Sphere),
 
-			// Component type
-			kWireframeComponent
+				// Component type
+				kWireframeComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
 
 		{0, 0, 0},
@@ -156,9 +161,6 @@ PongBallROMSpec PongBallActorSpec =
 
 		// Actor's in-game type
 		kTypePongBall				,
-
-		// Pointer to animation functions array
-		(const AnimationFunction**)NULL,
 
 		// Animation to play automatically
 		NULL

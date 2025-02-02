@@ -728,13 +728,18 @@ ComponentSpec* const TreeWireframeComponentSpecs[] =
 MeshROMSpec TreeWireframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(Mesh),
+			// Component
+			{
+				// Allocator
+				__TYPE(Mesh),
 
-			// Component type
-			kWireframeComponent
+				// Component type
+				kWireframeComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
 
 		// Displacement relative to the owner's spatial position
@@ -780,9 +785,6 @@ ActorROMSpec TreeActorSpec =
 
 	// Actor's in-game type
 	kTypeNone,
-
-	// Pointer to animation functions array
-	NULL,
 
 	// Animation to play automatically
 	NULL

@@ -49,13 +49,18 @@ ComponentSpec* const PongPaddleWireframeComponentSpecs[] =
 MeshROMSpec PongPaddleWireframeSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(Mesh),
+			// Component
+			{
+				// Allocator
+				__TYPE(Mesh),
 
-			// Component type
-			kWireframeComponent
+				// Component type
+				kWireframeComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
 
 		{0, 0, 0},
@@ -206,9 +211,6 @@ PongPaddleROMSpec PongPaddleActorSpec =
 
 		// Actor's in-game type
 		kTypePongPaddle,
-
-		// Pointer to animation functions array
-		(const AnimationFunction**)NULL,
 
 		// Animation to play automatically
 		NULL

@@ -353,13 +353,11 @@ void AnimationSchemesState::createSprites()
 		{
 			// I will need to access the sprites later on
 			VirtualList::pushBack(this->animatedSprites, animatedSprite);
-
-			extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
 			
 			PixelVector spritePosition = {__SCREEN_WIDTH / 2 + __SCREEN_WIDTH / 4 + 48 * (i - 1), __SCREEN_HEIGHT / 2 - 24, 1, 2};
 			Sprite::setPosition(animatedSprite, &spritePosition);
 			
-			Sprite::play(animatedSprite, PunkAnimationSpecs, "Move", NULL);
+			Sprite::play(animatedSprite, "Move", NULL);
 
 			// Try to get the sprite's animation out of sync from the others'
 			Sprite::setActualFrame(animatedSprite, i * 12 / 3);

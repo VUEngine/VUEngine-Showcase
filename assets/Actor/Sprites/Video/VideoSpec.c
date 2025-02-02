@@ -212,17 +212,19 @@ TextureROMSpec VideoRTextureSpec =
 BgmapSpriteROMSpec VideoLSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)VideoAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&VideoLTextureSpec,
@@ -247,17 +249,19 @@ BgmapSpriteROMSpec VideoLSpriteSpec =
 BgmapSpriteROMSpec VideoRSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)VideoAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&VideoRTextureSpec,
@@ -306,9 +310,6 @@ ActorROMSpec VideoActorSpec =
 
 	// Actor's in-game type
 	0,
-
-	// Pointer to animation functions array
-	(const AnimationFunction**)&VideoAnimationSpecs,
 
 	// Animation to play automatically
 	"HiColor"

@@ -129,17 +129,19 @@ TextureROMSpec StarTextureSpec =
 ObjectSpriteROMSpec StarSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(ObjectSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(ObjectSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)StarAnimationSpecs
 		},
-
-		// Is animated?
-		true,
 
 		// Spec for the texture to display
 		(TextureSpec*)&StarTextureSpec,
@@ -282,9 +284,6 @@ ParticleROMSpec StarParticleNormalSpec =
 	// Life span delta in milliseconds
 	100,
 
-	// Array of available animations
-	(const AnimationFunction**)&StarAnimationSpecs,
-
 	// Animation to play automatically
 	"Vanish",
 
@@ -307,9 +306,6 @@ ParticleROMSpec StarParticlePhysicalSpec =
 	// Life span delta in milliseconds
 	700,
 
-	// Array of available animations
-	(const AnimationFunction**)&StarAnimationSpecs,
-
 	// Animation to play automatically
 	"Vanish",
 
@@ -331,9 +327,6 @@ ParticleROMSpec StarParticleSolidSpec =
 
 	// Life span delta in milliseconds
 	1000,
-
-	// Array of available animations
-	(const AnimationFunction**)&StarAnimationSpecs,
 
 	// Animation to play automatically
 	"Default",
@@ -366,10 +359,7 @@ ParticleSystemROMSpec StarsParticleSystemNormalSpec =
 
 		// Actor's in-game type
 		kTypeNone,
-
-		// Pointer to animation functions array
-		NULL,
-
+		
 		// Animation to play automatically
 		NULL
 	},
@@ -449,10 +439,7 @@ ParticleSystemROMSpec StarsParticleSystemPhysicalSpec =
 
 		// Actor's in-game type
 		kTypeNone,
-
-		// Pointer to animation functions array
-		NULL,
-
+		
 		// Animation to play automatically
 		NULL
 	},
@@ -538,9 +525,6 @@ ParticleSystemROMSpec StarsParticleSystemSolidSpec =
 
 		// Actor's in-game type
 		kTypeNone,
-
-		// Pointer to animation functions array
-		NULL,
 
 		// Animation to play automatically
 		NULL

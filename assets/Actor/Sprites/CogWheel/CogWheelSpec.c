@@ -146,17 +146,19 @@ TextureROMSpec* const CogWheelBackgroundTextureSpecs[] =
 ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(ObjectSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(ObjectSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -175,17 +177,19 @@ ObjectSpriteROMSpec CogWheelObjectSpriteSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -210,17 +214,19 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteNormalSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -245,17 +251,19 @@ BgmapSpriteROMSpec CogWheelBgmapSpriteAffineSpec =
 BgmapSpriteROMSpec CogWheelBgmapSpriteHBiasSpec =
 {
 	{
-		// Component
 		{
-			// Allocator
-			__TYPE(BgmapSprite),
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-			// Component type
-			kSpriteComponent
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)NULL
 		},
-
-		// Is animated?
-		false,
 
 		// Spec for the texture to display
 		(TextureSpec*)&CogWheelTextureSpec,
@@ -281,17 +289,19 @@ MBgmapSpriteROMSpec CogWheelMBgmapSpriteNormalSpec =
 {
 	{
 		{
-			// Component
 			{
-				// Allocator
-				__TYPE(MBgmapSprite),
+				// Component
+				{
+					// Allocator
+					__TYPE(MBgmapSprite),
 
-				// Component type
-				kSpriteComponent
+					// Component type
+					kSpriteComponent
+				},
+
+				// Array of function animations
+				(const AnimationFunction**)NULL
 			},
-
-			// Is animated?
-			false,
 
 			// Spec for the texture to display
 			(TextureSpec*)NULL,
@@ -393,10 +403,7 @@ CogWheelROMSpec CogWheelActorSpec =
 
 		// Actor's in-game type
 		kTypeCogWheel,
-
-		// Pointer to animation functions array
-		NULL,
-
+		
 		// Animation to play automatically
 		NULL
 	}
