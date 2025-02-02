@@ -196,7 +196,8 @@ void PongBall::startMovement()
 		angle = Math::random(Math::randomSeed() + _randomSeed, 64) - 32;
 	}
 
-	Vector3D velocity = {
+	Vector3D velocity = 
+	{
 		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.x, __FIX7_9_TO_FIXED(__COS(angle))),
 		__FIXED_MULT(((PongBallSpec*)this->actorSpec)->maximumVelocity.y, __FIX7_9_TO_FIXED(__SIN(angle))),
 		0
