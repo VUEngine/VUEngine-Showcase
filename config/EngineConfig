@@ -46,18 +46,24 @@
     },
     "game": [
         {
-            "key": "__soundTest",
-            "type": "text",
+            "_id": "wpS0n4GmBctICFsM",
+            "enabled": false,
+            "name": "Reduce Pcm Data",
+            "type": "define",
             "value": ""
         },
         {
-            "key": "reduceRomSizeX",
-            "type": "text",
+            "_id": "olEKW3B2IgDFscMg",
+            "enabled": false,
+            "name": "Reduce Rom Size",
+            "type": "define",
             "value": ""
         },
         {
-            "key": "reducePcmDataX",
-            "type": "text",
+            "_id": "c8Bqm264lB2RNYAn",
+            "enabled": true,
+            "name": "Sound Test",
+            "type": "define",
             "value": ""
         }
     ],
@@ -124,6 +130,7 @@
     },
     "physics": {
         "angleToPreventColliderDisplacement": 10,
+        "collidersMaximumSize": 256,
         "frictionForceFactorPower": 2,
         "gravity": 19.6,
         "highPrecision": false,
