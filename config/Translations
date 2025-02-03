@@ -71,9 +71,9 @@
             "en": "Class extension",
             "es": "Extensiones de clase"
         },
-        "ClassMutationLabel": {
-            "de": "Klassenmutationen",
-            "en": "Class mutation",
+        "ClassMutatorLabel": {
+            "de": "Klassenmutatoren",
+            "en": "Class mutator",
             "es": "Mutación de clases"
         },
         "CollisionsLabel": {

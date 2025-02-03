@@ -347,7 +347,7 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 
 	/*
 	 * Data will be sent sychroniously. This means that if the cable is disconnected during
-	 * transmission, the behavior is undefined.
+	 * transmission, the mutator is undefined.
 	 */
 	do
 	{
