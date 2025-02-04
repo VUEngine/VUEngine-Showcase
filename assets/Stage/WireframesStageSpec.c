@@ -43,6 +43,8 @@ extern ActorSpec ViewpointActorSpec;
 extern ActorSpec ChurchActorSpec;
 extern ActorSpec LeftCurveInclinedActorSpec;
 extern ActorSpec RoadClosedActorSpec;
+extern ActorSpec AirplaneActorSpec;
+extern ActorSpec WindTurbineActorSpec;
 
 //---------------------------------------------------------------------------------------------------------
 // 											Actor LISTS
@@ -51,31 +53,46 @@ extern ActorSpec RoadClosedActorSpec;
 PositionedActorROMSpec WireframesStageActorSpecs[] =
 {
 	{&StreetEndActorSpec, 			{0, 56, 832}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseActorSpec,				{256,-8, 896}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseActorSpec,				{-256, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&HouseBigActorSpec,			{-256, -8, 896}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&TunnelActorSpec,				{0, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BusStopActorSpec,				{192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&BillboardActorSpec,			{-160, -8, 450}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampActorSpec,				{192, -8, 512}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LampActorSpec,				{192, -8, 1152}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	//{&WaterTowerActorSpec,			{400, -192, 2776}, {0, 64, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&CurveLeftActorSpec,			{0, 56, 2112}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetActorSpec,				{-896, 56, 2496}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetActorSpec,				{-1792, 56, 2496}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PowerPoleActorSpec,			{-592, 56, 2272}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PowerPoleActorSpec,			{-848, 56, 2272}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&PowerCableActorSpec,			{-592, -76, 2356}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&CurveLeftActorSpec,			{-2176, 56, 2496}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetInclinedActorSpec,		{-2560, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&StreetActorSpec,				{-2560, -40, 1216}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&ProductionSiteActorSpec,		{-1568, 56, 2688}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&TreeActorSpec,				{-2360, -40, 1312}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&ViewpointActorSpec,			{-2432, -40, 1728}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&ChurchActorSpec,				{-1536, 56, 256}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&LeftCurveInclinedActorSpec, 	{-2560, -40, 832}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseActorSpec,				{256,-8, 1024}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseActorSpec,				{-256, -8, 1280}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&HouseBigActorSpec,			{-256, -8, 1536}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{0, 56, 1728}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BusStopActorSpec,				{192, -8, 768}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&BillboardActorSpec,			{-160, -8, 546}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampActorSpec,				{192, -8, 640}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampActorSpec,				{192, -8, 1280}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{0, 56, 2624}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TunnelActorSpec,				{0, 56, 2368}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&WindTurbineActorSpec, 		{128, 56, 3552}, {0, 48, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftActorSpec,			{0, 56, 3008}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+
+	{&StreetActorSpec,				{-896, 56, 3392}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{-1792, 56, 3392}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PowerPoleActorSpec,			{-848, 56, 3072}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PowerPoleActorSpec,			{-1104, 56, 3072}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&PowerCableActorSpec,			{-848, -76, 3156}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&ProductionSiteActorSpec,		{-2032, 56, 3584}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{-2688, 56, 3392}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftActorSpec,			{-3072, 56, 3392}, {0, -128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	
+	{&StreetInclinedActorSpec,		{-3456, 56, 2624}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{-3456, -40, 2112}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&TreeActorSpec,				{-3256, -40, 1952}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&ViewpointActorSpec,			{-3328, -40, 2368}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{-3456, -40, 1216}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&WaterTowerActorSpec,			{-3820, -192, 400}, {0, 32, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LeftCurveInclinedActorSpec, 	{-3456, -40, 832}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+
+	{&StreetActorSpec, 				{-2560, 56, 448}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{&StreetActorSpec, 				{-1664, 56, 448}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
-	{&RoadClosedActorSpec,			{-1280, 56, 448}, {0, 128, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&ChurchActorSpec,				{-1888, 56, 256}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LampActorSpec,				{-1832, -8, 336}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&CurveLeftActorSpec, 			{-896, 56, 64}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+
+	{&StreetActorSpec,				{-896, 56, -320}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&StreetActorSpec,				{-896, 56, -1216}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&RoadClosedActorSpec,			{-896, 56, -1728}, {0, 256, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&AirplaneActorSpec, 			{-488, -128, -1024}, {-32, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
@@ -161,7 +178,7 @@ StageROMSpec WireframesStageSpec =
 			// y1
 			__SCREEN_HEIGHT,
 			// z1
-			1024 + 1024,
+			1024 + 1024 + 512,
 		}
 	},
 
