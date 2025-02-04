@@ -41,8 +41,6 @@ void Punk::constructor(const PunkSpec* punkSpec, int16 internalId, const char* c
 {
 	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&punkSpec->actorSpec, internalId, name);
-
-	this->update = true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
