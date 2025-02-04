@@ -13,7 +13,7 @@
 #include "RomInfo.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// GAME SPECIFIC MACROS
+// MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #define __SOUND_TEST 
@@ -223,7 +223,7 @@
 #define __MAXIMUM_BOUNCINESS_COEFFICIENT		 1.0f
 #define __FRICTION_FORCE_FACTOR_POWER			 2
 #define __COLLIDER_ANGLE_TO_PREVENT_DISPLACEMENT __FIX7_9_TO_FIXED(__COS(10))
-#define __COLLIDER_MAXIMUM_SIZE					 __PIXELS_TO_METERS(257)
+#define __COLLIDER_MAXIMUM_SIZE					 __PIXELS_TO_METERS(256)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SOUND

@@ -44,25 +44,11 @@
         "runDelayedMessagesAtHalfFrameRate": false,
         "timerResolution": 10
     },
-    "game": [
+    "macros": [
         {
-            "_id": "wpS0n4GmBctICFsM",
-            "enabled": false,
-            "name": "Reduce Pcm Data",
-            "type": "define",
-            "value": ""
-        },
-        {
-            "_id": "olEKW3B2IgDFscMg",
-            "enabled": false,
-            "name": "Reduce Rom Size",
-            "type": "define",
-            "value": ""
-        },
-        {
-            "_id": "c8Bqm264lB2RNYAn",
+            "_id": "5rvXCVLIsC5cuyIt",
             "enabled": true,
-            "name": "Sound Test",
+            "name": "__soundTest",
             "type": "define",
             "value": ""
         }
