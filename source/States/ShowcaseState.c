@@ -161,16 +161,6 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 /*
- *	The StateMachine calls State::suspend when a new State is put at the top of its stack.
- */
-void ShowcaseState::suspend(void* owner)
-{
-	Base::suspend(this, owner);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-/*
  *	The StateMachine calls State::resume when the State is again at the top of its stack
  *  after the previous State at the top has been popped.
  */
