@@ -158,8 +158,6 @@ void ShowcaseState::exit(void* owner __attribute__((unused)))
  */
 void ShowcaseState::suspend(void* owner)
 {
-	Camera::startEffect(Camera::getInstance(), kFadeOut, __FADE_DELAY);
-
 	Base::suspend(this, owner);
 }
 
