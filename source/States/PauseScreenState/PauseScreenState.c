@@ -47,17 +47,6 @@ bool PauseScreenState::onEvent(ListenerObject eventFirer __attribute__((unused))
 
 			return false;
 		}
-
-		case kEventEffectFadeOutComplete:
-		{
-			// Re-enable user input
-			KeypadManager::enable();
-
-			// Resume game
-			VUEngine::unpause(GameState::safeCast(this));
-
-			return false;
-		}
 	}
 
 	return Base::onEvent(this, eventFirer, eventCode);
@@ -129,18 +118,11 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 		// Disable user input
 		KeypadManager::disable();
 
-		// Fade out screen
-		Brightness brightness = (Brightness){0, 0, 0};
+		// Turn down brightness
+		Camera::startEffect(Camera::getInstance(), kHide);
 
-		Camera::startEffect
-		(
-			Camera::getInstance(),
-			kFadeTo, 							// effect type
-			0,									// initial delay (in ms)
-			&brightness, 						// target brightness
-			__FADE_DELAY, 						// delay between fading steps (in ms)
-			ListenerObject::safeCast(this) 		// callback scope
-		);
+		// Resume game
+		VUEngine::unpause(GameState::safeCast(this));
 	}
 }
 

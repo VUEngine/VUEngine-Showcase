@@ -75,6 +75,13 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), u
 {
 	switch(eventCode)
 	{
+		case kEventEffectFadeInComplete:
+		{
+			KeypadManager::enable();
+
+			return true;
+		}
+		
 		case kEventFramerateReady:
 		{
 			FrameRate::print(FrameRate::getInstance(), 14, 27);
@@ -117,7 +124,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	KeypadManager::registerInput(__KEY_RELEASED);
 
 	// Enable user input
-	KeypadManager::enable();
+	KeypadManager::disable();
 
 	// Printer the framerate
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
@@ -131,7 +138,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 		0, // initial delay (in ms)
 		NULL, // target brightness
 		__FADE_DELAY, // delay between fading steps (in ms)
-		NULL // callback scope
+		ListenerObject::safeCast(this) 		// callback scope
 	);
 }
 
@@ -183,11 +190,8 @@ void ShowcaseState::resume(void* owner)
 		0, 						// initial delay (in ms)
 		NULL, 					// target brightness
 		__FADE_DELAY, 			// delay between fading steps (in ms)
-		NULL 					// callback scope
+		ListenerObject::safeCast(this) 		// callback scope
 	);
-
-	// Allow the player to interact again.
-	KeypadManager::enable();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
