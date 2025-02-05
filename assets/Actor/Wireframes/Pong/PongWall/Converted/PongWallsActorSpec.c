@@ -33,10 +33,10 @@ ColliderROMSpec PongWallsCollider1ColliderSpec =
 	{0, 64, 0, 0},
 
 	// Rotation (x, y, z)
-	{ 0, 0, 0 },
+	{0, 0, 0},
 
 	// Scale (x, y, z)
-	{ __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f) },
+	{__F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f)},
 
 	// If true this collider checks for collisions against other colliders
 	false,
@@ -65,10 +65,10 @@ ColliderROMSpec PongWallsCollider2ColliderSpec =
 	{0, -64, 0, 0},
 
 	// Rotation (x, y, z)
-	{ 0, 0, 256 },
+	{0, 0, 255},
 
 	// Scale (x, y, z)
-	{ __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f) },
+	{__F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f)},
 
 	// If true this collider checks for collisions against other colliders
 	false,

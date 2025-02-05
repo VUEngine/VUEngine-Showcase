@@ -25,18 +25,22 @@
         "children": [],
         "colliders": [
             {
+                "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 64,
+                    "z": 0
+                },
+                "layers": [
+                    "LmaH2bklOna0YVkI"
+                ],
+                "layersToCheck": [],
                 "name": "Collider",
-                "type": "LineField",
                 "pixelSize": {
                     "x": 200,
                     "y": 0,
                     "z": 0
-                },
-                "displacement": {
-                    "x": 0,
-                    "y": 64,
-                    "z": 0,
-                    "parallax": 0
                 },
                 "rotation": {
                     "x": 0,
@@ -48,41 +52,37 @@
                     "y": 0,
                     "z": 0
                 },
+                "type": "LineField"
+            },
+            {
                 "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": -64,
+                    "z": 0
+                },
                 "layers": [
                     "LmaH2bklOna0YVkI"
                 ],
-                "layersToCheck": []
-            },
-            {
+                "layersToCheck": [],
                 "name": "Collider",
-                "type": "LineField",
                 "pixelSize": {
                     "x": 200,
                     "y": 0,
                     "z": 0
                 },
-                "displacement": {
-                    "x": 0,
-                    "y": -64,
-                    "z": 0,
-                    "parallax": 0
-                },
                 "rotation": {
                     "x": 0,
                     "y": 0,
-                    "z": 256
+                    "z": "255"
                 },
                 "scale": {
                     "x": 1,
                     "y": 1,
                     "z": 1
                 },
-                "checkForCollisions": false,
-                "layers": [
-                    "LmaH2bklOna0YVkI"
-                ],
-                "layersToCheck": []
+                "type": "LineField"
             }
         ],
         "mutators": [],
