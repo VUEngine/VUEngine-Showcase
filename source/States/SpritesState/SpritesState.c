@@ -219,7 +219,7 @@ void SpritesState::createSprite()
 	extern SpriteSpec CogWheelBgmapSprite1SpriteSpec;
 	extern SpriteSpec CogWheelAffineSprite1SpriteSpec;
 	extern SpriteSpec CogWheelHBiasSprite1SpriteSpec;
-	extern SpriteSpec CogWheelMBgmapSpriteNormalSpec;
+	extern SpriteSpec CogWheelMBgmapSprite1SpriteSpec;
 
 	SpriteSpec* spriteSpec = NULL;
 
@@ -251,7 +251,7 @@ void SpritesState::createSprite()
 
 		case kSpriteMBgmap:
 
-			spriteSpec = &CogWheelMBgmapSpriteNormalSpec;
+			spriteSpec = &CogWheelMBgmapSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
 	}
 
