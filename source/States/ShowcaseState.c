@@ -416,7 +416,7 @@ void ShowcaseState::constructor()
 	this->stageSpec = NULL;
 	this->showAdditionalDetails = false;
 	this->validSuboptionKeys = K_NON;
-	}
+}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
