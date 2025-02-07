@@ -111,8 +111,13 @@
             "en": "Events",
             "es": "Eventos"
         },
+        "FrameBlendingLabel": {
+            "de": "Rahmenüberblendung",
+            "en": "Frame blending",
+            "es": "Fusionado de marcos"
+        },
         "FrameBuffersLabel": {
-            "de": "Framebuffer",
+            "de": "Bildpuffer",
             "en": "Frame buffers",
             "es": "Búfer de video"
         },
@@ -120,11 +125,6 @@
             "de": "Spielzustände",
             "en": "Game states",
             "es": "Estados de juego"
-        },
-        "HiColorLabel": {
-            "de": "HiColor",
-            "en": "HiColor",
-            "es": "HiColor"
         },
         "LinkedListsLabel": {
             "de": "Verkettete Listen",

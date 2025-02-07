@@ -83,12 +83,12 @@ const char* const EnglishLanguageStrings[] =
     "EFFECT",
     /* kStringEventsLabel: */
     "Events",
+    /* kStringFrameBlendingLabel: */
+    "Frame blending",
     /* kStringFrameBuffersLabel: */
     "Frame buffers",
     /* kStringGameStatesLabel: */
     "Game states",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "LANGUAGE SELECT",
     /* kStringLinkedListsLabel: */
@@ -231,12 +231,12 @@ const char* const GermanLanguageStrings[] =
     "EFFECT",
     /* kStringEventsLabel: */
     "Ereignisse",
+    /* kStringFrameBlendingLabel: */
+    "Rahmenüberblendung",
     /* kStringFrameBuffersLabel: */
-    "Framebuffer",
+    "Bildpuffer",
     /* kStringGameStatesLabel: */
     "Spielzustände",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
     /* kStringLinkedListsLabel: */
@@ -379,12 +379,12 @@ const char* const SpanishLanguageStrings[] =
     "EFECTO",
     /* kStringEventsLabel: */
     "Eventos",
+    /* kStringFrameBlendingLabel: */
+    "Fusionado de marcos",
     /* kStringFrameBuffersLabel: */
     "Búfer de video",
     /* kStringGameStatesLabel: */
     "Estados de juego",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SELECCIONAR IDIOMA",
     /* kStringLinkedListsLabel: */

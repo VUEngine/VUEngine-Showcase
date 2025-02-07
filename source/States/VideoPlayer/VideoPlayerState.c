@@ -76,7 +76,7 @@ void VideoPlayerState::showExplanation()
 	int16 y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printer::text(I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
-	Printer::text(I18n::getText(I18n::getInstance(), kStringHiColorLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringFrameBlendingLabel), 2, y++, NULL);
 
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
