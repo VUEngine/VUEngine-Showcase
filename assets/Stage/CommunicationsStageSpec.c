@@ -28,7 +28,7 @@ extern ActorSpec PongWallsActorSpec;
 // ACTOR LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-PositionedActorROMSpec PongStageActorSpecs[] =
+PositionedActorROMSpec CommunicationsStageActorSpecs[] =
 {
 	{&PongBallActorSpec, 		{  0, 0, 128}, {0, 0, 0}, {1, 1, 1}, 0, PONG_BALL_NAME, NULL, NULL, false},
 	{&PongPaddleActorSpec, 		{-96, 0, 128}, {0, 0, 0}, {1, 1, 1}, 0, PADDLE_LEFT_NAME, NULL, NULL, true},
@@ -38,7 +38,7 @@ PositionedActorROMSpec PongStageActorSpecs[] =
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 
-PositionedActorROMSpec PongStageUiActorSpecs[] =
+PositionedActorROMSpec CommunicationsStageUiActorSpecs[] =
 {
 	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -48,17 +48,17 @@ PositionedActorROMSpec PongStageUiActorSpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const PongStageFontSpecs[] =
+FontROMSpec* const CommunicationsStageFontSpecs[] =
 {
 	NULL
 };
 
-CharSetROMSpec* const PongStageCharsets[] =
+CharSetROMSpec* const CommunicationsStageCharsets[] =
 {
 	NULL
 };
 
-TextureSpec* const PongStageTextures[] =
+TextureSpec* const CommunicationsStageTextures[] =
 {
 	NULL
 };
@@ -67,7 +67,7 @@ TextureSpec* const PongStageTextures[] =
 // STAGE DEFINITION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-StageROMSpec PongStageSpec =
+StageROMSpec CommunicationsStageSpec =
 {
 	// Class allocator
 	__TYPE(Stage),
@@ -259,13 +259,13 @@ StageROMSpec PongStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)PongStageFontSpecs,
+		(FontSpec**)CommunicationsStageFontSpecs,
 
 		// CharSets to preload
-		(CharSetSpec**)PongStageCharsets,
+		(CharSetSpec**)CommunicationsStageCharsets,
 
 		// Textures to preload
-		(TextureSpec**)PongStageTextures,
+		(TextureSpec**)CommunicationsStageTextures,
 
 		// Sounds to load
 		(SoundSpec**)NULL,
@@ -275,12 +275,12 @@ StageROMSpec PongStageSpec =
 	{
 		// UI configuration
 		{
-			(PositionedActor*)PongStageUiActorSpecs,
+			(PositionedActor*)CommunicationsStageUiActorSpecs,
 			__TYPE(UIContainer),
 		},
 
 		// Stage's children actors
-		(PositionedActor*)PongStageActorSpecs,
+		(PositionedActor*)CommunicationsStageActorSpecs,
 	},
 
 	// Post processing effects

@@ -29,7 +29,7 @@
 #include <Singleton.h>
 #include <Utilities.h>
 
-#include "PongState.h"
+#include "CommunicationsState.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PUBLIC METHODS
@@ -37,25 +37,25 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongState::onEvent(ListenerObject eventFirer, uint16 eventCode)
+bool CommunicationsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
 		case kEventCommunicationsConnected:
 		{
-			PongState::communicationsEstablished(this);
+			CommunicationsState::communicationsEstablished(this);
 			return true;
 		}
 
 		case kEventPongRemoteInSync:
 		{
-			PongState::remoteInSync(this);
+			CommunicationsState::remoteInSync(this);
 			return true;
 		}
 
 		case kEventPongRemoteWentAway:
 		{
-			PongState::remoteGoneAway(this);
+			CommunicationsState::remoteGoneAway(this);
 			return true;
 		}
 	}
@@ -65,7 +65,7 @@ bool PongState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::enter(void* owner)
+void CommunicationsState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
@@ -90,12 +90,12 @@ void PongState::enter(void* owner)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::exit(void* owner)
+void CommunicationsState::exit(void* owner)
 {
 	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteInSync);
 	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
-	PongState::setVersusMode(this, false);
+	CommunicationsState::setVersusMode(this, false);
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
 	AutomaticPauseManager::setActive
@@ -108,11 +108,11 @@ void PongState::exit(void* owner)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::processUserInput(const UserInput* userInput)
+void CommunicationsState::processUserInput(const UserInput* userInput)
 {
 	if(0 == (K_SEL & userInput->releasedKey))
 	{
-		PongState::playSoundEffects(this, userInput, true);
+		CommunicationsState::playSoundEffects(this, userInput, true);
 	}
 
 	if(K_SEL & userInput->releasedKey)
@@ -120,7 +120,7 @@ void PongState::processUserInput(const UserInput* userInput)
 		return;
 	}
 
-	if(PongState::isVersusMode(this))
+	if(CommunicationsState::isVersusMode(this))
 	{
 		Pong::processUserInput(Pong::getInstance(), userInput);
 
@@ -137,14 +137,14 @@ void PongState::processUserInput(const UserInput* userInput)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool PongState::isVersusMode()
+bool CommunicationsState::isVersusMode()
 {
 	return this->isVersusMode;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::showControls()
+void CommunicationsState::showControls()
 {
 	Printer::clearRow(__SCREEN_HEIGHT_IN_CHARS - 1);
 
@@ -171,12 +171,12 @@ void PongState::showControls()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::showStuff()
+void CommunicationsState::showStuff()
 {}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::showExplanation()
+void CommunicationsState::showExplanation()
 {
 	int16 y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
@@ -207,15 +207,15 @@ void PongState::showExplanation()
 	Printer::text("::processReceivedMessage", 2, y++, NULL);
 	y++;
 
-	PongState::showConnectivityStatus(this);
+	CommunicationsState::showConnectivityStatus(this);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::showAdditionalDetails()
+void CommunicationsState::showAdditionalDetails()
 {
 	Pong::printScore(Pong::getInstance());
-	PongState::showConnectivityStatus(this);
+	CommunicationsState::showConnectivityStatus(this);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -226,22 +226,22 @@ void PongState::showAdditionalDetails()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::constructor()
+void CommunicationsState::constructor()
 {
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
 	/*
-	 * Check assets/stage/PongStageSpec.c
+	 * Check assets/stage/CommunicationsStageSpec.c
 	 */
-	extern StageROMSpec PongStageSpec;
-	this->stageSpec = (StageSpec*)&PongStageSpec;
+	extern StageROMSpec CommunicationsStageSpec;
+	this->stageSpec = (StageSpec*)&CommunicationsStageSpec;
 	this->isVersusMode = false;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::destructor()
+void CommunicationsState::destructor()
 {
 	// Always explicitly call the base's destructor 
 	Base::destructor();
@@ -249,7 +249,7 @@ void PongState::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::showConnectivityStatus()
+void CommunicationsState::showConnectivityStatus()
 {
 	Printer::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
@@ -282,7 +282,7 @@ void PongState::showConnectivityStatus()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::setVersusMode(bool value)
+void CommunicationsState::setVersusMode(bool value)
 {
 	this->isVersusMode = value;
 	this->showAdditionalDetails = value;
@@ -290,42 +290,42 @@ void PongState::setVersusMode(bool value)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::communicationsEstablished()
+void CommunicationsState::communicationsEstablished()
 {	
 	// Reset random seed in multiplayer mode so both machines are completely in sync
 	Math::resetRandomSeed();
 
-	PongState::setVersusMode(this, true);
+	CommunicationsState::setVersusMode(this, true);
 	Pong::getReady(Pong::getInstance(), this->stage, true);
 
 	this->showAdditionalDetails = true;
-	PongState::show(this, false);
+	CommunicationsState::show(this, false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::remoteInSync()
+void CommunicationsState::remoteInSync()
 {
 	// Must reset the physical world too
 	BodyManager::reset(this->componentManagers[kPhysicsComponent]);
 
 	// Must reset the clocks
-	PongState::startClocks(this);
+	CommunicationsState::startClocks(this);
 	
 	// Reset the actors
-	PongState::propagateMessage(this, kMessagePongResetPositions);
+	CommunicationsState::propagateMessage(this, kMessagePongResetPositions);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongState::remoteGoneAway()
+void CommunicationsState::remoteGoneAway()
 {
 	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
 
-	PongState::setVersusMode(this, false);
+	CommunicationsState::setVersusMode(this, false);
 	Pong::getReady(Pong::getInstance(), this->stage, false);
-	PongState::show(this, false);
-	PongState::propagateMessage(this, kMessagePongResetPositions);
+	CommunicationsState::show(this, false);
+	CommunicationsState::propagateMessage(this, kMessagePongResetPositions);
 
 	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 }

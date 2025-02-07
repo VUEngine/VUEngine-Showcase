@@ -17,7 +17,7 @@
 #include <MessageDispatcher.h>
 #include <Messages.h>
 #include <PongPaddle.h>
-#include <PongState.h>
+#include <CommunicationsState.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
 #include <Singleton.h>

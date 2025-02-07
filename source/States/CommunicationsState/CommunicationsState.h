@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef PONG_STATE_H_
-#define PONG_STATE_H_
+#ifndef COMMUNICATION_STATE_H_
+#define COMMUNICATION_STATE_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
@@ -20,12 +20,12 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class PongState
+/// Class CommunicationsState
 ///
 /// Inherits from ShowcaseState
 ///
 /// Implements a simple pong game to showcase how communications work.
-dynamic_singleton class PongState : ShowcaseState
+dynamic_singleton class CommunicationsState : ShowcaseState
 {
 	/// If true, a connection has been detected
 	bool isVersusMode;

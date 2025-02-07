@@ -49,7 +49,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance,
 	(ShowcaseStateGetInstance)VideoPlayerState::getInstance,
 	(ShowcaseStateGetInstance)SoundsState::getInstance,
-	(ShowcaseStateGetInstance)PongState::getInstance,
+	(ShowcaseStateGetInstance)CommunicationsState::getInstance,
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
