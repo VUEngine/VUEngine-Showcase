@@ -107,7 +107,7 @@
                         "fromVertex": {
                             "parallax": 0,
                             "x": 0,
-                            "y": 0,
+                            "y": -10,
                             "z": 0
                         },
                         "toVertex": {
