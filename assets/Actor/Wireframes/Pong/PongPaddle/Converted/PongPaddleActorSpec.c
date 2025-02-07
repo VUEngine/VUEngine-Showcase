@@ -84,10 +84,10 @@ ColliderROMSpec PongPaddleCollider1ColliderSpec =
 	{0, 0, 0, 0},
 
 	// Rotation (x, y, z)
-	{ __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f) },
+	{0, 0, 0},
 
 	// Scale (x, y, z)
-	{ __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f) },
+	{__F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f)},
 
 	// If true this collider checks for collisions against other colliders
 	false,
@@ -116,10 +116,10 @@ ColliderROMSpec PongPaddleCollider2ColliderSpec =
 	{0, 0, 0, 0},
 
 	// Rotation (x, y, z)
-	{ __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f), __F_TO_FIX7_9(0.000f) },
+	{0, 0, 0},
 
 	// Scale (x, y, z)
-	{ __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f) },
+	{__F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f), __F_TO_FIX7_9(1.000f)},
 
 	// If true this collider checks for collisions against other colliders
 	true,

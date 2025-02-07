@@ -1,5 +1,5 @@
 {
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "affine": {
         "maxRowsPerCall": 16,
         "maxScale": 2
@@ -18,19 +18,9 @@
     "chars": {
         "totalChars": 2048
     },
-    "communications": {
-        "enable": false
-    },
     "debug": {
-        "alertVipOvertime": false,
-        "dimmForProfiling": false,
+        "diagnostics": "NONE",
         "enableProfiler": false,
-        "printFramerate": false,
-        "profileStreaming": false,
-        "showDetailedMemoryPoolStatus": false,
-        "showMemoryPoolStatus": false,
-        "showStackOverflowAlert": false,
-        "showStreamingProfiling": false,
         "stackHeadroom": 1000
     },
     "exceptions": {
@@ -41,7 +31,6 @@
     },
     "frameRate": {
         "frameCycle": 0,
-        "runDelayedMessagesAtHalfFrameRate": false,
         "timerResolution": 10
     },
     "macros": [
@@ -57,7 +46,6 @@
         "fixedPointPrecision": 6
     },
     "memoryPools": {
-        "cleanUp": false,
         "pools": [
             {
                 "objects": 600,

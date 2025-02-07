@@ -122,7 +122,7 @@ void SpritesState::showExplanation()
 		y++;
 		Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
 		Printer::text(I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
-		Printer::text(I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringClassMutatorLabel), 2, y++, NULL);
 		y++;
 		Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printer::text("CharSet", 2, y++, NULL);

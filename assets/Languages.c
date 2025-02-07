@@ -67,8 +67,8 @@ const char* const EnglishLanguageStrings[] =
     "CLASSES",
     /* kStringClassExtensionLabel: */
     "Class extension",
-    /* kStringClassMutationLabel: */
-    "Class mutation",
+    /* kStringClassMutatorLabel: */
+    "Class mutator",
     /* kStringCollisionsLabel: */
     "Collisions",
     /* kStringCommunicationsLabel: */
@@ -184,11 +184,11 @@ const LangROMSpec EnglishLanguageSpec =
 const char* const GermanLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
-    "Actor-Konstruktoren",
+    "Akteur-Konstruktoren",
     /* kStringActorDestructionLabel: */
-    "Actor-Destruktoren",
+    "Akteur-Destruktoren",
     /* kStringActorsLabel: */
-    "Actors",
+    "Akteur",
     /* kStringAnimationsLabel: */
     "Animationen",
     /* kStringAnimationSubtitle: */
@@ -215,8 +215,8 @@ const char* const GermanLanguageStrings[] =
     "KLASSEN",
     /* kStringClassExtensionLabel: */
     "Klassenerweiterung",
-    /* kStringClassMutationLabel: */
-    "Klassenmutationen",
+    /* kStringClassMutatorLabel: */
+    "Klassenmutatoren",
     /* kStringCollisionsLabel: */
     "Kollisionen",
     /* kStringCommunicationsLabel: */
@@ -298,7 +298,7 @@ const char* const GermanLanguageStrings[] =
     /* kStringStagesLabel: */
     "Stages",
     /* kStringStatefulActorsLabel: */
-    "Akteure",
+    "StatefulActors",
     /* kStringStateMachinesLabel: */
     "Zustandsautomaten",
     /* kStringStateTitle: */
@@ -363,7 +363,7 @@ const char* const SpanishLanguageStrings[] =
     "CLASES",
     /* kStringClassExtensionLabel: */
     "Extensiones de clase",
-    /* kStringClassMutationLabel: */
+    /* kStringClassMutatorLabel: */
     "Mutación de clases",
     /* kStringCollisionsLabel: */
     "Colisiones",

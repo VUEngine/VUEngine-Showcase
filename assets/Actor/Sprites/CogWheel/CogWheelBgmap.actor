@@ -1,6 +1,6 @@
 {
     "_id": "8tapExjRqBYjG6yS",
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "animations": {
         "default": 0,
         "multiframe": false,
@@ -49,55 +49,55 @@
                         }
                     ]
                 },
-                "name": "CogWheel",
-                "sourceType": "image",
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
                 "imageProcessingSettings": {
                     "colorDistanceFormula": "euclidean",
                     "imageQuantizationAlgorithm": "nearest",
                     "minimumColorDistanceToDither": 0,
                     "serpentine": false
                 },
-                "bgmapMode": "Bgmap",
-                "colorMode": 0,
-                "displayMode": "Mono",
-                "displays": "ON",
                 "isAnimated": true,
-                "transparency": "None",
-                "displacement": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0,
-                    "parallax": 0
-                },
                 "manipulationFunction": "",
+                "name": "CogWheel",
                 "optimizeTiles": true,
+                "section": "rom",
+                "sourceType": "image",
                 "texture": {
                     "files": [
                         "CogWheel.png"
                     ],
                     "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
                     "padding": {
                         "x": 0,
                         "y": 0
                     },
                     "palette": 0,
                     "recycleable": false,
-                    "flip": {
-                        "x": false,
-                        "y": false
-                    },
                     "repeat": {
                         "mode": "1x1",
-                        "x": false,
-                        "y": false,
                         "size": {
                             "x": 0,
                             "y": 0
-                        }
+                        },
+                        "x": false,
+                        "y": false
                     }
                 },
-                "section": "rom",
-                "compression": "none"
+                "transparency": "None"
             }
         ],
         "wireframes": []

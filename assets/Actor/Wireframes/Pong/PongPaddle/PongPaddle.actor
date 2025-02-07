@@ -1,6 +1,6 @@
 {
     "_id": "dcy89cmx3Gl4lXIV",
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "animations": {
         "default": 0,
         "multiframe": false,
@@ -25,19 +25,23 @@
         "children": [],
         "colliders": [
             {
+                "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "layers": [
+                    "8mqpu6KL9PPdifyY"
+                ],
+                "layersToCheck": [],
                 "name": "Collider",
-                "type": "Box",
                 "pixelSize": {
                     "x": 4,
                     "y": 20,
                     "z": 16
                 },
-                "displacement": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0,
-                    "parallax": 0
-                },
                 "rotation": {
                     "x": 0,
                     "y": 0,
@@ -48,78 +52,74 @@
                     "y": 1,
                     "z": 1
                 },
-                "checkForCollisions": false,
-                "layers": [
-                    "8mqpu6KL9PPdifyY"
-                ],
-                "layersToCheck": []
+                "type": "Box"
             },
             {
-                "name": "Collider",
-                "type": "Ball",
-                "pixelSize": {
-                    "x": 20,
-                    "y": 0,
-                    "z": 0
-                },
-                "displacement": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0,
-                    "parallax": 0
-                },
-                "rotation": {
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "scale": {
-                    "x": 1,
-                    "y": 1,
-                    "z": 1
-                },
                 "checkForCollisions": true,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
                 "layers": [
                     "uB09UFK8cyBEZJdJ"
                 ],
                 "layersToCheck": [
                     "LmaH2bklOna0YVkI"
-                ]
+                ],
+                "name": "Collider",
+                "pixelSize": {
+                    "x": 20,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "type": "Ball"
             }
         ],
         "mutators": [],
         "sprites": [],
         "wireframes": [
             {
-                "name": "Wireframe",
-                "type": "Mesh",
+                "color": 3,
                 "displacement": {
                     "x": 0,
                     "y": 0,
                     "z": 0
                 },
-                "color": 3,
-                "transparency": "None",
+                "drawCenter": true,
                 "interlaced": false,
+                "length": 32,
+                "name": "Wireframe",
+                "radius": 32,
                 "segments": [
                     {
                         "fromVertex": {
+                            "parallax": 0,
                             "x": 0,
                             "y": 0,
-                            "z": 0,
-                            "parallax": 0
+                            "z": 0
                         },
                         "toVertex": {
+                            "parallax": 0,
                             "x": 0,
                             "y": 10,
-                            "z": 0,
-                            "parallax": 0
+                            "z": 0
                         }
                     }
                 ],
-                "length": 32,
-                "radius": 32,
-                "drawCenter": true
+                "transparency": "None",
+                "type": "Mesh"
             }
         ]
     },

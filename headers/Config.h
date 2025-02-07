@@ -33,28 +33,9 @@
 #define __FIXED_POINT_TYPE 6
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// COMMUNICATIONS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-#undef __ENABLE_COMMUNICATIONS
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEBUGGING / PROFILING
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#undef __SHOW_MEMORY_POOL_STATUS
-#undef __SHOW_DETAILED_MEMORY_POOL_STATUS
-
-#undef __ENABLE_PROFILER
-#undef __PROFILE_STREAMING
-#undef __SHOW_STREAMING_PROFILING
-#undef __DIMM_FOR_PROFILING
-
-#undef __PRINT_FRAMERATE
-
-#undef __SHOW_VIP_OVERTIME_COUNT
-
-#undef __SHOW_STACK_OVERFLOW_ALERT
 #define __STACK_HEADROOM 1000
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -127,8 +108,6 @@
 #define __TARGET_FPS				   (__MAXIMUM_FPS >> __FRAME_CYCLE)
 #define __GAME_FRAME_DURATION		   (__MILLISECONDS_PER_SECOND / __TARGET_FPS)
 #define __OPTIMUM_FPS				   (__TARGET_FPS >> __FRAME_CYCLE)
-
-#undef __RUN_DELAYED_MESSAGES_DISPATCHING_AT_HALF_FRAME_RATE
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ANIMATION

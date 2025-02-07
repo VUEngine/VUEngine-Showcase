@@ -1,11 +1,13 @@
 {
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "messages": {
         "4gGsApAgfp1DZD5G": "Pong Ball Start Moving",
         "bYWuHK2INEznnWYy": "Collisions State Hold Left",
+        "DKqQKQZ0uHzXeje6": "Pong My Point",
         "FwBysXNzYpNREHVY": "Collisions State Print Actor Status",
         "Hc4iV23zaAHudEd3": "Pong Reset Positions",
         "HdD3SGjpMc0x5qz0": "Collisions State Resuscitate",
+        "i4q8L9rAfckkqZqO": "Pong Your Point",
         "M1LYtCKIYHCszlDv": "Collisions State Hold Right",
         "mud5KlhW6GBPxMuZ": "Collisions State Released Right",
         "mzfKm6QapnF2CUvy": "Pong Sync",
@@ -13,8 +15,6 @@
         "sT6VG9CEg4GlXgaU": "Pong Send Input",
         "ucCKUZk3hk2JKJpB": "Collisions State Released Left",
         "VKE46ZokECvpsaU1": "Collisions State No Message",
-        "xzOOyHoYuw5DNVaL": "Pong Good Bye",
-        "DKqQKQZ0uHzXeje6": "Pong My Point",
-        "i4q8L9rAfckkqZqO": "Pong Your Point"
+        "xzOOyHoYuw5DNVaL": "Pong Good Bye"
     }
 }

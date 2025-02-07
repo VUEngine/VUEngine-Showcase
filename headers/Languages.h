@@ -34,7 +34,7 @@ enum LanguageStrings
     kStringCharMemoryLabel,
     kStringClassesSubtitle,
     kStringClassExtensionLabel,
-    kStringClassMutationLabel,
+    kStringClassMutatorLabel,
     kStringCollisionsLabel,
     kStringCommunicationsLabel,
     kStringConceptsSubtitle,
