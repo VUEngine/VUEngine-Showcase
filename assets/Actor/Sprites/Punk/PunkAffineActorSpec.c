@@ -11,110 +11,131 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Sound.h>
-#include <SoundTrack.h>
-#include <WaveForms.h>
+#include <Actor.h>
+#include <BgmapSprite.h>
+#include <Body.h>
+#include <Box.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
+#include <Punk.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// MACROS
+// DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define ENGINE_FREQ			0x8FF
+extern uint32 PunkTiles[];
+extern uint16 PunkMap[];
+
+extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
+extern TextureROMSpec* PunkTextureSpec;
+extern TextureROMSpec* PunkBlackTextureSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-const uint8 Engine1SoundTrack1SxINT[] =
+BgmapSpriteROMSpec PunkAffineSpriteSpec =
 {
-	0x1F,
+	{
+		{
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
+
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
+		},
+
+		// Spec for the texture to display
+		(TextureSpec*)&PunkTextureSpec,
+
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// Displacement added to the sprite's position
+		{0, 0, 2, 0},
+	},
+
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
+		__WORLD_AFFINE,
+
+	// Pointer to affine/hbias manipulation function
+	NULL
 };
 
-const uint8 Engine1SoundTrack1SxLRV[] =
+BgmapSpriteROMSpec PunkAffineBlackSpriteSpec =
 {
-	0xEE, 0xFF, 0xEE,
+	{
+		{
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
+
+				// Component type
+				kSpriteComponent
+			},
+
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
+		},
+
+		// Spec for the texture to display
+		(TextureSpec*)&PunkBlackTextureSpec,
+
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
+
+		// Displacement added to the sprite's position
+		{0, 0, 3, 0},
+	},
+
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
+	__WORLD_AFFINE,
+
+	// Pointer to affine/hbias manipulation function
+	NULL
 };
 
-const uint16 Engine1SoundTrack1SxFQ[] =
+ComponentSpec* const PunkActorComponentSpecs[] = 
 {
-	0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x040 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ,
+	(ComponentSpec*)&PunkAffineSpriteSpec,
+	(ComponentSpec*)&PunkAffineBlackSpriteSpec,
+	NULL
 };
 
-const uint8 Engine1SoundTrack1SxEV0[] =
+ActorROMSpec PunkActorSpec =
 {
-	0xF0,
-};
+	// Class allocator
+	__TYPE(Actor),
 
-const uint8 Engine1SoundTrack1SxEV1[] =
-{
-	0x00,
-};
+	// Component specs
+	(ComponentSpec**)PunkActorComponentSpecs,
 
-const int8* const Engine1SoundTrack1SxRAM[] =
-{
-	TriangleWaveForm,
-};
+	// Children specs
+	NULL,
 
-const uint8 Engine1SoundTrack1SxSWP[] =
-{
-	0x00,
-};
+	// Extra info
+	NULL,
 
-const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
-{
-	{50, kSoundTrackEventStart},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{0, kSoundTrackEventEnd},
-};
+	// Size
+	// If 0, it is computed from the visual components if any
+	{0, 0, 0},
 
-SoundTrackROMSpec Engine1SoundTrack1 =
-{
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
-
-	/// Skip if no sound source available?
-	true,
-
-	/// Total number of samples (0 if not PCM)
-	0,
-
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)Engine1SoundTrack1Keyframes,
-
-	/// SxINT values
-	(uint8*)Engine1SoundTrack1SxINT,
-
-	/// SxLRV values
-	(uint8*)Engine1SoundTrack1SxLRV,
-
-	/// SxFQH and SxFQL values
-	(uint16*)Engine1SoundTrack1SxFQ,
-
-	/// SxEV0 values
-	(uint8*)Engine1SoundTrack1SxEV0,
-
-	/// SxEV1 values
-	(uint8*)Engine1SoundTrack1SxEV1,
-
-	/// SxRAM pointers
-	(int8**)Engine1SoundTrack1SxRAM,
-
-	/// SxSWP values
-	(uint8*)Engine1SoundTrack1SxSWP,
-
-	/// SxMOD values
-	(int8**)NULL
+	// Actor's in-game type
+	kTypeNone,
+	
+	// Animation to play automatically
+	"Move"
 };

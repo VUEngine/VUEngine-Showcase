@@ -11,110 +11,128 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Sound.h>
-#include <SoundTrack.h>
-#include <WaveForms.h>
+#include <Actor.h>
+#include <BgmapSprite.h>
+#include <Body.h>
+#include <Box.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
+#include <Punk.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// MACROS
+// DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define ENGINE_FREQ			0x8FF
+extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
+extern TextureROMSpec PunkTextureSpec;
+extern SpriteSpec PunkSpriteSpec;
+extern SpriteSpec PunkBlackSpriteSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-const uint8 Engine1SoundTrack1SxINT[] =
+ColliderROMSpec PunkControllableActorColliderSpec =
 {
-	0x1F,
-};
+	// Component
+	{
+		// Allocator
+		__TYPE(Box),
 
-const uint8 Engine1SoundTrack1SxLRV[] =
-{
-	0xEE, 0xFF, 0xEE,
-};
+		// Component type
+		kColliderComponent
+	},
 
-const uint16 Engine1SoundTrack1SxFQ[] =
-{
-	0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x040 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ,
-};
+	// Size (x, y, z)
+	{16, 38, 24},
 
-const uint8 Engine1SoundTrack1SxEV0[] =
-{
-	0xF0,
-};
+	// Displacement (x, y, z, p)
+	{0, 1, 0, 0},
 
-const uint8 Engine1SoundTrack1SxEV1[] =
-{
-	0x00,
-};
+	// Rotation (x, y, z)
+	{0, 0, 0},
 
-const int8* const Engine1SoundTrack1SxRAM[] =
-{
-	TriangleWaveForm,
-};
+	// Scale (x, y, z)
+	{0, 0, 0},
 
-const uint8 Engine1SoundTrack1SxSWP[] =
-{
-	0x00,
-};
-
-const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
-{
-	{50, kSoundTrackEventStart},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{0, kSoundTrackEventEnd},
-};
-
-SoundTrackROMSpec Engine1SoundTrack1 =
-{
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
-
-	/// Skip if no sound source available?
+	// If true this collider checks for collisions against other colliders
 	true,
 
-	/// Total number of samples (0 if not PCM)
-	0,
+	// Layers in which I live
+	kLayerPunk,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)Engine1SoundTrack1Keyframes,
+	// Layers to ignore when checking for collisions
+	~(kLayerSolid | kLayerDangers),
+};
 
-	/// SxINT values
-	(uint8*)Engine1SoundTrack1SxINT,
+BodyROMSpec PunkControllableActorBodySpec =
+{
+	// Component
+	{
+		// Allocator
+		__TYPE(Body),
 
-	/// SxLRV values
-	(uint8*)Engine1SoundTrack1SxLRV,
+		// Component type
+		kPhysicsComponent
+	},
 
-	/// SxFQH and SxFQL values
-	(uint16*)Engine1SoundTrack1SxFQ,
+	// Create body
+	true,
 
-	/// SxEV0 values
-	(uint8*)Engine1SoundTrack1SxEV0,
+	// Mass
+	__F_TO_FIXED(0.5f),
 
-	/// SxEV1 values
-	(uint8*)Engine1SoundTrack1SxEV1,
+	// Friction
+	__F_TO_FIXED(0.1f),
 
-	/// SxRAM pointers
-	(int8**)Engine1SoundTrack1SxRAM,
+	// Bounciness
+	__F_TO_FIXED(0),
 
-	/// SxSWP values
-	(uint8*)Engine1SoundTrack1SxSWP,
+	// Maximum velocity
+	{__I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0)},
 
-	/// SxMOD values
-	(int8**)NULL
+	// Maximum speed
+	__F_TO_FIXED(3),
+
+	// Axises on which the body is subject to gravity
+	__NO_AXIS,
+
+	// Axises around which to rotate the owner when syncronizing with body
+	__NO_AXIS
+};
+
+ComponentSpec* const PunkControllableActorComponentSpecs[] = 
+{
+	(ComponentSpec*)&PunkSpriteSpec,
+	(ComponentSpec*)&PunkBlackSpriteSpec,
+	(ComponentSpec*)&PunkControllableActorBodySpec,
+	(ComponentSpec*)&PunkControllableActorColliderSpec,
+	NULL
+};
+
+PunkROMSpec PunkControllableActorSpec =
+{
+	{
+		// Class allocator
+		__TYPE(Punk),
+
+		// Component specs
+		(ComponentSpec**)PunkControllableActorComponentSpecs,
+
+		// Children specs
+		NULL,
+
+		// Extra info
+		NULL,
+
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
+
+		// Actor's in-game type
+		kTypePunk,
+
+		// Animation to play automatically
+		NULL
+	}
 };

@@ -11,110 +11,110 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Sound.h>
-#include <SoundTrack.h>
-#include <WaveForms.h>
+#include <Actor.h>
+#include <BgmapSprite.h>
+#include <Body.h>
+#include <Box.h>
+#include <ColliderLayers.h>
+#include <InGameTypes.h>
+#include <Punk.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// MACROS
+// DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define ENGINE_FREQ			0x8FF
+extern uint32 PunkTiles[];
+extern uint16 PunkMap[];
+
+extern AnimationFunctionROMSpec* PunkAnimationSpecs[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-const uint8 Engine1SoundTrack1SxINT[] =
+CharSetROMSpec PunkCharsetSharedSpec =
 {
-	0x1F,
-};
+	// Number of chars in function of the number of frames to load at the same time
+	4 * 6,
 
-const uint8 Engine1SoundTrack1SxLRV[] =
-{
-	0xEE, 0xFF, 0xEE,
-};
-
-const uint16 Engine1SoundTrack1SxFQ[] =
-{
-	0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x040 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x032 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x024 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ, 0x016 + ENGINE_FREQ,
-};
-
-const uint8 Engine1SoundTrack1SxEV0[] =
-{
-	0xF0,
-};
-
-const uint8 Engine1SoundTrack1SxEV1[] =
-{
-	0x00,
-};
-
-const int8* const Engine1SoundTrack1SxRAM[] =
-{
-	TriangleWaveForm,
-};
-
-const uint8 Engine1SoundTrack1SxSWP[] =
-{
-	0x00,
-};
-
-const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
-{
-	{50, kSoundTrackEventStart},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{0, kSoundTrackEventEnd},
-};
-
-SoundTrackROMSpec Engine1SoundTrack1 =
-{
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
-
-	/// Skip if no sound source available?
+	// Whether it is shared or not
 	true,
+	
+	// Whether the tiles are optimized or not
+	false,
 
-	/// Total number of samples (0 if not PCM)
+	// Tiles array
+	PunkTiles,
+
+	// Frame offsets array
+	NULL,
+};
+
+TextureROMSpec PunkTextureSharedSpec =
+{
+	(CharSetSpec*)&PunkCharsetSharedSpec,
+
+	// Pointer to the map array that defines how to use the tiles from the char set
+	PunkMap,
+
+	// Horizontal size in tiles of the texture (max. 64)
+	4,
+
+	// Vertical size in tiles of the texture (max. 64)
+	6,
+
+	// Padding added to the size for affine/hbias transformations (cols, rows)
+	{0, 0},
+
+	// Number of frames that the texture supports
+	1,
+
+	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)Engine1SoundTrack1Keyframes,
+	// Flag to recyble the texture with a different map
+	false,
 
-	/// SxINT values
-	(uint8*)Engine1SoundTrack1SxINT,
+	// Flag to vertically flip the image
+	false,
 
-	/// SxLRV values
-	(uint8*)Engine1SoundTrack1SxLRV,
+	// Flag to horizontally flip the image
+	false,
+};
 
-	/// SxFQH and SxFQL values
-	(uint16*)Engine1SoundTrack1SxFQ,
+BgmapSpriteROMSpec PunkSpriteSharedSpec =
+{
+	{
+		{
+			// Component
+			{
+				// Allocator
+				__TYPE(BgmapSprite),
 
-	/// SxEV0 values
-	(uint8*)Engine1SoundTrack1SxEV0,
+				// Component type
+				kSpriteComponent
+			},
 
-	/// SxEV1 values
-	(uint8*)Engine1SoundTrack1SxEV1,
+			// Array of function animations
+			(const AnimationFunction**)PunkAnimationSpecs
+		},
 
-	/// SxRAM pointers
-	(int8**)Engine1SoundTrack1SxRAM,
+		// Spec for the texture to display
+		(TextureSpec*)&PunkTextureSharedSpec,
 
-	/// SxSWP values
-	(uint8*)Engine1SoundTrack1SxSWP,
+		// Transparency mode (__TRANSPARENCY_NONE, __TRANSPARENCY_EVEN or __TRANSPARENCY_ODD)
+		__TRANSPARENCY_NONE,
 
-	/// SxMOD values
-	(int8**)NULL
+		// Displacement added to the sprite's position
+		{0, 0, 2, 0},
+	},
+
+	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
+	__WORLD_ON,
+
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
+	__WORLD_BGMAP,
+
+	// Pointer to affine/hbias manipulation function
+	NULL
 };
