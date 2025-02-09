@@ -104,7 +104,7 @@ BgmapSpriteROMSpec CogWheelAffineSprite1SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_AFFINE,
 	
 	// Pointer to affine/hbias manipulation function

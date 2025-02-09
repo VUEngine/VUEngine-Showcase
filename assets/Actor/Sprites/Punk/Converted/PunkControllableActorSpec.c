@@ -65,7 +65,7 @@ CharSetROMSpec PunkControllableSprite1CharsetSpec =
 	24,
 
 	// Whether it is shared or not
-	false,
+	true,
 
 	// Whether the tiles are optimized or not
 	false,
@@ -155,7 +155,7 @@ CharSetROMSpec PunkControllableSprite2CharsetSpec =
 	24,
 
 	// Whether it is shared or not
-	false,
+	true,
 
 	// Whether the tiles are optimized or not
 	false,

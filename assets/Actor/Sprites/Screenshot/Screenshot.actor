@@ -77,6 +77,7 @@
                 "name": "Screenshot",
                 "optimizeTiles": true,
                 "section": "rom",
+                "shareTiles": true,
                 "sourceType": "image",
                 "texture": {
                     "files": [
