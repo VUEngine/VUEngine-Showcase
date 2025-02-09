@@ -85,8 +85,7 @@ abstract class ShowcaseState : GameState
 
 	/// Play the user input related sound effects.
 	/// @param userInput: Struct with the current user input information
-	/// @param lock: If true, the program halts until the playback is completed
-	void playSoundEffects(const UserInput* userInput, bool lock);
+	void playSoundEffects(const UserInput* userInput);
 
 	/// Configure the color palettes.
 	/// @param dimm: If true, the brightness is dimmed

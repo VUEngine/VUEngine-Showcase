@@ -112,7 +112,7 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 {
 	if(0 == (K_SEL & userInput->releasedKey))
 	{
-		CommunicationsState::playSoundEffects(this, userInput, true);
+		CommunicationsState::playSoundEffects(this, userInput);
 	}
 
 	if(K_SEL & userInput->releasedKey)

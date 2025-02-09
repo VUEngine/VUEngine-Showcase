@@ -64,7 +64,7 @@ void AnimationSchemesState::execute(void* owner __attribute__((unused)))
 
 void AnimationSchemesState::processUserInput(const UserInput* userInput)
 {
-	AnimationSchemesState::playSoundEffects(this, userInput, false);
+	AnimationSchemesState::playSoundEffects(this, userInput);
 
 	if(K_LL & userInput->releasedKey)
 	{

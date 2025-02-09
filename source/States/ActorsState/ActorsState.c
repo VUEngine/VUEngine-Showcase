@@ -55,7 +55,7 @@ void ActorsState::execute(void* owner __attribute__((unused)))
 
 void ActorsState::processUserInput(const UserInput* userInput)
 {
-	ActorsState::playSoundEffects(this, userInput, false);
+	ActorsState::playSoundEffects(this, userInput);
 
 	if(!isDeleted(this->leaderPunk))
 	{

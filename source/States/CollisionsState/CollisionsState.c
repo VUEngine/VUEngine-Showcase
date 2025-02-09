@@ -105,7 +105,7 @@ void CollisionsState::resume(void* owner)
 
 void CollisionsState::processUserInput(const UserInput* userInput)
 {
-	CollisionsState::playSoundEffects(this, userInput, false);
+	CollisionsState::playSoundEffects(this, userInput);
 	int32 message = kMessageCollisionsStateNoMessage;
 
 	if(K_LL & userInput->holdKey)

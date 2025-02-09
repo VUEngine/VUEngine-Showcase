@@ -59,7 +59,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 {
 	if(0 == (K_SEL & userInput->releasedKey))
 	{
-		PostProcessingEffectsState::playSoundEffects(this, userInput, false);
+		PostProcessingEffectsState::playSoundEffects(this, userInput);
 	}
 
 	if(K_LL & userInput->releasedKey)

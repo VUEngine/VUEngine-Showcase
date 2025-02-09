@@ -145,7 +145,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	// Must release the sound before playig the UI's sound effects because of the PCM sound track
 	SoundsState::releaseSound(this);
 
-	SoundsState::playSoundEffects(this, userInput, true);
+	SoundsState::playSoundEffects(this, userInput);
 
 	Base::processUserInput(this, userInput);
 

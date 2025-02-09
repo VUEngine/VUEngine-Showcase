@@ -66,7 +66,7 @@ void SpritesState::execute(void* owner __attribute__((unused)))
 
 void SpritesState::processUserInput(const UserInput* userInput)
 {
-	SpritesState::playSoundEffects(this, userInput, false);
+	SpritesState::playSoundEffects(this, userInput);
 
 	if(K_LL & userInput->releasedKey)
 	{

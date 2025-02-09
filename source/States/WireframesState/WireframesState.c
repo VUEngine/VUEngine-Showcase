@@ -82,7 +82,7 @@ void WireframesState::resume(void* owner)
 
 void WireframesState::processUserInput(const UserInput* userInput)
 {
-	WireframesState::playSoundEffects(this, userInput, false);
+	WireframesState::playSoundEffects(this, userInput);
 
 	Vector3D translation = {0, 0, 0};
 	Rotation rotation = Rotation::zero();

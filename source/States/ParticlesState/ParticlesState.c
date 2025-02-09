@@ -59,7 +59,7 @@ void ParticlesState::execute(void* owner __attribute__((unused)))
 
 void ParticlesState::processUserInput(const UserInput* userInput)
 {
-	ParticlesState::playSoundEffects(this, userInput, false);
+	ParticlesState::playSoundEffects(this, userInput);
 
 	if(K_LL & userInput->releasedKey)
 	{

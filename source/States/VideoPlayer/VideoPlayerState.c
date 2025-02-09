@@ -30,7 +30,7 @@
 
 void VideoPlayerState::processUserInput(const UserInput* userInput)
 {
-	VideoPlayerState::playSoundEffects(this, userInput, false);
+	VideoPlayerState::playSoundEffects(this, userInput);
 
 	Actor videoActor = Actor::safeCast(VideoPlayerState::getActorByName(this, "Video"));
 
