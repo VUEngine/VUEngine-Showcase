@@ -115,7 +115,7 @@ TextureROMSpec StarTextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image

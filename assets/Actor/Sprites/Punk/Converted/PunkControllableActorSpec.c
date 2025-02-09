@@ -142,7 +142,7 @@ BgmapSpriteROMSpec PunkControllableSprite1SpriteSpec =
 	__WORLD_ON,
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	__WORLD_BGMAP,
+	__WORLD_AFFINE,
 	
 	// Pointer to affine/hbias manipulation function
 	NULL
@@ -232,7 +232,7 @@ BgmapSpriteROMSpec PunkControllableSprite2SpriteSpec =
 	__WORLD_ON,
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	__WORLD_BGMAP,
+	__WORLD_AFFINE,
 	
 	// Pointer to affine/hbias manipulation function
 	NULL
@@ -254,10 +254,10 @@ ColliderROMSpec PunkControllableCollider1ColliderSpec =
 	},
 
 	// Size (x, y, z)
-	{16, 38, 24},
+	{20, 38, 24},
 
 	// Displacement (x, y, z, p)
-	{0, 1, 0, 0},
+	{0, 0, 0, 0},
 
 	// Rotation (x, y, z)
 	{0, 0, 0},
@@ -294,10 +294,10 @@ BodyROMSpec PunkControllableBodySpec =
 	true,
 
 	// Mass
-	__F_TO_FIX10_6(0.000f),
+	__F_TO_FIX10_6(0.500f),
 
 	// Friction
-	__F_TO_FIX10_6(0.000f),
+	__F_TO_FIX10_6(0.100f),
 
 	// Bounciness
 	__F_TO_FIX10_6(0.000f),
@@ -306,7 +306,7 @@ BodyROMSpec PunkControllableBodySpec =
 	{ __I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0) },
 
 	// Maximum speed
-	__I_TO_FIX10_6(0),
+	__I_TO_FIX10_6(3),
 
 	// Axises on which the body is subject to gravity
 	__NO_AXIS,
@@ -347,7 +347,7 @@ PunkROMSpec PunkControllableActorSpec =
 	{0, 0, 0},
 
 	// Actor's in-game type
-	kTypeNone,
+	kTypePunk,
 
 	// Animation to play automatically
 	"Move"

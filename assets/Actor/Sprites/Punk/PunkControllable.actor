@@ -1,6 +1,6 @@
 {
     "_id": "I5hyZkfcRfVoUzp9",
-    "_version": "0.6.0",
+    "_version": "1.0.0",
     "animations": {
         "default": 0,
         "multiframe": false,
@@ -9,10 +9,10 @@
     "body": {
         "bounciness": 0,
         "enabled": true,
-        "friction": 0,
+        "friction": "0.1",
         "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
+        "mass": "0.5",
+        "maximumSpeed": "3",
         "maximumVelocity": {
             "x": 0,
             "y": 0,
@@ -50,7 +50,7 @@
                 "displacement": {
                     "parallax": 0,
                     "x": 0,
-                    "y": 1,
+                    "y": "0",
                     "z": 0
                 },
                 "layers": [
@@ -62,7 +62,7 @@
                 ],
                 "name": "Collider",
                 "pixelSize": {
-                    "x": 16,
+                    "x": "20",
                     "y": 38,
                     "z": 24
                 },
@@ -104,7 +104,7 @@
                         }
                     ]
                 },
-                "bgmapMode": "Bgmap",
+                "bgmapMode": "Affine",
                 "colorMode": 0,
                 "compression": "none",
                 "displacement": {
@@ -177,7 +177,7 @@
                         }
                     ]
                 },
-                "bgmapMode": "Bgmap",
+                "bgmapMode": "Affine",
                 "colorMode": 0,
                 "compression": "none",
                 "displacement": {
@@ -239,7 +239,7 @@
             "z": 0
         }
     },
-    "inGameType": "None",
+    "inGameType": "BNZJFljBJ8NkZIxf",
     "logic": {
         "configuration": {},
         "customAllocator": "Punk",
