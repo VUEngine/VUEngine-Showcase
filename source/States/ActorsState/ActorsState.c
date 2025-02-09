@@ -109,7 +109,7 @@ void ActorsState::showExplanation()
 
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
-	Printer::text("PunkActorSpec", 2, y++, NULL);
+	Printer::text("PunkAffineActorSpec", 2, y++, NULL);
 
 	y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
@@ -225,11 +225,11 @@ void ActorsState::createLeaderPunk()
 	}
 		
 	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
-	extern ActorSpec PunkActorSpec;
+	extern ActorSpec PunkAffineActorSpec;
 	
 	PositionedActor positionedActor = 
 	{
-		&PunkActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false
+		&PunkAffineActorSpec, {0, 64, 16}, {0, 0, 0}, {1, 1, 1},  0, "Moe", NULL, NULL, false
 	};
 
 	/*
@@ -279,11 +279,11 @@ void ActorsState::createSlavePunk(uint16 input)
 		}
 		else
 		{
-			extern ActorSpec PunkActorSpec;
+			extern ActorSpec PunkAffineActorSpec;
 
 			PositionedActor positionedActor = 
 			{
-					&PunkActorSpec, 
+					&PunkAffineActorSpec, 
 					{__METERS_TO_PIXELS(childPunkPosition.x), __METERS_TO_PIXELS(childPunkPosition.y), __METERS_TO_PIXELS(childPunkPosition.z)},
 					{0, 0, 0},
 					{1, 1, 1},

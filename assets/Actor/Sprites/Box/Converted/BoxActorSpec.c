@@ -65,7 +65,7 @@ TextureROMSpec BoxSprite1TextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	1,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image
@@ -107,7 +107,6 @@ BgmapSpriteROMSpec BoxSprite1SpriteSpec =
 	__WORLD_ON,
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
-	// make sure to use the proper corresponding sprite type throughout the spec (BgmapSprite or ObjectSprite)
 	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function

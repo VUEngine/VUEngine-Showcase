@@ -65,7 +65,7 @@ CharSetROMSpec PunkMultiframeSprite1CharsetSpec =
 	true,
 
 	// Whether the tiles are optimized or not
-	true,
+	false,
 
 	// Tiles array
 	PunkMultiframeActorPunkTiles,
@@ -86,7 +86,7 @@ TextureROMSpec PunkMultiframeSprite1TextureSpec =
 	4,
 
 	// Vertical size in tiles of the texture (max. 64)
-	72,
+	6,
 
 	// padding for affine/hbias transformations
 	{0, 0},
@@ -97,7 +97,7 @@ TextureROMSpec PunkMultiframeSprite1TextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image
@@ -155,7 +155,7 @@ CharSetROMSpec PunkMultiframeSprite2CharsetSpec =
 	true,
 
 	// Whether the tiles are optimized or not
-	true,
+	false,
 
 	// Tiles array
 	PunkMultiframeActorPunkBlackTiles,
@@ -176,7 +176,7 @@ TextureROMSpec PunkMultiframeSprite2TextureSpec =
 	4,
 
 	// Vertical size in tiles of the texture (max. 64)
-	72,
+	6,
 
 	// padding for affine/hbias transformations
 	{0, 0},
@@ -187,7 +187,7 @@ TextureROMSpec PunkMultiframeSprite2TextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	1,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image

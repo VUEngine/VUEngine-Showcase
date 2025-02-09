@@ -89,7 +89,7 @@ TextureROMSpec PunkAffineSprite1TextureSpec =
 	6,
 
 	// padding for affine/hbias transformations
-	{0, 0},
+	{1, 1},
 
 	// Number of frames that the texture supports
 	1,
@@ -97,7 +97,7 @@ TextureROMSpec PunkAffineSprite1TextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	0,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image
@@ -179,7 +179,7 @@ TextureROMSpec PunkAffineSprite2TextureSpec =
 	6,
 
 	// padding for affine/hbias transformations
-	{0, 0},
+	{1, 1},
 
 	// Number of frames that the texture supports
 	1,
@@ -187,7 +187,7 @@ TextureROMSpec PunkAffineSprite2TextureSpec =
 	// Palette index to use by the graphical data (0 - 3)
 	1,
 
-	// Flag to recyble the texture with a different map
+	// Flag to recycle the texture with a different map
 	false,
 
 	// Flag to vertically flip the image
