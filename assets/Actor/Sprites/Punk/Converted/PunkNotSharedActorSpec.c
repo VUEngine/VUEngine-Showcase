@@ -98,7 +98,7 @@ TextureROMSpec PunkNotSharedSprite1TextureSpec =
 	0,
 
 	// Flag to recycle the texture with a different map
-	false,
+	true,
 
 	// Flag to vertically flip the image
 	false,
@@ -138,7 +138,7 @@ BgmapSpriteROMSpec PunkNotSharedSprite1SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function
@@ -188,7 +188,7 @@ TextureROMSpec PunkNotSharedSprite2TextureSpec =
 	1,
 
 	// Flag to recycle the texture with a different map
-	false,
+	true,
 
 	// Flag to vertically flip the image
 	false,
@@ -228,7 +228,7 @@ BgmapSpriteROMSpec PunkNotSharedSprite2SpriteSpec =
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
 	__WORLD_ON,
 
-	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE, __WORLD_OBJECT or __WORLD_HBIAS)
+	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
 	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function

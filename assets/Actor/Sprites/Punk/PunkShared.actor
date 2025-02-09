@@ -107,7 +107,7 @@
                         "y": 0
                     },
                     "palette": 0,
-                    "recycleable": false,
+                    "recycleable": true,
                     "repeat": {
                         "mode": "1x1",
                         "size": {
@@ -180,7 +180,7 @@
                         "y": 0
                     },
                     "palette": 1,
-                    "recycleable": false,
+                    "recycleable": true,
                     "repeat": {
                         "mode": "1x1",
                         "size": {

@@ -387,13 +387,9 @@ void AnimationSchemesState::removeSprites()
 
 	/*
 	 * Cleaning graphics memory explicitly should not be done in general, the engine takes care of that 
-	 * when swapping states. We do it here becuase BGMAP memory cannot be defragmented and loading non 
-	 * shared textures would quickly deplete it.
+	 * when swapping states. We do it here because we are manually displaying the contents of BGMAP memory.
 	 *
-	 * BgmapTextureManager::reset call is restricted so, this call will trigger an exception 
-	 * in non release build modes!!!
 	 */ 
-	BgmapTextureManager::reset(BgmapTextureManager::getInstance());
 	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
 }
 
