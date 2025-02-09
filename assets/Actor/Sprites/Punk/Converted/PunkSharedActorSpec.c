@@ -62,7 +62,7 @@ CharSetROMSpec PunkSharedSprite1CharsetSpec =
 	24,
 
 	// Whether it is shared or not
-	false,
+	true,
 
 	// Whether the tiles are optimized or not
 	false,
