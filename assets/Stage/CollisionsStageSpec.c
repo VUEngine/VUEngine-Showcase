@@ -25,7 +25,7 @@
 
 extern ActorSpec BoxActorSpec;
 extern ActorSpec CogWheelActorSpec;
-extern ActorSpec PunkControllablelActorSpec;
+extern ActorSpec PunkControllableActorSpec;
 extern ActorSpec LowPowerIndicatorActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -34,7 +34,7 @@ extern ActorSpec LowPowerIndicatorActorSpec;
 
 PositionedActorROMSpec CollisionsStageActorsSpecs[] =
 {
-	{&PunkControllablelActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&PunkControllableActorSpec, {0, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&BoxActorSpec, {150, 67, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{&CogWheelActorSpec, {-150, 64, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
@@ -42,7 +42,7 @@ PositionedActorROMSpec CollisionsStageActorsSpecs[] =
 
 PositionedActorROMSpec CollisionsStageUIActorsSpecs[] =
 {
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, {__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 

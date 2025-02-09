@@ -49,7 +49,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 	(ShowcaseStateGetInstance)PostProcessingEffectsState::getInstance,
 	(ShowcaseStateGetInstance)VideoPlayerState::getInstance,
 	(ShowcaseStateGetInstance)SoundsState::getInstance,
-	(ShowcaseStateGetInstance)PongState::getInstance,
+	(ShowcaseStateGetInstance)CommunicationsState::getInstance,
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -293,6 +293,11 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput, bool lock)
 
 void ShowcaseState::acceptUserInput()
 {
+	if(isDeleted(this->stage))
+	{
+		return;
+	}
+
 	// Restore timer settings
 	const StageSpec* stageSpec = Stage::getSpec(this->stage);
 
@@ -310,6 +315,11 @@ void ShowcaseState::acceptUserInput()
 
 void ShowcaseState::configurePalettes(bool dimm)
 {
+	if(isDeleted(this->stage))
+	{
+		return;
+	}
+
 	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
 
 	if(dimm)

@@ -67,8 +67,8 @@ const char* const EnglishLanguageStrings[] =
     "CLASSES",
     /* kStringClassExtensionLabel: */
     "Class extension",
-    /* kStringClassMutationLabel: */
-    "Class mutation",
+    /* kStringClassMutatorLabel: */
+    "Class mutator",
     /* kStringCollisionsLabel: */
     "Collisions",
     /* kStringCommunicationsLabel: */
@@ -83,12 +83,12 @@ const char* const EnglishLanguageStrings[] =
     "EFFECT",
     /* kStringEventsLabel: */
     "Events",
+    /* kStringFrameBlendingLabel: */
+    "Frame blending",
     /* kStringFrameBuffersLabel: */
     "Frame buffers",
     /* kStringGameStatesLabel: */
     "Game states",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "LANGUAGE SELECT",
     /* kStringLinkedListsLabel: */
@@ -184,11 +184,11 @@ const LangROMSpec EnglishLanguageSpec =
 const char* const GermanLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
-    "Actor-Konstruktoren",
+    "Akteur-Konstruktoren",
     /* kStringActorDestructionLabel: */
-    "Actor-Destruktoren",
+    "Akteur-Destruktoren",
     /* kStringActorsLabel: */
-    "Actors",
+    "Akteur",
     /* kStringAnimationsLabel: */
     "Animationen",
     /* kStringAnimationSubtitle: */
@@ -215,8 +215,8 @@ const char* const GermanLanguageStrings[] =
     "KLASSEN",
     /* kStringClassExtensionLabel: */
     "Klassenerweiterung",
-    /* kStringClassMutationLabel: */
-    "Klassenmutationen",
+    /* kStringClassMutatorLabel: */
+    "Klassenmutatoren",
     /* kStringCollisionsLabel: */
     "Kollisionen",
     /* kStringCommunicationsLabel: */
@@ -231,12 +231,12 @@ const char* const GermanLanguageStrings[] =
     "EFFECT",
     /* kStringEventsLabel: */
     "Ereignisse",
+    /* kStringFrameBlendingLabel: */
+    "Rahmenüberblendung",
     /* kStringFrameBuffersLabel: */
-    "Framebuffer",
+    "Bildpuffer",
     /* kStringGameStatesLabel: */
     "Spielzustände",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
     /* kStringLinkedListsLabel: */
@@ -298,7 +298,7 @@ const char* const GermanLanguageStrings[] =
     /* kStringStagesLabel: */
     "Stages",
     /* kStringStatefulActorsLabel: */
-    "Akteure",
+    "StatefulActors",
     /* kStringStateMachinesLabel: */
     "Zustandsautomaten",
     /* kStringStateTitle: */
@@ -363,7 +363,7 @@ const char* const SpanishLanguageStrings[] =
     "CLASES",
     /* kStringClassExtensionLabel: */
     "Extensiones de clase",
-    /* kStringClassMutationLabel: */
+    /* kStringClassMutatorLabel: */
     "Mutación de clases",
     /* kStringCollisionsLabel: */
     "Colisiones",
@@ -379,12 +379,12 @@ const char* const SpanishLanguageStrings[] =
     "EFECTO",
     /* kStringEventsLabel: */
     "Eventos",
+    /* kStringFrameBlendingLabel: */
+    "Fusionado de marcos",
     /* kStringFrameBuffersLabel: */
     "Búfer de video",
     /* kStringGameStatesLabel: */
     "Estados de juego",
-    /* kStringHiColorLabel: */
-    "HiColor",
     /* kStringLanguageSelectTitle: */
     "SELECCIONAR IDIOMA",
     /* kStringLinkedListsLabel: */

@@ -42,13 +42,13 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 		}
 		else if((K_LL | K_LR) & userInput->releasedKey)
 		{
-			if(Actor::isPlayingAnimation(videoActor, "HiColor"))
+			if(Actor::isPlayingAnimation(videoActor, "FrameBlend"))
 			{					
 				Actor::playAnimation(videoActor, "4Color");
 			}
 			else
 			{					
-				Actor::playAnimation(videoActor, "HiColor");
+				Actor::playAnimation(videoActor, "FrameBlend");
 			}
 
 			VideoPlayerState::show(this, false);
@@ -76,7 +76,7 @@ void VideoPlayerState::showExplanation()
 	int16 y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringConceptsSubtitle), 2, y++, "DefaultBold");
 	Printer::text(I18n::getText(I18n::getInstance(), kStringAnimationsLabel), 2, y++, NULL);
-	Printer::text(I18n::getText(I18n::getInstance(), kStringHiColorLabel), 2, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringFrameBlendingLabel), 2, y++, NULL);
 
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");

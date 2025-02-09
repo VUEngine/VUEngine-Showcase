@@ -1,0 +1,103 @@
+{
+    "_id": "cazSXNWnJEmikHCN",
+    "_version": "0.6.0",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "body": {
+        "bounciness": 1,
+        "enabled": true,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0.1,
+        "maximumSpeed": 2,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "components": {
+        "animations": [],
+        "children": [],
+        "colliders": [
+            {
+                "checkForCollisions": true,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "layers": [
+                    "Kcw7MNbiPnV3qhmO"
+                ],
+                "layersToCheck": [
+                    "LmaH2bklOna0YVkI",
+                    "8mqpu6KL9PPdifyY"
+                ],
+                "name": "Collider",
+                "pixelSize": {
+                    "x": 4,
+                    "y": 0,
+                    "z": 0
+                },
+                "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "type": "Ball"
+            }
+        ],
+        "mutators": [],
+        "sprites": [],
+        "wireframes": [
+            {
+                "color": 3,
+                "displacement": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "drawCenter": false,
+                "interlaced": false,
+                "length": 32,
+                "name": "Wireframe",
+                "radius": 4,
+                "segments": [],
+                "transparency": "None",
+                "type": "Sphere"
+            }
+        ]
+    },
+    "extraProperties": {
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "UdKB8bl2ZbtVxd3q",
+    "logic": {
+        "configuration": {
+            "0akdIgfUt9jPsTfd": "{0,0,0}",
+            "1jJzBDW9GrBShgx4": "{__I_TO_FIXED(2),__I_TO_FIXED(2),0}"
+        },
+        "customAllocator": "PongBall",
+        "enabled": true
+    },
+    "sprites": {
+        "type": "Bgmap"
+    }
+}

@@ -1,5 +1,5 @@
 {
-    "_version": "1.0.0",
+    "_version": "0.6.0",
     "languages": [
         {
             "code": "en",
@@ -22,17 +22,17 @@
     ],
     "translations": {
         "ActorCreationLabel": {
-            "de": "Actor-Konstruktoren",
+            "de": "Akteur-Konstruktoren",
             "en": "Actor creation",
             "es": "Actor: creación"
         },
         "ActorDestructionLabel": {
-            "de": "Actor-Destruktoren",
+            "de": "Akteur-Destruktoren",
             "en": "Actor destruction",
             "es": "Actor: destrucción "
         },
         "ActorsLabel": {
-            "de": "Actors",
+            "de": "Akteur",
             "en": "Actors",
             "es": "Actores"
         },
@@ -111,8 +111,13 @@
             "en": "Events",
             "es": "Eventos"
         },
+        "FrameBlendingLabel": {
+            "de": "Rahmenüberblendung",
+            "en": "Frame blending",
+            "es": "Fusionado de marcos"
+        },
         "FrameBuffersLabel": {
-            "de": "Framebuffer",
+            "de": "Bildpuffer",
             "en": "Frame buffers",
             "es": "Búfer de video"
         },
@@ -120,11 +125,6 @@
             "de": "Spielzustände",
             "en": "Game states",
             "es": "Estados de juego"
-        },
-        "HiColorLabel": {
-            "de": "HiColor",
-            "en": "HiColor",
-            "es": "HiColor"
         },
         "LinkedListsLabel": {
             "de": "Verkettete Listen",
@@ -267,7 +267,7 @@
             "es": "Escenas"
         },
         "StatefulActorsLabel": {
-            "de": "Akteure",
+            "de": "StatefulActors",
             "en": "StatefulActors",
             "es": "StatefulActores"
         },

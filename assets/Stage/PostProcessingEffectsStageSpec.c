@@ -22,7 +22,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 extern ActorSpec LowPowerIndicatorActorSpec;
-extern ActorSpec PdScreenshotActorSpec;
+extern ActorSpec ScreenshotActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ACTOR LISTS
@@ -35,8 +35,8 @@ PositionedActorROMSpec PostProcessingEffectsStageActorSpecs[] =
 
 PositionedActorROMSpec PostProcessingEffectsStageUiActorSpecs[] =
 {
-	{&PdScreenshotActorSpec, 		{0, 32, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
-	{&LowPowerIndicatorActorSpec, 	{__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
+	{&ScreenshotActorSpec, 			{0, 32, 0}, {0, 0, 0}, {1, 1, 1},  0, NULL, NULL, NULL, false},
+	{&LowPowerIndicatorActorSpec, {__PLUGIN_LOW_POWER_ACTOR_X_POSITION, __PLUGIN_LOW_POWER_ACTOR_Y_POSITION, __PLUGIN_LOW_POWER_ACTOR_Z_POSITION}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 	{NULL, {0, 0, 0}, {0, 0, 0}, {1, 1, 1}, 0, NULL, NULL, NULL, false},
 };
 

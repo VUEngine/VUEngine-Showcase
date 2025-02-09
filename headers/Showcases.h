@@ -9,7 +9,7 @@
 #include <AnimationSchemesState.h>
 #include <ActorsState.h>
 #include <ParticlesState.h>
-#include <PongState.h>
+#include <CommunicationsState.h>
 #include <PostProcessingEffectsState.h>
 #include <SoundsState.h>
 #include <SpritesState.h>

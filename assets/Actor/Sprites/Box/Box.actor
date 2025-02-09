@@ -1,0 +1,154 @@
+{
+    "_id": "QoNVektpKhxVYOfi",
+    "_version": "0.6.0",
+    "animations": {
+        "default": 0,
+        "multiframe": false,
+        "totalFrames": 1
+    },
+    "body": {
+        "bounciness": 0,
+        "enabled": false,
+        "friction": 0,
+        "gravityAxes": [],
+        "mass": 0,
+        "maximumSpeed": 0,
+        "maximumVelocity": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        },
+        "rotationAxes": []
+    },
+    "components": {
+        "animations": [],
+        "children": [],
+        "colliders": [
+            {
+                "checkForCollisions": false,
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "layers": [
+                    "S2Wf13hEW8bfv9nK"
+                ],
+                "layersToCheck": [],
+                "name": "Collider",
+                "pixelSize": {
+                    "x": 56,
+                    "y": 48,
+                    "z": 32
+                },
+                "rotation": {
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "scale": {
+                    "x": 1,
+                    "y": 1,
+                    "z": 1
+                },
+                "type": "Box"
+            }
+        ],
+        "mutators": [],
+        "sprites": [
+            {
+                "_imageData": {
+                    "images": [
+                        {
+                            "animation": {
+                                "frames": 1
+                            },
+                            "maps": [
+                                {
+                                    "data": "H4sIAAAAAAAAAyXNuRHCQAAEsF4udnC7YMAhn5tg6L8NDyhSqM+Yc86x/AiKE85YccEVN2y444EnXnhj/xNffPHFF1988cUXX3zxxRdffPHFV1999dVXX3311Vdft/E9AE5lysEnAQAA",
+                                    "height": "6",
+                                    "width": "7",
+                                    "name": "Box"
+                                }
+                            ],
+                            "tiles": {
+                                "count": 42,
+                                "data": "H4sIAAAAAAAAA32VS27DMAxE7+J1Nl5IBpdDiLxE0ftfo+BHX7dFIGQyoUnpiUy+LlVtpZRyfS4GmWzX51KlpkImAWr2jbuqGQsQpmT7eH2uBkJK+Su2B6AOqdARUGmVtg4pmMlql4QK+5gudTliLUF/LOoipL+uz3UDuCPgplpv6hI3eeFFGhIjFEja2A4a0JxZI0rXkDQQ+zGF07U3291BZx5TWGXm9YiDziSpuiCBkzipDzrbFdpj4U6SlUA1kDBvsQgkS4ZA4tVWfCbTpeGiUbPl1aiBXPJsLgZRyrVLQLCKhgQsoirRXCLCEtuRvUvYY5UF/tgDVoWyJ7NUwcwAgywDi4JFF6mdWRRWPBBUTVCaJPFAo4SQQOLElRS2vLkUeElHQjUl31T5T7kgSUm7qz577goUEqdwCe34UtrRE+qDxrY8w5D2ZeWkztbYmEjcZRORTJYbgocPJE+fQsZjLscVjdiQdinc6awD2a87Wi7biPimwi+JLjGg5mRRHMiap/3iBrN1Ck1E4WM285iba00JPtw5vHus5R1uqf/kDbXkPYZ3jy1gnO4kaWN3Y04h3m4lW7H1jsRl7XQWueBbZ3M7xQsq5s/2K/YF6p+8r1hnvchZuJ572JsrpQfQiS+Q+CniPyB/+Evpbsf3/QNFtYk2OQcAAA==",
+                                "name": "Box"
+                            }
+                        }
+                    ]
+                },
+                "bgmapMode": "Bgmap",
+                "colorMode": 0,
+                "compression": "none",
+                "displacement": {
+                    "parallax": 0,
+                    "x": 0,
+                    "y": 0,
+                    "z": 0
+                },
+                "displayMode": "Mono",
+                "displays": "ON",
+                "imageProcessingSettings": {
+                    "colorDistanceFormula": "euclidean",
+                    "imageQuantizationAlgorithm": "nearest",
+                    "minimumColorDistanceToDither": 0,
+                    "serpentine": false
+                },
+                "isAnimated": true,
+                "manipulationFunction": "",
+                "name": "Box",
+                "optimizeTiles": true,
+                "section": "rom",
+                "sourceType": "image",
+                "texture": {
+                    "files": [
+                        "Box.png"
+                    ],
+                    "files2": [],
+                    "flip": {
+                        "x": false,
+                        "y": false
+                    },
+                    "padding": {
+                        "x": 0,
+                        "y": 0
+                    },
+                    "palette": 1,
+                    "recycleable": false,
+                    "repeat": {
+                        "mode": "1x1",
+                        "size": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "x": false,
+                        "y": false
+                    }
+                },
+                "transparency": "None"
+            }
+        ],
+        "wireframes": []
+    },
+    "extraProperties": {
+        "enabled": false,
+        "extraInfo": "",
+        "pixelSize": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+        }
+    },
+    "inGameType": "VMArnDbf0jAc7294",
+    "logic": {
+        "configuration": {},
+        "customAllocator": "",
+        "enabled": false
+    },
+    "sprites": {
+        "type": "Bgmap"
+    }
+}

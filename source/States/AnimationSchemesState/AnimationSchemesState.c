@@ -306,11 +306,11 @@ void AnimationSchemesState::createSprites()
 	AnimationSchemesState::restoreMethods();
 
 	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
-	extern SpriteSpec PunkSpriteNotSharedSpec;
-	extern SpriteSpec PunkSpriteSharedSpec;
-	extern SpriteSpec PunkSpriteMultiframeSpec;
+	extern SpriteSpec PunkNotSharedSprite1SpriteSpec;
+	extern SpriteSpec PunkSharedSprite1SpriteSpec;
+	extern SpriteSpec PunkMultiframeSprite1SpriteSpec;
 
-	SpriteSpec* spriteSpec = &PunkSpriteNotSharedSpec;
+	SpriteSpec* spriteSpec = &PunkNotSharedSprite1SpriteSpec;
 
 	switch(this->animationScheme)
 	{
@@ -319,7 +319,7 @@ void AnimationSchemesState::createSprites()
 			/* When Sprites use non shared Textures they all have to update their graphics when animated. Each will reserve its
 			* own chunk of graphics memory and updating all of them will require more processing resources.	 
 			*/
-			spriteSpec = &PunkSpriteNotSharedSpec;
+			spriteSpec = &PunkNotSharedSprite1SpriteSpec;
 			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForNotSharedTextures);
 			break;
 
@@ -329,7 +329,7 @@ void AnimationSchemesState::createSprites()
 			* underlying graphics are shared by all of them. This saves on performance too because the graphics memory
 			* is only updated once.
 			*/
-			spriteSpec = &PunkSpriteSharedSpec;
+			spriteSpec = &PunkSharedSprite1SpriteSpec;
 			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForSharedTextures);
 			break;
 
@@ -339,7 +339,7 @@ void AnimationSchemesState::createSprites()
 			* They should always be shared, otherwise processing power would be wasted by writing multiple times the same spreadsheet.
 			* The animations of the Sprites that use these Textures are not constrained to be in sync.
 			*/
-			spriteSpec = &PunkSpriteMultiframeSpec;
+			spriteSpec = &PunkMultiframeSprite1SpriteSpec;
 			AnimationSchemesState::mutateMethod(showCharMemory, AnimationSchemesState::showCharMemoryForMultiframeTextures);
 			break;
 	}

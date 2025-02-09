@@ -122,7 +122,7 @@ void SpritesState::showExplanation()
 		y++;
 		Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 2, y++, "DefaultBold");
 		Printer::text(I18n::getText(I18n::getInstance(), kStringClassExtensionLabel), 2, y++, NULL);
-		Printer::text(I18n::getText(I18n::getInstance(), kStringClassMutationLabel), 2, y++, NULL);
+		Printer::text(I18n::getText(I18n::getInstance(), kStringClassMutatorLabel), 2, y++, NULL);
 		y++;
 		Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 		Printer::text("CharSet", 2, y++, NULL);
@@ -215,11 +215,11 @@ void SpritesState::createSprite()
 	SpritesState::restoreMethods();
 
 	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
-	extern SpriteSpec CogWheelObjectSpriteSpec;
-	extern SpriteSpec CogWheelBgmapSpriteNormalSpec;
-	extern SpriteSpec CogWheelBgmapSpriteAffineSpec;
-	extern SpriteSpec CogWheelBgmapSpriteHBiasSpec;
-	extern SpriteSpec CogWheelMBgmapSpriteNormalSpec;
+	extern SpriteSpec CogWheelObjectSprite1SpriteSpec;
+	extern SpriteSpec CogWheelBgmapSprite1SpriteSpec;
+	extern SpriteSpec CogWheelAffineSprite1SpriteSpec;
+	extern SpriteSpec CogWheelHBiasSprite1SpriteSpec;
+	extern SpriteSpec CogWheelMBgmapSprite1SpriteSpec;
 
 	SpriteSpec* spriteSpec = NULL;
 
@@ -227,31 +227,31 @@ void SpritesState::createSprite()
 	{
 		case kSpriteObject:
 
-			spriteSpec = &CogWheelObjectSpriteSpec;
+			spriteSpec = &CogWheelObjectSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteHorizontalTranslation);
 			break;
 
 		case kSpriteBgmapNormal:
 
-			spriteSpec = &CogWheelBgmapSpriteNormalSpec;
+			spriteSpec = &CogWheelBgmapSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteVerticalTranslation);
 			break;
 
 		case kSpriteBgmapAffine:
 
-			spriteSpec = &CogWheelBgmapSpriteAffineSpec;
+			spriteSpec = &CogWheelAffineSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteRotation);
 			break;
 
 		case kSpriteBgmapHBias:
 
 			// Check BgmapSprite::waveEffect in source/components/graphics/Sprites/BgmapSpriteExtensions.c
-			spriteSpec = &CogWheelBgmapSpriteHBiasSpec;
+			spriteSpec = &CogWheelHBiasSprite1SpriteSpec;
 			break;
 
 		case kSpriteMBgmap:
 
-			spriteSpec = &CogWheelMBgmapSpriteNormalSpec;
+			spriteSpec = &CogWheelMBgmapSprite1SpriteSpec;
 			SpritesState::mutateMethod(execute, SpritesState::executeSpriteFullTranslation);
 	}
 
