@@ -137,8 +137,8 @@
                         "y": false
                     },
                     "padding": {
-                        "x": 0,
-                        "y": 0
+                        "x": 1,
+                        "y": 1
                     },
                     "palette": 0,
                     "recycleable": false,
@@ -210,8 +210,8 @@
                         "y": false
                     },
                     "padding": {
-                        "x": 0,
-                        "y": 0
+                        "x": 1,
+                        "y": 1
                     },
                     "palette": 1,
                     "recycleable": false,

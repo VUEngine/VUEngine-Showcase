@@ -92,7 +92,7 @@ TextureROMSpec PunkControllableSprite1TextureSpec =
 	6,
 
 	// padding for affine/hbias transformations
-	{0, 0},
+	{1, 1},
 
 	// Number of frames that the texture supports
 	1,
@@ -182,7 +182,7 @@ TextureROMSpec PunkControllableSprite2TextureSpec =
 	6,
 
 	// padding for affine/hbias transformations
-	{0, 0},
+	{1, 1},
 
 	// Number of frames that the texture supports
 	1,
