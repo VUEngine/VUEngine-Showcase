@@ -65,6 +65,17 @@ bool SoundsState::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 
 			return true;
 		}
+
+		case kEventSoundReleased:
+		{
+			if(Sound::safeCast(eventFirer) == this->sound)
+			{
+				this->sound = NULL;
+				SoundsState::loadSound(this, true);
+			}
+
+			return false;
+		}
 	}
 
 	return Base::onEvent(this, eventFirer, eventCode);
@@ -142,12 +153,12 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		Sound::pause(this->sound);
 	}
 
-	// Must release the sound before playig the UI's sound effects because of the PCM sound track
-	SoundsState::releaseSound(this);
-
 	SoundsState::playSoundEffects(this, userInput);
 
-	Base::processUserInput(this, userInput);
+	if(0 == (K_STA & userInput->releasedKey))
+	{
+		Base::processUserInput(this, userInput);
+	}
 
 	bool timerChanged = false;
 
@@ -188,7 +199,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		}
 
 		SoundsState::show(this, true);
-
 	}
 	
 	if(this->showAdditionalDetails)
@@ -511,19 +521,6 @@ void SoundsState::releaseSound()
 
 		this->sound = NULL;
 	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool SoundsState::onSoundReleased(ListenerObject eventFirer __attribute__((unused)))
-{
-	if(Sound::safeCast(eventFirer) == this->sound)
-	{
-		this->sound = NULL;
-		SoundsState::loadSound(this, true);
-	}
-
-	return true;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -35,6 +35,11 @@ dynamic_singleton class SoundsState : ShowcaseState
 	/// Index of the sound spec to use to configure the sound
 	uint16 selectedSound;
 	
+	/// Process an event that the instance is listen for.
+	/// @param eventFirer: ListenerObject that signals the event
+	/// @param eventCode: Code of the firing event
+	/// @return False if the listener has to be removed; true to keep it
+	override bool onEvent(ListenerObject eventFirer, uint16 eventCode);
 
 	/// Prepares the object to enter this state.
 	/// @param owner: Object that is entering in this state
