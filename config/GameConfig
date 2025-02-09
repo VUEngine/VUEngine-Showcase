@@ -2,14 +2,15 @@
     "_version": "0.6.0",
     "plugins": {
         "vuengine//actors/LowPowerActor": {
-            "xPosition": 180,
-            "yPosition": -96
+            "xPosition": -184,
+            "yPosition": 108
         },
         "vuengine//fonts/AstonishFont": {},
         "vuengine//fonts/DefaultFontVariants": {},
         "vuengine//other/AutomaticPause": {
             "bodyTextFont": "Default",
-            "titleTextFont": "AstonishExt"
+            "titleTextFont": "AstonishExt",
+            "useLowPowerActor": true
         },
         "vuengine//other/I18n": {},
         "vuengine//other/SaveDataManager": {
@@ -38,14 +39,17 @@
             "useLowPowerActor": true
         },
         "vuengine//states/splash/AutomaticPauseSelectionScreen": {
-            "titleTextFont": "AstonishExt"
+            "titleTextFont": "AstonishExt",
+            "useLowPowerActor": true
         },
         "vuengine//states/splash/LanguageSelectionScreen": {
             "titleTextFont": "AstonishExt",
-            "variant": 1
+            "variant": 1,
+            "useLowPowerActor": true
         },
         "vuengine//states/splash/PrecautionScreen": {
-            "textFont": "AstonishExt"
+            "textFont": "AstonishExt",
+            "useLowPowerActor": true
         }
     },
     "projectTitle": "VUEngine Showcase"
