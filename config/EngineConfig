@@ -11,7 +11,7 @@
     "brightness": {
         "brightRed": 128,
         "darkRed": 32,
-        "fadeDelay": 16,
+        "fadeDelay": 8,
         "fadeIncrement": 1,
         "mediumRed": 64
     },

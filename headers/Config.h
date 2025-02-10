@@ -217,7 +217,7 @@
 #define __BRIGHTNESS_MEDIUM_RED					 64
 #define __BRIGHTNESS_BRIGHT_RED					 128
 
-#define __FADE_DELAY							 16
+#define __FADE_DELAY							 8
 #define __CAMERA_EFFECT_FADE_INCREMENT			 1
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
