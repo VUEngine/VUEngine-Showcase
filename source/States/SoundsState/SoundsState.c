@@ -153,7 +153,6 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		Sound::pause(this->sound);
 	}
 
-	SoundsState::playSoundEffects(this, userInput);
 
 	if(0 == (K_STA & userInput->releasedKey))
 	{
@@ -162,15 +161,21 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 	bool timerChanged = false;
 
-	if(K_SEL & userInput->releasedKey)
+	if((K_LT | K_RT) & userInput->releasedKey)
 	{
+		SoundsState::releaseSound(this);
+		SoundsState::playSoundEffects(this, userInput);		
+	}
+	else if(K_SEL & userInput->releasedKey)
+	{
+		SoundsState::releaseSound(this);
+		SoundsState::playSoundEffects(this, userInput);
 		SoundsState::loadSound(this, true);
 		SoundsState::showSoundMetadata(this);
 
 		timerChanged = true;
 	}
-	
-	if(K_LL & userInput->releasedKey)
+	else if(K_LL & userInput->releasedKey)
 	{
 		uint16 totalSounds = SoundsState::getTotalSounds(this);
 
@@ -200,8 +205,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 		SoundsState::show(this, true);
 	}
-	
-	if(this->showAdditionalDetails)
+	else if(this->showAdditionalDetails)
 	{
 		if(!isDeleted(this->sound))
 		{
@@ -301,7 +305,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 				SoundsState::showSoundMetadata(this);
 			}
 		}
-	}		
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

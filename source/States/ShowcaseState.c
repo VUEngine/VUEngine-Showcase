@@ -232,6 +232,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 {
 	const RumbleEffectSpec* rumbleEffect = NULL;
 	SoundSpec* soundEffectSpec = NULL;
+	bool lock = false;
 
 	if((this->validSuboptionKeys) & userInput->releasedKey)
 	{
@@ -240,6 +241,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 	}
 	else if((K_LT | K_RT) & userInput->releasedKey)
 	{
+		lock = true;
 		soundEffectSpec = &ChangeSelection1SoundSpec;
 		rumbleEffect = &ChangeSelection1RumbleEffectSpec;
 	}
@@ -270,16 +272,11 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 
 		if(NULL != soundEffect)
 		{
+			Sound::autoReleaseOnFinish(soundEffect, true);
 			Sound::play(soundEffect, NULL, kSoundPlaybackNormal);
 			
 			// Wait until the sound playback is done.
-			while(Sound::isPlaying(soundEffect));
-
-			// Manually release the sound effect
-			Sound::release(soundEffect);
-
-			// The same could have been achieved by the following call
-			// Sound::autoReleaseOnFinish(soundEffect, true);
+			while(lock && Sound::isPlaying(soundEffect));
 		}
 		else
 		{
