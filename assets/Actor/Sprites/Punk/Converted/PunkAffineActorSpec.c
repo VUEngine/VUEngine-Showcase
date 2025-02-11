@@ -62,7 +62,7 @@ CharSetROMSpec PunkAffineSprite1CharsetSpec =
 	24,
 
 	// Whether it is shared or not
-	false,
+	true,
 
 	// Whether the tiles are optimized or not
 	false,
@@ -152,7 +152,7 @@ CharSetROMSpec PunkAffineSprite2CharsetSpec =
 	24,
 
 	// Whether it is shared or not
-	false,
+	true,
 
 	// Whether the tiles are optimized or not
 	false,

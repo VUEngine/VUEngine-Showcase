@@ -44,8 +44,8 @@
         },
         "vuengine//states/splash/LanguageSelectionScreen": {
             "titleTextFont": "AstonishExt",
-            "variant": 1,
-            "useLowPowerActor": true
+            "useLowPowerActor": true,
+            "variant": 1
         },
         "vuengine//states/splash/PrecautionScreen": {
             "textFont": "AstonishExt",

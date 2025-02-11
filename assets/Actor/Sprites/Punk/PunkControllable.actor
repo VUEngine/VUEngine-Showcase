@@ -126,6 +126,7 @@
                 "name": "Punk",
                 "optimizeTiles": true,
                 "section": "rom",
+                "shareTiles": true,
                 "sourceType": "image",
                 "texture": {
                     "files": [
@@ -199,6 +200,7 @@
                 "name": "PunkBlack",
                 "optimizeTiles": true,
                 "section": "rom",
+                "shareTiles": true,
                 "sourceType": "image",
                 "texture": {
                     "files": [
