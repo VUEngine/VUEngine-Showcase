@@ -25,7 +25,7 @@
 /// Inherits from Punk
 ///
 /// Controls the logic for the Punk when it walks.
-abstract class PunkStopping : Punk
+mutation class PunkStopping : Punk
 {
 	/// Process a newly detected collision by one of the component colliders.
 	/// @param collisionInformation: Information struct about the collision to resolve

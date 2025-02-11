@@ -85,7 +85,7 @@
                     "parallax": 0,
                     "x": 0,
                     "y": 0,
-                    "z": 0
+                    "z": 1
                 },
                 "displayMode": "Mono",
                 "displays": "ON",
@@ -158,7 +158,7 @@
                     "parallax": 0,
                     "x": 0,
                     "y": 0,
-                    "z": 1
+                    "z": 2
                 },
                 "displayMode": "Mono",
                 "displays": "ON",

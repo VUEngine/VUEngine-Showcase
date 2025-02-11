@@ -7,8 +7,8 @@
  * that was distributed with this source code.
  */
 
-#ifndef PUNK_DIE_H_
-#define PUNK_DIE_H_
+#ifndef PUNK_FROZEN_H_
+#define PUNK_FROZEN_H_
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
@@ -20,12 +20,12 @@
 // CLASS' DECLARATION
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-/// Class PunkDeath
+/// Class PunkWalking
 ///
 /// Inherits from Punk
 ///
-/// Controls the logic for the Punk when it dies.
-abstract class PunkDeath : Punk
+/// Controls the logic for the Punk when it doesn't move.
+mutation class PunkFrozen : Punk
 {
 	/// Receive and process a Telegram.
 	/// @param telegram: Received telegram to process
