@@ -76,12 +76,12 @@ typedef struct RemotePlayerData
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongManager::constructor(Stage stage)
+void PongManager::constructor()
 {
 	// Always explicitly call the base's constructor
 	Base::constructor();
 
-	this->stage = stage;
+	this->stage = NULL;
 	this->leftScore = 0;
 	this->rightScore = 0;
 	
@@ -97,6 +97,8 @@ void PongManager::constructor(Stage stage)
 
 void PongManager::destructor()
 {
+	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+
 	// Always explicitly call the base's destructor
 	Base::destructor();
 }
@@ -117,7 +119,6 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 		{
 			if(0 == strcmp(PONG_BALL_NAME, Actor::getName(eventFirer)))
 			{
-				/*
 				if(0 < PongBall::getPosition(eventFirer)->x)
 				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongMyPoint : kMessagePongYourPoint;
@@ -126,7 +127,6 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongYourPoint : kMessagePongMyPoint;
 				}
-				*/
 			}
 
 			return true;
@@ -145,6 +145,88 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 
 	return Base::onEvent(this, eventFirer, eventCode);
 }
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::setStage(Stage stage)
+{
+	this->stage = stage;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::processUserInput(const UserInput* userInput)
+{
+	if((K_LT | K_RT) & userInput->releasedKey)
+	{
+		this->messageForRemote = kMessagePongGoodBye;
+	}
+
+	PongManager::syncWithRemote(this, userInput);
+
+	if(kMessagePongGoodBye != this->messageForRemote)
+	{
+		PongManager::propagateInputMessage(this, userInput->holdKey, kMessageShowcaseStateHoldUp, kMessageShowcaseStateHoldDown);
+		PongManager::propagateInputMessage(this, this->remoteHoldKey, kMessageShowcaseStateRemoteHoldUp, kMessageShowcaseStateRemoteHoldDown);
+	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::propagateInputMessage(uint16 holdKey, uint32 upMessage, uint32 downMessage)
+{
+	if(0 == holdKey)
+	{
+		return;
+	}
+
+	int32 message = kMessageNone;
+
+	if(K_LU & holdKey)
+	{
+		message = upMessage;
+	}
+	else if(K_LD & holdKey)
+	{
+		message = downMessage;
+	}
+	
+	if(kMessageNone != message && this->allowPaddleMovement)
+	{
+		/*
+		* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
+		* pointer to the actor that the user controls and calling an specific method that its class implements would be
+		* way faster.
+		*/
+		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
+	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+int8 PongManager::getPlayerNumber()
+{
+	return this->playerNumber;
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::printScore()
+{
+	int16 y = 26;
+	PRINT_TEXT("P1:	  ", 1, y);
+	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
+
+	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
+	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' PRIVATE METHODS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -204,77 +286,6 @@ void PongManager::getReady()
 
 	Stage::addActorLoadingListener(this->stage, ListenerObject::safeCast(this));
 }
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PongManager::processUserInput(const UserInput* userInput)
-{
-	if((K_LT | K_RT) & userInput->releasedKey)
-	{
-		this->messageForRemote = kMessagePongGoodBye;
-	}
-
-	PongManager::syncWithRemote(this, userInput);
-
-	PongManager::propagateInputMessage(this, userInput->holdKey, kMessageShowcaseStateHoldUp, kMessageShowcaseStateHoldDown);
-	PongManager::propagateInputMessage(this, this->remoteHoldKey, kMessageShowcaseStateRemoteHoldUp, kMessageShowcaseStateRemoteHoldDown);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PongManager::propagateInputMessage(uint16 holdKey, uint32 upMessage, uint32 downMessage)
-{
-	if(0 == holdKey)
-	{
-		return;
-	}
-
-	int32 message = kMessageNone;
-
-	if(K_LU & holdKey)
-	{
-		message = upMessage;
-	}
-	else if(K_LD & holdKey)
-	{
-		message = downMessage;
-	}
-	
-	if(kMessageNone != message && this->allowPaddleMovement)
-	{
-		/*
-		* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
-		* pointer to the actor that the user controls and calling an specific method that its class implements would be
-		* way faster.
-		*/
-		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
-	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-int PongManager::getPlayerNumber()
-{
-	return this->playerNumber;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PongManager::printScore()
-{
-	int16 y = 26;
-	PRINT_TEXT("P1:	  ", 1, y);
-	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
-
-	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
-	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// CLASS' PRIVATE METHODS
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -406,6 +417,8 @@ void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receive
 
 				PongManager::fireEvent(this, kEventPongRemoteInSync);
 
+				PongManager::printScore(this);
+
 				this->messageForRemote = kMessagePongSendInput;
 			}
 			else
@@ -471,7 +484,7 @@ void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receive
 
 			Stage::propagateMessage(this->stage, Container::onPropagatedMessage, kMessagePongResetPositions);
 
-			//CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
+			CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 			break;
 	}
 }
@@ -510,8 +523,6 @@ void PongManager::registerPoint(uint32 message)
 			break;
 		}
 	}
-
-	PongManager::printScore(this);
 
 	RumbleManager::startEffect(&PointRumbleEffectSpec);
 

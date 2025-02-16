@@ -64,14 +64,13 @@ void CommunicationsState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
+	// Configure the pong manager
+	PongManager::setStage(this->pongManager, this->stage);
+
 	// Disable automatic pause in versus mode
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), false);
 
-	// Get the game ready
-	this->pongManager = new PongManager(this->stage);
-	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteInSync);
-	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
-
+	// Start physics, animations, etc
 	CommunicationsState::startClocks(this);
 
 	// Set input to be notified about
@@ -85,13 +84,6 @@ void CommunicationsState::enter(void* owner)
 
 void CommunicationsState::exit(void* owner)
 {
-	if(!isDeleted(this->pongManager))
-	{
-		delete this->pongManager;
-	}	
-
-	this->pongManager = NULL;
-
 	AutomaticPauseManager::setActive
 	(
 		AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
@@ -115,6 +107,8 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 	}
 
 	PongManager::processUserInput(this->pongManager, userInput);
+
+	Base::processUserInput(this, userInput);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -205,19 +199,29 @@ void CommunicationsState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
-	this->pongManager = NULL;
-
 	/*
 	 * Check assets/stage/CommunicationsStageSpec.c
 	 */
 	extern StageROMSpec CommunicationsStageSpec;
 	this->stageSpec = (StageSpec*)&CommunicationsStageSpec;
+
+	this->pongManager = new PongManager();
+
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteInSync);
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void CommunicationsState::destructor()
 {
+	if(!isDeleted(this->pongManager))
+	{
+		delete this->pongManager;
+	}	
+
+	this->pongManager = NULL;
+
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }

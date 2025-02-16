@@ -63,7 +63,7 @@ class PongManager : ListenerObject
 	uint32 rightScore;
 
 	/// This game instance's player number
-	int playerNumber;
+	int8 playerNumber;
 
 	/// Message to send to the other system
 	uint32 messageForRemote;
@@ -75,8 +75,7 @@ class PongManager : ListenerObject
 	uint16 remoteHoldKey;
 
 	/// Class' constructor
-	/// @param stage: The stage where the actors are instantiated
-	void constructor(Stage stage);
+	void constructor();
 
 	/// Process an event that the instance is listen for.
 	/// @param eventFirer: ListenerObject that signals the event
@@ -84,13 +83,17 @@ class PongManager : ListenerObject
 	/// @return False if the listener has to be removed; true to keep it
 	override bool onEvent(ListenerObject eventFirer, uint16 eventCode);
 
+	/// Set the stage in which are the game's actors
+	/// @param stage: The stage where the actors are instantiated
+	void setStage(Stage stage);
+
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information
 	void processUserInput(const UserInput* userInput);
 
 	/// Retrieve the player number of this instance.
 	/// @return The player number of this game instance
-	int getPlayerNumber();
+	int8 getPlayerNumber();
 
 	/// Printer the current score.
 	void printScore();
