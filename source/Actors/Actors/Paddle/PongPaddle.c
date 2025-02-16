@@ -12,10 +12,10 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Box.h>
+#include <CommunicationManager.h>
 #include <InGameTypes.h>
 #include <Messages.h>
 #include <Optics.h>
-#include <Pong.h>
 #include <VUEngine.h>
 
 #include "PongPaddle.h"
@@ -55,7 +55,7 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 	{
 		case kMessagePongResetPositions:
 
-			if(!Pong::isVersusMode(Pong::getInstance()))
+			if(!CommunicationManager::isConnected(CommunicationManager::getInstance()))
 			{
 				PongPaddle::stopMovement(this, __ALL_AXIS);
 				Vector3D localPosition = this->localTransformation.position;

@@ -19,7 +19,6 @@
 #include <Messages.h>
 #include <Optics.h>
 #include <ParticleSystem.h>
-#include <Pong.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
 #include <SoundManager.h>
@@ -182,7 +181,7 @@ void PongBall::startMovement()
 {
 	int16 angle = 0;
 
-	if(Pong::isVersusMode(Pong::getInstance()))
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
 		if(0 == _randomSeed)
 		{
