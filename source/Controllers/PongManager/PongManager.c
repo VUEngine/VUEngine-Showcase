@@ -367,7 +367,7 @@ void PongManager::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataB
 			 * In this case, simply cancel all communications and try again. This supposes
 			 * that there are no other calls that could cause a race condition.
 			 */
-//			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
+			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
 		}
 
 		/*

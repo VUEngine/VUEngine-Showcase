@@ -41,6 +41,13 @@ bool CommunicationsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
+		case kEventPongRemoteInSync:
+		{
+			this->showAdditionalDetails = true;
+			CommunicationsState::show(this, false);
+			return true;
+		}
+
 		case kEventPongRemoteWentAway:
 		{
 			CommunicationsState::show(this, false);
@@ -62,6 +69,7 @@ void CommunicationsState::enter(void* owner)
 
 	// Get the game ready
 	this->pongManager = new PongManager(this->stage);
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteInSync);
 	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
 	CommunicationsState::startClocks(this);
