@@ -2,19 +2,21 @@
     "_version": "0.6.0",
     "messages": {
         "4gGsApAgfp1DZD5G": "Pong Ball Start Moving",
-        "bYWuHK2INEznnWYy": "Collisions State Hold Left",
+        "bYWuHK2INEznnWYy": "Showcase State Hold Left",
         "DKqQKQZ0uHzXeje6": "Pong My Point",
         "FwBysXNzYpNREHVY": "Collisions State Print Actor Status",
         "Hc4iV23zaAHudEd3": "Pong Reset Positions",
         "HdD3SGjpMc0x5qz0": "Collisions State Resuscitate",
         "i4q8L9rAfckkqZqO": "Pong Your Point",
-        "M1LYtCKIYHCszlDv": "Collisions State Hold Right",
-        "mud5KlhW6GBPxMuZ": "Collisions State Released Right",
+        "M1LYtCKIYHCszlDv": "Showcase State Hold Right",
+        "mud5KlhW6GBPxMuZ": "Showcase State Released Right",
         "mzfKm6QapnF2CUvy": "Pong Sync",
         "sl8FwWs9fzPHnTN6": "Pong Dummy",
         "sT6VG9CEg4GlXgaU": "Pong Send Input",
-        "ucCKUZk3hk2JKJpB": "Collisions State Released Left",
+        "ucCKUZk3hk2JKJpB": "Showcase State Released Left",
         "VKE46ZokECvpsaU1": "Collisions State No Message",
-        "xzOOyHoYuw5DNVaL": "Pong Good Bye"
+        "xzOOyHoYuw5DNVaL": "Pong Good Bye",
+        "N4MYiH7njXFvbBuJ": "Showcase State Hold Up",
+        "4GEYpvXkUD0d5bMt": "Showcase State Hold Down"
     }
 }

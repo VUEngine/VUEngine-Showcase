@@ -85,8 +85,8 @@ bool PunkWalking::handleMessage(Telegram telegram)
 
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageCollisionsStateReleasedLeft:
-		case kMessageCollisionsStateReleasedRight:
+		case kMessageShowcaseStateReleasedLeft:
+		case kMessageShowcaseStateReleasedRight:
 
 			/*
 			 * Start to check if the punk stopped only when there is no input.
@@ -95,12 +95,12 @@ bool PunkWalking::handleMessage(Telegram telegram)
 			return true;
 			break;
 
-		case kMessageCollisionsStateHoldLeft:
+		case kMessageShowcaseStateHoldLeft:
 
 			force.x = -(Body::getMass(PunkWalking::getBody(this)) << 1);
 			break;
 
-		case kMessageCollisionsStateHoldRight:
+		case kMessageShowcaseStateHoldRight:
 
 			force.x = Body::getMass(PunkWalking::getBody(this)) << 1;
 			break;

@@ -33,8 +33,8 @@ bool PunkFrozen::handleMessage(Telegram telegram)
 {
 	switch(Telegram::getMessage(telegram))
 	{
-		case kMessageCollisionsStateHoldLeft:
-		case kMessageCollisionsStateHoldRight:
+		case kMessageShowcaseStateHoldLeft:
+		case kMessageShowcaseStateHoldRight:
 
 			PunkFrozen::walk(this);
 			return true;

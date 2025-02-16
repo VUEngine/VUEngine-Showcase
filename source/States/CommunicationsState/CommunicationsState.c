@@ -25,7 +25,7 @@
 #include <MessageDispatcher.h>
 #include <Messages.h>
 #include <Printer.h>
-#include <Pong.h>
+#include <PongManager.h>
 #include <Singleton.h>
 #include <Utilities.h>
 
@@ -41,21 +41,9 @@ bool CommunicationsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
-		case kEventCommunicationsConnected:
-		{
-			CommunicationsState::communicationsEstablished(this);
-			return true;
-		}
-
-		case kEventPongRemoteInSync:
-		{
-			CommunicationsState::remoteInSync(this);
-			return true;
-		}
-
 		case kEventPongRemoteWentAway:
 		{
-			CommunicationsState::remoteGoneAway(this);
+			CommunicationsState::show(this, false);
 			return true;
 		}
 	}
@@ -73,16 +61,13 @@ void CommunicationsState::enter(void* owner)
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), false);
 
 	// Get the game ready
-	Pong::getReady(Pong::getInstance(), this->stage, false);
+	this->pongManager = new PongManager(this->stage);
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
-	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteInSync);
-	Pong::addEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteWentAway);
+	CommunicationsState::startClocks(this);
 
 	// Set input to be notified about
 	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
-
-	// Enable comms	
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 
 	// Make sure that the processing of user input is triggered regardless of real user input
 	KeypadManager::enableDummyKey();
@@ -92,11 +77,12 @@ void CommunicationsState::enter(void* owner)
 
 void CommunicationsState::exit(void* owner)
 {
-	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteInSync);
-	Pong::removeEventListener(Pong::getInstance(), ListenerObject::safeCast(this), kEventPongRemoteWentAway);
+	if(!isDeleted(this->pongManager))
+	{
+		delete this->pongManager;
+	}	
 
-	CommunicationsState::setVersusMode(this, false);
-	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+	this->pongManager = NULL;
 
 	AutomaticPauseManager::setActive
 	(
@@ -120,26 +106,29 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 		return;
 	}
 
-	if(CommunicationsState::isVersusMode(this))
+	if(0 != userInput->holdKey)
 	{
-		Pong::processUserInput(Pong::getInstance(), userInput);
+		int32 message = kMessageCollisionsStateNoMessage;
 
-		if(0 == (K_STA & userInput->releasedKey))
+		if(K_LU & userInput->holdKey)
 		{
-			Base::processUserInput(this, userInput);
+			message = kMessageShowcaseStateHoldUp;
+		}
+		else if(K_LD & userInput->holdKey)
+		{
+			message = kMessageShowcaseStateHoldDown;
+		}
+
+		if(kMessageCollisionsStateNoMessage != message)
+		{
+			/*
+			* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
+			* pointer to the actor that the user controls and calling an specific method that its class implements would be
+			* way faster.
+			*/
+			CommunicationsState::propagateMessage(this, message);
 		}
 	}
-	else
-	{
-		Base::processUserInput(this, userInput);
-	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool CommunicationsState::isVersusMode()
-{
-	return this->isVersusMode;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -148,11 +137,11 @@ void CommunicationsState::showControls()
 {
 	Printer::clearRow(__SCREEN_HEIGHT_IN_CHARS - 1);
 
-	if(this->isVersusMode)
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
 		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-		switch(Pong::getPlayerNumber(Pong::getInstance()))
+		switch(PongManager::getPlayerNumber(this->pongManager))
 		{
 			case kPlayerOne:
 
@@ -214,7 +203,6 @@ void CommunicationsState::showExplanation()
 
 void CommunicationsState::showAdditionalDetails()
 {
-	Pong::printScore(Pong::getInstance());
 	CommunicationsState::showConnectivityStatus(this);
 }
 
@@ -231,12 +219,13 @@ void CommunicationsState::constructor()
 	// Always explicitly call the base's constructor 
 	Base::constructor();
 
+	this->pongManager = NULL;
+
 	/*
 	 * Check assets/stage/CommunicationsStageSpec.c
 	 */
 	extern StageROMSpec CommunicationsStageSpec;
 	this->stageSpec = (StageSpec*)&CommunicationsStageSpec;
-	this->isVersusMode = false;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -252,6 +241,7 @@ void CommunicationsState::destructor()
 void CommunicationsState::showConnectivityStatus()
 {
 	Printer::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
+
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
 		const char* strConnected = I18n::getText(I18n::getInstance(), kStringConnected);
@@ -278,56 +268,6 @@ void CommunicationsState::showConnectivityStatus()
 			"DefaultBold"
 		);
 	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void CommunicationsState::setVersusMode(bool value)
-{
-	this->isVersusMode = value;
-	this->showAdditionalDetails = value;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void CommunicationsState::communicationsEstablished()
-{	
-	// Reset random seed in multiplayer mode so both machines are completely in sync
-	Math::resetRandomSeed();
-
-	CommunicationsState::setVersusMode(this, true);
-	Pong::getReady(Pong::getInstance(), this->stage, true);
-
-	this->showAdditionalDetails = true;
-	CommunicationsState::show(this, false);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void CommunicationsState::remoteInSync()
-{
-	// Must reset the physical world too
-	BodyManager::reset(this->componentManagers[kPhysicsComponent]);
-
-	// Must reset the clocks
-	CommunicationsState::startClocks(this);
-	
-	// Reset the actors
-	CommunicationsState::propagateMessage(this, kMessagePongResetPositions);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void CommunicationsState::remoteGoneAway()
-{
-	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
-
-	CommunicationsState::setVersusMode(this, false);
-	Pong::getReady(Pong::getInstance(), this->stage, false);
-	CommunicationsState::show(this, false);
-	CommunicationsState::propagateMessage(this, kMessagePongResetPositions);
-
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

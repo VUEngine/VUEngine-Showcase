@@ -17,12 +17,8 @@
 
 enum Messages
 {
-	kMessageCollisionsStateHoldLeft = kMessageLastEngine + 1,
-	kMessageCollisionsStateHoldRight,
-	kMessageCollisionsStateNoMessage,
+	kMessageCollisionsStateNoMessage = kMessageLastEngine + 1,
 	kMessageCollisionsStatePrintActorStatus,
-	kMessageCollisionsStateReleasedLeft,
-	kMessageCollisionsStateReleasedRight,
 	kMessageCollisionsStateResuscitate,
 	kMessagePongBallStartMoving,
 	kMessagePongDummy,
@@ -32,6 +28,12 @@ enum Messages
 	kMessagePongSendInput,
 	kMessagePongSync,
 	kMessagePongYourPoint,
+	kMessageShowcaseStateHoldDown,
+	kMessageShowcaseStateHoldLeft,
+	kMessageShowcaseStateHoldRight,
+	kMessageShowcaseStateHoldUp,
+	kMessageShowcaseStateReleasedLeft,
+	kMessageShowcaseStateReleasedRight,
 };
 
 #endif

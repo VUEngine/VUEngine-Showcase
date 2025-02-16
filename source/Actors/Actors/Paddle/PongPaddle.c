@@ -11,8 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <Box.h>
-#include <CommunicationManager.h>
+#include <Body.h>
 #include <InGameTypes.h>
 #include <Messages.h>
 #include <Optics.h>
@@ -37,6 +36,8 @@ void PongPaddle::constructor(const PongPaddleSpec* pongPaddleSpec, int16 interna
 {
 	// Always explicitly call the base's constructor
 	Base::constructor((ActorSpec*)&pongPaddleSpec->actorSpec, internalId, name);
+
+	this->type = kPaddleNone;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -54,16 +55,36 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 	switch(message)
 	{
 		case kMessagePongResetPositions:
+		{
+			PongPaddle::stopMovement(this, __ALL_AXIS);
+			Vector3D localPosition = this->localTransformation.position;
+			localPosition.y = 0;
+			PongPaddle::setLocalPosition(this, &localPosition);
+PRINT_TIME(1, 10);
+			break;
+		}
 
-			if(!CommunicationManager::isConnected(CommunicationManager::getInstance()))
+		case kMessageShowcaseStateHoldUp:
+		{
+			if(kPaddleLocal == this->type)
 			{
-				PongPaddle::stopMovement(this, __ALL_AXIS);
-				Vector3D localPosition = this->localTransformation.position;
-				localPosition.y = 0;
-				PongPaddle::setLocalPosition(this, &localPosition);
+				PongPaddle::moveTowards(this, __UP);
+				return true;
 			}
 
 			break;
+		}
+
+		case kMessageShowcaseStateHoldDown:
+		{
+			if(kPaddleLocal == this->type)
+			{
+				PongPaddle::moveTowards(this, __DOWN);
+				return true;
+			}
+
+			break;
+		}
 	}
 
 	/* Returning false allows any other actor interested in the message to process it,
@@ -75,15 +96,23 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongPaddle::moveTowards(NormalizedDirection direction)
+void PongPaddle::setType(uint32 type)
 {
-	Vector3D force = {
-		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.x, __I_TO_FIX10_6(direction.x)),
-		__FIX10_6_MULT(((PongPaddleSpec*)this->actorSpec)->force.y, __I_TO_FIX10_6(direction.y)),
-		0
-	};
+	this->type = type;
+}
 
-	PongPaddle::applyForce(this, &force, true);
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongPaddle::moveTowards(int32 direction)
+{
+	if(!isDeleted(this->body))
+	{
+		fixed_t forceMagnitude = __FIXED_MULT(Body::getMass(this->body), Body::getMaximumSpeed(this->body));
+
+		Vector3D force = {0, forceMagnitude * direction, 0};
+
+		PongPaddle::applyForce(this, &force, false);
+	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -14,6 +14,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <PongManager.h>
 #include <ShowcaseState.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -27,8 +28,8 @@
 /// Implements a simple pong game to showcase how communications work.
 dynamic_singleton class CommunicationsState : ShowcaseState
 {
-	/// If true, a connection has been detected
-	bool isVersusMode;
+	/// Manager of the pong gameplay
+	PongManager pongManager;
 
 	/// Process an event that the instance is listen for.
 	/// @param eventFirer: ListenerObject that signals the event
@@ -47,10 +48,6 @@ dynamic_singleton class CommunicationsState : ShowcaseState
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information
 	override void processUserInput(const UserInput*  userInput);
-
-	/// Check if the game state is in versus mode.
-	/// @return True if the state is in versus mode; false otherwise
-	override bool isVersusMode();
 
 	/// Show the state's controls.
 	override void showControls();

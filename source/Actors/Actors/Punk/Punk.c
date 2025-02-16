@@ -92,10 +92,10 @@ bool Punk::handlePropagatedMessage(int32 message)
 {
 	switch(message)
 	{
-		case kMessageCollisionsStateHoldLeft:
-		case kMessageCollisionsStateHoldRight:
-		case kMessageCollisionsStateReleasedLeft:
-		case kMessageCollisionsStateReleasedRight:
+		case kMessageShowcaseStateHoldLeft:
+		case kMessageShowcaseStateHoldRight:
+		case kMessageShowcaseStateReleasedLeft:
+		case kMessageShowcaseStateReleasedRight:
 
 			/*
 			 * My state machine will process this Telegram. This is not very performant, but it is certainly,

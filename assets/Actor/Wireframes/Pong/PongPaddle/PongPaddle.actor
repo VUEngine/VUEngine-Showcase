@@ -11,8 +11,8 @@
         "enabled": true,
         "friction": 0,
         "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
+        "mass": 0.1,
+        "maximumSpeed": 2,
         "maximumVelocity": {
             "x": 0,
             "y": 0,

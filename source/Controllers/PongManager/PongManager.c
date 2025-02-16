@@ -11,6 +11,8 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#include <string.h>
+
 #include <CommunicationManager.h>
 #include <GameEvents.h>
 #include <KeypadManager.h>
@@ -27,7 +29,7 @@
 #include <VUEngine.h>
 #include <VirtualList.h>
 
-#include "Pong.h"
+#include "PongManager.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' MACROS
@@ -74,13 +76,50 @@ typedef struct RemotePlayerData
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+void PongManager::constructor(Stage stage)
+{
+	// Always explicitly call the base's constructor
+	Base::constructor();
+
+	this->stage = stage;
+	this->leftScore = 0;
+	this->rightScore = 0;
+	
+	this->messageForRemote = kMessagePongSync;
+	this->allowPaddleMovement = false;
+	this->remoteHoldKey = 0;
+
+	// Enable comms	
+	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::destructor()
+{
+	// Always explicitly call the base's destructor
+	Base::destructor();
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
 {
 	switch(eventCode)
 	{
+		case kEventCommunicationsConnected:
+		{
+			// Reset random seed in multiplayer mode so both machines are completely in sync
+			Math::resetRandomSeed();
+
+			PongManager::getReady(this);
+			return true;
+		}
+
+
 		case kEventActorDeleted:
 		{
-			if(!isDeleted(eventFirer))
+			if(0 == strcmp(PONG_BALL_NAME, Actor::getName(eventFirer)))
 			{
 				if(0 < PongBall::getPosition(eventFirer)->x)
 				{
@@ -89,11 +128,6 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 				else
 				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongYourPoint : kMessagePongMyPoint;
-				}
-
-				if(ListenerObject::safeCast(this->pongBall) == eventFirer)
-				{
-					this->pongBall = NULL;
 				}
 			}
 
@@ -104,8 +138,7 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 		{
 			if(__GET_CAST(PongBall, eventFirer))
 			{
-				this->pongBall = PongBall::safeCast(eventFirer);
-				PongBall::addEventListener(this->pongBall, ListenerObject::safeCast(this), kEventActorDeleted);
+				Actor::addEventListener(eventFirer, ListenerObject::safeCast(this), kEventActorDeleted);
 			}
 
 			return true;
@@ -117,85 +150,74 @@ bool Pong::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eve
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::getReady(Stage stage, bool isVersusMode)
+void PongManager::getReady()
 {
-	this->isVersusMode = isVersusMode;
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	{
+	//	CommunicationManager::startSyncCycle(CommunicationManager::getInstance());
+	}
 
-	VirtualList::clear(this->playerPaddles);
-	VirtualList::clear(this->opponentPaddles);
 	this->leftScore = 0;
 	this->rightScore = 0;
-	this->pongBall = NULL;
 	this->messageForRemote = kMessagePongSync;
 	this->allowPaddleMovement = false;
 	this->remoteHoldKey = 0;
 
-	if(isDeleted(stage))
+	if(isDeleted(this->stage))
 	{
 		return;
 	}
+			PRINT_TEXT("CONNECTED   ", 1, 10);
 
 	this->playerNumber = kPlayerAlone;
 
-	if(isVersusMode)
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
-		if(CommunicationManager::isMaster(CommunicationManager::getInstance()))
+
+		this->playerNumber = kPlayerOne;
+		PRINT_TEXT("ONE  ", 1, 11);
+
+		if(!CommunicationManager::isMaster(CommunicationManager::getInstance()))
 		{
-			this->playerNumber = kPlayerOne;
-		}
-		else
-		{
+					PRINT_TEXT("TWO  ", 1, 11);
 			this->playerNumber = kPlayerTwo;
 		}
-	}
 
-	if(kPlayerAlone == this->playerNumber)
-	{
-		VirtualList::pushBack(this->playerPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_LEFT_NAME, true)));
-		VirtualList::pushBack(this->playerPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_RIGHT_NAME, true)));
-		NM_ASSERT(2 == VirtualList::getCount(this->playerPaddles), "Pong::getReady: not all paddles found");
-	}
-	else if(kPlayerOne == this->playerNumber)
-	{
-		VirtualList::pushBack(this->playerPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_LEFT_NAME, false)));
-		NM_ASSERT(1 == VirtualList::getCount(this->playerPaddles), "Pong::getReady: didn't find left paddle");
-		VirtualList::pushBack(this->opponentPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_RIGHT_NAME, false)));
-		NM_ASSERT(1 == VirtualList::getCount(this->playerPaddles), "Pong::getReady: didn't find right paddle");
-	}
-	else if(kPlayerTwo == this->playerNumber)
-	{
-		VirtualList::pushBack(this->playerPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_RIGHT_NAME, false)));
-		NM_ASSERT(1 == VirtualList::getCount(this->playerPaddles), "Pong::getReady: didn't find right paddle");
-		VirtualList::pushBack(this->opponentPaddles, PongPaddle::safeCast(Stage::getChildByName(stage, (char*)PADDLE_LEFT_NAME, false)));
-		NM_ASSERT(1 == VirtualList::getCount(this->opponentPaddles), "Pong::getReady: didn't find left paddle");
-	}
+		uint32 leftPaddleType = kPlayerOne == this->playerNumber ? kPaddleLocal : kPaddleRemote;
+		uint32 rightPaddleType = kPlayerTwo == this->playerNumber ? kPaddleLocal : kPaddleRemote;
 
-	if(!isDeleted(stage))
-	{
-		this->pongBall = PongBall::safeCast(Stage::getChildByName(stage, (char*)PONG_BALL_NAME, false));
+		PongPaddle leftPaddle = PongPaddle::safeCast(Stage::getChildByName(this->stage, (char*)PADDLE_LEFT_NAME, true));
 
-		if(!isDeleted(this->pongBall))
+		if(!isDeleted(leftPaddle))
 		{
-			PongBall::addEventListener(this->pongBall, ListenerObject::safeCast(this), kEventActorDeleted);
-			Stage::addActorLoadingListener(stage, ListenerObject::safeCast(this));
+			PongPaddle::setType(leftPaddle, leftPaddleType);
+		}
+
+		PongPaddle rightPaddle = PongPaddle::safeCast(Stage::getChildByName(this->stage, (char*)PADDLE_RIGHT_NAME, true));
+
+		if(!isDeleted(rightPaddle))
+		{
+			PongPaddle::setType(rightPaddle, rightPaddleType);
 		}
 	}
+
+	Actor ball = Actor::safeCast(Stage::getChildByName(this->stage, (char*)PONG_BALL_NAME, false));
+
+	if(!isDeleted(ball))
+	{
+		Actor::addEventListener(ball, ListenerObject::safeCast(this), kEventActorDeleted);
+	}
+
+	Stage::addActorLoadingListener(this->stage, ListenerObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Pong::isVersusMode()
-{
-	return this->isVersusMode;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void Pong::processUserInput(const UserInput* userInput)
+void PongManager::processUserInput(const UserInput* userInput)
 {
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
-		this->messageForRemote = kMessagePongGoodBye;
+	//	this->messageForRemote = kMessagePongGoodBye;
 	}
 
 	this->allowPaddleMovement = false;
@@ -207,32 +229,19 @@ void Pong::processUserInput(const UserInput* userInput)
 	 * both are at the end of each frame in the same state. It is possible to run
 	 * the game in one and send the data to the other so this only shows it.
 	 */
-	Pong::syncWithRemote(this, userInput);
-
-	if(this->allowPaddleMovement)
-	{
-		if(0 != userInput->holdKey)
-		{
-			Pong::onKeyHold(this, userInput->holdKey, this->playerPaddles);
-		}
-
-		if(0 != this->remoteHoldKey)
-		{
-			Pong::onKeyHold(this, this->remoteHoldKey, this->opponentPaddles);
-		}
-	}
+	//PongManager::syncWithRemote(this, userInput);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-int Pong::getPlayerNumber()
+int PongManager::getPlayerNumber()
 {
 	return this->playerNumber;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::printScore()
+void PongManager::printScore()
 {
 	int16 y = 26;
 	PRINT_TEXT("P1:	  ", 1, y);
@@ -250,40 +259,7 @@ void Pong::printScore()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::constructor()
-{
-	// Always explicitly call the base's constructor
-	Base::constructor();
-
-	this->pongBall = NULL;
-	this->playerPaddles = new VirtualList();
-	this->opponentPaddles = new VirtualList();
-
-	this->isVersusMode = false;
-	this->leftScore = 0;
-	this->rightScore = 0;
-	this->messageForRemote = kMessagePongSync;
-	this->allowPaddleMovement = false;
-	this->remoteHoldKey = 0;
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void Pong::destructor()
-{
-	this->pongBall = NULL;
-	delete this->playerPaddles;
-	this->playerPaddles = NULL;
-	delete this->opponentPaddles;
-	this->opponentPaddles = NULL;
-
-	// Allow a new construct	// Always explicitly call the base's destructor
-	Base::destructor();
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-uint32 Pong::getCommunicationCommand(uint32 message)
+uint32 PongManager::getCommunicationCommand(uint32 message)
 {
 	switch(message)
 	{
@@ -310,20 +286,20 @@ uint32 Pong::getCommunicationCommand(uint32 message)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Pong::isMessageValid(uint32 message, uint8 command)
+bool PongManager::isMessageValid(uint32 message, uint8 command)
 {
-	return Pong::getCommunicationCommand(this, message) == command;
+	return PongManager::getCommunicationCommand(this, message) == command;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::syncWithRemote(const UserInput* userInput)
+void PongManager::syncWithRemote(const UserInput* userInput)
 {
 	/*
 	 * A command is used to verify that the received message and the data
 	 * are valid.
 	 */
-	uint8 command = Pong::getCommunicationCommand(this, this->messageForRemote);
+	uint8 command = PongManager::getCommunicationCommand(this, this->messageForRemote);
 
 	/*
 	 * This is the struct that we are going to send down the link port.
@@ -335,12 +311,12 @@ void Pong::syncWithRemote(const UserInput* userInput)
 	remotePlayerData.condensedUserInput.releasedKey = userInput->releasedKey;
 	remotePlayerData.condensedUserInput.holdKey = userInput->holdKey;
 
-	Pong::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
+	PongManager::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
+void PongManager::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 {
 	uint32 receivedMessage = kMessagePongDummy;
 	const RemotePlayerData* remotePlayerData = NULL;
@@ -372,14 +348,14 @@ void Pong::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
 	/*
 	 * The validity of the message is based on the command that was received
 	 */
-	while(!Pong::isMessageValid(this, receivedMessage, remotePlayerData->command));
+	while(!PongManager::isMessageValid(this, receivedMessage, remotePlayerData->command));
 
-	Pong::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
+	PongManager::processReceivedMessage(this, messageForRemote, receivedMessage, remotePlayerData);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
+void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessage, const RemotePlayerData* remotePlayerData)
 {
 	/*
 	 * When both systems send the same message, they are in sync. If the received
@@ -392,7 +368,9 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 			if(kMessagePongSync == messageForRemote)
 			{
-				Pong::fireEvent(this, kEventPongRemoteInSync);
+				Stage::propagateMessage(this->stage, Container::onPropagatedMessage, kMessagePongResetPositions);
+
+				PongManager::fireEvent(this, kEventPongRemoteInSync);
 
 				this->messageForRemote = kMessagePongSendInput;
 			}
@@ -407,7 +385,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 			if(kMessagePongYourPoint == messageForRemote)
 			{
-				Pong::registerPoint(this, kMessagePongYourPoint);
+				PongManager::registerPoint(this, kMessagePongYourPoint);
 
 				this->messageForRemote = kMessagePongSync;
 			}
@@ -422,7 +400,7 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 			if(kMessagePongMyPoint == messageForRemote)
 			{
-				Pong::registerPoint(this, kMessagePongMyPoint);
+				PongManager::registerPoint(this, kMessagePongMyPoint);
 
 				this->messageForRemote = kMessagePongSync;
 			}
@@ -449,34 +427,24 @@ void Pong::processReceivedMessage(uint32 messageForRemote, uint32 receivedMessag
 
 		case kMessagePongGoodBye:
 
-			Pong::fireEvent(this, kEventPongRemoteWentAway);
+			CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+
+			PongManager::fireEvent(this, kEventPongRemoteWentAway);
+
+			PongManager::getReady(this);
 
 			this->messageForRemote = kMessagePongSync;
+
+			Stage::propagateMessage(this->stage, Container::onPropagatedMessage, kMessagePongResetPositions);
+
+			//CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
 			break;
 	}
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void Pong::onKeyHold(uint16 holdKey, VirtualList paddles)
-{
-	NormalizedDirection normalizedDirection = {0, 0, 0};
-
-	if((K_LU | K_RU) & holdKey)
-	{
-		normalizedDirection.y = __UP;
-		PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-	}
-	else if((K_LD | K_RD) & holdKey)
-	{
-		normalizedDirection.y = __DOWN;
-		PongPaddle::moveTowards(VirtualList::front(paddles), normalizedDirection);
-	}
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void Pong::registerPoint(uint32 message)
+void PongManager::registerPoint(uint32 message)
 {
 	switch(message)
 	{
@@ -509,7 +477,7 @@ void Pong::registerPoint(uint32 message)
 		}
 	}
 
-	Pong::printScore(this);
+	PongManager::printScore(this);
 
 	RumbleManager::startEffect(&PointRumbleEffectSpec);
 

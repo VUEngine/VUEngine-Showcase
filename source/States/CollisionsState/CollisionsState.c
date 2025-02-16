@@ -110,19 +110,19 @@ void CollisionsState::processUserInput(const UserInput* userInput)
 
 	if(K_LL & userInput->holdKey)
 	{
-		message = kMessageCollisionsStateHoldLeft;
+		message = kMessageShowcaseStateHoldLeft;
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
-		message = kMessageCollisionsStateReleasedLeft;
+		message = kMessageShowcaseStateReleasedLeft;
 	}
 	else if(K_LR & userInput->holdKey)
 	{
-		message = kMessageCollisionsStateHoldRight;
+		message = kMessageShowcaseStateHoldRight;
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		message = kMessageCollisionsStateReleasedRight;
+		message = kMessageShowcaseStateReleasedRight;
 	}
 
 	if(kMessageCollisionsStateNoMessage != message)

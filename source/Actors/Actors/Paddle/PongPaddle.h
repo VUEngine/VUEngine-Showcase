@@ -39,11 +39,11 @@ typedef const PongPaddleSpec PongPaddleROMSpec;
 
 /// Enum to identify the paddles
 /// @memberof PongPaddle
-enum PlayerPongPaddles
+enum PongPaddleType
 {
-	kLeftPongPaddle = 0,
-	kRightPongPaddle,
-	kNoPongPaddle
+	kPaddleNone = 0,
+	kPaddleLocal,
+	kPaddleRemote
 };
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -57,6 +57,9 @@ enum PlayerPongPaddles
 /// Implements a Pong paddle.
 class PongPaddle : Actor
 {
+	/// @protectedsection
+	uint32 type;
+
 	/// @param pongPaddleSpec: Specification that determines how to configure the paddle
 	/// @param internalId: ID to keep track internally of the new instance
 	/// @param name: Name to assign to the new instance
@@ -67,9 +70,9 @@ class PongPaddle : Actor
 	/// @return True if the propagation must stop; false if the propagation must reach other containers
 	override bool handlePropagatedMessage(int32 message);
 
-	/// Move the paddle towards the provided direction.
-	/// @param direction: Direction towards which to move the paddle
-	void moveTowards(NormalizedDirection direction);
+	/// Set whether the paddle is locally controlled or not.
+	/// @param type: kPaddleLocal/kPaddleRemote
+	void setType(uint32 type);
 }
 
 #endif

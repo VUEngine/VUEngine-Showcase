@@ -150,7 +150,7 @@ BodyROMSpec PongPaddleBodySpec =
 	true,
 
 	// Mass
-	__F_TO_FIX10_6(0.000f),
+	__F_TO_FIX10_6(0.100f),
 
 	// Friction
 	__F_TO_FIX10_6(0.000f),
@@ -162,7 +162,7 @@ BodyROMSpec PongPaddleBodySpec =
 	{ __I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0) },
 
 	// Maximum speed
-	__I_TO_FIX10_6(0),
+	__I_TO_FIX10_6(2),
 
 	// Axises on which the body is subject to gravity
 	__NO_AXIS,
