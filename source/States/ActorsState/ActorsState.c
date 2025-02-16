@@ -224,7 +224,7 @@ void ActorsState::createLeaderPunk()
 		return;
 	}
 		
-	// Check the specification in assets/images/Punk/Spec/PunkSpec.c
+	// Check the specification in assets/Actor/Sprites/Punk/Converted/PunkAffineActorSpec.c
 	extern ActorSpec PunkAffineActorSpec;
 	
 	PositionedActor positionedActor = 

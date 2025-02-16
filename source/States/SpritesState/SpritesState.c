@@ -214,7 +214,7 @@ void SpritesState::createSprite()
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	SpritesState::restoreMethods();
 
-	// Check these specifications in assets/images/CogWheel/Spec/CogWheelSpec.c		
+	// Check these specifications in assets/Actor/Sprites/CogWheel/Converted/CogWheelActorSpec.c		
 	extern SpriteSpec CogWheelObjectSprite1SpriteSpec;
 	extern SpriteSpec CogWheelBgmapSprite1SpriteSpec;
 	extern SpriteSpec CogWheelAffineSprite1SpriteSpec;

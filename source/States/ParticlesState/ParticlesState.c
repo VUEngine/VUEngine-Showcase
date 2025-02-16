@@ -193,7 +193,7 @@ void ParticlesState::destructor()
 
 void ParticlesState::loadParticles()
 {
-	// Check these specifications in assets/images/Stars/Spec/StarsSpec.c		
+	// Check these specifications in assets/ParticleSystem/Stars/StarsSpec.c		
 	extern ParticleSystemSpec StarsParticleSystemNormalSpec;
 	extern ParticleSystemSpec StarsParticleSystemPhysicalSpec;
 	extern ParticleSystemSpec StarsParticleSystemSolidSpec;

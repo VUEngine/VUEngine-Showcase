@@ -305,7 +305,7 @@ void AnimationSchemesState::createSprites()
 	// Virtual methods can be changed in real time (the change affects all the class instances, but this is a singleton)
 	AnimationSchemesState::restoreMethods();
 
-	// Check these specifications in assets/images/Punk/Spec/PunkSpec.c		
+	// Check these specifications in assets/Actor/Sprites/Punk/Converted/Punk*ActorSpec.c		
 	extern SpriteSpec PunkNotSharedSprite1SpriteSpec;
 	extern SpriteSpec PunkSharedSprite1SpriteSpec;
 	extern SpriteSpec PunkMultiframeSprite1SpriteSpec;
