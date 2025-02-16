@@ -106,29 +106,7 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 		return;
 	}
 
-	if(0 != userInput->holdKey)
-	{
-		int32 message = kMessageCollisionsStateNoMessage;
-
-		if(K_LU & userInput->holdKey)
-		{
-			message = kMessageShowcaseStateHoldUp;
-		}
-		else if(K_LD & userInput->holdKey)
-		{
-			message = kMessageShowcaseStateHoldDown;
-		}
-
-		if(kMessageCollisionsStateNoMessage != message)
-		{
-			/*
-			* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
-			* pointer to the actor that the user controls and calling an specific method that its class implements would be
-			* way faster.
-			*/
-			CommunicationsState::propagateMessage(this, message);
-		}
-	}
+	PongManager::processUserInput(this->pongManager, userInput);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

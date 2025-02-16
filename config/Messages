@@ -1,6 +1,7 @@
 {
     "_version": "0.6.0",
     "messages": {
+        "4GEYpvXkUD0d5bMt": "Showcase State Hold Down",
         "4gGsApAgfp1DZD5G": "Pong Ball Start Moving",
         "bYWuHK2INEznnWYy": "Showcase State Hold Left",
         "DKqQKQZ0uHzXeje6": "Pong My Point",
@@ -11,12 +12,13 @@
         "M1LYtCKIYHCszlDv": "Showcase State Hold Right",
         "mud5KlhW6GBPxMuZ": "Showcase State Released Right",
         "mzfKm6QapnF2CUvy": "Pong Sync",
+        "N4MYiH7njXFvbBuJ": "Showcase State Hold Up",
         "sl8FwWs9fzPHnTN6": "Pong Dummy",
         "sT6VG9CEg4GlXgaU": "Pong Send Input",
         "ucCKUZk3hk2JKJpB": "Showcase State Released Left",
         "VKE46ZokECvpsaU1": "Collisions State No Message",
         "xzOOyHoYuw5DNVaL": "Pong Good Bye",
-        "N4MYiH7njXFvbBuJ": "Showcase State Hold Up",
-        "4GEYpvXkUD0d5bMt": "Showcase State Hold Down"
+        "fMmWLOUobuFpIhK1": "Showcase State Remote Hold Up",
+        "9qV6n7jy0dsXcpx0": "Showcase State Remote Hold Down"
     }
 }

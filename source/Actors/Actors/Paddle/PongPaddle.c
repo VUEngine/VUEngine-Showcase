@@ -60,7 +60,6 @@ bool PongPaddle::handlePropagatedMessage(int32 message)
 			Vector3D localPosition = this->localTransformation.position;
 			localPosition.y = 0;
 			PongPaddle::setLocalPosition(this, &localPosition);
-PRINT_TIME(1, 10);
 			break;
 		}
 
@@ -68,7 +67,7 @@ PRINT_TIME(1, 10);
 		{
 			if(kPaddleLocal == this->type)
 			{
-				PongPaddle::moveTowards(this, __UP);
+				PongPaddle::move(this, __UP);
 				return true;
 			}
 
@@ -79,7 +78,29 @@ PRINT_TIME(1, 10);
 		{
 			if(kPaddleLocal == this->type)
 			{
-				PongPaddle::moveTowards(this, __DOWN);
+				PongPaddle::move(this, __DOWN);
+				return true;
+			}
+
+			break;
+		}
+
+		case kMessageShowcaseStateRemoteHoldUp:
+		{
+			if(kPaddleRemote == this->type)
+			{
+				PongPaddle::move(this, __UP);
+				return true;
+			}
+
+			break;
+		}
+
+		case kMessageShowcaseStateRemoteHoldDown:
+		{
+			if(kPaddleRemote == this->type)
+			{
+				PongPaddle::move(this, __DOWN);
 				return true;
 			}
 
@@ -103,7 +124,7 @@ void PongPaddle::setType(uint32 type)
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongPaddle::moveTowards(int32 direction)
+void PongPaddle::move(int32 direction)
 {
 	if(!isDeleted(this->body))
 	{

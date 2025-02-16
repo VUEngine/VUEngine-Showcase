@@ -34,6 +34,8 @@ enum Messages
 	kMessageShowcaseStateHoldUp,
 	kMessageShowcaseStateReleasedLeft,
 	kMessageShowcaseStateReleasedRight,
+	kMessageShowcaseStateRemoteHoldDown,
+	kMessageShowcaseStateRemoteHoldUp,
 };
 
 #endif
