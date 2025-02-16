@@ -50,6 +50,7 @@ bool CommunicationsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 
 		case kEventPongRemoteWentAway:
 		{
+			this->showAdditionalDetails = false;
 			CommunicationsState::show(this, false);
 			return true;
 		}
