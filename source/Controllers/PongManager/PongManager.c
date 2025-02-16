@@ -216,15 +216,28 @@ void PongManager::processUserInput(const UserInput* userInput)
 
 	PongManager::syncWithRemote(this, userInput);
 
+	PongManager::propagateInputMessage(this, userInput->holdKey, kMessageShowcaseStateHoldUp, kMessageShowcaseStateHoldDown);
+	PongManager::propagateInputMessage(this, this->remoteHoldKey, kMessageShowcaseStateRemoteHoldUp, kMessageShowcaseStateRemoteHoldDown);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::propagateInputMessage(uint16 holdKey, uint32 upMessage, uint32 downMessage)
+{
+	if(0 == holdKey)
+	{
+		return;
+	}
+
 	int32 message = kMessageNone;
 
-	if(K_LU & userInput->holdKey)
+	if(K_LU & holdKey)
 	{
-		message = kMessageShowcaseStateHoldUp;
+		message = upMessage;
 	}
-	else if(K_LD & userInput->holdKey)
+	else if(K_LD & holdKey)
 	{
-		message = kMessageShowcaseStateHoldDown;
+		message = downMessage;
 	}
 	
 	if(kMessageNone != message && this->allowPaddleMovement)
@@ -236,30 +249,6 @@ void PongManager::processUserInput(const UserInput* userInput)
 		*/
 		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
 	}
-
-	PRINT_HEX(this->remoteHoldKey, 1, 10);
-
-	if(0 != this->remoteHoldKey)
-	{
-		int32 message = kMessageNone;
-
-		if(K_LU & this->remoteHoldKey)
-		{
-			message = kMessageShowcaseStateRemoteHoldUp;
-		}
-		else if(K_LD & this->remoteHoldKey)
-		{
-			message = kMessageShowcaseStateRemoteHoldDown;
-		}
-
-		/*
-		* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
-		* pointer to the actor that the user controls and calling an specific method that its class implements would be
-		* way faster.
-		*/
-		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
-	}
-
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -291,10 +280,6 @@ void PongManager::printScore()
 
 uint32 PongManager::getCommunicationCommand(uint32 message)
 {
-		PRINT_TIME(40, 10);
-		PRINT_INT(message, 40, 11);
-		PRINT_INT(this->messageForRemote, 40, 12);
-
 	switch(message)
 	{
 		case kMessagePongSync:

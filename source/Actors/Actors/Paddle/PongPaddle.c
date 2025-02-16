@@ -132,7 +132,7 @@ void PongPaddle::move(int32 direction)
 
 		Vector3D force = {0, forceMagnitude * direction, 0};
 
-		PongPaddle::applyForce(this, &force, false);
+		PongPaddle::applyForce(this, &force, true);
 	}
 }
 
