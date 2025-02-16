@@ -109,18 +109,15 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 	{
 		case kEventCommunicationsConnected:
 		{
-			// Reset random seed in multiplayer mode so both machines are completely in sync
-			Math::resetRandomSeed();
-
 			PongManager::getReady(this);
-			return true;
+			return false;
 		}
-
 
 		case kEventActorDeleted:
 		{
 			if(0 == strcmp(PONG_BALL_NAME, Actor::getName(eventFirer)))
 			{
+				/*
 				if(0 < PongBall::getPosition(eventFirer)->x)
 				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongMyPoint : kMessagePongYourPoint;
@@ -129,6 +126,7 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 				{
 					this->messageForRemote = kPlayerOne == this->playerNumber ? kMessagePongYourPoint : kMessagePongMyPoint;
 				}
+				*/
 			}
 
 			return true;
@@ -167,19 +165,15 @@ void PongManager::getReady()
 	{
 		return;
 	}
-			PRINT_TEXT("CONNECTED   ", 1, 10);
 
 	this->playerNumber = kPlayerAlone;
 
 	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 	{
-
 		this->playerNumber = kPlayerOne;
-		PRINT_TEXT("ONE  ", 1, 11);
 
 		if(!CommunicationManager::isMaster(CommunicationManager::getInstance()))
 		{
-					PRINT_TEXT("TWO  ", 1, 11);
 			this->playerNumber = kPlayerTwo;
 		}
 
@@ -217,19 +211,55 @@ void PongManager::processUserInput(const UserInput* userInput)
 {
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
-	//	this->messageForRemote = kMessagePongGoodBye;
+		this->messageForRemote = kMessagePongGoodBye;
 	}
 
-	this->allowPaddleMovement = false;
-	this->remoteHoldKey = 0;
+	PongManager::syncWithRemote(this, userInput);
 
-	/*
-	 * This call will sync both systems. The approach in this example is to get both
-	 * systems to follow the same code paths and only transmit the user input. So,
-	 * both are at the end of each frame in the same state. It is possible to run
-	 * the game in one and send the data to the other so this only shows it.
-	 */
-	//PongManager::syncWithRemote(this, userInput);
+	int32 message = kMessageNone;
+
+	if(K_LU & userInput->holdKey)
+	{
+		message = kMessageShowcaseStateHoldUp;
+	}
+	else if(K_LD & userInput->holdKey)
+	{
+		message = kMessageShowcaseStateHoldDown;
+	}
+	
+	if(kMessageNone != message && this->allowPaddleMovement)
+	{
+		/*
+		* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
+		* pointer to the actor that the user controls and calling an specific method that its class implements would be
+		* way faster.
+		*/
+		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
+	}
+
+	PRINT_HEX(this->remoteHoldKey, 1, 10);
+
+	if(0 != this->remoteHoldKey)
+	{
+		int32 message = kMessageNone;
+
+		if(K_LU & this->remoteHoldKey)
+		{
+			message = kMessageShowcaseStateRemoteHoldUp;
+		}
+		else if(K_LD & this->remoteHoldKey)
+		{
+			message = kMessageShowcaseStateRemoteHoldDown;
+		}
+
+		/*
+		* Passing input to actors in this way, while elegant, is not very performant. Most likely, a way to get a
+		* pointer to the actor that the user controls and calling an specific method that its class implements would be
+		* way faster.
+		*/
+		Stage::propagateMessage(this->stage, Container::onPropagatedMessage, message);
+	}
+
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -261,6 +291,10 @@ void PongManager::printScore()
 
 uint32 PongManager::getCommunicationCommand(uint32 message)
 {
+		PRINT_TIME(40, 10);
+		PRINT_INT(message, 40, 11);
+		PRINT_INT(this->messageForRemote, 40, 12);
+
 	switch(message)
 	{
 		case kMessagePongSync:
@@ -296,22 +330,34 @@ bool PongManager::isMessageValid(uint32 message, uint8 command)
 void PongManager::syncWithRemote(const UserInput* userInput)
 {
 	/*
-	 * A command is used to verify that the received message and the data
-	 * are valid.
+	 * This call will sync both systems. The approach in this example is to get both
+	 * systems to follow the same code paths and only transmit the user input. So,
+	 * both are at the end of each frame in the same state. It is possible to run
+	 * the game in one and send the data to the other so this only shows it.
 	 */
-	uint8 command = PongManager::getCommunicationCommand(this, this->messageForRemote);
+	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	{
+		this->remoteHoldKey = 0;
 
-	/*
-	 * This is the struct that we are going to send down the link port.
-	 */
-	RemotePlayerData remotePlayerData;
+		/*
+		* A command is used to verify that the received message and the data
+		* are valid.
+		*/
+		uint8 command = PongManager::getCommunicationCommand(this, this->messageForRemote);
 
-	remotePlayerData.command = command;
-	remotePlayerData.condensedUserInput.pressedKey = userInput->pressedKey;
-	remotePlayerData.condensedUserInput.releasedKey = userInput->releasedKey;
-	remotePlayerData.condensedUserInput.holdKey = userInput->holdKey;
+		/*
+		* This is the struct that we are going to send down the link port.
+		*/
+		RemotePlayerData remotePlayerData;
 
-	PongManager::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
+		remotePlayerData.command = command;
+		remotePlayerData.condensedUserInput.pressedKey = userInput->pressedKey;
+		remotePlayerData.condensedUserInput.releasedKey = userInput->releasedKey;
+		remotePlayerData.condensedUserInput.holdKey = userInput->holdKey;
+
+		PongManager::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
+	}
+		
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -336,7 +382,7 @@ void PongManager::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataB
 			 * In this case, simply cancel all communications and try again. This supposes
 			 * that there are no other calls that could cause a race condition.
 			 */
-			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
+//			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
 		}
 
 		/*
@@ -368,6 +414,9 @@ void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receive
 
 			if(kMessagePongSync == messageForRemote)
 			{
+				// Reset random seed in multiplayer mode so both machines are completely in sync
+				Math::resetRandomSeed();
+
 				Stage::propagateMessage(this->stage, Container::onPropagatedMessage, kMessagePongResetPositions);
 
 				PongManager::fireEvent(this, kEventPongRemoteInSync);
