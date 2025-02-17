@@ -109,14 +109,13 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 	switch(Entity::getInGameType(collidingEntity))
 	{
 		case kTypePongPaddle:
-
 		{
 			Vector3D velocity = *Body::getVelocity(this->body);
 
-			fixed_t yDisplacement = this->transformation.position.y - Entity::getPosition(collidingEntity)->y;
-
-			//				velocity.x -= yDisplacement;
-			velocity.y += yDisplacement;
+			// This will cause desynchronization if the paddle has detected a collision against the walls
+			// and snaped to a valid position while the other system's instance hasn't yet processed the 
+			// same collision
+			velocity.y += this->transformation.position.y - Entity::getPosition(collidingEntity)->y;
 
 			Body::setVelocity(this->body, &velocity);
 		}

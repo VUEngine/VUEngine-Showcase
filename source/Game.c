@@ -67,7 +67,7 @@ GameState game(void)
 	);
 
 	// And return the first GameState that the game must enter into
-	return GameState::safeCast(ShowcaseState::getFirstShowcase()());
+	return GameState::safeCast(PrecautionScreenState::getInstance());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
