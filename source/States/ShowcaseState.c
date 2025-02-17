@@ -71,7 +71,7 @@ static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool ShowcaseState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+bool ShowcaseState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
@@ -147,7 +147,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 /*
  *	The StateMachine calls State::exit when popping the State from its stack.
  */
-void ShowcaseState::exit(void* owner __attribute__((unused)))
+void ShowcaseState::exit(void* owner)
 {
 	FrameRate::removeEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 

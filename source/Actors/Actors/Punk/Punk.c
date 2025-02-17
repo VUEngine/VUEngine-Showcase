@@ -53,7 +53,7 @@ void Punk::destructor()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool Punk::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+bool Punk::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{

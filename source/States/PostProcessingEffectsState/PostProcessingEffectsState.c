@@ -46,7 +46,7 @@ static const PostProcessingEffect _postProcessingEffect[] =
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PostProcessingEffectsState::exit(void* owner __attribute__((unused)))
+void PostProcessingEffectsState::exit(void* owner)
 {
 	VIPManager::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 	

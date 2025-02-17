@@ -31,7 +31,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void WireframesState::enter(void* owner __attribute__((unused))) 
+void WireframesState::enter(void* owner) 
 {
 	Base::enter(this, owner);
 	
@@ -52,7 +52,7 @@ void WireframesState::enter(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void WireframesState::execute(void* owner __attribute__((unused)))
+void WireframesState::execute(void* owner)
 {
 	Base::execute(this, owner);
 	

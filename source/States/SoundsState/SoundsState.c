@@ -42,7 +42,7 @@ static const SoundROMSpec* _soundSamples[] =
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool SoundsState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+bool SoundsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
@@ -574,19 +574,5 @@ void SoundsState::applyTimerSettings()
 	TimerManager::applySettings(true);
 }
 
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-bool SoundsState::onNextSecondStarted(ListenerObject eventFirer __attribute__((unused)))
-{
-	if(!isDeleted(this->sound))
-	{
-		if(this->showAdditionalDetails)
-		{
-			TimerManager::printInterruptStats(1, 18);
-		}
-	}
-
-	return true;
-}
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

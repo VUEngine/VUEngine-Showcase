@@ -48,7 +48,7 @@ enum AnimationSchemes
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void AnimationSchemesState::execute(void* owner __attribute__((unused)))
+void AnimationSchemesState::execute(void* owner)
 {
 	Base::execute(this, owner);
 

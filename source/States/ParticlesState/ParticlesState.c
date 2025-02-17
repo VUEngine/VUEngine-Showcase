@@ -44,7 +44,7 @@ enum ParticleTypes
 /*
  * The StateMachine calls State::execute when updated. It is called once per game frame.
  */
-void ParticlesState::execute(void* owner __attribute__((unused)))
+void ParticlesState::execute(void* owner)
 {
 	Base::execute(this, owner);
 

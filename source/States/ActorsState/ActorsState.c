@@ -31,7 +31,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void ActorsState::execute(void* owner __attribute__((unused)))
+void ActorsState::execute(void* owner)
 {
 	Base::execute(this, owner);
 

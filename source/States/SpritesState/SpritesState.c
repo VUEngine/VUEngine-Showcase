@@ -51,7 +51,7 @@ enum SpriteTypes
  * Mutating the methods affects all the instances of the class.
  * Look for SpritesState::mutateMethod below in SpritesState::createSprite.
  */
-void SpritesState::execute(void* owner __attribute__((unused)))
+void SpritesState::execute(void* owner)
 {
 	Base::execute(this, owner);
 
@@ -292,7 +292,7 @@ void SpritesState::destroySprite()
  * Mutating the methods affects all the instances of the class.
  * At runtime we override SpritesState::execute.
  */
-void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((unused)))
+void SpritesState::executeSpriteVerticalTranslation(void* owner)
 {
 	Base::execute(this, owner);
 
@@ -320,7 +320,7 @@ void SpritesState::executeSpriteVerticalTranslation(void* owner __attribute__((u
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__((unused)))
+void SpritesState::executeSpriteHorizontalTranslation(void* owner)
 {
 	Base::execute(this, owner);
 
@@ -348,7 +348,7 @@ void SpritesState::executeSpriteHorizontalTranslation(void* owner __attribute__(
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
+void SpritesState::executeSpriteRotation(void* owner)
 {
 	Base::execute(this, owner);
 
@@ -387,7 +387,7 @@ void SpritesState::executeSpriteRotation(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void SpritesState::executeSpriteFullTranslation(void* owner __attribute__((unused)))
+void SpritesState::executeSpriteFullTranslation(void* owner)
 {
 	Base::execute(this, owner);
 

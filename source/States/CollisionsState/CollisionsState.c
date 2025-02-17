@@ -30,7 +30,7 @@
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-bool CollisionsState::onEvent(ListenerObject eventFirer __attribute__((unused)), uint16 eventCode)
+bool CollisionsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
@@ -47,7 +47,7 @@ bool CollisionsState::onEvent(ListenerObject eventFirer __attribute__((unused)),
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void CollisionsState::enter(void* owner __attribute__((unused)))
+void CollisionsState::enter(void* owner)
 {
 	Base::enter(this, owner);
 
@@ -69,7 +69,7 @@ void CollisionsState::enter(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void CollisionsState::execute(void* owner __attribute__((unused)))
+void CollisionsState::execute(void* owner)
 {
 	Base::execute(this, owner);
 
@@ -81,7 +81,7 @@ void CollisionsState::execute(void* owner __attribute__((unused)))
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void CollisionsState::exit(void* owner __attribute__((unused)))
+void CollisionsState::exit(void* owner)
 {
 	Printer::removeEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 
