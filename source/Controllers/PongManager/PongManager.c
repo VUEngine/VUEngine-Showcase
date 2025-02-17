@@ -76,12 +76,12 @@ typedef struct RemotePlayerData
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongManager::constructor()
+void PongManager::constructor(Stage stage)
 {
 	// Always explicitly call the base's constructor
 	Base::constructor();
 
-	this->stage = NULL;
+	this->stage = stage;
 	this->leftScore = 0;
 	this->rightScore = 0;
 	
@@ -144,13 +144,6 @@ bool PongManager::onEvent(ListenerObject eventFirer __attribute__((unused)), uin
 	}
 
 	return Base::onEvent(this, eventFirer, eventCode);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
-void PongManager::setStage(Stage stage)
-{
-	this->stage = stage;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

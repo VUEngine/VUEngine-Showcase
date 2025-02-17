@@ -75,17 +75,14 @@ class PongManager : ListenerObject
 	uint16 remoteHoldKey;
 
 	/// Class' constructor
-	void constructor();
+	/// @param stage: The stage where the actors are instantiated
+	void constructor(Stage stage);
 
 	/// Process an event that the instance is listen for.
 	/// @param eventFirer: ListenerObject that signals the event
 	/// @param eventCode: Code of the firing event
 	/// @return False if the listener has to be removed; true to keep it
 	override bool onEvent(ListenerObject eventFirer, uint16 eventCode);
-
-	/// Set the stage in which are the game's actors
-	/// @param stage: The stage where the actors are instantiated
-	void setStage(Stage stage);
 
 	/// Process the provided user input.
 	/// @param userInput: Struct with the current user input information

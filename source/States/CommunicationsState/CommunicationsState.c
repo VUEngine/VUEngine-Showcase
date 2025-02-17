@@ -66,7 +66,9 @@ void CommunicationsState::enter(void* owner)
 	Base::enter(this, owner);
 
 	// Configure the pong manager
-	PongManager::setStage(this->pongManager, this->stage);
+	this->pongManager = new PongManager(this->stage);
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteInSync);
+	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
 
 	// Disable automatic pause in versus mode
 	AutomaticPauseManager::setActive(AutomaticPauseManager::getInstance(), false);
@@ -85,6 +87,13 @@ void CommunicationsState::enter(void* owner)
 
 void CommunicationsState::exit(void* owner)
 {
+	if(!isDeleted(this->pongManager))
+	{
+		delete this->pongManager;
+	}	
+
+	this->pongManager = NULL;
+
 	AutomaticPauseManager::setActive
 	(
 		AutomaticPauseManager::getInstance(), GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
@@ -107,7 +116,10 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 		return;
 	}
 
-	PongManager::processUserInput(this->pongManager, userInput);
+	if(!isDeleted(this->pongManager))
+	{
+		PongManager::processUserInput(this->pongManager, userInput);
+	}
 
 	Base::processUserInput(this, userInput);
 }
@@ -118,23 +130,26 @@ void CommunicationsState::showControls()
 {
 	Printer::clearRow(__SCREEN_HEIGHT_IN_CHARS - 1);
 
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(!isDeleted(this->pongManager))
 	{
-		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-
-		switch(PongManager::getPlayerNumber(this->pongManager))
+		if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
 		{
-			case kPlayerOne:
+			Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
-				Printer::text(__CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printer::text(__CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				break;
+			switch(PongManager::getPlayerNumber(this->pongManager))
+			{
+				case kPlayerOne:
 
-			case kPlayerTwo:
+					Printer::text(__CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					Printer::text(__CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					break;
 
-				Printer::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				Printer::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-				break;
+				case kPlayerTwo:
+
+					Printer::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					Printer::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					break;
+			}
 		}
 	}
 }
@@ -206,23 +221,13 @@ void CommunicationsState::constructor()
 	extern StageROMSpec CommunicationsStageSpec;
 	this->stageSpec = (StageSpec*)&CommunicationsStageSpec;
 
-	this->pongManager = new PongManager();
-
-	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteInSync);
-	PongManager::addEventListener(this->pongManager, ListenerObject::safeCast(this), kEventPongRemoteWentAway);
+	this->pongManager = NULL;
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void CommunicationsState::destructor()
 {
-	if(!isDeleted(this->pongManager))
-	{
-		delete this->pongManager;
-	}	
-
-	this->pongManager = NULL;
-
 	// Always explicitly call the base's destructor 
 	Base::destructor();
 }
