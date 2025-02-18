@@ -204,18 +204,6 @@ int8 PongManager::getPlayerNumber()
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongManager::printScore()
-{
-	int16 y = 26;
-	PRINT_TEXT("P1:	  ", 1, y);
-	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
-
-	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
-	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
-}
-
-//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' PRIVATE METHODS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -520,6 +508,18 @@ void PongManager::registerPoint(uint32 message)
 	RumbleManager::startEffect(&PointRumbleEffectSpec);
 
 	SoundManager::playSound(&Point1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+void PongManager::printScore()
+{
+	int16 y = 26;
+	PRINT_TEXT("P1:	  ", 1, y);
+	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
+
+	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
+	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

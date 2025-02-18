@@ -91,9 +91,6 @@ class PongManager : ListenerObject
 	/// Retrieve the player number of this instance.
 	/// @return The player number of this game instance
 	int8 getPlayerNumber();
-
-	/// Printer the current score.
-	void printScore();
 }
 
 #endif
