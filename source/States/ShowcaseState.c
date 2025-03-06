@@ -328,7 +328,7 @@ void ShowcaseState::configurePalettes(bool dimm)
 		paletteConfig.object.jplt3 = 0x50;
 	}
 
-	VIPManager::configurePalettes(&paletteConfig);
+	VIPManager::configurePalettes(paletteConfig);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
