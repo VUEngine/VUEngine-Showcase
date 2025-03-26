@@ -1,9 +1,9 @@
 {
-    "_version": "0.6.0",
-    "gameCodeId": "VS",
-    "gameCodeLanguage": "M",
-    "gameCodeSystem": "V",
-    "gameTitle": "VUENGINE SHOWCASE",
-    "makerCode": "VU",
-    "revision": 0
+	"_version": "0.6.0",
+	"gameCodeId": "VS",
+	"gameCodeLanguage": "M",
+	"gameCodeSystem": "V",
+	"gameTitle": "VUENGINE SHOWCASE",
+	"makerCode": "VU",
+	"revision": 0
 }

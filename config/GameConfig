@@ -1,56 +1,60 @@
 {
-    "_version": "0.6.0",
-    "plugins": {
-        "vuengine//actors/LowPowerActor": {
-            "xPosition": -184,
-            "yPosition": 108
-        },
-        "vuengine//fonts/AstonishFont": {},
-        "vuengine//fonts/DefaultFontVariants": {},
-        "vuengine//other/AutomaticPause": {
-            "bodyTextFont": "Default",
-            "titleTextFont": "AstonishExt",
-            "useLowPowerActor": true
-        },
-        "vuengine//other/I18n": {},
-        "vuengine//other/SaveDataManager": {
-            "saveStamp": "VUEngineShowcase",
-            "saveStampLength": 16
-        },
-        "vuengine//postProcessing/DwarfPlanet": {
-            "endingColumn": 362,
-            "endingRow": 224,
-            "startingColumn": 22,
-            "startingRow": 82
-        },
-        "vuengine//postProcessing/Rain": {
-            "height": 112,
-            "width": 336,
-            "yPosition": 576
-        },
-        "vuengine//postProcessing/Tilt": {
-            "startingRow": 82
-        },
-        "vuengine//postProcessing/Wobble": {
-            "endingRow": 220,
-            "startingRow": 82
-        },
-        "vuengine//states/splash/AdjustmentScreenVUEngine": {
-            "useLowPowerActor": true
-        },
-        "vuengine//states/splash/AutomaticPauseSelectionScreen": {
-            "titleTextFont": "AstonishExt",
-            "useLowPowerActor": true
-        },
-        "vuengine//states/splash/LanguageSelectionScreen": {
-            "titleTextFont": "AstonishExt",
-            "useLowPowerActor": true,
-            "variant": 1
-        },
-        "vuengine//states/splash/PrecautionScreen": {
-            "textFont": "AstonishExt",
-            "useLowPowerActor": true
-        }
-    },
-    "projectTitle": "VUEngine Showcase"
+	"_version": "0.6.0",
+	"dashboard": {
+		"positions": {}
+	},
+	"plugins": {
+		"vuengine//actors/LowPowerActor": {
+			"xPosition": -184,
+			"yPosition": 108
+		},
+		"vuengine//fonts/AstonishFont": {},
+		"vuengine//fonts/DefaultFontVariants": {},
+		"vuengine//other/AutomaticPause": {
+			"bodyTextFont": "Default",
+			"titleTextFont": "AstonishExt",
+			"useLowPowerActor": true
+		},
+		"vuengine//other/I18n": {},
+		"vuengine//other/SaveDataManager": {
+			"saveStamp": "VUEngineShowcase",
+			"saveStampLength": 16
+		},
+		"vuengine//postProcessing/DwarfPlanet": {
+			"endingColumn": 362,
+			"endingRow": 224,
+			"startingColumn": 22,
+			"startingRow": 82
+		},
+		"vuengine//postProcessing/Rain": {
+			"height": 112,
+			"width": 336,
+			"yPosition": 576
+		},
+		"vuengine//postProcessing/Tilt": {
+			"startingRow": 82
+		},
+		"vuengine//postProcessing/Wobble": {
+			"endingRow": 220,
+			"startingRow": 82
+		},
+		"vuengine//states/splash/AdjustmentScreenVUEngine": {
+			"useLowPowerActor": true
+		},
+		"vuengine//states/splash/AutomaticPauseSelectionScreen": {
+			"titleTextFont": "AstonishExt",
+			"useLowPowerActor": true
+		},
+		"vuengine//states/splash/LanguageSelectionScreen": {
+			"titleTextFont": "AstonishExt",
+			"useLowPowerActor": true,
+			"variant": 1
+		},
+		"vuengine//states/splash/PrecautionScreen": {
+			"textFont": "AstonishExt",
+			"useLowPowerActor": true
+		}
+	},
+	"projectAuthor": "",
+	"projectTitle": "VUEngine Showcase"
 }

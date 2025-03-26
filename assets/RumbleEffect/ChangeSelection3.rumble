@@ -1,11 +1,11 @@
 {
-    "_id": "o0Xyb64pwsjAvhWR",
-    "_version": "0.6.0",
-    "break": 255,
-    "effect": 8,
-    "frequency": 240,
-    "overdrive": 126,
-    "stopBeforeStarting": true,
-    "sustainNegative": 255,
-    "sustainPositive": 255
+	"_id": "o0Xyb64pwsjAvhWR",
+	"_version": "0.6.0",
+	"break": 255,
+	"effect": 8,
+	"frequency": 240,
+	"overdrive": 126,
+	"stopBeforeStarting": true,
+	"sustainNegative": 255,
+	"sustainPositive": 255
 }

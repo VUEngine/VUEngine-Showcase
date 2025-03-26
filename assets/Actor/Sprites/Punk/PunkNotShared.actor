@@ -1,219 +1,193 @@
 {
-    "_id": "BefHTouDYsn9pWx3",
-    "_version": "0.6.0",
-    "animations": {
-        "default": 0,
-        "multiframe": false,
-        "totalFrames": 12
-    },
-    "body": {
-        "bounciness": 0,
-        "enabled": false,
-        "friction": 0,
-        "gravityAxes": [],
-        "mass": 0,
-        "maximumSpeed": 0,
-        "maximumVelocity": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        },
-        "rotationAxes": []
-    },
-    "components": {
-        "animations": [
-            {
-                "callback": "",
-                "cycles": 4,
-                "frames": [
-                    9,
-                    10,
-                    11,
-                    0,
-                    1,
-                    2,
-                    3,
-                    4,
-                    5,
-                    6,
-                    7,
-                    8
-                ],
-                "loop": true,
-                "name": "Move"
-            }
-        ],
-        "children": [],
-        "colliders": [],
-        "mutators": [],
-        "sprites": [
-            {
-                "_imageData": {
-                    "images": [
-                        {
-                            "animation": {
-                                "frames": 12
-                            },
-                            "maps": [
-                                {
-                                    "data": "H4sIAAAAAAAAEyXVuZEgNxAAQV9WprCNHyKegRMX9N8NBi+lElOsPz+/v7+/P//8n5AkWYpUadJlyJQlW45c+eT9TfCCF7zgBS94wQte8IIXvOAFL3jBC17iJV7iJV7iJV7iJV7iJV7iJV7iJV7iJV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7ndV7ndV7ndV7ndV7ndV7ndV7ndV7ndd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7H+3gf7+N9vI/38T7ex/t4H+/jfbyP9/E+3uM93uM93uM93uM93uM93uM93uM93uO9v174X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X8T7+fc/FC0b2eEHAAA=",
-                                    "height": "72",
-                                    "width": "4",
-                                    "name": "Punk"
-                                }
-                            ],
-                            "tiles": {
-                                "count": 288,
-                                "data": "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",
-                                "name": "Punk"
-                            }
-                        }
-                    ]
-                },
-                "bgmapMode": "Bgmap",
-                "colorMode": 0,
-                "compression": "none",
-                "displacement": {
-                    "parallax": 0,
-                    "x": 0,
-                    "y": 0,
-                    "z": 0
-                },
-                "displayMode": "Mono",
-                "displays": "ON",
-                "imageProcessingSettings": {
-                    "colorDistanceFormula": "euclidean",
-                    "imageQuantizationAlgorithm": "nearest",
-                    "minimumColorDistanceToDither": 0,
-                    "serpentine": false
-                },
-                "isAnimated": true,
-                "manipulationFunction": "",
-                "name": "Punk",
-                "optimizeTiles": true,
-                "section": "rom",
-                "shareTiles": true,
-                "sourceType": "image",
-                "texture": {
-                    "files": [
-                        "Punk.png"
-                    ],
-                    "files2": [],
-                    "flip": {
-                        "x": false,
-                        "y": false
-                    },
-                    "padding": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "palette": 0,
-                    "recycleable": true,
-                    "repeat": {
-                        "mode": "1x1",
-                        "size": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "x": false,
-                        "y": false
-                    }
-                },
-                "transparency": "None"
-            },
-            {
-                "_imageData": {
-                    "images": [
-                        {
-                            "animation": {
-                                "frames": 12
-                            },
-                            "maps": [
-                                {
-                                    "data": "H4sIAAAAAAAAEyXVuZEgNxAAQV9WprCNHyKegRMX9N8NBi+lElOsPz+/v7+/P//8n5AkWYpUadJlyJQlW45c+eT9TfCCF7zgBS94wQte8IIXvOAFL3jBC17iJV7iJV7iJV7iJV7iJV7iJV7iJV7iJV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7ndV7ndV7ndV7ndV7ndV7ndV7ndV7ndd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7H+3gf7+N9vI/38T7ex/t4H+/jfbyP9/E+3uM93uM93uM93uM93uM93uM93uM93uO9v174X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X8T7+fc/FC0b2eEHAAA=",
-                                    "height": "72",
-                                    "width": "4",
-                                    "name": "PunkBlack"
-                                }
-                            ],
-                            "tiles": {
-                                "count": 288,
-                                "data": "H4sIAAAAAAAAE91aXa7eOgjcy3nuA0h4NdXd/zaunNhmwDj+SSpVPVIllOZLJhiGAfv3D5W/n19oJlEzCaV038As7er9NzSJiNtzOeV/91U18WqAYYAsEWVI2cxPk4Y3MGcgDd7U4PD9kna1N3fwNvfdpnSmftA23uTw5v+kaC1ikHWFOP+My8+o4QX/3gtXnyCLQbBg5tfii9newOYr6reVj+Dht4kN5dTwisUg2WSFQ7f/yttYyiv4+n4XJafxoP6VZoJTzVfccVLwSlkhRpfUn5klHCQkhfGgaUr6mdff0relwQIgVUh1tXrdPMz5Nyk/nPlXvH8TBC1hPLzMN1KvX1d5G68AMoxUhY7mXpLN4qGZ+V51Cff3ljy19CrqSbHxe8APNMPrQjmHrQYt+9w8rC0XAYgn6By/SND3DTfinHpyJV/3YsTAq+kEnpSQFCze0FEm0VvtbkHLwyLBk3qxFdXURXWRD+Bq+ArycC5SkAdSOONfMvHbk4Ic8sOYFOCGfX4AejXK5i0/AJy1fIMy090AVTr2b2zu4E3hi23Y67cR0x1RprZgQTnkB9APEL+hSUoKl5QAJuDOpEc5c2gWvH0RFijCqToqJlKXZB/xwwJ0gSgJ/HsH0f0zzTfW8gXmIYZRaRaXb7ISvwNkGtVobjpq0lS85gcNgik/jJqKiB9Qib3mX2MKNBVcqnRGVgS9byrkoalwRSIQkTFeFenXolTid5WMXOlY8W8z2SpS9voMpbAGAekC7GgCQyACrHF9RyToEfr3quKCK2oiy1Fz9ff8INZc4YeloHWkEPADf8oP8pIf4oBZid+2LFBm4vmDRFRxrh8aKUh+l5REz29wVQ/XwnvdN68L/ZtE8x2yFNQ3Ck5PahZqQlLUS8cm1+LeZ8uTJmg/Q03rChUjnKeC3UrS8GFOIL8QRPlNzMECNH5IyCWJk2zz7w6cL/lhoB++5Ye3+iGFg4QF/0ZlETNAhzqfzh9KYvH9ME519AequCED7jNVZNLgoX7A0owivbkEh3wp6lvCfrNY0qfeLB6Ynn1GJo8FydzD8Y1uwA9j3hHvdTuWh+fu99I7/MC4A5Ku/9jUv32D9y/xw1+rH1b4YRLraEpwdaAfDD+AfjAqc8IPNOAHDE/Xb2bektpqcN0w8PPqfkh92m/G3on4oei31LYyrsVKxT31Xm0RH+sFjfYvlCqO9i/A3OkvWMzMPA7wFX5IYwz/SH8R6t9pztvpwTQ0ApBh2xfzAx3zQ2i2+YPcMuqBHzKYNn+Qx6Hkab+p+ZbKIjc4MOTr532H+5thHyAq/p1/hWc5L+TghAtLX+5fxF53YS8MXvcBbj+Tub+Bo3utyavI5vOoab5Ni8QhP8w3Nb/Yv3iUEoiMG23HKn46dHixfzExqarMTAjID08bigNkA6pYh8MC+xduD6U/yrPDD9HKi2kqDD/MNUHhBwU5m1V8QwpwtS4AG354rHp83dHGIcG46fw8AfVBQDYLD85HOVKI+eFgf/MP9Rcx3nEYBSBn+uHP7V8gKdRWg6VtZZiqx6Aftk4ZgKl8Fp2PGvmMrfDuNfhy+4vxMHOqiZ0lfujxxueNiA74zEGnPskE49eNep78G5NurNrO/DvYKjrT6+7QZL/h9Xfxw/S8nAsjRbY8f4iPQtA3+xdS5w9XQFiQdhbEqIoXB4Lv9UN/sNCnHh/2F6FyDI9S7vBDig++5U3jr5qKj/kBAjGmii/5QRw/nNXjR354c756yg/bfBbHwziMoljHWljNmB++0A9t6MA6n5S4CIc7K6bB4zqqHDQV7+uF8VmlCrnbszV9Fh5dHp7GwvlDi+qbKX/Kfuw9ihA7n5wox0FT7CaRIxX03/9YWFV1gTEAAA==",
-                                "name": "PunkBlack"
-                            }
-                        }
-                    ]
-                },
-                "bgmapMode": "Bgmap",
-                "colorMode": 0,
-                "compression": "none",
-                "displacement": {
-                    "parallax": 0,
-                    "x": 0,
-                    "y": 0,
-                    "z": 1
-                },
-                "displayMode": "Mono",
-                "displays": "ON",
-                "imageProcessingSettings": {
-                    "colorDistanceFormula": "euclidean",
-                    "imageQuantizationAlgorithm": "nearest",
-                    "minimumColorDistanceToDither": 0,
-                    "serpentine": false
-                },
-                "isAnimated": true,
-                "manipulationFunction": "",
-                "name": "PunkBlack",
-                "optimizeTiles": true,
-                "section": "rom",
-                "shareTiles": true,
-                "sourceType": "image",
-                "texture": {
-                    "files": [
-                        "PunkBlack.png"
-                    ],
-                    "files2": [],
-                    "flip": {
-                        "x": false,
-                        "y": false
-                    },
-                    "padding": {
-                        "x": 0,
-                        "y": 0
-                    },
-                    "palette": 1,
-                    "recycleable": true,
-                    "repeat": {
-                        "mode": "1x1",
-                        "size": {
-                            "x": 0,
-                            "y": 0
-                        },
-                        "x": false,
-                        "y": false
-                    }
-                },
-                "transparency": "None"
-            }
-        ],
-        "wireframes": []
-    },
-    "extraProperties": {
-        "enabled": false,
-        "extraInfo": "",
-        "pixelSize": {
-            "x": 0,
-            "y": 0,
-            "z": 0
-        }
-    },
-    "inGameType": "None",
-    "logic": {
-        "configuration": {},
-        "customAllocator": "",
-        "enabled": false
-    },
-    "sprites": {
-        "type": "Bgmap"
-    }
+	"_id": "BefHTouDYsn9pWx3",
+	"_version": "0.6.0",
+	"animations": {
+		"default": 0,
+		"multiframe": false,
+		"totalFrames": 12
+	},
+	"components": {
+		"animations": [
+			{
+				"callback": "",
+				"cycles": 4,
+				"frames": [
+					9,10,11,0,1,2,3,4,5,6,7,8
+				],
+				"loop": true,
+				"name": "Move"
+			}
+		],
+		"bodies": [],
+		"children": [],
+		"colliders": [],
+		"mutators": [],
+		"sprites": [
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 12
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAEyXVuZEgNxAAQV9WprCNHyKegRMX9N8NBi+lElOsPz+/v7+/P//8n5AkWYpUadJlyJQlW45c+eT9TfCCF7zgBS94wQte8IIXvOAFL3jBC17iJV7iJV7iJV7iJV7iJV7iJV7iJV7iJV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7ndV7ndV7ndV7ndV7ndV7ndV7ndV7ndd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7H+3gf7+N9vI/38T7ex/t4H+/jfbyP9/E+3uM93uM93uM93uM93uM93uM93uM93uO9v174X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X8T7+fc/FC0b2eEHAAA=",
+									"height": "72",
+									"width": "4",
+									"name": "Punk"
+								}
+							],
+							"tiles": {
+								"count": 288,
+								"data": "H4sIAAAAAAAAE81aW44kOwrdS33fD2wg0v50EvYmRrP/bYwAvzIz6pHddaXpVktUtMuBHXB8Dvg/H9D/fPyzm02meRcBQB+AKGssNmn48c9HLAlSK9hnCAzSB8yxGAGwPz31R3+qY8Lji783G0ABMc/0kdhTkmmqi8nNkolKBlKzEOiPujbIDQqwzZsbSj7NlDo8wxD1R38q4G8DkKY/vulvprl9ahbyyUiAfV5GgOxPj8wxFFYnmWLhQOZOCUwxF10FwVFyf4Xw8AwhAQja2m4ALeqmJqlFN+srJ8cXQoGg37O7w+6v/i/5TrY+uM8gwzwOhpw1CI7jgNxNAP3x458PwYIAh251a4ETRF1FJDhqJp1BGiBBax//fJwIgAi+ihMkFp0MA5xCZxmx09ptrQI/XZsss++/LSiBSLVIpXDgCaQrRgyJ5EBbsTCCHD6ZoPRXoE7gX140fnGacr4ZD4ww4kEjlfB1U7dVSBBoPrayIFbztzWU51/DBgSIGjtwz6Rb2AcwM3ezNdvq6yDoc20B/jr2wmyffIAdKqQ1S5xYAFNNLzmEab5NNJSTPyUAKW/ub8NHJFih3DcqPoRyZEaDCg5QyKAiZqiFfbJ4KwI3jwfbHHIYLMMzIZ2t+FM1P4/JzyNVXiI1Kyjgs3nody2WOEwhFzYzQCkKFzpv5gCeOK3FBBH1y2NNWYHZX5wjx+5ka80BpLU23Iml9OASOnGEkeZp8C8kExRk7aQ8xm83M+RcMuj2hZwTOSjY/4Zs37gWFCzJnxbA5jPE3KTqgmpmaC3oritMRIKZ/jNx2kQCKfrYY+cGgO/mZk2ooajhmUCgOrymAyUlNwNj4uSoAaK7YnGGeGJPHIsCfDZtn37kzraTcgkKm5kqU+qxA5bpHp6K4DPRWz8DLB/tUEO4Z2jmjj1b+IBX+PAn5oa/suGvY0L/QiDNUy9B03PCZ7hzPyEfQPcSFFZCvoMPMPFh2198DOVuFg6hUIhGJQAUI2zA7VCMsKOZQDHiBRSK/ujfQs+UTp5Y1/Qn/i586K5voMDLVEBQjDB8OIpihDlZsmKEr+JQXuGeBcDomxqxtWRndybGasd404R8cce+oEdJP6WLn9JN4eKRNFyH8g54x8HZ+YPig/4zz0oaCQm2kcncKQUcFBQQFCOcStwUI5xKCIFxGN/1NuJshhGe60DRY/z2blRXlNohviKo3U1w0+iOmwoIOEDBqMTGivHFhC/pzB+aFJOAZ1ZlEKRx8gozjUNYsX+d/h1I4wTSZsPnvL+ED9+HfZOZm+jZqQPCMmFhiUEMNgvEVDEk+7VAgIHe5Q/7597wVwBqB4UkgyAzAHKwD5vjmTJUjVQpBCHckguQCJmCraIUdP5rJhaHCmgqPMxEhbN3nTRRkb4QFRuhzxBKZXBRERkuRMUk9BAhKWRZokvoUsNFBcEjoX/0bBMVsYuKDhXpER820L3G3wdRQUNUKMFRmek7STEWdiSgKSpoExWIk5RhJ/TPokLun4uKp0Pi9bzYzApIJ1XyoM3UjI4LyCmI+eNJMyxgQsxDb2KhJjbDTTLeYv4CFHAlJAbWf/2Q6PvLiwrDCgL7pfk0Tk6gCHGnTzmBIga7tLfM5HmS4YXItDdv0v7XWYW+YrBX8I+sTgYQxQhHrsFpXchBB4WIXfZBLIoRf8FsHvGhdXwgWflWE3tEhXAjxQgdm42pos+ghQl+BoUK01S649un/EHe5g+wig4KCPxq7qFRMrCldGEOpRRnVzkzGIvXZNQ01HzTM/qWTDBhKQIGK02YdBYHG+gy6tGz+VkM8bwsJI0A4/2RzmxSAy+lRlB3HBS2ogOgkTXzAQsFtFWEhBrtzYEJCaVnlh0eyx17W8QbwnlOKrEp1iav8fCq3+paBZJA9a0mqJShehFKKrYOCiCPQuEZFMTIhv0akkKJjT3t4Q/rUTgP94yA2ZaZmQyOvuAE69cE7oAS+2fR0eMVLjWy7pPPq5KaBz4gzISEmbEvk42KSz8vuud/QYhExAREl3KxH4v6CnJ32hqbnC+aCVHFnppMWVL5JWZzjQ+3AxmtHiUBWuCKpvJVHhudqVnJ+8KHzh9UOaF7JrcwIV6lay+t/tyz8IgPeQOFF3wopTCEo/hOcmEXNiFnAHrCBzFVkQasRMczBQTFCCcYohhxGakOePHey5og56kY0ZOsZ9a39YdP8EEhF7JNVjOCo5wCgmKET4az9Lex4ilIlaiBmHxASYKxD2jtywLQxh90BR3aagYp5PmGGblnN2LuRMAr070cvaACTc04PhjNIVcoasnAh/PH58VgbTHzkCWZoNWTsGcLjerM4g9dHkwq0SYvcTLiL3CKsnCnEMg90DXuyJq3o/J9MP6nefFvtMi3+ICrAxJVx6Hhg9bUoq/4U3zAR/NnIPZ/iw/v8gfu/CF/wx9QY+gGv84ffoQP8BU+oOEDOz6QYLGEDAmbhskX/EG7XD4gxp0/4AN/+Dxot1LPRt1rRukfQN2h2tlrJcBkoYFQRYxKaNVdoK1qaBcVmKELEIyzSyCVYCDMz+PhnjJCNFBgAskMAx9G+i98kN4+c83A4sjlZdGZxw17NSkSujuxMkGUMdl3/YsF0H/Uv9hBYX/6jb5AWfqiF3gswKmUlGrXF+1KXzzhwwWf7Oa5BW36Xl+kqS9IpNgXqofiw6o//Av64ok/wFdQQbHkTJbdyiRiP3kNFbwqoVbwU/pmbDp5gEdsvf5bIMbjmUpcOynzkECEO4I3/i7xAd7Ah6SkAQ6y8kJGaX5gLzrTqcS9Z8DqIsrEBz2c7/1wF5B2X4f75wB9LTV08/uCaPEHkpoIWi9FVPT090DuVGJrT1jre2tq1mW+20OxdljXAYBwdx1g9wlQnsayNi3FXszAWl87Oo/SU2Dm/Gi/w+Q7N1Ub96ELw+/3L653fXuqOCvYtZ5WQLrAu4sWr59xHRHHKqoWpp0xCWlH6yek7FvPNn28tepV/CoN79nS+xcAd633XfUv+hcy0/sXfslg9jflfU22InWvRF72L5iJayHq/YtCfkjkkgMZXGWgQ5nFoDO9Ptkgw83KTdgSARzdyRLLCz/DCduo/9vLC3QiequTvis6bGY8Diae/Qv2UiXUQjPAC+mP5kPMrV00NSV6rHtD0amwiIx262dNzdFQvPYML6Gikv+10NjNXNyshKWSQ4WYelhNzdf+pn/ad+Nhq++seOjw8DyW4tl3JwfmE6rXS7Dxmned0vP0l1BHKF/WKn4HFLan4wPgNsC5mPc3oXp7QpNRMcKhWGCUQ6KSRD+EgUD8qNP14Nv9zc2z63o1LWrplx4Cemdwv/SgGKHxUIj7hYMHUIDN/Mv+ZllFB+1d5BcqsaGGXnNgtkqDxDwuPWi1T+9I2Qw5azvDty8oRqjZDi3wWOw05VHEJvtiQW8ofo5cgz/ACeitTpKH+1Ff9i+c2HT+cByj/gAxaztDUQMLEXvqqdq+ewkfqt50OBwUUNsZXXWcOPoXBemcoCDyBArvRMleT0WSgIzGbAiDFxL0TaezCqRKSEMz4CPxfuXgP5e/j0H79aZurketpVsjmJkp1vPiNuHSDMudrSf8dIkA/wIfNv12fQvJb0KZSnq8CRVDv4W0LizuhTC9ewOrnjouTa4Li3+2v2ndlFRUH5cmSRWkI1dRd7zbB+EEFxUUM6Dk6heSUhj3CfZLk+pjp7fnuDRpb377Ptd79Yc46g8AD/WHDOMW0kP9AUv0+gM91h/uv1J/8Ci7IpFbfTK81iftT3blk1FytsmUoaDFA9nRkkbDoL0k2da/wBAQwxKZs9n/fZRsra2RkEUluuEDZtLmq4lMAq40aJ1ucF75NsL+IvXQGt7v4gNpJbLNkyz4VjfZb4RN1wlCBjF8oJN5SC67pTzMjg8C9zuK602AsBqget3y3Uu/1+Yv48MWiIoPg5/9K/igvqY08WH2A77BB+fgnR58hw8Oxe/iAy98KIs0HBurWFchtH9Rihc+aCssHQf0Sw98HNrO8FKaNqPsvvI9B8GoTp4nlEbZKlpCgLeL+w/XZ+EA8yd8uJYa2/2H0EWFQkW/CtGYYYytSZqRnKi1XcRRn0y9Nnh9CFvqeVTb1YzDBZ7e8qB1OcE7YteiAidf3wicWIW5dKhgqSblKmOpxUCBtOVJUF/2bECFYBv4QEAR5esa3tXVZe3oeLZULRLE2TtgmPWH0b+w2ozvmfF1M8Uvoj9rBmUYYAdKk8ACPXZau7xk3+ChsvcZyv33f1eV6BiBMQAA",
+								"name": "Punk"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 0
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "Punk",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": false,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"Punk.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 0,
+					"recycleable": true,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			},
+			{
+				"_imageData": {
+					"images": [
+						{
+							"animation": {
+								"frames": 12
+							},
+							"maps": [
+								{
+									"data": "H4sIAAAAAAAAEyXVuZEgNxAAQV9WprCNHyKegRMX9N8NBi+lElOsPz+/v7+/P//8n5AkWYpUadJlyJQlW45c+eT9TfCCF7zgBS94wQte8IIXvOAFL3jBC17iJV7iJV7iJV7iJV7iJV7iJV7iJV7iJV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7mZV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7hFV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7lVV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7jNV7ndV7ndV7ndV7ndV7ndV7ndV7ndV7ndd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7gDd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7kTd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7iLd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7mbd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7hHd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7lXd7H+3gf7+N9vI/38T7ex/t4H+/jfbyP9/E+3uM93uM93uM93uM93uM93uM93uM93uO9v174X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X/hf+F/4X8T7+fc/FC0b2eEHAAA=",
+									"height": "72",
+									"width": "4",
+									"name": "PunkBlack"
+								}
+							],
+							"tiles": {
+								"count": 288,
+								"data": "H4sIAAAAAAAAE91aXa7eOgjcy3nuA0h4NdXd/zaunNhmwDj+SSpVPVIllOZLJhiGAfv3D5W/n19oJlEzCaV038As7er9NzSJiNtzOeV/91U18WqAYYAsEWVI2cxPk4Y3MGcgDd7U4PD9kna1N3fwNvfdpnSmftA23uTw5v+kaC1ikHWFOP+My8+o4QX/3gtXnyCLQbBg5tfii9newOYr6reVj+Dht4kN5dTwisUg2WSFQ7f/yttYyiv4+n4XJafxoP6VZoJTzVfccVLwSlkhRpfUn5klHCQkhfGgaUr6mdff0relwQIgVUh1tXrdPMz5Nyk/nPlXvH8TBC1hPLzMN1KvX1d5G68AMoxUhY7mXpLN4qGZ+V51Cff3ljy19CrqSbHxe8APNMPrQjmHrQYt+9w8rC0XAYgn6By/SND3DTfinHpyJV/3YsTAq+kEnpSQFCze0FEm0VvtbkHLwyLBk3qxFdXURXWRD+Bq+ArycC5SkAdSOONfMvHbk4Ic8sOYFOCGfX4AejXK5i0/AJy1fIMy090AVTr2b2zu4E3hi23Y67cR0x1RprZgQTnkB9APEL+hSUoKl5QAJuDOpEc5c2gWvH0RFijCqToqJlKXZB/xwwJ0gSgJ/HsH0f0zzTfW8gXmIYZRaRaXb7ISvwNkGtVobjpq0lS85gcNgik/jJqKiB9Qib3mX2MKNBVcqnRGVgS9byrkoalwRSIQkTFeFenXolTid5WMXOlY8W8z2SpS9voMpbAGAekC7GgCQyACrHF9RyToEfr3quKCK2oiy1Fz9ff8INZc4YeloHWkEPADf8oP8pIf4oBZid+2LFBm4vmDRFRxrh8aKUh+l5REz29wVQ/XwnvdN68L/ZtE8x2yFNQ3Ck5PahZqQlLUS8cm1+LeZ8uTJmg/Q03rChUjnKeC3UrS8GFOIL8QRPlNzMECNH5IyCWJk2zz7w6cL/lhoB++5Ye3+iGFg4QF/0ZlETNAhzqfzh9KYvH9ME519AequCED7jNVZNLgoX7A0owivbkEh3wp6lvCfrNY0qfeLB6Ynn1GJo8FydzD8Y1uwA9j3hHvdTuWh+fu99I7/MC4A5Ku/9jUv32D9y/xw1+rH1b4YRLraEpwdaAfDD+AfjAqc8IPNOAHDE/Xb2bektpqcN0w8PPqfkh92m/G3on4oei31LYyrsVKxT31Xm0RH+sFjfYvlCqO9i/A3OkvWMzMPA7wFX5IYwz/SH8R6t9pztvpwTQ0ApBh2xfzAx3zQ2i2+YPcMuqBHzKYNn+Qx6Hkab+p+ZbKIjc4MOTr532H+5thHyAq/p1/hWc5L+TghAtLX+5fxF53YS8MXvcBbj+Tub+Bo3utyavI5vOoab5Ni8QhP8w3Nb/Yv3iUEoiMG23HKn46dHixfzExqarMTAjID08bigNkA6pYh8MC+xduD6U/yrPDD9HKi2kqDD/MNUHhBwU5m1V8QwpwtS4AG354rHp83dHGIcG46fw8AfVBQDYLD85HOVKI+eFgf/MP9Rcx3nEYBSBn+uHP7V8gKdRWg6VtZZiqx6Aftk4ZgKl8Fp2PGvmMrfDuNfhy+4vxMHOqiZ0lfujxxueNiA74zEGnPskE49eNep78G5NurNrO/DvYKjrT6+7QZL/h9Xfxw/S8nAsjRbY8f4iPQtA3+xdS5w9XQFiQdhbEqIoXB4Lv9UN/sNCnHh/2F6FyDI9S7vBDig++5U3jr5qKj/kBAjGmii/5QRw/nNXjR354c756yg/bfBbHwziMoljHWljNmB++0A9t6MA6n5S4CIc7K6bB4zqqHDQV7+uF8VmlCrnbszV9Fh5dHp7GwvlDi+qbKX/Kfuw9ihA7n5wox0FT7CaRIxX03/9YWFV1gTEAAA==",
+								"name": "PunkBlack"
+							}
+						}
+					]
+				},
+				"bgmapMode": "Bgmap",
+				"colorMode": 0,
+				"compression": "none",
+				"displacement": {
+					"parallax": 0,
+					"x": 0,
+					"y": 0,
+					"z": 1
+				},
+				"displayMode": "Mono",
+				"displays": "ON",
+				"imageProcessingSettings": {
+					"colorDistanceFormula": "euclidean",
+					"imageQuantizationAlgorithm": "nearest",
+					"minimumColorDistanceToDither": 0,
+					"serpentine": false
+				},
+				"isAnimated": true,
+				"manipulationFunction": "",
+				"name": "PunkBlack",
+				"optimizeTiles": true,
+				"section": "rom",
+				"shareTiles": false,
+				"sourceType": "image",
+				"texture": {
+					"files": [
+						"PunkBlack.png"
+					],
+					"files2": [],
+					"flip": {
+						"x": false,
+						"y": false
+					},
+					"padding": {
+						"x": 0,
+						"y": 0
+					},
+					"palette": 1,
+					"recycleable": true,
+					"repeat": {
+						"mode": "1x1",
+						"size": {
+							"x": 0,
+							"y": 0
+						},
+						"x": false,
+						"y": false
+					}
+				},
+				"transparency": "None"
+			}
+		],
+		"wireframes": []
+	},
+	"extraProperties": {
+		"extraInfo": "",
+		"pixelSize": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		}
+	},
+	"inGameType": "None",
+	"logic": {
+		"configuration": {},
+		"customAllocator": ""
+	},
+	"sprites": {
+		"type": "Bgmap"
+	}
 }

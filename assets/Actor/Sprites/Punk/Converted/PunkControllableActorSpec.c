@@ -275,11 +275,12 @@ ColliderROMSpec PunkControllableCollider1ColliderSpec =
 	kLayerAll & ~(kLayerDangers | kLayerSolid)
 };
 
+
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// BODY
+// BODIES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-BodyROMSpec PunkControllableBodySpec =
+BodyROMSpec PunkControllableBody1BodySpec =
 {
 	// Component
 	{
@@ -314,6 +315,7 @@ BodyROMSpec PunkControllableBodySpec =
 	// Axises around which to rotate the owner when syncronizing with body
 	__NO_AXIS
 };
+
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ACTOR
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -323,7 +325,7 @@ ComponentSpec* const PunkControllableComponentSpecs[] =
 	(ComponentSpec*)&PunkControllableSprite1SpriteSpec,
 	(ComponentSpec*)&PunkControllableSprite2SpriteSpec,
 	(ComponentSpec*)&PunkControllableCollider1ColliderSpec,
-	(ComponentSpec*)&PunkControllableBodySpec,
+	(ComponentSpec*)&PunkControllableBody1BodySpec,
 	NULL
 };
 

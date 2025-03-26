@@ -1,315 +1,315 @@
 {
-    "_version": "0.6.0",
-    "languages": [
-        {
-            "code": "en",
-            "flag": "FlagUnitedKingdomActorSpec",
-            "localizedName": "English",
-            "name": "English"
-        },
-        {
-            "code": "de",
-            "flag": "FlagGermanyActorSpec",
-            "localizedName": "Deutsch",
-            "name": "German"
-        },
-        {
-            "code": "es",
-            "flag": "FlagSpainActorSpec",
-            "localizedName": "Español",
-            "name": "Spanish"
-        }
-    ],
-    "translations": {
-        "ActorCreationLabel": {
-            "de": "Akteur-Konstruktoren",
-            "en": "Actor creation",
-            "es": "Actor: creación"
-        },
-        "ActorDestructionLabel": {
-            "de": "Akteur-Destruktoren",
-            "en": "Actor destruction",
-            "es": "Actor: destrucción "
-        },
-        "ActorsLabel": {
-            "de": "Akteur",
-            "en": "Actors",
-            "es": "Actores"
-        },
-        "AnimationsLabel": {
-            "de": "Animationen",
-            "en": "Animations",
-            "es": "Animaciones"
-        },
-        "AnimationSubtitle": {
-            "de": "ANIMATION",
-            "en": "ANIMATION",
-            "es": "ANIMACION"
-        },
-        "BgmapMemoryLabel": {
-            "de": "BGMAP-Speicher:",
-            "en": "BGMAP memory:",
-            "es": "Memoria BGMAP:"
-        },
-        "CameraControlLabel": {
-            "de": "Kamerakontrolle",
-            "en": "Camera control",
-            "es": "Control de cámara"
-        },
-        "CharMemoryLabel": {
-            "de": "CHAR-Speicher:",
-            "en": "CHAR memory:",
-            "es": "Memoria CHAR:"
-        },
-        "ClassesSubtitle": {
-            "de": "KLASSEN",
-            "en": "CLASSES",
-            "es": "CLASES"
-        },
-        "ClassExtensionLabel": {
-            "de": "Klassenerweiterung",
-            "en": "Class extension",
-            "es": "Extensiones de clase"
-        },
-        "ClassMutatorLabel": {
-            "de": "Klassenmutatoren",
-            "en": "Class mutator",
-            "es": "Mutación de clases"
-        },
-        "CollisionsLabel": {
-            "de": "Kollisionen",
-            "en": "Collisions",
-            "es": "Colisiones"
-        },
-        "CommunicationsLabel": {
-            "de": "Kommunikation",
-            "en": "Communications",
-            "es": "Comunicaciones"
-        },
-        "ConceptsSubtitle": {
-            "de": "KONZEPTE",
-            "en": "CONCEPTS",
-            "es": "CONCEPTOS"
-        },
-        "Connected": {
-            "de": "VERBUNDEN",
-            "en": "CONNECTED",
-            "es": "CONECTADO"
-        },
-        "DwarfPlanetLabel": {
-            "de": "Zwergplanet",
-            "en": "Dwarf Planet",
-            "es": "Planeta Enano"
-        },
-        "EffectSubtitle": {
-            "de": "EFFECT",
-            "en": "EFFECT",
-            "es": "EFECTO"
-        },
-        "EventsLabel": {
-            "de": "Ereignisse",
-            "en": "Events",
-            "es": "Eventos"
-        },
-        "FrameBlendingLabel": {
-            "de": "Rahmenüberblendung",
-            "en": "Frame blending",
-            "es": "Fusionado de marcos"
-        },
-        "FrameBuffersLabel": {
-            "de": "Bildpuffer",
-            "en": "Frame buffers",
-            "es": "Búfer de video"
-        },
-        "GameStatesLabel": {
-            "de": "Spielzustände",
-            "en": "Game states",
-            "es": "Estados de juego"
-        },
-        "LinkedListsLabel": {
-            "de": "Verkettete Listen",
-            "en": "Linked lists",
-            "es": "Listas enlazadas"
-        },
-        "MessagingLabel": {
-            "de": "Messaging",
-            "en": "Messaging",
-            "es": "Mensajes"
-        },
-        "MethodsSubtitle": {
-            "de": "METHODEN",
-            "en": "METHODS",
-            "es": "METODOS"
-        },
-        "ModeLabel": {
-            "de": "Modus:",
-            "en": "Mode:",
-            "es": "Modo:"
-        },
-        "MultiframeLabel": {
-            "de": "Multiframe",
-            "en": "Multiframe",
-            "es": "Multi fotograma"
-        },
-        "MultiframeTextureLabel": {
-            "de": "Sprites teilen sich die\nGrafiken, aber jedes kann\neinen anderen Frame\nderselben Textur zeigen",
-            "en": "The sprites share the\ngraphics but each can\nshow a different frame\nfrom the same texture",
-            "es": "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos"
-        },
-        "NoLink": {
-            "de": "NICHT VERBUNDEN",
-            "en": "NO LINK",
-            "es": "NO CONECTADO"
-        },
-        "NotSharedLabel": {
-            "de": "Nicht geteilt",
-            "en": "Not shared",
-            "es": "No compartida"
-        },
-        "NotSharedTextureLabel": {
-            "de": "Jedes Sprite hat seine\neigene Textur und einen\neigenen Kachelsatz\n\nJedes Sprite muss\neinzeln animiert werden",
-            "en": "Each sprite has its\nown texture and its\nown set of tiles\n\nEach one has to be\nanimated individually",
-            "es": "Cada sprite tiene su\npropia textura y \nconjunto de teselas\n\nCada una debe ser\nanimada individualmente"
-        },
-        "OptimizedBgmapsLabel": {
-            "de": "Optimierte BGMAPs",
-            "en": "Optimized BGMAPs",
-            "es": "BGMAPs optimizados"
-        },
-        "OptimizedCharSetsLabel": {
-            "de": "Optimierte CharSets",
-            "en": "Optimized CharSets",
-            "es": "CharSets optimizados"
-        },
-        "OtherConceptsSubtitle": {
-            "de": "WEITERE KONZEPTE",
-            "en": "OTHER CONCEPTS",
-            "es": "OTROS CONCEPTOS"
-        },
-        "ParentingLabel": {
-            "de": "Parenting",
-            "en": "Parenting",
-            "es": "Contenedores"
-        },
-        "ParticlesSubtitle": {
-            "de": "PARTIKEL-TYP",
-            "en": "PARTICLES TYPE",
-            "es": "TIPO DE PARTICULAS"
-        },
-        "ParticleSystemsLabel": {
-            "de": "Partikelsysteme",
-            "en": "Particle systems",
-            "es": "Sistemas de partículas"
-        },
-        "ParticleTypesLabel": {
-            "de": "Partikel-Typen",
-            "en": "Particle types",
-            "es": "Tipos de partículas"
-        },
-        "PauseTitle": {
-            "de": "PAUSE",
-            "en": "PAUSE",
-            "es": "PAUSA"
-        },
-        "PhysicsLabel": {
-            "de": "Physik",
-            "en": "Physics",
-            "es": "Física"
-        },
-        "PostProcessingEffectsLabel": {
-            "de": "Post-Processing Effekte",
-            "en": "Post processing effects",
-            "es": "Efectos gráficos"
-        },
-        "RainLabel": {
-            "de": "Regen",
-            "en": "Rain",
-            "es": "Lluvia"
-        },
-        "SharedLabel": {
-            "de": "Geteilt",
-            "en": "Shared",
-            "es": "Compartida"
-        },
-        "SharedTextureLabel": {
-            "de": "Alle Sprites teilen sich\ndenselben Kachelsatz\nund die selbe Textur\n\nNur ein Sprite\nmuss animiert werden",
-            "en": "All sprites share\nthe same tiles set\nand the same texture\n\nOnly one of them\nneeds to be animated",
-            "es": "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSólo uno de ellos\nnecesita ser animado"
-        },
-        "SoundPlaybackLabel": {
-            "de": "Sound-Playback",
-            "en": "Sound playback",
-            "es": "Reproducción de sonido"
-        },
-        "SpecsLabel": {
-            "de": "Specs",
-            "en": "Specs",
-            "es": "Especificaciones"
-        },
-        "SpecsSubtitle": {
-            "de": "SPECS",
-            "en": "SPECS",
-            "es": "ESPECIFICACIONES"
-        },
-        "SpritesLabel": {
-            "de": "Sprites",
-            "en": "Sprites",
-            "es": "Sprites"
-        },
-        "SpriteSubtitle": {
-            "de": "SPRITE",
-            "en": "SPRITE",
-            "es": "SPRITE"
-        },
-        "StagesLabel": {
-            "de": "Stages",
-            "en": "Stages",
-            "es": "Escenas"
-        },
-        "StatefulActorsLabel": {
-            "de": "StatefulActors",
-            "en": "StatefulActors",
-            "es": "StatefulActores"
-        },
-        "StateMachinesLabel": {
-            "de": "Zustandsautomaten",
-            "en": "State machines",
-            "es": "Máquinas de estado"
-        },
-        "StateTitle": {
-            "de": "ZUSTAND:",
-            "en": "STATE:",
-            "es": "ESTADO:"
-        },
-        "TiltELabel": {
-            "de": "Gekippt",
-            "en": "Tilt",
-            "es": "Inclinado"
-        },
-        "TimerSettingsLabel": {
-            "de": "Timer-Einstellungen",
-            "en": "Timer settings",
-            "es": "Configuración de reloj"
-        },
-        "UserInputLabel": {
-            "de": "Benutzereingaben",
-            "en": "User input",
-            "es": "Entrada de usuario"
-        },
-        "WireframesLabel": {
-            "de": "Wireframes",
-            "en": "Wireframes",
-            "es": "Wireframes"
-        },
-        "WobbleLabel": {
-            "de": "Taumeln",
-            "en": "Wobble",
-            "es": "Ondulado"
-        },
-        "YouDiedAgain": {
-            "de": "DU BIST TOT… ERNEUT",
-            "en": "YOU DIED… AGAIN",
-            "es": "MORISTE… OTRA VEZ"
-        }
-    }
+	"_version": "0.6.0",
+	"languages": [
+		{
+			"code": "en",
+			"flag": "FlagUnitedKingdomActorSpec",
+			"localizedName": "English",
+			"name": "English"
+		},
+		{
+			"code": "de",
+			"flag": "FlagGermanyActorSpec",
+			"localizedName": "Deutsch",
+			"name": "German"
+		},
+		{
+			"code": "es",
+			"flag": "FlagSpainActorSpec",
+			"localizedName": "Español",
+			"name": "Spanish"
+		}
+	],
+	"translations": {
+		"ActorCreationLabel": {
+			"de": "Akteur-Konstruktoren",
+			"en": "Actor creation",
+			"es": "Actor: creación"
+		},
+		"ActorDestructionLabel": {
+			"de": "Akteur-Destruktoren",
+			"en": "Actor destruction",
+			"es": "Actor: destrucción "
+		},
+		"ActorsLabel": {
+			"de": "Akteur",
+			"en": "Actors",
+			"es": "Actores"
+		},
+		"AnimationsLabel": {
+			"de": "Animationen",
+			"en": "Animations",
+			"es": "Animaciones"
+		},
+		"AnimationSubtitle": {
+			"de": "ANIMATION",
+			"en": "ANIMATION",
+			"es": "ANIMACION"
+		},
+		"BgmapMemoryLabel": {
+			"de": "BGMAP-Speicher:",
+			"en": "BGMAP memory:",
+			"es": "Memoria BGMAP:"
+		},
+		"CameraControlLabel": {
+			"de": "Kamerakontrolle",
+			"en": "Camera control",
+			"es": "Control de cámara"
+		},
+		"CharMemoryLabel": {
+			"de": "CHAR-Speicher:",
+			"en": "CHAR memory:",
+			"es": "Memoria CHAR:"
+		},
+		"ClassesSubtitle": {
+			"de": "KLASSEN",
+			"en": "CLASSES",
+			"es": "CLASES"
+		},
+		"ClassExtensionLabel": {
+			"de": "Klassenerweiterung",
+			"en": "Class extension",
+			"es": "Extensiones de clase"
+		},
+		"ClassMutatorLabel": {
+			"de": "Klassenmutatoren",
+			"en": "Class mutator",
+			"es": "Mutación de clases"
+		},
+		"CollisionsLabel": {
+			"de": "Kollisionen",
+			"en": "Collisions",
+			"es": "Colisiones"
+		},
+		"CommunicationsLabel": {
+			"de": "Kommunikation",
+			"en": "Communications",
+			"es": "Comunicaciones"
+		},
+		"ConceptsSubtitle": {
+			"de": "KONZEPTE",
+			"en": "CONCEPTS",
+			"es": "CONCEPTOS"
+		},
+		"Connected": {
+			"de": "VERBUNDEN",
+			"en": "CONNECTED",
+			"es": "CONECTADO"
+		},
+		"DwarfPlanetLabel": {
+			"de": "Zwergplanet",
+			"en": "Dwarf Planet",
+			"es": "Planeta Enano"
+		},
+		"EffectSubtitle": {
+			"de": "EFFECT",
+			"en": "EFFECT",
+			"es": "EFECTO"
+		},
+		"EventsLabel": {
+			"de": "Ereignisse",
+			"en": "Events",
+			"es": "Eventos"
+		},
+		"FrameBlendingLabel": {
+			"de": "Rahmenüberblendung",
+			"en": "Frame blending",
+			"es": "Fusionado de marcos"
+		},
+		"FrameBuffersLabel": {
+			"de": "Bildpuffer",
+			"en": "Frame buffers",
+			"es": "Búfer de video"
+		},
+		"GameStatesLabel": {
+			"de": "Spielzustände",
+			"en": "Game states",
+			"es": "Estados de juego"
+		},
+		"LinkedListsLabel": {
+			"de": "Verkettete Listen",
+			"en": "Linked lists",
+			"es": "Listas enlazadas"
+		},
+		"MessagingLabel": {
+			"de": "Messaging",
+			"en": "Messaging",
+			"es": "Mensajes"
+		},
+		"MethodsSubtitle": {
+			"de": "METHODEN",
+			"en": "METHODS",
+			"es": "METODOS"
+		},
+		"ModeLabel": {
+			"de": "Modus:",
+			"en": "Mode:",
+			"es": "Modo:"
+		},
+		"MultiframeLabel": {
+			"de": "Multiframe",
+			"en": "Multiframe",
+			"es": "Multi fotograma"
+		},
+		"MultiframeTextureLabel": {
+			"de": "Sprites teilen sich die\nGrafiken, aber jedes kann\neinen anderen Frame\nderselben Textur zeigen",
+			"en": "The sprites share the\ngraphics but each can\nshow a different frame\nfrom the same texture",
+			"es": "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos"
+		},
+		"NoLink": {
+			"de": "NICHT VERBUNDEN",
+			"en": "NO LINK",
+			"es": "NO CONECTADO"
+		},
+		"NotSharedLabel": {
+			"de": "Nicht geteilt",
+			"en": "Not shared",
+			"es": "No compartida"
+		},
+		"NotSharedTextureLabel": {
+			"de": "Jedes Sprite hat seine\neigene Textur und einen\neigenen Kachelsatz\n\nJedes Sprite muss\neinzeln animiert werden",
+			"en": "Each sprite has its\nown texture and its\nown set of tiles\n\nEach one has to be\nanimated individually",
+			"es": "Cada sprite tiene su\npropia textura y \nconjunto de teselas\n\nCada una debe ser\nanimada individualmente"
+		},
+		"OptimizedBgmapsLabel": {
+			"de": "Optimierte BGMAPs",
+			"en": "Optimized BGMAPs",
+			"es": "BGMAPs optimizados"
+		},
+		"OptimizedCharSetsLabel": {
+			"de": "Optimierte CharSets",
+			"en": "Optimized CharSets",
+			"es": "CharSets optimizados"
+		},
+		"OtherConceptsSubtitle": {
+			"de": "WEITERE KONZEPTE",
+			"en": "OTHER CONCEPTS",
+			"es": "OTROS CONCEPTOS"
+		},
+		"ParentingLabel": {
+			"de": "Parenting",
+			"en": "Parenting",
+			"es": "Contenedores"
+		},
+		"ParticlesSubtitle": {
+			"de": "PARTIKEL-TYP",
+			"en": "PARTICLES TYPE",
+			"es": "TIPO DE PARTICULAS"
+		},
+		"ParticleSystemsLabel": {
+			"de": "Partikelsysteme",
+			"en": "Particle systems",
+			"es": "Sistemas de partículas"
+		},
+		"ParticleTypesLabel": {
+			"de": "Partikel-Typen",
+			"en": "Particle types",
+			"es": "Tipos de partículas"
+		},
+		"PauseTitle": {
+			"de": "PAUSE",
+			"en": "PAUSE",
+			"es": "PAUSA"
+		},
+		"PhysicsLabel": {
+			"de": "Physik",
+			"en": "Physics",
+			"es": "Física"
+		},
+		"PostProcessingEffectsLabel": {
+			"de": "Post-Processing Effekte",
+			"en": "Post processing effects",
+			"es": "Efectos gráficos"
+		},
+		"RainLabel": {
+			"de": "Regen",
+			"en": "Rain",
+			"es": "Lluvia"
+		},
+		"SharedLabel": {
+			"de": "Geteilt",
+			"en": "Shared",
+			"es": "Compartida"
+		},
+		"SharedTextureLabel": {
+			"de": "Alle Sprites teilen sich\ndenselben Kachelsatz\nund die selbe Textur\n\nNur ein Sprite\nmuss animiert werden",
+			"en": "All sprites share\nthe same tiles set\nand the same texture\n\nOnly one of them\nneeds to be animated",
+			"es": "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSólo uno de ellos\nnecesita ser animado"
+		},
+		"SoundPlaybackLabel": {
+			"de": "Sound-Playback",
+			"en": "Sound playback",
+			"es": "Reproducción de sonido"
+		},
+		"SpecsLabel": {
+			"de": "Specs",
+			"en": "Specs",
+			"es": "Especificaciones"
+		},
+		"SpecsSubtitle": {
+			"de": "SPECS",
+			"en": "SPECS",
+			"es": "ESPECIFICACIONES"
+		},
+		"SpritesLabel": {
+			"de": "Sprites",
+			"en": "Sprites",
+			"es": "Sprites"
+		},
+		"SpriteSubtitle": {
+			"de": "SPRITE",
+			"en": "SPRITE",
+			"es": "SPRITE"
+		},
+		"StagesLabel": {
+			"de": "Stages",
+			"en": "Stages",
+			"es": "Escenas"
+		},
+		"StatefulActorsLabel": {
+			"de": "StatefulActors",
+			"en": "StatefulActors",
+			"es": "StatefulActores"
+		},
+		"StateMachinesLabel": {
+			"de": "Zustandsautomaten",
+			"en": "State machines",
+			"es": "Máquinas de estado"
+		},
+		"StateTitle": {
+			"de": "ZUSTAND:",
+			"en": "STATE:",
+			"es": "ESTADO:"
+		},
+		"TiltELabel": {
+			"de": "Gekippt",
+			"en": "Tilt",
+			"es": "Inclinado"
+		},
+		"TimerSettingsLabel": {
+			"de": "Timer-Einstellungen",
+			"en": "Timer settings",
+			"es": "Configuración de reloj"
+		},
+		"UserInputLabel": {
+			"de": "Benutzereingaben",
+			"en": "User input",
+			"es": "Entrada de usuario"
+		},
+		"WireframesLabel": {
+			"de": "Wireframes",
+			"en": "Wireframes",
+			"es": "Wireframes"
+		},
+		"WobbleLabel": {
+			"de": "Taumeln",
+			"en": "Wobble",
+			"es": "Ondulado"
+		},
+		"YouDiedAgain": {
+			"de": "DU BIST TOT… ERNEUT",
+			"en": "YOU DIED… AGAIN",
+			"es": "MORISTE… OTRA VEZ"
+		}
+	}
 }

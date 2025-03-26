@@ -1,32 +1,32 @@
 {
-    "_id": "MAwaY5mMrt856l0q",
-    "_version": "0.6.0",
-    "animation": {
-        "frames": 5,
-        "individualFiles": false,
-        "isAnimation": true
-    },
-    "colorMode": 0,
-    "files": [
-        "Star.png"
-    ],
-    "imageProcessingSettings": {
-        "distanceCalculator": "euclidean",
-        "imageQuantizationAlgorithm": "nearest",
-        "minimumColorDistanceToDither": 0,
-        "serpentine": false
-    },
-    "map": {
-        "compression": "none",
-        "generate": true,
-        "reduce": {
-            "flipped": false,
-            "unique": false
-        }
-    },
-    "section": "rom",
-    "tileset": {
-        "compression": "none",
-        "shared": false
-    }
+	"_id": "MAwaY5mMrt856l0q",
+	"_version": "0.6.0",
+	"animation": {
+		"frames": 5,
+		"individualFiles": false,
+		"isAnimation": true
+	},
+	"colorMode": 0,
+	"files": [
+		"Star.png"
+	],
+	"imageProcessingSettings": {
+		"distanceCalculator": "euclidean",
+		"imageQuantizationAlgorithm": "nearest",
+		"minimumColorDistanceToDither": 0,
+		"serpentine": false
+	},
+	"map": {
+		"compression": "none",
+		"generate": true,
+		"reduce": {
+			"flipped": false,
+			"unique": false
+		}
+	},
+	"section": "rom",
+	"tileset": {
+		"compression": "none",
+		"shared": false
+	}
 }

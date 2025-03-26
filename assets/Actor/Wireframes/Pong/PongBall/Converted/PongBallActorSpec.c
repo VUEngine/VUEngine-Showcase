@@ -93,11 +93,12 @@ ColliderROMSpec PongBallCollider1ColliderSpec =
 	kLayerAll & ~(kLayerPongWalls | kLayerPongPaddle)
 };
 
+
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
-// BODY
+// BODIES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-BodyROMSpec PongBallBodySpec =
+BodyROMSpec PongBallBody1BodySpec =
 {
 	// Component
 	{
@@ -132,6 +133,7 @@ BodyROMSpec PongBallBodySpec =
 	// Axises around which to rotate the owner when syncronizing with body
 	__NO_AXIS
 };
+
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ACTOR
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -140,7 +142,7 @@ ComponentSpec* const PongBallComponentSpecs[] =
 {
 	(ComponentSpec*)&PongBallWireframe1WireframeSpec,
 	(ComponentSpec*)&PongBallCollider1ColliderSpec,
-	(ComponentSpec*)&PongBallBodySpec,
+	(ComponentSpec*)&PongBallBody1BodySpec,
 	NULL
 };
 

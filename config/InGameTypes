@@ -1,13 +1,13 @@
 {
-    "_version": "0.6.0",
-    "types": {
-        "3cdwZxVbOSqSxZ6o": "Particle",
-        "5mZTdX1TSzYcLpaf": "Pong Paddle",
-        "5serXwgdgbiysBvS": "Cog Wheel",
-        "BNZJFljBJ8NkZIxf": "Punk",
-        "IqmXXl6oowcKENq2": "Pong Wall",
-        "UdKB8bl2ZbtVxd3q": "Pong Ball",
-        "VMArnDbf0jAc7294": "Solid Object",
-        "wE3Ys5yRUdbzoPMW": "Pong Goal"
-    }
+	"_version": "0.6.0",
+	"types": {
+		"3cdwZxVbOSqSxZ6o": "Particle",
+		"5mZTdX1TSzYcLpaf": "Pong Paddle",
+		"5serXwgdgbiysBvS": "Cog Wheel",
+		"BNZJFljBJ8NkZIxf": "Punk",
+		"IqmXXl6oowcKENq2": "Pong Wall",
+		"UdKB8bl2ZbtVxd3q": "Pong Ball",
+		"VMArnDbf0jAc7294": "Solid Object",
+		"wE3Ys5yRUdbzoPMW": "Pong Goal"
+	}
 }
