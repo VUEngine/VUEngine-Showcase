@@ -45,7 +45,7 @@ const uint8 OracleOfSeasonsOverworldThemeSoundTrack3SxEV1[] =
 
 const int8* OracleOfSeasonsOverworldThemeSoundTrack3SxRAM[] =
 {
-	SawSquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 OracleOfSeasonsOverworldThemeSoundTrack3SxSWP[] =

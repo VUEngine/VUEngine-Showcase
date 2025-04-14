@@ -46,7 +46,7 @@ const uint8 Killed1SoundTrack1SxEV1[] =
 
 const int8* const Killed1SoundTrack1SxRAM[] =
 {
-	SquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 Killed1SoundTrack1SxSWP[] =

@@ -46,7 +46,7 @@ const uint8 HitPaddle1SoundTrack1SxEV1[] =
 
 const int8* const HitPaddle1SoundTrack1SxRAM[] =
 {
-	SquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 HitPaddle1SoundTrack1SxSWP[] =

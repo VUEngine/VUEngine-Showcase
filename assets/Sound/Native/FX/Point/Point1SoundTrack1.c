@@ -46,7 +46,7 @@ const uint8 Point1SoundTrack1SxEV1[] =
 
 const int8* const Point1SoundTrack1SxRAM[] =
 {
-	SquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 Point1SoundTrack1SxSWP[] =

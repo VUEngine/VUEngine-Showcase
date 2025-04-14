@@ -46,7 +46,7 @@ const uint8 ChangeSelection1SoundTrack1SxEV1[] =
 
 const int8* const ChangeSelection1SoundTrack1SxRAM[] =
 {
-	SawSquareWaveForm,
+	SawWaveForm,
 };
 
 const uint8 ChangeSelection1SoundTrack1SxSWP[] =
