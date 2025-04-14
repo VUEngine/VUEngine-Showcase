@@ -407,7 +407,6 @@ void AnimationSchemesState::showCharMemory()
 
 void AnimationSchemesState::showBgmapMemory()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
 	int32 topBorder = 20;
 	int32 bottomBorder = 1;
 	int32 leftBorder = kAnimationsMultiframeTexture != this->animationScheme ? 28 : 1;
@@ -418,17 +417,12 @@ void AnimationSchemesState::showBgmapMemory()
 	uint32 numberOfHWORDS = __SCREEN_WIDTH_IN_CHARS - leftBorder - rightBorder;
 	uint32 xOffset = leftBorder;
 
-	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
-
 	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_CHARS - topBorder - bottomBorder; row++)
 	{
 		Mem::copyHWORD
 		(
-			(HWORD*)
-			(
-				&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]
-			),
-			(const HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (0)) + ((row + myDisplacement) << 6) + mxDisplacement]), 
+			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
+			Printer::getPrintingBgmapAddress() + __PRINTABLE_BGMAP_AREA + ((row + myDisplacement) << 6) + mxDisplacement,
 			numberOfHWORDS
 		);
 	}
@@ -438,11 +432,8 @@ void AnimationSchemesState::showBgmapMemory()
 
 void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
-
-	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
 
 	const HWORD charMemoryMap[] =
 	{
@@ -480,10 +471,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 
 		Mem::addOffsetToHWORD
 		(
-			(HWORD*)
-			(
-				&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((row + topBorder) << 6) + xOffset]
-			),
+			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
 			(HWORD*)charMemoryMap,
 			CharSet::getNumberOfChars(charSet),
 			CharSet::getOffset(charSet)
@@ -495,11 +483,8 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 
 void AnimationSchemesState::showCharMemoryForSharedTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
-
-	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
 
 	const HWORD charMemoryMap[] =
 	{
@@ -536,7 +521,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 	Mem::addOffsetToHWORD
 	(
-		(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((topBorder) << 6) + xOffset]),
+		Printer::getPrintingBgmapAddress() + ((topBorder) << 6) + xOffset,
 		(HWORD*)charMemoryMap,
 		CharSet::getNumberOfChars(charSet),
 		CharSet::getOffset(charSet)
@@ -547,11 +532,8 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 {
-	uint32 printingBgmap = BgmapTextureManager::getPrintingBgmapSegment(BgmapTextureManager::getInstance());
 	int32 topBorder = 11;
 	int32 leftBorder = 1;
-
-	uint16* const bgmapSpaceBaseAddress = (uint16*)__BGMAP_SPACE_BASE_ADDRESS;
 
 	const HWORD charMemoryMap[] =
 	{
@@ -598,7 +580,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 
 		Mem::addOffsetToHWORD
 		(
-			(HWORD*)(&bgmapSpaceBaseAddress[(0x1000 * (printingBgmap + 1) - __PRINTABLE_BGMAP_AREA) + ((yOffset) << 6) + xOffset]),
+			Printer::getPrintingBgmapAddress() + ((yOffset) << 6) + xOffset,
 			(HWORD*)charMemoryMap,
 			charsPerFrame,
 			CharSet::getOffset(charSet) + frame * charsPerFrame
