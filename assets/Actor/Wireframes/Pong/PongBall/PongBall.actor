@@ -14,13 +14,13 @@
 				"friction": 0,
 				"gravityAxes": [],
 				"mass": 0.1,
-				"maximumSpeed": 2,
+				"maximumSpeed": 9,
 				"maximumVelocity": {
 					"x": 0,
 					"y": 0,
 					"z": 0
 				},
-				"name": "",
+				"name": "Body",
 				"rotationAxes": []
 			}
 		],

@@ -125,7 +125,7 @@ BodyROMSpec PongBallBody1BodySpec =
 	{ __I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0) },
 
 	// Maximum speed
-	__I_TO_FIX10_6(2),
+	__I_TO_FIX10_6(9),
 
 	// Axises on which the body is subject to gravity
 	__NO_AXIS,
