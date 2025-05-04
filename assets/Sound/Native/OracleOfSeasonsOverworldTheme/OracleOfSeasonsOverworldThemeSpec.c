@@ -41,7 +41,7 @@ SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 	"Oracle of Seasons - Overworld",
 
 	// Play in loop
-	false,
+	true,
 
 	// Tick duration in US
 	880,

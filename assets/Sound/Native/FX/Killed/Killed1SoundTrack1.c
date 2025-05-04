@@ -73,6 +73,9 @@ SoundTrackROMSpec Killed1SoundTrack1 =
 	/// Total number of samples (0 if not PCM)
 	0,
 
+	/// Loop back point (cursor)
+	0,
+
 	/// Keyframes that define the track
 	(SoundTrackKeyframe*)Killed1SoundTrack1Keyframes,
 

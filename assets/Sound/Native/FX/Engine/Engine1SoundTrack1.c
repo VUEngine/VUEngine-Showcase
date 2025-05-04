@@ -47,7 +47,7 @@ const uint8 Engine1SoundTrack1SxEV0[] =
 
 const uint8 Engine1SoundTrack1SxEV1[] =
 {
-	0x00,
+	0x30,
 };
 
 const int8* const Engine1SoundTrack1SxRAM[] =
@@ -89,6 +89,9 @@ SoundTrackROMSpec Engine1SoundTrack1 =
 	true,
 
 	/// Total number of samples (0 if not PCM)
+	0,
+
+	/// Loop back point (cursor)
 	0,
 
 	/// Keyframes that define the track
