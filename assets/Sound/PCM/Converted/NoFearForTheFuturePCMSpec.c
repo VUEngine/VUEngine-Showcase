@@ -43240,6 +43240,9 @@ SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 	// Skip if no sound source available?
 	false,
 
+	/// Loop back point (cursor)
+	0,
+
 	// Total number of samples (0 if not PCM)
 	NoFearForTheFutureSoundTrackLength,
 
