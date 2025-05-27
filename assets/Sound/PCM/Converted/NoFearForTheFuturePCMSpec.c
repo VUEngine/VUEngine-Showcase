@@ -12,7 +12,7 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern const int8 PCMWaveForm[];
+extern WaveformData PCMWaveform;
 #define NoFearForTheFutureSoundTrackLength 690646
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -43211,9 +43211,9 @@ const uint8 NoFearForTheFutureSoundTrack1SxEV1[] =
 	0x00,
 };
 
-const int8* const NoFearForTheFutureSoundTrack1SxRAM[] =
+const WaveformData* const NoFearForTheFutureSoundTrack1SxRAM[] =
 {
-	PCMWaveForm,
+	&PCMWaveform,
 };
 
 const uint8 NoFearForTheFutureSoundTrack1SxSWP[] =
@@ -43265,7 +43265,7 @@ SoundTrackROMSpec NoFearForTheFutureSoundTrack =
 	(uint8*)NoFearForTheFutureSoundTrack1SxEV1,
 
 	// SxRAM pointers
-	(int8**)NoFearForTheFutureSoundTrack1SxRAM,
+	(WaveformData**)NoFearForTheFutureSoundTrack1SxRAM,
 
 	// SxSWP values
 	(uint8*)NoFearForTheFutureSoundTrack1SxSWP,

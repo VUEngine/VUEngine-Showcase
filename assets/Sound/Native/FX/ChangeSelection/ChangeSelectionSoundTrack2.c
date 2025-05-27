@@ -44,9 +44,9 @@ const uint8 ChangeSelection2SoundTrack1SxEV1[] =
 	0x01,
 };
 
-const int8* const ChangeSelection2SoundTrack1SxRAM[] =
+const WaveformData* const ChangeSelection2SoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 ChangeSelection2SoundTrack1SxSWP[] =
@@ -96,7 +96,7 @@ SoundTrackROMSpec ChangeSelection2SoundTrack1 =
 	(uint8*)ChangeSelection2SoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)ChangeSelection2SoundTrack1SxRAM,
+	(WaveformData**)ChangeSelection2SoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)ChangeSelection2SoundTrack1SxSWP,

@@ -44,9 +44,9 @@ const uint8 Killed1SoundTrack1SxEV1[] =
 	0x31,
 };
 
-const int8* const Killed1SoundTrack1SxRAM[] =
+const WaveformData* const Killed1SoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 Killed1SoundTrack1SxSWP[] =
@@ -95,7 +95,7 @@ SoundTrackROMSpec Killed1SoundTrack1 =
 	(uint8*)Killed1SoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)Killed1SoundTrack1SxRAM,
+	(WaveformData**)Killed1SoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)Killed1SoundTrack1SxSWP,

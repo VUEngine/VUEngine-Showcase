@@ -44,9 +44,9 @@ const uint8 HitPaddle1SoundTrack1SxEV1[] =
 	0x01,
 };
 
-const int8* const HitPaddle1SoundTrack1SxRAM[] =
+const WaveformData* const HitPaddle1SoundTrack1SxRAM[] =
 {
-	SawWaveForm,
+	&SawWaveForm,
 };
 
 const uint8 HitPaddle1SoundTrack1SxSWP[] =
@@ -96,7 +96,7 @@ SoundTrackROMSpec HitPaddle1SoundTrack1 =
 	(uint8*)HitPaddle1SoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)HitPaddle1SoundTrack1SxRAM,
+	(WaveformData**)HitPaddle1SoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)HitPaddle1SoundTrack1SxSWP,

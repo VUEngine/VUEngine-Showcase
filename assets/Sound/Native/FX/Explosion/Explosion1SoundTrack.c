@@ -44,9 +44,9 @@ const uint8 Explosion1SoundTrack1SxEV1[] =
 	0x11,
 };
 
-const int8* const Explosion1SoundTrack1SxRAM[] =
+const WaveformData* const Explosion1SoundTrack1SxRAM[] =
 {
-	TriangleWaveForm,
+	&TriangleWaveForm,
 };
 
 const uint8 Explosion1SoundTrack1SxSWP[] =
@@ -97,7 +97,7 @@ SoundTrackROMSpec Explosion1SoundTrack1 =
 	(uint8*)Explosion1SoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)Explosion1SoundTrack1SxRAM,
+	(WaveformData**)Explosion1SoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)Explosion1SoundTrack1SxSWP,

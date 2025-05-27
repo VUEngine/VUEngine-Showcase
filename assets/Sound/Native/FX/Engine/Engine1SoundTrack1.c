@@ -50,9 +50,9 @@ const uint8 Engine1SoundTrack1SxEV1[] =
 	0x30,
 };
 
-const int8* const Engine1SoundTrack1SxRAM[] =
+const WaveformData* const Engine1SoundTrack1SxRAM[] =
 {
-	TriangleWaveForm,
+	&TriangleWaveForm,
 };
 
 const uint8 Engine1SoundTrack1SxSWP[] =
@@ -113,7 +113,7 @@ SoundTrackROMSpec Engine1SoundTrack1 =
 	(uint8*)Engine1SoundTrack1SxEV1,
 
 	/// SxRAM pointers
-	(int8**)Engine1SoundTrack1SxRAM,
+	(WaveformData**)Engine1SoundTrack1SxRAM,
 
 	/// SxSWP values
 	(uint8*)Engine1SoundTrack1SxSWP,
