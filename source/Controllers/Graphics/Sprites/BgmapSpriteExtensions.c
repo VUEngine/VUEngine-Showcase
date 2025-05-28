@@ -71,7 +71,7 @@ static int16 BgmapSprite::applyHBias(BgmapSprite bgmapSprite, int16 waveHBiasThr
 
 	CACHE_RESET;
 
-	for(int16 i = 0; i < (bgmapSprite->halfHeight << 2) - my; i++)
+	for(int16 i = 0; i < (bgmapSprite->halfHeight << 3) - my; i++)
 	{
 		register int16 waveLutHBiasValue = waveLutHBias[(i + my + (step >> waveHBiasThrottle)) & (HBIAS_WAVE_LUT_ENTRIES - 1)];
 		hbiasEntry[i].offsetLeft = waveLutHBiasValue;
