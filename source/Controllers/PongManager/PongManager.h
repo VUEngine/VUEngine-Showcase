@@ -68,7 +68,7 @@ class PongManager : ListenerObject
 	/// Message to send to the other system
 	uint32 messageForRemote;
 
-	/// Flag to allor/prevent the movement of the paddle
+	/// Flag to allow/prevent the movement of the paddle
 	bool allowPaddleMovement;
 
 	/// Keypad combiation hold by the remote player
