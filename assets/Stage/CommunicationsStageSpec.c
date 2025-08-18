@@ -200,32 +200,19 @@ StageROMSpec CommunicationsStageSpec =
 		// Number of BGMAP segments reserved for the param
 		2,
 
-		// Obj segments sizes (must total 1024)
+		// Object Sprite Containers configuration
+		// true to instantiate, z for z sorting
 		{
-			// __spt0
-			1024,
-			// __spt1
-			0,
-			// __spt2
-			0,
-			// __spt3
-			0
+			// SPT0
+			{true, 0},
+			// SPT1
+			{false, 0},
+			// SPT2
+			{false, 0},
+			// SPT3
+			{false, 0}
 		},
-
-		// OBJECT segments z coordinates
-		// Note that each spt's z coordinate much be larger than or equal to the previous one's,
-		// since the vip renders obj worlds in reverse order (__spt3 to __spt0)
-		{
-			// __spt0
-			0,
-			// __spt1
-			0,
-			// __spt2
-			0,
-			// __spt3
-			0,
-		},
-
+		
 		// Struct defining the optical settings for the stage
 		{
 			// Maximum view distance's power into the horizon
