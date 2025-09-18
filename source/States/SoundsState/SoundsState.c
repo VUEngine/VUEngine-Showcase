@@ -30,7 +30,6 @@
 static const SoundROMSpec* _soundSamples[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundSpec,
-	&NoFearForTheFutureSoundSpec,
 	&Explosion1SoundSpec,
 	&Engine1SoundSpec,
 	NULL
@@ -90,9 +89,6 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	this->stream = false;
 	this->updatePhysics = false;
 	this->processCollisions = false;
-
-	// PCM playback hits hard on the CPU, let's make it easier on the poor VB
-	SoundsState::changeFramerate(this, 25, -1);
 
 	// We want to know when FRAMESTART happens to tell the TimeManager to print is status
 	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
@@ -372,7 +368,6 @@ void SoundsState::showExplanation()
 	y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
 	Printer::text("Chiptunes", 26, y++, NULL);
-	Printer::text("PCM", 26, y++, NULL);
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringMethodsSubtitle), 26, y++, "DefaultBold");
 	Printer::text("SoundsState", 26, y++, NULL);
@@ -480,12 +475,6 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	KeypadManager::disable();
 
 	SoundsState::releaseSound(this);
-
-	/*
-	 * Since PCM playback is too heavy on the CPU, it makes sense to set it per stage.
-	 * So, we set globally the target playback framerate (Hz) before creating any sound. 
-.	 */
-	SoundManager::setPCMTargetPlaybackRefreshRate(SoundManager::getInstance(), this->stageSpec->sound.pcmTargetPlaybackRefreshRate);
 
 	/*
 	 * We configure the timer manager to match the sound's timing. This is done here as and example and shouldn't 
