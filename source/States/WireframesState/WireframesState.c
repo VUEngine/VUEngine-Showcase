@@ -43,9 +43,6 @@ void WireframesState::enter(void* owner)
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
 
-	// Select the drawing strategy
-	VIPManager::setDrawingStrategy(kVIPManagerFavorStability);
-
 	// Make sure that no interrupts take place during rendering or drawing
 	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
@@ -70,9 +67,6 @@ void WireframesState::resume(void* owner)
 
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
-
-	// Select the drawing strategy
-	VIPManager::setDrawingStrategy(kVIPManagerFavorStability);
 
 	// Make sure that no interrupts take place during rendering or drawing
 	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
