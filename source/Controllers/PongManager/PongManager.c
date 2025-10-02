@@ -332,14 +332,14 @@ void PongManager::syncWithRemote(const UserInput* userInput)
 		remotePlayerData.condensedUserInput.releasedKey = userInput->releasedKey;
 		remotePlayerData.condensedUserInput.holdKey = userInput->holdKey;
 
-		PongManager::transmitData(this, this->messageForRemote, (BYTE*)&remotePlayerData, sizeof(remotePlayerData));
+		PongManager::transmitData(this, this->messageForRemote, (uint8*)&remotePlayerData, sizeof(remotePlayerData));
 	}
 		
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-void PongManager::transmitData(uint32 messageForRemote, BYTE* data, uint32 dataBytes)
+void PongManager::transmitData(uint32 messageForRemote, uint8* data, uint32 dataBytes)
 {
 	uint32 receivedMessage = kMessagePongDummy;
 	const RemotePlayerData* remotePlayerData = NULL;

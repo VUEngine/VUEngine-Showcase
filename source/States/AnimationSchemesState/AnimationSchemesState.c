@@ -435,7 +435,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
-	const HWORD charMemoryMap[] =
+	const uint16 charMemoryMap[] =
 	{
 		0,	1,	2,	3,	4,	5,	6,	7,
 		8,	9,	10,	11,	12,	13,	14,	15,
@@ -472,7 +472,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 		Mem::addOffsetToHWORD
 		(
 			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
-			(HWORD*)charMemoryMap,
+			(uint16*)charMemoryMap,
 			CharSet::getNumberOfChars(charSet),
 			CharSet::getOffset(charSet)
 		);
@@ -486,7 +486,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 	int32 topBorder = 21;
 	int32 leftBorder = 1;
 
-	const HWORD charMemoryMap[] =
+	const uint16 charMemoryMap[] =
 	{
 		0,	1,	2,	3,	4,	5,	6,	7,
 		8,	9,	10,	11,	12,	13,	14,	15,
@@ -522,7 +522,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 	Mem::addOffsetToHWORD
 	(
 		Printer::getPrintingBgmapAddress() + ((topBorder) << 6) + xOffset,
-		(HWORD*)charMemoryMap,
+		(uint16*)charMemoryMap,
 		CharSet::getNumberOfChars(charSet),
 		CharSet::getOffset(charSet)
 	);
@@ -535,7 +535,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 	int32 topBorder = 11;
 	int32 leftBorder = 1;
 
-	const HWORD charMemoryMap[] =
+	const uint16 charMemoryMap[] =
 	{
 		0,	1,	2,	3,	4,	5,	6,	7,
 		8,	9,	10,	11,	12,	13,	14,	15,
@@ -581,7 +581,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 		Mem::addOffsetToHWORD
 		(
 			Printer::getPrintingBgmapAddress() + ((yOffset) << 6) + xOffset,
-			(HWORD*)charMemoryMap,
+			(uint16*)charMemoryMap,
 			charsPerFrame,
 			CharSet::getOffset(charSet) + frame * charsPerFrame
 		);
