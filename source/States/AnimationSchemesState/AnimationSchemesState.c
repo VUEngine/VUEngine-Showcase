@@ -29,6 +29,13 @@
 #include "AnimationSchemesState.h"
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+// CLASS' MACROS
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+// This is a hack: 
+#define PRINTABLE_BGMAP_AREA	1792
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // CLASS' DATA
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
@@ -419,10 +426,13 @@ void AnimationSchemesState::showBgmapMemory()
 
 	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_CHARS - topBorder - bottomBorder; row++)
 	{
+		// Normally, we shouldn't touch graphic memory directly, and the usage
+		// of PRINTABLE_BGMAP_AREA is a hack. But this showcases that the engine
+		// doesn't restrict low level access if desired.
 		Mem::copyHWORD
 		(
 			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
-			Printer::getPrintingBgmapAddress() + __PRINTABLE_BGMAP_AREA + ((row + myDisplacement) << 6) + mxDisplacement,
+			Printer::getPrintingBgmapAddress() + PRINTABLE_BGMAP_AREA + ((row + myDisplacement) << 6) + mxDisplacement,
 			numberOfHWORDS
 		);
 	}
