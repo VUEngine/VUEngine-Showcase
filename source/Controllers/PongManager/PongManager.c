@@ -507,7 +507,7 @@ void PongManager::registerPoint(uint32 message)
 
 	RumbleManager::startEffect(&PointRumbleEffectSpec);
 
-	SoundManager::playSound(&Point1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
+	Sound::playSound(&Point1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

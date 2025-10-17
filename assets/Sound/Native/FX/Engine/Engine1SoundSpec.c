@@ -33,6 +33,15 @@ SoundTrackROMSpec* const Engine1SoundTracks[] =
 
 SoundROMSpec Engine1SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Engine 1",
 

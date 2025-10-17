@@ -33,6 +33,15 @@ SoundTrackROMSpec* const Point1SoundTracks[] =
 
 SoundROMSpec Point1SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Point Sound 1",
 

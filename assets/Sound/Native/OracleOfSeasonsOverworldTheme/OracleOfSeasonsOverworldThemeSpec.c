@@ -37,6 +37,15 @@ SoundTrackROMSpec* const OracleOfSeasonsOverworldThemeSoundTracks[] =
 
 SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Oracle of Seasons - Overworld",
 

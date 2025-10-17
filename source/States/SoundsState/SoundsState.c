@@ -124,7 +124,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 		{
 			if(!Sound::isPlaying(this->sound))
 			{
-				Sound::play(this->sound, NULL, kSoundPlaybackNormal);
+				Sound::play(this->sound, kSoundPlaybackNormal);
 			}
 			else
 			{
@@ -490,7 +490,7 @@ void SoundsState::loadSound(bool resetTimerSettings)
 	 * automatically with any sound that doesn't play in loop or when not explicitly told to not auto release by 
 	 * calling Sound::autoReleaseOnFinish.
 	 */
-	this->sound = SoundManager::getSound((SoundSpec*)_soundSamples[this->selectedSound], ListenerObject::safeCast(this));
+	this->sound = Sound::safeCast(ComponentManager::createComponent(NULL, (ComponentSpec*)_soundSamples[this->selectedSound]));
 
 	NM_ASSERT(!isDeleted(this->sound), "SoundsState::loadSound: no sound");
 

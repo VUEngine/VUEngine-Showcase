@@ -33,6 +33,15 @@ SoundTrackROMSpec* const Explosion1SoundTracks[] =
 
 SoundROMSpec Explosion1SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Explosion 1",
 

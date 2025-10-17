@@ -33,6 +33,15 @@ SoundTrackROMSpec* const ChangeSelection3SoundTracks[] =
 
 SoundROMSpec ChangeSelection3SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Change Selection Sound 3",
 

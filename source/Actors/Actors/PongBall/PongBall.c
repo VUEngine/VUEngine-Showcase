@@ -21,7 +21,6 @@
 #include <ParticleSystem.h>
 #include <RumbleEffects.h>
 #include <RumbleManager.h>
-#include <SoundManager.h>
 #include <Sounds.h>
 #include <Telegram.h>
 #include <Utilities.h>
@@ -124,7 +123,7 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 
 	RumbleManager::startEffect(&HitPaddleRumbleEffectSpec);
 
-	SoundManager::playSound(&HitPaddle1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
+	Sound::playSound(&HitPaddle1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
 	return returnValue;
 }

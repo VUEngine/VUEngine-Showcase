@@ -268,12 +268,12 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 		TimerManager::setTargetTimePerInterrupt(500);
 		TimerManager::applySettings(true);
 
-		Sound soundEffect = SoundManager::getSound(soundEffectSpec, ListenerObject::safeCast(this));
+		Sound soundEffect = Sound::get(soundEffectSpec, NULL, ListenerObject::safeCast(this));
 
 		if(NULL != soundEffect)
 		{
 			Sound::autoReleaseOnFinish(soundEffect, true);
-			Sound::play(soundEffect, NULL, kSoundPlaybackNormal);
+			Sound::play(soundEffect, kSoundPlaybackNormal);
 			
 			// Wait until the sound playback is done.
 			while(lock && Sound::isPlaying(soundEffect));

@@ -33,6 +33,15 @@ SoundTrackROMSpec* const Killed1SoundTracks[] =
 
 SoundROMSpec Killed1SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Killed Sound 1",
 

@@ -33,6 +33,15 @@ SoundTrackROMSpec* const HitPaddle1SoundTracks[] =
 
 SoundROMSpec HitPaddle1SoundSpec =
 {
+	// Component
+	{
+		// Allocator
+		__TYPE(Sound),
+
+		// Component type
+		kSoundComponent
+	},
+
 	// Name
 	"Hit Paddle Sound 1",
 

@@ -180,7 +180,7 @@ void Punk::die()
 
 	RumbleManager::startEffect(&KilledRumbleEffectSpec);
 
-	SoundManager::playSound(&Killed1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
+	Sound::playSound(&Killed1SoundSpec, Entity::safeCast(this), kSoundPlaybackNormal, NULL);
 
 	/*
 	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
