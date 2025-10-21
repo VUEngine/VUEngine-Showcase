@@ -50,7 +50,7 @@ PositionedActorROMSpec CollisionsStageUIActorsSpecs[] =
 // ASSETS LISTS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-FontROMSpec* const CollisionsStageFondSpecs [] =
+FontROMSpec* const CollisionsStageFontSpecs [] =
 {
 	NULL
 };
@@ -242,7 +242,7 @@ StageROMSpec CollisionsStageSpec =
 	// Assets
 	{
 		// Fonts to preload
-		(FontSpec**)CollisionsStageFondSpecs ,
+		(FontSpec**)CollisionsStageFontSpecs ,
 
 		// CharSets to preload
 		(CharSetSpec**)NULL,
