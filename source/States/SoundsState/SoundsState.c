@@ -29,9 +29,13 @@
 
 static const SoundROMSpec* _soundSamples[] =
 {
-	&OracleOfSeasonsOverworldThemeSoundSpec,
+	&BlueOceanRemixSoundSpec,
+	&DrMarioSoundSpec,
+	&HerdingPidgeonsSoundSpec,
+	&HideoutSoundSpec,
+	&NextFutureSoundSpec,
+	&TerminateSoundSpec,
 	&Explosion1SoundSpec,
-	&Engine1SoundSpec,
 	NULL
 };
 

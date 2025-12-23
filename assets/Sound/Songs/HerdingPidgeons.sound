@@ -1,0 +1,685 @@
+{
+	"_id": "u9jbGkRV4voR970v",
+	"_version": "0.6.0",
+	"author": "TipTopTomCat",
+	"comment": "",
+	"instruments": {
+		"zSZ1wcTuAJimj4lK": {
+			"color": 31,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 15,
+				"repeat": false,
+				"stepTime": 1
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 1,
+				"function": 0,
+				"interval": 0,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63
+			]
+		},
+		"R14kSJk8RufidxpC": {
+			"color": 46,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 15,
+				"repeat": false,
+				"stepTime": 1
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 1,
+				"function": 0,
+				"interval": 0,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
+			]
+		},
+		"NQ9krMB3JPzZCuFe": {
+			"color": 53,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 7,
+				"repeat": false,
+				"stepTime": 1
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 0,
+				"function": 0,
+				"interval": 1,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				43,47,51,55,59,63,59,55,51,47,43,0,7,11,15,59,55,51,47,43,47,51,55,59,63,59,55,51,15,11,7,0
+			]
+		},
+		"UKJOSsCxAKLDXyUV": {
+			"color": 24,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 7,
+				"repeat": false,
+				"stepTime": 1
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 0,
+				"function": 0,
+				"interval": 1,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			]
+		}
+	},
+	"loop": true,
+	"loopPoint": 0,
+	"name": "Herding Pidgeons DX",
+	"patterns": {
+		"GpQnKd0gZsSBTQO6": {
+			"events": {
+				"0": {
+					"note": "F4",
+					"duration": 100
+				},
+				"100": {
+					"note": "B3",
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"300": {
+					"note": "G4",
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"500": {
+					"note": "G#4",
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"700": {
+					"note": "B3",
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"900": {
+					"note": "B3",
+					"duration": 800,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"1700": {
+					"note": "A3",
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"1900": {
+					"note": "A3",
+					"duration": 1200,
+					"instrument": "R14kSJk8RufidxpC"
+				},
+				"3100": {
+					"note": "F4",
+					"duration": 100
+				}
+			},
+			"name": "Duty1-1",
+			"size": 16
+		},
+		"xsMyTxv63EWdzQ9V": {
+			"events": {
+				"0": {
+					"note": "G3",
+					"duration": 100
+				},
+				"100": {
+					"note": "G4",
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"300": {
+					"note": "D4",
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"500": {
+					"note": "E4",
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"700": {
+					"note": "E4",
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"900": {
+					"note": "E4",
+					"duration": 800,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"1700": {
+					"note": "D4",
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"1900": {
+					"note": "D4",
+					"duration": 1200,
+					"instrument": "zSZ1wcTuAJimj4lK"
+				},
+				"3100": {
+					"note": "G3",
+					"duration": 100
+				}
+			},
+			"name": "Duty2-1",
+			"size": 16
+		},
+		"ajGbnx65c4A2qRDI": {
+			"events": {
+				"0": {
+					"note": "D3",
+					"duration": 50
+				},
+				"50": {
+					"note": "D3",
+					"duration": 50,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"100": {
+					"note": "E3",
+					"duration": 50
+				},
+				"150": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"300": {
+					"note": "E4",
+					"duration": 50
+				},
+				"350": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"500": {
+					"note": "E3",
+					"duration": 50
+				},
+				"550": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"700": {
+					"note": "E4",
+					"duration": 50
+				},
+				"750": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"900": {
+					"note": "E3",
+					"duration": 50
+				},
+				"950": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1100": {
+					"note": "E4",
+					"duration": 50
+				},
+				"1150": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1300": {
+					"note": "E3",
+					"duration": 50
+				},
+				"1350": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1500": {
+					"note": "E4",
+					"duration": 50
+				},
+				"1550": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1700": {
+					"note": "D3",
+					"duration": 50
+				},
+				"1750": {
+					"note": "D3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1900": {
+					"note": "D4",
+					"duration": 50
+				},
+				"1950": {
+					"note": "D4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2100": {
+					"note": "D3",
+					"duration": 50
+				},
+				"2150": {
+					"note": "D3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2300": {
+					"note": "D4",
+					"duration": 50
+				},
+				"2350": {
+					"note": "D4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2500": {
+					"note": "D3",
+					"duration": 50
+				},
+				"2550": {
+					"note": "D3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2700": {
+					"note": "D4",
+					"duration": 50
+				},
+				"2750": {
+					"note": "D4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2900": {
+					"note": "D3",
+					"duration": 50
+				},
+				"2950": {
+					"note": "D3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"3100": {
+					"note": "E3",
+					"duration": 50
+				},
+				"3150": {
+					"note": "E3",
+					"duration": 50,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				}
+			},
+			"name": "Wave-1",
+			"size": 16
+		},
+		"kmF4HGvtbbWVrJhQ": {
+			"events": {
+				"0": {
+					"note": "F4",
+					"duration": 100
+				},
+				"100": {
+					"note": "G4",
+					"duration": 200
+				},
+				"300": {
+					"note": "G#4",
+					"duration": 200
+				},
+				"500": {
+					"note": "B3",
+					"duration": 200
+				},
+				"700": {
+					"note": "B3",
+					"duration": 800
+				},
+				"1500": {
+					"note": "D4",
+					"duration": 200
+				},
+				"1700": {
+					"note": "G#3",
+					"duration": 200
+				},
+				"1900": {
+					"note": "G#3",
+					"duration": 1200
+				},
+				"3100": {
+					"note": "F4",
+					"duration": 100
+				}
+			},
+			"name": "Duty1-2",
+			"size": 16
+		},
+		"gCY4vgDWL4Zswzl9": {
+			"events": {
+				"0": {
+					"note": "G3",
+					"duration": 100
+				},
+				"100": {
+					"note": "D4",
+					"duration": 200
+				},
+				"300": {
+					"note": "E4",
+					"duration": 200
+				},
+				"500": {
+					"note": "E4",
+					"duration": 200
+				},
+				"700": {
+					"note": "E4",
+					"duration": 800
+				},
+				"1500": {
+					"note": "F#3",
+					"duration": 200
+				},
+				"1700": {
+					"note": "E4",
+					"duration": 200
+				},
+				"1900": {
+					"note": "E4",
+					"duration": 1200
+				},
+				"3100": {
+					"note": "G3",
+					"duration": 100
+				}
+			},
+			"name": "Duty2-2",
+			"size": 16
+		},
+		"mDl7xtabqyarSQMc": {
+			"events": {
+				"0": {
+					"note": "D3",
+					"duration": 50
+				},
+				"50": {
+					"note": "D3",
+					"duration": 50,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"100": {
+					"note": "E3",
+					"duration": 50
+				},
+				"150": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"300": {
+					"note": "E4",
+					"duration": 50
+				},
+				"350": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"500": {
+					"note": "E3",
+					"duration": 50
+				},
+				"550": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"700": {
+					"note": "E4",
+					"duration": 50
+				},
+				"750": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"900": {
+					"note": "E3",
+					"duration": 50
+				},
+				"950": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1100": {
+					"note": "E4",
+					"duration": 50
+				},
+				"1150": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1300": {
+					"note": "E3",
+					"duration": 50
+				},
+				"1350": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1500": {
+					"note": "E4",
+					"duration": 50
+				},
+				"1550": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1700": {
+					"note": "E3",
+					"duration": 50
+				},
+				"1750": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"1900": {
+					"note": "B3",
+					"duration": 50
+				},
+				"1950": {
+					"note": "B3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2100": {
+					"note": "B4",
+					"duration": 50
+				},
+				"2150": {
+					"note": "B4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2300": {
+					"note": "E4",
+					"duration": 50
+				},
+				"2350": {
+					"note": "E4",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2500": {
+					"note": "E3",
+					"duration": 50
+				},
+				"2550": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2700": {
+					"note": "E3",
+					"duration": 50
+				},
+				"2750": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"2900": {
+					"note": "E3",
+					"duration": 50
+				},
+				"2950": {
+					"note": "E3",
+					"duration": 150,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				},
+				"3100": {
+					"note": "E3",
+					"duration": 50
+				},
+				"3150": {
+					"note": "E3",
+					"duration": 50,
+					"instrument": "UKJOSsCxAKLDXyUV"
+				}
+			},
+			"name": "Wave-2",
+			"size": 16
+		}
+	},
+	"section": "rom",
+	"size": 32,
+	"speed": 60,
+	"tracks": [
+		{
+			"allowSkip": false,
+			"instrument": "R14kSJk8RufidxpC",
+			"sequence": {
+				"0": "xsMyTxv63EWdzQ9V",
+				"16": "gCY4vgDWL4Zswzl9"
+			},
+			"type": "wave"
+		},
+		{
+			"allowSkip": false,
+			"instrument": "NQ9krMB3JPzZCuFe",
+			"sequence": {
+				"0": "ajGbnx65c4A2qRDI",
+				"16": "mDl7xtabqyarSQMc"
+			},
+			"type": "wave"
+		},
+		{
+			"allowSkip": false,
+			"instrument": "zSZ1wcTuAJimj4lK",
+			"sequence": {
+				"0": "GpQnKd0gZsSBTQO6",
+				"16": "kmF4HGvtbbWVrJhQ"
+			},
+			"type": "sweepMod"
+		}
+	]
+}

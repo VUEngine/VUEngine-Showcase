@@ -47,9 +47,6 @@ const UserActor _userAnimatedActors[] =
 
 const SoundROMSpec* _userSounds[] =
 {
-	&OracleOfSeasonsOverworldThemeSoundSpec,
-	&Explosion1SoundSpec,
-	&Engine1SoundSpec,
 	NULL
 };
 

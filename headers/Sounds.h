@@ -21,7 +21,12 @@ extern SoundSpec Engine1SoundSpec;
 extern SoundSpec Explosion1SoundSpec;
 extern SoundSpec HitPaddle1SoundSpec;
 extern SoundSpec Killed1SoundSpec;
-extern SoundSpec OracleOfSeasonsOverworldThemeSoundSpec;
 extern SoundSpec Point1SoundSpec;
+extern SoundSpec BlueOceanRemixSoundSpec;
+extern SoundSpec DrMarioSoundSpec;
+extern SoundSpec HerdingPidgeonsSoundSpec;
+extern SoundSpec HideoutSoundSpec;
+extern SoundSpec NextFutureSoundSpec;
+extern SoundSpec TerminateSoundSpec;
 
 #endif
