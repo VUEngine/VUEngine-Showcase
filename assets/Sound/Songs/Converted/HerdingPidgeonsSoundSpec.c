@@ -19,11 +19,11 @@ const WaveformData HerdingPidgeonsWaveform1 =
 {
 	// Data
 	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63
+		43, 47, 51, 55, 59, 63, 59, 55, 51, 47, 43, 0, 7, 11, 15, 59, 55, 51, 47, 43, 47, 51, 55, 59, 63, 59, 55, 51, 15, 11, 7, 0
 	},
 
 	// Checksum
-	2566268968
+	2914655623
 };
 
 const WaveformData HerdingPidgeonsWaveform2 =
@@ -41,22 +41,22 @@ const WaveformData HerdingPidgeonsWaveform3 =
 {
 	// Data
 	{
-		43, 47, 51, 55, 59, 63, 59, 55, 51, 47, 43, 0, 7, 11, 15, 59, 55, 51, 47, 43, 47, 51, 55, 59, 63, 59, 55, 51, 15, 11, 7, 0
+		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	},
 
 	// Checksum
-	2914655623
+	3778786901
 };
 
 const WaveformData HerdingPidgeonsWaveform4 =
 {
 	// Data
 	{
-		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63
 	},
 
 	// Checksum
-	3778786901
+	2566268968
 };
 
 // Modulation Data
@@ -96,7 +96,7 @@ const uint8 HerdingPidgeonsSoundTrack0SxEV1[] =
 
 const WaveformData* const HerdingPidgeonsSoundTrack0SxRAM[] =
 {
-	&HerdingPidgeonsWaveform2, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform2, 
+	&HerdingPidgeonsWaveform2, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform2, 
 };
 
 const uint8 HerdingPidgeonsSoundTrack0SxSWP[] =
@@ -220,23 +220,23 @@ const uint8 HerdingPidgeonsSoundTrack1SxEV1[] =
 
 const WaveformData* const HerdingPidgeonsSoundTrack1SxRAM[] =
 {
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
-	&HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform4, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
+	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, &HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform3, 
 };
 
 const uint8 HerdingPidgeonsSoundTrack1SxSWP[] =
@@ -395,7 +395,7 @@ const uint8 HerdingPidgeonsSoundTrack2SxEV1[] =
 
 const WaveformData* const HerdingPidgeonsSoundTrack2SxRAM[] =
 {
-	&HerdingPidgeonsWaveform1, &HerdingPidgeonsWaveform2, &HerdingPidgeonsWaveform1, 
+	&HerdingPidgeonsWaveform4, &HerdingPidgeonsWaveform2, &HerdingPidgeonsWaveform4, 
 };
 
 const uint8 HerdingPidgeonsSoundTrack2SxSWP[] =
@@ -498,7 +498,7 @@ SoundROMSpec HerdingPidgeonsSoundSpec =
 	},
 
 	// Name
-	"Herding Pidgeons DX",
+	"TipTopTomCat - Herding Pidgeons",
 
 	// Play in loop
 	true,

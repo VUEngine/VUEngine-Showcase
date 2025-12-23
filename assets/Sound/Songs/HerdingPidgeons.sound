@@ -4,12 +4,12 @@
 	"author": "TipTopTomCat",
 	"comment": "",
 	"instruments": {
-		"zSZ1wcTuAJimj4lK": {
-			"color": 31,
+		"NQ9krMB3JPzZCuFe": {
+			"color": 53,
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 15,
+				"initialValue": 7,
 				"repeat": false,
 				"stepTime": 1
 			},
@@ -24,9 +24,9 @@
 			"sweepMod": {
 				"direction": 0,
 				"enabled": false,
-				"frequency": 1,
+				"frequency": 0,
 				"function": 0,
-				"interval": 0,
+				"interval": 1,
 				"repeat": false,
 				"shift": 0
 			},
@@ -36,7 +36,7 @@
 				"right": 15
 			},
 			"waveform": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63
+				43,47,51,55,59,63,59,55,51,47,43,0,7,11,15,59,55,51,47,43,47,51,55,59,63,59,55,51,15,11,7,0
 			]
 		},
 		"R14kSJk8RufidxpC": {
@@ -74,41 +74,6 @@
 				0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
 			]
 		},
-		"NQ9krMB3JPzZCuFe": {
-			"color": 53,
-			"envelope": {
-				"direction": 0,
-				"enabled": true,
-				"initialValue": 7,
-				"repeat": false,
-				"stepTime": 1
-			},
-			"interval": {
-				"enabled": false,
-				"value": 0
-			},
-			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			],
-			"name": "",
-			"sweepMod": {
-				"direction": 0,
-				"enabled": false,
-				"frequency": 0,
-				"function": 0,
-				"interval": 1,
-				"repeat": false,
-				"shift": 0
-			},
-			"tap": 0,
-			"volume": {
-				"left": 15,
-				"right": 15
-			},
-			"waveform": [
-				43,47,51,55,59,63,59,55,51,47,43,0,7,11,15,59,55,51,47,43,47,51,55,59,63,59,55,51,15,11,7,0
-			]
-		},
 		"UKJOSsCxAKLDXyUV": {
 			"color": 24,
 			"envelope": {
@@ -143,510 +108,545 @@
 			"waveform": [
 				63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			]
+		},
+		"zSZ1wcTuAJimj4lK": {
+			"color": 31,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 15,
+				"repeat": false,
+				"stepTime": 1
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 1,
+				"function": 0,
+				"interval": 0,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63
+			]
 		}
 	},
 	"loop": true,
 	"loopPoint": 0,
-	"name": "Herding Pidgeons DX",
+	"name": "TipTopTomCat - Herding Pidgeons",
 	"patterns": {
-		"GpQnKd0gZsSBTQO6": {
-			"events": {
-				"0": {
-					"note": "F4",
-					"duration": 100
-				},
-				"100": {
-					"note": "B3",
-					"duration": 200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"300": {
-					"note": "G4",
-					"duration": 200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"500": {
-					"note": "G#4",
-					"duration": 200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"700": {
-					"note": "B3",
-					"duration": 200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"900": {
-					"note": "B3",
-					"duration": 800,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"1700": {
-					"note": "A3",
-					"duration": 200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 1200,
-					"instrument": "R14kSJk8RufidxpC"
-				},
-				"3100": {
-					"note": "F4",
-					"duration": 100
-				}
-			},
-			"name": "Duty1-1",
-			"size": 16
-		},
-		"xsMyTxv63EWdzQ9V": {
-			"events": {
-				"0": {
-					"note": "G3",
-					"duration": 100
-				},
-				"100": {
-					"note": "G4",
-					"duration": 200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"300": {
-					"note": "D4",
-					"duration": 200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"500": {
-					"note": "E4",
-					"duration": 200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"700": {
-					"note": "E4",
-					"duration": 200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"900": {
-					"note": "E4",
-					"duration": 800,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"1700": {
-					"note": "D4",
-					"duration": 200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"1900": {
-					"note": "D4",
-					"duration": 1200,
-					"instrument": "zSZ1wcTuAJimj4lK"
-				},
-				"3100": {
-					"note": "G3",
-					"duration": 100
-				}
-			},
-			"name": "Duty2-1",
-			"size": 16
-		},
 		"ajGbnx65c4A2qRDI": {
 			"events": {
 				"0": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"50": {
-					"note": "D3",
 					"duration": 50,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"100": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"150": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"300": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"350": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"500": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"550": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"700": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"750": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"900": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"950": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"1100": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"1150": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"1300": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"1350": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"1500": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"1550": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"1700": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"1750": {
-					"note": "D3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"1900": {
-					"note": "D4",
-					"duration": 50
+					"duration": 50,
+					"note": "D4"
 				},
 				"1950": {
-					"note": "D4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D4"
 				},
 				"2100": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"2150": {
-					"note": "D3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"2300": {
-					"note": "D4",
-					"duration": 50
+					"duration": 50,
+					"note": "D4"
 				},
 				"2350": {
-					"note": "D4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D4"
 				},
 				"2500": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"2550": {
-					"note": "D3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"2700": {
-					"note": "D4",
-					"duration": 50
+					"duration": 50,
+					"note": "D4"
 				},
 				"2750": {
-					"note": "D4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D4"
 				},
 				"2900": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"2950": {
-					"note": "D3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"3100": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"3150": {
-					"note": "E3",
 					"duration": 50,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				}
 			},
 			"name": "Wave-1",
 			"size": 16
 		},
-		"kmF4HGvtbbWVrJhQ": {
-			"events": {
-				"0": {
-					"note": "F4",
-					"duration": 100
-				},
-				"100": {
-					"note": "G4",
-					"duration": 200
-				},
-				"300": {
-					"note": "G#4",
-					"duration": 200
-				},
-				"500": {
-					"note": "B3",
-					"duration": 200
-				},
-				"700": {
-					"note": "B3",
-					"duration": 800
-				},
-				"1500": {
-					"note": "D4",
-					"duration": 200
-				},
-				"1700": {
-					"note": "G#3",
-					"duration": 200
-				},
-				"1900": {
-					"note": "G#3",
-					"duration": 1200
-				},
-				"3100": {
-					"note": "F4",
-					"duration": 100
-				}
-			},
-			"name": "Duty1-2",
-			"size": 16
-		},
 		"gCY4vgDWL4Zswzl9": {
 			"events": {
 				"0": {
-					"note": "G3",
-					"duration": 100
+					"duration": 100,
+					"note": "G3"
 				},
 				"100": {
-					"note": "D4",
-					"duration": 200
+					"duration": 200,
+					"note": "D4"
 				},
 				"300": {
-					"note": "E4",
-					"duration": 200
+					"duration": 200,
+					"note": "E4"
 				},
 				"500": {
-					"note": "E4",
-					"duration": 200
+					"duration": 200,
+					"note": "E4"
 				},
 				"700": {
-					"note": "E4",
-					"duration": 800
+					"duration": 800,
+					"note": "E4"
 				},
 				"1500": {
-					"note": "F#3",
-					"duration": 200
+					"duration": 200,
+					"note": "F#3"
 				},
 				"1700": {
-					"note": "E4",
-					"duration": 200
+					"duration": 200,
+					"note": "E4"
 				},
 				"1900": {
-					"note": "E4",
-					"duration": 1200
+					"duration": 1200,
+					"note": "E4"
 				},
 				"3100": {
-					"note": "G3",
-					"duration": 100
+					"duration": 100,
+					"note": "G3"
 				}
 			},
 			"name": "Duty2-2",
 			"size": 16
 		},
+		"GpQnKd0gZsSBTQO6": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"note": "F4"
+				},
+				"100": {
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "B3"
+				},
+				"300": {
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "G4"
+				},
+				"500": {
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "G#4"
+				},
+				"700": {
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "B3"
+				},
+				"900": {
+					"duration": 800,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "B3"
+				},
+				"1700": {
+					"duration": 200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "A3"
+				},
+				"1900": {
+					"duration": 1200,
+					"instrument": "R14kSJk8RufidxpC",
+					"note": "A3"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F4"
+				}
+			},
+			"name": "Duty1-1",
+			"size": 16
+		},
+		"kmF4HGvtbbWVrJhQ": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"note": "F4"
+				},
+				"100": {
+					"duration": 200,
+					"note": "G4"
+				},
+				"300": {
+					"duration": 200,
+					"note": "G#4"
+				},
+				"500": {
+					"duration": 200,
+					"note": "B3"
+				},
+				"700": {
+					"duration": 800,
+					"note": "B3"
+				},
+				"1500": {
+					"duration": 200,
+					"note": "D4"
+				},
+				"1700": {
+					"duration": 200,
+					"note": "G#3"
+				},
+				"1900": {
+					"duration": 1200,
+					"note": "G#3"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F4"
+				}
+			},
+			"name": "Duty1-2",
+			"size": 16
+		},
 		"mDl7xtabqyarSQMc": {
 			"events": {
 				"0": {
-					"note": "D3",
-					"duration": 50
+					"duration": 50,
+					"note": "D3"
 				},
 				"50": {
-					"note": "D3",
 					"duration": 50,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "D3"
 				},
 				"100": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"150": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"300": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"350": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"500": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"550": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"700": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"750": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"900": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"950": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"1100": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"1150": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"1300": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"1350": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"1500": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"1550": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"1700": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"1750": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"1900": {
-					"note": "B3",
-					"duration": 50
+					"duration": 50,
+					"note": "B3"
 				},
 				"1950": {
-					"note": "B3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "B3"
 				},
 				"2100": {
-					"note": "B4",
-					"duration": 50
+					"duration": 50,
+					"note": "B4"
 				},
 				"2150": {
-					"note": "B4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "B4"
 				},
 				"2300": {
-					"note": "E4",
-					"duration": 50
+					"duration": 50,
+					"note": "E4"
 				},
 				"2350": {
-					"note": "E4",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E4"
 				},
 				"2500": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"2550": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"2700": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"2750": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"2900": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"2950": {
-					"note": "E3",
 					"duration": 150,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				},
 				"3100": {
-					"note": "E3",
-					"duration": 50
+					"duration": 50,
+					"note": "E3"
 				},
 				"3150": {
-					"note": "E3",
 					"duration": 50,
-					"instrument": "UKJOSsCxAKLDXyUV"
+					"instrument": "UKJOSsCxAKLDXyUV",
+					"note": "E3"
 				}
 			},
 			"name": "Wave-2",
+			"size": 16
+		},
+		"xsMyTxv63EWdzQ9V": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"note": "G3"
+				},
+				"100": {
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "G4"
+				},
+				"300": {
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "D4"
+				},
+				"500": {
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "E4"
+				},
+				"700": {
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "E4"
+				},
+				"900": {
+					"duration": 800,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "E4"
+				},
+				"1700": {
+					"duration": 200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "D4"
+				},
+				"1900": {
+					"duration": 1200,
+					"instrument": "zSZ1wcTuAJimj4lK",
+					"note": "D4"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "G3"
+				}
+			},
+			"name": "Duty2-1",
 			"size": 16
 		}
 	},

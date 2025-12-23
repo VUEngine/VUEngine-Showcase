@@ -30,17 +30,6 @@ const WaveformData HideoutWaveform2 =
 {
 	// Data
 	{
-		62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0
-	},
-
-	// Checksum
-	3405039715
-};
-
-const WaveformData HideoutWaveform3 =
-{
-	// Data
-	{
 		0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
 	},
 
@@ -48,7 +37,7 @@ const WaveformData HideoutWaveform3 =
 	3419018325
 };
 
-const WaveformData HideoutWaveform4 =
+const WaveformData HideoutWaveform3 =
 {
 	// Data
 	{
@@ -57,6 +46,17 @@ const WaveformData HideoutWaveform4 =
 
 	// Checksum
 	3931527250
+};
+
+const WaveformData HideoutWaveform4 =
+{
+	// Data
+	{
+		62, 60, 58, 56, 54, 52, 50, 48, 46, 44, 42, 40, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16, 14, 12, 10, 8, 6, 4, 2, 0
+	},
+
+	// Checksum
+	3405039715
 };
 
 // Modulation Data
@@ -119,7 +119,7 @@ const uint8 HideoutSoundTrack0SxEV1[] =
 
 const WaveformData* const HideoutSoundTrack0SxRAM[] =
 {
-	&HideoutWaveform3, &HideoutWaveform3, 
+	&HideoutWaveform2, &HideoutWaveform2, 
 };
 
 const uint8 HideoutSoundTrack0SxSWP[] =
@@ -620,7 +620,7 @@ const uint8 HideoutSoundTrack1SxEV1[] =
 
 const WaveformData* const HideoutSoundTrack1SxRAM[] =
 {
-	&HideoutWaveform2, 
+	&HideoutWaveform4, 
 };
 
 const uint8 HideoutSoundTrack1SxSWP[] =
@@ -977,10 +977,10 @@ const uint8 HideoutSoundTrack2SxEV1[] =
 
 const WaveformData* const HideoutSoundTrack2SxRAM[] =
 {
-	&HideoutWaveform1, &HideoutWaveform3, &HideoutWaveform1, &HideoutWaveform3, 
-	&HideoutWaveform1, &HideoutWaveform3, &HideoutWaveform1, &HideoutWaveform3, 
-	&HideoutWaveform1, &HideoutWaveform3, &HideoutWaveform3, &HideoutWaveform3, 
-	&HideoutWaveform3, &HideoutWaveform3, &HideoutWaveform3, &HideoutWaveform1, 
+	&HideoutWaveform1, &HideoutWaveform2, &HideoutWaveform1, &HideoutWaveform2, 
+	&HideoutWaveform1, &HideoutWaveform2, &HideoutWaveform1, &HideoutWaveform2, 
+	&HideoutWaveform1, &HideoutWaveform2, &HideoutWaveform2, &HideoutWaveform2, 
+	&HideoutWaveform2, &HideoutWaveform2, &HideoutWaveform2, &HideoutWaveform1, 
 };
 
 const uint8 HideoutSoundTrack2SxSWP[] =
@@ -1526,7 +1526,7 @@ SoundROMSpec HideoutSoundSpec =
 	},
 
 	// Name
-	"Hideout",
+	"Tronimal - Hideout",
 
 	// Play in loop
 	false,

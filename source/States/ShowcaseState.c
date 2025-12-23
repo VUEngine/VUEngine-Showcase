@@ -84,7 +84,7 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		
 		case kEventFramerateReady:
 		{
-			FrameRate::print(FrameRate::getInstance(), 14, 27);
+			// FrameRate::print(FrameRate::getInstance(), 14, 27);
 
 			return true;
 		}
@@ -127,7 +127,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	KeypadManager::disable();
 
 	// Printer the framerate
-	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
+	// FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
 	// Start fade in effect
 	Camera::startEffect(Camera::getInstance(), kHide);
@@ -200,7 +200,7 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	{
 		if(0 > --_currentShowcaseState)
 		{
-			_currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
+			// _currentShowcaseState = sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1;
 		}
 
 		ShowcaseState::goToNext(this);
@@ -209,16 +209,16 @@ void ShowcaseState::processUserInput(const UserInput* userInput)
 	{
 		if((signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1)< ++_currentShowcaseState)
 		{
-			_currentShowcaseState = 0;
+			// _currentShowcaseState = 0;
 		}
 
 		ShowcaseState::goToNext(this);
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{
-		this->showAdditionalDetails = !this->showAdditionalDetails;
+		// this->showAdditionalDetails = !this->showAdditionalDetails;
 
-		ShowcaseState::show(this, false);
+		// ShowcaseState::show(this, false);
 	}
 	else if(K_B & userInput->releasedKey)
 	{
@@ -241,9 +241,11 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 	}
 	else if((K_LT | K_RT) & userInput->releasedKey)
 	{
+		/*
 		lock = true;
 		soundEffectSpec = &ChangeSelection1SoundSpec;
 		rumbleEffect = &ChangeSelection1RumbleEffectSpec;
+		*/
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{
@@ -273,7 +275,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 		if(NULL != soundEffect)
 		{
 			Sound::autoReleaseOnFinish(soundEffect, true);
-			Sound::play(soundEffect, kSoundPlaybackNormal);
+			// Sound::play(soundEffect, kSoundPlaybackNormal);
 			
 			// Wait until the sound playback is done.
 			while(lock && Sound::isPlaying(soundEffect));
@@ -361,29 +363,7 @@ void ShowcaseState::show(bool reloadStuff)
 
 void ShowcaseState::showHeader()
 {
-	const char* currentShowCaseNumberPrefix = "(  /  ) ";
-	FontSize currentShowCaseNumberPrefixTextSize = Printer::getTextSize(currentShowCaseNumberPrefix, NULL);
-	uint8 numberOfShowCaseStates = (signed)(sizeof(_showcaseStates) / sizeof(ShowcaseState) - 1) + 1;
-
-	const char* statePrefix = I18n::getText(I18n::getInstance(), kStringStateTitle);
-	FontSize statePrefixTextSize = Printer::getTextSize(statePrefix, NULL);
-
-	const char* className = __GET_CLASS_NAME(this);
-	FontSize classNameTextSize = Printer::getTextSize(className, NULL);
-
-	uint8 textStartXPosition = 
-		(__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - 
-		(statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
-
-	Printer::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
-	Printer::text(__CHAR_L_TRIGGER, 1, 0, NULL);
-	Printer::text(currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
-	Printer::text(Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
-	Printer::int32(numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
-	Printer::text(statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
-	Printer::text(className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
-	Printer::text(__CHAR_R_TRIGGER, 46, 0, NULL);
-	Printer::text(__CHAR_SELECTOR, 47, 0, NULL);
+	Printer::text("VUEngine Studio UGE Converter Demo", 6, 1, "Astonish");
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -420,7 +400,7 @@ void ShowcaseState::constructor()
 	Base::constructor();
 
 	this->stageSpec = NULL;
-	this->showAdditionalDetails = false;
+	this->showAdditionalDetails = true;
 	this->validSuboptionKeys = K_NON;
 }
 

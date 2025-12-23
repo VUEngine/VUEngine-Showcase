@@ -1423,7 +1423,7 @@ SoundROMSpec NextFutureSoundSpec =
 	},
 
 	// Name
-	"Next Future DX",
+	"TipTopTomCat - Next Future",
 
 	// Play in loop
 	false,

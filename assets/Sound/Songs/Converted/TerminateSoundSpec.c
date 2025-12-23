@@ -19,36 +19,14 @@ const WaveformData TerminateWaveform1 =
 {
 	// Data
 	{
-		0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	},
 
 	// Checksum
-	3419018325
+	3931527250
 };
 
 const WaveformData TerminateWaveform2 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	2553352093
-};
-
-const WaveformData TerminateWaveform3 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 47, 43, 39, 35, 43, 39, 35, 31, 15, 11, 7, 0, 15, 19, 23, 27, 19, 23, 27, 31, 47, 51, 55, 59, 51, 55, 59, 63
-	},
-
-	// Checksum
-	3284889670
-};
-
-const WaveformData TerminateWaveform4 =
 {
 	// Data
 	{
@@ -59,29 +37,18 @@ const WaveformData TerminateWaveform4 =
 	1206584209
 };
 
-const WaveformData TerminateWaveform5 =
+const WaveformData TerminateWaveform3 =
 {
 	// Data
 	{
-		63, 63, 63, 59, 63, 55, 63, 51, 63, 47, 63, 43, 63, 39, 63, 35, 59, 31, 55, 27, 51, 23, 47, 19, 43, 15, 39, 11, 35, 7, 31, 0
+		0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
 	},
 
 	// Checksum
-	3382026849
+	3419018325
 };
 
-const WaveformData TerminateWaveform6 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	3476736364
-};
-
-const WaveformData TerminateWaveform7 =
+const WaveformData TerminateWaveform4 =
 {
 	// Data
 	{
@@ -92,106 +59,7 @@ const WaveformData TerminateWaveform7 =
 	2167527495
 };
 
-const WaveformData TerminateWaveform8 =
-{
-	// Data
-	{
-		60, 56, 52, 48, 44, 40, 36, 32, 28, 24, 20, 16, 12, 8, 4, 0, 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60
-	},
-
-	// Checksum
-	3220736386
-};
-
-const WaveformData TerminateWaveform9 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	1864464385
-};
-
-const WaveformData TerminateWaveform10 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	3778786901
-};
-
-const WaveformData TerminateWaveform11 =
-{
-	// Data
-	{
-		51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15
-	},
-
-	// Checksum
-	3369474882
-};
-
-const WaveformData TerminateWaveform12 =
-{
-	// Data
-	{
-		43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23
-	},
-
-	// Checksum
-	2375799384
-};
-
-const WaveformData TerminateWaveform13 =
-{
-	// Data
-	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	3931527250
-};
-
-const WaveformData TerminateWaveform14 =
-{
-	// Data
-	{
-		63, 63, 63, 63, 55, 55, 55, 55, 63, 63, 63, 63, 55, 55, 55, 55, 15, 15, 15, 15, 7, 7, 7, 7, 15, 15, 15, 15, 7, 7, 7, 7
-	},
-
-	// Checksum
-	2250050177
-};
-
-const WaveformData TerminateWaveform15 =
-{
-	// Data
-	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
-	},
-
-	// Checksum
-	3681369321
-};
-
-const WaveformData TerminateWaveform16 =
-{
-	// Data
-	{
-		35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31
-	},
-
-	// Checksum
-	2837416001
-};
-
-const WaveformData TerminateWaveform17 =
+const WaveformData TerminateWaveform5 =
 {
 	// Data
 	{
@@ -202,7 +70,51 @@ const WaveformData TerminateWaveform17 =
 	2171103480
 };
 
-const WaveformData TerminateWaveform18 =
+const WaveformData TerminateWaveform6 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	},
+
+	// Checksum
+	2553352093
+};
+
+const WaveformData TerminateWaveform7 =
+{
+	// Data
+	{
+		43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23, 23
+	},
+
+	// Checksum
+	2375799384
+};
+
+const WaveformData TerminateWaveform8 =
+{
+	// Data
+	{
+		63, 63, 63, 59, 63, 55, 63, 51, 63, 47, 63, 43, 63, 39, 63, 35, 59, 31, 55, 27, 51, 23, 47, 19, 43, 15, 39, 11, 35, 7, 31, 0
+	},
+
+	// Checksum
+	3382026849
+};
+
+const WaveformData TerminateWaveform9 =
+{
+	// Data
+	{
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
+	},
+
+	// Checksum
+	3681369321
+};
+
+const WaveformData TerminateWaveform10 =
 {
 	// Data
 	{
@@ -211,6 +123,94 @@ const WaveformData TerminateWaveform18 =
 
 	// Checksum
 	3677078911
+};
+
+const WaveformData TerminateWaveform11 =
+{
+	// Data
+	{
+		60, 56, 52, 48, 44, 40, 36, 32, 28, 24, 20, 16, 12, 8, 4, 0, 0, 4, 8, 12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60
+	},
+
+	// Checksum
+	3220736386
+};
+
+const WaveformData TerminateWaveform12 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	},
+
+	// Checksum
+	1864464385
+};
+
+const WaveformData TerminateWaveform13 =
+{
+	// Data
+	{
+		35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 35, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31, 31
+	},
+
+	// Checksum
+	2837416001
+};
+
+const WaveformData TerminateWaveform14 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 47, 43, 39, 35, 43, 39, 35, 31, 15, 11, 7, 0, 15, 19, 23, 27, 19, 23, 27, 31, 47, 51, 55, 59, 51, 55, 59, 63
+	},
+
+	// Checksum
+	3284889670
+};
+
+const WaveformData TerminateWaveform15 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	},
+
+	// Checksum
+	3476736364
+};
+
+const WaveformData TerminateWaveform16 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 55, 55, 55, 55, 63, 63, 63, 63, 55, 55, 55, 55, 15, 15, 15, 15, 7, 7, 7, 7, 15, 15, 15, 15, 7, 7, 7, 7
+	},
+
+	// Checksum
+	2250050177
+};
+
+const WaveformData TerminateWaveform17 =
+{
+	// Data
+	{
+		51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 51, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15, 15
+	},
+
+	// Checksum
+	3369474882
+};
+
+const WaveformData TerminateWaveform18 =
+{
+	// Data
+	{
+		63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+	},
+
+	// Checksum
+	3778786901
 };
 
 // Modulation Data
@@ -265,8 +265,8 @@ const uint8 TerminateSoundTrack0SxEV1[] =
 
 const WaveformData* const TerminateSoundTrack0SxRAM[] =
 {
-	&TerminateWaveform15, &TerminateWaveform15, &TerminateWaveform15, &TerminateWaveform1, 
-	&TerminateWaveform18, 
+	&TerminateWaveform9, &TerminateWaveform9, &TerminateWaveform9, &TerminateWaveform3, 
+	&TerminateWaveform10, 
 };
 
 const uint8 TerminateSoundTrack0SxSWP[] =
@@ -744,140 +744,140 @@ const uint8 TerminateSoundTrack1SxEV1[] =
 
 const WaveformData* const TerminateSoundTrack1SxRAM[] =
 {
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform8, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform4, 
-	&TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform8, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform8, &TerminateWaveform12, 
-	&TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform8, &TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform8, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform4, 
-	&TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform8, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform8, &TerminateWaveform12, 
-	&TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform8, &TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform8, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform4, 
-	&TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform8, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform8, &TerminateWaveform12, 
-	&TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform9, &TerminateWaveform5, 
-	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform8, &TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform8, 
-	&TerminateWaveform2, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform4, 
-	&TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform8, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform10, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform10, &TerminateWaveform8, &TerminateWaveform12, 
-	&TerminateWaveform5, &TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform8, &TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform11, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform10, &TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform3, &TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform7, &TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform2, &TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, 
-	&TerminateWaveform3, &TerminateWaveform10, &TerminateWaveform11, &TerminateWaveform3, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform16, &TerminateWaveform12, 
-	&TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform4, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform17, &TerminateWaveform8, 
-	&TerminateWaveform5, &TerminateWaveform4, &TerminateWaveform8, &TerminateWaveform5, 
-	&TerminateWaveform6, &TerminateWaveform17, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform16, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform16, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform16, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform16, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform16, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform16, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform5, &TerminateWaveform2, &TerminateWaveform3, 
-	&TerminateWaveform4, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform7, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform2, 
-	&TerminateWaveform9, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform3, 
-	&TerminateWaveform10, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform11, 
-	&TerminateWaveform3, &TerminateWaveform8, &TerminateWaveform5, &TerminateWaveform10, 
-	&TerminateWaveform12, &TerminateWaveform5, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform11, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform2, 
+	&TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform11, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform11, &TerminateWaveform7, 
+	&TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform11, &TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform11, &TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform11, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform2, 
+	&TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform11, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform11, &TerminateWaveform7, 
+	&TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform11, &TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform11, &TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform11, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform2, 
+	&TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform11, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform11, &TerminateWaveform7, 
+	&TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform11, &TerminateWaveform12, &TerminateWaveform8, 
+	&TerminateWaveform11, &TerminateWaveform15, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform11, &TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform11, 
+	&TerminateWaveform6, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform2, 
+	&TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform11, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform18, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform18, &TerminateWaveform11, &TerminateWaveform7, 
+	&TerminateWaveform8, &TerminateWaveform11, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform11, &TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform17, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform18, &TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform14, &TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform4, &TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform6, &TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, 
+	&TerminateWaveform14, &TerminateWaveform18, &TerminateWaveform17, &TerminateWaveform14, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform13, &TerminateWaveform7, 
+	&TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform5, &TerminateWaveform11, 
+	&TerminateWaveform8, &TerminateWaveform2, &TerminateWaveform11, &TerminateWaveform8, 
+	&TerminateWaveform15, &TerminateWaveform5, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform13, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform13, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform13, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform13, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform13, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform13, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform8, &TerminateWaveform6, &TerminateWaveform14, 
+	&TerminateWaveform2, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform4, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform6, 
+	&TerminateWaveform12, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform14, 
+	&TerminateWaveform18, &TerminateWaveform8, &TerminateWaveform15, &TerminateWaveform17, 
+	&TerminateWaveform14, &TerminateWaveform11, &TerminateWaveform8, &TerminateWaveform18, 
+	&TerminateWaveform7, &TerminateWaveform8, 
 };
 
 const uint8 TerminateSoundTrack1SxSWP[] =
@@ -1592,49 +1592,49 @@ const uint8 TerminateSoundTrack2SxEV1[] =
 
 const WaveformData* const TerminateSoundTrack2SxRAM[] =
 {
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform15, 
-	&TerminateWaveform1, &TerminateWaveform15, &TerminateWaveform1, &TerminateWaveform15, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, &TerminateWaveform14, &TerminateWaveform1, &TerminateWaveform14, 
-	&TerminateWaveform1, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform9, 
+	&TerminateWaveform3, &TerminateWaveform9, &TerminateWaveform3, &TerminateWaveform9, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, &TerminateWaveform16, &TerminateWaveform3, &TerminateWaveform16, 
+	&TerminateWaveform3, 
 };
 
 const uint8 TerminateSoundTrack2SxSWP[] =
@@ -3123,7 +3123,7 @@ SoundROMSpec TerminateSoundSpec =
 	},
 
 	// Name
-	"Terminate",
+	"Tronimal - Terminate",
 
 	// Play in loop
 	false,

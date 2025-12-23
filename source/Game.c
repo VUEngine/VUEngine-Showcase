@@ -31,14 +31,13 @@ GameState game(void)
 	// Initialize plugins
 	AutomaticPauseManager::setActive
 	(
-		AutomaticPauseManager::getInstance(), 
-		GameSaveDataManager::getAutomaticPauseStatus(GameSaveDataManager::getInstance())
+		AutomaticPauseManager::getInstance(), false
 	);
 
 	// Now setup the language based on the user's saved preferences
 	I18n::setActiveLanguage
 	(
-		I18n::getInstance(), GameSaveDataManager::getLanguage(GameSaveDataManager::getInstance())
+		I18n::getInstance(), 0
 	);
 
 	// Setup the next screen for each SplashScreen
@@ -67,7 +66,7 @@ GameState game(void)
 	);
 
 	// And return the first GameState that the game must enter into
-	return GameState::safeCast(PrecautionScreenState::getInstance());
+	return GameState::safeCast(ShowcaseState::getFirstShowcase()());
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

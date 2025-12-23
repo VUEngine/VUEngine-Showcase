@@ -39,76 +39,6 @@
 				63,63,63,63,55,55,55,55,63,63,63,63,55,55,55,55,15,15,15,15,7,7,7,7,15,15,15,15,7,7,7,7
 			]
 		},
-		"sarPM8W0bhi0FEcW": {
-			"color": 9,
-			"envelope": {
-				"direction": 0,
-				"enabled": true,
-				"initialValue": 15,
-				"repeat": false,
-				"stepTime": 7
-			},
-			"interval": {
-				"enabled": false,
-				"value": 0
-			},
-			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			],
-			"name": "Saw Wave",
-			"sweepMod": {
-				"direction": 0,
-				"enabled": false,
-				"frequency": 0,
-				"function": 0,
-				"interval": 1,
-				"repeat": false,
-				"shift": 0
-			},
-			"tap": 0,
-			"volume": {
-				"left": 15,
-				"right": 15
-			},
-			"waveform": [
-				62,60,58,56,54,52,50,48,46,44,42,40,38,36,34,32,30,28,26,24,22,20,18,16,14,12,10,8,6,4,2,0
-			]
-		},
-		"uSYKPlFnuxJQgyCU": {
-			"color": 2,
-			"envelope": {
-				"direction": 0,
-				"enabled": false,
-				"initialValue": 8,
-				"repeat": false,
-				"stepTime": 3
-			},
-			"interval": {
-				"enabled": true,
-				"value": 16
-			},
-			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			],
-			"name": "Short 25% Pulse",
-			"sweepMod": {
-				"direction": 0,
-				"enabled": false,
-				"frequency": 1,
-				"function": 0,
-				"interval": 0,
-				"repeat": false,
-				"shift": 0
-			},
-			"tap": 0,
-			"volume": {
-				"left": 15,
-				"right": 15
-			},
-			"waveform": [
-				0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
-			]
-		},
 		"4E2Zlq72JylpDAfK": {
 			"color": 47,
 			"envelope": {
@@ -126,76 +56,6 @@
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 			],
 			"name": "25% Pulse",
-			"sweepMod": {
-				"direction": 0,
-				"enabled": false,
-				"frequency": 1,
-				"function": 0,
-				"interval": 0,
-				"repeat": false,
-				"shift": 0
-			},
-			"tap": 0,
-			"volume": {
-				"left": 15,
-				"right": 15
-			},
-			"waveform": [
-				0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
-			]
-		},
-		"n1RkODi8q6tBGyp4": {
-			"color": 42,
-			"envelope": {
-				"direction": 0,
-				"enabled": true,
-				"initialValue": 10,
-				"repeat": false,
-				"stepTime": 0
-			},
-			"interval": {
-				"enabled": false,
-				"value": 0
-			},
-			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			],
-			"name": "Snare Drum",
-			"sweepMod": {
-				"direction": 0,
-				"enabled": false,
-				"frequency": 0,
-				"function": 0,
-				"interval": 1,
-				"repeat": false,
-				"shift": 0
-			},
-			"tap": 0,
-			"volume": {
-				"left": 15,
-				"right": 15
-			},
-			"waveform": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			]
-		},
-		"tG7d1h9ibhtZGute": {
-			"color": 18,
-			"envelope": {
-				"direction": 0,
-				"enabled": false,
-				"initialValue": 8,
-				"repeat": false,
-				"stepTime": 3
-			},
-			"interval": {
-				"enabled": false,
-				"value": 0
-			},
-			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
-			],
-			"name": "75% Pulse",
 			"sweepMod": {
 				"direction": 0,
 				"enabled": false,
@@ -248,1004 +108,1618 @@
 			"waveform": [
 				63,63,63,63,55,55,55,55,63,63,63,63,55,55,55,55,15,15,15,15,7,7,7,7,15,15,15,15,7,7,7,7
 			]
+		},
+		"n1RkODi8q6tBGyp4": {
+			"color": 42,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 10,
+				"repeat": false,
+				"stepTime": 0
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "Snare Drum",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 0,
+				"function": 0,
+				"interval": 1,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			]
+		},
+		"sarPM8W0bhi0FEcW": {
+			"color": 9,
+			"envelope": {
+				"direction": 0,
+				"enabled": true,
+				"initialValue": 15,
+				"repeat": false,
+				"stepTime": 7
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "Saw Wave",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 0,
+				"function": 0,
+				"interval": 1,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				62,60,58,56,54,52,50,48,46,44,42,40,38,36,34,32,30,28,26,24,22,20,18,16,14,12,10,8,6,4,2,0
+			]
+		},
+		"tG7d1h9ibhtZGute": {
+			"color": 18,
+			"envelope": {
+				"direction": 0,
+				"enabled": false,
+				"initialValue": 8,
+				"repeat": false,
+				"stepTime": 3
+			},
+			"interval": {
+				"enabled": false,
+				"value": 0
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "75% Pulse",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 1,
+				"function": 0,
+				"interval": 0,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
+			]
+		},
+		"uSYKPlFnuxJQgyCU": {
+			"color": 2,
+			"envelope": {
+				"direction": 0,
+				"enabled": false,
+				"initialValue": 8,
+				"repeat": false,
+				"stepTime": 3
+			},
+			"interval": {
+				"enabled": true,
+				"value": 16
+			},
+			"modulationData": [
+				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+			],
+			"name": "Short 25% Pulse",
+			"sweepMod": {
+				"direction": 0,
+				"enabled": false,
+				"frequency": 1,
+				"function": 0,
+				"interval": 0,
+				"repeat": false,
+				"shift": 0
+			},
+			"tap": 0,
+			"volume": {
+				"left": 15,
+				"right": 15
+			},
+			"waveform": [
+				0,0,0,0,0,0,0,0,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63,63
+			]
 		}
 	},
 	"loop": false,
 	"loopPoint": 0,
-	"name": "Hideout",
+	"name": "Tronimal - Hideout",
 	"patterns": {
+		"03dR357g3SVctNBb": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"1700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"1800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"1900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"2300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"2400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"2500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"2700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"3000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"3100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				}
+			},
+			"name": "Duty1-8",
+			"size": 16
+		},
+		"1C6Ii2yCxw5s727K": {
+			"events": {
+				"400": {
+					"duration": 800,
+					"note": "C4"
+				},
+				"1200": {
+					"duration": 800,
+					"note": "C4"
+				},
+				"2000": {
+					"duration": 800,
+					"note": "C4"
+				},
+				"2800": {
+					"duration": 400,
+					"note": "C4"
+				}
+			},
+			"name": "Noise-7",
+			"size": 16
+		},
+		"1hhgadBtUcB5vTg0": {
+			"events": {
+				"0": {
+					"duration": 50,
+					"note": "G4"
+				},
+				"50": {
+					"duration": 650,
+					"note": "G2"
+				},
+				"700": {
+					"duration": 200,
+					"note": "G4"
+				},
+				"900": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1000": {
+					"duration": 400,
+					"note": "G4"
+				},
+				"1400": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1500": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1600": {
+					"duration": 50,
+					"note": "F#4"
+				},
+				"1650": {
+					"duration": 650,
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 200,
+					"note": "F#4"
+				},
+				"2500": {
+					"duration": 100,
+					"note": "F#4"
+				},
+				"2600": {
+					"duration": 400,
+					"note": "F#4"
+				},
+				"3000": {
+					"duration": 100,
+					"note": "F#4"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F#4"
+				}
+			},
+			"name": "Wave-7",
+			"size": 16
+		},
 		"1zpiye7NP3fmf6Ed": {
 			"events": {
 				"0": {
-					"note": "D4",
-					"duration": 700
+					"duration": 700,
+					"note": "D4"
 				},
 				"700": {
-					"note": "A#3",
-					"duration": 700
+					"duration": 700,
+					"note": "A#3"
 				},
 				"1400": {
-					"note": "G3",
-					"duration": 200
+					"duration": 200,
+					"note": "G3"
 				},
 				"1600": {
-					"note": "C#4",
-					"duration": 700
+					"duration": 700,
+					"note": "C#4"
 				},
 				"2300": {
-					"note": "A3",
-					"duration": 900
+					"duration": 900,
+					"note": "A3"
 				}
 			},
 			"name": "Duty1-1",
 			"size": 16
 		},
-		"JLWTJ7nqhvZzblR2": {
-			"events": {
-				"0": {
-					"note": "G4",
-					"duration": 50
-				},
-				"50": {
-					"note": "G2",
-					"duration": 650
-				},
-				"700": {
-					"note": "G4",
-					"duration": 200
-				},
-				"900": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1000": {
-					"note": "G4",
-					"duration": 400
-				},
-				"1400": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1500": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1600": {
-					"note": "F#4",
-					"duration": 50
-				},
-				"1650": {
-					"note": "F#2",
-					"duration": 650
-				},
-				"2300": {
-					"note": "F#4",
-					"duration": 200
-				},
-				"2500": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"2600": {
-					"note": "F#4",
-					"duration": 400
-				},
-				"3000": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"3100": {
-					"note": "F#4",
-					"duration": 100
-				}
-			},
-			"name": "Wave-1",
-			"size": 16
-		},
-		"4qHcWEuicTVSPS81": {
-			"events": {
-				"0": {
-					"note": "D4",
-					"duration": 700
-				},
-				"700": {
-					"note": "A#3",
-					"duration": 700
-				},
-				"1400": {
-					"note": "G3",
-					"duration": 200
-				},
-				"1600": {
-					"note": "C#4",
-					"duration": 700
-				},
-				"2300": {
-					"note": "A3",
-					"duration": 700
-				},
-				"3000": {
-					"note": "C#5",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"3100": {
-					"note": "C#5",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				}
-			},
-			"name": "Duty1-2",
-			"size": 16
-		},
 		"2eVly8dST3yjVxK9": {
 			"events": {
 				"0": {
-					"note": "G4",
-					"duration": 50
+					"duration": 50,
+					"note": "G4"
 				},
 				"50": {
-					"note": "G2",
-					"duration": 650
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G4",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1500": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#4",
-					"duration": 50
+					"duration": 50,
+					"note": "F#4"
 				},
 				"1650": {
-					"note": "F#2",
-					"duration": 650
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#4",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"2600": {
-					"note": "F#4",
-					"duration": 400
+					"duration": 400,
+					"note": "F#4"
 				},
 				"3000": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"3100": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				}
 			},
 			"name": "Wave-2",
 			"size": 16
 		},
-		"wOzC4nahuXGg9WZb": {
+		"2hagvtsqpWIzgfbU": {
 			"events": {
 				"0": {
-					"note": "D4",
-					"duration": 700
-				},
-				"700": {
-					"note": "A#3",
-					"duration": 700
-				},
-				"1400": {
-					"note": "G3",
-					"duration": 200
-				},
-				"1600": {
-					"note": "C#4",
-					"duration": 700
-				},
-				"2300": {
-					"note": "A3",
-					"duration": 700
-				},
-				"3000": {
-					"note": "C#5",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
-				"3100": {
-					"note": "C#5",
+				"100": {
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				}
-			},
-			"name": "Duty1-3",
-			"size": 16
-		},
-		"lr8v0D7mayxGpsii": {
-			"events": {
-				"0": {
-					"note": "G2",
-					"duration": 200
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
 				},
 				"200": {
-					"note": "A#2",
-					"duration": 200
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
+				},
+				"300": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
 				},
 				"400": {
-					"note": "D3",
-					"duration": 200
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
+				},
+				"500": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F3"
 				},
 				"600": {
-					"note": "G2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
 				"700": {
-					"note": "A#2",
-					"duration": 200
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
+				},
+				"800": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
 				},
 				"900": {
-					"note": "D3",
-					"duration": 200
-				},
-				"1100": {
-					"note": "G2",
-					"duration": 100
-				},
-				"1200": {
-					"note": "A#2",
-					"duration": 200
-				},
-				"1400": {
-					"note": "D3",
-					"duration": 200
-				},
-				"1600": {
-					"note": "F#2",
-					"duration": 200
-				},
-				"1800": {
-					"note": "A2",
-					"duration": 200
-				},
-				"2000": {
-					"note": "C#3",
-					"duration": 200
-				},
-				"2200": {
-					"note": "F#2",
-					"duration": 100
-				},
-				"2300": {
-					"note": "A2",
-					"duration": 200
-				},
-				"2500": {
-					"note": "C#3",
-					"duration": 200
-				},
-				"2700": {
-					"note": "F#2",
-					"duration": 100
-				},
-				"2800": {
-					"note": "A2",
-					"duration": 200
-				},
-				"3000": {
-					"note": "C#3",
-					"duration": 200
-				}
-			},
-			"name": "Duty2-3",
-			"size": 16
-		},
-		"dvXt3tHO4iXnrHii": {
-			"events": {
-				"0": {
-					"note": "G4",
-					"duration": 50
-				},
-				"50": {
-					"note": "G2",
-					"duration": 650
-				},
-				"700": {
-					"note": "G4",
-					"duration": 200
-				},
-				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
 				},
-				"1400": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1500": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1600": {
-					"note": "F#4",
-					"duration": 50
-				},
-				"1650": {
-					"note": "F#2",
-					"duration": 650
-				},
-				"2300": {
-					"note": "F#4",
-					"duration": 200
-				},
-				"2500": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"2600": {
-					"note": "F#4",
-					"duration": 400
-				},
-				"3000": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"3100": {
-					"note": "F#4",
-					"duration": 100
-				}
-			},
-			"name": "Wave-3",
-			"size": 16
-		},
-		"aC6Fs5WUu6XMzENO": {
-			"events": {
-				"400": {
-					"note": "C4",
-					"duration": 800
+				"1100": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
 				"1200": {
-					"note": "C4",
-					"duration": 800
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
+				},
+				"1300": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
+				},
+				"1400": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
+				},
+				"1500": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
+				},
+				"1700": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
+				},
+				"1800": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
+				},
+				"1900": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
 				},
 				"2000": {
-					"note": "C4",
-					"duration": 800
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
+				},
+				"2100": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "E3"
+				},
+				"2200": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
+				},
+				"2400": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
+				},
+				"2500": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
+				},
+				"2600": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
+				},
+				"2700": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
 				},
 				"2800": {
-					"note": "C4",
-					"duration": 400
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
+				},
+				"2900": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
+				},
+				"3000": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
+				},
+				"3100": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
 				}
 			},
-			"name": "Noise-3",
+			"name": "Duty2-8",
+			"size": 16
+		},
+		"4qHcWEuicTVSPS81": {
+			"events": {
+				"0": {
+					"duration": 700,
+					"note": "D4"
+				},
+				"700": {
+					"duration": 700,
+					"note": "A#3"
+				},
+				"1400": {
+					"duration": 200,
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 700,
+					"note": "C#4"
+				},
+				"2300": {
+					"duration": 700,
+					"note": "A3"
+				},
+				"3000": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
+				},
+				"3100": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
+				}
+			},
+			"name": "Duty1-2",
+			"size": 16
+		},
+		"4W6lYSQA45PbK2LY": {
+			"events": {
+				"400": {
+					"duration": 800,
+					"note": "C4"
+				},
+				"1200": {
+					"duration": 800,
+					"note": "C4"
+				},
+				"2000": {
+					"duration": 1200,
+					"note": "C4"
+				}
+			},
+			"name": "Noise-8",
 			"size": 16
 		},
 		"6LUHbH4nxPMQUvQs": {
 			"events": {
 				"0": {
-					"note": "D4",
-					"duration": 700
+					"duration": 700,
+					"note": "D4"
 				},
 				"700": {
-					"note": "A#3",
-					"duration": 700
+					"duration": 700,
+					"note": "A#3"
 				},
 				"1400": {
-					"note": "G3",
-					"duration": 200
+					"duration": 200,
+					"note": "G3"
 				},
 				"1600": {
-					"note": "C#4",
-					"duration": 700
+					"duration": 700,
+					"note": "C#4"
 				},
 				"2300": {
-					"note": "A3",
-					"duration": 700
+					"duration": 700,
+					"note": "A3"
 				},
 				"3000": {
-					"note": "C#5",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
 				},
 				"3100": {
-					"note": "C#5",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
 				}
 			},
 			"name": "Duty1-4",
 			"size": 16
 		},
-		"SLYmduGFCqcRBADE": {
+		"9ji4CCiWaTREnP6C": {
 			"events": {
 				"0": {
-					"note": "G2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
 				"100": {
-					"note": "A#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
 				},
 				"200": {
-					"note": "D3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
 				},
 				"300": {
-					"note": "A#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
 				},
 				"400": {
-					"note": "G3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
 				},
 				"500": {
-					"note": "F3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F3"
 				},
 				"600": {
-					"note": "G2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
 				"700": {
-					"note": "A#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
 				},
 				"800": {
-					"note": "D3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
 				},
 				"900": {
-					"note": "A#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
 				},
 				"1000": {
-					"note": "G3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
 				},
 				"1100": {
-					"note": "G2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G2"
 				},
 				"1200": {
-					"note": "A#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#2"
 				},
 				"1300": {
-					"note": "D3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "D3"
 				},
 				"1400": {
-					"note": "A#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A#3"
 				},
 				"1500": {
-					"note": "G3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "G3"
 				},
 				"1600": {
-					"note": "F#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
 				},
 				"1700": {
-					"note": "A2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
 				},
 				"1800": {
-					"note": "C#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
 				},
 				"1900": {
-					"note": "A3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
 				},
 				"2000": {
-					"note": "F#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
 				},
 				"2100": {
-					"note": "E3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "E3"
 				},
 				"2200": {
-					"note": "F#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "A2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
 				},
 				"2400": {
-					"note": "C#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
 				},
 				"2500": {
-					"note": "A3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
 				},
 				"2600": {
-					"note": "F#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
 				},
 				"2700": {
-					"note": "F#2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#2"
 				},
 				"2800": {
-					"note": "A2",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A2"
 				},
 				"2900": {
-					"note": "C#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#3"
 				},
 				"3000": {
-					"note": "A3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "A3"
 				},
 				"3100": {
-					"note": "F#3",
-					"duration": 100
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "F#3"
 				}
 			},
-			"name": "Duty2-4",
-			"size": 16
-		},
-		"fqFqIxD7nzKi43vq": {
-			"events": {
-				"0": {
-					"note": "G4",
-					"duration": 50
-				},
-				"50": {
-					"note": "G2",
-					"duration": 650
-				},
-				"700": {
-					"note": "G4",
-					"duration": 200
-				},
-				"900": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1000": {
-					"note": "G4",
-					"duration": 400
-				},
-				"1400": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1500": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1600": {
-					"note": "F#4",
-					"duration": 50
-				},
-				"1650": {
-					"note": "F#2",
-					"duration": 650
-				},
-				"2300": {
-					"note": "F#4",
-					"duration": 200
-				},
-				"2500": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"2600": {
-					"note": "F#4",
-					"duration": 400
-				},
-				"3000": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"3100": {
-					"note": "F#4",
-					"duration": 100
-				}
-			},
-			"name": "Wave-4",
+			"name": "Duty2-7",
 			"size": 16
 		},
 		"a3OaX1C9LSH5E31G": {
 			"events": {
 				"400": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"1200": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2000": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2800": {
-					"note": "C4",
-					"duration": 400
+					"duration": 400,
+					"note": "C4"
 				}
 			},
 			"name": "Noise-4",
 			"size": 16
 		},
-		"wLjooTAHVvVwS9wG": {
+		"aC6Fs5WUu6XMzENO": {
 			"events": {
-				"0": {
-					"note": "D5",
-					"duration": 700,
-					"instrument": "tG7d1h9ibhtZGute"
-				},
-				"700": {
-					"note": "G5",
-					"duration": 900,
-					"instrument": "tG7d1h9ibhtZGute"
-				},
-				"1600": {
-					"note": "F#5",
-					"duration": 700,
-					"instrument": "tG7d1h9ibhtZGute"
-				},
-				"2300": {
-					"note": "C#5",
-					"duration": 700,
-					"instrument": "tG7d1h9ibhtZGute"
-				},
-				"3000": {
-					"note": "C#5",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"3100": {
-					"note": "C#5",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				}
-			},
-			"name": "Duty1-5",
-			"size": 16
-		},
-		"oaEumlgKGbPo24hF": {
-			"events": {
-				"0": {
-					"note": "G2",
-					"duration": 200
-				},
-				"200": {
-					"note": "A#2",
-					"duration": 200
-				},
 				"400": {
-					"note": "D3",
-					"duration": 200
-				},
-				"600": {
-					"note": "G2",
-					"duration": 100
-				},
-				"700": {
-					"note": "A#2",
-					"duration": 200
-				},
-				"900": {
-					"note": "D3",
-					"duration": 200
-				},
-				"1100": {
-					"note": "G2",
-					"duration": 100
+					"duration": 800,
+					"note": "C4"
 				},
 				"1200": {
-					"note": "A#2",
-					"duration": 200
-				},
-				"1400": {
-					"note": "D3",
-					"duration": 200
-				},
-				"1600": {
-					"note": "F#2",
-					"duration": 200
-				},
-				"1800": {
-					"note": "A2",
-					"duration": 200
+					"duration": 800,
+					"note": "C4"
 				},
 				"2000": {
-					"note": "C#3",
-					"duration": 200
-				},
-				"2200": {
-					"note": "F#2",
-					"duration": 100
-				},
-				"2300": {
-					"note": "A2",
-					"duration": 200
-				},
-				"2500": {
-					"note": "C#3",
-					"duration": 200
-				},
-				"2700": {
-					"note": "F#2",
-					"duration": 100
+					"duration": 800,
+					"note": "C4"
 				},
 				"2800": {
-					"note": "A2",
-					"duration": 200
-				},
-				"3000": {
-					"note": "C#3",
-					"duration": 200
+					"duration": 400,
+					"note": "C4"
 				}
 			},
-			"name": "Duty2-5",
+			"name": "Noise-3",
 			"size": 16
 		},
-		"sqqVjT1SwUT05Ben": {
+		"dvXt3tHO4iXnrHii": {
 			"events": {
 				"0": {
-					"note": "G4",
-					"duration": 50
+					"duration": 50,
+					"note": "G4"
 				},
 				"50": {
-					"note": "G2",
-					"duration": 650
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G4",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1500": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#4",
-					"duration": 50
+					"duration": 50,
+					"note": "F#4"
 				},
 				"1650": {
-					"note": "F#2",
-					"duration": 650
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#4",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"2600": {
-					"note": "F#4",
-					"duration": 400
+					"duration": 400,
+					"note": "F#4"
 				},
 				"3000": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"3100": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				}
 			},
-			"name": "Wave-5",
+			"name": "Wave-3",
 			"size": 16
 		},
-		"TkpCoFuuTJYLihZT": {
-			"events": {
-				"400": {
-					"note": "C4",
-					"duration": 800
-				},
-				"1200": {
-					"note": "C4",
-					"duration": 800
-				},
-				"2000": {
-					"note": "C4",
-					"duration": 800
-				},
-				"2800": {
-					"note": "C4",
-					"duration": 400
-				}
-			},
-			"name": "Noise-5",
-			"size": 16
-		},
-		"PgsqWwrhpR6oGcnL": {
+		"fqFqIxD7nzKi43vq": {
 			"events": {
 				"0": {
-					"note": "D5",
-					"duration": 700,
-					"instrument": "tG7d1h9ibhtZGute"
+					"duration": 50,
+					"note": "G4"
+				},
+				"50": {
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G5",
-					"duration": 900,
-					"instrument": "tG7d1h9ibhtZGute"
-				},
-				"1600": {
-					"note": "F#5",
-					"duration": 1600,
-					"instrument": "tG7d1h9ibhtZGute"
-				}
-			},
-			"name": "Duty1-6",
-			"size": 16
-		},
-		"pc0AujRKzmh0xh78": {
-			"events": {
-				"0": {
-					"note": "G2",
-					"duration": 200
-				},
-				"200": {
-					"note": "A#2",
-					"duration": 200
-				},
-				"400": {
-					"note": "D3",
-					"duration": 200
-				},
-				"600": {
-					"note": "G2",
-					"duration": 100
-				},
-				"700": {
-					"note": "A#2",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "D3",
-					"duration": 200
+					"duration": 100,
+					"note": "G4"
 				},
-				"1100": {
-					"note": "G2",
-					"duration": 100
-				},
-				"1200": {
-					"note": "A#2",
-					"duration": 200
+				"1000": {
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "D3",
-					"duration": 200
+					"duration": 100,
+					"note": "G4"
+				},
+				"1500": {
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#2",
-					"duration": 200
+					"duration": 50,
+					"note": "F#4"
 				},
-				"1800": {
-					"note": "A2",
-					"duration": 200
-				},
-				"2000": {
-					"note": "C#3",
-					"duration": 200
-				},
-				"2200": {
-					"note": "F#2",
-					"duration": 100
+				"1650": {
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "A2",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "C#3",
-					"duration": 200
+					"duration": 100,
+					"note": "F#4"
 				},
-				"2700": {
-					"note": "F#2",
-					"duration": 100
-				},
-				"2800": {
-					"note": "A2",
-					"duration": 200
+				"2600": {
+					"duration": 400,
+					"note": "F#4"
 				},
 				"3000": {
-					"note": "C#3",
-					"duration": 200
+					"duration": 100,
+					"note": "F#4"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F#4"
 				}
 			},
-			"name": "Duty2-6",
+			"name": "Wave-4",
+			"size": 16
+		},
+		"gbGBrSOzfqY4fPz8": {
+			"events": {
+				"0": {
+					"duration": 50,
+					"note": "G4"
+				},
+				"50": {
+					"duration": 650,
+					"note": "G2"
+				},
+				"700": {
+					"duration": 200,
+					"note": "G4"
+				},
+				"900": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1000": {
+					"duration": 400,
+					"note": "G4"
+				},
+				"1400": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1500": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1600": {
+					"duration": 50,
+					"note": "F#4"
+				},
+				"1650": {
+					"duration": 650,
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 200,
+					"note": "F#4"
+				},
+				"2500": {
+					"duration": 100,
+					"note": "F#4"
+				},
+				"2600": {
+					"duration": 600,
+					"note": "F#4"
+				}
+			},
+			"name": "Wave-9",
+			"size": 16
+		},
+		"GNc02umBYOY49xVZ": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"1700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"1800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"1900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"2300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"2400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"2500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"2700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"3000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"3100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				}
+			},
+			"name": "Duty1-7",
+			"size": 16
+		},
+		"JLWTJ7nqhvZzblR2": {
+			"events": {
+				"0": {
+					"duration": 50,
+					"note": "G4"
+				},
+				"50": {
+					"duration": 650,
+					"note": "G2"
+				},
+				"700": {
+					"duration": 200,
+					"note": "G4"
+				},
+				"900": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1000": {
+					"duration": 400,
+					"note": "G4"
+				},
+				"1400": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1500": {
+					"duration": 100,
+					"note": "G4"
+				},
+				"1600": {
+					"duration": 50,
+					"note": "F#4"
+				},
+				"1650": {
+					"duration": 650,
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 200,
+					"note": "F#4"
+				},
+				"2500": {
+					"duration": 100,
+					"note": "F#4"
+				},
+				"2600": {
+					"duration": 400,
+					"note": "F#4"
+				},
+				"3000": {
+					"duration": 100,
+					"note": "F#4"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F#4"
+				}
+			},
+			"name": "Wave-1",
+			"size": 16
+		},
+		"JYvxSOt2t4SRb215": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1200": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "D4"
+				},
+				"1300": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A#3"
+				},
+				"1400": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"1500": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "F#3"
+				},
+				"1700": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"1800": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				},
+				"1900": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2000": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "C#4"
+				},
+				"2100": {
+					"duration": 100,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "A3"
+				},
+				"2200": {
+					"duration": 1000,
+					"instrument": "a7pXZQOyuC7V6qqm",
+					"note": "G#3"
+				}
+			},
+			"name": "Duty1-9",
+			"size": 16
+		},
+		"lr8v0D7mayxGpsii": {
+			"events": {
+				"0": {
+					"duration": 200,
+					"note": "G2"
+				},
+				"200": {
+					"duration": 200,
+					"note": "A#2"
+				},
+				"400": {
+					"duration": 200,
+					"note": "D3"
+				},
+				"600": {
+					"duration": 100,
+					"note": "G2"
+				},
+				"700": {
+					"duration": 200,
+					"note": "A#2"
+				},
+				"900": {
+					"duration": 200,
+					"note": "D3"
+				},
+				"1100": {
+					"duration": 100,
+					"note": "G2"
+				},
+				"1200": {
+					"duration": 200,
+					"note": "A#2"
+				},
+				"1400": {
+					"duration": 200,
+					"note": "D3"
+				},
+				"1600": {
+					"duration": 200,
+					"note": "F#2"
+				},
+				"1800": {
+					"duration": 200,
+					"note": "A2"
+				},
+				"2000": {
+					"duration": 200,
+					"note": "C#3"
+				},
+				"2200": {
+					"duration": 100,
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 200,
+					"note": "A2"
+				},
+				"2500": {
+					"duration": 200,
+					"note": "C#3"
+				},
+				"2700": {
+					"duration": 100,
+					"note": "F#2"
+				},
+				"2800": {
+					"duration": 200,
+					"note": "A2"
+				},
+				"3000": {
+					"duration": 200,
+					"note": "C#3"
+				}
+			},
+			"name": "Duty2-3",
 			"size": 16
 		},
 		"mQEZGbv4eWBsRS8U": {
 			"events": {
 				"0": {
-					"note": "G4",
-					"duration": 50
+					"duration": 50,
+					"note": "G4"
 				},
 				"50": {
-					"note": "G2",
-					"duration": 650
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G4",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1500": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#4",
-					"duration": 50
+					"duration": 50,
+					"note": "F#4"
 				},
 				"1650": {
-					"note": "F#2",
-					"duration": 650
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#4",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"2600": {
-					"note": "F#4",
-					"duration": 400
+					"duration": 400,
+					"note": "F#4"
 				},
 				"3000": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"3100": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				}
 			},
 			"name": "Wave-6",
@@ -1254,1018 +1728,544 @@
 		"muY0ttqJNMyZyNOt": {
 			"events": {
 				"400": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"1200": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2000": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2800": {
-					"note": "C4",
-					"duration": 400
+					"duration": 400,
+					"note": "C4"
 				}
 			},
 			"name": "Noise-6",
 			"size": 16
 		},
-		"GNc02umBYOY49xVZ": {
+		"oaEumlgKGbPo24hF": {
 			"events": {
 				"0": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"100": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "G2"
 				},
 				"200": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"400": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"500": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "D3"
 				},
 				"600": {
-					"note": "A3",
 					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"note": "G2"
 				},
 				"700": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"800": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"900": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1000": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "D3"
 				},
 				"1100": {
-					"note": "A#3",
 					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"note": "G2"
 				},
 				"1200": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"1400": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1500": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "D3"
 				},
 				"1600": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1700": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "F#2"
 				},
 				"1800": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A2"
 				},
 				"2000": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2100": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "C#3"
 				},
 				"2200": {
-					"note": "G#3",
 					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2400": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A2"
 				},
 				"2500": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2600": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "C#3"
 				},
 				"2700": {
-					"note": "A3",
 					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"note": "F#2"
 				},
 				"2800": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "A2"
 				},
 				"3000": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"3100": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
+					"duration": 200,
+					"note": "C#3"
 				}
 			},
-			"name": "Duty1-7",
+			"name": "Duty2-5",
 			"size": 16
 		},
-		"9ji4CCiWaTREnP6C": {
+		"pc0AujRKzmh0xh78": {
 			"events": {
 				"0": {
-					"note": "G2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"100": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "G2"
 				},
 				"200": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"400": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"500": {
-					"note": "F3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "D3"
 				},
 				"600": {
-					"note": "G2",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"note": "G2"
 				},
 				"700": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"800": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"900": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1000": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "D3"
 				},
 				"1100": {
-					"note": "G2",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"note": "G2"
 				},
 				"1200": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1300": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A#2"
 				},
 				"1400": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1500": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "D3"
 				},
 				"1600": {
-					"note": "F#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1700": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "F#2"
 				},
 				"1800": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A2"
 				},
 				"2000": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2100": {
-					"note": "E3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "C#3"
 				},
 				"2200": {
-					"note": "F#2",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2400": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A2"
 				},
 				"2500": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2600": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "C#3"
 				},
 				"2700": {
-					"note": "F#2",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"note": "F#2"
 				},
 				"2800": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2900": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "A2"
 				},
 				"3000": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"3100": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 200,
+					"note": "C#3"
 				}
 			},
-			"name": "Duty2-7",
+			"name": "Duty2-6",
 			"size": 16
 		},
-		"1hhgadBtUcB5vTg0": {
+		"PgsqWwrhpR6oGcnL": {
 			"events": {
 				"0": {
-					"note": "G4",
-					"duration": 50
+					"duration": 700,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "D5"
+				},
+				"700": {
+					"duration": 900,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "G5"
+				},
+				"1600": {
+					"duration": 1600,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "F#5"
+				}
+			},
+			"name": "Duty1-6",
+			"size": 16
+		},
+		"SLYmduGFCqcRBADE": {
+			"events": {
+				"0": {
+					"duration": 100,
+					"note": "G2"
+				},
+				"100": {
+					"duration": 100,
+					"note": "A#2"
+				},
+				"200": {
+					"duration": 100,
+					"note": "D3"
+				},
+				"300": {
+					"duration": 100,
+					"note": "A#3"
+				},
+				"400": {
+					"duration": 100,
+					"note": "G3"
+				},
+				"500": {
+					"duration": 100,
+					"note": "F3"
+				},
+				"600": {
+					"duration": 100,
+					"note": "G2"
+				},
+				"700": {
+					"duration": 100,
+					"note": "A#2"
+				},
+				"800": {
+					"duration": 100,
+					"note": "D3"
+				},
+				"900": {
+					"duration": 100,
+					"note": "A#3"
+				},
+				"1000": {
+					"duration": 100,
+					"note": "G3"
+				},
+				"1100": {
+					"duration": 100,
+					"note": "G2"
+				},
+				"1200": {
+					"duration": 100,
+					"note": "A#2"
+				},
+				"1300": {
+					"duration": 100,
+					"note": "D3"
+				},
+				"1400": {
+					"duration": 100,
+					"note": "A#3"
+				},
+				"1500": {
+					"duration": 100,
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 100,
+					"note": "F#2"
+				},
+				"1700": {
+					"duration": 100,
+					"note": "A2"
+				},
+				"1800": {
+					"duration": 100,
+					"note": "C#3"
+				},
+				"1900": {
+					"duration": 100,
+					"note": "A3"
+				},
+				"2000": {
+					"duration": 100,
+					"note": "F#3"
+				},
+				"2100": {
+					"duration": 100,
+					"note": "E3"
+				},
+				"2200": {
+					"duration": 100,
+					"note": "F#2"
+				},
+				"2300": {
+					"duration": 100,
+					"note": "A2"
+				},
+				"2400": {
+					"duration": 100,
+					"note": "C#3"
+				},
+				"2500": {
+					"duration": 100,
+					"note": "A3"
+				},
+				"2600": {
+					"duration": 100,
+					"note": "F#3"
+				},
+				"2700": {
+					"duration": 100,
+					"note": "F#2"
+				},
+				"2800": {
+					"duration": 100,
+					"note": "A2"
+				},
+				"2900": {
+					"duration": 100,
+					"note": "C#3"
+				},
+				"3000": {
+					"duration": 100,
+					"note": "A3"
+				},
+				"3100": {
+					"duration": 100,
+					"note": "F#3"
+				}
+			},
+			"name": "Duty2-4",
+			"size": 16
+		},
+		"sqqVjT1SwUT05Ben": {
+			"events": {
+				"0": {
+					"duration": 50,
+					"note": "G4"
 				},
 				"50": {
-					"note": "G2",
-					"duration": 650
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G4",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1500": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#4",
-					"duration": 50
+					"duration": 50,
+					"note": "F#4"
 				},
 				"1650": {
-					"note": "F#2",
-					"duration": 650
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#4",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"2600": {
-					"note": "F#4",
-					"duration": 400
+					"duration": 400,
+					"note": "F#4"
 				},
 				"3000": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"3100": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				}
 			},
-			"name": "Wave-7",
+			"name": "Wave-5",
 			"size": 16
 		},
-		"1C6Ii2yCxw5s727K": {
+		"TkpCoFuuTJYLihZT": {
 			"events": {
 				"400": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"1200": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2000": {
-					"note": "C4",
-					"duration": 800
+					"duration": 800,
+					"note": "C4"
 				},
 				"2800": {
-					"note": "C4",
-					"duration": 400
+					"duration": 400,
+					"note": "C4"
 				}
 			},
-			"name": "Noise-7",
+			"name": "Noise-5",
 			"size": 16
 		},
-		"03dR357g3SVctNBb": {
-			"events": {
-				"0": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"100": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"200": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"400": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"500": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"600": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"700": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"800": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"900": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1000": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1100": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1200": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1400": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1500": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1600": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1700": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1800": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2000": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2100": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2200": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2300": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2400": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2500": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2600": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2700": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2800": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"3000": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"3100": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				}
-			},
-			"name": "Duty1-8",
-			"size": 16
-		},
-		"2hagvtsqpWIzgfbU": {
+		"wLjooTAHVvVwS9wG": {
 			"events": {
 				"0": {
-					"note": "G2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"100": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"200": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"400": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"500": {
-					"note": "F3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"600": {
-					"note": "G2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 700,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "D5"
 				},
 				"700": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"800": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"900": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1000": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1100": {
-					"note": "G2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1200": {
-					"note": "A#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1300": {
-					"note": "D3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1400": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1500": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 900,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "G5"
 				},
 				"1600": {
-					"note": "F#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1700": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1800": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2000": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2100": {
-					"note": "E3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2200": {
-					"note": "F#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 700,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "F#5"
 				},
 				"2300": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2400": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2500": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2600": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2700": {
-					"note": "F#2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2800": {
-					"note": "A2",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
-				},
-				"2900": {
-					"note": "C#3",
-					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"duration": 700,
+					"instrument": "tG7d1h9ibhtZGute",
+					"note": "C#5"
 				},
 				"3000": {
-					"note": "A3",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
 				},
 				"3100": {
-					"note": "F#3",
 					"duration": 100,
-					"instrument": "uSYKPlFnuxJQgyCU"
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
 				}
 			},
-			"name": "Duty2-8",
+			"name": "Duty1-5",
+			"size": 16
+		},
+		"wOzC4nahuXGg9WZb": {
+			"events": {
+				"0": {
+					"duration": 700,
+					"note": "D4"
+				},
+				"700": {
+					"duration": 700,
+					"note": "A#3"
+				},
+				"1400": {
+					"duration": 200,
+					"note": "G3"
+				},
+				"1600": {
+					"duration": 700,
+					"note": "C#4"
+				},
+				"2300": {
+					"duration": 700,
+					"note": "A3"
+				},
+				"3000": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
+				},
+				"3100": {
+					"duration": 100,
+					"instrument": "uSYKPlFnuxJQgyCU",
+					"note": "C#5"
+				}
+			},
+			"name": "Duty1-3",
 			"size": 16
 		},
 		"Z74fXpqGmSS1luNY": {
 			"events": {
 				"0": {
-					"note": "G4",
-					"duration": 50
+					"duration": 50,
+					"note": "G4"
 				},
 				"50": {
-					"note": "G2",
-					"duration": 650
+					"duration": 650,
+					"note": "G2"
 				},
 				"700": {
-					"note": "G4",
-					"duration": 200
+					"duration": 200,
+					"note": "G4"
 				},
 				"900": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1000": {
-					"note": "G4",
-					"duration": 400
+					"duration": 400,
+					"note": "G4"
 				},
 				"1400": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1500": {
-					"note": "G4",
-					"duration": 100
+					"duration": 100,
+					"note": "G4"
 				},
 				"1600": {
-					"note": "F#4",
-					"duration": 50
+					"duration": 50,
+					"note": "F#4"
 				},
 				"1650": {
-					"note": "F#2",
-					"duration": 650
+					"duration": 650,
+					"note": "F#2"
 				},
 				"2300": {
-					"note": "F#4",
-					"duration": 200
+					"duration": 200,
+					"note": "F#4"
 				},
 				"2500": {
-					"note": "F#4",
-					"duration": 100
+					"duration": 100,
+					"note": "F#4"
 				},
 				"2600": {
-					"note": "F#4",
-					"duration": 600
+					"duration": 600,
+					"note": "F#4"
 				}
 			},
 			"name": "Wave-8",
-			"size": 16
-		},
-		"4W6lYSQA45PbK2LY": {
-			"events": {
-				"400": {
-					"note": "C4",
-					"duration": 800
-				},
-				"1200": {
-					"note": "C4",
-					"duration": 800
-				},
-				"2000": {
-					"note": "C4",
-					"duration": 1200
-				}
-			},
-			"name": "Noise-8",
-			"size": 16
-		},
-		"JYvxSOt2t4SRb215": {
-			"events": {
-				"0": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"100": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"200": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"400": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"500": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"600": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"700": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"800": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"900": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1000": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1100": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1200": {
-					"note": "D4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1300": {
-					"note": "A#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1400": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1500": {
-					"note": "G3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1600": {
-					"note": "F#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1700": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1800": {
-					"note": "G#3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"1900": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2000": {
-					"note": "C#4",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2100": {
-					"note": "A3",
-					"duration": 100,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				},
-				"2200": {
-					"note": "G#3",
-					"duration": 1000,
-					"instrument": "a7pXZQOyuC7V6qqm"
-				}
-			},
-			"name": "Duty1-9",
-			"size": 16
-		},
-		"gbGBrSOzfqY4fPz8": {
-			"events": {
-				"0": {
-					"note": "G4",
-					"duration": 50
-				},
-				"50": {
-					"note": "G2",
-					"duration": 650
-				},
-				"700": {
-					"note": "G4",
-					"duration": 200
-				},
-				"900": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1000": {
-					"note": "G4",
-					"duration": 400
-				},
-				"1400": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1500": {
-					"note": "G4",
-					"duration": 100
-				},
-				"1600": {
-					"note": "F#4",
-					"duration": 50
-				},
-				"1650": {
-					"note": "F#2",
-					"duration": 650
-				},
-				"2300": {
-					"note": "F#4",
-					"duration": 200
-				},
-				"2500": {
-					"note": "F#4",
-					"duration": 100
-				},
-				"2600": {
-					"note": "F#4",
-					"duration": 600
-				}
-			},
-			"name": "Wave-9",
 			"size": 16
 		}
 	},

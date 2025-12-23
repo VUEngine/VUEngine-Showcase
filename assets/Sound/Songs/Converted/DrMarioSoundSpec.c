@@ -19,25 +19,14 @@ const WaveformData DrMarioWaveform1 =
 {
 	// Data
 	{
-		0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	},
 
 	// Checksum
-	3677078911
+	3931527250
 };
 
 const WaveformData DrMarioWaveform2 =
-{
-	// Data
-	{
-		59, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 59, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4
-	},
-
-	// Checksum
-	1219202089
-};
-
-const WaveformData DrMarioWaveform3 =
 {
 	// Data
 	{
@@ -46,6 +35,17 @@ const WaveformData DrMarioWaveform3 =
 
 	// Checksum
 	2065905002
+};
+
+const WaveformData DrMarioWaveform3 =
+{
+	// Data
+	{
+		0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
+	},
+
+	// Checksum
+	3677078911
 };
 
 const WaveformData DrMarioWaveform4 =
@@ -63,11 +63,11 @@ const WaveformData DrMarioWaveform5 =
 {
 	// Data
 	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+		59, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 59, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4
 	},
 
 	// Checksum
-	3931527250
+	1219202089
 };
 
 // Modulation Data
@@ -111,7 +111,7 @@ const uint8 DrMarioSoundTrack0SxEV1[] =
 
 const WaveformData* const DrMarioSoundTrack0SxRAM[] =
 {
-	&DrMarioWaveform2, &DrMarioWaveform1, 
+	&DrMarioWaveform5, &DrMarioWaveform3, 
 };
 
 const uint8 DrMarioSoundTrack0SxSWP[] =
@@ -315,19 +315,19 @@ const uint8 DrMarioSoundTrack1SxEV1[] =
 
 const WaveformData* const DrMarioSoundTrack1SxRAM[] =
 {
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, &DrMarioWaveform1, 
-	&DrMarioWaveform1, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, &DrMarioWaveform3, 
+	&DrMarioWaveform3, 
 };
 
 const uint8 DrMarioSoundTrack1SxSWP[] =
@@ -721,38 +721,38 @@ const uint8 DrMarioSoundTrack2SxEV1[] =
 
 const WaveformData* const DrMarioSoundTrack2SxRAM[] =
 {
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
-	&DrMarioWaveform3, &DrMarioWaveform4, &DrMarioWaveform3, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
+	&DrMarioWaveform2, &DrMarioWaveform4, &DrMarioWaveform2, &DrMarioWaveform4, 
 };
 
 const uint8 DrMarioSoundTrack2SxSWP[] =
@@ -1342,7 +1342,7 @@ SoundROMSpec DrMarioSoundSpec =
 	},
 
 	// Name
-	"Dr. Wario",
+	"Beatscribe - Dr. Mario Like",
 
 	// Play in loop
 	false,

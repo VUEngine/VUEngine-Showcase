@@ -6,11 +6,11 @@
 #define ROM_INFO_H_
 
 // game title (20 chars) 	 ####################
-#define __GAME_TITLE		"VUENGINE SHOWCASE   "
+#define __GAME_TITLE		"VUENGINE UGE DEMO   "
 // maker code (2 chars)		 ##
 #define __MAKER_CODE		"VU"
 // game code (4 chars)		 ####
-#define __GAME_CODE			"VVSM"
+#define __GAME_CODE			"VUGE"
 // revision (1.x)			 #
 #define __ROM_VERSION		 0
 

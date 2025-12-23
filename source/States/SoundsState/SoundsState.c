@@ -29,13 +29,15 @@
 
 static const SoundROMSpec* _soundSamples[] =
 {
+	&MegaManMetalSoundSpec,
 	&BlueOceanRemixSoundSpec,
-	&DrMarioSoundSpec,
-	&HerdingPidgeonsSoundSpec,
-	&HideoutSoundSpec,
 	&NextFutureSoundSpec,
+	&DrMarioSoundSpec,
+	&MegaManHighwaySoundSpec,
+	&HerdingPidgeonsSoundSpec,
+	&MegaManQuickSoundSpec,
+	&HideoutSoundSpec,
 	&TerminateSoundSpec,
-	&Explosion1SoundSpec,
 	NULL
 };
 
@@ -55,7 +57,7 @@ bool SoundsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 			{
 				if(this->showAdditionalDetails)
 				{
-					TimerManager::printInterruptStats(1, 18);
+					// TimerManager::printInterruptStats(7, 19);
 				}
 			}
 
@@ -163,17 +165,21 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
+		/*
 		SoundsState::releaseSound(this);
 		SoundsState::playSoundEffects(this, userInput);		
+		*/
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{
+		/*
 		SoundsState::releaseSound(this);
 		SoundsState::playSoundEffects(this, userInput);
 		SoundsState::loadSound(this, true);
 		SoundsState::showSoundMetadata(this);
 
 		timerChanged = true;
+		*/
 	}
 	else if(K_LL & userInput->releasedKey)
 	{
@@ -314,26 +320,33 @@ void SoundsState::showControls()
 {
 	if(this->showAdditionalDetails)
 	{
-		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__CHAR_A_BUTTON, 1 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text("Play/Pause", 2 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
 
-		Printer::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__CHAR_B_BUTTON, 1 + 6, __SCREEN_HEIGHT_IN_CHARS - 2, NULL);
+		Printer::text("Restart", 2 + 6, __SCREEN_HEIGHT_IN_CHARS - 2, NULL);
 
-		Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__CHAR_L_D_PAD_RIGHT, 14 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_L_D_PAD_LEFT, 13 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text("Song", 16 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
 
-		Printer::text(__CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 14, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__CHAR_L_D_PAD_UP, 14 + 6, __SCREEN_HEIGHT_IN_CHARS - 2, NULL);
+		Printer::text(__CHAR_L_D_PAD_DOWN, 13 + 6, __SCREEN_HEIGHT_IN_CHARS - 2, NULL);
+		Printer::text("Speed", 16 + 6, __SCREEN_HEIGHT_IN_CHARS - 2, NULL);
+
+		Printer::text(__CHAR_R_D_PAD_RIGHT, 25 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_R_D_PAD_LEFT, 24 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_R_D_PAD_DOWN, 23 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_R_D_PAD_UP, 22 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text("Timer", 27 + 6, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
 	}
 	else
 	{
-		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
+		Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 3, NULL);
 	}
 }
 
@@ -384,14 +397,10 @@ void SoundsState::showExplanation()
 
 void SoundsState::showAdditionalDetails()
 {
-	uint16 totalSounds = SoundsState::getTotalSounds(this);
-
 	int32 selectedSoundDigits = Math::getDigitsCount(this->selectedSound + 1);
-	int32 totalSoundsDigits = Math::getDigitsCount(totalSounds);
-	Printer::int32(this->selectedSound + 1, 1 + 1, 2, NULL);
-	Printer::text("/" , 1 + 1 + selectedSoundDigits, 2, NULL);
-	Printer::int32(SoundsState::getTotalSounds(this), 1 + 1 + selectedSoundDigits + 1, 2, NULL);
-	Printer::text(__CHAR_SELECTOR, 1 + 1 + selectedSoundDigits + 1 + totalSoundsDigits, 2, NULL);
+	Printer::int32(this->selectedSound + 1, 7, 6, NULL);
+	Printer::text("/" , 7 + selectedSoundDigits, 6, NULL);
+	Printer::int32(SoundsState::getTotalSounds(this), 7 + selectedSoundDigits + 1, 6, NULL);
 
 	SoundsState::showSoundMetadata(this);
 
@@ -439,7 +448,7 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 	{
 		if(showOnlyTime)
 		{
-			Sound::printPlaybackProgress(this->sound, 3, 23);
+			Sound::printPlaybackProgress(this->sound, 3, 26);
 			Sound::printPlaybackTime(this->sound, 26, 25);
 		}
 		else
@@ -449,8 +458,8 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 
 			if(!printVolume)
 			{
-				Sound::printPlaybackProgress(this->sound, 1, 6);
-				Sound::printPlaybackTime(this->sound, 24, 8);
+				Sound::printPlaybackProgress(this->sound, 7, 9);
+				Sound::printPlaybackTime(this->sound, 30, 11);
 			}
 		}
 	}
@@ -531,11 +540,11 @@ void SoundsState::showSoundMetadata()
 
 	if(this->showAdditionalDetails)		
 	{
-		Sound::print(this->sound, 1, 4);
+		Sound::print(this->sound, 7, 7);
 	}
 	else
 	{
-		Sound::print(this->sound, 3, 21);
+		Sound::print(this->sound, 7, 24);
 	}
 }
 
@@ -548,7 +557,7 @@ void SoundsState::printTimer()
 		return;
 	}
 
-	TimerManager::print(1, 11);
+	TimerManager::print(7, 14);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

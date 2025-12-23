@@ -19,17 +19,6 @@ const WaveformData BlueOceanRemixWaveform1 =
 {
 	// Data
 	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
-	},
-
-	// Checksum
-	3681369321
-};
-
-const WaveformData BlueOceanRemixWaveform2 =
-{
-	// Data
-	{
 		0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
 	},
 
@@ -37,29 +26,7 @@ const WaveformData BlueOceanRemixWaveform2 =
 	3419018325
 };
 
-const WaveformData BlueOceanRemixWaveform3 =
-{
-	// Data
-	{
-		55, 55, 55, 55, 55, 55, 51, 51, 47, 47, 43, 43, 39, 39, 35, 35, 31, 31, 27, 27, 23, 23, 19, 19, 15, 15, 11, 11, 11, 11, 11, 11
-	},
-
-	// Checksum
-	799392848
-};
-
-const WaveformData BlueOceanRemixWaveform4 =
-{
-	// Data
-	{
-		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
-	},
-
-	// Checksum
-	3931527250
-};
-
-const WaveformData BlueOceanRemixWaveform5 =
+const WaveformData BlueOceanRemixWaveform2 =
 {
 	// Data
 	{
@@ -70,18 +37,40 @@ const WaveformData BlueOceanRemixWaveform5 =
 	1206584209
 };
 
-const WaveformData BlueOceanRemixWaveform6 =
+const WaveformData BlueOceanRemixWaveform3 =
 {
 	// Data
 	{
-		63, 63, 59, 59, 55, 55, 51, 51, 47, 47, 43, 43, 39, 39, 35, 35, 31, 31, 27, 27, 23, 23, 19, 19, 15, 15, 11, 11, 7, 7, 0, 0
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 	},
 
 	// Checksum
-	2171103480
+	3931527250
 };
 
-const WaveformData BlueOceanRemixWaveform7 =
+const WaveformData BlueOceanRemixWaveform4 =
+{
+	// Data
+	{
+		0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63, 63
+	},
+
+	// Checksum
+	3681369321
+};
+
+const WaveformData BlueOceanRemixWaveform5 =
+{
+	// Data
+	{
+		55, 55, 55, 55, 55, 55, 51, 51, 47, 47, 43, 43, 39, 39, 35, 35, 31, 31, 27, 27, 23, 23, 19, 19, 15, 15, 11, 11, 11, 11, 11, 11
+	},
+
+	// Checksum
+	799392848
+};
+
+const WaveformData BlueOceanRemixWaveform6 =
 {
 	// Data
 	{
@@ -90,6 +79,17 @@ const WaveformData BlueOceanRemixWaveform7 =
 
 	// Checksum
 	2837416001
+};
+
+const WaveformData BlueOceanRemixWaveform7 =
+{
+	// Data
+	{
+		63, 63, 59, 59, 55, 55, 51, 51, 47, 47, 43, 43, 39, 39, 35, 35, 31, 31, 27, 27, 23, 23, 19, 19, 15, 15, 11, 11, 7, 7, 0, 0
+	},
+
+	// Checksum
+	2171103480
 };
 
 // Modulation Data
@@ -164,8 +164,8 @@ const uint8 BlueOceanRemixSoundTrack0SxEV1[] =
 
 const WaveformData* const BlueOceanRemixSoundTrack0SxRAM[] =
 {
-	&BlueOceanRemixWaveform2, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform2, 
-	&BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform1, &BlueOceanRemixWaveform1, &BlueOceanRemixWaveform1, &BlueOceanRemixWaveform1, 
+	&BlueOceanRemixWaveform1, 
 };
 
 const uint8 BlueOceanRemixSoundTrack0SxSWP[] =
@@ -848,19 +848,19 @@ const uint8 BlueOceanRemixSoundTrack1SxEV1[] =
 
 const WaveformData* const BlueOceanRemixSoundTrack1SxRAM[] =
 {
-	&BlueOceanRemixWaveform3, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, &BlueOceanRemixWaveform6, &BlueOceanRemixWaveform5, 
-	&BlueOceanRemixWaveform6, &BlueOceanRemixWaveform7, 
+	&BlueOceanRemixWaveform5, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, &BlueOceanRemixWaveform7, &BlueOceanRemixWaveform2, 
+	&BlueOceanRemixWaveform7, &BlueOceanRemixWaveform6, 
 };
 
 const uint8 BlueOceanRemixSoundTrack1SxSWP[] =
@@ -1141,7 +1141,7 @@ const uint8 BlueOceanRemixSoundTrack2SxEV1[] =
 
 const WaveformData* const BlueOceanRemixSoundTrack2SxRAM[] =
 {
-	&BlueOceanRemixWaveform1, &BlueOceanRemixWaveform1, &BlueOceanRemixWaveform1, 
+	&BlueOceanRemixWaveform4, &BlueOceanRemixWaveform4, &BlueOceanRemixWaveform4, 
 };
 
 const uint8 BlueOceanRemixSoundTrack2SxSWP[] =
@@ -2205,7 +2205,7 @@ SoundROMSpec BlueOceanRemixSoundSpec =
 	},
 
 	// Name
-	"Blue Ocean Remix",
+	"Coffee Bat & Tronimal - Blue Ocean Remix",
 
 	// Play in loop
 	false,
