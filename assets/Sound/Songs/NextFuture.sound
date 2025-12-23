@@ -14,8 +14,8 @@
 				"stepTime": 4
 			},
 			"interval": {
-				"enabled": false,
-				"value": 0
+				"enabled": true,
+				"value": 2
 			},
 			"modulationData": [
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -180,9 +180,9 @@
 			]
 		}
 	},
-	"loop": false,
+	"loop": true,
 	"loopPoint": 0,
-	"name": "TipTopTomCat - Next Future",
+	"name": "TIPTOPTOMCAT - NEXT FUTURE",
 	"patterns": {
 		"2loaU4Dn9OEwN6PL": {
 			"events": {
@@ -2766,23 +2766,7 @@
 					"duration": 50,
 					"note": "D#6"
 				},
-				"1850": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"1900": {
-					"duration": 50,
-					"note": "D#6"
-				},
 				"1950": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2000": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2050": {
 					"duration": 50,
 					"note": "B6"
 				},
@@ -2790,35 +2774,7 @@
 					"duration": 50,
 					"note": "D#6"
 				},
-				"2150": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2200": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2250": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2300": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2350": {
-					"duration": 50,
-					"note": "B6"
-				},
 				"2400": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2450": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2500": {
 					"duration": 50,
 					"note": "D#6"
 				},
@@ -2826,37 +2782,9 @@
 					"duration": 50,
 					"note": "B6"
 				},
-				"2600": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2650": {
-					"duration": 50,
-					"note": "B6"
-				},
 				"2700": {
 					"duration": 50,
 					"note": "D#6"
-				},
-				"2750": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2800": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2850": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2900": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2950": {
-					"duration": 250,
-					"note": "B6"
 				}
 			},
 			"name": "Noise-2",
@@ -3648,23 +3576,7 @@
 					"duration": 50,
 					"note": "D#6"
 				},
-				"1850": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"1900": {
-					"duration": 50,
-					"note": "D#6"
-				},
 				"1950": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2000": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2050": {
 					"duration": 50,
 					"note": "B6"
 				},
@@ -3672,35 +3584,7 @@
 					"duration": 50,
 					"note": "D#6"
 				},
-				"2150": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2200": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2250": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2300": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2350": {
-					"duration": 50,
-					"note": "B6"
-				},
 				"2400": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2450": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2500": {
 					"duration": 50,
 					"note": "D#6"
 				},
@@ -3708,37 +3592,9 @@
 					"duration": 50,
 					"note": "B6"
 				},
-				"2600": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2650": {
-					"duration": 50,
-					"note": "B6"
-				},
 				"2700": {
 					"duration": 50,
 					"note": "D#6"
-				},
-				"2750": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2800": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2850": {
-					"duration": 50,
-					"note": "B6"
-				},
-				"2900": {
-					"duration": 50,
-					"note": "D#6"
-				},
-				"2950": {
-					"duration": 250,
-					"note": "B6"
 				}
 			},
 			"name": "Noise-1",
@@ -4284,7 +4140,7 @@
 	},
 	"section": "rom",
 	"size": 128,
-	"speed": 72,
+	"speed": 68,
 	"tracks": [
 		{
 			"allowSkip": false,

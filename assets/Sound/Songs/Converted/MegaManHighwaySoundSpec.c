@@ -1890,7 +1890,7 @@ SoundROMSpec MegaManHighwaySoundSpec =
 	},
 
 	// Name
-	"Beatscribe - MM Battle Theme",
+	"BEATSCRIBE - MM BATTLE THEME",
 
 	// Play in loop
 	true,

@@ -43,14 +43,14 @@
 			"color": 21,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 15,
 				"repeat": false,
-				"stepTime": 0
+				"stepTime": 7
 			},
 			"interval": {
-				"enabled": true,
-				"value": 31
+				"enabled": false,
+				"value": 0
 			},
 			"modulationData": [
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -114,7 +114,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 7,
+				"initialValue": 10,
 				"repeat": false,
 				"stepTime": 0
 			},
@@ -193,7 +193,7 @@
 				"value": 16
 			},
 			"modulationData": [
-				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+				211,61,143,214,82,68,169,183,183,228,203,181,179,69,0,0,123,97,135,92,52,46,0,59,66,76,104,151,0,202,0,0
 			],
 			"name": "Short 50% Pulse",
 			"sweepMod": {
@@ -218,10 +218,10 @@
 			"color": 53,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 15,
 				"repeat": false,
-				"stepTime": 0
+				"stepTime": 7
 			},
 			"interval": {
 				"enabled": false,
@@ -253,10 +253,10 @@
 			"color": 47,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 6,
 				"repeat": false,
-				"stepTime": 3
+				"stepTime": 7
 			},
 			"interval": {
 				"enabled": false,
@@ -288,10 +288,10 @@
 			"color": 8,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 15,
 				"repeat": false,
-				"stepTime": 0
+				"stepTime": 7
 			},
 			"interval": {
 				"enabled": false,
@@ -323,10 +323,10 @@
 			"color": 9,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 15,
 				"repeat": false,
-				"stepTime": 0
+				"stepTime": 7
 			},
 			"interval": {
 				"enabled": false,
@@ -359,7 +359,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 3,
+				"initialValue": 5,
 				"repeat": false,
 				"stepTime": 1
 			},
@@ -393,10 +393,10 @@
 			"color": 3,
 			"envelope": {
 				"direction": 0,
-				"enabled": false,
+				"enabled": true,
 				"initialValue": 10,
 				"repeat": false,
-				"stepTime": 3
+				"stepTime": 7
 			},
 			"interval": {
 				"enabled": false,
@@ -462,7 +462,7 @@
 	},
 	"loop": false,
 	"loopPoint": 0,
-	"name": "Coffee Bat & Tronimal - Blue Ocean Remix",
+	"name": "COFFEE BAT & TRONIMAL - BLUE OCEAN REMIX",
 	"patterns": {
 		"0FEZcxjcVTNJ4bve": {
 			"events": {
@@ -7033,7 +7033,7 @@
 	},
 	"section": "rom",
 	"size": 384,
-	"speed": 72,
+	"speed": 64,
 	"tracks": [
 		{
 			"allowSkip": false,

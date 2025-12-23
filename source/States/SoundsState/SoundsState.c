@@ -36,7 +36,6 @@ static const SoundROMSpec* _soundSamples[] =
 	&MegaManHighwaySoundSpec,
 	&HerdingPidgeonsSoundSpec,
 	&MegaManQuickSoundSpec,
-	&HideoutSoundSpec,
 	&TerminateSoundSpec,
 	NULL
 };

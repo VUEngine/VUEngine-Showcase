@@ -1454,7 +1454,7 @@ SoundROMSpec MegaManQuickSoundSpec =
 	},
 
 	// Name
-	"Beatscribe - MM Quick",
+	"BEATSCRIBE - MM QUICK",
 
 	// Play in loop
 	true,

@@ -1117,7 +1117,7 @@ SoundTrackROMSpec NextFutureSoundTrack2 =
 
 const uint8 NextFutureSoundTrack3SxINT[] =
 {
-	0x80, 
+	0xA2, 
 };
 
 const uint8 NextFutureSoundTrack3SxLRV[] =
@@ -1127,18 +1127,16 @@ const uint8 NextFutureSoundTrack3SxLRV[] =
 
 const uint16 NextFutureSoundTrack3SxFQ[] =
 {
-	0x0000, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 
-	0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 
-	0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 
-	0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 
-	0x0782, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 
-	0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x06C4, 0x0705, 0x06C4, 0x0705, 
-	0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 
-	0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 
+	0x0000, 0x0782, 0x07B1, 0x0782, 0x0782, 0x07B1, 0x0782, 0x0782, 0x07B1, 0x0782, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 
+	0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 
+	0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 
+	0x07B1, 0x0782, 0x07B1, 0x07B1, 0x07B1, 0x0782, 0x07B1, 0x07B1, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 
 	0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 
 	0x06E6, 0x0688, 0x0720, 0x0720, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 
 	0x0720, 0x0720, 0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 
-	0x0688, 0x06E6, 0x0688, 0x06E6, 0x0688, 0x0688, 0x06E6, 0x0688, 0x06E6, 
+	0x06C4, 0x0705, 0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 0x06C4, 0x0705, 
+	0x06C4, 0x0705, 0x0720, 0x0720, 0x0720, 0x0688, 0x0720, 0x0688, 0x06E6, 0x0688, 0x0720, 0x0720, 0x0688, 0x06E6, 0x0688, 0x06E6, 
+	0x0688, 0x0688, 0x06E6, 0x0688, 0x06E6, 
 };
 
 const uint8 NextFutureSoundTrack3SxEV0[] =
@@ -1169,54 +1167,18 @@ const int8* const NextFutureSoundTrack3SxMOD[] =
 const SoundTrackKeyframe NextFutureSoundTrack3Keyframes[] =
 {
 	{1800, kSoundTrackEventStart},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventSxLRV | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{2050, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
-	{350, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventSxLRV | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{300, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{2300, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{300, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{150, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
+	{600, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
 	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
 	{50, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
 	{200, kSoundTrackEventSxFQ | kSoundTrackEventNoise},
@@ -1423,13 +1385,13 @@ SoundROMSpec NextFutureSoundSpec =
 	},
 
 	// Name
-	"TipTopTomCat - Next Future",
+	"TIPTOPTOMCAT - NEXT FUTURE",
 
 	// Play in loop
-	false,
+	true,
 
 	// Tick duration in US
-	1440,
+	1360,
 
 	// Tracks
 	(SoundTrackSpec**)NextFutureSoundTracks,

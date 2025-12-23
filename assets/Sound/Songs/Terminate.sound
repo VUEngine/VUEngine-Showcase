@@ -9,7 +9,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 8,
+				"initialValue": 10,
 				"repeat": false,
 				"stepTime": 3
 			},
@@ -149,7 +149,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 7,
+				"initialValue": 9,
 				"repeat": false,
 				"stepTime": 1
 			},
@@ -429,7 +429,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 8,
+				"initialValue": 10,
 				"repeat": false,
 				"stepTime": 3
 			},
@@ -639,7 +639,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 8,
+				"initialValue": 10,
 				"repeat": false,
 				"stepTime": 1
 			},
@@ -744,7 +744,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 6,
+				"initialValue": 8,
 				"repeat": false,
 				"stepTime": 0
 			},
@@ -814,7 +814,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": false,
-				"initialValue": 4,
+				"initialValue": 6,
 				"repeat": false,
 				"stepTime": 3
 			},
@@ -884,7 +884,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 10,
+				"initialValue": 11,
 				"repeat": false,
 				"stepTime": 0
 			},
@@ -987,7 +987,7 @@
 	},
 	"loop": false,
 	"loopPoint": 0,
-	"name": "Tronimal - Terminate",
+	"name": "TRONIMAL - TERMINATE",
 	"patterns": {
 		"0H9mWPjkmfqy70HK": {
 			"events": {
@@ -6744,7 +6744,7 @@
 	},
 	"section": "rom",
 	"size": 416,
-	"speed": 98,
+	"speed": 96,
 	"tracks": [
 		{
 			"allowSkip": false,

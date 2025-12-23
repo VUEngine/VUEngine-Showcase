@@ -498,7 +498,7 @@ SoundROMSpec HerdingPidgeonsSoundSpec =
 	},
 
 	// Name
-	"TipTopTomCat - Herding Pidgeons",
+	"TIPTOPTOMCAT - HERDING PIDGEONS",
 
 	// Play in loop
 	true,

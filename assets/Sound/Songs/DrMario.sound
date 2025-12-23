@@ -44,7 +44,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": false,
-				"initialValue": 15,
+				"initialValue": 12,
 				"repeat": false,
 				"stepTime": 0
 			},
@@ -79,13 +79,13 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 15,
+				"initialValue": 13,
 				"repeat": false,
-				"stepTime": 0
+				"stepTime": 3
 			},
 			"interval": {
-				"enabled": false,
-				"value": 0
+				"enabled": true,
+				"value": 8
 			},
 			"modulationData": [
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -114,13 +114,13 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 15,
+				"initialValue": 13,
 				"repeat": false,
 				"stepTime": 7
 			},
 			"interval": {
-				"enabled": false,
-				"value": 0
+				"enabled": true,
+				"value": 11
 			},
 			"modulationData": [
 				0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -275,7 +275,7 @@
 				"repeat": false,
 				"shift": 0
 			},
-			"tap": 0,
+			"tap": 2,
 			"volume": {
 				"left": 15,
 				"right": 15
@@ -289,7 +289,7 @@
 			"envelope": {
 				"direction": 0,
 				"enabled": true,
-				"initialValue": 15,
+				"initialValue": 14,
 				"repeat": false,
 				"stepTime": 2
 			},
@@ -322,7 +322,7 @@
 	},
 	"loop": false,
 	"loopPoint": 0,
-	"name": "Beatscribe - Dr. Mario Like",
+	"name": "BEATSCRIBE - DR. MARIO",
 	"patterns": {
 		"7rl5WphiPUFeDMjB": {
 			"events": {
@@ -2300,7 +2300,7 @@
 	},
 	"section": "rom",
 	"size": 96,
-	"speed": 126,
+	"speed": 112,
 	"tracks": [
 		{
 			"allowSkip": false,

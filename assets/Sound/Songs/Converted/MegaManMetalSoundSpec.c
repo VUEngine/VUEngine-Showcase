@@ -1300,7 +1300,7 @@ SoundROMSpec MegaManMetalSoundSpec =
 	},
 
 	// Name
-	"Beatscribe - MM Metal",
+	"BEATSCRIBE - MM METAL",
 
 	// Play in loop
 	true,
