@@ -357,7 +357,6 @@ void SoundsState::showExplanation()
 	Printer::text(I18n::getText(I18n::getInstance(), kStringSpecsSubtitle), 2, y++, "DefaultBold");
 	Printer::text("EngineSound", 2, y++, NULL);
 	Printer::text("ExplosionSound", 2, y++, NULL);
-	Printer::text("NoFearForTheFutureSound", 2, y++, NULL);
 	Printer::text("OracleOfSeasonsOverworld", 2, y++, NULL);
 
 	y++;
