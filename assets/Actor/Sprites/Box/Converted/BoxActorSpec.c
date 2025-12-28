@@ -129,7 +129,7 @@ ColliderROMSpec BoxCollider1ColliderSpec =
 	},
 
 	// Size (x, y, z)
-	{56, 48, 32},
+	{55, 48, 32},
 
 	// Displacement (x, y, z, p)
 	{0, 0, 0, 0},
