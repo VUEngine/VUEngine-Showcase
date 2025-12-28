@@ -15,8 +15,8 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 CogWheelObjectActorCogWheelTiles[];
 extern uint16 CogWheelObjectActorCogWheelMap[];
+extern uint32 CogWheelObjectActorCogWheelTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES

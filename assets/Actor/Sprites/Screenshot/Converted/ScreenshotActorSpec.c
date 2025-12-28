@@ -15,9 +15,9 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 ScreenshotActorPdScreenshotLTiles[];
 extern uint16 ScreenshotActorPdScreenshotLMap[];
 extern uint16 ScreenshotActorPdScreenshotRMap[];
+extern uint32 ScreenshotActorPdScreenshotLTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES

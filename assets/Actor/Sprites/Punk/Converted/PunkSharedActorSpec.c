@@ -15,11 +15,10 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 PunkSharedActorPunkTiles[];
-extern uint16 PunkSharedActorPunkMap[];
-
-extern uint32 PunkSharedActorPunkBlackTiles[];
 extern uint16 PunkSharedActorPunkBlackMap[];
+extern uint16 PunkSharedActorPunkMap[];
+extern uint32 PunkSharedActorPunkBlackTiles[];
+extern uint32 PunkSharedActorPunkTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ANIMATIONS

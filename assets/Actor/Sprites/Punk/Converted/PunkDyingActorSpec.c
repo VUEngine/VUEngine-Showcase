@@ -15,11 +15,10 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 PunkDyingActorPunkDyingTiles[];
-extern uint16 PunkDyingActorPunkDyingMap[];
-
-extern uint32 PunkDyingActorPunkDyingBlackTiles[];
 extern uint16 PunkDyingActorPunkDyingBlackMap[];
+extern uint16 PunkDyingActorPunkDyingMap[];
+extern uint32 PunkDyingActorPunkDyingBlackTiles[];
+extern uint32 PunkDyingActorPunkDyingTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ANIMATIONS

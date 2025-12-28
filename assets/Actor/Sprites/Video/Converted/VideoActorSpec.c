@@ -15,11 +15,11 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 VideoActorVideoL064LTiles[];
 extern uint16 VideoActorVideoL064LMap[];
+extern uint16 VideoActorVideoR064RMap[];
+extern uint32 VideoActorVideoL064LTiles[];
 extern uint32 VideoActorVideoL064LTilesFrameOffsets[];
 extern uint32 VideoActorVideoR064RTiles[];
-extern uint16 VideoActorVideoR064RMap[];
 extern uint32 VideoActorVideoR064RTilesFrameOffsets[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

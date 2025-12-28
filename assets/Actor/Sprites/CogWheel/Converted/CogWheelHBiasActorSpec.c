@@ -16,8 +16,8 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 CogWheelHBiasActorCogWheelTiles[];
 extern uint16 CogWheelHBiasActorCogWheelMap[];
+extern uint32 CogWheelHBiasActorCogWheelTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // SPRITES

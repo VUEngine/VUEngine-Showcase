@@ -18,11 +18,10 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern uint32 PunkControllableActorPunkTiles[];
-extern uint16 PunkControllableActorPunkMap[];
-
-extern uint32 PunkControllableActorPunkBlackTiles[];
 extern uint16 PunkControllableActorPunkBlackMap[];
+extern uint16 PunkControllableActorPunkMap[];
+extern uint32 PunkControllableActorPunkBlackTiles[];
+extern uint32 PunkControllableActorPunkTiles[];
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // ANIMATIONS
@@ -274,7 +273,6 @@ ColliderROMSpec PunkControllableCollider1ColliderSpec =
 	// Layers to ignore when checking for collisions
 	kLayerAll & ~(kLayerDangers | kLayerSolid)
 };
-
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // BODIES
