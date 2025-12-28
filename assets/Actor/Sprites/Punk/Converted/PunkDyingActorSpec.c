@@ -27,12 +27,13 @@ extern uint32 PunkDyingActorPunkDyingTiles[];
 AnimationFunctionROMSpec PunkDyingAnimation1AnimationSpec =
 {
 	// Number of frames that the texture supports of this animation function
-	20,
+	29,
 
 	// Frames to play in animation
 	{
 		0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 
-		10, 11, 12, 13, 14, 15, 16, 17, 18, 10, 
+		10, 11, 12, 13, 14, 15, 16, 17, 18, 18, 
+		18, 18, 18, 19, 20, 21, 22, 23, 24, 
 	},
 
 	// Number of cycles a frame of animation is displayed
