@@ -43,6 +43,7 @@
 			}
 		],
 		"mutators": [],
+		"sounds": [],
 		"sprites": [
 			{
 				"_imageData": {
@@ -53,7 +54,7 @@
 							},
 							"maps": [
 								{
-									"data": "H4sIAAAAAAAAAyXNuRHCQAAEsF4udnC7YMAhn5tg6L8NDyhSqM+Yc86x/AiKE85YccEVN2y444EnXnhj/xNffPHFF1988cUXX3zxxRdffPHFV1999dVXX3311Vdft/E9AE5lysEnAQAA",
+									"data": "H4sIAAAAAAAAEyXNuRHCQAAEsF4udnC7YMAhn5tg6L8NDyhSqM+Yc86x/AiKE85YccEVN2y444EnXnhj/xNffPHFF1988cUXX3zxxRdffPHFV1999dVXX3311Vdft/E9AE5lysEnAQAA",
 									"height": "6",
 									"width": "7",
 									"name": "Box"
@@ -61,7 +62,7 @@
 							],
 							"tiles": {
 								"count": 42,
-								"data": "H4sIAAAAAAAAA32VS27DMAxE7+J1Nl5IBpdDiLxE0ftfo+BHX7dFIGQyoUnpiUy+LlVtpZRyfS4GmWzX51KlpkImAWr2jbuqGQsQpmT7eH2uBkJK+Su2B6AOqdARUGmVtg4pmMlql4QK+5gudTliLUF/LOoipL+uz3UDuCPgplpv6hI3eeFFGhIjFEja2A4a0JxZI0rXkDQQ+zGF07U3291BZx5TWGXm9YiDziSpuiCBkzipDzrbFdpj4U6SlUA1kDBvsQgkS4ZA4tVWfCbTpeGiUbPl1aiBXPJsLgZRyrVLQLCKhgQsoirRXCLCEtuRvUvYY5UF/tgDVoWyJ7NUwcwAgywDi4JFF6mdWRRWPBBUTVCaJPFAo4SQQOLElRS2vLkUeElHQjUl31T5T7kgSUm7qz577goUEqdwCe34UtrRE+qDxrY8w5D2ZeWkztbYmEjcZRORTJYbgocPJE+fQsZjLscVjdiQdinc6awD2a87Wi7biPimwi+JLjGg5mRRHMiap/3iBrN1Ck1E4WM285iba00JPtw5vHus5R1uqf/kDbXkPYZ3jy1gnO4kaWN3Y04h3m4lW7H1jsRl7XQWueBbZ3M7xQsq5s/2K/YF6p+8r1hnvchZuJ572JsrpQfQiS+Q+CniPyB/+Evpbsf3/QNFtYk2OQcAAA==",
+								"data": "H4sIAAAAAAAAE32VS27DMAxE7+J1Nl5IBpdDiLxE0ftfo+BHX7dFIGQyoUnpiUy+LlVtpZRyfS4GmWzX51KlpkImAWr2jbuqGQsQpmT7eH2uBkJK+Su2B6AOqdARUGmVtg4pmMlql4QK+5gudTliLUF/LOoipL+uz3UDuCPgplpv6hI3eeFFGhIjFEja2A4a0JxZI0rXkDQQ+zGF07U3291BZx5TWGXm9YiDziSpuiCBkzipDzrbFdpj4U6SlUA1kDBvsQgkS4ZA4tVWfCbTpeGiUbPl1aiBXPJsLgZRyrVLQLCKhgQsoirRXCLCEtuRvUvYY5UF/tgDVoWyJ7NUwcwAgywDi4JFF6mdWRRWPBBUTVCaJPFAo4SQQOLElRS2vLkUeElHQjUl31T5T7kgSUm7qz577goUEqdwCe34UtrRE+qDxrY8w5D2ZeWkztbYmEjcZRORTJYbgocPJE+fQsZjLscVjdiQdinc6awD2a87Wi7biPimwi+JLjGg5mRRHMiap/3iBrN1Ck1E4WM285iba00JPtw5vHus5R1uqf/kDbXkPYZ3jy1gnO4kaWN3Y04h3m4lW7H1jsRl7XQWueBbZ3M7xQsq5s/2K/YF6p+8r1hnvchZuJ572JsrpQfQiS+Q+CniPyB/+Evpbsf3/QNFtYk2OQcAAA==",
 								"name": "Box"
 							}
 						}
