@@ -104,7 +104,7 @@ void VideoPlayerState::showExplanation()
 
 void VideoPlayerState::showAdditionalDetails()
 {
-	int16 y = 25;
+	int16 y = 24;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringAnimationSubtitle), 2, y++, "DefaultBold");
 
 	Actor videoActor = Actor::safeCast(VideoPlayerState::getActorByName(this, "Video"));

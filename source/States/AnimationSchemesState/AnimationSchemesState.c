@@ -144,6 +144,9 @@ void AnimationSchemesState::showStuff()
 
 	AnimationSchemesState::removeSprites(this);
 	AnimationSchemesState::createSprites(this);
+
+	AnimationSchemesState::showHeader(this);
+	AnimationSchemesState::showControls(this);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -395,7 +398,6 @@ void AnimationSchemesState::removeSprites()
 	/*
 	 * Cleaning graphics memory explicitly should not be done in general, the engine takes care of that 
 	 * when swapping states. We do it here because we are manually displaying the contents of BGMAP memory.
-	 *
 	 */ 
 	BgmapTextureManager::clearBgmapSegment(BgmapTextureManager::getInstance(), 0);
 }
@@ -426,9 +428,11 @@ void AnimationSchemesState::showBgmapMemory()
 
 	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_CHARS - topBorder - bottomBorder; row++)
 	{
-		// Normally, we shouldn't touch graphic memory directly, and the usage
-		// of PRINTABLE_BGMAP_AREA is a hack. But this showcases that the engine
-		// doesn't restrict low level access if desired.
+		/*
+		 * Normally, we shouldn't touch graphic memory directly, and the usage
+		 * of PRINTABLE_BGMAP_AREA is a hack. But this showcases that the engine
+		 * doesn't restrict low level access if desired.
+		 */
 		Mem::copyHWORD
 		(
 			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,

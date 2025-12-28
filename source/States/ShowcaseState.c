@@ -84,7 +84,7 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		
 		case kEventFramerateReady:
 		{
-			FrameRate::print(FrameRate::getInstance(), 14, 27);
+			FrameRate::print(FrameRate::getInstance(), 0, 27);
 
 			return true;
 		}
