@@ -435,7 +435,7 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 	{
 		if(showOnlyTime)
 		{
-			Sound::printPlaybackProgress(this->sound, 2, 23);
+			Sound::printPlaybackProgress(this->sound, 2, 23, 32);
 			Sound::printPlaybackTime(this->sound, 25, 25);
 		}
 		else
@@ -445,7 +445,7 @@ void SoundsState::showSoundPlayback(bool showOnlyTime)
 
 			if(!printVolume)
 			{
-				Sound::printPlaybackProgress(this->sound, 2, 6);
+				Sound::printPlaybackProgress(this->sound, 2, 6, 32);
 				Sound::printPlaybackTime(this->sound, 25, 8);
 			}
 		}
