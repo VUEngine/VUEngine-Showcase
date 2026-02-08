@@ -1,6 +1,6 @@
 {
 	"_id": "RoCmxm7LxUSTZM35",
-	"_version": "0.6.0",
+	"_version": "0.7.0",
 	"animations": {
 		"default": 0,
 		"multiframe": false,
@@ -44,10 +44,10 @@
 		],
 		"mutators": [
 			{
-				"mutationClass": "CogWheel",
-				"name": "CogWheel"
+				"mutationClass": "CogWheel"
 			}
 		],
+		"sounds": [],
 		"sprites": [
 			{
 				"_imageData": {

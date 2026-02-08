@@ -36,6 +36,13 @@
 // DEBUGGING / PROFILING
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
+#ifndef __SHIPPING
+#define __ALERT_CHAR_MEMORY_DEPLETION
+#define __ALERT_BGMAP_MEMORY_DEPLETION
+#define __ALERT_OBJECT_MEMORY_DEPLETION
+#define __ALERT_WORLD_MEMORY_DEPLETION
+#endif
+
 #define __STACK_HEADROOM 1000
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

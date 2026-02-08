@@ -1,6 +1,6 @@
 {
 	"_id": "MrXJzIvzz0J3Hip4",
-	"_version": "0.6.0",
+	"_version": "0.7.0",
 	"animations": {
 		"default": 0,
 		"multiframe": true,
@@ -22,6 +22,7 @@
 		"children": [],
 		"colliders": [],
 		"mutators": [],
+		"sounds": [],
 		"sprites": [
 			{
 				"_imageData": {

@@ -9,13 +9,6 @@
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-enum LanguageIdentifiers
-{
-	kLanguageEnglish,
-	kLanguageGerman,
-	kLanguageSpanish,
-};
-
 enum LanguageStrings
 {
     kStringActorCreationLabel,

@@ -13,11 +13,11 @@
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern LangROMSpec EnglishLanguageSpec;
+extern LangROMSpec enLanguageSpec;
 extern ActorSpec FlagUnitedKingdomActorSpec;
-extern LangROMSpec GermanLanguageSpec;
+extern LangROMSpec deLanguageSpec;
 extern ActorSpec FlagGermanyActorSpec;
-extern LangROMSpec SpanishLanguageSpec;
+extern LangROMSpec esLanguageSpec;
 extern ActorSpec FlagSpainActorSpec;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -26,14 +26,14 @@ extern ActorSpec FlagSpainActorSpec;
 
 LangROMSpec* const _languages[] =
 {
-	&EnglishLanguageSpec,
-	&GermanLanguageSpec,
-	&SpanishLanguageSpec,
+	&enLanguageSpec,
+	&deLanguageSpec,
+	&esLanguageSpec,
 	
 	NULL
 };
 
-const char* const EnglishLanguageStrings[] =
+const char* const enLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
     "Actor creation",
@@ -169,7 +169,7 @@ const char* const EnglishLanguageStrings[] =
     "YOU DIED… AGAIN",
 };
 
-const LangROMSpec EnglishLanguageSpec =
+const LangROMSpec enLanguageSpec =
 {
 	// language name
 	"English",
@@ -178,10 +178,10 @@ const LangROMSpec EnglishLanguageSpec =
 	&FlagUnitedKingdomActorSpec,
 	
 	// strings
-	(const char**)EnglishLanguageStrings
+	(const char**)enLanguageStrings
 };
 
-const char* const GermanLanguageStrings[] =
+const char* const deLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
     "Akteur-Konstruktoren",
@@ -317,7 +317,7 @@ const char* const GermanLanguageStrings[] =
     "DU BIST TOT… ERNEUT",
 };
 
-const LangROMSpec GermanLanguageSpec =
+const LangROMSpec deLanguageSpec =
 {
 	// language name
 	"Deutsch",
@@ -326,10 +326,10 @@ const LangROMSpec GermanLanguageSpec =
 	&FlagGermanyActorSpec,
 	
 	// strings
-	(const char**)GermanLanguageStrings
+	(const char**)deLanguageStrings
 };
 
-const char* const SpanishLanguageStrings[] =
+const char* const esLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
     "Actor: creación",
@@ -465,7 +465,7 @@ const char* const SpanishLanguageStrings[] =
     "MORISTE… OTRA VEZ",
 };
 
-const LangROMSpec SpanishLanguageSpec =
+const LangROMSpec esLanguageSpec =
 {
 	// language name
 	"Español",
@@ -474,5 +474,5 @@ const LangROMSpec SpanishLanguageSpec =
 	&FlagSpainActorSpec,
 	
 	// strings
-	(const char**)SpanishLanguageStrings
+	(const char**)esLanguageStrings
 };
