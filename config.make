@@ -8,6 +8,7 @@ PLUGINS							= vuengine//actors/LowPowerActor \
 								  vuengine//fonts/DefaultFontVariants \
 								  vuengine//other/AutomaticPause \
 								  vuengine//other/I18n \
+								  vuengine//other/LowPowerIndicator \
 								  vuengine//other/SaveDataManager \
 								  vuengine//postProcessing/DwarfPlanet \
 								  vuengine//postProcessing/Rain \
@@ -16,7 +17,8 @@ PLUGINS							= vuengine//actors/LowPowerActor \
 								  vuengine//states/splash/AdjustmentScreenVUEngine \
 								  vuengine//states/splash/AutomaticPauseSelectionScreen \
 								  vuengine//states/splash/LanguageSelectionScreen \
-								  vuengine//states/splash/PrecautionScreen
+								  vuengine//states/splash/PrecautionScreen \
+								  vuengine//states/splash/SplashScreen
 
 # Optimization level
 OPTIMIZATION					= O2

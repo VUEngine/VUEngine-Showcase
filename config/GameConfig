@@ -16,6 +16,7 @@
 			"useLowPowerActor": true
 		},
 		"vuengine//other/I18n": {},
+		"vuengine//other/LowPowerIndicator": {},
 		"vuengine//other/SaveDataManager": {
 			"saveStamp": "VUEngineShowcase",
 			"saveStampLength": 16
@@ -53,7 +54,8 @@
 		"vuengine//states/splash/PrecautionScreen": {
 			"textFont": "AstonishExt",
 			"useLowPowerActor": true
-		}
+		},
+		"vuengine//states/splash/SplashScreen": {}
 	},
 	"projectAuthor": "",
 	"projectTitle": "VUEngine Showcase"
