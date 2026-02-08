@@ -23,6 +23,7 @@ FontData _fontData[] =
 	{(FontSpec*)&AstonishSExtFontSpec, NULL},
 	{(FontSpec*)&DefaultBoldFontSpec, NULL},
 	{(FontSpec*)&DefaultBoldExtFontSpec, NULL},
+	{(FontSpec*)&DefaultExtFontSpec, NULL},
 	{(FontSpec*)&DefaultItalicFontSpec, NULL},
 	{(FontSpec*)&DefaultItalicExtFontSpec, NULL},
 	

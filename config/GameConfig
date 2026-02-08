@@ -11,7 +11,7 @@
 		"vuengine//fonts/AstonishFont": {},
 		"vuengine//fonts/DefaultFontVariants": {},
 		"vuengine//other/AutomaticPause": {
-			"bodyTextFont": "Default",
+			"bodyTextFont": "DefaultExt",
 			"titleTextFont": "AstonishExt",
 			"useLowPowerActor": true
 		},
@@ -44,12 +44,15 @@
 		},
 		"vuengine//states/splash/AutomaticPauseSelectionScreen": {
 			"titleTextFont": "AstonishExt",
-			"useLowPowerActor": true
+			"useLowPowerActor": true,
+			"bodyTextFont": "DefaultExt",
+			"optionsTextFont": "DefaultExt"
 		},
 		"vuengine//states/splash/LanguageSelectionScreen": {
 			"titleTextFont": "AstonishExt",
 			"useLowPowerActor": true,
-			"variant": 1
+			"variant": 1,
+			"languageNameFont": "DefaultExt"
 		},
 		"vuengine//states/splash/PrecautionScreen": {
 			"textFont": "AstonishExt",
