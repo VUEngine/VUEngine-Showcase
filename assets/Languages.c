@@ -188,7 +188,7 @@ const char* const deLanguageStrings[] =
     /* kStringActorDestructionLabel: */
     "Akteur-Destruktoren",
     /* kStringActorsLabel: */
-    "Akteur",
+    "Akteure",
     /* kStringAnimationsLabel: */
     "Animationen",
     /* kStringAnimationSubtitle: */
