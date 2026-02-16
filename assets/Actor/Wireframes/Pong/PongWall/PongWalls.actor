@@ -1,6 +1,6 @@
 {
 	"_id": "ATg1EmOA3THUPEAI",
-	"_version": "0.6.0",
+	"_version": "0.7.0",
 	"animations": {
 		"default": 0,
 		"multiframe": false,
@@ -73,6 +73,7 @@
 			}
 		],
 		"mutators": [],
+		"sounds": [],
 		"sprites": [],
 		"wireframes": []
 	},

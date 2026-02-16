@@ -25,6 +25,7 @@ extern FontSpec AstonishSFontSpec;
 extern FontSpec AstonishSExtFontSpec;
 extern FontSpec DefaultBoldFontSpec;
 extern FontSpec DefaultBoldExtFontSpec;
+extern FontSpec DefaultExtFontSpec;
 extern FontSpec DefaultItalicFontSpec;
 extern FontSpec DefaultItalicExtFontSpec;
 
