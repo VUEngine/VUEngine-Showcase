@@ -42,8 +42,11 @@ SoundROMSpec ChangeSelection2SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Change Selection Sound 2",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
@@ -52,5 +55,8 @@ SoundROMSpec ChangeSelection2SoundSpec =
 	500,
 
 	// Tracks
-	(SoundTrackSpec**)ChangeSelection2SoundTracks
+	(SoundTrackSpec**)ChangeSelection2SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

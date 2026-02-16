@@ -42,8 +42,11 @@ SoundROMSpec Killed1SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Killed Sound 1",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
@@ -52,5 +55,8 @@ SoundROMSpec Killed1SoundSpec =
 	500,
 
 	// Tracks
-	(SoundTrackSpec**)Killed1SoundTracks
+	(SoundTrackSpec**)Killed1SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

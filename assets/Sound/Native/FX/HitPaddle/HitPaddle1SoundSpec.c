@@ -42,8 +42,11 @@ SoundROMSpec HitPaddle1SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Hit Paddle Sound 1",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
@@ -52,5 +55,8 @@ SoundROMSpec HitPaddle1SoundSpec =
 	500,
 
 	// Tracks
-	(SoundTrackSpec**)HitPaddle1SoundTracks
+	(SoundTrackSpec**)HitPaddle1SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

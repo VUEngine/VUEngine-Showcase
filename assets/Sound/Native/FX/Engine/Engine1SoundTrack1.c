@@ -82,14 +82,11 @@ const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 
 SoundTrackROMSpec Engine1SoundTrack1 =
 {
-	/// kTrackNative, kTrackPCM
-	kTrackNative,
+	/// Priority for sound channel usage
+	1,
 
 	/// Skip if no sound source available?
 	true,
-
-	/// Total number of samples (0 if not PCM)
-	0,
 
 	/// Loop back point (cursor)
 	0,

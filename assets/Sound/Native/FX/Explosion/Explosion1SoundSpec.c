@@ -42,8 +42,11 @@ SoundROMSpec Explosion1SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Explosion 1",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
@@ -52,5 +55,8 @@ SoundROMSpec Explosion1SoundSpec =
 	500,
 
 	// Tracks
-	(SoundTrackSpec**)Explosion1SoundTracks
+	(SoundTrackSpec**)Explosion1SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

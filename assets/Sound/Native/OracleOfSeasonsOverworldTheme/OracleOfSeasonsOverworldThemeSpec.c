@@ -46,8 +46,11 @@ SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Oracle of Seasons - Overworld",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	true,
@@ -56,5 +59,8 @@ SoundROMSpec OracleOfSeasonsOverworldThemeSoundSpec =
 	880,
 
 	// Tracks
-	(SoundTrackSpec**)OracleOfSeasonsOverworldThemeSoundTracks
+	(SoundTrackSpec**)OracleOfSeasonsOverworldThemeSoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

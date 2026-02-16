@@ -42,8 +42,11 @@ SoundROMSpec ChangeSelection3SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Change Selection Sound 3",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	false,
@@ -52,5 +55,8 @@ SoundROMSpec ChangeSelection3SoundSpec =
 	500,
 
 	// Tracks
-	(SoundTrackSpec**)ChangeSelection3SoundTracks
+	(SoundTrackSpec**)ChangeSelection3SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };

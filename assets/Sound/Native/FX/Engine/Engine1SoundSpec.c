@@ -42,8 +42,11 @@ SoundROMSpec Engine1SoundSpec =
 		kSoundComponent
 	},
 
-	// Name
+	// Song/Sound's name
 	"Engine 1",
+
+	// Author's name
+	NULL,
 
 	// Play in loop
 	true,
@@ -52,5 +55,8 @@ SoundROMSpec Engine1SoundSpec =
 	1000,
 
 	// Tracks
-	(SoundTrackSpec**)Engine1SoundTracks
+	(SoundTrackSpec**)Engine1SoundTracks,
+
+	// Sound group
+	kSoundGroupEffects
 };
