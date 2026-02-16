@@ -216,6 +216,10 @@
 
 #define __EAR_DISPLACEMENT						 384
 #define __SOUND_STEREO_ATTENUATION_DISTANCE		 2048
+#define __MAXIMUM_VOLUME_GROUP_GENERAL		     __MAXIMUM_VOLUME
+#define __MAXIMUM_VOLUME_GROUP_EFFECTS		     __MAXIMUM_VOLUME
+#define __MAXIMUM_VOLUME_GROUP_MUSIC		     __MAXIMUM_VOLUME
+#define __MAXIMUM_VOLUME_GROUP_OTHER		     __MAXIMUM_VOLUME
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // BRIGHTNESS
