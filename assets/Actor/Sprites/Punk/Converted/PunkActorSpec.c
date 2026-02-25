@@ -39,9 +39,7 @@ AnimationFunctionROMSpec PunkAnimation1AnimationSpec =
 	4,
 
 	// Whether to play it in loop or not
-	true,
-
-	// Animation's name
+	true
 	"Move",
 };
 

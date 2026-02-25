@@ -76,12 +76,6 @@ StageROMSpec ParticlesStageSpec =
 		kMS
 	},
 
-	// Sound config
-	{
-		// Target refresh rate for PCM playback
-		6000,
-	},
-
 	// General stage's attributes
 	{
 		// Stage's size in pixels

@@ -51,9 +51,7 @@ AnimationFunctionROMSpec VideoAnimation1AnimationSpec =
 	1,
 
 	// Whether to play it in loop or not
-	true,
-
-	// Animation's name
+	true
 	"FrameBlend",
 };
 
@@ -82,9 +80,7 @@ AnimationFunctionROMSpec VideoAnimation2AnimationSpec =
 	1,
 
 	// Whether to play it in loop or not
-	true,
-
-	// Animation's name
+	true
 	"4Color",
 };
 

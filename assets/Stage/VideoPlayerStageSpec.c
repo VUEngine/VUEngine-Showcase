@@ -67,12 +67,6 @@ StageROMSpec VideoPlayerStageSpec =
 		kMS,
 	},
 
-	// Sound config
-	{
-		// Target refresh rate for PCM playback
-		__DEFAULT_PCM_HZ
-	},
-
 	// General stage's attributes
 	{
 		// Stage's size in pixels

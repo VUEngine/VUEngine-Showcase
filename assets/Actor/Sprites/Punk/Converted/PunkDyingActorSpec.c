@@ -40,9 +40,7 @@ AnimationFunctionROMSpec PunkDyingAnimation1AnimationSpec =
 	4,
 
 	// Whether to play it in loop or not
-	false,
-
-	// Animation's name
+	false
 	"Die",
 };
 
