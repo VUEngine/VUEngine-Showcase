@@ -42,7 +42,9 @@ AnimationFunctionROMSpec StarDefaultAnimationSpec =
 	8,
 
 	// Whether to play it in loop or not
-	false
+	false,
+
+	// Animation's name
 	"Default",
 };
 
@@ -58,7 +60,9 @@ AnimationFunctionROMSpec StarVanishAnimationSpec =
 	8,
 
 	// Whether to play it in loop or not
-	false
+	false,
+
+	// Animation's name
 	"Vanish",
 };
 

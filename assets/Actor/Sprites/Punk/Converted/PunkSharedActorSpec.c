@@ -39,7 +39,9 @@ AnimationFunctionROMSpec PunkSharedAnimation1AnimationSpec =
 	4,
 
 	// Whether to play it in loop or not
-	true
+	true,
+
+	// Animation's name
 	"Move",
 };
 

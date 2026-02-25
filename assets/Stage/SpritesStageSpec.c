@@ -49,7 +49,7 @@ FontROMSpec* const SpritesStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* SpritesStageSoundSpecs[] =
+SoundROMSpec* const SpritesStageSoundSpecs[] =
 {
 	NULL
 };
@@ -71,12 +71,6 @@ StageROMSpec SpritesStageSpec =
 		10,
 		// Timer interrupt's target time units
 		kMS
-	},
-
-	// Sound config
-	{
-		// Target refresh rate for PCM playback
-		6000
 	},
 
 	// General stage's attributes

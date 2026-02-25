@@ -51,7 +51,7 @@ FontROMSpec* const PostProcessingEffectsStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* PostProcessingEffectsStageSoundSpecs[] =
+SoundROMSpec* const PostProcessingEffectsStageSoundSpecs[] =
 {
 	NULL
 };

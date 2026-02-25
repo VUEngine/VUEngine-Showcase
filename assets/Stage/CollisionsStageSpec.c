@@ -55,7 +55,7 @@ FontROMSpec* const CollisionsStageFontSpecs [] =
 	NULL
 };
 
-SoundROMSpec* CollisionsStageSoundSpecs[] =
+SoundROMSpec* const CollisionsStageSoundSpecs[] =
 {
 	NULL
 };

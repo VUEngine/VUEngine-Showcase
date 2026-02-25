@@ -49,7 +49,7 @@ FontROMSpec* const AnimationSchemesStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* AnimationSchemesStageSoundSpecs[] =
+SoundROMSpec* const AnimationSchemesStageSoundSpecs[] =
 {
 	NULL
 };

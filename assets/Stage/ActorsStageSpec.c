@@ -48,7 +48,7 @@ FontROMSpec* const ActorsStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* ActorsStageSoundSpecs[] =
+SoundROMSpec* const ActorsStageSoundSpecs[] =
 {
 	NULL
 };

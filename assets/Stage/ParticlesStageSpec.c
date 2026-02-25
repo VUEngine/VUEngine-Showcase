@@ -52,7 +52,7 @@ FontROMSpec* const ParticlesStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* ParticlesStageSoundSpecs[] =
+SoundROMSpec* const ParticlesStageSoundSpecs[] =
 {
 	NULL
 };

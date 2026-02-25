@@ -112,7 +112,7 @@ FontROMSpec* const WireframesStageFontSpecs[] =
 	NULL
 };
 
-SoundROMSpec* WireframesStageSoundSpecs[] =
+SoundROMSpec* const WireframesStageSoundSpecs[] =
 {
 	NULL
 };
