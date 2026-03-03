@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Body.h>
-#include <CommunicationManager.h>
+#include <Communications.h>
 #include <GameEvents.h>
 #include <InGameTypes.h>
 #include <MessageDispatcher.h>
@@ -20,7 +20,7 @@
 #include <Optics.h>
 #include <ParticleSystem.h>
 #include <RumbleEffects.h>
-#include <RumbleManager.h>
+#include <Rumble.h>
 #include <Sounds.h>
 #include <Telegram.h>
 #include <Utilities.h>
@@ -121,7 +121,7 @@ bool PongBall::collisionStarts(const CollisionInformation* collisionInformation)
 		break;
 	}
 
-	RumbleManager::startEffect(&HitPaddleRumbleEffectSpec);
+	Rumble::startEffect(&HitPaddleRumbleEffectSpec);
 
 	Sound::playSound(&HitPaddle1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 
@@ -179,7 +179,7 @@ void PongBall::startMovement()
 {
 	int16 angle = 0;
 
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(Communications::isConnected())
 	{
 		if(0 == _randomSeed)
 		{

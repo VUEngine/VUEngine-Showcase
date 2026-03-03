@@ -16,7 +16,7 @@
 
 #include <ListenerObject.h>
 
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <PongBall.h>
 #include <Stage.h>
 #include <VirtualList.h>

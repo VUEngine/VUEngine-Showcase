@@ -48,7 +48,7 @@ static const PostProcessingEffect _postProcessingEffect[] =
 
 void PostProcessingEffectsState::exit(void* owner)
 {
-	VIPManager::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+	DisplayUnit::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 	
 	Base::exit(this, owner);	
 }
@@ -64,7 +64,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 	if(K_LL & userInput->releasedKey)
 	{
-		VIPManager::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+		DisplayUnit::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 
 		if(0 > --this->selectedPostProcessingEffect)
 		{
@@ -75,7 +75,7 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 	}
 	else if(K_LR & userInput->releasedKey)
 	{
-		VIPManager::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+		DisplayUnit::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 
 		if((signed)(sizeof(_postProcessingEffect) / sizeof(PostProcessingEffect) - 1) < ++this->selectedPostProcessingEffect)
 		{
@@ -104,7 +104,7 @@ void PostProcessingEffectsState::showControls()
 
 void PostProcessingEffectsState::showStuff()
 {
-	VIPManager::pushBackPostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
+	DisplayUnit::pushBackPostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

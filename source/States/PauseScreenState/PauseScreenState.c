@@ -43,7 +43,7 @@ bool PauseScreenState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 		case kEventEffectFadeInComplete:
 		{
 			// Re-enable user input
-			KeypadManager::enable();
+			Keypad::enable();
 
 			return false;
 		}
@@ -83,7 +83,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	);
 
 	// Disable user input
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Start clocks to start animations
 	GameState::startClocks(this);
@@ -116,7 +116,7 @@ void PauseScreenState::processUserInput(const UserInput*  userInput)
 	if(K_STA & userInput->pressedKey)
 	{
 		// Disable user input
-		KeypadManager::disable();
+		Keypad::disable();
 
 		// Turn down brightness
 		Camera::startEffect(Camera::getInstance(), kHide);

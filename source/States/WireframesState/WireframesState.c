@@ -15,12 +15,12 @@
 
 #include <Camera.h>
 #include <DebugConfig.h>
-#include <FrameBufferManager.h>
+#include <FrameBuffers.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printer.h>
 #include <Singleton.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <WireframeManager.h>
 
 #include "WireframesState.h"
@@ -38,13 +38,13 @@ void WireframesState::enter(void* owner)
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
+	Keypad::registerInput(__KEY_RELEASED | __KEY_HOLD);
 
 	// Drawing wireframes is heavy, let's make it easier on the poor VB
 	WireframesState::changeFramerate(this, 25, -1);
 
 	// Make sure that no interrupts take place during rendering or drawing
-	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
+	DisplayUnit::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -69,7 +69,7 @@ void WireframesState::resume(void* owner)
 	WireframesState::changeFramerate(this, 25, -1);
 
 	// Make sure that no interrupts take place during rendering or drawing
-	VIPManager::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
+	DisplayUnit::enableMultiplexedInterrupts(kVIPNoMultiplexedInterrupts);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -161,7 +161,7 @@ void WireframesState::showExplanation()
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
 	Printer::text("Camera", 2, y++, NULL);
-	Printer::text("FrameBufferManager", 2, y++, NULL);
+	Printer::text("FrameBuffers", 2, y++, NULL);
 	Printer::text("Mesh", 2, y++, NULL);
 	Printer::text("Wireframe", 2, y++, NULL);
 	Printer::text("WireframeManager", 2, y++, NULL);
@@ -182,7 +182,7 @@ void WireframesState::showExplanation()
 void WireframesState::showAdditionalDetails()
 {
 	WireframeManager::print(this->componentManagers[kWireframeComponent], 1, 3);
-	FrameBufferManager::print(FrameBufferManager::getInstance(), 1, 9);
+	FrameBuffers::print(1, 9);
 	Camera::print(Camera::getInstance(), 31, 3, false);
 }
 

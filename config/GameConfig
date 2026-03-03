@@ -4,6 +4,7 @@
 		"positions": {}
 	},
 	"plugins": {
+		"platforms//VirtualBoy": {},
 		"vuengine//actors/LowPowerActor": {
 			"xPosition": -184,
 			"yPosition": 108

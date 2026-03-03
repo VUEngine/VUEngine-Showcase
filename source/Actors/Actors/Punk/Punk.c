@@ -23,7 +23,7 @@
 #include <PunkStopping.h>
 #include <PunkWalking.h>
 #include <RumbleEffects.h>
-#include <RumbleManager.h>
+#include <Rumble.h>
 #include <ShowcaseState.h>
 #include <Sounds.h>
 #include <StateMachine.h>
@@ -178,7 +178,7 @@ void Punk::die()
 
 	Punk::playAnimation(this, "Die");
 
-	RumbleManager::startEffect(&KilledRumbleEffectSpec);
+	Rumble::startEffect(&KilledRumbleEffectSpec);
 
 	Sound::playSound(&Killed1SoundSpec, Entity::safeCast(this), kSoundPlaybackNormal, NULL);
 

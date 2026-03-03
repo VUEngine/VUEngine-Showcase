@@ -17,17 +17,17 @@
 #include <CameraEffectManager.h>
 #include <FrameRate.h>
 #include <I18n.h>
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <Languages.h>
 #include <Printer.h>
 #include <PauseScreenState.h>
 #include <RumbleEffects.h>
-#include <RumbleManager.h>
+#include <Rumble.h>
 #include <Showcases.h>
 #include <Sounds.h>
-#include <TimerManager.h>
+#include <Timer.h>
 #include <Utilities.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <VUEngine.h>
 
 #include "ShowcaseState.h"
@@ -77,7 +77,7 @@ bool ShowcaseState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 	{
 		case kEventEffectFadeInComplete:
 		{
-			KeypadManager::enable();
+			Keypad::enable();
 
 			return true;
 		}
@@ -121,10 +121,10 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	ShowcaseState::startClocks(this);
 
 	// Only register when a button is released
-	KeypadManager::registerInput(__KEY_RELEASED);
+	Keypad::registerInput(__KEY_RELEASED);
 
 	// Enable user input
-	KeypadManager::disable();
+	Keypad::disable();
 
 	// Printer the framerate
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
@@ -191,7 +191,7 @@ void ShowcaseState::resume(void* owner)
  */
 void ShowcaseState::processUserInput(const UserInput* userInput)
 {
-	// Check for UserInput and key definitions in KeypadManager.h
+	// Check for UserInput and key definitions in Keypad.h
 	if(K_STA & userInput->releasedKey)
 	{
 		VUEngine::pause(GameState::safeCast(PauseScreenState::getInstance()));
@@ -253,20 +253,20 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 
 	if(NULL != soundEffectSpec)
 	{
-		RumbleManager::startEffect(rumbleEffect);
+		Rumble::startEffect(rumbleEffect);
 
 		// Prevent the user to mess up the playback by pressig the keypad's buttons like a maniac.
-		KeypadManager::disable();
+		Keypad::disable();
 
 		/*
 		 * Make sure that the timer interrupts happen at a controlled frequency to make sure that 
 		 * the sound effects sound the same in all stages
 		 */
-		TimerManager::disable();
-		TimerManager::setResolution(__TIMER_20US);
-		TimerManager::setTargetTimePerInterruptUnits(kUS);
-		TimerManager::setTargetTimePerInterrupt(500);
-		TimerManager::applySettings(true);
+		Timer::disable();
+		Timer::setResolution(__TIMER_20US);
+		Timer::setTargetTimePerInterruptUnits(kUS);
+		Timer::setTargetTimePerInterrupt(500);
+		Timer::applySettings(true);
 
 		Sound soundEffect = Sound::get(soundEffectSpec, NULL, ListenerObject::safeCast(this));
 
@@ -297,14 +297,14 @@ void ShowcaseState::acceptUserInput()
 	// Restore timer settings
 	const StageSpec* stageSpec = Stage::getSpec(this->stage);
 
-	TimerManager::configure
+	Timer::configure
 	(
 		stageSpec->timer.resolution, stageSpec->timer.targetTimePerInterrupt, 
 		stageSpec->timer.targetTimePerInterrupttUnits
 	);
 
 	// Allow the player to interact again.
-	KeypadManager::enable();
+	Keypad::enable();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -328,7 +328,7 @@ void ShowcaseState::configurePalettes(bool dimm)
 		paletteConfig.object.jplt3 = 0x50;
 	}
 
-	VIPManager::configurePalettes(paletteConfig);
+	DisplayUnit::configurePalettes(paletteConfig);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -436,7 +436,7 @@ void ShowcaseState::destructor()
 
 void ShowcaseState::goToNext()
 {
-	KeypadManager::disable();
+	Keypad::disable();
 
 	VUEngine::changeState(GameState::safeCast(_showcaseStates[_currentShowcaseState]()));
 }

@@ -145,21 +145,25 @@ void SpritesState::showExplanation()
 		Printer::text(strMode, 28, y, NULL);
 		FontSize strModeTextSize = Printer::getTextSize(strMode, NULL);
 
-		if(Sprite::isObject(this->sprite))
+		if(__GET_CAST(BgmapSprite, this->sprite))
+		{
+			if(BgmapSprite::isAffine(this->sprite))
+			{
+				Printer::text("Affine", 28 + strModeTextSize.x, y, NULL);
+			}
+			else if(BgmapSprite::isHBias(this->sprite))
+			{
+				Printer::text("HBias", 28 + strModeTextSize.x, y, NULL);
+			}
+			else if(BgmapSprite::isBgmap(this->sprite))
+			{
+				Printer::text("BGMAP", 28 + strModeTextSize.x, y, NULL);
+			}
+			
+		}
+		else
 		{
 			Printer::text("N/A", 28 + strModeTextSize.x, y, NULL);
-		}
-		else if(Sprite::isAffine(this->sprite))
-		{
-			Printer::text("Affine", 28 + strModeTextSize.x, y, NULL);
-		}
-		else if(Sprite::isHBias(this->sprite))
-		{
-			Printer::text("HBias", 28 + strModeTextSize.x, y, NULL);
-		}
-		else if(Sprite::isBgmap(this->sprite))
-		{
-			Printer::text("BGMAP", 28 + strModeTextSize.x, y, NULL);
 		}
 	}	
 }

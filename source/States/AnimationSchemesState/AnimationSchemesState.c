@@ -22,7 +22,7 @@
 #include <Singleton.h>
 #include <SpriteManager.h>
 #include <Texture.h>
-#include <VIPManager.h>
+#include <DisplayUnit.h>
 #include <VirtualList.h>
 #include <VirtualNode.h>
 

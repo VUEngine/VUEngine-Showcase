@@ -15,12 +15,12 @@
 
 #include <AutomaticPauseManager.h>
 #include <BodyManager.h>
-#include <CommunicationManager.h>
+#include <Communications.h>
 #include <Camera.h>
 #include <GameEvents.h>
 #include <GameSaveDataManager.h>
 #include <I18n.h>
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <Languages.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
@@ -77,10 +77,10 @@ void CommunicationsState::enter(void* owner)
 	CommunicationsState::startClocks(this);
 
 	// Set input to be notified about
-	KeypadManager::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
+	Keypad::registerInput(__KEY_PRESSED | __KEY_RELEASED | __KEY_HOLD);
 
 	// Make sure that the processing of user input is triggered regardless of real user input
-	KeypadManager::enableDummyKey();
+	Keypad::enableDummyKey();
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -132,7 +132,7 @@ void CommunicationsState::showControls()
 
 	if(!isDeleted(this->pongManager))
 	{
-		if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+		if(Communications::isConnected())
 		{
 			Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
 
@@ -169,7 +169,7 @@ void CommunicationsState::showExplanation()
 
 	y++;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringClassesSubtitle), 2, y++, "DefaultBold");
-	Printer::text("CommunicationManager", 2, y++, NULL);
+	Printer::text("Communications", 2, y++, NULL);
 	Printer::text("Pong*", 2, y++, NULL);
 
 	y = 3;
@@ -238,7 +238,7 @@ void CommunicationsState::showConnectivityStatus()
 {
 	Printer::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
 
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(Communications::isConnected())
 	{
 		const char* strConnected = I18n::getText(I18n::getInstance(), kStringConnected);
 		FontSize strConnectedTextSize = Printer::getTextSize(strConnected, "DefaultBold");

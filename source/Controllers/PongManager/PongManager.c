@@ -13,15 +13,15 @@
 
 #include <string.h>
 
-#include <CommunicationManager.h>
+#include <Communications.h>
 #include <GameEvents.h>
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <MessageDispatcher.h>
 #include <Messages.h>
 #include <PongPaddle.h>
 #include <CommunicationsState.h>
 #include <RumbleEffects.h>
-#include <RumbleManager.h>
+#include <Rumble.h>
 #include <Singleton.h>
 #include <SoundManager.h>
 #include <Sounds.h>
@@ -90,14 +90,14 @@ void PongManager::constructor(Stage stage)
 	this->remoteHoldKey = 0;
 
 	// Enable comms	
-	CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
+	Communications::enableCommunications(ListenerObject::safeCast(this));
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 void PongManager::destructor()
 {
-	CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+	Communications::disableCommunications();
 
 	// Always explicitly call the base's destructor
 	Base::destructor();
@@ -213,9 +213,9 @@ int8 PongManager::getPlayerNumber()
 
 void PongManager::getReady()
 {
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(Communications::isConnected())
 	{
-	//	CommunicationManager::startSyncCycle(CommunicationManager::getInstance());
+	//	Communications::startSyncCycle();
 	}
 
 	this->leftScore = 0;
@@ -231,11 +231,11 @@ void PongManager::getReady()
 
 	this->playerNumber = kPlayerAlone;
 
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(Communications::isConnected())
 	{
 		this->playerNumber = kPlayerOne;
 
-		if(!CommunicationManager::isMaster(CommunicationManager::getInstance()))
+		if(!Communications::isMaster())
 		{
 			this->playerNumber = kPlayerTwo;
 		}
@@ -312,7 +312,7 @@ void PongManager::syncWithRemote(const UserInput* userInput)
 	 * both are at the end of each frame in the same state. It is possible to run
 	 * the game in one and send the data to the other so this only shows it.
 	 */
-	if(CommunicationManager::isConnected(CommunicationManager::getInstance()))
+	if(Communications::isConnected())
 	{
 		this->remoteHoldKey = 0;
 
@@ -353,20 +353,20 @@ void PongManager::transmitData(uint32 messageForRemote, uint8* data, uint32 data
 		/*
 		 * Data transmission can fail if there was already a request to send data.
 		 */
-		if(!CommunicationManager::sendAndReceiveData(CommunicationManager::getInstance(), messageForRemote, data, dataBytes))
+		if(!Communications::sendAndReceiveData(messageForRemote, data, dataBytes))
 		{
 			/*
 			 * In this case, simply cancel all communications and try again. This supposes
 			 * that there are no other calls that could cause a race condition.
 			 */
-			CommunicationManager::cancelCommunications(CommunicationManager::getInstance());
+			Communications::cancelCommunications();
 		}
 
 		/*
 		 * Every transmission sends a control message and then the data itself.
 		 */
-		receivedMessage = CommunicationManager::getReceivedMessage(CommunicationManager::getInstance());
-		remotePlayerData = (const RemotePlayerData*)CommunicationManager::getReceivedData(CommunicationManager::getInstance());
+		receivedMessage = Communications::getReceivedMessage();
+		remotePlayerData = (const RemotePlayerData*)Communications::getReceivedData();
 	}
 	/*
 	 * The validity of the message is based on the command that was received
@@ -455,7 +455,7 @@ void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receive
 
 		case kMessagePongGoodBye:
 
-			CommunicationManager::disableCommunications(CommunicationManager::getInstance());
+			Communications::disableCommunications();
 
 			PongManager::fireEvent(this, kEventPongRemoteWentAway);
 
@@ -465,7 +465,7 @@ void PongManager::processReceivedMessage(uint32 messageForRemote, uint32 receive
 
 			Stage::propagateMessage(this->stage, Container::onPropagatedMessage, kMessagePongResetPositions);
 
-			CommunicationManager::enableCommunications(CommunicationManager::getInstance(), ListenerObject::safeCast(this));
+			Communications::enableCommunications(ListenerObject::safeCast(this));
 			break;
 	}
 }
@@ -505,7 +505,7 @@ void PongManager::registerPoint(uint32 message)
 		}
 	}
 
-	RumbleManager::startEffect(&PointRumbleEffectSpec);
+	Rumble::startEffect(&PointRumbleEffectSpec);
 
 	Sound::playSound(&Point1SoundSpec, NULL, kSoundPlaybackNormal, NULL);
 }

@@ -15,7 +15,7 @@
 
 #include <Actor.h>
 #include <I18n.h>
-#include <KeypadManager.h>
+#include <Keypad.h>
 #include <Languages.h>
 #include <Messages.h>
 #include <Printer.h>
@@ -64,7 +64,7 @@ void CollisionsState::enter(void* owner)
 	/*
 	 * I need to register both released and hold buttons
 	 */
-	KeypadManager::registerInput(__KEY_RELEASED | __KEY_HOLD);
+	Keypad::registerInput(__KEY_RELEASED | __KEY_HOLD);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
