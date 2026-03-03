@@ -51,7 +51,7 @@ bool SoundsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 			{
 				if(this->showAdditionalDetails)
 				{
-					Timer::printInterruptStats(2, 18);
+					Timer::printStats(2, 18);
 				}
 			}
 
