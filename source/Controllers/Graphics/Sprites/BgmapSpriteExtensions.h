@@ -22,7 +22,7 @@
 
 extension class BgmapSprite : Sprite
 {
-	static int16 waveEffect(BgmapSprite bgmapSprite, int32 maximumParamTableRowsToComputePerCall);
+	static int16 waveEffect(BgmapSprite bgmapSprite, int32 specialEffectsRowsPerFrame);
 }
 
 #endif
