@@ -59,7 +59,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	Base::enter(this, owner);
 
 	// Load stage
-	GameState::configureStage(this, (StageSpec*)&PauseScreenStage, NULL);
+	PauseScreenState::configureStage(this, (StageSpec*)&PauseScreenStage, NULL);
 
 	// Print text
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringPauseTitle);
