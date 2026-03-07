@@ -5,6 +5,7 @@
 # VUEngine plugins which the project uses
 PLUGINS							= platforms//VirtualBoy \
 								  vuengine//actors/LowPowerActor \
+								  vuengine//cameras/CameraEffectManager \
 								  vuengine//fonts/AstonishFont \
 								  vuengine//fonts/DefaultFontVariants \
 								  vuengine//other/AutomaticPause \

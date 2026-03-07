@@ -222,7 +222,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			// Timer controls
 			else if(K_RU & userInput->releasedKey)
 			{
-				uint16 timerResolution = Timer::getResolution(Timer::getInstance());
+				uint16 timerResolution = Timer::getResolution();
 
 				switch(timerResolution)
 				{
@@ -247,7 +247,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			}
 			else if(K_RD & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupttUnits = Timer::getTargetTimePerInterruptUnits(Timer::getInstance());
+				uint16 targetTimePerInterrupttUnits = Timer::getTargetTimePerInterruptUnits();
 				uint16 targetTimePerInterrupt = Timer::getTargetTimePerInterrupt();
 
 				switch(targetTimePerInterrupttUnits)
@@ -276,18 +276,18 @@ void SoundsState::processUserInput(const UserInput* userInput)
 			}
 			else if(K_RL & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupt = Timer::getTargetTimePerInterrupt(Timer::getInstance());
+				uint16 targetTimePerInterrupt = Timer::getTargetTimePerInterrupt();
 
-				targetTimePerInterrupt -= Timer::getMinimumTimePerInterruptStep(Timer::getInstance());
+				targetTimePerInterrupt -= Timer::getMinimumTimePerInterruptStep();
 
 				Timer::setTargetTimePerInterrupt(targetTimePerInterrupt);
 				timerChanged = true;
 			}
 			else if(K_RR & userInput->releasedKey)
 			{
-				uint16 targetTimePerInterrupt = Timer::getTargetTimePerInterrupt(Timer::getInstance());
+				uint16 targetTimePerInterrupt = Timer::getTargetTimePerInterrupt();
 
-				targetTimePerInterrupt += Timer::getMinimumTimePerInterruptStep(Timer::getInstance());
+				targetTimePerInterrupt += Timer::getMinimumTimePerInterruptStep();
 
 				Timer::setTargetTimePerInterrupt(targetTimePerInterrupt);
 				timerChanged = true;

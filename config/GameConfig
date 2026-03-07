@@ -9,6 +9,7 @@
 			"xPosition": -184,
 			"yPosition": 108
 		},
+		"vuengine//cameras/CameraEffectManager": {},
 		"vuengine//fonts/AstonishFont": {},
 		"vuengine//fonts/DefaultFontVariants": {},
 		"vuengine//other/AutomaticPause": {

@@ -14,7 +14,6 @@
 #include <string.h>
 
 #include <BgmapSprite.h>
-#include <CameraEffectManager.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Printer.h>
