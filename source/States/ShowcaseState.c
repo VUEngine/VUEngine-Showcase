@@ -60,7 +60,7 @@ static ShowcaseStateGetInstance _showcaseStates [] =
 
 static ShowcaseStateGetInstance ShowcaseState::getFirstShowcase()
 {
-	return _showcaseStates [0];
+	return _showcaseStates[0];
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -297,11 +297,7 @@ void ShowcaseState::acceptUserInput()
 	// Restore timer settings
 	const StageSpec* stageSpec = Stage::getSpec(this->stage);
 
-	Timer::configure
-	(
-		stageSpec->timer.resolution, stageSpec->timer.targetTimePerInterrupt, 
-		stageSpec->timer.targetTimePerInterrupttUnits
-	);
+	Timer::configure(stageSpec->timerConfig);
 
 	// Allow the player to interact again.
 	Keypad::enable();
@@ -316,19 +312,19 @@ void ShowcaseState::configurePalettes(bool dimm)
 		return;
 	}
 
-	PaletteConfig paletteConfig = Stage::getPaletteConfig(this->stage);
+	DisplayColorConfig displayColorConfig = DisplayUnit::getColorConfig();
 
 	if(dimm)
 	{
-		paletteConfig.bgmap.gplt1 = 0x50;
-		paletteConfig.bgmap.gplt2 = 0x50;
-		paletteConfig.bgmap.gplt3 = 0x50;
-		paletteConfig.object.jplt1 = 0x50;
-		paletteConfig.object.jplt2 = 0x50;
-		paletteConfig.object.jplt3 = 0x50;
+		displayColorConfig.paletteConfig.bgmap.gplt1 = 0x50;
+		displayColorConfig.paletteConfig.bgmap.gplt2 = 0x50;
+		displayColorConfig.paletteConfig.bgmap.gplt3 = 0x50;
+		displayColorConfig.paletteConfig.object.jplt1 = 0x50;
+		displayColorConfig.paletteConfig.object.jplt2 = 0x50;
+		displayColorConfig.paletteConfig.object.jplt3 = 0x50;
 	}
 
-	DisplayUnit::configurePalettes(paletteConfig);
+	DisplayUnit::applyColorConfig(displayColorConfig);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
