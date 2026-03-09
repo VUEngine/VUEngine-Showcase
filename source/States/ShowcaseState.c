@@ -130,16 +130,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	FrameRate::addEventListener(FrameRate::getInstance(), ListenerObject::safeCast(this), kEventFramerateReady);
 
 	// Start fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, // effect type
-		0, // initial delay (in ms)
-		NULL, // target brightness
-		__FADE_DELAY, // delay between fading steps (in ms)
-		ListenerObject::safeCast(this) 		// callback scope
-	);
+	SplashScreenState::fadeIn(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -172,16 +163,7 @@ void ShowcaseState::resume(void* owner)
 	ShowcaseState::show(this, true);
 
 	// Start a fade in effect
-	Camera::startEffect(Camera::getInstance(), kHide);
-	Camera::startEffect
-	(
-		Camera::getInstance(),
-		kFadeTo, 				// effect type
-		0, 						// initial delay (in ms)
-		NULL, 					// target brightness
-		__FADE_DELAY, 			// delay between fading steps (in ms)
-		ListenerObject::safeCast(this) 		// callback scope
-	);
+	SplashScreenState::fadeIn(this, __FADE_DELAY);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
