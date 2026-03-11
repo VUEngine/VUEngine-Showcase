@@ -65,8 +65,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	const char* strTitle = I18n::getText(I18n::getInstance(), kStringPauseTitle);
 
 	FontSize strPauseSize = Printer::getTextSize
-	(
-		
+	(	
 		strTitle,
 		"Default"
 	);
@@ -75,7 +74,6 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 	
 	Printer::text
 	(
-		
 		strTitle,
 		strHeaderXPos,
 		12,

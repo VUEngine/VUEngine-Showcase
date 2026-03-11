@@ -121,6 +121,12 @@
 	},
 	"sound": {
 		"earDisplacement": 384,
+		"groups": {
+			"effects": 15,
+			"general": 15,
+			"music": 15,
+			"other": 15
+		},
 		"stereoAttenuationDistance": 2048
 	},
 	"sprite": {
