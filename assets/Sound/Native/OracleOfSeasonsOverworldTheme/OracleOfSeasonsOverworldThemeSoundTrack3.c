@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <SoundTrack.h>
+#include <VBSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -776,19 +776,25 @@ const SoundTrackKeyframe OracleOfSeasonsOverworldThemeSoundTrack3Keyframes[] =
 	{0, kSoundTrackEventEnd},	
 };
 
-SoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3 =
+VBSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3 =
 {
-	/// Priority for sound channel usage
-	1,
+	// SoundTrack
+	{
+		// Allocator
+		__TYPE(VBSoundTrack),
 
-	/// Skip if no sound source available?
-	false,
+		/// Priority for sound channel usage
+		1,
 
-	/// Loop back point (cursor)
-	0,
+		/// Skip if no sound source available?
+		false,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)OracleOfSeasonsOverworldThemeSoundTrack3Keyframes,
+		/// Loop back point (cursor)
+		0,
+
+		/// Keyframes that define the track
+		(SoundTrackKeyframe*)OracleOfSeasonsOverworldThemeSoundTrack3Keyframes
+	},
 
 	/// SxINT values
 	(uint8*)OracleOfSeasonsOverworldThemeSoundTrack3SxINT,

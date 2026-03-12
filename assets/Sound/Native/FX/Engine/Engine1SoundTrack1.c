@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <SoundTrack.h>
+#include <VBSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -80,19 +80,25 @@ const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},
 };
 
-SoundTrackROMSpec Engine1SoundTrack1 =
+VBSoundTrackROMSpec Engine1SoundTrack1 =
 {
-	/// Priority for sound channel usage
-	1,
+	// SoundTrack
+	{
+		// Allocator
+		__TYPE(VBSoundTrack),
 
-	/// Skip if no sound source available?
-	true,
+		/// Priority for sound channel usage
+		1,
 
-	/// Loop back point (cursor)
-	0,
+		/// Skip if no sound source available?
+		true,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)Engine1SoundTrack1Keyframes,
+		/// Loop back point (cursor)
+		0,
+
+		/// Keyframes that define the track
+		(SoundTrackKeyframe*)Engine1SoundTrack1Keyframes
+	},
 
 	/// SxINT values
 	(uint8*)Engine1SoundTrack1SxINT,

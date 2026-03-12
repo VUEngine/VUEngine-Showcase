@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <SoundTrack.h>
+#include <VBSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -63,19 +63,25 @@ const SoundTrackKeyframe ChangeSelection2SoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},
 };
 
-SoundTrackROMSpec ChangeSelection2SoundTrack1 =
+VBSoundTrackROMSpec ChangeSelection2SoundTrack1 =
 {
-	/// Priority for sound channel usage
-	1,
+	// SoundTrack
+	{
+		// Allocator
+		__TYPE(VBSoundTrack),
 
-	/// Skip if no sound source available?
-	false,
+		/// Priority for sound channel usage
+		1,
 
-	/// Loop back point (cursor)
-	0,
+		/// Skip if no sound source available?
+		false,
 
-	/// Keyframes that define the track
-	(SoundTrackKeyframe*)ChangeSelection2SoundTrack1Keyframes,
+		/// Loop back point (cursor)
+		0,
+
+		/// Keyframes that define the track
+		(SoundTrackKeyframe*)ChangeSelection2SoundTrack1Keyframes
+	},
 
 	/// SxINT values
 	(uint8*)ChangeSelection2SoundTrack1SxINT,
