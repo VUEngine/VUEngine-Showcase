@@ -12,22 +12,22 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-extern VBSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1;
-extern VBSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2;
-extern VBSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3;
+extern VSUSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1;
+extern VSUSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack2;
+extern VSUSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack3;
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-VBSoundTrackROMSpec* const OracleOfSeasonsOverworldThemeSoundTracks[] =
+VSUSoundTrackROMSpec* const OracleOfSeasonsOverworldThemeSoundTracks[] =
 {
 	&OracleOfSeasonsOverworldThemeSoundTrack1,
 	&OracleOfSeasonsOverworldThemeSoundTrack2,

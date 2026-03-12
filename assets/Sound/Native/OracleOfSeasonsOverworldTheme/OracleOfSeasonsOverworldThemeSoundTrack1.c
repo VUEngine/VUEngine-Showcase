@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -716,12 +716,12 @@ const SoundTrackKeyframe OracleOfSeasonsOverworldThemeSoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},	
 };
 
-VBSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1 =
+VSUSoundTrackROMSpec OracleOfSeasonsOverworldThemeSoundTrack1 =
 {
 	// SoundTrack
 	{
 		// Allocator
-		__TYPE(VBSoundTrack),
+		__TYPE(VSUSoundTrack),
 
 		/// Priority for sound channel usage
 		1,

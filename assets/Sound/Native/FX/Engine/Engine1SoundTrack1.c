@@ -12,7 +12,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <Sound.h>
-#include <VBSoundTrack.h>
+#include <VSUSoundTrack.h>
 #include <WaveForms.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -80,12 +80,12 @@ const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 	{0, kSoundTrackEventEnd},
 };
 
-VBSoundTrackROMSpec Engine1SoundTrack1 =
+VSUSoundTrackROMSpec Engine1SoundTrack1 =
 {
 	// SoundTrack
 	{
 		// Allocator
-		__TYPE(VBSoundTrack),
+		__TYPE(VSUSoundTrack),
 
 		/// Priority for sound channel usage
 		1,
