@@ -19,6 +19,7 @@
 #include <Languages.h>
 #include <Mem.h>
 #include <Printer.h>
+#include <PrintingSprite.h>
 #include <Singleton.h>
 #include <SpriteManager.h>
 #include <Texture.h>
@@ -435,8 +436,8 @@ void AnimationSchemesState::showBgmapMemory()
 		 */
 		Mem::copyHWORD
 		(
-			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
-			Printer::getPrintingBgmapAddress() + PRINTABLE_BGMAP_AREA + ((row + myDisplacement) << 6) + mxDisplacement,
+			AnimationSchemesState::getPrintingAddress(this) + ((row + topBorder) << 6) + xOffset,
+			AnimationSchemesState::getPrintingAddress(this) + PRINTABLE_BGMAP_AREA + ((row + myDisplacement) << 6) + mxDisplacement,
 			numberOfHWORDS
 		);
 	}
@@ -485,7 +486,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 
 		Mem::addOffsetToHWORD
 		(
-			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
+			AnimationSchemesState::getPrintingAddress(this) + ((row + topBorder) << 6) + xOffset,
 			(uint16*)charMemoryMap,
 			TileSet::getNumberOfChars(charSet),
 			TileSet::getOffset(charSet)
@@ -535,7 +536,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 	Mem::addOffsetToHWORD
 	(
-		Printer::getPrintingBgmapAddress() + ((topBorder) << 6) + xOffset,
+		AnimationSchemesState::getPrintingAddress(this) + ((topBorder) << 6) + xOffset,
 		(uint16*)charMemoryMap,
 		TileSet::getNumberOfChars(charSet),
 		TileSet::getOffset(charSet)
@@ -594,12 +595,19 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 
 		Mem::addOffsetToHWORD
 		(
-			Printer::getPrintingBgmapAddress() + ((yOffset) << 6) + xOffset,
+			AnimationSchemesState::getPrintingAddress(this) + ((yOffset) << 6) + xOffset,
 			(uint16*)charMemoryMap,
 			charsPerFrame,
 			TileSet::getOffset(charSet) + frame * charsPerFrame
 		);
 	}
+}
+
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
+
+uint16* AnimationSchemesState::getPrintingAddress()
+{
+	return PrintingSprite::getPrintingAddress(Printer::getActiveSprite(), false);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
