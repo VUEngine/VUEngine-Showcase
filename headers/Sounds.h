@@ -21,7 +21,7 @@ extern SoundSpec Engine1SoundSpec;
 extern SoundSpec Explosion1SoundSpec;
 extern SoundSpec HitPaddle1SoundSpec;
 extern SoundSpec Killed1SoundSpec;
-extern SoundSpec OracleOfSeasonsOverworldThemeSoundSpec;
+extern SoundSpec BeatsSoundSpec;
 extern SoundSpec Point1SoundSpec;
 
 #endif

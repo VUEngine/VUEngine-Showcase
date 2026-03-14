@@ -29,7 +29,7 @@
 
 static const SoundROMSpec* _soundSamples[] =
 {
-	&OracleOfSeasonsOverworldThemeSoundSpec,
+	&BeatsSoundSpec,
 	&Explosion1SoundSpec,
 	&Engine1SoundSpec,
 	NULL
