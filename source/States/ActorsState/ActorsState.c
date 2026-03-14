@@ -81,9 +81,9 @@ void ActorsState::processUserInput(const UserInput* userInput)
 
 void ActorsState::showControls()
 {
-	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -205,9 +205,9 @@ void ActorsState::printPunkName(Actor punk, int16 row)
 
 	Vector3D position = *Actor::getPosition(punk);
 	const char* punkName = Actor::getName(punk);
-	int16 col = __METERS_TO_PIXELS(position.x) / 8 + __HALF_SCREEN_WIDTH_IN_CHARS - strlen(punkName) / 2;
+	int16 col = __METERS_TO_PIXELS(position.x) / 8 + __HALF_SCREEN_WIDTH_IN_TILES - strlen(punkName) / 2;
 
-	if(0 >= col || __SCREEN_WIDTH_IN_CHARS <= col + strlen(punkName))
+	if(0 >= col || __SCREEN_WIDTH_IN_TILES <= col + strlen(punkName))
 	{
 		return;
 	}

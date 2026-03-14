@@ -62,11 +62,11 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 
 void VideoPlayerState::showControls()
 {
-	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_A_BUTTON, __SCREEN_WIDTH_IN_TILES - 3, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 
-	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 6, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 7, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

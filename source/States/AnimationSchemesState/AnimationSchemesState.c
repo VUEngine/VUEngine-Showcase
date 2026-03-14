@@ -128,13 +128,13 @@ void AnimationSchemesState::processUserInput(const UserInput* userInput)
 
 void AnimationSchemesState::showControls()
 {
-	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_R_D_PAD_UP, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 6, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 7, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 10, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 11, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -424,10 +424,10 @@ void AnimationSchemesState::showBgmapMemory()
 	int32 mxDisplacement = 0;
 	int32 myDisplacement = 0;
 
-	uint32 numberOfHWORDS = __SCREEN_WIDTH_IN_CHARS - leftBorder - rightBorder;
+	uint32 numberOfHWORDS = __SCREEN_WIDTH_IN_TILES - leftBorder - rightBorder;
 	uint32 xOffset = leftBorder;
 
-	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_CHARS - topBorder - bottomBorder; row++)
+	for(int32 row = 0; row < __SCREEN_HEIGHT_IN_TILES - topBorder - bottomBorder; row++)
 	{
 		/*
 		 * Normally, we shouldn't touch graphic memory directly, and the usage

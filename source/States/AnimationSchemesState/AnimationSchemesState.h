@@ -57,7 +57,7 @@ dynamic_singleton class AnimationSchemesState : ShowcaseState
 	/// Show the state's additional details.
 	override void showAdditionalDetails();
 
-	/// Show the CHAR memory's state.
+	/// Show the TILE memory's state.
 	virtual void showCharMemory();
 }
 

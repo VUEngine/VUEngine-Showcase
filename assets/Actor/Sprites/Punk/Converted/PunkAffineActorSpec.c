@@ -57,7 +57,7 @@ AnimationFunctionROMSpec* PunkAffineAnimationSpecs[] =
 
 TileSetROMSpec PunkAffineSprite1CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	24,
 
 	// Whether it is shared or not
@@ -147,7 +147,7 @@ BgmapSpriteROMSpec PunkAffineSprite1SpriteSpec =
 
 TileSetROMSpec PunkAffineSprite2CharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	24,
 
 	// Whether it is shared or not

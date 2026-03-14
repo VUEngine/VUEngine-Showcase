@@ -96,8 +96,8 @@ void PostProcessingEffectsState::processUserInput(const UserInput* userInput)
 
 void PostProcessingEffectsState::showControls()
 {
-	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 2, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 3, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

@@ -310,28 +310,28 @@ void SoundsState::showControls()
 {
 	if(this->showAdditionalDetails)
 	{
-		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 
-		Printer::text(__CHAR_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 6, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_R_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__TILE_R_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_R_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_R_D_PAD_DOWN, __SCREEN_WIDTH_IN_TILES - 6, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_R_D_PAD_UP, __SCREEN_WIDTH_IN_TILES - 7, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 
-		Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 10, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 11, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 12, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 13, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 10, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 11, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_TILES - 12, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_UP, __SCREEN_WIDTH_IN_TILES - 13, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 
-		Printer::text(__CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 15, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 16, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__TILE_B_BUTTON, __SCREEN_WIDTH_IN_TILES - 15, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_A_BUTTON, __SCREEN_WIDTH_IN_TILES - 16, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 	}
 	else
 	{
-		Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_B_BUTTON, __SCREEN_WIDTH_IN_CHARS - 7, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-		Printer::text(__CHAR_A_BUTTON, __SCREEN_WIDTH_IN_CHARS - 8, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+		Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_B_BUTTON, __SCREEN_WIDTH_IN_TILES - 7, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+		Printer::text(__TILE_A_BUTTON, __SCREEN_WIDTH_IN_TILES - 8, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 	}
 }
 
@@ -387,7 +387,7 @@ void SoundsState::showAdditionalDetails()
 	Printer::int32(this->selectedSound + 1, 1 + 1, 2, NULL);
 	Printer::text("/" , 1 + 1 + selectedSoundDigits, 2, NULL);
 	Printer::int32(SoundsState::getTotalSounds(this), 1 + 1 + selectedSoundDigits + 1, 2, NULL);
-	Printer::text(__CHAR_SELECTOR, 1 + 1 + selectedSoundDigits + 1 + totalSoundsDigits, 2, NULL);
+	Printer::text(__TILE_SELECTOR, 1 + 1 + selectedSoundDigits + 1 + totalSoundsDigits, 2, NULL);
 
 	SoundsState::showSoundMetadata(this);
 

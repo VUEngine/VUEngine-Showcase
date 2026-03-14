@@ -54,9 +54,9 @@
 			"es": "Control de cámara"
 		},
 		"CharMemoryLabel": {
-			"de": "CHAR-Speicher:",
-			"en": "CHAR memory:",
-			"es": "Memoria CHAR:"
+			"de": "TILE-Speicher:",
+			"en": "TILE memory:",
+			"es": "Memoria TILE:"
 		},
 		"ClassesSubtitle": {
 			"de": "KLASSEN",

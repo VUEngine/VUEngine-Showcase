@@ -70,7 +70,7 @@ void PauseScreenState::enter(void* owner __attribute__ ((unused)))
 		"Default"
 	);
 
-	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_CHARS) - (strPauseSize.x >> 1));
+	uint8 strHeaderXPos = ((__HALF_SCREEN_WIDTH_IN_TILES) - (strPauseSize.x >> 1));
 	
 	Printer::text
 	(

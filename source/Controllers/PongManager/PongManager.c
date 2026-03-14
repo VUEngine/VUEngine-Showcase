@@ -518,8 +518,8 @@ void PongManager::printScore()
 	PRINT_TEXT("P1:	  ", 1, y);
 	PRINT_INT(this->leftScore, 1 + 5 - Math::getDigitsCount(this->leftScore), y);
 
-	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_CHARS - 1 - 5, y);
-	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_CHARS - 1 - Math::getDigitsCount(this->rightScore), y);
+	PRINT_TEXT("P2:	  ", __SCREEN_WIDTH_IN_TILES - 1 - 5, y);
+	PRINT_INT(this->rightScore, __SCREEN_WIDTH_IN_TILES - 1 - Math::getDigitsCount(this->rightScore), y);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

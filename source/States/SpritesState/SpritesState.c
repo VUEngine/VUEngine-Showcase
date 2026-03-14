@@ -93,9 +93,9 @@ void SpritesState::processUserInput(const UserInput* userInput)
 
 void SpritesState::showControls()
 {
-	Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-	Printer::text(__CHAR_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+	Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_RIGHT, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+	Printer::text(__TILE_L_D_PAD_LEFT, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

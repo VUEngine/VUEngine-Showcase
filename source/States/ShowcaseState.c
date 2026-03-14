@@ -353,15 +353,15 @@ void ShowcaseState::showHeader()
 		(__SCREEN_WIDTH >> 4) - (currentShowCaseNumberPrefixTextSize.x >> 1) - 
 		(statePrefixTextSize.x >> 1) - (classNameTextSize.x >> 1) - 1;
 
-	Printer::text(__CHAR_SELECTOR_LEFT, 0, 0, NULL);
-	Printer::text(__CHAR_L_TRIGGER, 1, 0, NULL);
+	Printer::text(__TILE_SELECTOR_LEFT, 0, 0, NULL);
+	Printer::text(__TILE_L_TRIGGER, 1, 0, NULL);
 	Printer::text(currentShowCaseNumberPrefix, textStartXPosition, 0, NULL);
 	Printer::text(Utilities::itoa(_currentShowcaseState + 1, 10, 2), textStartXPosition + 1, 0, NULL);
 	Printer::int32(numberOfShowCaseStates, textStartXPosition + 4, 0, NULL);
 	Printer::text(statePrefix, textStartXPosition + currentShowCaseNumberPrefixTextSize.x, 0, "DefaultBold");
 	Printer::text(className, textStartXPosition + currentShowCaseNumberPrefixTextSize.x + statePrefixTextSize.x + 1, 0, NULL);
-	Printer::text(__CHAR_R_TRIGGER, 46, 0, NULL);
-	Printer::text(__CHAR_SELECTOR, 47, 0, NULL);
+	Printer::text(__TILE_R_TRIGGER, 46, 0, NULL);
+	Printer::text(__TILE_SELECTOR, 47, 0, NULL);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

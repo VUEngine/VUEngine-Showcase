@@ -128,26 +128,26 @@ void CommunicationsState::processUserInput(const UserInput* userInput)
 
 void CommunicationsState::showControls()
 {
-	Printer::clearRow(__SCREEN_HEIGHT_IN_CHARS - 1);
+	Printer::clearRow(__SCREEN_HEIGHT_IN_TILES - 1);
 
 	if(!isDeleted(this->pongManager))
 	{
 		if(Communications::isConnected())
 		{
-			Printer::text(__CHAR_SELECT_BUTTON, __SCREEN_WIDTH_IN_CHARS - 1, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+			Printer::text(__TILE_SELECT_BUTTON, __SCREEN_WIDTH_IN_TILES - 1, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 
 			switch(PongManager::getPlayerNumber(this->pongManager))
 			{
 				case kPlayerOne:
 
-					Printer::text(__CHAR_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-					Printer::text(__CHAR_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					Printer::text(__TILE_L_D_PAD_DOWN, 3, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+					Printer::text(__TILE_L_D_PAD_UP, 2, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 					break;
 
 				case kPlayerTwo:
 
-					Printer::text(__CHAR_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_CHARS - 4, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
-					Printer::text(__CHAR_L_D_PAD_UP, __SCREEN_WIDTH_IN_CHARS - 5, __SCREEN_HEIGHT_IN_CHARS - 1, NULL);
+					Printer::text(__TILE_L_D_PAD_DOWN, __SCREEN_WIDTH_IN_TILES - 4, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
+					Printer::text(__TILE_L_D_PAD_UP, __SCREEN_WIDTH_IN_TILES - 5, __SCREEN_HEIGHT_IN_TILES - 1, NULL);
 					break;
 			}
 		}
@@ -236,7 +236,7 @@ void CommunicationsState::destructor()
 
 void CommunicationsState::showConnectivityStatus()
 {
-	Printer::text("                              ", 10, __SCREEN_HEIGHT_IN_CHARS - 3, "DefaultBold");
+	Printer::text("                              ", 10, __SCREEN_HEIGHT_IN_TILES - 3, "DefaultBold");
 
 	if(Communications::isConnected())
 	{
@@ -246,8 +246,8 @@ void CommunicationsState::showConnectivityStatus()
 		(
 			
 			strConnected, 
-			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strConnectedTextSize.x >> 1), 
-			__SCREEN_HEIGHT_IN_CHARS - 3, 
+			(__HALF_SCREEN_WIDTH_IN_TILES) - (strConnectedTextSize.x >> 1), 
+			__SCREEN_HEIGHT_IN_TILES - 3, 
 			"DefaultBold"
 		);
 	}
@@ -259,8 +259,8 @@ void CommunicationsState::showConnectivityStatus()
 		(
 			
 			strNoLink, 
-			(__HALF_SCREEN_WIDTH_IN_CHARS) - (strNoLinkTextSize.x >> 1), 
-			__SCREEN_HEIGHT_IN_CHARS - 3, 
+			(__HALF_SCREEN_WIDTH_IN_TILES) - (strNoLinkTextSize.x >> 1), 
+			__SCREEN_HEIGHT_IN_TILES - 3, 
 			"DefaultBold"
 		);
 	}

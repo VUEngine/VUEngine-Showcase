@@ -101,7 +101,7 @@ AnimationFunctionROMSpec* VideoAnimationSpecs[] =
 
 TileSetROMSpec VideoSprite1LCharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	632,
 
 	// Whether it is shared or not
@@ -191,7 +191,7 @@ BgmapSpriteROMSpec VideoSprite1LSpriteSpec =
 
 TileSetROMSpec VideoSprite1RCharsetSpec =
 {
-	// Number of CHARs in function of the number of frames to load at the same time
+	// Number of TILEs in function of the number of frames to load at the same time
 	647,
 
 	// Whether it is shared or not

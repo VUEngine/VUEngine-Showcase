@@ -62,7 +62,7 @@ const char* const enLanguageStrings[] =
     /* kStringCameraControlLabel: */
     "Camera control",
     /* kStringCharMemoryLabel: */
-    "CHAR memory:",
+    "TILE memory:",
     /* kStringClassesSubtitle: */
     "CLASSES",
     /* kStringClassExtensionLabel: */
@@ -210,7 +210,7 @@ const char* const deLanguageStrings[] =
     /* kStringCameraControlLabel: */
     "Kamerakontrolle",
     /* kStringCharMemoryLabel: */
-    "CHAR-Speicher:",
+    "TILE-Speicher:",
     /* kStringClassesSubtitle: */
     "KLASSEN",
     /* kStringClassExtensionLabel: */
@@ -358,7 +358,7 @@ const char* const esLanguageStrings[] =
     /* kStringCameraControlLabel: */
     "Control de c�mara",
     /* kStringCharMemoryLabel: */
-    "Memoria CHAR:",
+    "Memoria TILE:",
     /* kStringClassesSubtitle: */
     "CLASES",
     /* kStringClassExtensionLabel: */
