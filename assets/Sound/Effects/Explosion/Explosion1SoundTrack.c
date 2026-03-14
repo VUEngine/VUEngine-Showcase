@@ -21,7 +21,7 @@
 
 const uint8 Explosion1SoundTrack1SxINT[] =
 {
-	0x1F,
+	0x9F,
 };
 
 const uint8 Explosion1SoundTrack1SxLRV[] =
@@ -56,7 +56,7 @@ const uint8 Explosion1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Explosion1SoundTrack1Keyframes[] =
 {
-	{500, kSoundTrackEventStart | kSoundTrackEventNoise},
+	{500, kSoundTrackEventStart},
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},
 	{500, kSoundTrackEventSxLRV | kSoundTrackEventNoise},

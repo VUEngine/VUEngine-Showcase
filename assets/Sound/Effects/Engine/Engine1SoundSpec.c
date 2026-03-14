@@ -1,7 +1,7 @@
 /*
- * VUEngine Showcase
+ * Formula V
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * (c) Christian Radke and Jorge Eremiev
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -43,7 +43,7 @@ SoundROMSpec Engine1SoundSpec =
 	},
 
 	// Song/Sound's name
-	"Engine 1",
+	"Engine1",
 
 	// Author's name
 	NULL,

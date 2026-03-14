@@ -1,7 +1,7 @@
 /*
- * VUEngine Showcase
+ * VUEngine Plugins Library
  *
- * © Jorge Eremiev <jorgech3@gmail.com> and Christian Radke <c.radke@posteo.de>
+ * (c) Christian Radke and Jorge Eremiev
  *
  * For the full copyright and license information, please view the LICENSE file
  * that was distributed with this source code.
@@ -19,7 +19,7 @@
 // MACROS
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#define ENGINE_FREQ			0x8FF
+#define ENGINE_FREQ			MINIMUM_AUDIBLE_NOTE + 0x0AA + 96
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
@@ -27,7 +27,7 @@
 
 const uint8 Engine1SoundTrack1SxINT[] =
 {
-	0x1F,
+	0x9F,
 };
 
 const uint8 Engine1SoundTrack1SxLRV[] =
@@ -47,12 +47,12 @@ const uint8 Engine1SoundTrack1SxEV0[] =
 
 const uint8 Engine1SoundTrack1SxEV1[] =
 {
-	0x30,
+	0x00,
 };
 
 const WaveformData* const Engine1SoundTrack1SxRAM[] =
 {
-	&TriangleWaveForm,
+	&TriangleWaveForm
 };
 
 const uint8 Engine1SoundTrack1SxSWP[] =
@@ -62,21 +62,21 @@ const uint8 Engine1SoundTrack1SxSWP[] =
 
 const SoundTrackKeyframe Engine1SoundTrack1Keyframes[] =
 {
-	{50, kSoundTrackEventStart},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
-	{50, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventStart},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxLRV | kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
+	{100, kSoundTrackEventSxFQ},
 	{0, kSoundTrackEventEnd},
 };
 
@@ -88,10 +88,10 @@ VSUSoundTrackROMSpec Engine1SoundTrack1 =
 		__TYPE(VSUSoundTrack),
 
 		/// Priority for sound channel usage
-		1,
+		10,
 
 		/// Skip if no sound source available?
-		true,
+		false,
 
 		/// Loop back point (cursor)
 		0,
