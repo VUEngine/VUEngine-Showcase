@@ -24,7 +24,7 @@
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 extern AnimationFunction* const StarAnimationSpecs[];
-extern CharSetSpec StarCharsetSpec;
+extern TileSetSpec StarCharsetSpec;
 extern TextureSpec StarTextureSpec;
 extern ObjectSpriteSpec StarSpriteSpec;
 extern ComponentSpec* StarSpriteSpecs[];

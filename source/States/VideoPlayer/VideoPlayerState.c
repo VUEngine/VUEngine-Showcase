@@ -89,7 +89,7 @@ void VideoPlayerState::showExplanation()
 
 	y = 3;
 	Printer::text(I18n::getText(I18n::getInstance(), kStringOtherConceptsSubtitle), 26, y++, "DefaultBold");
-	Printer::text(I18n::getText(I18n::getInstance(), kStringOptimizedCharSetsLabel), 26, y++, NULL);
+	Printer::text(I18n::getText(I18n::getInstance(), kStringOptimizedTileSetsLabel), 26, y++, NULL);
 	Printer::text(I18n::getText(I18n::getInstance(), kStringOptimizedBgmapsLabel), 26, y++, NULL);
 
 	y++;

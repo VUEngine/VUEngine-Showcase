@@ -183,9 +183,9 @@ void Punk::die()
 	Sound::playSound(&Killed1SoundSpec, Entity::safeCast(this), kSoundPlaybackNormal, NULL);
 
 	/*
-	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
-	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
-	 * the font CharSets are rewritten, otherwise, the next message will not remain on the screen
+	 * When TileSets are deleted, defragmentation takes place. If the font TileSets are loaded after
+	 * the TileSet being deleted, the printed messages can become garbled. So, we listen for when
+	 * the font TileSets are rewritten, otherwise, the next message will not remain on the screen
 	 * or will become corrupt.
 	 */
 	Printer::addEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);

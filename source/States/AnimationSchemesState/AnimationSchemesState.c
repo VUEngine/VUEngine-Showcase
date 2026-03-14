@@ -14,7 +14,7 @@
 #include <string.h>
 
 #include <BgmapTextureManager.h>
-#include <CharSet.h>
+#include <TileSet.h>
 #include <I18n.h>
 #include <Languages.h>
 #include <Mem.h>
@@ -335,7 +335,7 @@ void AnimationSchemesState::createSprites()
 
 		case kAnimationsSharedTexture:
 
-			/* When Sprites share a Texture (and the underlying CharSet) animating one of them will animate the others because the
+			/* When Sprites share a Texture (and the underlying TileSet) animating one of them will animate the others because the
 			* underlying graphics are shared by all of them. This saves on performance too because the graphics memory
 			* is only updated once.
 			*/
@@ -476,7 +476,7 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 			continue;
 		}
 
-		CharSet charSet = Texture::getCharSet(texture, false);
+		TileSet charSet = Texture::getTileSet(texture, false);
 
 		if(isDeleted(charSet))
 		{
@@ -487,8 +487,8 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 		(
 			Printer::getPrintingBgmapAddress() + ((row + topBorder) << 6) + xOffset,
 			(uint16*)charMemoryMap,
-			CharSet::getNumberOfChars(charSet),
-			CharSet::getOffset(charSet)
+			TileSet::getNumberOfChars(charSet),
+			TileSet::getOffset(charSet)
 		);
 	}
 }
@@ -510,7 +510,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
 	Texture texture = NULL;
-	CharSet charSet = NULL;
+	TileSet charSet = NULL;
 	
 	if(isDeleted(animatedSprite))
 	{
@@ -524,7 +524,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 		return;
 	}
 
-	charSet = Texture::getCharSet(texture, false);
+	charSet = Texture::getTileSet(texture, false);
 
 	if(isDeleted(charSet))
 	{
@@ -537,8 +537,8 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 	(
 		Printer::getPrintingBgmapAddress() + ((topBorder) << 6) + xOffset,
 		(uint16*)charMemoryMap,
-		CharSet::getNumberOfChars(charSet),
-		CharSet::getOffset(charSet)
+		TileSet::getNumberOfChars(charSet),
+		TileSet::getOffset(charSet)
 	);
 }
 
@@ -559,7 +559,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
 	Texture texture = NULL;
-	CharSet charSet = NULL;
+	TileSet charSet = NULL;
 	
 	if(isDeleted(animatedSprite))
 	{
@@ -573,14 +573,14 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 		return;
 	}
 
-	charSet = Texture::getCharSet(texture, false);
+	charSet = Texture::getTileSet(texture, false);
 
 	if(isDeleted(charSet))
 	{
 		return;
 	}
 
-	int16 charsPerFrame = CharSet::getNumberOfChars(charSet) / Texture::getNumberOfFrames(texture);
+	int16 charsPerFrame = TileSet::getNumberOfChars(charSet) / Texture::getNumberOfFrames(texture);
 	int32 xOffset = leftBorder;
 	int16 yOffset = topBorder;
 
@@ -597,7 +597,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 			Printer::getPrintingBgmapAddress() + ((yOffset) << 6) + xOffset,
 			(uint16*)charMemoryMap,
 			charsPerFrame,
-			CharSet::getOffset(charSet) + frame * charsPerFrame
+			TileSet::getOffset(charSet) + frame * charsPerFrame
 		);
 	}
 }

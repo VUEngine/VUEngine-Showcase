@@ -55,7 +55,7 @@ AnimationFunctionROMSpec* PunkAffineAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec PunkAffineSprite1CharsetSpec =
+TileSetROMSpec PunkAffineSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -76,7 +76,7 @@ CharSetROMSpec PunkAffineSprite1CharsetSpec =
 TextureROMSpec PunkAffineSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkAffineSprite1CharsetSpec,
+	(TileSetSpec*)&PunkAffineSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkAffineActorPunkMap,
@@ -145,7 +145,7 @@ BgmapSpriteROMSpec PunkAffineSprite1SpriteSpec =
 };
 
 
-CharSetROMSpec PunkAffineSprite2CharsetSpec =
+TileSetROMSpec PunkAffineSprite2CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -166,7 +166,7 @@ CharSetROMSpec PunkAffineSprite2CharsetSpec =
 TextureROMSpec PunkAffineSprite2TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkAffineSprite2CharsetSpec,
+	(TileSetSpec*)&PunkAffineSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkAffineActorPunkBlackMap,

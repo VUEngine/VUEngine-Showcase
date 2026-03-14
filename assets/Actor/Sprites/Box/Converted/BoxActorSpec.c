@@ -24,7 +24,7 @@ extern uint32 BoxActorBoxTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec BoxSprite1CharsetSpec =
+TileSetROMSpec BoxSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	42,
@@ -45,7 +45,7 @@ CharSetROMSpec BoxSprite1CharsetSpec =
 TextureROMSpec BoxSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&BoxSprite1CharsetSpec,
+	(TileSetSpec*)&BoxSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	BoxActorBoxMap,

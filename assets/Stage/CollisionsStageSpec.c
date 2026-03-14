@@ -11,7 +11,7 @@
 // INCLUDES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-#include <CharSet.h>
+#include <TileSet.h>
 #include <Fonts.h>
 #include <Printer.h>
 #include <Stage.h>
@@ -248,8 +248,8 @@ StageROMSpec CollisionsStageSpec =
 		// Fonts to preload
 		(FontSpec**)CollisionsStageFontSpecs ,
 
-		// CharSets to preload
-		(CharSetSpec**)NULL,
+		// TileSets to preload
+		(TileSetSpec**)NULL,
 
 		// Textures to preload
 		(TextureSpec**)NULL,

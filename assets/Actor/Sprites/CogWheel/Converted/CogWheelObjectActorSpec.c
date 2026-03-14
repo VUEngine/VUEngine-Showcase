@@ -22,7 +22,7 @@ extern uint32 CogWheelObjectActorCogWheelTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec CogWheelObjectSprite1CharsetSpec =
+TileSetROMSpec CogWheelObjectSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	26,
@@ -43,7 +43,7 @@ CharSetROMSpec CogWheelObjectSprite1CharsetSpec =
 TextureROMSpec CogWheelObjectSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&CogWheelObjectSprite1CharsetSpec,
+	(TileSetSpec*)&CogWheelObjectSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	CogWheelObjectActorCogWheelMap,

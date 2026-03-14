@@ -49,7 +49,7 @@ enum LanguageStrings
     kStringNotSharedLabel,
     kStringNotSharedTextureLabel,
     kStringOptimizedBgmapsLabel,
-    kStringOptimizedCharSetsLabel,
+    kStringOptimizedTileSetsLabel,
     kStringOtherConceptsSubtitle,
     kStringParentingLabel,
     kStringParticlesSubtitle,

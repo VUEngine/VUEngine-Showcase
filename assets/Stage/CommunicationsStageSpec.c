@@ -53,7 +53,7 @@ FontROMSpec* const CommunicationsStageFontSpecs[] =
 	NULL
 };
 
-CharSetROMSpec* const CommunicationsStageCharsets[] =
+TileSetROMSpec* const CommunicationsStageCharsets[] =
 {
 	NULL
 };
@@ -251,8 +251,8 @@ StageROMSpec CommunicationsStageSpec =
 		// Fonts to preload
 		(FontSpec**)CommunicationsStageFontSpecs,
 
-		// CharSets to preload
-		(CharSetSpec**)CommunicationsStageCharsets,
+		// TileSets to preload
+		(TileSetSpec**)CommunicationsStageCharsets,
 
 		// Textures to preload
 		(TextureSpec**)CommunicationsStageTextures,

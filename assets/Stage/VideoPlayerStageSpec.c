@@ -237,8 +237,8 @@ StageROMSpec VideoPlayerStageSpec =
 		// Fonts to preload
 		(FontSpec**)VideoPlayerStageFontSpecs,
 
-		// CharSets to preload
-		(CharSetSpec**)NULL,
+		// TileSets to preload
+		(TileSetSpec**)NULL,
 
 		// Textures to preload
 		(TextureSpec**)NULL,

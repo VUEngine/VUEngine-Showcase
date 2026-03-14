@@ -73,7 +73,7 @@ AnimationFunctionROMSpec* const StarAnimationSpecs[] =
 	NULL,
 };
 
-CharSetROMSpec StarCharsetSpec =
+TileSetROMSpec StarCharsetSpec =
 {
 	// Number of chars in function of the number of frames to load at the same time
 	5,
@@ -94,7 +94,7 @@ CharSetROMSpec StarCharsetSpec =
 TextureROMSpec StarTextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&StarCharsetSpec,
+	(TileSetSpec*)&StarCharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	StarMap,

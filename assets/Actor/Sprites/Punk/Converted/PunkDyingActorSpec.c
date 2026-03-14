@@ -56,7 +56,7 @@ AnimationFunctionROMSpec* PunkDyingAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec PunkDyingSprite1CharsetSpec =
+TileSetROMSpec PunkDyingSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	48,
@@ -77,7 +77,7 @@ CharSetROMSpec PunkDyingSprite1CharsetSpec =
 TextureROMSpec PunkDyingSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkDyingSprite1CharsetSpec,
+	(TileSetSpec*)&PunkDyingSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkDyingActorPunkDyingMap,
@@ -146,7 +146,7 @@ BgmapSpriteROMSpec PunkDyingSprite1SpriteSpec =
 };
 
 
-CharSetROMSpec PunkDyingSprite2CharsetSpec =
+TileSetROMSpec PunkDyingSprite2CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	48,
@@ -167,7 +167,7 @@ CharSetROMSpec PunkDyingSprite2CharsetSpec =
 TextureROMSpec PunkDyingSprite2TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkDyingSprite2CharsetSpec,
+	(TileSetSpec*)&PunkDyingSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkDyingActorPunkDyingBlackMap,

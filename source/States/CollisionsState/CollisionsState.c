@@ -55,9 +55,9 @@ void CollisionsState::enter(void* owner)
 	CollisionsState::startClocks(this);
 
 	/*
-	 * When CharSets are deleted, defragmentation takes place. If the font CharSets are loaded after
-	 * the CharSet being deleted, the printed messages can become garbled. So, we listen for when
-	 * the font CharSets are rewritten.
+	 * When TileSets are deleted, defragmentation takes place. If the font TileSets are loaded after
+	 * the TileSet being deleted, the printed messages can become garbled. So, we listen for when
+	 * the font TileSets are rewritten.
 	 */
 	Printer::addEventListener(Printer::getInstance(), ListenerObject::safeCast(this), kEventFontRewritten);
 

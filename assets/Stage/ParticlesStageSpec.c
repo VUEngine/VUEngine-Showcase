@@ -13,7 +13,7 @@
 
 #include <Stage.h>
 #include <Printer.h>
-#include <CharSet.h>
+#include <TileSet.h>
 #include <Fonts.h>
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -245,8 +245,8 @@ StageROMSpec ParticlesStageSpec =
 		// Fonts to preload
 		(FontSpec**)ParticlesStageFontSpecs,
 
-		// CharSets to preload
-		(CharSetSpec**)NULL,
+		// TileSets to preload
+		(TileSetSpec**)NULL,
 
 		// Textures to preload
 		(TextureSpec**)NULL,

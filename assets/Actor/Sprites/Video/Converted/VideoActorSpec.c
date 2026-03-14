@@ -99,7 +99,7 @@ AnimationFunctionROMSpec* VideoAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec VideoSprite1LCharsetSpec =
+TileSetROMSpec VideoSprite1LCharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	632,
@@ -120,7 +120,7 @@ CharSetROMSpec VideoSprite1LCharsetSpec =
 TextureROMSpec VideoSprite1LTextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&VideoSprite1LCharsetSpec,
+	(TileSetSpec*)&VideoSprite1LCharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	VideoActorVideoL064LMap,
@@ -189,7 +189,7 @@ BgmapSpriteROMSpec VideoSprite1LSpriteSpec =
 };
 
 
-CharSetROMSpec VideoSprite1RCharsetSpec =
+TileSetROMSpec VideoSprite1RCharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	647,
@@ -210,7 +210,7 @@ CharSetROMSpec VideoSprite1RCharsetSpec =
 TextureROMSpec VideoSprite1RTextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&VideoSprite1RCharsetSpec,
+	(TileSetSpec*)&VideoSprite1RCharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	VideoActorVideoR064RMap,

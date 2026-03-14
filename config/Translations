@@ -173,10 +173,10 @@
 			"en": "Optimized BGMAPs",
 			"es": "BGMAPs optimizados"
 		},
-		"OptimizedCharSetsLabel": {
-			"de": "Optimierte CharSets",
-			"en": "Optimized CharSets",
-			"es": "CharSets optimizados"
+		"OptimizedTileSetsLabel": {
+			"de": "Optimierte TileSets",
+			"en": "Optimized TileSets",
+			"es": "TileSets optimizados"
 		},
 		"OtherConceptsSubtitle": {
 			"de": "WEITERE KONZEPTE",

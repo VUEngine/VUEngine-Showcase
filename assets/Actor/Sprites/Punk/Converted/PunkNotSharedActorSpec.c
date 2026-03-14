@@ -55,7 +55,7 @@ AnimationFunctionROMSpec* PunkNotSharedAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec PunkNotSharedSprite1CharsetSpec =
+TileSetROMSpec PunkNotSharedSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -76,7 +76,7 @@ CharSetROMSpec PunkNotSharedSprite1CharsetSpec =
 TextureROMSpec PunkNotSharedSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkNotSharedSprite1CharsetSpec,
+	(TileSetSpec*)&PunkNotSharedSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkNotSharedActorPunkMap,
@@ -145,7 +145,7 @@ BgmapSpriteROMSpec PunkNotSharedSprite1SpriteSpec =
 };
 
 
-CharSetROMSpec PunkNotSharedSprite2CharsetSpec =
+TileSetROMSpec PunkNotSharedSprite2CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -166,7 +166,7 @@ CharSetROMSpec PunkNotSharedSprite2CharsetSpec =
 TextureROMSpec PunkNotSharedSprite2TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkNotSharedSprite2CharsetSpec,
+	(TileSetSpec*)&PunkNotSharedSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkNotSharedActorPunkBlackMap,

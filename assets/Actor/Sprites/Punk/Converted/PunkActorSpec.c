@@ -55,7 +55,7 @@ AnimationFunctionROMSpec* PunkAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec PunkSprite1CharsetSpec =
+TileSetROMSpec PunkSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -76,7 +76,7 @@ CharSetROMSpec PunkSprite1CharsetSpec =
 TextureROMSpec PunkSprite1TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkSprite1CharsetSpec,
+	(TileSetSpec*)&PunkSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkActorPunkMap,
@@ -145,7 +145,7 @@ BgmapSpriteROMSpec PunkSprite1SpriteSpec =
 };
 
 
-CharSetROMSpec PunkSprite2CharsetSpec =
+TileSetROMSpec PunkSprite2CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	24,
@@ -166,7 +166,7 @@ CharSetROMSpec PunkSprite2CharsetSpec =
 TextureROMSpec PunkSprite2TextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&PunkSprite2CharsetSpec,
+	(TileSetSpec*)&PunkSprite2CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	PunkActorPunkBlackMap,

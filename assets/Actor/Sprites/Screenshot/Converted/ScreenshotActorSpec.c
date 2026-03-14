@@ -23,7 +23,7 @@ extern uint32 ScreenshotActorPdScreenshotLTiles[];
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-CharSetROMSpec ScreenshotSprite1CharsetSpec =
+TileSetROMSpec ScreenshotSprite1CharsetSpec =
 {
 	// Number of CHARs in function of the number of frames to load at the same time
 	460,
@@ -44,7 +44,7 @@ CharSetROMSpec ScreenshotSprite1CharsetSpec =
 TextureROMSpec ScreenshotSprite1LTextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&ScreenshotSprite1CharsetSpec,
+	(TileSetSpec*)&ScreenshotSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	ScreenshotActorPdScreenshotLMap,
@@ -115,7 +115,7 @@ BgmapSpriteROMSpec ScreenshotSprite1LSpriteSpec =
 TextureROMSpec ScreenshotSprite1RTextureSpec =
 {
 	// Pointer to the char spec that the texture uses
-	(CharSetSpec*)&ScreenshotSprite1CharsetSpec,
+	(TileSetSpec*)&ScreenshotSprite1CharsetSpec,
 
 	// Pointer to the map array that defines how to use the tiles from the char set
 	ScreenshotActorPdScreenshotRMap,

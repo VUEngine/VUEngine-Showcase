@@ -13,7 +13,7 @@
 
 #include <Stage.h>
 #include <Printer.h>
-#include <CharSet.h>
+#include <TileSet.h>
 #include <Fonts.h>
 #include <Sound.h>
 
@@ -244,8 +244,8 @@ StageROMSpec PostProcessingEffectsStageSpec =
 		// Fonts to preload
 		(FontSpec**)PostProcessingEffectsStageFontSpecs,
 
-		// CharSets to preload
-		(CharSetSpec**)NULL,
+		// TileSets to preload
+		(TileSetSpec**)NULL,
 
 		// Textures to preload
 		(TextureSpec**)NULL,
