@@ -477,9 +477,9 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 			continue;
 		}
 
-		TileSet charSet = Texture::getTileSet(texture, false);
+		TileSet tileSet = Texture::getTileSet(texture, false);
 
-		if(isDeleted(charSet))
+		if(isDeleted(tileSet))
 		{
 			continue;
 		}
@@ -488,8 +488,8 @@ void AnimationSchemesState::showCharMemoryForNotSharedTextures()
 		(
 			AnimationSchemesState::getPrintingAddress(this) + ((row + topBorder) << 6) + xOffset,
 			(uint16*)charMemoryMap,
-			TileSet::getNumberOfChars(charSet),
-			TileSet::getOffset(charSet)
+			TileSet::getNumberOfChars(tileSet),
+			TileSet::getOffset(tileSet)
 		);
 	}
 }
@@ -511,7 +511,7 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
 	Texture texture = NULL;
-	TileSet charSet = NULL;
+	TileSet tileSet = NULL;
 	
 	if(isDeleted(animatedSprite))
 	{
@@ -525,9 +525,9 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 		return;
 	}
 
-	charSet = Texture::getTileSet(texture, false);
+	tileSet = Texture::getTileSet(texture, false);
 
-	if(isDeleted(charSet))
+	if(isDeleted(tileSet))
 	{
 		return;
 	}
@@ -538,8 +538,8 @@ void AnimationSchemesState::showCharMemoryForSharedTextures()
 	(
 		AnimationSchemesState::getPrintingAddress(this) + ((topBorder) << 6) + xOffset,
 		(uint16*)charMemoryMap,
-		TileSet::getNumberOfChars(charSet),
-		TileSet::getOffset(charSet)
+		TileSet::getNumberOfChars(tileSet),
+		TileSet::getOffset(tileSet)
 	);
 }
 
@@ -560,7 +560,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 
 	Sprite animatedSprite = Sprite::safeCast(VirtualList::front(this->animatedSprites));
 	Texture texture = NULL;
-	TileSet charSet = NULL;
+	TileSet tileSet = NULL;
 	
 	if(isDeleted(animatedSprite))
 	{
@@ -574,14 +574,14 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 		return;
 	}
 
-	charSet = Texture::getTileSet(texture, false);
+	tileSet = Texture::getTileSet(texture, false);
 
-	if(isDeleted(charSet))
+	if(isDeleted(tileSet))
 	{
 		return;
 	}
 
-	int16 charsPerFrame = TileSet::getNumberOfChars(charSet) / Texture::getNumberOfFrames(texture);
+	int16 charsPerFrame = TileSet::getNumberOfChars(tileSet) / Texture::getNumberOfFrames(texture);
 	int32 xOffset = leftBorder;
 	int16 yOffset = topBorder;
 
@@ -598,7 +598,7 @@ void AnimationSchemesState::showCharMemoryForMultiframeTextures()
 			AnimationSchemesState::getPrintingAddress(this) + ((yOffset) << 6) + xOffset,
 			(uint16*)charMemoryMap,
 			charsPerFrame,
-			TileSet::getOffset(charSet) + frame * charsPerFrame
+			TileSet::getOffset(tileSet) + frame * charsPerFrame
 		);
 	}
 }
