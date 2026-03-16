@@ -75,7 +75,7 @@ AnimationFunctionROMSpec* const StarAnimationSpecs[] =
 
 TileSetROMSpec StarCharsetSpec =
 {
-	// Number of chars in function of the number of frames to load at the same time
+	// Number of tiles in function of the number of frames to load at the same time
 	5,
 
 	// Whether it is shared or not
