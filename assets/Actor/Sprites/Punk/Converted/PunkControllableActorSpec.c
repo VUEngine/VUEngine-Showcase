@@ -58,9 +58,9 @@ AnimationFunctionROMSpec* PunkControllableAnimationSpecs[] =
 // SPRITES
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
-TileSetROMSpec PunkControllableSprite1CharsetSpec =
+TileSetROMSpec PunkControllableSprite1TileSetSpec =
 {
-	// Number of TILEs in function of the number of frames to load at the same time
+	// Number of tiles in function, or the number of frames to load at the same time
 	24,
 
 	// Whether it is shared or not
@@ -78,10 +78,10 @@ TileSetROMSpec PunkControllableSprite1CharsetSpec =
 
 TextureROMSpec PunkControllableSprite1TextureSpec =
 {
-	// Pointer to the char spec that the texture uses
-	(TileSetSpec*)&PunkControllableSprite1CharsetSpec,
+	// Pointer to the tile spec that the texture uses
+	(TileSetSpec*)&PunkControllableSprite1TileSetSpec,
 
-	// Pointer to the map array that defines how to use the tiles from the char set
+	// Pointer to the map array that defines how to use the tiles from the tile set
 	PunkControllableActorPunkMap,
 
 	// Horizontal size in tiles of the texture (max. 64)
@@ -148,9 +148,9 @@ BgmapSpriteROMSpec PunkControllableSprite1SpriteSpec =
 };
 
 
-TileSetROMSpec PunkControllableSprite2CharsetSpec =
+TileSetROMSpec PunkControllableSprite2TileSetSpec =
 {
-	// Number of TILEs in function of the number of frames to load at the same time
+	// Number of tiles in function, or the number of frames to load at the same time
 	24,
 
 	// Whether it is shared or not
@@ -168,10 +168,10 @@ TileSetROMSpec PunkControllableSprite2CharsetSpec =
 
 TextureROMSpec PunkControllableSprite2TextureSpec =
 {
-	// Pointer to the char spec that the texture uses
-	(TileSetSpec*)&PunkControllableSprite2CharsetSpec,
+	// Pointer to the tile spec that the texture uses
+	(TileSetSpec*)&PunkControllableSprite2TileSetSpec,
 
-	// Pointer to the map array that defines how to use the tiles from the char set
+	// Pointer to the map array that defines how to use the tiles from the tile set
 	PunkControllableActorPunkBlackMap,
 
 	// Horizontal size in tiles of the texture (max. 64)
@@ -293,19 +293,19 @@ BodyROMSpec PunkControllableBody1BodySpec =
 	true,
 
 	// Mass
-	__F_TO_FIX10_6(0.500f),
+	__F_TO_FIXED(0.500f),
 
 	// Friction
-	__F_TO_FIX10_6(0.100f),
+	__F_TO_FIXED(0.100f),
 
 	// Bounciness
-	__F_TO_FIX10_6(0.000f),
+	__F_TO_FIXED(0.000f),
 
 	// Maximum velocity
 	{ __I_TO_FIXED(0), __I_TO_FIXED(0), __I_TO_FIXED(0) },
 
 	// Maximum speed
-	__I_TO_FIX10_6(3),
+	__F_TO_FIXED(3.000f),
 
 	// Axises on which the body is subject to gravity
 	__NO_AXIS,
