@@ -45,7 +45,7 @@ bool SoundsState::onEvent(ListenerObject eventFirer, uint16 eventCode)
 {
 	switch(eventCode)
 	{
-		case kEventVUEngineNextSecondStarted:
+		case kEventNextSecondStarted:
 		{
 			if(!isDeleted(this->sound))
 			{
@@ -91,7 +91,7 @@ void SoundsState::enter(void* owner __attribute__ ((unused)))
 	this->processCollisions = false;
 
 	// We want to know when FRAMESTART happens to tell the TimeManager to print is status
-	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
+	VUEngine::addEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventNextSecondStarted);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
@@ -107,7 +107,7 @@ void SoundsState::execute(void* owner __attribute__ ((unused)))
 
 void SoundsState::exit(void* owner __attribute__ ((unused)))
 {
-	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventVUEngineNextSecondStarted);
+	VUEngine::removeEventListener(VUEngine::getInstance(), ListenerObject::safeCast(this), kEventNextSecondStarted);
 
 	SoundsState::releaseSound(this);
 
