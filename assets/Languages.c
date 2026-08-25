@@ -2,16 +2,16 @@
 ///////////////////////////////////////////////  THIS FILE WAS AUTO-GENERATED - DO NOT EDIT  ///////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // INCLUDES
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 #include <I18n.h>
 #include <Languages.h>
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DECLARATIONS
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 extern LangROMSpec enLanguageSpec;
 extern ActorSpec FlagUnitedKingdomActorSpec;
@@ -20,9 +20,9 @@ extern ActorSpec FlagGermanyActorSpec;
 extern LangROMSpec esLanguageSpec;
 extern ActorSpec FlagSpainActorSpec;
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 // DEFINITIONS
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————
 
 LangROMSpec* const _languages[] =
 {
@@ -166,7 +166,7 @@ const char* const enLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Wobble",
     /* kStringYouDiedAgain: */
-    "YOU DIEDï¿½ AGAIN",
+    "YOU DIED… AGAIN",
 };
 
 const LangROMSpec enLanguageSpec =
@@ -232,11 +232,11 @@ const char* const deLanguageStrings[] =
     /* kStringEventsLabel: */
     "Ereignisse",
     /* kStringFrameBlendingLabel: */
-    "Rahmenï¿½berblendung",
+    "Rahmenüberblendung",
     /* kStringFrameBuffersLabel: */
     "Bildpuffer",
     /* kStringGameStatesLabel: */
-    "Spielzustï¿½nde",
+    "Spielzustände",
     /* kStringLanguageSelectTitle: */
     "SPRACHAUSWAHL",
     /* kStringLinkedListsLabel: */
@@ -314,7 +314,7 @@ const char* const deLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Taumeln",
     /* kStringYouDiedAgain: */
-    "DU BIST TOTï¿½ ERNEUT",
+    "DU BIST TOT… ERNEUT",
 };
 
 const LangROMSpec deLanguageSpec =
@@ -332,9 +332,9 @@ const LangROMSpec deLanguageSpec =
 const char* const esLanguageStrings[] =
 {
     /* kStringActorCreationLabel: */
-    "Actor: creaciï¿½n",
+    "Actor: creación",
     /* kStringActorDestructionLabel: */
-    "Actor: destrucciï¿½n ",
+    "Actor: destrucción ",
     /* kStringActorsLabel: */
     "Actores",
     /* kStringAnimationsLabel: */
@@ -342,21 +342,21 @@ const char* const esLanguageStrings[] =
     /* kStringAnimationSubtitle: */
     "ANIMACION",
     /* kStringAutomaticPauseBody: */
-    "ï¿½Por favor, tï¿½mese un descanso!",
+    "¡Por favor, tómese un descanso!",
     /* kStringAutomaticPauseSelectionBody: */
-    " La funciï¿½n automï¿½tica de pausa te\nrecordarï¿½ que debes tomar un descanso\n  approximadamente cada 30 minutos",
+    " La función automática de pausa te\nrecordará que debes tomar un descanso\n  approximadamente cada 30 minutos",
     /* kStringAutomaticPauseSelectionOff: */
     "Apagado",
     /* kStringAutomaticPauseSelectionOn: */
     "Encendido",
     /* kStringAutomaticPauseSelectionTitle: */
-    "PAUSA AUTOMï¿½TICA",
+    "PAUSA AUTOMÁTICA",
     /* kStringAutomaticPauseTitle: */
-    "PAUSA AUTOMï¿½TICA",
+    "PAUSA AUTOMÁTICA",
     /* kStringBgmapMemoryLabel: */
     "Memoria BGMAP:",
     /* kStringCameraControlLabel: */
-    "Control de cï¿½mara",
+    "Control de cámara",
     /* kStringCharMemoryLabel: */
     "Memoria TILE:",
     /* kStringClassesSubtitle: */
@@ -364,7 +364,7 @@ const char* const esLanguageStrings[] =
     /* kStringClassExtensionLabel: */
     "Extensiones de clase",
     /* kStringClassMutatorLabel: */
-    "Mutaciï¿½n de clases",
+    "Mutación de clases",
     /* kStringCollisionsLabel: */
     "Colisiones",
     /* kStringCommunicationsLabel: */
@@ -382,7 +382,7 @@ const char* const esLanguageStrings[] =
     /* kStringFrameBlendingLabel: */
     "Fusionado de marcos",
     /* kStringFrameBuffersLabel: */
-    "Bï¿½fer de video",
+    "Búfer de video",
     /* kStringGameStatesLabel: */
     "Estados de juego",
     /* kStringLanguageSelectTitle: */
@@ -398,7 +398,7 @@ const char* const esLanguageStrings[] =
     /* kStringMultiframeLabel: */
     "Multi fotograma",
     /* kStringMultiframeTextureLabel: */
-    "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSï¿½lo uno de ellos",
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\nSólo uno de ellos",
     /* kStringNoLink: */
     "NO CONECTADO",
     /* kStringNotSharedLabel: */
@@ -416,15 +416,15 @@ const char* const esLanguageStrings[] =
     /* kStringParticlesSubtitle: */
     "TIPO DE PARTICULAS",
     /* kStringParticleSystemsLabel: */
-    "Sistemas de partï¿½culas",
+    "Sistemas de partículas",
     /* kStringParticleTypesLabel: */
-    "Tipos de partï¿½culas",
+    "Tipos de partículas",
     /* kStringPauseTitle: */
     "PAUSA",
     /* kStringPhysicsLabel: */
-    "Fï¿½sica",
+    "Física",
     /* kStringPostProcessingEffectsLabel: */
-    "Efectos grï¿½ficos",
+    "Efectos gráficos",
     /* kStringPrecautionScreenBody: */
     "         IMPORTANTE\n     LEE LOS LIBROS DE\nINSTRUCCIONES Y PRECAUCIONES\n       ANTES DE JUGAR",
     /* kStringRainLabel: */
@@ -432,9 +432,9 @@ const char* const esLanguageStrings[] =
     /* kStringSharedLabel: */
     "Compartida",
     /* kStringSharedTextureLabel: */
-    "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSï¿½lo uno de ellos\nnecesita ser animado",
+    "Los sprites comparten\nlas mismas teselas\ny la misma textura\n\nSólo uno de ellos\nnecesita ser animado",
     /* kStringSoundPlaybackLabel: */
-    "Reproducciï¿½n de sonido",
+    "Reproducción de sonido",
     /* kStringSpecsLabel: */
     "Especificaciones",
     /* kStringSpecsSubtitle: */
@@ -448,13 +448,13 @@ const char* const esLanguageStrings[] =
     /* kStringStatefulActorsLabel: */
     "StatefulActores",
     /* kStringStateMachinesLabel: */
-    "Mï¿½quinas de estado",
+    "Máquinas de estado",
     /* kStringStateTitle: */
     "ESTADO:",
     /* kStringTiltELabel: */
     "Inclinado",
     /* kStringTimerSettingsLabel: */
-    "Configuraciï¿½n de reloj",
+    "Configuración de reloj",
     /* kStringUserInputLabel: */
     "Entrada de usuario",
     /* kStringWireframesLabel: */
@@ -462,13 +462,13 @@ const char* const esLanguageStrings[] =
     /* kStringWobbleLabel: */
     "Ondulado",
     /* kStringYouDiedAgain: */
-    "MORISTEï¿½ OTRA VEZ",
+    "MORISTE… OTRA VEZ",
 };
 
 const LangROMSpec esLanguageSpec =
 {
 	// language name
-	"Espaï¿½ol",
+	"Español",
 
 	// flag actor
 	&FlagSpainActorSpec,

@@ -60,7 +60,7 @@ uint8 GameSaveDataManager::getCustomValue()
 	uint8 customValue = 0;
 	if(this->sramAvailable)
 	{
-		SRAM::read((uint8*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue));
+		SRAM::read((uint8*)&customValue, offsetof(struct GameSaveData, someCustomValue), sizeof(customValue), false);
 	}
 
 	return customValue;

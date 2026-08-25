@@ -43,7 +43,7 @@
 		},
 		"optimization": "O2",
 		"prologFunctions": false
-	},	
+	},
 	"dashboard": {
 		"positions": {}
 	},
@@ -62,9 +62,6 @@
 			"fadeDelay": 8,
 			"fadeIncrement": 1,
 			"mediumRed": 64
-		},
-		"tiles": {
-			"totalTiles": 2048
 		},
 		"debug": {
 			"alertGraphicsDepletion": true,
@@ -97,15 +94,15 @@
 		"memoryPools": {
 			"pools": [
 				{
-					"objects": 600,
+					"objects": 650,
 					"size": 16
 				},
 				{
-					"objects": 1600,
+					"objects": 1650,
 					"size": 20
 				},
 				{
-					"objects": 50,
+					"objects": 60,
 					"size": 28
 				},
 				{
@@ -197,6 +194,9 @@
 				}
 			}
 		},
+		"tiles": {
+			"totalTiles": 2048
+		},
 		"wireframes": {
 			"frustumExtensionPower": 0,
 			"interlacedThreshold": 1024,
@@ -246,7 +246,6 @@
 			"xPosition": -184,
 			"yPosition": 108
 		},
-		"vuengine//cameras/CameraEffectManager": {},
 		"vuengine//fonts/AstonishFont": {},
 		"vuengine//fonts/DefaultFontVariants": {},
 		"vuengine//other/AutomaticPause": {
@@ -282,16 +281,16 @@
 			"useLowPowerActor": true
 		},
 		"vuengine//states/splash/AutomaticPauseSelectionScreen": {
-			"titleTextFont": "AstonishExt",
-			"useLowPowerActor": true,
 			"bodyTextFont": "DefaultExt",
-			"optionsTextFont": "DefaultExt"
+			"optionsTextFont": "DefaultExt",
+			"titleTextFont": "AstonishExt",
+			"useLowPowerActor": true
 		},
 		"vuengine//states/splash/LanguageSelectionScreen": {
+			"languageNameFont": "DefaultExt",
 			"titleTextFont": "AstonishExt",
 			"useLowPowerActor": true,
-			"variant": 1,
-			"languageNameFont": "DefaultExt"
+			"variant": 1
 		},
 		"vuengine//states/splash/PrecautionScreen": {
 			"textFont": "AstonishExt",
@@ -302,12 +301,11 @@
 	"projectAuthor": "",
 	"projectTitle": "VUEngine Showcase",
 	"romInfo": {
-		"_version": "0.7.0",
 		"gameCodeId": "VS",
 		"gameCodeLanguage": "M",
 		"gameCodeSystem": "V",
 		"gameTitle": "VUENGINE SHOWCASE",
 		"makerCode": "VU",
 		"revision": 0
-	}	
+	}
 }
