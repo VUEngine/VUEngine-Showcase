@@ -268,6 +268,5 @@ ActorROMSpec PunkDyingActorSpec =
 	kTypeNone,
 
 	// Animation to play automatically
-	"Die"
-	
+	"Die"	
 };

@@ -141,7 +141,7 @@ BgmapSpriteROMSpec PunkControllableSprite1SpriteSpec =
 	__WORLD_ON,
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
-	__WORLD_AFFINE,
+	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function
 	NULL
@@ -231,7 +231,7 @@ BgmapSpriteROMSpec PunkControllableSprite2SpriteSpec =
 	__WORLD_ON,
 
 	// The display mode (__WORLD_BGMAP, __WORLD_AFFINE or __WORLD_HBIAS)
-	__WORLD_AFFINE,
+	__WORLD_BGMAP,
 	
 	// Pointer to affine/hbias manipulation function
 	NULL
@@ -330,26 +330,26 @@ ComponentSpec* const PunkControllableComponentSpecs[] =
 PunkROMSpec PunkControllableActorSpec =
 {
 	{
-	// Class allocator
-	__TYPE(Punk),
+		// Class allocator
+		__TYPE(Punk),
 
-	// Component specs
-	(ComponentSpec**)PunkControllableComponentSpecs,
+		// Component specs
+		(ComponentSpec**)PunkControllableComponentSpecs,
 
-	// Children specs
-	NULL,
+		// Children specs
+		NULL,
 
-	// Extra info
-	NULL,
+		// Extra info
+		NULL,
 
-	// Size
-	// If 0, it is computed from the visual components if any
-	{0, 0, 0},
+		// Size
+		// If 0, it is computed from the visual components if any
+		{0, 0, 0},
 
-	// Actor's in-game type
-	kTypePunk,
+		// Actor's in-game type
+		kTypePunk,
 
-	// Animation to play automatically
-	"Move"
+		// Animation to play automatically
+		"Move"
 	},
 };
