@@ -67,7 +67,7 @@ bool PunkWalking::collisionStarts(const CollisionInformation* collisionInformati
 			 * Disable collision checks so this doesn't fire multiple times.
 			 * They are enabled by the Actor when starting to move.
 			 */
-			PunkWalking::checkCollisions(this, false);
+			PunkWalking::checkCollisions(this, false, false);
 
 			PunkWalking::die(this);
 			return true;

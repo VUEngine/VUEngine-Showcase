@@ -151,7 +151,7 @@ void Punk::walk()
 	 * Disable collision checks so this doesn't fire multiple times.
 	 * They are enabled by the Actor when starting to move.
 	 */
-	PunkWalking::checkCollisions(this, true);
+	PunkWalking::checkCollisions(this, true, false);
 
 	Punk::mutateTo(this, PunkWalking::getClass());
 }
@@ -178,7 +178,7 @@ void Punk::die()
 
 	Punk::playAnimation(this, "Die");
 
-	Rumble::startEffect(&KilledRumbleEffectSpec);
+	Rumble::startEffect(&KilledRumbleEffectSpec, false);
 
 	Sound::playSound(&Killed1SoundSpec, Entity::safeCast(this), kSoundPlaybackNormal, NULL);
 
