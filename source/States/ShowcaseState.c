@@ -279,7 +279,7 @@ void ShowcaseState::acceptUserInput()
 	// Restore timer settings
 	const StageSpec* stageSpec = Stage::getSpec(this->stage);
 
-	Timer::configure(stageSpec->timerConfig);
+	Timer::setConfiguration(stageSpec->timerConfiguration);
 
 	// Allow the player to interact again.
 	Keypad::enable();

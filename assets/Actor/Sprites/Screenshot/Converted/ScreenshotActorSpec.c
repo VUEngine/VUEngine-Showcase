@@ -99,7 +99,10 @@ BgmapSpriteROMSpec ScreenshotSprite1LSpriteSpec =
 		__TRANSPARENCY_NONE,
 
 		// Displacement added to the sprite's position
-		{0, 0, 0, 0}
+		{0, 0, 0, 0},
+
+		// Flag that determines which transformation elements affect the sprite (position, rotation, scale)
+		__INVALIDATE_TRANSFORMATION
 	},
 
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
@@ -170,7 +173,10 @@ BgmapSpriteROMSpec ScreenshotSprite1RSpriteSpec =
 		__TRANSPARENCY_NONE,
 
 		// Displacement added to the sprite's position
-		{0, 0, 0, 0}
+		{0, 0, 0, 0},
+
+		// Flag that determines which transformation elements affect the sprite (position, rotation, scale)
+		__INVALIDATE_TRANSFORMATION
 	},
 
 	// Flag to indicate in which display to show the texture (__WORLD_ON, __WORLD_LON or __WORLD_RON)
