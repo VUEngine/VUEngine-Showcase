@@ -21,4 +21,6 @@ RumbleEffectROMSpec KilledRumbleEffectSpec =
 	// Positive Sustain
 	// Stop before starting
 	true,
+	// Time the effect lasts in milliseconds
+	0
 };

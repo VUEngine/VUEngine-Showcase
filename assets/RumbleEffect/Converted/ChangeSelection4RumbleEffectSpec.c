@@ -20,4 +20,6 @@ RumbleEffectROMSpec ChangeSelection4RumbleEffectSpec =
 	__RUMBLE_FREQ_160HZ,
 	// Stop before starting
 	true,
+	// Time the effect lasts in milliseconds
+	0
 };
