@@ -389,7 +389,7 @@ void AnimationSchemesState::removeSprites()
 			if(!isDeleted(animatedSprite))
 			{
 				// Don't destroy the sprite directly		
-				ComponentManager::destroyComponent(NULL, Component::safeCast(animatedSprite));				
+				ComponentManager::destroyComponent(NULL, Component::safeCast(animatedSprite));
 			}
 		}
 

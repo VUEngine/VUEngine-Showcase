@@ -108,7 +108,7 @@ abstract class ShowcaseState : GameState
 	virtual void showExplanation();
 
 	/// Show the state's additional details.
-	virtual void showAdditionalDetails();	
+	virtual void showAdditionalDetails();
 }
 
 #endif

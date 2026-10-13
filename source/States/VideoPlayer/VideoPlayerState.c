@@ -43,11 +43,11 @@ void VideoPlayerState::processUserInput(const UserInput* userInput)
 		else if((K_LL | K_LR) & userInput->releasedKey)
 		{
 			if(Actor::isPlayingAnimation(videoActor, "FrameBlend"))
-			{					
+			{
 				Actor::playAnimation(videoActor, "4Color");
 			}
 			else
-			{					
+			{
 				Actor::playAnimation(videoActor, "FrameBlend");
 			}
 

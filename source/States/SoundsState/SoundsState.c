@@ -142,7 +142,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 
 			return;
 		}
-	}	
+	}
 
 	if(!isDeleted(this->sound))
 	{
@@ -160,7 +160,7 @@ void SoundsState::processUserInput(const UserInput* userInput)
 	if((K_LT | K_RT) & userInput->releasedKey)
 	{
 		SoundsState::releaseSound(this);
-		SoundsState::playSoundEffects(this, userInput);		
+		SoundsState::playSoundEffects(this, userInput);
 	}
 	else if(K_SEL & userInput->releasedKey)
 	{

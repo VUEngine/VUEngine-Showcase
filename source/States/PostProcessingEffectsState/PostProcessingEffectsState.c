@@ -50,7 +50,7 @@ void PostProcessingEffectsState::exit(void* owner)
 {
 	DisplayUnit::removePostProcessingEffect(_postProcessingEffect[this->selectedPostProcessingEffect], NULL);
 	
-	Base::exit(this, owner);	
+	Base::exit(this, owner);
 }
 
 //——————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————————

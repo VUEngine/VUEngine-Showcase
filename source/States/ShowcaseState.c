@@ -110,7 +110,7 @@ void ShowcaseState::enter(void* owner __attribute__ ((unused)))
 	Base::enter(this, owner);
 
 	if(NULL != this->stageSpec)
-	{		
+	{
 		ShowcaseState::configureStage(this, this->stageSpec, NULL);
 	}
 
@@ -235,7 +235,7 @@ void ShowcaseState::playSoundEffects(const UserInput* userInput)
 
 	if(NULL != soundEffectSpec)
 	{
-		Rumble::startEffect(rumbleEffect, false);
+		Rumble::startEffect(rumbleEffect, false, false);
 
 		// Prevent the user to mess up the playback by pressig the keypad's buttons like a maniac.
 		Keypad::disable();
@@ -319,12 +319,12 @@ void ShowcaseState::show(bool reloadStuff)
 	ShowcaseState::showControls(this);
 
 	if(reloadStuff)
-	{		
+	{
 		ShowcaseState::showStuff(this);
 	}
 
 	if(!this->showAdditionalDetails)
-	{		
+	{
 		ShowcaseState::showExplanation(this);
 	}
 	else

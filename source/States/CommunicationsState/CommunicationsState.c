@@ -90,7 +90,7 @@ void CommunicationsState::exit(void* owner)
 	if(!isDeleted(this->pongManager))
 	{
 		delete this->pongManager;
-	}	
+	}
 
 	this->pongManager = NULL;
 
